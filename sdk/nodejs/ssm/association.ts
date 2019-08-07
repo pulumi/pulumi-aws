@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const example = new aws.ssm.Association("example", {
  *     targets: [{
  *         key: "InstanceIds",
- *         values: aws_instance_example.id,
+ *         values: [aws_instance_example.id],
  *     }],
  * });
  * ```

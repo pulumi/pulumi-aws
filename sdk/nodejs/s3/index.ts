@@ -12,6 +12,7 @@ export * from "./bucketPublicAccessBlock";
 export * from "./cannedAcl";
 export * from "./getBucket";
 export * from "./getBucketObject";
+export * from "./getBucketObjects";
 export * from "./inventory";
 export * from "./routingRules";
 export * from "./s3Mixins";

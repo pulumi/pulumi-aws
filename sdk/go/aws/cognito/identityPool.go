@@ -30,6 +30,7 @@ func NewIdentityPool(ctx *pulumi.Context,
 		inputs["openidConnectProviderArns"] = nil
 		inputs["samlProviderArns"] = nil
 		inputs["supportedLoginProviders"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["allowUnauthenticatedIdentities"] = args.AllowUnauthenticatedIdentities
 		inputs["cognitoIdentityProviders"] = args.CognitoIdentityProviders
@@ -38,6 +39,7 @@ func NewIdentityPool(ctx *pulumi.Context,
 		inputs["openidConnectProviderArns"] = args.OpenidConnectProviderArns
 		inputs["samlProviderArns"] = args.SamlProviderArns
 		inputs["supportedLoginProviders"] = args.SupportedLoginProviders
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:cognito/identityPool:IdentityPool", name, true, inputs, opts...)
@@ -61,6 +63,7 @@ func GetIdentityPool(ctx *pulumi.Context,
 		inputs["openidConnectProviderArns"] = state.OpenidConnectProviderArns
 		inputs["samlProviderArns"] = state.SamlProviderArns
 		inputs["supportedLoginProviders"] = state.SupportedLoginProviders
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:cognito/identityPool:IdentityPool", name, id, inputs, opts...)
 	if err != nil {
@@ -120,6 +123,11 @@ func (r *IdentityPool) SupportedLoginProviders() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["supportedLoginProviders"])
 }
 
+// A mapping of tags to assign to the Identity Pool.
+func (r *IdentityPool) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering IdentityPool resources.
 type IdentityPoolState struct {
 	// Whether the identity pool supports unauthenticated logins or not.
@@ -139,6 +147,8 @@ type IdentityPoolState struct {
 	SamlProviderArns interface{}
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders interface{}
+	// A mapping of tags to assign to the Identity Pool.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a IdentityPool resource.
@@ -158,4 +168,6 @@ type IdentityPoolArgs struct {
 	SamlProviderArns interface{}
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders interface{}
+	// A mapping of tags to assign to the Identity Pool.
+	Tags interface{}
 }

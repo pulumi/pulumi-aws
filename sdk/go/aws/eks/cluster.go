@@ -43,6 +43,7 @@ func NewCluster(ctx *pulumi.Context,
 	inputs["createdAt"] = nil
 	inputs["endpoint"] = nil
 	inputs["platformVersion"] = nil
+	inputs["status"] = nil
 	s, err := ctx.RegisterResource("aws:eks/cluster:Cluster", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -64,6 +65,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["platformVersion"] = state.PlatformVersion
 		inputs["roleArn"] = state.RoleArn
+		inputs["status"] = state.Status
 		inputs["version"] = state.Version
 		inputs["vpcConfig"] = state.VpcConfig
 	}
@@ -123,6 +125,11 @@ func (r *Cluster) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
+// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+func (r *Cluster) Status() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["status"])
+}
+
 // Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
 func (r *Cluster) Version() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["version"])
@@ -150,6 +157,8 @@ type ClusterState struct {
 	PlatformVersion interface{}
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn interface{}
+	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+	Status interface{}
 	// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
 	Version interface{}
 	// Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.

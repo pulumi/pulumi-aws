@@ -110,7 +110,7 @@ export interface GetInstanceResult {
     /**
      * The EBS block device mappings of the Instance.
      */
-    readonly ebsBlockDevices: { deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeId: string, volumeSize: number, volumeType: string }[];
+    readonly ebsBlockDevices: { deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, kmsKeyId: string, snapshotId: string, volumeId: string, volumeSize: number, volumeType: string }[];
     /**
      * Whether the Instance is EBS optimized or not (Boolean).
      */
@@ -185,7 +185,7 @@ export interface GetInstanceResult {
     /**
      * The root block device mappings of the Instance
      */
-    readonly rootBlockDevices: { deleteOnTermination: boolean, iops: number, volumeId: string, volumeSize: number, volumeType: string }[];
+    readonly rootBlockDevices: { deleteOnTermination: boolean, encrypted: boolean, iops: number, kmsKeyId: string, volumeId: string, volumeSize: number, volumeType: string }[];
     /**
      * The associated security groups.
      */

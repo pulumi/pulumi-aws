@@ -28,6 +28,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		Name: outputs["name"],
 		PlatformVersion: outputs["platformVersion"],
 		RoleArn: outputs["roleArn"],
+		Status: outputs["status"],
 		Version: outputs["version"],
 		VpcConfig: outputs["vpcConfig"],
 		Id: outputs["id"],
@@ -57,6 +58,8 @@ type GetClusterResult struct {
 	PlatformVersion interface{}
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn interface{}
+	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+	Status interface{}
 	// The Kubernetes server version for the cluster.
 	Version interface{}
 	// Nested attribute containing VPC configuration for the cluster.

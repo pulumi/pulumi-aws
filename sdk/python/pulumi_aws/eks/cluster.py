@@ -38,6 +38,10 @@ class Cluster(pulumi.CustomResource):
     """
     The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
     """
+    status: pulumi.Output[str]
+    """
+    The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+    """
     version: pulumi.Output[str]
     """
     Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
@@ -91,6 +95,7 @@ class Cluster(pulumi.CustomResource):
             __props__['created_at'] = None
             __props__['endpoint'] = None
             __props__['platform_version'] = None
+            __props__['status'] = None
         super(Cluster, __self__).__init__(
             'aws:eks/cluster:Cluster',
             resource_name,
@@ -98,7 +103,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, name=None, platform_version=None, role_arn=None, version=None, vpc_config=None):
+    def get(resource_name, id, opts=None, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, name=None, platform_version=None, role_arn=None, status=None, version=None, vpc_config=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -112,6 +117,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the cluster.
         :param pulumi.Input[str] platform_version: The platform version for the cluster.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+        :param pulumi.Input[str] status: The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
         :param pulumi.Input[str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         :param pulumi.Input[dict] vpc_config: Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
 
@@ -128,6 +134,7 @@ class Cluster(pulumi.CustomResource):
         __props__["name"] = name
         __props__["platform_version"] = platform_version
         __props__["role_arn"] = role_arn
+        __props__["status"] = status
         __props__["version"] = version
         __props__["vpc_config"] = vpc_config
         return Cluster(resource_name, opts=opts, __props__=__props__)

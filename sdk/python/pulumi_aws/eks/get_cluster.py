@@ -12,7 +12,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, name=None, platform_version=None, role_arn=None, version=None, vpc_config=None, id=None):
+    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, name=None, platform_version=None, role_arn=None, status=None, version=None, vpc_config=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -58,6 +58,12 @@ class GetClusterResult:
         """
         The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+        """
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         __self__.version = version
@@ -90,6 +96,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             name=self.name,
             platform_version=self.platform_version,
             role_arn=self.role_arn,
+            status=self.status,
             version=self.version,
             vpc_config=self.vpc_config,
             id=self.id)
@@ -118,6 +125,7 @@ def get_cluster(name=None,opts=None):
         name=__ret__.get('name'),
         platform_version=__ret__.get('platformVersion'),
         role_arn=__ret__.get('roleArn'),
+        status=__ret__.get('status'),
         version=__ret__.get('version'),
         vpc_config=__ret__.get('vpcConfig'),
         id=__ret__.get('id'))

@@ -42,7 +42,11 @@ class IdentityPool(pulumi.CustomResource):
     """
     Key-Value pairs mapping provider names to provider app IDs.
     """
-    def __init__(__self__, resource_name, opts=None, allow_unauthenticated_identities=None, cognito_identity_providers=None, developer_provider_name=None, identity_pool_name=None, openid_connect_provider_arns=None, saml_provider_arns=None, supported_login_providers=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the Identity Pool.
+    """
+    def __init__(__self__, resource_name, opts=None, allow_unauthenticated_identities=None, cognito_identity_providers=None, developer_provider_name=None, identity_pool_name=None, openid_connect_provider_arns=None, saml_provider_arns=None, supported_login_providers=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AWS Cognito Identity Pool.
         
@@ -56,6 +60,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[list] openid_connect_provider_arns: A list of OpendID Connect provider ARNs.
         :param pulumi.Input[list] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         :param pulumi.Input[dict] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the Identity Pool.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool.html.markdown.
         """
@@ -85,6 +90,7 @@ class IdentityPool(pulumi.CustomResource):
             __props__['openid_connect_provider_arns'] = openid_connect_provider_arns
             __props__['saml_provider_arns'] = saml_provider_arns
             __props__['supported_login_providers'] = supported_login_providers
+            __props__['tags'] = tags
             __props__['arn'] = None
         super(IdentityPool, __self__).__init__(
             'aws:cognito/identityPool:IdentityPool',
@@ -93,7 +99,7 @@ class IdentityPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allow_unauthenticated_identities=None, arn=None, cognito_identity_providers=None, developer_provider_name=None, identity_pool_name=None, openid_connect_provider_arns=None, saml_provider_arns=None, supported_login_providers=None):
+    def get(resource_name, id, opts=None, allow_unauthenticated_identities=None, arn=None, cognito_identity_providers=None, developer_provider_name=None, identity_pool_name=None, openid_connect_provider_arns=None, saml_provider_arns=None, supported_login_providers=None, tags=None):
         """
         Get an existing IdentityPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -109,6 +115,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[list] openid_connect_provider_arns: A list of OpendID Connect provider ARNs.
         :param pulumi.Input[list] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         :param pulumi.Input[dict] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the Identity Pool.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool.html.markdown.
         """
@@ -123,6 +130,7 @@ class IdentityPool(pulumi.CustomResource):
         __props__["openid_connect_provider_arns"] = openid_connect_provider_arns
         __props__["saml_provider_arns"] = saml_provider_arns
         __props__["supported_login_providers"] = supported_login_providers
+        __props__["tags"] = tags
         return IdentityPool(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

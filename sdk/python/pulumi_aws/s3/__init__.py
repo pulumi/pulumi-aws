@@ -13,3 +13,4 @@ from .bucket_policy import *
 from .bucket_public_access_block import *
 from .get_bucket import *
 from .get_bucket_object import *
+from .get_bucket_objects import *

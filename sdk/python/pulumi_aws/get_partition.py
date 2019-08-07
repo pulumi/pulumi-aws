@@ -12,7 +12,10 @@ class GetPartitionResult:
     """
     A collection of values returned by getPartition.
     """
-    def __init__(__self__, partition=None, id=None):
+    def __init__(__self__, dns_suffix=None, partition=None, id=None):
+        if dns_suffix and not isinstance(dns_suffix, str):
+            raise TypeError("Expected argument 'dns_suffix' to be a str")
+        __self__.dns_suffix = dns_suffix
         if partition and not isinstance(partition, str):
             raise TypeError("Expected argument 'partition' to be a str")
         __self__.partition = partition
@@ -28,6 +31,7 @@ class AwaitableGetPartitionResult(GetPartitionResult):
         if False:
             yield self
         return GetPartitionResult(
+            dns_suffix=self.dns_suffix,
             partition=self.partition,
             id=self.id)
 
@@ -46,5 +50,6 @@ def get_partition(opts=None):
     __ret__ = pulumi.runtime.invoke('aws:index/getPartition:getPartition', __args__, opts=opts).value
 
     return AwaitableGetPartitionResult(
+        dns_suffix=__ret__.get('dnsSuffix'),
         partition=__ret__.get('partition'),
         id=__ret__.get('id'))

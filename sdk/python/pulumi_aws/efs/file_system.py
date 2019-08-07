@@ -32,6 +32,10 @@ class FileSystem(pulumi.CustomResource):
     """
     The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
     """
+    lifecycle_policy: pulumi.Output[dict]
+    """
+    A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+    """
     performance_mode: pulumi.Output[str]
     """
     The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
@@ -48,7 +52,7 @@ class FileSystem(pulumi.CustomResource):
     """
     Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
     """
-    def __init__(__self__, resource_name, opts=None, creation_token=None, encrypted=None, kms_key_id=None, performance_mode=None, provisioned_throughput_in_mibps=None, tags=None, throughput_mode=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, creation_token=None, encrypted=None, kms_key_id=None, lifecycle_policy=None, performance_mode=None, provisioned_throughput_in_mibps=None, tags=None, throughput_mode=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic File System (EFS) resource.
         
@@ -60,6 +64,7 @@ class FileSystem(pulumi.CustomResource):
                (http://docs.aws.amazon.com/efs/latest/ug/) user guide for more information.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+        :param pulumi.Input[dict] lifecycle_policy: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the file system.
@@ -87,6 +92,7 @@ class FileSystem(pulumi.CustomResource):
             __props__['creation_token'] = creation_token
             __props__['encrypted'] = encrypted
             __props__['kms_key_id'] = kms_key_id
+            __props__['lifecycle_policy'] = lifecycle_policy
             __props__['performance_mode'] = performance_mode
             __props__['provisioned_throughput_in_mibps'] = provisioned_throughput_in_mibps
             __props__['tags'] = tags
@@ -100,7 +106,7 @@ class FileSystem(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, creation_token=None, dns_name=None, encrypted=None, kms_key_id=None, performance_mode=None, provisioned_throughput_in_mibps=None, tags=None, throughput_mode=None):
+    def get(resource_name, id, opts=None, arn=None, creation_token=None, dns_name=None, encrypted=None, kms_key_id=None, lifecycle_policy=None, performance_mode=None, provisioned_throughput_in_mibps=None, tags=None, throughput_mode=None):
         """
         Get an existing FileSystem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -115,6 +121,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] dns_name: The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+        :param pulumi.Input[dict] lifecycle_policy: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the file system.
@@ -130,6 +137,7 @@ class FileSystem(pulumi.CustomResource):
         __props__["dns_name"] = dns_name
         __props__["encrypted"] = encrypted
         __props__["kms_key_id"] = kms_key_id
+        __props__["lifecycle_policy"] = lifecycle_policy
         __props__["performance_mode"] = performance_mode
         __props__["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
         __props__["tags"] = tags

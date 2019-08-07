@@ -50,6 +50,10 @@ export class Repository extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     */
+    public readonly imageTagMutability!: pulumi.Output<string | undefined>;
+    /**
      * Name of the repository.
      */
     public readonly name!: pulumi.Output<string>;
@@ -79,12 +83,14 @@ export class Repository extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as RepositoryState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["imageTagMutability"] = state ? state.imageTagMutability : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["registryId"] = state ? state.registryId : undefined;
             inputs["repositoryUrl"] = state ? state.repositoryUrl : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
+            inputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -111,6 +117,10 @@ export interface RepositoryState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     */
+    readonly imageTagMutability?: pulumi.Input<string>;
+    /**
      * Name of the repository.
      */
     readonly name?: pulumi.Input<string>;
@@ -132,6 +142,10 @@ export interface RepositoryState {
  * The set of arguments for constructing a Repository resource.
  */
 export interface RepositoryArgs {
+    /**
+     * The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     */
+    readonly imageTagMutability?: pulumi.Input<string>;
     /**
      * Name of the repository.
      */

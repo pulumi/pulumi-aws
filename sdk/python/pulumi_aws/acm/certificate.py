@@ -13,6 +13,10 @@ class Certificate(pulumi.CustomResource):
     """
     The ARN of the certificate
     """
+    certificate_authority_arn: pulumi.Output[str]
+    """
+    ARN of an ACMPCA
+    """
     certificate_body: pulumi.Output[str]
     """
     The certificate's PEM-formatted public key
@@ -20,6 +24,7 @@ class Certificate(pulumi.CustomResource):
     certificate_chain: pulumi.Output[str]
     """
     The certificate's PEM-formatted chain
+    * Creating a private CA issued certificate
     """
     domain_name: pulumi.Output[str]
     """
@@ -29,6 +34,7 @@ class Certificate(pulumi.CustomResource):
     """
     A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
     """
+    options: pulumi.Output[dict]
     private_key: pulumi.Output[str]
     """
     The certificate's PEM-formatted private key
@@ -50,7 +56,7 @@ class Certificate(pulumi.CustomResource):
     Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
     * Importing an existing certificate
     """
-    def __init__(__self__, resource_name, opts=None, certificate_body=None, certificate_chain=None, domain_name=None, private_key=None, subject_alternative_names=None, tags=None, validation_method=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, certificate_authority_arn=None, certificate_body=None, certificate_chain=None, domain_name=None, options=None, private_key=None, subject_alternative_names=None, tags=None, validation_method=None, __props__=None, __name__=None, __opts__=None):
         """
         The ACM certificate resource allows requesting and management of certificates
         from the Amazon Certificate Manager.
@@ -70,10 +76,18 @@ class Certificate(pulumi.CustomResource):
         It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
         which is currently in use (eg, by `lb.Listener`).
         
+        ## options Configuration Block
+        
+        Supported nested arguments for the `options` configuration block:
+        
+        * `certificate_transparency_logging_preference` - (Optional) Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_authority_arn: ARN of an ACMPCA
         :param pulumi.Input[str] certificate_body: The certificate's PEM-formatted public key
         :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
+               * Creating a private CA issued certificate
         :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
         :param pulumi.Input[list] subject_alternative_names: A list of domains that should be SANs in the issued certificate
@@ -100,9 +114,11 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['certificate_authority_arn'] = certificate_authority_arn
             __props__['certificate_body'] = certificate_body
             __props__['certificate_chain'] = certificate_chain
             __props__['domain_name'] = domain_name
+            __props__['options'] = options
             __props__['private_key'] = private_key
             __props__['subject_alternative_names'] = subject_alternative_names
             __props__['tags'] = tags
@@ -117,7 +133,7 @@ class Certificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, certificate_body=None, certificate_chain=None, domain_name=None, domain_validation_options=None, private_key=None, subject_alternative_names=None, tags=None, validation_emails=None, validation_method=None):
+    def get(resource_name, id, opts=None, arn=None, certificate_authority_arn=None, certificate_body=None, certificate_chain=None, domain_name=None, domain_validation_options=None, options=None, private_key=None, subject_alternative_names=None, tags=None, validation_emails=None, validation_method=None):
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -125,8 +141,10 @@ class Certificate(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the certificate
+        :param pulumi.Input[str] certificate_authority_arn: ARN of an ACMPCA
         :param pulumi.Input[str] certificate_body: The certificate's PEM-formatted public key
         :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
+               * Creating a private CA issued certificate
         :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued
         :param pulumi.Input[list] domain_validation_options: A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
@@ -142,10 +160,12 @@ class Certificate(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["arn"] = arn
+        __props__["certificate_authority_arn"] = certificate_authority_arn
         __props__["certificate_body"] = certificate_body
         __props__["certificate_chain"] = certificate_chain
         __props__["domain_name"] = domain_name
         __props__["domain_validation_options"] = domain_validation_options
+        __props__["options"] = options
         __props__["private_key"] = private_key
         __props__["subject_alternative_names"] = subject_alternative_names
         __props__["tags"] = tags

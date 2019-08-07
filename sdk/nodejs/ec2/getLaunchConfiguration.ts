@@ -96,7 +96,7 @@ export interface GetLaunchConfigurationResult {
     /**
      * The Root Block Device of the instance.
      */
-    readonly rootBlockDevices: { deleteOnTermination: boolean, iops: number, volumeSize: number, volumeType: string }[];
+    readonly rootBlockDevices: { deleteOnTermination: boolean, encrypted: boolean, iops: number, volumeSize: number, volumeType: string }[];
     /**
      * A list of associated Security Group IDS.
      */

@@ -13,6 +13,10 @@ class Repository(pulumi.CustomResource):
     """
     Full ARN of the repository.
     """
+    image_tag_mutability: pulumi.Output[str]
+    """
+    The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+    """
     name: pulumi.Output[str]
     """
     Name of the repository.
@@ -29,12 +33,13 @@ class Repository(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, image_tag_mutability=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic Container Registry Repository.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] name: Name of the repository.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
@@ -57,6 +62,7 @@ class Repository(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['image_tag_mutability'] = image_tag_mutability
             __props__['name'] = name
             __props__['tags'] = tags
             __props__['arn'] = None
@@ -69,7 +75,7 @@ class Repository(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, name=None, registry_id=None, repository_url=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, image_tag_mutability=None, name=None, registry_id=None, repository_url=None, tags=None):
         """
         Get an existing Repository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -77,6 +83,7 @@ class Repository(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Full ARN of the repository.
+        :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] name: Name of the repository.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository_url: The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
@@ -88,6 +95,7 @@ class Repository(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["arn"] = arn
+        __props__["image_tag_mutability"] = image_tag_mutability
         __props__["name"] = name
         __props__["registry_id"] = registry_id
         __props__["repository_url"] = repository_url

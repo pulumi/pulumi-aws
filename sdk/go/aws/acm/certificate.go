@@ -24,6 +24,12 @@ import (
 // 
 // It's recommended to specify `createBeforeDestroy = true` in a [lifecycle][1] block to replace a certificate
 // which is currently in use (eg, by `lb.Listener`).
+// 
+// ## options Configuration Block
+// 
+// Supported nested arguments for the `options` configuration block:
+// 
+// * `certificateTransparencyLoggingPreference` - (Optional) Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
 type Certificate struct {
@@ -35,17 +41,21 @@ func NewCertificate(ctx *pulumi.Context,
 	name string, args *CertificateArgs, opts ...pulumi.ResourceOpt) (*Certificate, error) {
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["certificateAuthorityArn"] = nil
 		inputs["certificateBody"] = nil
 		inputs["certificateChain"] = nil
 		inputs["domainName"] = nil
+		inputs["options"] = nil
 		inputs["privateKey"] = nil
 		inputs["subjectAlternativeNames"] = nil
 		inputs["tags"] = nil
 		inputs["validationMethod"] = nil
 	} else {
+		inputs["certificateAuthorityArn"] = args.CertificateAuthorityArn
 		inputs["certificateBody"] = args.CertificateBody
 		inputs["certificateChain"] = args.CertificateChain
 		inputs["domainName"] = args.DomainName
+		inputs["options"] = args.Options
 		inputs["privateKey"] = args.PrivateKey
 		inputs["subjectAlternativeNames"] = args.SubjectAlternativeNames
 		inputs["tags"] = args.Tags
@@ -68,10 +78,12 @@ func GetCertificate(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["arn"] = state.Arn
+		inputs["certificateAuthorityArn"] = state.CertificateAuthorityArn
 		inputs["certificateBody"] = state.CertificateBody
 		inputs["certificateChain"] = state.CertificateChain
 		inputs["domainName"] = state.DomainName
 		inputs["domainValidationOptions"] = state.DomainValidationOptions
+		inputs["options"] = state.Options
 		inputs["privateKey"] = state.PrivateKey
 		inputs["subjectAlternativeNames"] = state.SubjectAlternativeNames
 		inputs["tags"] = state.Tags
@@ -100,12 +112,18 @@ func (r *Certificate) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// ARN of an ACMPCA
+func (r *Certificate) CertificateAuthorityArn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["certificateAuthorityArn"])
+}
+
 // The certificate's PEM-formatted public key
 func (r *Certificate) CertificateBody() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateBody"])
 }
 
 // The certificate's PEM-formatted chain
+// * Creating a private CA issued certificate
 func (r *Certificate) CertificateChain() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateChain"])
 }
@@ -118,6 +136,10 @@ func (r *Certificate) DomainName() *pulumi.StringOutput {
 // A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 func (r *Certificate) DomainValidationOptions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["domainValidationOptions"])
+}
+
+func (r *Certificate) Options() *pulumi.Output {
+	return r.s.State["options"]
 }
 
 // The certificate's PEM-formatted private key
@@ -150,14 +172,18 @@ func (r *Certificate) ValidationMethod() *pulumi.StringOutput {
 type CertificateState struct {
 	// The ARN of the certificate
 	Arn interface{}
+	// ARN of an ACMPCA
+	CertificateAuthorityArn interface{}
 	// The certificate's PEM-formatted public key
 	CertificateBody interface{}
 	// The certificate's PEM-formatted chain
+	// * Creating a private CA issued certificate
 	CertificateChain interface{}
 	// A domain name for which the certificate should be issued
 	DomainName interface{}
 	// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions interface{}
+	Options interface{}
 	// The certificate's PEM-formatted private key
 	PrivateKey interface{}
 	// A list of domains that should be SANs in the issued certificate
@@ -173,12 +199,16 @@ type CertificateState struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
+	// ARN of an ACMPCA
+	CertificateAuthorityArn interface{}
 	// The certificate's PEM-formatted public key
 	CertificateBody interface{}
 	// The certificate's PEM-formatted chain
+	// * Creating a private CA issued certificate
 	CertificateChain interface{}
 	// A domain name for which the certificate should be issued
 	DomainName interface{}
+	Options interface{}
 	// The certificate's PEM-formatted private key
 	PrivateKey interface{}
 	// A list of domains that should be SANs in the issued certificate

@@ -26,6 +26,7 @@ func NewCrawler(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["catalogTargets"] = nil
 		inputs["classifiers"] = nil
 		inputs["configuration"] = nil
 		inputs["databaseName"] = nil
@@ -40,6 +41,7 @@ func NewCrawler(ctx *pulumi.Context,
 		inputs["securityConfiguration"] = nil
 		inputs["tablePrefix"] = nil
 	} else {
+		inputs["catalogTargets"] = args.CatalogTargets
 		inputs["classifiers"] = args.Classifiers
 		inputs["configuration"] = args.Configuration
 		inputs["databaseName"] = args.DatabaseName
@@ -69,6 +71,7 @@ func GetCrawler(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["arn"] = state.Arn
+		inputs["catalogTargets"] = state.CatalogTargets
 		inputs["classifiers"] = state.Classifiers
 		inputs["configuration"] = state.Configuration
 		inputs["databaseName"] = state.DatabaseName
@@ -105,6 +108,10 @@ func (r *Crawler) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+func (r *Crawler) CatalogTargets() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["catalogTargets"])
+}
+
 // List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 func (r *Crawler) Classifiers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["classifiers"])
@@ -115,7 +122,7 @@ func (r *Crawler) Configuration() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["configuration"])
 }
 
-// Glue database where results are written.
+// The name of the Glue database to be synchronized.
 func (r *Crawler) DatabaseName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["databaseName"])
 }
@@ -174,11 +181,12 @@ func (r *Crawler) TablePrefix() *pulumi.StringOutput {
 type CrawlerState struct {
 	// The ARN of the crawler 
 	Arn interface{}
+	CatalogTargets interface{}
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers interface{}
 	// JSON string of configuration information.
 	Configuration interface{}
-	// Glue database where results are written.
+	// The name of the Glue database to be synchronized.
 	DatabaseName interface{}
 	// Description of the crawler.
 	Description interface{}
@@ -204,11 +212,12 @@ type CrawlerState struct {
 
 // The set of arguments for constructing a Crawler resource.
 type CrawlerArgs struct {
+	CatalogTargets interface{}
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers interface{}
 	// JSON string of configuration information.
 	Configuration interface{}
-	// Glue database where results are written.
+	// The name of the Glue database to be synchronized.
 	DatabaseName interface{}
 	// Description of the crawler.
 	Description interface{}

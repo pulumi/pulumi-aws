@@ -82,6 +82,10 @@ export interface GetClusterResult {
      */
     readonly roleArn: string;
     /**
+     * The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+     */
+    readonly status: string;
+    /**
      * The Kubernetes server version for the cluster.
      */
     readonly version: string;

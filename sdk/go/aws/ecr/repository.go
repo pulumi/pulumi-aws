@@ -19,9 +19,11 @@ func NewRepository(ctx *pulumi.Context,
 	name string, args *RepositoryArgs, opts ...pulumi.ResourceOpt) (*Repository, error) {
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["imageTagMutability"] = nil
 		inputs["name"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["imageTagMutability"] = args.ImageTagMutability
 		inputs["name"] = args.Name
 		inputs["tags"] = args.Tags
 	}
@@ -42,6 +44,7 @@ func GetRepository(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["arn"] = state.Arn
+		inputs["imageTagMutability"] = state.ImageTagMutability
 		inputs["name"] = state.Name
 		inputs["registryId"] = state.RegistryId
 		inputs["repositoryUrl"] = state.RepositoryUrl
@@ -69,6 +72,11 @@ func (r *Repository) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+func (r *Repository) ImageTagMutability() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["imageTagMutability"])
+}
+
 // Name of the repository.
 func (r *Repository) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -93,6 +101,8 @@ func (r *Repository) Tags() *pulumi.MapOutput {
 type RepositoryState struct {
 	// Full ARN of the repository.
 	Arn interface{}
+	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+	ImageTagMutability interface{}
 	// Name of the repository.
 	Name interface{}
 	// The registry ID where the repository was created.
@@ -105,6 +115,8 @@ type RepositoryState struct {
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
+	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+	ImageTagMutability interface{}
 	// Name of the repository.
 	Name interface{}
 	// A mapping of tags to assign to the resource.

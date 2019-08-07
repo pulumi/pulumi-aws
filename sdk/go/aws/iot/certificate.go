@@ -21,9 +21,6 @@ func NewCertificate(ctx *pulumi.Context,
 	if args == nil || args.Active == nil {
 		return nil, errors.New("missing required argument 'Active'")
 	}
-	if args == nil || args.Csr == nil {
-		return nil, errors.New("missing required argument 'Csr'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["active"] = nil
@@ -33,6 +30,9 @@ func NewCertificate(ctx *pulumi.Context,
 		inputs["csr"] = args.Csr
 	}
 	inputs["arn"] = nil
+	inputs["certificatePem"] = nil
+	inputs["privateKey"] = nil
+	inputs["publicKey"] = nil
 	s, err := ctx.RegisterResource("aws:iot/certificate:Certificate", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -48,7 +48,10 @@ func GetCertificate(ctx *pulumi.Context,
 	if state != nil {
 		inputs["active"] = state.Active
 		inputs["arn"] = state.Arn
+		inputs["certificatePem"] = state.CertificatePem
 		inputs["csr"] = state.Csr
+		inputs["privateKey"] = state.PrivateKey
+		inputs["publicKey"] = state.PublicKey
 	}
 	s, err := ctx.ReadResource("aws:iot/certificate:Certificate", name, id, inputs, opts...)
 	if err != nil {
@@ -72,36 +75,63 @@ func (r *Certificate) Active() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["active"])
 }
 
-// The ARN of the created AWS IoT certificate
+// The ARN of the created certificate.
 func (r *Certificate) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The certificate signing request. Review the
-// [IoT API Reference Guide] (http://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-// for more information on creating a certificate from a certificate signing request (CSR).
+// The certificate data, in PEM format.
+func (r *Certificate) CertificatePem() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["certificatePem"])
+}
+
+// The certificate signing request. Review
+// [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+// for more information on generating a certificate from a certificate signing request (CSR).
+// If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+// for more information on generating keys and a certificate.
 func (r *Certificate) Csr() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["csr"])
+}
+
+// When no CSR is provided, the private key.
+func (r *Certificate) PrivateKey() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["privateKey"])
+}
+
+// When no CSR is provided, the public key.
+func (r *Certificate) PublicKey() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["publicKey"])
 }
 
 // Input properties used for looking up and filtering Certificate resources.
 type CertificateState struct {
 	// Boolean flag to indicate if the certificate should be active
 	Active interface{}
-	// The ARN of the created AWS IoT certificate
+	// The ARN of the created certificate.
 	Arn interface{}
-	// The certificate signing request. Review the
-	// [IoT API Reference Guide] (http://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-	// for more information on creating a certificate from a certificate signing request (CSR).
+	// The certificate data, in PEM format.
+	CertificatePem interface{}
+	// The certificate signing request. Review
+	// [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+	// for more information on generating a certificate from a certificate signing request (CSR).
+	// If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+	// for more information on generating keys and a certificate.
 	Csr interface{}
+	// When no CSR is provided, the private key.
+	PrivateKey interface{}
+	// When no CSR is provided, the public key.
+	PublicKey interface{}
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// Boolean flag to indicate if the certificate should be active
 	Active interface{}
-	// The certificate signing request. Review the
-	// [IoT API Reference Guide] (http://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-	// for more information on creating a certificate from a certificate signing request (CSR).
+	// The certificate signing request. Review
+	// [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+	// for more information on generating a certificate from a certificate signing request (CSR).
+	// If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+	// for more information on generating keys and a certificate.
 	Csr interface{}
 }
