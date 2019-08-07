@@ -301,25 +301,50 @@ export class CallbackFunction<E, R> extends LambdaFunction {
         const handlerName = "handler";
         const serializedFileNameNoExtension = "__index";
 
+        // Remember any secrets we saw in serialization so we can inject them into the environment
+        const secrets: Record<string, pulumi.Output<string>> = {};
+        let index = 1;
+
         const closure = pulumi.runtime.serializeFunction(func, {
             serialize: _ => true,
             exportName: handlerName,
             isFactoryFunction: !!args.callbackFactory,
+            secretReplacer: (o: pulumi.Output<any>) => {
+                const name = `SECRET${index++}`;
+                secrets[name] = o.apply(s => {
+                    if (typeof s !== "string") {
+                        throw new Error("Only string-valued Secrets can be captured in a CallbackFunction. " +
+                        "Consider `toString` or `JSON.stringify` to convert the value into a string.");
+                    }
+                    return s;
+                });
+                return pulumi.output(`process.env.${name}`);
+            },
         });
 
         const codePaths = computeCodePaths(
             closure, serializedFileNameNoExtension, args.codePathOptions);
 
+        // Merge captured secrets into the user-provided environment.  Make sure to do this ony
+        // after the `closure` has been resolved so that the secrets map has been fully populated.
+        const environment = pulumi.all([args.environment, closure]).apply(([env, _]) => ({
+            variables: {
+                ...(env && env.variables),
+                ...secrets,
+            },
+        }));
+
         // Copy over all option values into the function args.  Then overwrite anything we care
         // about with our own values.  This ensures that clients can pass future supported
         // lambda options without us having to know about it.
-        const functionArgs = {
+        const functionArgs: FunctionArgs = {
             ...args,
             code: new pulumi.asset.AssetArchive(codePaths),
             handler: serializedFileNameNoExtension + "." + handlerName,
             runtime: args.runtime || runtime.NodeJS8d10Runtime,
             role: role.arn,
             timeout: args.timeout === undefined ? 180 : args.timeout,
+            environment: environment,
         };
 
         super(name, functionArgs, opts);

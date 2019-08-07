@@ -1,0 +1,4 @@
+name: callbackfunction-secrets
+description: Capturing secrets in a CallbackFunction
+runtime: nodejs
+
