@@ -195,6 +195,10 @@ class LoadBalancer(pulumi.CustomResource):
         __props__['source_security_group_id'] = None
         __props__['zone_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/loadBalancer:LoadBalancer")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(LoadBalancer, __self__).__init__(

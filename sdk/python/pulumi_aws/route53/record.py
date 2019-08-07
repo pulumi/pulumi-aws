@@ -143,6 +143,10 @@ class Record(pulumi.CustomResource):
 
         __props__['fqdn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Record, __self__).__init__(
             'aws:route53/record:Record',
             resource_name,

@@ -65,6 +65,10 @@ class EventPermission(pulumi.CustomResource):
             raise TypeError("Missing required property 'statement_id'")
         __props__['statement_id'] = statement_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(EventPermission, __self__).__init__(
             'aws:cloudwatch/eventPermission:EventPermission',
             resource_name,

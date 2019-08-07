@@ -93,7 +93,15 @@ class GetVpcResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
 
-async def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=None,state=None,tags=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=None,state=None,tags=None,opts=None):
     """
     `aws_vpc` provides details about a specific VPC.
     
@@ -112,7 +120,11 @@ async def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None
     __args__['id'] = id
     __args__['state'] = state
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpc:getVpc', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getVpc:getVpc', __args__, opts=opts).value
 
     return GetVpcResult(
         arn=__ret__.get('arn'),

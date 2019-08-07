@@ -38,7 +38,15 @@ class GetAmiIdsResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_ami_ids(executable_users=None,filters=None,name_regex=None,owners=None,sort_ascending=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_ami_ids(executable_users=None,filters=None,name_regex=None,owners=None,sort_ascending=None,opts=None):
     """
     Use this data source to get a list of AMI IDs matching the specified criteria.
 
@@ -51,7 +59,11 @@ async def get_ami_ids(executable_users=None,filters=None,name_regex=None,owners=
     __args__['nameRegex'] = name_regex
     __args__['owners'] = owners
     __args__['sortAscending'] = sort_ascending
-    __ret__ = await pulumi.runtime.invoke('aws:index/getAmiIds:getAmiIds', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:index/getAmiIds:getAmiIds', __args__, opts=opts).value
 
     return GetAmiIdsResult(
         executable_users=__ret__.get('executableUsers'),

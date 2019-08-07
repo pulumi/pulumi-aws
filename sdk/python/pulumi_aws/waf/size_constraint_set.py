@@ -47,6 +47,10 @@ class SizeConstraintSet(pulumi.CustomResource):
 
         __props__['size_constraints'] = size_constraints
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SizeConstraintSet, __self__).__init__(
             'aws:waf/sizeConstraintSet:SizeConstraintSet',
             resource_name,

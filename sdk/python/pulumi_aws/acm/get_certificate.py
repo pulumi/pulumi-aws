@@ -41,7 +41,15 @@ class GetCertificateResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,types=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,types=None,opts=None):
     """
     Use this data source to get the ARN of a certificate in AWS Certificate
     Manager (ACM), you can reference
@@ -56,7 +64,11 @@ async def get_certificate(domain=None,key_types=None,most_recent=None,statuses=N
     __args__['mostRecent'] = most_recent
     __args__['statuses'] = statuses
     __args__['types'] = types
-    __ret__ = await pulumi.runtime.invoke('aws:acm/getCertificate:getCertificate', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:acm/getCertificate:getCertificate', __args__, opts=opts).value
 
     return GetCertificateResult(
         arn=__ret__.get('arn'),

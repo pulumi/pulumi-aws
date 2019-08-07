@@ -265,6 +265,10 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__['member_clusters'] = None
         __props__['primary_endpoint_address'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ReplicationGroup, __self__).__init__(
             'aws:elasticache/replicationGroup:ReplicationGroup',
             resource_name,

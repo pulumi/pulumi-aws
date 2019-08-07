@@ -88,7 +88,15 @@ class GetCertificateAuthorityResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,opts=None):
     """
     Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
 
@@ -99,7 +107,11 @@ async def get_certificate_authority(arn=None,revocation_configurations=None,tags
     __args__['arn'] = arn
     __args__['revocationConfigurations'] = revocation_configurations
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:acmpca/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:acmpca/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts).value
 
     return GetCertificateAuthorityResult(
         arn=__ret__.get('arn'),

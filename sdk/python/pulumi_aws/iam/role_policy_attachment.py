@@ -53,6 +53,10 @@ class RolePolicyAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'role'")
         __props__['role'] = role
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(RolePolicyAttachment, __self__).__init__(
             'aws:iam/rolePolicyAttachment:RolePolicyAttachment',
             resource_name,

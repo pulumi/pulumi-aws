@@ -120,6 +120,10 @@ class CertificateAuthority(pulumi.CustomResource):
         __props__['serial'] = None
         __props__['status'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(CertificateAuthority, __self__).__init__(
             'aws:acmpca/certificateAuthority:CertificateAuthority',
             resource_name,

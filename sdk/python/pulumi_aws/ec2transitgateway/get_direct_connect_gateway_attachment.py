@@ -32,7 +32,15 @@ class GetDirectConnectGatewayAttachmentResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_direct_connect_gateway_attachment(dx_gateway_id=None,tags=None,transit_gateway_id=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_direct_connect_gateway_attachment(dx_gateway_id=None,tags=None,transit_gateway_id=None,opts=None):
     """
     Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
 
@@ -43,7 +51,11 @@ async def get_direct_connect_gateway_attachment(dx_gateway_id=None,tags=None,tra
     __args__['dxGatewayId'] = dx_gateway_id
     __args__['tags'] = tags
     __args__['transitGatewayId'] = transit_gateway_id
-    __ret__ = await pulumi.runtime.invoke('aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment', __args__, opts=opts).value
 
     return GetDirectConnectGatewayAttachmentResult(
         dx_gateway_id=__ret__.get('dxGatewayId'),

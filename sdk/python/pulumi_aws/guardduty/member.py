@@ -87,6 +87,10 @@ class Member(pulumi.CustomResource):
 
         __props__['relationship_status'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Member, __self__).__init__(
             'aws:guardduty/member:Member',
             resource_name,

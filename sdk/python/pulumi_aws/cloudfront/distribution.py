@@ -292,6 +292,10 @@ class Distribution(pulumi.CustomResource):
         __props__['last_modified_time'] = None
         __props__['status'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Distribution, __self__).__init__(
             'aws:cloudfront/distribution:Distribution',
             resource_name,

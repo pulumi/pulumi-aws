@@ -127,6 +127,10 @@ class Budget(pulumi.CustomResource):
             raise TypeError("Missing required property 'time_unit'")
         __props__['time_unit'] = time_unit
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Budget, __self__).__init__(
             'aws:budgets/budget:Budget',
             resource_name,

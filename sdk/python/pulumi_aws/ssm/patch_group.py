@@ -51,6 +51,10 @@ class PatchGroup(pulumi.CustomResource):
             raise TypeError("Missing required property 'patch_group'")
         __props__['patch_group'] = patch_group
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(PatchGroup, __self__).__init__(
             'aws:ssm/patchGroup:PatchGroup',
             resource_name,

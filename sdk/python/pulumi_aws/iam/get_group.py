@@ -41,7 +41,15 @@ class GetGroupResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_group(group_name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_group(group_name=None,opts=None):
     """
     This data source can be used to fetch information about a specific
     IAM group. By using this data source, you can reference IAM group
@@ -52,7 +60,11 @@ async def get_group(group_name=None,opts=None):
     __args__ = dict()
 
     __args__['groupName'] = group_name
-    __ret__ = await pulumi.runtime.invoke('aws:iam/getGroup:getGroup', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:iam/getGroup:getGroup', __args__, opts=opts).value
 
     return GetGroupResult(
         arn=__ret__.get('arn'),

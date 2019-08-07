@@ -63,6 +63,10 @@ class RequestValidator(pulumi.CustomResource):
 
         __props__['validate_request_parameters'] = validate_request_parameters
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(RequestValidator, __self__).__init__(
             'aws:apigateway/requestValidator:RequestValidator',
             resource_name,

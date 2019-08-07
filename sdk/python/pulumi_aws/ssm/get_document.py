@@ -47,7 +47,15 @@ class GetDocumentResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_document(document_format=None,document_version=None,name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_document(document_format=None,document_version=None,name=None,opts=None):
     """
     Gets the contents of the specified Systems Manager document.
 
@@ -58,7 +66,11 @@ async def get_document(document_format=None,document_version=None,name=None,opts
     __args__['documentFormat'] = document_format
     __args__['documentVersion'] = document_version
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:ssm/getDocument:getDocument', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ssm/getDocument:getDocument', __args__, opts=opts).value
 
     return GetDocumentResult(
         arn=__ret__.get('arn'),

@@ -53,6 +53,10 @@ class UserPolicyAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'user'")
         __props__['user'] = user
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(UserPolicyAttachment, __self__).__init__(
             'aws:iam/userPolicyAttachment:UserPolicyAttachment',
             resource_name,

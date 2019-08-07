@@ -93,6 +93,10 @@ class Activation(pulumi.CustomResource):
         __props__['expired'] = None
         __props__['registration_count'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Activation, __self__).__init__(
             'aws:ssm/activation:Activation',
             resource_name,

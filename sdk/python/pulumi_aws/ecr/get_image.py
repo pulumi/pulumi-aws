@@ -50,7 +50,15 @@ class GetImageResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=None,opts=None):
     """
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
 
@@ -62,7 +70,11 @@ async def get_image(image_digest=None,image_tag=None,registry_id=None,repository
     __args__['imageTag'] = image_tag
     __args__['registryId'] = registry_id
     __args__['repositoryName'] = repository_name
-    __ret__ = await pulumi.runtime.invoke('aws:ecr/getImage:getImage', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ecr/getImage:getImage', __args__, opts=opts).value
 
     return GetImageResult(
         image_digest=__ret__.get('imageDigest'),

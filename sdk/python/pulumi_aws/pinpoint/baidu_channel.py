@@ -70,6 +70,10 @@ class BaiduChannel(pulumi.CustomResource):
             raise TypeError("Missing required property 'secret_key'")
         __props__['secret_key'] = secret_key
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(BaiduChannel, __self__).__init__(
             'aws:pinpoint/baiduChannel:BaiduChannel',
             resource_name,

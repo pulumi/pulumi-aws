@@ -109,6 +109,10 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(MaintenanceWindow, __self__).__init__(
             'aws:ssm/maintenanceWindow:MaintenanceWindow',
             resource_name,

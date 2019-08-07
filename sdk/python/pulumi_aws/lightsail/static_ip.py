@@ -58,6 +58,10 @@ class StaticIp(pulumi.CustomResource):
         __props__['ip_address'] = None
         __props__['support_code'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(StaticIp, __self__).__init__(
             'aws:lightsail/staticIp:StaticIp',
             resource_name,

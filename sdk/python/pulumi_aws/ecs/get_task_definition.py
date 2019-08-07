@@ -53,7 +53,15 @@ class GetTaskDefinitionResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_task_definition(task_definition=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_task_definition(task_definition=None,opts=None):
     """
     The ECS task definition data source allows access to details of
     a specific AWS ECS task definition.
@@ -63,7 +71,11 @@ async def get_task_definition(task_definition=None,opts=None):
     __args__ = dict()
 
     __args__['taskDefinition'] = task_definition
-    __ret__ = await pulumi.runtime.invoke('aws:ecs/getTaskDefinition:getTaskDefinition', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ecs/getTaskDefinition:getTaskDefinition', __args__, opts=opts).value
 
     return GetTaskDefinitionResult(
         family=__ret__.get('family'),

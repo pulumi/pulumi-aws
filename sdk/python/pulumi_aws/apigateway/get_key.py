@@ -32,7 +32,15 @@ class GetKeyResult:
         Set to the value of the API Key.
         """
 
-async def get_key(id=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_key(id=None,opts=None):
     """
     Use this data source to get the name and value of a pre-existing API Key, for
     example to supply credentials for a dependency microservice.
@@ -42,7 +50,11 @@ async def get_key(id=None,opts=None):
     __args__ = dict()
 
     __args__['id'] = id
-    __ret__ = await pulumi.runtime.invoke('aws:apigateway/getKey:getKey', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:apigateway/getKey:getKey', __args__, opts=opts).value
 
     return GetKeyResult(
         id=__ret__.get('id'),

@@ -68,6 +68,10 @@ class Rule(pulumi.CustomResource):
 
         __props__['predicates'] = predicates
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Rule, __self__).__init__(
             'aws:wafregional/rule:Rule',
             resource_name,

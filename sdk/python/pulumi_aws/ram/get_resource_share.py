@@ -47,7 +47,15 @@ class GetResourceShareResult:
         The Tags attached to the RAM share
         """
 
-async def get_resource_share(filters=None,name=None,resource_owner=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_resource_share(filters=None,name=None,resource_owner=None,opts=None):
     """
     `aws_ram_resource_share` Retrieve information about a RAM Resource Share.
 
@@ -58,7 +66,11 @@ async def get_resource_share(filters=None,name=None,resource_owner=None,opts=Non
     __args__['filters'] = filters
     __args__['name'] = name
     __args__['resourceOwner'] = resource_owner
-    __ret__ = await pulumi.runtime.invoke('aws:ram/getResourceShare:getResourceShare', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ram/getResourceShare:getResourceShare', __args__, opts=opts).value
 
     return GetResourceShareResult(
         arn=__ret__.get('arn'),

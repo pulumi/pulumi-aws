@@ -50,6 +50,10 @@ class Protection(pulumi.CustomResource):
             raise TypeError("Missing required property 'resource_arn'")
         __props__['resource_arn'] = resource_arn
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Protection, __self__).__init__(
             'aws:shield/protection:Protection',
             resource_name,

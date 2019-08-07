@@ -141,6 +141,10 @@ class SmbFileShare(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['fileshare_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SmbFileShare, __self__).__init__(
             'aws:storagegateway/smbFileShare:SmbFileShare',
             resource_name,

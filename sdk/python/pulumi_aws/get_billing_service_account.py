@@ -26,7 +26,15 @@ class GetBillingServiceAccountResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_billing_service_account(opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_billing_service_account(opts=None):
     """
     Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of whitelisting in S3 bucket policy.
 
@@ -34,7 +42,11 @@ async def get_billing_service_account(opts=None):
     """
     __args__ = dict()
 
-    __ret__ = await pulumi.runtime.invoke('aws:index/getBillingServiceAccount:getBillingServiceAccount', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:index/getBillingServiceAccount:getBillingServiceAccount', __args__, opts=opts).value
 
     return GetBillingServiceAccountResult(
         arn=__ret__.get('arn'),

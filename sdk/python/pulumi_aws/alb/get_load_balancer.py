@@ -65,7 +65,15 @@ class GetLoadBalancerResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_load_balancer(arn=None,name=None,tags=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_load_balancer(arn=None,name=None,tags=None,opts=None):
     """
     > **Note:** `aws_alb` is known as `aws_lb`. The functionality is identical.
     
@@ -82,7 +90,11 @@ async def get_load_balancer(arn=None,name=None,tags=None,opts=None):
     __args__['arn'] = arn
     __args__['name'] = name
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:alb/getLoadBalancer:getLoadBalancer', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:alb/getLoadBalancer:getLoadBalancer', __args__, opts=opts).value
 
     return GetLoadBalancerResult(
         access_logs=__ret__.get('accessLogs'),

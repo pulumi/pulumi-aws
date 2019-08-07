@@ -53,6 +53,10 @@ class StaticIpAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'static_ip_name'")
         __props__['static_ip_name'] = static_ip_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(StaticIpAttachment, __self__).__init__(
             'aws:lightsail/staticIpAttachment:StaticIpAttachment',
             resource_name,

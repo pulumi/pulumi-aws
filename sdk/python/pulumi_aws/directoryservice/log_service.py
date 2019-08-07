@@ -51,6 +51,10 @@ class LogService(pulumi.CustomResource):
             raise TypeError("Missing required property 'log_group_name'")
         __props__['log_group_name'] = log_group_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LogService, __self__).__init__(
             'aws:directoryservice/logService:LogService',
             resource_name,

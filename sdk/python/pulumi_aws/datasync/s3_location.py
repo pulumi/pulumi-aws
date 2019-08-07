@@ -75,6 +75,10 @@ class S3Location(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['uri'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(S3Location, __self__).__init__(
             'aws:datasync/s3Location:S3Location',
             resource_name,

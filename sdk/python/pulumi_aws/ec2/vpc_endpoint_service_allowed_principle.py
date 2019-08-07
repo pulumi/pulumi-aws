@@ -57,6 +57,10 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
             raise TypeError("Missing required property 'vpc_endpoint_service_id'")
         __props__['vpc_endpoint_service_id'] = vpc_endpoint_service_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpcEndpointServiceAllowedPrinciple, __self__).__init__(
             'aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple',
             resource_name,

@@ -139,6 +139,10 @@ class Stage(pulumi.CustomResource):
         __props__['execution_arn'] = None
         __props__['invoke_url'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Stage, __self__).__init__(
             'aws:apigateway/stage:Stage',
             resource_name,

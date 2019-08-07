@@ -72,6 +72,10 @@ class DeliveryChannel(pulumi.CustomResource):
 
         __props__['sns_topic_arn'] = sns_topic_arn
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DeliveryChannel, __self__).__init__(
             'aws:cfg/deliveryChannel:DeliveryChannel',
             resource_name,

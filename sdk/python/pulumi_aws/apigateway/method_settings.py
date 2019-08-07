@@ -69,6 +69,10 @@ class MethodSettings(pulumi.CustomResource):
             raise TypeError("Missing required property 'stage_name'")
         __props__['stage_name'] = stage_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(MethodSettings, __self__).__init__(
             'aws:apigateway/methodSettings:MethodSettings',
             resource_name,

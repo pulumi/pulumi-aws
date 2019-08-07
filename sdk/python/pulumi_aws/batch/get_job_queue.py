@@ -64,7 +64,15 @@ class GetJobQueueResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_job_queue(name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_job_queue(name=None,opts=None):
     """
     The Batch Job Queue data source allows access to details of a specific
     job queue within AWS Batch.
@@ -74,7 +82,11 @@ async def get_job_queue(name=None,opts=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:batch/getJobQueue:getJobQueue', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:batch/getJobQueue:getJobQueue', __args__, opts=opts).value
 
     return GetJobQueueResult(
         arn=__ret__.get('arn'),

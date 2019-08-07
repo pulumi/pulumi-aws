@@ -50,6 +50,10 @@ class PlacementGroup(pulumi.CustomResource):
             raise TypeError("Missing required property 'strategy'")
         __props__['strategy'] = strategy
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(PlacementGroup, __self__).__init__(
             'aws:ec2/placementGroup:PlacementGroup',
             resource_name,

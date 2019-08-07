@@ -29,7 +29,15 @@ class GetServiceAccountResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_service_account(region=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_service_account(region=None,opts=None):
     """
     Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
     in a given region for the purpose of allowing CloudTrail to store trail data in S3.
@@ -39,7 +47,11 @@ async def get_service_account(region=None,opts=None):
     __args__ = dict()
 
     __args__['region'] = region
-    __ret__ = await pulumi.runtime.invoke('aws:cloudtrail/getServiceAccount:getServiceAccount', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:cloudtrail/getServiceAccount:getServiceAccount', __args__, opts=opts).value
 
     return GetServiceAccountResult(
         arn=__ret__.get('arn'),

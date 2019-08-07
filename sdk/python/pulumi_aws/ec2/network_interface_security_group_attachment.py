@@ -67,6 +67,10 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'security_group_id'")
         __props__['security_group_id'] = security_group_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(NetworkInterfaceSecurityGroupAttachment, __self__).__init__(
             'aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment',
             resource_name,

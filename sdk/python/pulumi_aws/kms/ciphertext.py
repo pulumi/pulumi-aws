@@ -70,6 +70,10 @@ class Ciphertext(pulumi.CustomResource):
 
         __props__['ciphertext_blob'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Ciphertext, __self__).__init__(
             'aws:kms/ciphertext:Ciphertext',
             resource_name,

@@ -38,7 +38,15 @@ class GetInternetGatewayResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=None):
     """
     `aws_internet_gateway` provides details about a specific Internet Gateway.
 
@@ -49,7 +57,11 @@ async def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,o
     __args__['filters'] = filters
     __args__['internetGatewayId'] = internet_gateway_id
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts).value
 
     return GetInternetGatewayResult(
         attachments=__ret__.get('attachments'),

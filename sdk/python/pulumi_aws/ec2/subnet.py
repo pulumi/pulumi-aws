@@ -119,6 +119,10 @@ class Subnet(pulumi.CustomResource):
         __props__['ipv6_cidr_block_association_id'] = None
         __props__['owner_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Subnet, __self__).__init__(
             'aws:ec2/subnet:Subnet',
             resource_name,

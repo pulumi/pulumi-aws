@@ -71,7 +71,15 @@ class GetZoneResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_zone(name=None,private_zone=None,resource_record_set_count=None,tags=None,vpc_id=None,zone_id=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_zone(name=None,private_zone=None,resource_record_set_count=None,tags=None,vpc_id=None,zone_id=None,opts=None):
     """
     `aws_route53_zone` provides details about a specific Route 53 Hosted Zone.
     
@@ -87,7 +95,11 @@ async def get_zone(name=None,private_zone=None,resource_record_set_count=None,ta
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     __args__['zoneId'] = zone_id
-    __ret__ = await pulumi.runtime.invoke('aws:route53/getZone:getZone', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:route53/getZone:getZone', __args__, opts=opts).value
 
     return GetZoneResult(
         caller_reference=__ret__.get('callerReference'),

@@ -59,6 +59,10 @@ class ResourceDataSync(pulumi.CustomResource):
             raise TypeError("Missing required property 's3_destination'")
         __props__['s3_destination'] = s3_destination
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ResourceDataSync, __self__).__init__(
             'aws:ssm/resourceDataSync:ResourceDataSync',
             resource_name,

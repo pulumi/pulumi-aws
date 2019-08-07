@@ -90,6 +90,10 @@ class ServiceQuota(pulumi.CustomResource):
         __props__['request_status'] = None
         __props__['service_name'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ServiceQuota, __self__).__init__(
             'aws:servicequotas/serviceQuota:ServiceQuota',
             resource_name,

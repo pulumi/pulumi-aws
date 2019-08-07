@@ -104,6 +104,10 @@ class JobDefinition(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['revision'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(JobDefinition, __self__).__init__(
             'aws:batch/jobDefinition:JobDefinition',
             resource_name,

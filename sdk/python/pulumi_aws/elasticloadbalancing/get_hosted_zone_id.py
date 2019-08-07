@@ -23,7 +23,15 @@ class GetHostedZoneIdResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_hosted_zone_id(region=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_hosted_zone_id(region=None,opts=None):
     """
     Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
     in a given region for the purpose of using in an AWS Route53 Alias.
@@ -33,7 +41,11 @@ async def get_hosted_zone_id(region=None,opts=None):
     __args__ = dict()
 
     __args__['region'] = region
-    __ret__ = await pulumi.runtime.invoke('aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId', __args__, opts=opts).value
 
     return GetHostedZoneIdResult(
         region=__ret__.get('region'),

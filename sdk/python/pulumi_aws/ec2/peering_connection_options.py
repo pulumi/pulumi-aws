@@ -77,6 +77,10 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             raise TypeError("Missing required property 'vpc_peering_connection_id'")
         __props__['vpc_peering_connection_id'] = vpc_peering_connection_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(PeeringConnectionOptions, __self__).__init__(
             'aws:ec2/peeringConnectionOptions:PeeringConnectionOptions',
             resource_name,

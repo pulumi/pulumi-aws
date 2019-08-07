@@ -61,6 +61,10 @@ class GcmChannel(pulumi.CustomResource):
 
         __props__['enabled'] = enabled
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(GcmChannel, __self__).__init__(
             'aws:pinpoint/gcmChannel:GcmChannel',
             resource_name,

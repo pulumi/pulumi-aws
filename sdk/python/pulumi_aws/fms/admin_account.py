@@ -40,6 +40,10 @@ class AdminAccount(pulumi.CustomResource):
 
         __props__['account_id'] = account_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(AdminAccount, __self__).__init__(
             'aws:fms/adminAccount:AdminAccount',
             resource_name,

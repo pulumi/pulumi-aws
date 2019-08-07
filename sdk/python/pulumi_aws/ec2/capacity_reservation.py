@@ -118,6 +118,10 @@ class CapacityReservation(pulumi.CustomResource):
 
         __props__['tenancy'] = tenancy
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(CapacityReservation, __self__).__init__(
             'aws:ec2/capacityReservation:CapacityReservation',
             resource_name,

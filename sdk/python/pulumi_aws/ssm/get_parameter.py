@@ -38,7 +38,15 @@ class GetParameterResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_parameter(name=None,with_decryption=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_parameter(name=None,with_decryption=None,opts=None):
     """
     Provides an SSM Parameter data source.
 
@@ -48,7 +56,11 @@ async def get_parameter(name=None,with_decryption=None,opts=None):
 
     __args__['name'] = name
     __args__['withDecryption'] = with_decryption
-    __ret__ = await pulumi.runtime.invoke('aws:ssm/getParameter:getParameter', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ssm/getParameter:getParameter', __args__, opts=opts).value
 
     return GetParameterResult(
         arn=__ret__.get('arn'),

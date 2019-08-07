@@ -26,7 +26,15 @@ class GetCanonicalUserIdResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_canonical_user_id(opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_canonical_user_id(opts=None):
     """
     The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
     for the effective account in which this provider is working.  
@@ -35,7 +43,11 @@ async def get_canonical_user_id(opts=None):
     """
     __args__ = dict()
 
-    __ret__ = await pulumi.runtime.invoke('aws:index/getCanonicalUserId:getCanonicalUserId', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:index/getCanonicalUserId:getCanonicalUserId', __args__, opts=opts).value
 
     return GetCanonicalUserIdResult(
         display_name=__ret__.get('displayName'),

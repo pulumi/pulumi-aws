@@ -40,6 +40,10 @@ class ConfigurationSet(pulumi.CustomResource):
 
         __props__['name'] = name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:ses/confgurationSet:ConfgurationSet")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(ConfigurationSet, __self__).__init__(

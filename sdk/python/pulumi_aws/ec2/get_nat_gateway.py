@@ -56,7 +56,15 @@ class GetNatGatewayResult:
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
 
-async def get_nat_gateway(filters=None,id=None,state=None,subnet_id=None,tags=None,vpc_id=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_nat_gateway(filters=None,id=None,state=None,subnet_id=None,tags=None,vpc_id=None,opts=None):
     """
     Provides details about a specific Nat Gateway.
 
@@ -70,7 +78,11 @@ async def get_nat_gateway(filters=None,id=None,state=None,subnet_id=None,tags=No
     __args__['subnetId'] = subnet_id
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getNatGateway:getNatGateway', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getNatGateway:getNatGateway', __args__, opts=opts).value
 
     return GetNatGatewayResult(
         allocation_id=__ret__.get('allocationId'),

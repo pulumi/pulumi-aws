@@ -71,6 +71,10 @@ class VaultLock(pulumi.CustomResource):
             raise TypeError("Missing required property 'vault_name'")
         __props__['vault_name'] = vault_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VaultLock, __self__).__init__(
             'aws:glacier/vaultLock:VaultLock',
             resource_name,

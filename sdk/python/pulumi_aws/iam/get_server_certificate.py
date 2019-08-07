@@ -50,7 +50,15 @@ class GetServerCertificateResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_server_certificate(latest=None,name=None,name_prefix=None,path_prefix=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_server_certificate(latest=None,name=None,name_prefix=None,path_prefix=None,opts=None):
     """
     Use this data source to lookup information about IAM Server Certificates.
     
@@ -67,7 +75,11 @@ async def get_server_certificate(latest=None,name=None,name_prefix=None,path_pre
     __args__['name'] = name
     __args__['namePrefix'] = name_prefix
     __args__['pathPrefix'] = path_prefix
-    __ret__ = await pulumi.runtime.invoke('aws:iam/getServerCertificate:getServerCertificate', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:iam/getServerCertificate:getServerCertificate', __args__, opts=opts).value
 
     return GetServerCertificateResult(
         arn=__ret__.get('arn'),

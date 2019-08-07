@@ -97,6 +97,10 @@ class KeyPair(pulumi.CustomResource):
         __props__['fingerprint'] = None
         __props__['private_key'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(KeyPair, __self__).__init__(
             'aws:lightsail/keyPair:KeyPair',
             resource_name,
