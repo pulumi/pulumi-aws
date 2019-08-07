@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Update to pulumi-terraform 9db2fc93cd
+* Update to v2.23.0 of the AWS Terraform Provider
 
 ---
 
