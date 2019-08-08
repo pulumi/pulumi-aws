@@ -425,6 +425,8 @@ github.com/hashicorp/hcl2 v0.0.0-20190515223218-4b22149b7cef h1:xZRvbcwHY8zhaxDw
 github.com/hashicorp/hcl2 v0.0.0-20190515223218-4b22149b7cef/go.mod h1:4oI94iqF3GB10QScn46WqbG0kgTUpha97SAzzg2+2ec=
 github.com/hashicorp/hcl2 v0.0.0-20190702185634-5b39d9ff3a9a h1:1KfDwkIXrxrfMpqwuW//ujObiYNuR2DqaETSK2NB8Ug=
 github.com/hashicorp/hcl2 v0.0.0-20190702185634-5b39d9ff3a9a/go.mod h1:FSQTwDi9qesxGBsII2VqhIzKQ4r0bHvBkOczWfD7llg=
+github.com/hashicorp/hcl2 v0.0.0-20190725010614-0c3fe388e450 h1:wpa0vOXOnSEuwZ++eVk1gQNm3Jy2+Envn0cQRgsl8K8=
+github.com/hashicorp/hcl2 v0.0.0-20190725010614-0c3fe388e450/go.mod h1:FSQTwDi9qesxGBsII2VqhIzKQ4r0bHvBkOczWfD7llg=
 github.com/hashicorp/hil v0.0.0-20170627220502-fa9f258a9250/go.mod h1:KHvg/R2/dPtaePb16oW4qIyzkMxXOL38xjRN64adsts=
 github.com/hashicorp/hil v0.0.0-20190212112733-ab17b08d6590 h1:2yzhWGdgQUWZUCNK+AoO35V+HTsgEmcM4J9IkArh7PI=
 github.com/hashicorp/hil v0.0.0-20190212112733-ab17b08d6590/go.mod h1:n2TSygSNwsLJ76m8qFXTSc7beTb+auJxYdqrnoqwZWE=
@@ -455,6 +457,8 @@ github.com/hashicorp/terraform v0.12.4 h1:cm+JE5bOO1RyvltKOkyxmhenGZ6lBIazzzxWdH
 github.com/hashicorp/terraform v0.12.4/go.mod h1:R3nGcJpajl/k9hfg6Q/Mvj/mO9Zg4N2CuqXyGBFhjX0=
 github.com/hashicorp/terraform v0.12.5 h1:Z2FichOU9kUKWa8RBzwMXzPR1+vhAIstvdsrT8NgYwE=
 github.com/hashicorp/terraform v0.12.5/go.mod h1:79gUmnwZ6qMgdCF2RVlVjmIDnqrVROxsczBbmRirIQE=
+github.com/hashicorp/terraform v0.12.6 h1:mWItQdLZQ7f3kBYBu2Kgdg+E5iZb1KtCq73V10Hmu48=
+github.com/hashicorp/terraform v0.12.6/go.mod h1:udmq5rU8CO9pEIh/A/Xrs3zb3yYU/W9ce1pp8K1ysHA=
 github.com/hashicorp/terraform-config-inspect v0.0.0-20190327195015-8022a2663a70 h1:oZm5nE11yhzsTRz/YrUyDMSvixePqjoZihwn8ipuOYI=
 github.com/hashicorp/terraform-config-inspect v0.0.0-20190327195015-8022a2663a70/go.mod h1:ItvqtvbC3K23FFET62ZwnkwtpbKZm8t8eMcWjmVVjD8=
 github.com/hashicorp/vault v0.0.0-20161029210149-9a60bf2a50e4/go.mod h1:KfSyffbKxoVyspOdlaGVjIuwLobi07qD1bAbosPMpP0=
@@ -705,6 +709,8 @@ github.com/pulumi/pulumi-terraform v0.18.4-0.20190730181123-6bcafb609db7 h1:Es4y
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190730181123-6bcafb609db7/go.mod h1:dQnjdja1Qt70Um86AfVHSXksXYdlfH3QjNQ74wAgoL0=
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190805204638-013b95b1c891 h1:mPKGK1bXA6TKOBgQDu8oHuhbt0yLti+41wEJc+5EXQU=
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190805204638-013b95b1c891/go.mod h1:HVA/Fkv+5PvaVY7LaBARUq1fzprob6GMLUgPZyHUXSs=
+github.com/pulumi/pulumi-terraform v0.18.4-0.20190808190547-7e2caac7ee66 h1:dFTGITG7MyYMdQZrX4VU2qrFJQCRnigvwSYTwRBtsPY=
+github.com/pulumi/pulumi-terraform v0.18.4-0.20190808190547-7e2caac7ee66/go.mod h1:/rpxRQe8RtRHrrmgmCXHA/9bSj7qxL2NvjmHCDfK77U=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190407171755-cf2ef8807a4b h1:2g4TbpkKIzm8wqcvnrvh5FY1I/bO5x0k5iswWSCH6Ek=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190407171755-cf2ef8807a4b/go.mod h1:q6jzd2kIAdFH8V10Y8N3NRf4wVQ6DTCN/kjE0L9eHLY=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190417135458-30039de05cc7 h1:aac7CF4/uYxKoGIATUPNhdWqrntHMH+pqrODc7ZcBvM=
@@ -888,6 +894,8 @@ github.com/zclconf/go-cty v1.0.1-0.20190708163926-19588f92a98f h1:sq2p8SN6ji66CF
 github.com/zclconf/go-cty v1.0.1-0.20190708163926-19588f92a98f/go.mod h1:xnAOWiHeOqg2nWS62VtQ7pbOu17FtxJNW8RLEih+O3s=
 github.com/zclconf/go-cty-yaml v0.1.0 h1:OP5nkApyAuXB88t8mRUqxD9gbKZocSLuVovrBAt8z10=
 github.com/zclconf/go-cty-yaml v0.1.0/go.mod h1:Lk26EcRlO3XbaQ8U2fxIJbEtbgEteSZFUpEr3XFTtsU=
+github.com/zclconf/go-cty-yaml v1.0.1 h1:up11wlgAaDvlAGENcFDnZgkn0qUJurso7k6EpURKNF8=
+github.com/zclconf/go-cty-yaml v1.0.1/go.mod h1:IP3Ylp0wQpYm50IHK8OZWKMu6sPJIUgKa8XhiVHura0=
 go.mongodb.org/mongo-driver v1.0.1/go.mod h1:u7ryQJ+DOzQmeO7zB6MHyr8jkEQvC8vH7qLUO4lqsUM=
 go.opencensus.io v0.15.0/go.mod h1:UffZAU+4sDEINUGP/B7UfBBkq4fqLu9zXAX7ke6CHW0=
 go.opencensus.io v0.18.0/go.mod h1:vKdFvxhtzZ9onBp9VKHK8z/sRpBMnKAsufL7wlDrCOA=

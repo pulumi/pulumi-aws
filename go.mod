@@ -14,7 +14,7 @@ require (
 	github.com/hashicorp/go-immutable-radix v1.0.0 // indirect
 	github.com/hashicorp/go-sockaddr v1.0.0 // indirect
 	github.com/hashicorp/serf v0.8.2-0.20171022020050-c20a0b1b1ea9 // indirect
-	github.com/hashicorp/terraform v0.12.5
+	github.com/hashicorp/terraform v0.12.6
 	github.com/miekg/dns v1.0.14 // indirect
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/onsi/ginkgo v1.8.0 // indirect
@@ -22,7 +22,7 @@ require (
 	github.com/openzipkin/zipkin-go v0.1.6 // indirect
 	github.com/pkg/errors v0.8.1
 	github.com/pulumi/pulumi v0.17.28-0.20190731182900-6804d640fc7c
-	github.com/pulumi/pulumi-terraform v0.18.4-0.20190805204638-013b95b1c891
+	github.com/pulumi/pulumi-terraform v0.18.4-0.20190808190547-7e2caac7ee66
 	github.com/pulumi/terraform-provider-aws v1.38.1-0.20181019132727-72e8bb4fc26f // indirect
 	github.com/sirupsen/logrus v1.4.0 // indirect
 	github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304 // indirect
