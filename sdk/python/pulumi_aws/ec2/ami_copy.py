@@ -127,37 +127,24 @@ class AmiCopy(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['description'] = description
-
         __props__['ebs_block_devices'] = ebs_block_devices
-
         __props__['encrypted'] = encrypted
-
         __props__['ephemeral_block_devices'] = ephemeral_block_devices
-
         __props__['kms_key_id'] = kms_key_id
-
         __props__['name'] = name
-
         if source_ami_id is None:
             raise TypeError("Missing required property 'source_ami_id'")
         __props__['source_ami_id'] = source_ami_id
-
         if source_ami_region is None:
             raise TypeError("Missing required property 'source_ami_region'")
         __props__['source_ami_region'] = source_ami_region
-
         __props__['tags'] = tags
-
         __props__['architecture'] = None
         __props__['ena_support'] = None
         __props__['image_location'] = None
@@ -178,7 +165,6 @@ class AmiCopy(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

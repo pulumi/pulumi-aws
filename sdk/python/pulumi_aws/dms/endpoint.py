@@ -111,53 +111,33 @@ class Endpoint(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['certificate_arn'] = certificate_arn
-
         __props__['database_name'] = database_name
-
         if endpoint_id is None:
             raise TypeError("Missing required property 'endpoint_id'")
         __props__['endpoint_id'] = endpoint_id
-
         if endpoint_type is None:
             raise TypeError("Missing required property 'endpoint_type'")
         __props__['endpoint_type'] = endpoint_type
-
         if engine_name is None:
             raise TypeError("Missing required property 'engine_name'")
         __props__['engine_name'] = engine_name
-
         __props__['extra_connection_attributes'] = extra_connection_attributes
-
         __props__['kms_key_arn'] = kms_key_arn
-
         __props__['mongodb_settings'] = mongodb_settings
-
         __props__['password'] = password
-
         __props__['port'] = port
-
         __props__['s3_settings'] = s3_settings
-
         __props__['server_name'] = server_name
-
         __props__['service_access_role'] = service_access_role
-
         __props__['ssl_mode'] = ssl_mode
-
         __props__['tags'] = tags
-
         __props__['username'] = username
-
         __props__['endpoint_arn'] = None
 
         if opts is None:
@@ -169,7 +149,6 @@ class Endpoint(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

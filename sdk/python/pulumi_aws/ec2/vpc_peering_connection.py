@@ -98,35 +98,23 @@ class VpcPeeringConnection(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['accepter'] = accepter
-
         __props__['auto_accept'] = auto_accept
-
         __props__['peer_owner_id'] = peer_owner_id
-
         __props__['peer_region'] = peer_region
-
         if peer_vpc_id is None:
             raise TypeError("Missing required property 'peer_vpc_id'")
         __props__['peer_vpc_id'] = peer_vpc_id
-
         __props__['requester'] = requester
-
         __props__['tags'] = tags
-
         if vpc_id is None:
             raise TypeError("Missing required property 'vpc_id'")
         __props__['vpc_id'] = vpc_id
-
         __props__['accept_status'] = None
 
         if opts is None:
@@ -138,7 +126,6 @@ class VpcPeeringConnection(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

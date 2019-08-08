@@ -90,10 +90,6 @@ class CachesIscsiVolume(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -102,23 +98,17 @@ class CachesIscsiVolume(pulumi.CustomResource):
         if gateway_arn is None:
             raise TypeError("Missing required property 'gateway_arn'")
         __props__['gateway_arn'] = gateway_arn
-
         if network_interface_id is None:
             raise TypeError("Missing required property 'network_interface_id'")
         __props__['network_interface_id'] = network_interface_id
-
         __props__['snapshot_id'] = snapshot_id
-
         __props__['source_volume_arn'] = source_volume_arn
-
         if target_name is None:
             raise TypeError("Missing required property 'target_name'")
         __props__['target_name'] = target_name
-
         if volume_size_in_bytes is None:
             raise TypeError("Missing required property 'volume_size_in_bytes'")
         __props__['volume_size_in_bytes'] = volume_size_in_bytes
-
         __props__['arn'] = None
         __props__['chap_enabled'] = None
         __props__['lun_number'] = None
@@ -136,7 +126,6 @@ class CachesIscsiVolume(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

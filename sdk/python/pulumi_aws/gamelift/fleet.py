@@ -78,10 +78,6 @@ class Fleet(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -90,25 +86,16 @@ class Fleet(pulumi.CustomResource):
         if build_id is None:
             raise TypeError("Missing required property 'build_id'")
         __props__['build_id'] = build_id
-
         __props__['description'] = description
-
         __props__['ec2_inbound_permissions'] = ec2_inbound_permissions
-
         if ec2_instance_type is None:
             raise TypeError("Missing required property 'ec2_instance_type'")
         __props__['ec2_instance_type'] = ec2_instance_type
-
         __props__['metric_groups'] = metric_groups
-
         __props__['name'] = name
-
         __props__['new_game_session_protection_policy'] = new_game_session_protection_policy
-
         __props__['resource_creation_limit_policy'] = resource_creation_limit_policy
-
         __props__['runtime_configuration'] = runtime_configuration
-
         __props__['arn'] = None
         __props__['log_paths'] = None
         __props__['operating_system'] = None
@@ -122,7 +109,6 @@ class Fleet(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

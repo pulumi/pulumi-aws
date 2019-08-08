@@ -44,27 +44,19 @@ class EventPermission(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['action'] = action
-
         __props__['condition'] = condition
-
         if principal is None:
             raise TypeError("Missing required property 'principal'")
         __props__['principal'] = principal
-
         if statement_id is None:
             raise TypeError("Missing required property 'statement_id'")
         __props__['statement_id'] = statement_id
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -74,7 +66,6 @@ class EventPermission(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

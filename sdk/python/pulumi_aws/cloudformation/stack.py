@@ -103,41 +103,24 @@ class Stack(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['capabilities'] = capabilities
-
         __props__['disable_rollback'] = disable_rollback
-
         __props__['iam_role_arn'] = iam_role_arn
-
         __props__['name'] = name
-
         __props__['notification_arns'] = notification_arns
-
         __props__['on_failure'] = on_failure
-
         __props__['parameters'] = parameters
-
         __props__['policy_body'] = policy_body
-
         __props__['policy_url'] = policy_url
-
         __props__['tags'] = tags
-
         __props__['template_body'] = template_body
-
         __props__['template_url'] = template_url
-
         __props__['timeout_in_minutes'] = timeout_in_minutes
-
         __props__['outputs'] = None
 
         if opts is None:
@@ -149,7 +132,6 @@ class Stack(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

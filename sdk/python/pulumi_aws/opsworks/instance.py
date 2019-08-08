@@ -246,107 +246,59 @@ class Instance(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['agent_version'] = agent_version
-
         __props__['ami_id'] = ami_id
-
         __props__['architecture'] = architecture
-
         __props__['auto_scaling_type'] = auto_scaling_type
-
         __props__['availability_zone'] = availability_zone
-
         __props__['created_at'] = created_at
-
         __props__['delete_ebs'] = delete_ebs
-
         __props__['delete_eip'] = delete_eip
-
         __props__['ebs_block_devices'] = ebs_block_devices
-
         __props__['ebs_optimized'] = ebs_optimized
-
         __props__['ecs_cluster_arn'] = ecs_cluster_arn
-
         __props__['elastic_ip'] = elastic_ip
-
         __props__['ephemeral_block_devices'] = ephemeral_block_devices
-
         __props__['hostname'] = hostname
-
         __props__['infrastructure_class'] = infrastructure_class
-
         __props__['install_updates_on_boot'] = install_updates_on_boot
-
         __props__['instance_profile_arn'] = instance_profile_arn
-
         __props__['instance_type'] = instance_type
-
         __props__['last_service_error_id'] = last_service_error_id
-
         if layer_ids is None:
             raise TypeError("Missing required property 'layer_ids'")
         __props__['layer_ids'] = layer_ids
-
         __props__['os'] = os
-
         __props__['platform'] = platform
-
         __props__['private_dns'] = private_dns
-
         __props__['private_ip'] = private_ip
-
         __props__['public_dns'] = public_dns
-
         __props__['public_ip'] = public_ip
-
         __props__['registered_by'] = registered_by
-
         __props__['reported_agent_version'] = reported_agent_version
-
         __props__['reported_os_family'] = reported_os_family
-
         __props__['reported_os_name'] = reported_os_name
-
         __props__['reported_os_version'] = reported_os_version
-
         __props__['root_block_devices'] = root_block_devices
-
         __props__['root_device_type'] = root_device_type
-
         __props__['root_device_volume_id'] = root_device_volume_id
-
         __props__['security_group_ids'] = security_group_ids
-
         __props__['ssh_host_dsa_key_fingerprint'] = ssh_host_dsa_key_fingerprint
-
         __props__['ssh_host_rsa_key_fingerprint'] = ssh_host_rsa_key_fingerprint
-
         __props__['ssh_key_name'] = ssh_key_name
-
         if stack_id is None:
             raise TypeError("Missing required property 'stack_id'")
         __props__['stack_id'] = stack_id
-
         __props__['state'] = state
-
         __props__['status'] = status
-
         __props__['subnet_id'] = subnet_id
-
         __props__['tenancy'] = tenancy
-
         __props__['virtualization_type'] = virtualization_type
-
         __props__['ec2_instance_id'] = None
 
         if opts is None:
@@ -358,7 +310,6 @@ class Instance(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

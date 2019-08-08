@@ -74,39 +74,25 @@ class Fleet(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['excess_capacity_termination_policy'] = excess_capacity_termination_policy
-
         if launch_template_config is None:
             raise TypeError("Missing required property 'launch_template_config'")
         __props__['launch_template_config'] = launch_template_config
-
         __props__['on_demand_options'] = on_demand_options
-
         __props__['replace_unhealthy_instances'] = replace_unhealthy_instances
-
         __props__['spot_options'] = spot_options
-
         __props__['tags'] = tags
-
         if target_capacity_specification is None:
             raise TypeError("Missing required property 'target_capacity_specification'")
         __props__['target_capacity_specification'] = target_capacity_specification
-
         __props__['terminate_instances'] = terminate_instances
-
         __props__['terminate_instances_with_expiration'] = terminate_instances_with_expiration
-
         __props__['type'] = type
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -116,7 +102,6 @@ class Fleet(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

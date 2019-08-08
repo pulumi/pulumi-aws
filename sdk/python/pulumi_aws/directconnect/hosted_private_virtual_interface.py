@@ -87,10 +87,6 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -99,33 +95,23 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
         if address_family is None:
             raise TypeError("Missing required property 'address_family'")
         __props__['address_family'] = address_family
-
         __props__['amazon_address'] = amazon_address
-
         if bgp_asn is None:
             raise TypeError("Missing required property 'bgp_asn'")
         __props__['bgp_asn'] = bgp_asn
-
         __props__['bgp_auth_key'] = bgp_auth_key
-
         if connection_id is None:
             raise TypeError("Missing required property 'connection_id'")
         __props__['connection_id'] = connection_id
-
         __props__['customer_address'] = customer_address
-
         __props__['mtu'] = mtu
-
         __props__['name'] = name
-
         if owner_account_id is None:
             raise TypeError("Missing required property 'owner_account_id'")
         __props__['owner_account_id'] = owner_account_id
-
         if vlan is None:
             raise TypeError("Missing required property 'vlan'")
         __props__['vlan'] = vlan
-
         __props__['arn'] = None
         __props__['aws_device'] = None
         __props__['jumbo_frame_capable'] = None
@@ -139,7 +125,6 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

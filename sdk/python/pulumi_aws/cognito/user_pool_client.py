@@ -98,45 +98,27 @@ class UserPoolClient(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['allowed_oauth_flows'] = allowed_oauth_flows
-
         __props__['allowed_oauth_flows_user_pool_client'] = allowed_oauth_flows_user_pool_client
-
         __props__['allowed_oauth_scopes'] = allowed_oauth_scopes
-
         __props__['callback_urls'] = callback_urls
-
         __props__['default_redirect_uri'] = default_redirect_uri
-
         __props__['explicit_auth_flows'] = explicit_auth_flows
-
         __props__['generate_secret'] = generate_secret
-
         __props__['logout_urls'] = logout_urls
-
         __props__['name'] = name
-
         __props__['read_attributes'] = read_attributes
-
         __props__['refresh_token_validity'] = refresh_token_validity
-
         __props__['supported_identity_providers'] = supported_identity_providers
-
         if user_pool_id is None:
             raise TypeError("Missing required property 'user_pool_id'")
         __props__['user_pool_id'] = user_pool_id
-
         __props__['write_attributes'] = write_attributes
-
         __props__['client_secret'] = None
 
         if opts is None:
@@ -148,7 +130,6 @@ class UserPoolClient(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

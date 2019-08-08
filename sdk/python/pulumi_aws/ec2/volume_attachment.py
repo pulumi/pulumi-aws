@@ -68,10 +68,6 @@ class VolumeAttachment(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -80,19 +76,14 @@ class VolumeAttachment(pulumi.CustomResource):
         if device_name is None:
             raise TypeError("Missing required property 'device_name'")
         __props__['device_name'] = device_name
-
         __props__['force_detach'] = force_detach
-
         if instance_id is None:
             raise TypeError("Missing required property 'instance_id'")
         __props__['instance_id'] = instance_id
-
         __props__['skip_destroy'] = skip_destroy
-
         if volume_id is None:
             raise TypeError("Missing required property 'volume_id'")
         __props__['volume_id'] = volume_id
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -102,7 +93,6 @@ class VolumeAttachment(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

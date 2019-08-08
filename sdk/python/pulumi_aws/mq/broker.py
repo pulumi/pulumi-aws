@@ -132,57 +132,38 @@ class Broker(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['apply_immediately'] = apply_immediately
-
         __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
-
         if broker_name is None:
             raise TypeError("Missing required property 'broker_name'")
         __props__['broker_name'] = broker_name
-
         __props__['configuration'] = configuration
-
         __props__['deployment_mode'] = deployment_mode
-
         if engine_type is None:
             raise TypeError("Missing required property 'engine_type'")
         __props__['engine_type'] = engine_type
-
         if engine_version is None:
             raise TypeError("Missing required property 'engine_version'")
         __props__['engine_version'] = engine_version
-
         if host_instance_type is None:
             raise TypeError("Missing required property 'host_instance_type'")
         __props__['host_instance_type'] = host_instance_type
-
         __props__['logs'] = logs
-
         __props__['maintenance_window_start_time'] = maintenance_window_start_time
-
         __props__['publicly_accessible'] = publicly_accessible
-
         if security_groups is None:
             raise TypeError("Missing required property 'security_groups'")
         __props__['security_groups'] = security_groups
-
         __props__['subnet_ids'] = subnet_ids
-
         __props__['tags'] = tags
-
         if users is None:
             raise TypeError("Missing required property 'users'")
         __props__['users'] = users
-
         __props__['arn'] = None
         __props__['instances'] = None
 
@@ -195,7 +176,6 @@ class Broker(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

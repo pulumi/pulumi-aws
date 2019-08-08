@@ -67,10 +67,6 @@ class OptionGroup(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -79,23 +75,16 @@ class OptionGroup(pulumi.CustomResource):
         if engine_name is None:
             raise TypeError("Missing required property 'engine_name'")
         __props__['engine_name'] = engine_name
-
         if major_engine_version is None:
             raise TypeError("Missing required property 'major_engine_version'")
         __props__['major_engine_version'] = major_engine_version
-
         __props__['name'] = name
-
         __props__['name_prefix'] = name_prefix
-
         __props__['options'] = options
-
         if option_group_description is None:
             option_group_description = 'Managed by Pulumi'
         __props__['option_group_description'] = option_group_description
-
         __props__['tags'] = tags
-
         __props__['arn'] = None
 
         if opts is None:
@@ -107,7 +96,6 @@ class OptionGroup(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

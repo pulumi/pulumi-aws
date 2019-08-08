@@ -59,33 +59,22 @@ class EventDestination(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['cloudwatch_destinations'] = cloudwatch_destinations
-
         if configuration_set_name is None:
             raise TypeError("Missing required property 'configuration_set_name'")
         __props__['configuration_set_name'] = configuration_set_name
-
         __props__['enabled'] = enabled
-
         __props__['kinesis_destination'] = kinesis_destination
-
         if matching_types is None:
             raise TypeError("Missing required property 'matching_types'")
         __props__['matching_types'] = matching_types
-
         __props__['name'] = name
-
         __props__['sns_destination'] = sns_destination
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -95,7 +84,6 @@ class EventDestination(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

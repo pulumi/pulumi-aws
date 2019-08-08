@@ -126,10 +126,6 @@ class Table(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -138,37 +134,22 @@ class Table(pulumi.CustomResource):
         if attributes is None:
             raise TypeError("Missing required property 'attributes'")
         __props__['attributes'] = attributes
-
         __props__['billing_mode'] = billing_mode
-
         __props__['global_secondary_indexes'] = global_secondary_indexes
-
         if hash_key is None:
             raise TypeError("Missing required property 'hash_key'")
         __props__['hash_key'] = hash_key
-
         __props__['local_secondary_indexes'] = local_secondary_indexes
-
         __props__['name'] = name
-
         __props__['point_in_time_recovery'] = point_in_time_recovery
-
         __props__['range_key'] = range_key
-
         __props__['read_capacity'] = read_capacity
-
         __props__['server_side_encryption'] = server_side_encryption
-
         __props__['stream_enabled'] = stream_enabled
-
         __props__['stream_view_type'] = stream_view_type
-
         __props__['tags'] = tags
-
         __props__['ttl'] = ttl
-
         __props__['write_capacity'] = write_capacity
-
         __props__['arn'] = None
         __props__['stream_arn'] = None
         __props__['stream_label'] = None
@@ -182,7 +163,6 @@ class Table(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

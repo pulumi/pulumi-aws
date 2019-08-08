@@ -109,53 +109,32 @@ class Application(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['app_sources'] = app_sources
-
         __props__['auto_bundle_on_deploy'] = auto_bundle_on_deploy
-
         __props__['aws_flow_ruby_settings'] = aws_flow_ruby_settings
-
         __props__['data_source_arn'] = data_source_arn
-
         __props__['data_source_database_name'] = data_source_database_name
-
         __props__['data_source_type'] = data_source_type
-
         __props__['description'] = description
-
         __props__['document_root'] = document_root
-
         __props__['domains'] = domains
-
         __props__['enable_ssl'] = enable_ssl
-
         __props__['environments'] = environments
-
         __props__['name'] = name
-
         __props__['rails_env'] = rails_env
-
         __props__['short_name'] = short_name
-
         __props__['ssl_configurations'] = ssl_configurations
-
         if stack_id is None:
             raise TypeError("Missing required property 'stack_id'")
         __props__['stack_id'] = stack_id
-
         if type is None:
             raise TypeError("Missing required property 'type'")
         __props__['type'] = type
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -165,7 +144,6 @@ class Application(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

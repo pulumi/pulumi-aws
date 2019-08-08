@@ -75,37 +75,24 @@ class Gateway(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['activation_key'] = activation_key
-
         __props__['gateway_ip_address'] = gateway_ip_address
-
         if gateway_name is None:
             raise TypeError("Missing required property 'gateway_name'")
         __props__['gateway_name'] = gateway_name
-
         if gateway_timezone is None:
             raise TypeError("Missing required property 'gateway_timezone'")
         __props__['gateway_timezone'] = gateway_timezone
-
         __props__['gateway_type'] = gateway_type
-
         __props__['medium_changer_type'] = medium_changer_type
-
         __props__['smb_active_directory_settings'] = smb_active_directory_settings
-
         __props__['smb_guest_password'] = smb_guest_password
-
         __props__['tape_drive_type'] = tape_drive_type
-
         __props__['arn'] = None
         __props__['gateway_id'] = None
 
@@ -118,7 +105,6 @@ class Gateway(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -135,53 +135,30 @@ class UserPool(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['admin_create_user_config'] = admin_create_user_config
-
         __props__['alias_attributes'] = alias_attributes
-
         __props__['auto_verified_attributes'] = auto_verified_attributes
-
         __props__['device_configuration'] = device_configuration
-
         __props__['email_configuration'] = email_configuration
-
         __props__['email_verification_message'] = email_verification_message
-
         __props__['email_verification_subject'] = email_verification_subject
-
         __props__['lambda_config'] = lambda_config
-
         __props__['mfa_configuration'] = mfa_configuration
-
         __props__['name'] = name
-
         __props__['password_policy'] = password_policy
-
         __props__['schemas'] = schemas
-
         __props__['sms_authentication_message'] = sms_authentication_message
-
         __props__['sms_configuration'] = sms_configuration
-
         __props__['sms_verification_message'] = sms_verification_message
-
         __props__['tags'] = tags
-
         __props__['user_pool_add_ons'] = user_pool_add_ons
-
         __props__['username_attributes'] = username_attributes
-
         __props__['verification_message_template'] = verification_message_template
-
         __props__['arn'] = None
         __props__['creation_date'] = None
         __props__['endpoint'] = None
@@ -196,7 +173,6 @@ class UserPool(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

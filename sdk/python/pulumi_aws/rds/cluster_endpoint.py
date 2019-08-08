@@ -58,10 +58,6 @@ class ClusterEndpoint(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -70,19 +66,14 @@ class ClusterEndpoint(pulumi.CustomResource):
         if cluster_endpoint_identifier is None:
             raise TypeError("Missing required property 'cluster_endpoint_identifier'")
         __props__['cluster_endpoint_identifier'] = cluster_endpoint_identifier
-
         if cluster_identifier is None:
             raise TypeError("Missing required property 'cluster_identifier'")
         __props__['cluster_identifier'] = cluster_identifier
-
         if custom_endpoint_type is None:
             raise TypeError("Missing required property 'custom_endpoint_type'")
         __props__['custom_endpoint_type'] = custom_endpoint_type
-
         __props__['excluded_members'] = excluded_members
-
         __props__['static_members'] = static_members
-
         __props__['arn'] = None
         __props__['endpoint'] = None
 
@@ -95,7 +86,6 @@ class ClusterEndpoint(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

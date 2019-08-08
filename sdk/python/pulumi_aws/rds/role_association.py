@@ -44,10 +44,6 @@ class RoleAssociation(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -56,15 +52,12 @@ class RoleAssociation(pulumi.CustomResource):
         if db_instance_identifier is None:
             raise TypeError("Missing required property 'db_instance_identifier'")
         __props__['db_instance_identifier'] = db_instance_identifier
-
         if feature_name is None:
             raise TypeError("Missing required property 'feature_name'")
         __props__['feature_name'] = feature_name
-
         if role_arn is None:
             raise TypeError("Missing required property 'role_arn'")
         __props__['role_arn'] = role_arn
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -74,7 +67,6 @@ class RoleAssociation(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

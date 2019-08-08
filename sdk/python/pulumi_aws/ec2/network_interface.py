@@ -66,35 +66,22 @@ class NetworkInterface(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['attachments'] = attachments
-
         __props__['description'] = description
-
         __props__['private_ip'] = private_ip
-
         __props__['private_ips'] = private_ips
-
         __props__['private_ips_count'] = private_ips_count
-
         __props__['security_groups'] = security_groups
-
         __props__['source_dest_check'] = source_dest_check
-
         if subnet_id is None:
             raise TypeError("Missing required property 'subnet_id'")
         __props__['subnet_id'] = subnet_id
-
         __props__['tags'] = tags
-
         __props__['private_dns_name'] = None
 
         if opts is None:
@@ -106,7 +93,6 @@ class NetworkInterface(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

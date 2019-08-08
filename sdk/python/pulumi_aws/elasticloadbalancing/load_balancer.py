@@ -147,49 +147,29 @@ class LoadBalancer(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['access_logs'] = access_logs
-
         __props__['availability_zones'] = availability_zones
-
         __props__['connection_draining'] = connection_draining
-
         __props__['connection_draining_timeout'] = connection_draining_timeout
-
         __props__['cross_zone_load_balancing'] = cross_zone_load_balancing
-
         __props__['health_check'] = health_check
-
         __props__['idle_timeout'] = idle_timeout
-
         __props__['instances'] = instances
-
         __props__['internal'] = internal
-
         if listeners is None:
             raise TypeError("Missing required property 'listeners'")
         __props__['listeners'] = listeners
-
         __props__['name'] = name
-
         __props__['name_prefix'] = name_prefix
-
         __props__['security_groups'] = security_groups
-
         __props__['source_security_group'] = source_security_group
-
         __props__['subnets'] = subnets
-
         __props__['tags'] = tags
-
         __props__['arn'] = None
         __props__['dns_name'] = None
         __props__['source_security_group_id'] = None
@@ -204,7 +184,6 @@ class LoadBalancer(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

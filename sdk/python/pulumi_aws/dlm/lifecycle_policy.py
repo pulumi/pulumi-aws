@@ -44,10 +44,6 @@ class LifecyclePolicy(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -56,17 +52,13 @@ class LifecyclePolicy(pulumi.CustomResource):
         if description is None:
             raise TypeError("Missing required property 'description'")
         __props__['description'] = description
-
         if execution_role_arn is None:
             raise TypeError("Missing required property 'execution_role_arn'")
         __props__['execution_role_arn'] = execution_role_arn
-
         if policy_details is None:
             raise TypeError("Missing required property 'policy_details'")
         __props__['policy_details'] = policy_details
-
         __props__['state'] = state
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -76,7 +68,6 @@ class LifecyclePolicy(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

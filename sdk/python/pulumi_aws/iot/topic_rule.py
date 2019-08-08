@@ -64,53 +64,33 @@ class TopicRule(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['cloudwatch_alarm'] = cloudwatch_alarm
-
         __props__['cloudwatch_metric'] = cloudwatch_metric
-
         __props__['description'] = description
-
         __props__['dynamodb'] = dynamodb
-
         __props__['elasticsearch'] = elasticsearch
-
         if enabled is None:
             raise TypeError("Missing required property 'enabled'")
         __props__['enabled'] = enabled
-
         __props__['firehose'] = firehose
-
         __props__['kinesis'] = kinesis
-
         __props__['lambda_'] = lambda_
-
         __props__['name'] = name
-
         __props__['republish'] = republish
-
         __props__['s3'] = s3
-
         __props__['sns'] = sns
-
         if sql is None:
             raise TypeError("Missing required property 'sql'")
         __props__['sql'] = sql
-
         if sql_version is None:
             raise TypeError("Missing required property 'sql_version'")
         __props__['sql_version'] = sql_version
-
         __props__['sqs'] = sqs
-
         __props__['arn'] = None
 
         if opts is None:
@@ -122,7 +102,6 @@ class TopicRule(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

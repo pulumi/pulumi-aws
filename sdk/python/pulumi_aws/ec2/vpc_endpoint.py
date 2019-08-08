@@ -111,39 +111,25 @@ class VpcEndpoint(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['auto_accept'] = auto_accept
-
         __props__['policy'] = policy
-
         __props__['private_dns_enabled'] = private_dns_enabled
-
         __props__['route_table_ids'] = route_table_ids
-
         __props__['security_group_ids'] = security_group_ids
-
         if service_name is None:
             raise TypeError("Missing required property 'service_name'")
         __props__['service_name'] = service_name
-
         __props__['subnet_ids'] = subnet_ids
-
         __props__['tags'] = tags
-
         __props__['vpc_endpoint_type'] = vpc_endpoint_type
-
         if vpc_id is None:
             raise TypeError("Missing required property 'vpc_id'")
         __props__['vpc_id'] = vpc_id
-
         __props__['cidr_blocks'] = None
         __props__['dns_entries'] = None
         __props__['network_interface_ids'] = None
@@ -161,7 +147,6 @@ class VpcEndpoint(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

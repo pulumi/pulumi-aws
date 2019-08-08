@@ -54,27 +54,17 @@ class SmsPreferences(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['default_sender_id'] = default_sender_id
-
         __props__['default_sms_type'] = default_sms_type
-
         __props__['delivery_status_iam_role_arn'] = delivery_status_iam_role_arn
-
         __props__['delivery_status_success_sampling_rate'] = delivery_status_success_sampling_rate
-
         __props__['monthly_spend_limit'] = monthly_spend_limit
-
         __props__['usage_report_s3_bucket'] = usage_report_s3_bucket
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -84,7 +74,6 @@ class SmsPreferences(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

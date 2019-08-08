@@ -80,31 +80,19 @@ class TransitGateway(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['amazon_side_asn'] = amazon_side_asn
-
         __props__['auto_accept_shared_attachments'] = auto_accept_shared_attachments
-
         __props__['default_route_table_association'] = default_route_table_association
-
         __props__['default_route_table_propagation'] = default_route_table_propagation
-
         __props__['description'] = description
-
         __props__['dns_support'] = dns_support
-
         __props__['tags'] = tags
-
         __props__['vpn_ecmp_support'] = vpn_ecmp_support
-
         __props__['arn'] = None
         __props__['association_default_route_table_id'] = None
         __props__['owner_id'] = None
@@ -119,7 +107,6 @@ class TransitGateway(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

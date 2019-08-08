@@ -80,43 +80,29 @@ class Method(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['api_key_required'] = api_key_required
-
         if authorization is None:
             raise TypeError("Missing required property 'authorization'")
         __props__['authorization'] = authorization
-
         __props__['authorization_scopes'] = authorization_scopes
-
         __props__['authorizer_id'] = authorizer_id
-
         if http_method is None:
             raise TypeError("Missing required property 'http_method'")
         __props__['http_method'] = http_method
-
         __props__['request_models'] = request_models
-
         __props__['request_parameters'] = request_parameters
-
         __props__['request_validator_id'] = request_validator_id
-
         if resource_id is None:
             raise TypeError("Missing required property 'resource_id'")
         __props__['resource_id'] = resource_id
-
         if rest_api is None:
             raise TypeError("Missing required property 'rest_api'")
         __props__['rest_api'] = rest_api
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -126,7 +112,6 @@ class Method(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

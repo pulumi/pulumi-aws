@@ -101,51 +101,32 @@ class DeploymentGroup(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['alarm_configuration'] = alarm_configuration
-
         if app_name is None:
             raise TypeError("Missing required property 'app_name'")
         __props__['app_name'] = app_name
-
         __props__['auto_rollback_configuration'] = auto_rollback_configuration
-
         __props__['autoscaling_groups'] = autoscaling_groups
-
         __props__['blue_green_deployment_config'] = blue_green_deployment_config
-
         __props__['deployment_config_name'] = deployment_config_name
-
         if deployment_group_name is None:
             raise TypeError("Missing required property 'deployment_group_name'")
         __props__['deployment_group_name'] = deployment_group_name
-
         __props__['deployment_style'] = deployment_style
-
         __props__['ec2_tag_filters'] = ec2_tag_filters
-
         __props__['ec2_tag_sets'] = ec2_tag_sets
-
         __props__['ecs_service'] = ecs_service
-
         __props__['load_balancer_info'] = load_balancer_info
-
         __props__['on_premises_instance_tag_filters'] = on_premises_instance_tag_filters
-
         if service_role_arn is None:
             raise TypeError("Missing required property 'service_role_arn'")
         __props__['service_role_arn'] = service_role_arn
-
         __props__['trigger_configurations'] = trigger_configurations
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -155,7 +136,6 @@ class DeploymentGroup(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

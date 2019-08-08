@@ -192,59 +192,34 @@ class Service(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['cluster'] = cluster
-
         __props__['deployment_controller'] = deployment_controller
-
         __props__['deployment_maximum_percent'] = deployment_maximum_percent
-
         __props__['deployment_minimum_healthy_percent'] = deployment_minimum_healthy_percent
-
         __props__['desired_count'] = desired_count
-
         __props__['enable_ecs_managed_tags'] = enable_ecs_managed_tags
-
         __props__['health_check_grace_period_seconds'] = health_check_grace_period_seconds
-
         __props__['iam_role'] = iam_role
-
         __props__['launch_type'] = launch_type
-
         __props__['load_balancers'] = load_balancers
-
         __props__['name'] = name
-
         __props__['network_configuration'] = network_configuration
-
         __props__['ordered_placement_strategies'] = ordered_placement_strategies
-
         __props__['placement_constraints'] = placement_constraints
-
         __props__['platform_version'] = platform_version
-
         __props__['propagate_tags'] = propagate_tags
-
         __props__['scheduling_strategy'] = scheduling_strategy
-
         __props__['service_registries'] = service_registries
-
         __props__['tags'] = tags
-
         if task_definition is None:
             raise TypeError("Missing required property 'task_definition'")
         __props__['task_definition'] = task_definition
-
         __props__['wait_for_steady_state'] = wait_for_steady_state
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -254,7 +229,6 @@ class Service(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

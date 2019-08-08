@@ -70,10 +70,6 @@ class BgpPeer(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -82,21 +78,15 @@ class BgpPeer(pulumi.CustomResource):
         if address_family is None:
             raise TypeError("Missing required property 'address_family'")
         __props__['address_family'] = address_family
-
         __props__['amazon_address'] = amazon_address
-
         if bgp_asn is None:
             raise TypeError("Missing required property 'bgp_asn'")
         __props__['bgp_asn'] = bgp_asn
-
         __props__['bgp_auth_key'] = bgp_auth_key
-
         __props__['customer_address'] = customer_address
-
         if virtual_interface_id is None:
             raise TypeError("Missing required property 'virtual_interface_id'")
         __props__['virtual_interface_id'] = virtual_interface_id
-
         __props__['aws_device'] = None
         __props__['bgp_peer_id'] = None
         __props__['bgp_status'] = None
@@ -110,7 +100,6 @@ class BgpPeer(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

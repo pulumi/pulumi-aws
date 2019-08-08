@@ -99,47 +99,32 @@ class SecurityGroupRule(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['cidr_blocks'] = cidr_blocks
-
         __props__['description'] = description
-
         if from_port is None:
             raise TypeError("Missing required property 'from_port'")
         __props__['from_port'] = from_port
-
         __props__['ipv6_cidr_blocks'] = ipv6_cidr_blocks
-
         __props__['prefix_list_ids'] = prefix_list_ids
-
         if protocol is None:
             raise TypeError("Missing required property 'protocol'")
         __props__['protocol'] = protocol
-
         if security_group_id is None:
             raise TypeError("Missing required property 'security_group_id'")
         __props__['security_group_id'] = security_group_id
-
         __props__['self'] = self
-
         __props__['source_security_group_id'] = source_security_group_id
-
         if to_port is None:
             raise TypeError("Missing required property 'to_port'")
         __props__['to_port'] = to_port
-
         if type is None:
             raise TypeError("Missing required property 'type'")
         __props__['type'] = type
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -149,7 +134,6 @@ class SecurityGroupRule(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

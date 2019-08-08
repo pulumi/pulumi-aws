@@ -88,37 +88,25 @@ class Policy(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['alarms'] = alarms
-
         __props__['name'] = name
-
         __props__['policy_type'] = policy_type
-
         if resource_id is None:
             raise TypeError("Missing required property 'resource_id'")
         __props__['resource_id'] = resource_id
-
         if scalable_dimension is None:
             raise TypeError("Missing required property 'scalable_dimension'")
         __props__['scalable_dimension'] = scalable_dimension
-
         if service_namespace is None:
             raise TypeError("Missing required property 'service_namespace'")
         __props__['service_namespace'] = service_namespace
-
         __props__['step_scaling_policy_configuration'] = step_scaling_policy_configuration
-
         __props__['target_tracking_scaling_policy_configuration'] = target_tracking_scaling_policy_configuration
-
         __props__['arn'] = None
 
         if opts is None:
@@ -130,7 +118,6 @@ class Policy(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

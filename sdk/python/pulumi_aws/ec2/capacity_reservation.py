@@ -79,10 +79,6 @@ class CapacityReservation(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -91,33 +87,22 @@ class CapacityReservation(pulumi.CustomResource):
         if availability_zone is None:
             raise TypeError("Missing required property 'availability_zone'")
         __props__['availability_zone'] = availability_zone
-
         __props__['ebs_optimized'] = ebs_optimized
-
         __props__['end_date'] = end_date
-
         __props__['end_date_type'] = end_date_type
-
         __props__['ephemeral_storage'] = ephemeral_storage
-
         if instance_count is None:
             raise TypeError("Missing required property 'instance_count'")
         __props__['instance_count'] = instance_count
-
         __props__['instance_match_criteria'] = instance_match_criteria
-
         if instance_platform is None:
             raise TypeError("Missing required property 'instance_platform'")
         __props__['instance_platform'] = instance_platform
-
         if instance_type is None:
             raise TypeError("Missing required property 'instance_type'")
         __props__['instance_type'] = instance_type
-
         __props__['tags'] = tags
-
         __props__['tenancy'] = tenancy
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -127,7 +112,6 @@ class CapacityReservation(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

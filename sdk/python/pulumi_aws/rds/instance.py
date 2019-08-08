@@ -479,115 +479,62 @@ class Instance(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['allocated_storage'] = allocated_storage
-
         __props__['allow_major_version_upgrade'] = allow_major_version_upgrade
-
         __props__['apply_immediately'] = apply_immediately
-
         __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
-
         __props__['availability_zone'] = availability_zone
-
         __props__['backup_retention_period'] = backup_retention_period
-
         __props__['backup_window'] = backup_window
-
         __props__['character_set_name'] = character_set_name
-
         __props__['copy_tags_to_snapshot'] = copy_tags_to_snapshot
-
         __props__['db_subnet_group_name'] = db_subnet_group_name
-
         __props__['deletion_protection'] = deletion_protection
-
         __props__['domain'] = domain
-
         __props__['domain_iam_role_name'] = domain_iam_role_name
-
         __props__['enabled_cloudwatch_logs_exports'] = enabled_cloudwatch_logs_exports
-
         __props__['engine'] = engine
-
         __props__['engine_version'] = engine_version
-
         __props__['final_snapshot_identifier'] = final_snapshot_identifier
-
         __props__['iam_database_authentication_enabled'] = iam_database_authentication_enabled
-
         __props__['identifier'] = identifier
-
         __props__['identifier_prefix'] = identifier_prefix
-
         if instance_class is None:
             raise TypeError("Missing required property 'instance_class'")
         __props__['instance_class'] = instance_class
-
         __props__['iops'] = iops
-
         __props__['kms_key_id'] = kms_key_id
-
         __props__['license_model'] = license_model
-
         __props__['maintenance_window'] = maintenance_window
-
         __props__['max_allocated_storage'] = max_allocated_storage
-
         __props__['monitoring_interval'] = monitoring_interval
-
         __props__['monitoring_role_arn'] = monitoring_role_arn
-
         __props__['multi_az'] = multi_az
-
         __props__['name'] = name
-
         __props__['option_group_name'] = option_group_name
-
         __props__['parameter_group_name'] = parameter_group_name
-
         __props__['password'] = password
-
         __props__['performance_insights_enabled'] = performance_insights_enabled
-
         __props__['performance_insights_kms_key_id'] = performance_insights_kms_key_id
-
         __props__['performance_insights_retention_period'] = performance_insights_retention_period
-
         __props__['port'] = port
-
         __props__['publicly_accessible'] = publicly_accessible
-
         __props__['replicate_source_db'] = replicate_source_db
-
         __props__['s3_import'] = s3_import
-
         __props__['security_group_names'] = security_group_names
-
         __props__['skip_final_snapshot'] = skip_final_snapshot
-
         __props__['snapshot_identifier'] = snapshot_identifier
-
         __props__['storage_encrypted'] = storage_encrypted
-
         __props__['storage_type'] = storage_type
-
         __props__['tags'] = tags
-
         __props__['timezone'] = timezone
-
         __props__['username'] = username
-
         __props__['vpc_security_group_ids'] = vpc_security_group_ids
-
         __props__['address'] = None
         __props__['arn'] = None
         __props__['ca_cert_identifier'] = None
@@ -606,7 +553,6 @@ class Instance(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

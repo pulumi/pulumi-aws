@@ -74,41 +74,27 @@ class MaintenanceWindow(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['allow_unassociated_targets'] = allow_unassociated_targets
-
         if cutoff is None:
             raise TypeError("Missing required property 'cutoff'")
         __props__['cutoff'] = cutoff
-
         if duration is None:
             raise TypeError("Missing required property 'duration'")
         __props__['duration'] = duration
-
         __props__['enabled'] = enabled
-
         __props__['end_date'] = end_date
-
         __props__['name'] = name
-
         if schedule is None:
             raise TypeError("Missing required property 'schedule'")
         __props__['schedule'] = schedule
-
         __props__['schedule_timezone'] = schedule_timezone
-
         __props__['start_date'] = start_date
-
         __props__['tags'] = tags
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -118,7 +104,6 @@ class MaintenanceWindow(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

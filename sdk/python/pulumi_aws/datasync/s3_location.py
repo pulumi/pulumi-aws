@@ -49,10 +49,6 @@ class S3Location(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -61,17 +57,13 @@ class S3Location(pulumi.CustomResource):
         if s3_bucket_arn is None:
             raise TypeError("Missing required property 's3_bucket_arn'")
         __props__['s3_bucket_arn'] = s3_bucket_arn
-
         if s3_config is None:
             raise TypeError("Missing required property 's3_config'")
         __props__['s3_config'] = s3_config
-
         if subdirectory is None:
             raise TypeError("Missing required property 'subdirectory'")
         __props__['subdirectory'] = subdirectory
-
         __props__['tags'] = tags
-
         __props__['arn'] = None
         __props__['uri'] = None
 
@@ -84,7 +76,6 @@ class S3Location(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

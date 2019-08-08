@@ -84,43 +84,27 @@ class Job(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['allocated_capacity'] = allocated_capacity
-
         if command is None:
             raise TypeError("Missing required property 'command'")
         __props__['command'] = command
-
         __props__['connections'] = connections
-
         __props__['default_arguments'] = default_arguments
-
         __props__['description'] = description
-
         __props__['execution_property'] = execution_property
-
         __props__['max_capacity'] = max_capacity
-
         __props__['max_retries'] = max_retries
-
         __props__['name'] = name
-
         if role_arn is None:
             raise TypeError("Missing required property 'role_arn'")
         __props__['role_arn'] = role_arn
-
         __props__['security_configuration'] = security_configuration
-
         __props__['timeout'] = timeout
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -130,7 +114,6 @@ class Job(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

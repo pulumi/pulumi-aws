@@ -85,45 +85,30 @@ class NetworkAclRule(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['cidr_block'] = cidr_block
-
         __props__['egress'] = egress
-
         __props__['from_port'] = from_port
-
         __props__['icmp_code'] = icmp_code
-
         __props__['icmp_type'] = icmp_type
-
         __props__['ipv6_cidr_block'] = ipv6_cidr_block
-
         if network_acl_id is None:
             raise TypeError("Missing required property 'network_acl_id'")
         __props__['network_acl_id'] = network_acl_id
-
         if protocol is None:
             raise TypeError("Missing required property 'protocol'")
         __props__['protocol'] = protocol
-
         if rule_action is None:
             raise TypeError("Missing required property 'rule_action'")
         __props__['rule_action'] = rule_action
-
         if rule_number is None:
             raise TypeError("Missing required property 'rule_number'")
         __props__['rule_number'] = rule_number
-
         __props__['to_port'] = to_port
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -133,7 +118,6 @@ class NetworkAclRule(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

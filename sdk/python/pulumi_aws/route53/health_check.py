@@ -121,55 +121,32 @@ class HealthCheck(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['child_health_threshold'] = child_health_threshold
-
         __props__['child_healthchecks'] = child_healthchecks
-
         __props__['cloudwatch_alarm_name'] = cloudwatch_alarm_name
-
         __props__['cloudwatch_alarm_region'] = cloudwatch_alarm_region
-
         __props__['enable_sni'] = enable_sni
-
         __props__['failure_threshold'] = failure_threshold
-
         __props__['fqdn'] = fqdn
-
         __props__['insufficient_data_health_status'] = insufficient_data_health_status
-
         __props__['invert_healthcheck'] = invert_healthcheck
-
         __props__['ip_address'] = ip_address
-
         __props__['measure_latency'] = measure_latency
-
         __props__['port'] = port
-
         __props__['reference_name'] = reference_name
-
         __props__['regions'] = regions
-
         __props__['request_interval'] = request_interval
-
         __props__['resource_path'] = resource_path
-
         __props__['search_string'] = search_string
-
         __props__['tags'] = tags
-
         if type is None:
             raise TypeError("Missing required property 'type'")
         __props__['type'] = type
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -179,7 +156,6 @@ class HealthCheck(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

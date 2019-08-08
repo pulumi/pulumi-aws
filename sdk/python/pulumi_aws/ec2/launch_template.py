@@ -189,69 +189,38 @@ class LaunchTemplate(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['block_device_mappings'] = block_device_mappings
-
         __props__['capacity_reservation_specification'] = capacity_reservation_specification
-
         __props__['credit_specification'] = credit_specification
-
         __props__['description'] = description
-
         __props__['disable_api_termination'] = disable_api_termination
-
         __props__['ebs_optimized'] = ebs_optimized
-
         __props__['elastic_gpu_specifications'] = elastic_gpu_specifications
-
         __props__['elastic_inference_accelerator'] = elastic_inference_accelerator
-
         __props__['iam_instance_profile'] = iam_instance_profile
-
         __props__['image_id'] = image_id
-
         __props__['instance_initiated_shutdown_behavior'] = instance_initiated_shutdown_behavior
-
         __props__['instance_market_options'] = instance_market_options
-
         __props__['instance_type'] = instance_type
-
         __props__['kernel_id'] = kernel_id
-
         __props__['key_name'] = key_name
-
         __props__['license_specifications'] = license_specifications
-
         __props__['monitoring'] = monitoring
-
         __props__['name'] = name
-
         __props__['name_prefix'] = name_prefix
-
         __props__['network_interfaces'] = network_interfaces
-
         __props__['placement'] = placement
-
         __props__['ram_disk_id'] = ram_disk_id
-
         __props__['security_group_names'] = security_group_names
-
         __props__['tag_specifications'] = tag_specifications
-
         __props__['tags'] = tags
-
         __props__['user_data'] = user_data
-
         __props__['vpc_security_group_ids'] = vpc_security_group_ids
-
         __props__['arn'] = None
         __props__['default_version'] = None
         __props__['latest_version'] = None
@@ -265,7 +234,6 @@ class LaunchTemplate(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

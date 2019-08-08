@@ -75,39 +75,27 @@ class IntegrationResponse(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['content_handling'] = content_handling
-
         if http_method is None:
             raise TypeError("Missing required property 'http_method'")
         __props__['http_method'] = http_method
-
         if resource_id is None:
             raise TypeError("Missing required property 'resource_id'")
         __props__['resource_id'] = resource_id
-
         __props__['response_parameters'] = response_parameters
-
         __props__['response_templates'] = response_templates
-
         if rest_api is None:
             raise TypeError("Missing required property 'rest_api'")
         __props__['rest_api'] = rest_api
-
         __props__['selection_pattern'] = selection_pattern
-
         if status_code is None:
             raise TypeError("Missing required property 'status_code'")
         __props__['status_code'] = status_code
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -117,7 +105,6 @@ class IntegrationResponse(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

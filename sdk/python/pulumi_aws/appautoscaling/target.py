@@ -56,10 +56,6 @@ class Target(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -68,25 +64,19 @@ class Target(pulumi.CustomResource):
         if max_capacity is None:
             raise TypeError("Missing required property 'max_capacity'")
         __props__['max_capacity'] = max_capacity
-
         if min_capacity is None:
             raise TypeError("Missing required property 'min_capacity'")
         __props__['min_capacity'] = min_capacity
-
         if resource_id is None:
             raise TypeError("Missing required property 'resource_id'")
         __props__['resource_id'] = resource_id
-
         __props__['role_arn'] = role_arn
-
         if scalable_dimension is None:
             raise TypeError("Missing required property 'scalable_dimension'")
         __props__['scalable_dimension'] = scalable_dimension
-
         if service_namespace is None:
             raise TypeError("Missing required property 'service_namespace'")
         __props__['service_namespace'] = service_namespace
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -96,7 +86,6 @@ class Target(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

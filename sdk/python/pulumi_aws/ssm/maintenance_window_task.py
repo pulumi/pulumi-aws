@@ -89,55 +89,38 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['description'] = description
-
         __props__['logging_info'] = logging_info
-
         if max_concurrency is None:
             raise TypeError("Missing required property 'max_concurrency'")
         __props__['max_concurrency'] = max_concurrency
-
         if max_errors is None:
             raise TypeError("Missing required property 'max_errors'")
         __props__['max_errors'] = max_errors
-
         __props__['name'] = name
-
         __props__['priority'] = priority
-
         if service_role_arn is None:
             raise TypeError("Missing required property 'service_role_arn'")
         __props__['service_role_arn'] = service_role_arn
-
         if targets is None:
             raise TypeError("Missing required property 'targets'")
         __props__['targets'] = targets
-
         if task_arn is None:
             raise TypeError("Missing required property 'task_arn'")
         __props__['task_arn'] = task_arn
-
         __props__['task_invocation_parameters'] = task_invocation_parameters
-
         __props__['task_parameters'] = task_parameters
-
         if task_type is None:
             raise TypeError("Missing required property 'task_type'")
         __props__['task_type'] = task_type
-
         if window_id is None:
             raise TypeError("Missing required property 'window_id'")
         __props__['window_id'] = window_id
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -147,7 +130,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

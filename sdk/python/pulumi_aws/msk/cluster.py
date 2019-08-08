@@ -90,10 +90,6 @@ class Cluster(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -102,29 +98,20 @@ class Cluster(pulumi.CustomResource):
         if broker_node_group_info is None:
             raise TypeError("Missing required property 'broker_node_group_info'")
         __props__['broker_node_group_info'] = broker_node_group_info
-
         __props__['client_authentication'] = client_authentication
-
         if cluster_name is None:
             raise TypeError("Missing required property 'cluster_name'")
         __props__['cluster_name'] = cluster_name
-
         __props__['configuration_info'] = configuration_info
-
         __props__['encryption_info'] = encryption_info
-
         __props__['enhanced_monitoring'] = enhanced_monitoring
-
         if kafka_version is None:
             raise TypeError("Missing required property 'kafka_version'")
         __props__['kafka_version'] = kafka_version
-
         if number_of_broker_nodes is None:
             raise TypeError("Missing required property 'number_of_broker_nodes'")
         __props__['number_of_broker_nodes'] = number_of_broker_nodes
-
         __props__['tags'] = tags
-
         __props__['arn'] = None
         __props__['bootstrap_brokers'] = None
         __props__['bootstrap_brokers_tls'] = None
@@ -140,7 +127,6 @@ class Cluster(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

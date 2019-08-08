@@ -166,59 +166,33 @@ class Cluster(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['apply_immediately'] = apply_immediately
-
         __props__['availability_zones'] = availability_zones
-
         __props__['backup_retention_period'] = backup_retention_period
-
         __props__['cluster_identifier'] = cluster_identifier
-
         __props__['cluster_identifier_prefix'] = cluster_identifier_prefix
-
         __props__['engine'] = engine
-
         __props__['engine_version'] = engine_version
-
         __props__['final_snapshot_identifier'] = final_snapshot_identifier
-
         __props__['iam_database_authentication_enabled'] = iam_database_authentication_enabled
-
         __props__['iam_roles'] = iam_roles
-
         __props__['kms_key_arn'] = kms_key_arn
-
         __props__['neptune_cluster_parameter_group_name'] = neptune_cluster_parameter_group_name
-
         __props__['neptune_subnet_group_name'] = neptune_subnet_group_name
-
         __props__['port'] = port
-
         __props__['preferred_backup_window'] = preferred_backup_window
-
         __props__['preferred_maintenance_window'] = preferred_maintenance_window
-
         __props__['replication_source_identifier'] = replication_source_identifier
-
         __props__['skip_final_snapshot'] = skip_final_snapshot
-
         __props__['snapshot_identifier'] = snapshot_identifier
-
         __props__['storage_encrypted'] = storage_encrypted
-
         __props__['tags'] = tags
-
         __props__['vpc_security_group_ids'] = vpc_security_group_ids
-
         __props__['arn'] = None
         __props__['cluster_members'] = None
         __props__['cluster_resource_id'] = None
@@ -235,7 +209,6 @@ class Cluster(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -54,35 +54,25 @@ class IdentityProvider(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['attribute_mapping'] = attribute_mapping
-
         __props__['idp_identifiers'] = idp_identifiers
-
         if provider_details is None:
             raise TypeError("Missing required property 'provider_details'")
         __props__['provider_details'] = provider_details
-
         if provider_name is None:
             raise TypeError("Missing required property 'provider_name'")
         __props__['provider_name'] = provider_name
-
         if provider_type is None:
             raise TypeError("Missing required property 'provider_type'")
         __props__['provider_type'] = provider_type
-
         if user_pool_id is None:
             raise TypeError("Missing required property 'user_pool_id'")
         __props__['user_pool_id'] = user_pool_id
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -92,7 +82,6 @@ class IdentityProvider(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

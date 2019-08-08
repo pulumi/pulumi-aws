@@ -150,65 +150,39 @@ class Stack(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['agent_version'] = agent_version
-
         __props__['berkshelf_version'] = berkshelf_version
-
         __props__['color'] = color
-
         __props__['configuration_manager_name'] = configuration_manager_name
-
         __props__['configuration_manager_version'] = configuration_manager_version
-
         __props__['custom_cookbooks_sources'] = custom_cookbooks_sources
-
         __props__['custom_json'] = custom_json
-
         __props__['default_availability_zone'] = default_availability_zone
-
         if default_instance_profile_arn is None:
             raise TypeError("Missing required property 'default_instance_profile_arn'")
         __props__['default_instance_profile_arn'] = default_instance_profile_arn
-
         __props__['default_os'] = default_os
-
         __props__['default_root_device_type'] = default_root_device_type
-
         __props__['default_ssh_key_name'] = default_ssh_key_name
-
         __props__['default_subnet_id'] = default_subnet_id
-
         __props__['hostname_theme'] = hostname_theme
-
         __props__['manage_berkshelf'] = manage_berkshelf
-
         __props__['name'] = name
-
         if region is None:
             raise TypeError("Missing required property 'region'")
         __props__['region'] = region
-
         if service_role_arn is None:
             raise TypeError("Missing required property 'service_role_arn'")
         __props__['service_role_arn'] = service_role_arn
-
         __props__['tags'] = tags
-
         __props__['use_custom_cookbooks'] = use_custom_cookbooks
-
         __props__['use_opsworks_security_groups'] = use_opsworks_security_groups
-
         __props__['vpc_id'] = vpc_id
-
         __props__['arn'] = None
         __props__['stack_endpoint'] = None
 
@@ -221,7 +195,6 @@ class Stack(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

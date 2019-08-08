@@ -79,37 +79,25 @@ class TopicSubscription(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['confirmation_timeout_in_minutes'] = confirmation_timeout_in_minutes
-
         __props__['delivery_policy'] = delivery_policy
-
         if endpoint is None:
             raise TypeError("Missing required property 'endpoint'")
         __props__['endpoint'] = endpoint
-
         __props__['endpoint_auto_confirms'] = endpoint_auto_confirms
-
         __props__['filter_policy'] = filter_policy
-
         if protocol is None:
             raise TypeError("Missing required property 'protocol'")
         __props__['protocol'] = protocol
-
         __props__['raw_message_delivery'] = raw_message_delivery
-
         if topic is None:
             raise TypeError("Missing required property 'topic'")
         __props__['topic'] = topic
-
         __props__['arn'] = None
 
         if opts is None:
@@ -121,7 +109,6 @@ class TopicSubscription(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

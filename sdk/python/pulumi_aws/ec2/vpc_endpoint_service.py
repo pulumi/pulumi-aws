@@ -79,10 +79,6 @@ class VpcEndpointService(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -91,15 +87,11 @@ class VpcEndpointService(pulumi.CustomResource):
         if acceptance_required is None:
             raise TypeError("Missing required property 'acceptance_required'")
         __props__['acceptance_required'] = acceptance_required
-
         __props__['allowed_principals'] = allowed_principals
-
         if network_load_balancer_arns is None:
             raise TypeError("Missing required property 'network_load_balancer_arns'")
         __props__['network_load_balancer_arns'] = network_load_balancer_arns
-
         __props__['tags'] = tags
-
         __props__['availability_zones'] = None
         __props__['base_endpoint_dns_names'] = None
         __props__['manages_vpc_endpoints'] = None
@@ -117,7 +109,6 @@ class VpcEndpointService(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

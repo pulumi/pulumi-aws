@@ -54,10 +54,6 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -66,21 +62,15 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         if destination_arn is None:
             raise TypeError("Missing required property 'destination_arn'")
         __props__['destination_arn'] = destination_arn
-
         __props__['distribution'] = distribution
-
         if filter_pattern is None:
             raise TypeError("Missing required property 'filter_pattern'")
         __props__['filter_pattern'] = filter_pattern
-
         if log_group is None:
             raise TypeError("Missing required property 'log_group'")
         __props__['log_group'] = log_group
-
         __props__['name'] = name
-
         __props__['role_arn'] = role_arn
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -90,7 +80,6 @@ class LogSubscriptionFilter(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

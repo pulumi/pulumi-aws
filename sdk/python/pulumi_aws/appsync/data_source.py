@@ -73,10 +73,6 @@ class DataSource(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -85,25 +81,16 @@ class DataSource(pulumi.CustomResource):
         if api_id is None:
             raise TypeError("Missing required property 'api_id'")
         __props__['api_id'] = api_id
-
         __props__['description'] = description
-
         __props__['dynamodb_config'] = dynamodb_config
-
         __props__['elasticsearch_config'] = elasticsearch_config
-
         __props__['http_config'] = http_config
-
         __props__['lambda_config'] = lambda_config
-
         __props__['name'] = name
-
         __props__['service_role_arn'] = service_role_arn
-
         if type is None:
             raise TypeError("Missing required property 'type'")
         __props__['type'] = type
-
         __props__['arn'] = None
 
         if opts is None:
@@ -115,7 +102,6 @@ class DataSource(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

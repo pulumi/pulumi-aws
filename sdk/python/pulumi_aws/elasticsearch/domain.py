@@ -109,41 +109,24 @@ class Domain(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['access_policies'] = access_policies
-
         __props__['advanced_options'] = advanced_options
-
         __props__['cluster_config'] = cluster_config
-
         __props__['cognito_options'] = cognito_options
-
         __props__['domain_name'] = domain_name
-
         __props__['ebs_options'] = ebs_options
-
         __props__['elasticsearch_version'] = elasticsearch_version
-
         __props__['encrypt_at_rest'] = encrypt_at_rest
-
         __props__['log_publishing_options'] = log_publishing_options
-
         __props__['node_to_node_encryption'] = node_to_node_encryption
-
         __props__['snapshot_options'] = snapshot_options
-
         __props__['tags'] = tags
-
         __props__['vpc_options'] = vpc_options
-
         __props__['arn'] = None
         __props__['domain_id'] = None
         __props__['endpoint'] = None
@@ -158,7 +141,6 @@ class Domain(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

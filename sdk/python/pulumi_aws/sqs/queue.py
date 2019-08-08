@@ -98,43 +98,25 @@ class Queue(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['content_based_deduplication'] = content_based_deduplication
-
         __props__['delay_seconds'] = delay_seconds
-
         __props__['fifo_queue'] = fifo_queue
-
         __props__['kms_data_key_reuse_period_seconds'] = kms_data_key_reuse_period_seconds
-
         __props__['kms_master_key_id'] = kms_master_key_id
-
         __props__['max_message_size'] = max_message_size
-
         __props__['message_retention_seconds'] = message_retention_seconds
-
         __props__['name'] = name
-
         __props__['name_prefix'] = name_prefix
-
         __props__['policy'] = policy
-
         __props__['receive_wait_time_seconds'] = receive_wait_time_seconds
-
         __props__['redrive_policy'] = redrive_policy
-
         __props__['tags'] = tags
-
         __props__['visibility_timeout_seconds'] = visibility_timeout_seconds
-
         __props__['arn'] = None
 
         if opts is None:
@@ -146,7 +128,6 @@ class Queue(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

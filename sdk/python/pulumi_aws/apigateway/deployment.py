@@ -67,27 +67,18 @@ class Deployment(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['description'] = description
-
         if rest_api is None:
             raise TypeError("Missing required property 'rest_api'")
         __props__['rest_api'] = rest_api
-
         __props__['stage_description'] = stage_description
-
         __props__['stage_name'] = stage_name
-
         __props__['variables'] = variables
-
         __props__['created_date'] = None
         __props__['execution_arn'] = None
         __props__['invoke_url'] = None
@@ -101,7 +92,6 @@ class Deployment(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

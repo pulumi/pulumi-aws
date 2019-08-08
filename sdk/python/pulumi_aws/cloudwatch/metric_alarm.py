@@ -149,63 +149,38 @@ class MetricAlarm(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['actions_enabled'] = actions_enabled
-
         __props__['alarm_actions'] = alarm_actions
-
         __props__['alarm_description'] = alarm_description
-
         __props__['name'] = name
-
         if comparison_operator is None:
             raise TypeError("Missing required property 'comparison_operator'")
         __props__['comparison_operator'] = comparison_operator
-
         __props__['datapoints_to_alarm'] = datapoints_to_alarm
-
         __props__['dimensions'] = dimensions
-
         __props__['evaluate_low_sample_count_percentiles'] = evaluate_low_sample_count_percentiles
-
         if evaluation_periods is None:
             raise TypeError("Missing required property 'evaluation_periods'")
         __props__['evaluation_periods'] = evaluation_periods
-
         __props__['extended_statistic'] = extended_statistic
-
         __props__['insufficient_data_actions'] = insufficient_data_actions
-
         __props__['metric_name'] = metric_name
-
         __props__['metric_queries'] = metric_queries
-
         __props__['namespace'] = namespace
-
         __props__['ok_actions'] = ok_actions
-
         __props__['period'] = period
-
         __props__['statistic'] = statistic
-
         __props__['tags'] = tags
-
         if threshold is None:
             raise TypeError("Missing required property 'threshold'")
         __props__['threshold'] = threshold
-
         __props__['treat_missing_data'] = treat_missing_data
-
         __props__['unit'] = unit
-
         __props__['arn'] = None
 
         if opts is None:
@@ -217,7 +192,6 @@ class MetricAlarm(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

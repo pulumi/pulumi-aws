@@ -274,73 +274,42 @@ class Cluster(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['additional_info'] = additional_info
-
         __props__['applications'] = applications
-
         __props__['autoscaling_role'] = autoscaling_role
-
         __props__['bootstrap_actions'] = bootstrap_actions
-
         __props__['configurations'] = configurations
-
         __props__['configurations_json'] = configurations_json
-
         __props__['core_instance_count'] = core_instance_count
-
         __props__['core_instance_group'] = core_instance_group
-
         __props__['core_instance_type'] = core_instance_type
-
         __props__['custom_ami_id'] = custom_ami_id
-
         __props__['ebs_root_volume_size'] = ebs_root_volume_size
-
         __props__['ec2_attributes'] = ec2_attributes
-
         __props__['instance_groups'] = instance_groups
-
         __props__['keep_job_flow_alive_when_no_steps'] = keep_job_flow_alive_when_no_steps
-
         __props__['kerberos_attributes'] = kerberos_attributes
-
         __props__['log_uri'] = log_uri
-
         __props__['master_instance_group'] = master_instance_group
-
         __props__['master_instance_type'] = master_instance_type
-
         __props__['name'] = name
-
         if release_label is None:
             raise TypeError("Missing required property 'release_label'")
         __props__['release_label'] = release_label
-
         __props__['scale_down_behavior'] = scale_down_behavior
-
         __props__['security_configuration'] = security_configuration
-
         if service_role is None:
             raise TypeError("Missing required property 'service_role'")
         __props__['service_role'] = service_role
-
         __props__['steps'] = steps
-
         __props__['tags'] = tags
-
         __props__['termination_protection'] = termination_protection
-
         __props__['visible_to_all_users'] = visible_to_all_users
-
         __props__['cluster_state'] = None
         __props__['master_public_dns'] = None
 
@@ -353,7 +322,6 @@ class Cluster(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

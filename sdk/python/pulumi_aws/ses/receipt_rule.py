@@ -94,45 +94,27 @@ class ReceiptRule(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['add_header_actions'] = add_header_actions
-
         __props__['after'] = after
-
         __props__['bounce_actions'] = bounce_actions
-
         __props__['enabled'] = enabled
-
         __props__['lambda_actions'] = lambda_actions
-
         __props__['name'] = name
-
         __props__['recipients'] = recipients
-
         if rule_set_name is None:
             raise TypeError("Missing required property 'rule_set_name'")
         __props__['rule_set_name'] = rule_set_name
-
         __props__['s3_actions'] = s3_actions
-
         __props__['scan_enabled'] = scan_enabled
-
         __props__['sns_actions'] = sns_actions
-
         __props__['stop_actions'] = stop_actions
-
         __props__['tls_policy'] = tls_policy
-
         __props__['workmail_actions'] = workmail_actions
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -142,7 +124,6 @@ class ReceiptRule(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

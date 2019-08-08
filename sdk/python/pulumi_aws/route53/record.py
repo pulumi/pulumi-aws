@@ -100,47 +100,29 @@ class Record(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['aliases'] = aliases
-
         __props__['allow_overwrite'] = allow_overwrite
-
         __props__['failover_routing_policies'] = failover_routing_policies
-
         __props__['geolocation_routing_policies'] = geolocation_routing_policies
-
         __props__['health_check_id'] = health_check_id
-
         __props__['latency_routing_policies'] = latency_routing_policies
-
         __props__['multivalue_answer_routing_policy'] = multivalue_answer_routing_policy
-
         __props__['name'] = name
-
         __props__['records'] = records
-
         __props__['set_identifier'] = set_identifier
-
         __props__['ttl'] = ttl
-
         if type is None:
             raise TypeError("Missing required property 'type'")
         __props__['type'] = type
-
         __props__['weighted_routing_policies'] = weighted_routing_policies
-
         if zone_id is None:
             raise TypeError("Missing required property 'zone_id'")
         __props__['zone_id'] = zone_id
-
         __props__['fqdn'] = None
 
         if opts is None:
@@ -152,7 +134,6 @@ class Record(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

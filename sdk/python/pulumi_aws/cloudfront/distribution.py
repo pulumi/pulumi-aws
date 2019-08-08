@@ -225,63 +225,40 @@ class Distribution(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['aliases'] = aliases
-
         __props__['comment'] = comment
-
         __props__['custom_error_responses'] = custom_error_responses
-
         if default_cache_behavior is None:
             raise TypeError("Missing required property 'default_cache_behavior'")
         __props__['default_cache_behavior'] = default_cache_behavior
-
         __props__['default_root_object'] = default_root_object
-
         if enabled is None:
             raise TypeError("Missing required property 'enabled'")
         __props__['enabled'] = enabled
-
         __props__['http_version'] = http_version
-
         __props__['is_ipv6_enabled'] = is_ipv6_enabled
-
         __props__['logging_config'] = logging_config
-
         __props__['ordered_cache_behaviors'] = ordered_cache_behaviors
-
         if origins is None:
             raise TypeError("Missing required property 'origins'")
         __props__['origins'] = origins
-
         __props__['origin_groups'] = origin_groups
-
         __props__['price_class'] = price_class
-
         if restrictions is None:
             raise TypeError("Missing required property 'restrictions'")
         __props__['restrictions'] = restrictions
-
         __props__['retain_on_delete'] = retain_on_delete
-
         __props__['tags'] = tags
-
         if viewer_certificate is None:
             raise TypeError("Missing required property 'viewer_certificate'")
         __props__['viewer_certificate'] = viewer_certificate
-
         __props__['wait_for_deployment'] = wait_for_deployment
-
         __props__['web_acl_id'] = web_acl_id
-
         __props__['active_trusted_signers'] = None
         __props__['arn'] = None
         __props__['caller_reference'] = None
@@ -301,7 +278,6 @@ class Distribution(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

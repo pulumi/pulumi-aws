@@ -106,47 +106,29 @@ class ReplicationInstance(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['allocated_storage'] = allocated_storage
-
         __props__['apply_immediately'] = apply_immediately
-
         __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
-
         __props__['availability_zone'] = availability_zone
-
         __props__['engine_version'] = engine_version
-
         __props__['kms_key_arn'] = kms_key_arn
-
         __props__['multi_az'] = multi_az
-
         __props__['preferred_maintenance_window'] = preferred_maintenance_window
-
         __props__['publicly_accessible'] = publicly_accessible
-
         if replication_instance_class is None:
             raise TypeError("Missing required property 'replication_instance_class'")
         __props__['replication_instance_class'] = replication_instance_class
-
         if replication_instance_id is None:
             raise TypeError("Missing required property 'replication_instance_id'")
         __props__['replication_instance_id'] = replication_instance_id
-
         __props__['replication_subnet_group_id'] = replication_subnet_group_id
-
         __props__['tags'] = tags
-
         __props__['vpc_security_group_ids'] = vpc_security_group_ids
-
         __props__['replication_instance_arn'] = None
         __props__['replication_instance_private_ips'] = None
         __props__['replication_instance_public_ips'] = None
@@ -160,7 +142,6 @@ class ReplicationInstance(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

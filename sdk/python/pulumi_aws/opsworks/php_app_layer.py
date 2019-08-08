@@ -104,57 +104,33 @@ class PhpAppLayer(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['auto_assign_elastic_ips'] = auto_assign_elastic_ips
-
         __props__['auto_assign_public_ips'] = auto_assign_public_ips
-
         __props__['auto_healing'] = auto_healing
-
         __props__['custom_configure_recipes'] = custom_configure_recipes
-
         __props__['custom_deploy_recipes'] = custom_deploy_recipes
-
         __props__['custom_instance_profile_arn'] = custom_instance_profile_arn
-
         __props__['custom_json'] = custom_json
-
         __props__['custom_security_group_ids'] = custom_security_group_ids
-
         __props__['custom_setup_recipes'] = custom_setup_recipes
-
         __props__['custom_shutdown_recipes'] = custom_shutdown_recipes
-
         __props__['custom_undeploy_recipes'] = custom_undeploy_recipes
-
         __props__['drain_elb_on_shutdown'] = drain_elb_on_shutdown
-
         __props__['ebs_volumes'] = ebs_volumes
-
         __props__['elastic_load_balancer'] = elastic_load_balancer
-
         __props__['install_updates_on_boot'] = install_updates_on_boot
-
         __props__['instance_shutdown_timeout'] = instance_shutdown_timeout
-
         __props__['name'] = name
-
         if stack_id is None:
             raise TypeError("Missing required property 'stack_id'")
         __props__['stack_id'] = stack_id
-
         __props__['system_packages'] = system_packages
-
         __props__['use_ebs_optimized_instances'] = use_ebs_optimized_instances
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -164,7 +140,6 @@ class PhpAppLayer(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

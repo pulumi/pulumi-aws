@@ -78,10 +78,6 @@ class Cluster(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -90,15 +86,11 @@ class Cluster(pulumi.CustomResource):
         if hsm_type is None:
             raise TypeError("Missing required property 'hsm_type'")
         __props__['hsm_type'] = hsm_type
-
         __props__['source_backup_identifier'] = source_backup_identifier
-
         if subnet_ids is None:
             raise TypeError("Missing required property 'subnet_ids'")
         __props__['subnet_ids'] = subnet_ids
-
         __props__['tags'] = tags
-
         __props__['cluster_certificates'] = None
         __props__['cluster_id'] = None
         __props__['cluster_state'] = None
@@ -114,7 +106,6 @@ class Cluster(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

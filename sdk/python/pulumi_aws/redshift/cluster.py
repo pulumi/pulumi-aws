@@ -219,87 +219,49 @@ class Cluster(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['allow_version_upgrade'] = allow_version_upgrade
-
         __props__['automated_snapshot_retention_period'] = automated_snapshot_retention_period
-
         __props__['availability_zone'] = availability_zone
-
         if cluster_identifier is None:
             raise TypeError("Missing required property 'cluster_identifier'")
         __props__['cluster_identifier'] = cluster_identifier
-
         __props__['cluster_parameter_group_name'] = cluster_parameter_group_name
-
         __props__['cluster_public_key'] = cluster_public_key
-
         __props__['cluster_revision_number'] = cluster_revision_number
-
         __props__['cluster_security_groups'] = cluster_security_groups
-
         __props__['cluster_subnet_group_name'] = cluster_subnet_group_name
-
         __props__['cluster_type'] = cluster_type
-
         __props__['cluster_version'] = cluster_version
-
         __props__['database_name'] = database_name
-
         __props__['elastic_ip'] = elastic_ip
-
         __props__['encrypted'] = encrypted
-
         __props__['endpoint'] = endpoint
-
         __props__['enhanced_vpc_routing'] = enhanced_vpc_routing
-
         __props__['final_snapshot_identifier'] = final_snapshot_identifier
-
         __props__['iam_roles'] = iam_roles
-
         __props__['kms_key_id'] = kms_key_id
-
         __props__['logging'] = logging
-
         __props__['master_password'] = master_password
-
         __props__['master_username'] = master_username
-
         if node_type is None:
             raise TypeError("Missing required property 'node_type'")
         __props__['node_type'] = node_type
-
         __props__['number_of_nodes'] = number_of_nodes
-
         __props__['owner_account'] = owner_account
-
         __props__['port'] = port
-
         __props__['preferred_maintenance_window'] = preferred_maintenance_window
-
         __props__['publicly_accessible'] = publicly_accessible
-
         __props__['skip_final_snapshot'] = skip_final_snapshot
-
         __props__['snapshot_cluster_identifier'] = snapshot_cluster_identifier
-
         __props__['snapshot_copy'] = snapshot_copy
-
         __props__['snapshot_identifier'] = snapshot_identifier
-
         __props__['tags'] = tags
-
         __props__['vpc_security_group_ids'] = vpc_security_group_ids
-
         __props__['arn'] = None
         __props__['dns_name'] = None
 
@@ -312,7 +274,6 @@ class Cluster(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

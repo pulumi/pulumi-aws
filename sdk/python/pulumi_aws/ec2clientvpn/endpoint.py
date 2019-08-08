@@ -78,10 +78,6 @@ class Endpoint(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -90,29 +86,20 @@ class Endpoint(pulumi.CustomResource):
         if authentication_options is None:
             raise TypeError("Missing required property 'authentication_options'")
         __props__['authentication_options'] = authentication_options
-
         if client_cidr_block is None:
             raise TypeError("Missing required property 'client_cidr_block'")
         __props__['client_cidr_block'] = client_cidr_block
-
         if connection_log_options is None:
             raise TypeError("Missing required property 'connection_log_options'")
         __props__['connection_log_options'] = connection_log_options
-
         __props__['description'] = description
-
         __props__['dns_servers'] = dns_servers
-
         if server_certificate_arn is None:
             raise TypeError("Missing required property 'server_certificate_arn'")
         __props__['server_certificate_arn'] = server_certificate_arn
-
         __props__['split_tunnel'] = split_tunnel
-
         __props__['tags'] = tags
-
         __props__['transport_protocol'] = transport_protocol
-
         __props__['dns_name'] = None
         __props__['status'] = None
 
@@ -125,7 +112,6 @@ class Endpoint(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

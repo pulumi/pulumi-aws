@@ -73,47 +73,34 @@ class ReportDefinition(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['additional_artifacts'] = additional_artifacts
-
         if additional_schema_elements is None:
             raise TypeError("Missing required property 'additional_schema_elements'")
         __props__['additional_schema_elements'] = additional_schema_elements
-
         if compression is None:
             raise TypeError("Missing required property 'compression'")
         __props__['compression'] = compression
-
         if format is None:
             raise TypeError("Missing required property 'format'")
         __props__['format'] = format
-
         if report_name is None:
             raise TypeError("Missing required property 'report_name'")
         __props__['report_name'] = report_name
-
         if s3_bucket is None:
             raise TypeError("Missing required property 's3_bucket'")
         __props__['s3_bucket'] = s3_bucket
-
         __props__['s3_prefix'] = s3_prefix
-
         if s3_region is None:
             raise TypeError("Missing required property 's3_region'")
         __props__['s3_region'] = s3_region
-
         if time_unit is None:
             raise TypeError("Missing required property 'time_unit'")
         __props__['time_unit'] = time_unit
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -123,7 +110,6 @@ class ReportDefinition(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -127,53 +127,30 @@ class Topic(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['application_failure_feedback_role_arn'] = application_failure_feedback_role_arn
-
         __props__['application_success_feedback_role_arn'] = application_success_feedback_role_arn
-
         __props__['application_success_feedback_sample_rate'] = application_success_feedback_sample_rate
-
         __props__['delivery_policy'] = delivery_policy
-
         __props__['display_name'] = display_name
-
         __props__['http_failure_feedback_role_arn'] = http_failure_feedback_role_arn
-
         __props__['http_success_feedback_role_arn'] = http_success_feedback_role_arn
-
         __props__['http_success_feedback_sample_rate'] = http_success_feedback_sample_rate
-
         __props__['kms_master_key_id'] = kms_master_key_id
-
         __props__['lambda_failure_feedback_role_arn'] = lambda_failure_feedback_role_arn
-
         __props__['lambda_success_feedback_role_arn'] = lambda_success_feedback_role_arn
-
         __props__['lambda_success_feedback_sample_rate'] = lambda_success_feedback_sample_rate
-
         __props__['name'] = name
-
         __props__['name_prefix'] = name_prefix
-
         __props__['policy'] = policy
-
         __props__['sqs_failure_feedback_role_arn'] = sqs_failure_feedback_role_arn
-
         __props__['sqs_success_feedback_role_arn'] = sqs_success_feedback_role_arn
-
         __props__['sqs_success_feedback_sample_rate'] = sqs_success_feedback_sample_rate
-
         __props__['tags'] = tags
-
         __props__['arn'] = None
 
         if opts is None:
@@ -185,7 +162,6 @@ class Topic(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

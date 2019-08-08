@@ -81,33 +81,20 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['allow_users_to_change_password'] = allow_users_to_change_password
-
         __props__['hard_expiry'] = hard_expiry
-
         __props__['max_password_age'] = max_password_age
-
         __props__['minimum_password_length'] = minimum_password_length
-
         __props__['password_reuse_prevention'] = password_reuse_prevention
-
         __props__['require_lowercase_characters'] = require_lowercase_characters
-
         __props__['require_numbers'] = require_numbers
-
         __props__['require_symbols'] = require_symbols
-
         __props__['require_uppercase_characters'] = require_uppercase_characters
-
         __props__['expire_passwords'] = None
 
         if opts is None:
@@ -119,7 +106,6 @@ class AccountPasswordPolicy(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

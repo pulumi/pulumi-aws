@@ -39,10 +39,6 @@ class SecurityGroup(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -51,13 +47,10 @@ class SecurityGroup(pulumi.CustomResource):
         if description is None:
             description = 'Managed by Pulumi'
         __props__['description'] = description
-
         if ingress is None:
             raise TypeError("Missing required property 'ingress'")
         __props__['ingress'] = ingress
-
         __props__['name'] = name
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -67,7 +60,6 @@ class SecurityGroup(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

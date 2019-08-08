@@ -73,45 +73,32 @@ class ReplicationTask(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['cdc_start_time'] = cdc_start_time
-
         if migration_type is None:
             raise TypeError("Missing required property 'migration_type'")
         __props__['migration_type'] = migration_type
-
         if replication_instance_arn is None:
             raise TypeError("Missing required property 'replication_instance_arn'")
         __props__['replication_instance_arn'] = replication_instance_arn
-
         if replication_task_id is None:
             raise TypeError("Missing required property 'replication_task_id'")
         __props__['replication_task_id'] = replication_task_id
-
         __props__['replication_task_settings'] = replication_task_settings
-
         if source_endpoint_arn is None:
             raise TypeError("Missing required property 'source_endpoint_arn'")
         __props__['source_endpoint_arn'] = source_endpoint_arn
-
         if table_mappings is None:
             raise TypeError("Missing required property 'table_mappings'")
         __props__['table_mappings'] = table_mappings
-
         __props__['tags'] = tags
-
         if target_endpoint_arn is None:
             raise TypeError("Missing required property 'target_endpoint_arn'")
         __props__['target_endpoint_arn'] = target_endpoint_arn
-
         __props__['replication_task_arn'] = None
 
         if opts is None:
@@ -123,7 +110,6 @@ class ReplicationTask(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

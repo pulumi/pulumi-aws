@@ -44,10 +44,6 @@ class MethodSettings(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -56,19 +52,15 @@ class MethodSettings(pulumi.CustomResource):
         if method_path is None:
             raise TypeError("Missing required property 'method_path'")
         __props__['method_path'] = method_path
-
         if rest_api is None:
             raise TypeError("Missing required property 'rest_api'")
         __props__['rest_api'] = rest_api
-
         if settings is None:
             raise TypeError("Missing required property 'settings'")
         __props__['settings'] = settings
-
         if stage_name is None:
             raise TypeError("Missing required property 'stage_name'")
         __props__['stage_name'] = stage_name
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -78,7 +70,6 @@ class MethodSettings(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

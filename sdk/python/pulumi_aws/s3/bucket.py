@@ -145,57 +145,32 @@ class Bucket(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['acceleration_status'] = acceleration_status
-
         __props__['acl'] = acl
-
         __props__['arn'] = arn
-
         __props__['bucket'] = bucket
-
         __props__['bucket_prefix'] = bucket_prefix
-
         __props__['cors_rules'] = cors_rules
-
         __props__['force_destroy'] = force_destroy
-
         __props__['hosted_zone_id'] = hosted_zone_id
-
         __props__['lifecycle_rules'] = lifecycle_rules
-
         __props__['loggings'] = loggings
-
         __props__['object_lock_configuration'] = object_lock_configuration
-
         __props__['policy'] = policy
-
         __props__['region'] = region
-
         __props__['replication_configuration'] = replication_configuration
-
         __props__['request_payer'] = request_payer
-
         __props__['server_side_encryption_configuration'] = server_side_encryption_configuration
-
         __props__['tags'] = tags
-
         __props__['versioning'] = versioning
-
         __props__['website'] = website
-
         __props__['website_domain'] = website_domain
-
         __props__['website_endpoint'] = website_endpoint
-
         __props__['bucket_domain_name'] = None
         __props__['bucket_regional_domain_name'] = None
 
@@ -208,7 +183,6 @@ class Bucket(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

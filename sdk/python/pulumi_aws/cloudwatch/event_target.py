@@ -86,10 +86,6 @@ class EventTarget(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -98,31 +94,19 @@ class EventTarget(pulumi.CustomResource):
         if arn is None:
             raise TypeError("Missing required property 'arn'")
         __props__['arn'] = arn
-
         __props__['batch_target'] = batch_target
-
         __props__['ecs_target'] = ecs_target
-
         __props__['input'] = input
-
         __props__['input_path'] = input_path
-
         __props__['input_transformer'] = input_transformer
-
         __props__['kinesis_target'] = kinesis_target
-
         __props__['role_arn'] = role_arn
-
         if rule is None:
             raise TypeError("Missing required property 'rule'")
         __props__['rule'] = rule
-
         __props__['run_command_targets'] = run_command_targets
-
         __props__['sqs_target'] = sqs_target
-
         __props__['target_id'] = target_id
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -132,7 +116,6 @@ class EventTarget(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

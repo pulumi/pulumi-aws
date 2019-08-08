@@ -85,39 +85,24 @@ class Policy(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['adjustment_type'] = adjustment_type
-
         if autoscaling_group_name is None:
             raise TypeError("Missing required property 'autoscaling_group_name'")
         __props__['autoscaling_group_name'] = autoscaling_group_name
-
         __props__['cooldown'] = cooldown
-
         __props__['estimated_instance_warmup'] = estimated_instance_warmup
-
         __props__['metric_aggregation_type'] = metric_aggregation_type
-
         __props__['min_adjustment_magnitude'] = min_adjustment_magnitude
-
         __props__['name'] = name
-
         __props__['policy_type'] = policy_type
-
         __props__['scaling_adjustment'] = scaling_adjustment
-
         __props__['step_adjustments'] = step_adjustments
-
         __props__['target_tracking_configuration'] = target_tracking_configuration
-
         __props__['arn'] = None
 
         if opts is None:
@@ -129,7 +114,6 @@ class Policy(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

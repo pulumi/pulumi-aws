@@ -61,10 +61,6 @@ class ServiceQuota(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -73,15 +69,12 @@ class ServiceQuota(pulumi.CustomResource):
         if quota_code is None:
             raise TypeError("Missing required property 'quota_code'")
         __props__['quota_code'] = quota_code
-
         if service_code is None:
             raise TypeError("Missing required property 'service_code'")
         __props__['service_code'] = service_code
-
         if value is None:
             raise TypeError("Missing required property 'value'")
         __props__['value'] = value
-
         __props__['adjustable'] = None
         __props__['arn'] = None
         __props__['default_value'] = None
@@ -99,7 +92,6 @@ class ServiceQuota(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
