@@ -2,16 +2,18 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to pulumi-terraform 9db2fc93cd
-* Update to v2.23.0 of the AWS Terraform Provider
+___NULL___
 
 ---
+
+## 0.18.27 (2019-08-09)
+* Update to pulumi-terraform 9db2fc93cd
+* Update to v2.23.0 of the AWS Terraform Provider
 
 ## 0.18.26 (2019-08-05)
 * Upgrade to v2.22.0 of the AWS Terraform Provider.
 * Rename `aws.ses.Confguration` to `aws.ses.Configuration`. 
   This includes an alias to keep compatibility with existing code
-
 
 ## 0.18.25 (2019-07-30)
 * Upgrade to pulumi-terraform 6bcafb609d
