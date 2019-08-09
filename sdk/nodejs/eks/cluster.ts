@@ -112,6 +112,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
+     * The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
     public readonly version!: pulumi.Output<string>;
@@ -140,6 +144,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["platformVersion"] = state ? state.platformVersion : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
+            inputs["status"] = state ? state.status : undefined;
             inputs["version"] = state ? state.version : undefined;
             inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
@@ -160,6 +165,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["createdAt"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["platformVersion"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -205,6 +211,10 @@ export interface ClusterState {
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
     readonly roleArn?: pulumi.Input<string>;
+    /**
+     * The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+     */
+    readonly status?: pulumi.Input<string>;
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */

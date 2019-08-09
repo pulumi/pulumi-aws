@@ -133,6 +133,7 @@ import {InstanceProfile} from "../iam";
  *   This must be set with a `volumeType` of `"io1"`.
  * * `deleteOnTermination` - (Optional) Whether the volume should be destroyed
  *   on instance termination (Default: `true`).
+ * * `encrypted` - (Optional) Whether the volume should be encrypted or not. (Default: `false`).
  * 
  * Modifying any of the `rootBlockDevice` settings requires resource
  * replacement.
@@ -259,7 +260,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    public readonly rootBlockDevice!: pulumi.Output<{ deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }>;
+    public readonly rootBlockDevice!: pulumi.Output<{ deleteOnTermination?: boolean, encrypted: boolean, iops: number, volumeSize: number, volumeType: string }>;
     /**
      * A list of associated security group IDS.
      */
@@ -418,7 +419,7 @@ export interface LaunchConfigurationState {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
+    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
      * A list of associated security group IDS.
      */
@@ -508,7 +509,7 @@ export interface LaunchConfigurationArgs {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
+    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
      * A list of associated security group IDS.
      */

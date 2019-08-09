@@ -9,4 +9,6 @@ export * from "./getServiceAccount";
 export * from "./parameterGroup";
 export * from "./securityGroup";
 export * from "./snapshotCopyGrant";
+export * from "./snapshotSchedule";
+export * from "./snapshotScheduleAssociation";
 export * from "./subnetGroup";

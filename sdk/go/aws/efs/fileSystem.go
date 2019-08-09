@@ -22,6 +22,7 @@ func NewFileSystem(ctx *pulumi.Context,
 		inputs["creationToken"] = nil
 		inputs["encrypted"] = nil
 		inputs["kmsKeyId"] = nil
+		inputs["lifecyclePolicy"] = nil
 		inputs["performanceMode"] = nil
 		inputs["provisionedThroughputInMibps"] = nil
 		inputs["tags"] = nil
@@ -30,6 +31,7 @@ func NewFileSystem(ctx *pulumi.Context,
 		inputs["creationToken"] = args.CreationToken
 		inputs["encrypted"] = args.Encrypted
 		inputs["kmsKeyId"] = args.KmsKeyId
+		inputs["lifecyclePolicy"] = args.LifecyclePolicy
 		inputs["performanceMode"] = args.PerformanceMode
 		inputs["provisionedThroughputInMibps"] = args.ProvisionedThroughputInMibps
 		inputs["tags"] = args.Tags
@@ -55,6 +57,7 @@ func GetFileSystem(ctx *pulumi.Context,
 		inputs["dnsName"] = state.DnsName
 		inputs["encrypted"] = state.Encrypted
 		inputs["kmsKeyId"] = state.KmsKeyId
+		inputs["lifecyclePolicy"] = state.LifecyclePolicy
 		inputs["performanceMode"] = state.PerformanceMode
 		inputs["provisionedThroughputInMibps"] = state.ProvisionedThroughputInMibps
 		inputs["tags"] = state.Tags
@@ -105,6 +108,11 @@ func (r *FileSystem) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
+// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+func (r *FileSystem) LifecyclePolicy() *pulumi.Output {
+	return r.s.State["lifecyclePolicy"]
+}
+
 // The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 func (r *FileSystem) PerformanceMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["performanceMode"])
@@ -140,6 +148,8 @@ type FileSystemState struct {
 	Encrypted interface{}
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId interface{}
+	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+	LifecyclePolicy interface{}
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode interface{}
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
@@ -161,6 +171,8 @@ type FileSystemArgs struct {
 	Encrypted interface{}
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId interface{}
+	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+	LifecyclePolicy interface{}
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode interface{}
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.

@@ -15,13 +15,27 @@ class Certificate(pulumi.CustomResource):
     """
     arn: pulumi.Output[str]
     """
-    The ARN of the created AWS IoT certificate
+    The ARN of the created certificate.
+    """
+    certificate_pem: pulumi.Output[str]
+    """
+    The certificate data, in PEM format.
     """
     csr: pulumi.Output[str]
     """
-    The certificate signing request. Review the
-    [IoT API Reference Guide] (http://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-    for more information on creating a certificate from a certificate signing request (CSR).
+    The certificate signing request. Review
+    [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+    for more information on generating a certificate from a certificate signing request (CSR).
+    If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+    for more information on generating keys and a certificate.
+    """
+    private_key: pulumi.Output[str]
+    """
+    When no CSR is provided, the private key.
+    """
+    public_key: pulumi.Output[str]
+    """
+    When no CSR is provided, the public key.
     """
     def __init__(__self__, resource_name, opts=None, active=None, csr=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -30,9 +44,11 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Boolean flag to indicate if the certificate should be active
-        :param pulumi.Input[str] csr: The certificate signing request. Review the
-               [IoT API Reference Guide] (http://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-               for more information on creating a certificate from a certificate signing request (CSR).
+        :param pulumi.Input[str] csr: The certificate signing request. Review
+               [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+               for more information on generating a certificate from a certificate signing request (CSR).
+               If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+               for more information on generating keys and a certificate.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_certificate.html.markdown.
         """
@@ -56,10 +72,11 @@ class Certificate(pulumi.CustomResource):
             if active is None:
                 raise TypeError("Missing required property 'active'")
             __props__['active'] = active
-            if csr is None:
-                raise TypeError("Missing required property 'csr'")
             __props__['csr'] = csr
             __props__['arn'] = None
+            __props__['certificate_pem'] = None
+            __props__['private_key'] = None
+            __props__['public_key'] = None
         super(Certificate, __self__).__init__(
             'aws:iot/certificate:Certificate',
             resource_name,
@@ -67,7 +84,7 @@ class Certificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, active=None, arn=None, csr=None):
+    def get(resource_name, id, opts=None, active=None, arn=None, certificate_pem=None, csr=None, private_key=None, public_key=None):
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -75,10 +92,15 @@ class Certificate(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Boolean flag to indicate if the certificate should be active
-        :param pulumi.Input[str] arn: The ARN of the created AWS IoT certificate
-        :param pulumi.Input[str] csr: The certificate signing request. Review the
-               [IoT API Reference Guide] (http://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-               for more information on creating a certificate from a certificate signing request (CSR).
+        :param pulumi.Input[str] arn: The ARN of the created certificate.
+        :param pulumi.Input[str] certificate_pem: The certificate data, in PEM format.
+        :param pulumi.Input[str] csr: The certificate signing request. Review
+               [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+               for more information on generating a certificate from a certificate signing request (CSR).
+               If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+               for more information on generating keys and a certificate.
+        :param pulumi.Input[str] private_key: When no CSR is provided, the private key.
+        :param pulumi.Input[str] public_key: When no CSR is provided, the public key.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_certificate.html.markdown.
         """
@@ -87,7 +109,10 @@ class Certificate(pulumi.CustomResource):
         __props__ = dict()
         __props__["active"] = active
         __props__["arn"] = arn
+        __props__["certificate_pem"] = certificate_pem
         __props__["csr"] = csr
+        __props__["private_key"] = private_key
+        __props__["public_key"] = public_key
         return Certificate(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -69,6 +69,12 @@ import * as utilities from "../utilities";
  *     privateKey: examplePrivateKey.privateKeyPem,
  * });
  * ```
+ * 
+ * ## options Configuration Block
+ * 
+ * Supported nested arguments for the `options` configuration block:
+ * 
+ * * `certificateTransparencyLoggingPreference` - (Optional) Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
  */
@@ -104,11 +110,16 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * ARN of an ACMPCA
+     */
+    public readonly certificateAuthorityArn!: pulumi.Output<string | undefined>;
+    /**
      * The certificate's PEM-formatted public key
      */
     public readonly certificateBody!: pulumi.Output<string | undefined>;
     /**
      * The certificate's PEM-formatted chain
+     * * Creating a private CA issued certificate
      */
     public readonly certificateChain!: pulumi.Output<string | undefined>;
     /**
@@ -119,6 +130,7 @@ export class Certificate extends pulumi.CustomResource {
      * A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
      */
     public /*out*/ readonly domainValidationOptions!: pulumi.Output<{ domainName: string, resourceRecordName: string, resourceRecordType: string, resourceRecordValue: string }[]>;
+    public readonly options!: pulumi.Output<{ certificateTransparencyLoggingPreference?: string } | undefined>;
     /**
      * The certificate's PEM-formatted private key
      */
@@ -154,10 +166,12 @@ export class Certificate extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as CertificateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
             inputs["certificateBody"] = state ? state.certificateBody : undefined;
             inputs["certificateChain"] = state ? state.certificateChain : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["domainValidationOptions"] = state ? state.domainValidationOptions : undefined;
+            inputs["options"] = state ? state.options : undefined;
             inputs["privateKey"] = state ? state.privateKey : undefined;
             inputs["subjectAlternativeNames"] = state ? state.subjectAlternativeNames : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -165,9 +179,11 @@ export class Certificate extends pulumi.CustomResource {
             inputs["validationMethod"] = state ? state.validationMethod : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
+            inputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
             inputs["certificateBody"] = args ? args.certificateBody : undefined;
             inputs["certificateChain"] = args ? args.certificateChain : undefined;
             inputs["domainName"] = args ? args.domainName : undefined;
+            inputs["options"] = args ? args.options : undefined;
             inputs["privateKey"] = args ? args.privateKey : undefined;
             inputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -196,11 +212,16 @@ export interface CertificateState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * ARN of an ACMPCA
+     */
+    readonly certificateAuthorityArn?: pulumi.Input<string>;
+    /**
      * The certificate's PEM-formatted public key
      */
     readonly certificateBody?: pulumi.Input<string>;
     /**
      * The certificate's PEM-formatted chain
+     * * Creating a private CA issued certificate
      */
     readonly certificateChain?: pulumi.Input<string>;
     /**
@@ -211,6 +232,7 @@ export interface CertificateState {
      * A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
      */
     readonly domainValidationOptions?: pulumi.Input<pulumi.Input<{ domainName?: pulumi.Input<string>, resourceRecordName?: pulumi.Input<string>, resourceRecordType?: pulumi.Input<string>, resourceRecordValue?: pulumi.Input<string> }>[]>;
+    readonly options?: pulumi.Input<{ certificateTransparencyLoggingPreference?: pulumi.Input<string> }>;
     /**
      * The certificate's PEM-formatted private key
      */
@@ -239,17 +261,23 @@ export interface CertificateState {
  */
 export interface CertificateArgs {
     /**
+     * ARN of an ACMPCA
+     */
+    readonly certificateAuthorityArn?: pulumi.Input<string>;
+    /**
      * The certificate's PEM-formatted public key
      */
     readonly certificateBody?: pulumi.Input<string>;
     /**
      * The certificate's PEM-formatted chain
+     * * Creating a private CA issued certificate
      */
     readonly certificateChain?: pulumi.Input<string>;
     /**
      * A domain name for which the certificate should be issued
      */
     readonly domainName?: pulumi.Input<string>;
+    readonly options?: pulumi.Input<{ certificateTransparencyLoggingPreference?: pulumi.Input<string> }>;
     /**
      * The certificate's PEM-formatted private key
      */

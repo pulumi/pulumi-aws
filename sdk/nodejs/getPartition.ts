@@ -43,6 +43,7 @@ export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionR
  * A collection of values returned by getPartition.
  */
 export interface GetPartitionResult {
+    readonly dnsSuffix: string;
     readonly partition: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

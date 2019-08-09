@@ -16,3 +16,4 @@ export * from "./hostedPublicVirtualInterfaceAccepter";
 export * from "./linkAggregationGroup";
 export * from "./privateVirtualInterface";
 export * from "./publicVirtualInterface";
+export * from "./transitVirtualInterface";

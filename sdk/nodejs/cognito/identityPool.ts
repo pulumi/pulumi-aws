@@ -103,6 +103,10 @@ export class IdentityPool extends pulumi.CustomResource {
      * Key-Value pairs mapping provider names to provider app IDs.
      */
     public readonly supportedLoginProviders!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A mapping of tags to assign to the Identity Pool.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a IdentityPool resource with the given unique name, arguments, and options.
@@ -124,6 +128,7 @@ export class IdentityPool extends pulumi.CustomResource {
             inputs["openidConnectProviderArns"] = state ? state.openidConnectProviderArns : undefined;
             inputs["samlProviderArns"] = state ? state.samlProviderArns : undefined;
             inputs["supportedLoginProviders"] = state ? state.supportedLoginProviders : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as IdentityPoolArgs | undefined;
             if (!args || args.identityPoolName === undefined) {
@@ -136,6 +141,7 @@ export class IdentityPool extends pulumi.CustomResource {
             inputs["openidConnectProviderArns"] = args ? args.openidConnectProviderArns : undefined;
             inputs["samlProviderArns"] = args ? args.samlProviderArns : undefined;
             inputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -186,6 +192,10 @@ export interface IdentityPoolState {
      * Key-Value pairs mapping provider names to provider app IDs.
      */
     readonly supportedLoginProviders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A mapping of tags to assign to the Identity Pool.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -221,4 +231,8 @@ export interface IdentityPoolArgs {
      * Key-Value pairs mapping provider names to provider app IDs.
      */
     readonly supportedLoginProviders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A mapping of tags to assign to the Identity Pool.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

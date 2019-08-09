@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * ### EFS File System w/ tags
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -16,6 +18,19 @@ import * as utilities from "../utilities";
  * const foo = new aws.efs.FileSystem("foo", {
  *     tags: {
  *         Name: "MyProduct",
+ *     },
+ * });
+ * ```
+ * 
+ * ### Using lifecycle policy
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const fooWithLifecylePolicy = new aws.efs.FileSystem("fooWithLifecylePolicy", {
+ *     lifecyclePolicy: {
+ *         transitionToIa: "AFTER_30_DAYS",
  *     },
  * });
  * ```
@@ -73,6 +88,10 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
+     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     */
+    public readonly lifecyclePolicy!: pulumi.Output<{ transitionToIa?: string } | undefined>;
+    /**
      * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
     public readonly performanceMode!: pulumi.Output<string>;
@@ -106,6 +125,7 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            inputs["lifecyclePolicy"] = state ? state.lifecyclePolicy : undefined;
             inputs["performanceMode"] = state ? state.performanceMode : undefined;
             inputs["provisionedThroughputInMibps"] = state ? state.provisionedThroughputInMibps : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -115,6 +135,7 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["creationToken"] = args ? args.creationToken : undefined;
             inputs["encrypted"] = args ? args.encrypted : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            inputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
             inputs["performanceMode"] = args ? args.performanceMode : undefined;
             inputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -161,6 +182,10 @@ export interface FileSystemState {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
+     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     */
+    readonly lifecyclePolicy?: pulumi.Input<{ transitionToIa?: pulumi.Input<string> }>;
+    /**
      * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
     readonly performanceMode?: pulumi.Input<string>;
@@ -197,6 +222,10 @@ export interface FileSystemArgs {
      * The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
+    /**
+     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     */
+    readonly lifecyclePolicy?: pulumi.Input<{ transitionToIa?: pulumi.Input<string> }>;
     /**
      * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */

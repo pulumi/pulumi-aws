@@ -27,6 +27,7 @@ import (
 //   This must be set with a `volumeType` of `"io1"`.
 // * `deleteOnTermination` - (Optional) Whether the volume should be destroyed
 //   on instance termination (Default: `true`).
+// * `encrypted` - (Optional) Whether the volume should be encrypted or not. (Default: `false`).
 // 
 // Modifying any of the `rootBlockDevice` settings requires resource
 // replacement.

@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  *                 notificationType: ["Command"],
  *             },
  *             outputS3Bucket: aws_s3_bucket_example.bucket,
- *             outputS3Prefix: "output",
+ *             outputS3KeyPrefix: "output",
  *             parameters: [{
  *                 name: "commands",
  *                 values: ["date"],

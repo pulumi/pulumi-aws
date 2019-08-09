@@ -54,6 +54,33 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * 
+ * 
+ * ### Catalog Target
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.glue.Crawler("example", {
+ *     catalogTargets: [{
+ *         databaseName: aws_glue_catalog_database_example.name,
+ *         tables: [aws_glue_catalog_table_example.name],
+ *     }],
+ *     configuration: `{
+ *   "Version":1.0,
+ *   "Grouping": {
+ *     "TableGroupingPolicy": "CombineCompatibleSchemas"
+ *   }
+ * }
+ * `,
+ *     databaseName: aws_glue_catalog_database_example.name,
+ *     role: aws_iam_role_example.arn,
+ *     schemaChangePolicy: {
+ *         deleteBehavior: "LOG",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
  */
@@ -88,6 +115,7 @@ export class Crawler extends pulumi.CustomResource {
      * The ARN of the crawler 
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly catalogTargets!: pulumi.Output<{ databaseName: string, tables: string[] }[] | undefined>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
@@ -97,7 +125,7 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly configuration!: pulumi.Output<string | undefined>;
     /**
-     * Glue database where results are written.
+     * The name of the Glue database to be synchronized.
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
@@ -154,6 +182,7 @@ export class Crawler extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as CrawlerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["catalogTargets"] = state ? state.catalogTargets : undefined;
             inputs["classifiers"] = state ? state.classifiers : undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
@@ -175,6 +204,7 @@ export class Crawler extends pulumi.CustomResource {
             if (!args || args.role === undefined) {
                 throw new Error("Missing required property 'role'");
             }
+            inputs["catalogTargets"] = args ? args.catalogTargets : undefined;
             inputs["classifiers"] = args ? args.classifiers : undefined;
             inputs["configuration"] = args ? args.configuration : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
@@ -209,6 +239,7 @@ export interface CrawlerState {
      * The ARN of the crawler 
      */
     readonly arn?: pulumi.Input<string>;
+    readonly catalogTargets?: pulumi.Input<pulumi.Input<{ databaseName: pulumi.Input<string>, tables: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
@@ -218,7 +249,7 @@ export interface CrawlerState {
      */
     readonly configuration?: pulumi.Input<string>;
     /**
-     * Glue database where results are written.
+     * The name of the Glue database to be synchronized.
      */
     readonly databaseName?: pulumi.Input<string>;
     /**
@@ -267,6 +298,7 @@ export interface CrawlerState {
  * The set of arguments for constructing a Crawler resource.
  */
 export interface CrawlerArgs {
+    readonly catalogTargets?: pulumi.Input<pulumi.Input<{ databaseName: pulumi.Input<string>, tables: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
@@ -276,7 +308,7 @@ export interface CrawlerArgs {
      */
     readonly configuration?: pulumi.Input<string>;
     /**
-     * Glue database where results are written.
+     * The name of the Glue database to be synchronized.
      */
     readonly databaseName: pulumi.Input<string>;
     /**

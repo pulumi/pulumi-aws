@@ -654,6 +654,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_dx_private_virtual_interface": {Tok: awsResource(dxMod, "PrivateVirtualInterface")},
 			"aws_dx_public_virtual_interface":  {Tok: awsResource(dxMod, "PublicVirtualInterface")},
 			"aws_dx_lag":                       {Tok: awsResource(dxMod, "LinkAggregationGroup")},
+			"aws_dx_transit_virtual_interface": {Tok: awsResource(dxMod, "TransitVirtualInterface")},
 			// DynamoDB
 			"aws_dynamodb_global_table": {Tok: awsResource(dynamodbMod, "GlobalTable")},
 			"aws_dynamodb_table": {
@@ -1500,6 +1501,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_redshift_snapshot_schedule":             {Tok: awsResource(redshiftMod, "SnapshotSchedule")},
+			"aws_redshift_snapshot_schedule_association": {Tok: awsResource(redshiftMod, "SnapshotScheduleAssociation")},
 			// Resource Groups
 			"aws_resourcegroups_group": {Tok: awsResource(resourcegroupsMod, "Group")},
 			// Route53
@@ -1920,8 +1923,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_route53_zone":           {Tok: awsDataSource(route53Mod, "getZone")},
 			"aws_route53_delegation_set": {Tok: awsDataSource(route53Mod, "getDelegationSet")},
 			// S3
-			"aws_s3_bucket":        {Tok: awsDataSource(s3Mod, "getBucket")},
-			"aws_s3_bucket_object": {Tok: awsDataSource(s3Mod, "getBucketObject")},
+			"aws_s3_bucket":         {Tok: awsDataSource(s3Mod, "getBucket")},
+			"aws_s3_bucket_object":  {Tok: awsDataSource(s3Mod, "getBucketObject")},
+			"aws_s3_bucket_objects": {Tok: awsDataSource(s3Mod, "getBucketObjects")},
 			// Secrets Manager
 			"aws_secretsmanager_secret":         {Tok: awsDataSource(secretsmanagerMod, "getSecret")},
 			"aws_secretsmanager_secret_version": {Tok: awsDataSource(secretsmanagerMod, "getSecretVersion")},

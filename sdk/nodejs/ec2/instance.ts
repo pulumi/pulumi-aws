@@ -108,7 +108,7 @@ export class Instance extends pulumi.CustomResource {
      * Additional EBS block devices to attach to the
      * instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeId: string, volumeSize: number, volumeType: string }[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, kmsKeyId: string, snapshotId: string, volumeId: string, volumeSize: number, volumeType: string }[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      * Note that if this is not set on an instance type that is optimized by default then
@@ -208,7 +208,7 @@ export class Instance extends pulumi.CustomResource {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    public readonly rootBlockDevice!: pulumi.Output<{ deleteOnTermination?: boolean, iops: number, volumeId: string, volumeSize: number, volumeType: string }>;
+    public readonly rootBlockDevice!: pulumi.Output<{ deleteOnTermination?: boolean, encrypted: boolean, iops: number, kmsKeyId: string, volumeId: string, volumeSize: number, volumeType: string }>;
     /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */
@@ -400,7 +400,7 @@ export interface InstanceState {
      * Additional EBS block devices to attach to the
      * instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      * Note that if this is not set on an instance type that is optimized by default then
@@ -500,7 +500,7 @@ export interface InstanceState {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
+    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */
@@ -579,7 +579,7 @@ export interface InstanceArgs {
      * Additional EBS block devices to attach to the
      * instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      * Note that if this is not set on an instance type that is optimized by default then
@@ -648,7 +648,7 @@ export interface InstanceArgs {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
+    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */
