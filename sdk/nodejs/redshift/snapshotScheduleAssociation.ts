@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  *     masterUsername: "foo",
  *     nodeType: "dc1.large",
  * });
- * const defaultSnapshotSchedule = new aws.redshift.SnapshotSchedule("default", {
+ * const defaultRedshiftSnapshotSchedule = new aws.RedshiftSnapshotSchedule("default", {
  *     definitions: ["rate(12 hours)"],
  *     identifier: "tf-redshift-snapshot-schedule",
  * });
- * const defaultSnapshotScheduleAssociation = new aws.redshift.SnapshotScheduleAssociation("default", {
+ * const defaultRedshiftSnapshotScheduleAssociation = new aws.RedshiftSnapshotScheduleAssociation("default", {
  *     clusterIdentifier: defaultCluster.id,
- *     scheduleIdentifier: defaultSnapshotSchedule.id,
+ *     scheduleIdentifier: defaultRedshiftSnapshotSchedule.id,
  * });
  * ```
  *

@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = pulumi.output(aws.ec2.getVpcDhcpOptions({
+ * const example = aws.ec2.getVpcDhcpOptions({
  *     dhcpOptionsId: "dopts-12345678",
- * }));
+ * });
  * ```
  * 
  * ### Lookup by Filter
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = pulumi.output(aws.ec2.getVpcDhcpOptions({
+ * const example = aws.ec2.getVpcDhcpOptions({
  *     filters: [
  *         {
  *             name: "key",
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *             values: ["example.com"],
  *         },
  *     ],
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.

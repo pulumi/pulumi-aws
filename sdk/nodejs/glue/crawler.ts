@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.glue.Crawler("example", {
- *     catalogTargets: [{
+ *     catalogTarget: [{
  *         databaseName: aws_glue_catalog_database_example.name,
  *         tables: [aws_glue_catalog_table_example.name],
  *     }],

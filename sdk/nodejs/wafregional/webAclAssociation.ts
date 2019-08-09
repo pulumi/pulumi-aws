@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *         value: "192.0.7.0/24",
  *     }],
  * });
- * const available = pulumi.output(aws.getAvailabilityZones({}));
+ * const available = aws.getAvailabilityZones({});
  * const bar = new aws.ec2.Subnet("bar", {
  *     availabilityZone: available.apply(available => available.names[1]),
  *     cidrBlock: "10.1.2.0/24",

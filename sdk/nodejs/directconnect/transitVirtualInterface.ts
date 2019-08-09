@@ -17,11 +17,12 @@ import * as utilities from "../utilities";
  * const exampleGateway = new aws.directconnect.Gateway("example", {
  *     amazonSideAsn: "64512",
  * });
- * const exampleTransitVirtualInterface = new aws.directconnect.TransitVirtualInterface("example", {
+ * const exampleDxTransitVirtualInterface = new aws.DxTransitVirtualInterface("example", {
  *     addressFamily: "ipv4",
  *     bgpAsn: 65352,
  *     connectionId: aws_dx_connection_example.id,
  *     dxGatewayId: exampleGateway.id,
+ *     name: "tf-transit-vif-example",
  *     vlan: 4094,
  * });
  * ```

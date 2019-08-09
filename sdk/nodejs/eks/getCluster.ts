@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = pulumi.output(aws.eks.getCluster({
+ * const example = aws.eks.getCluster({
  *     name: "example",
- * }));
+ * });
  * 
  * export const endpoint = example.endpoint;
  * export const kubeconfigCertificateAuthorityData = example.certificateAuthority.data;

@@ -33,9 +33,9 @@ import * as utilities from "../utilities";
  * const codepipelineBucket = new aws.s3.Bucket("codepipelineBucket", {
  *     acl: "private",
  * });
- * const s3kmskey = pulumi.output(aws.kms.getAlias({
+ * const s3kmskey = aws.kms.getAlias({
  *     name: "alias/myKmsKey",
- * }));
+ * });
  * const codepipeline = new aws.codepipeline.Pipeline("codepipeline", {
  *     artifactStore: {
  *         encryptionKey: {

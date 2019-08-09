@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const layerName = config.require("layerName");
  * 
- * const existing = pulumi.output(aws.lambda.getLayerVersion({
+ * const existing = aws.lambda.getLayerVersion({
  *     layerName: layerName,
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.

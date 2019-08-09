@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testCluster = pulumi.output(aws.redshift.getCluster({
+ * const testCluster = aws.redshift.getCluster({
  *     clusterIdentifier: "test-cluster",
- * }));
+ * });
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "redshift",
  *     redshiftConfiguration: {

@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  * const fooEip = new aws.ec2.Eip("foo", {
  *     vpc: true,
  * });
- * const available = pulumi.output(aws.getAvailabilityZones({}));
- * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({}));
- * const currentRegion = pulumi.output(aws.getRegion({}));
+ * const available = aws.getAvailabilityZones({});
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentRegion = aws.getRegion({});
  * const fooProtection = new aws.shield.Protection("foo", {
  *     resourceArn: pulumi.interpolate`arn:aws:ec2:${currentRegion.name}:${currentCallerIdentity.accountId}:eip-allocation/${fooEip.id}`,
  * });

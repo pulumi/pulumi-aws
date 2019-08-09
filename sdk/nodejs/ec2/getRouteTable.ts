@@ -23,9 +23,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const subnetId = config.require("subnetId");
  * 
- * const selected = pulumi.output(aws.ec2.getRouteTable({
+ * const selected = aws.ec2.getRouteTable({
  *     subnetId: subnetId,
- * }));
+ * });
  * const route = new aws.ec2.Route("route", {
  *     destinationCidrBlock: "10.0.1.0/22",
  *     routeTableId: selected.id,

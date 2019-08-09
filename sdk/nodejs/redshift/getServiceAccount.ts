@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const main = pulumi.output(aws.redshift.getServiceAccount({}));
+ * const main = aws.redshift.getServiceAccount({});
  * const bucket = new aws.s3.Bucket("bucket", {
  *     forceDestroy: true,
  *     policy: pulumi.interpolate`{

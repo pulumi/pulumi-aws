@@ -45,9 +45,9 @@ import * as utilities from "./utilities";
  * 
  * // Retrieve the AZ where we want to create network resources
  * // This must be in the region selected on the AWS provider.
- * const exampleAvailabilityZone = pulumi.output(aws.getAvailabilityZone({
+ * const exampleAvailabilityZone = aws.getAvailabilityZone({
  *     name: "eu-central-1a",
- * }));
+ * });
  * // Create a VPC for the region associated with the AZ
  * const exampleVpc = new aws.ec2.Vpc("example", {
  *     cidrBlock: exampleAvailabilityZone.apply(exampleAvailabilityZone => (() => {

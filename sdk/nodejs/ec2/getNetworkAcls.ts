@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleNetworkAcls = pulumi.output(aws.ec2.getNetworkAcls({
+ * const exampleNetworkAcls = aws.ec2.getNetworkAcls({
  *     vpcId: var_vpc_id,
- * }));
+ * });
  * 
  * export const example = exampleNetworkAcls.ids;
  * ```
@@ -27,12 +27,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = pulumi.output(aws.ec2.getNetworkAcls({
+ * const example = aws.ec2.getNetworkAcls({
  *     tags: {
  *         Tier: "Private",
  *     },
  *     vpcId: var_vpc_id,
- * }));
+ * });
  * ```
  * 
  * The following example retrieves a network ACL id in a VPC which associated

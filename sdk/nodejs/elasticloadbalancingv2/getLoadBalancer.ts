@@ -23,10 +23,10 @@ import * as utilities from "../utilities";
  * const lbArn = config.get("lbArn") || "";
  * const lbName = config.get("lbName") || "";
  * 
- * const test = pulumi.output(aws.lb.getLoadBalancer({
+ * const test = aws.lb.getLoadBalancer({
  *     arn: lbArn,
  *     name: lbName,
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_legacy.html.markdown.

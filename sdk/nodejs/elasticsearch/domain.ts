@@ -42,8 +42,8 @@ import {PolicyDocument} from "../iam/documents";
  * const config = new pulumi.Config();
  * const domain = config.get("domain") || "tf-test";
  * 
- * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({}));
- * const currentRegion = pulumi.output(aws.getRegion({}));
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentRegion = aws.getRegion({});
  * const example = new aws.elasticsearch.Domain("example", {
  *     accessPolicies: pulumi.interpolate`{
  *   "Version": "2012-10-17",
@@ -111,13 +111,13 @@ import {PolicyDocument} from "../iam/documents";
  * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("es", {
  *     awsServiceName: "es.amazonaws.com",
  * });
- * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({}));
- * const currentRegion = pulumi.output(aws.getRegion({}));
- * const selectedVpc = pulumi.output(aws.ec2.getVpc({
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentRegion = aws.getRegion({});
+ * const selectedVpc = aws.ec2.getVpc({
  *     tags: {
  *         Name: vpc,
  *     },
- * }));
+ * });
  * const selectedSubnetIds = selectedVpc.apply(selectedVpc => aws.ec2.getSubnetIds({
  *     tags: {
  *         Tier: "private",

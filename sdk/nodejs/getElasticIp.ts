@@ -15,9 +15,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byAllocationId = pulumi.output(aws.getElasticIp({
+ * const byAllocationId = aws.getElasticIp({
  *     id: "eipalloc-12345678",
- * }));
+ * });
  * ```
  * 
  * ### Search By Filters (EC2-Classic or VPC)
@@ -26,12 +26,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byFilter = pulumi.output(aws.getElasticIp({
+ * const byFilter = aws.getElasticIp({
  *     filters: [{
  *         name: "tag:Name",
  *         values: ["exampleNameTagValue"],
  *     }],
- * }));
+ * });
  * ```
  * 
  * ### Search By Public IP (EC2-Classic or VPC)
@@ -40,9 +40,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byPublicIp = pulumi.output(aws.getElasticIp({
+ * const byPublicIp = aws.getElasticIp({
  *     publicIp: "1.2.3.4",
- * }));
+ * });
  * ```
  * 
  * ### Search By Tags (EC2-Classic or VPC)
@@ -51,11 +51,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byTags = pulumi.output(aws.getElasticIp({
+ * const byTags = aws.getElasticIp({
  *     tags: {
  *         Name: "exampleNameTagValue",
  *     },
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.

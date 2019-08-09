@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const developmentFinalSnapshot = pulumi.output(aws.rds.getClusterSnapshot({
+ * const developmentFinalSnapshot = aws.rds.getClusterSnapshot({
  *     dbClusterIdentifier: "developmentCluster",
  *     mostRecent: true,
- * }));
+ * });
  * // Use the last snapshot of the dev database before it was destroyed to create
  * // a new dev database.
  * const auroraCluster = new aws.rds.Cluster("aurora", {

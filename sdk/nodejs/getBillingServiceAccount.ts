@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const main = pulumi.output(aws.getBillingServiceAccount({}));
+ * const main = aws.getBillingServiceAccount({});
  * const billingLogs = new aws.s3.Bucket("billingLogs", {
  *     acl: "private",
  *     policy: pulumi.interpolate`{

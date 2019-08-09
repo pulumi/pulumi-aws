@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const myRestApi = pulumi.output(aws.apigateway.getRestApi({
+ * const myRestApi = aws.apigateway.getRestApi({
  *     name: "my-rest-api",
- * }));
+ * });
  * const myResource = myRestApi.apply(myRestApi => aws.apigateway.getResource({
  *     path: "/endpoint/path",
  *     restApiId: myRestApi.id,

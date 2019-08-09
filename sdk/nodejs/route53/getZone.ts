@@ -18,10 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const selected = pulumi.output(aws.route53.getZone({
+ * const selected = aws.route53.getZone({
  *     name: "test.com.",
  *     privateZone: true,
- * }));
+ * });
  * const www = new aws.route53.Record("www", {
  *     records: ["10.0.0.1"],
  *     ttl: 300,

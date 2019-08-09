@@ -17,15 +17,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleSubnetIds = pulumi.output(aws.ec2.getSubnetIds({
+ * const exampleSubnetIds = aws.ec2.getSubnetIds({
  *     vpcId: var_vpc_id,
- * }));
+ * });
  * const exampleSubnet: Output<aws.ec2.GETSUBNETResult>[] = [];
  * for (let i = 0; i < exampleSubnetIds.apply(exampleSubnetIds => exampleSubnetIds.ids.length); i++) {
  *     exampleSubnet.push(aws.ec2.getSubnet);
- * %!(EXTRA string=exampleSubnetIds.apply(exampleSubnetIds => aws.ec2.getSubnet({
- *         id: exampleSubnetIds.ids[i],
- *     })))}
+ * }
  * 
  * export const subnetCidrBlocks = exampleSubnet.map(v => v.cidrBlock);
  * ```
@@ -38,12 +36,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const privateSubnetIds = pulumi.output(aws.ec2.getSubnetIds({
+ * const privateSubnetIds = aws.ec2.getSubnetIds({
  *     tags: {
  *         Tier: "Private",
  *     },
  *     vpcId: var_vpc_id,
- * }));
+ * });
  * const app: aws.ec2.Instance[] = [];
  * for (let i = 0; i < 3; i++) {
  *     app.push(new aws.ec2.Instance(`app-${i}`, {

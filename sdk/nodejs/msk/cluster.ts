@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  * const vpc = new aws.ec2.Vpc("vpc", {
  *     cidrBlock: "192.168.0.0/22",
  * });
- * const azs = pulumi.output(aws.getAvailabilityZones({
+ * const azs = aws.getAvailabilityZones({
  *     state: "available",
- * }));
+ * });
  * const sg = new aws.ec2.SecurityGroup("sg", {
  *     vpcId: vpc.id,
  * });
