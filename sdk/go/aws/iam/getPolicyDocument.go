@@ -11,7 +11,7 @@ import (
 // 
 // This is a data source which can be used to construct a JSON representation of
 // an IAM policy document, for use with resources which expect policy documents,
-// such as the `aws_iam_policy` resource.
+// such as the `iam.Policy` resource.
 // 
 // 
 // Using this data source to generate policy documents is *optional*. It is also

@@ -61,18 +61,31 @@ class GetTargetGroupResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetTargetGroupResult(GetTargetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetTargetGroupResult(
+            arn=self.arn,
+            arn_suffix=self.arn_suffix,
+            deregistration_delay=self.deregistration_delay,
+            health_check=self.health_check,
+            lambda_multi_value_headers_enabled=self.lambda_multi_value_headers_enabled,
+            name=self.name,
+            port=self.port,
+            protocol=self.protocol,
+            proxy_protocol_v2=self.proxy_protocol_v2,
+            slow_start=self.slow_start,
+            stickiness=self.stickiness,
+            tags=self.tags,
+            target_type=self.target_type,
+            vpc_id=self.vpc_id,
+            id=self.id)
 
 def get_target_group(arn=None,name=None,tags=None,opts=None):
     """
-    > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
+    > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
     
     Provides information about a Load Balancer Target Group.
     
@@ -93,7 +106,7 @@ def get_target_group(arn=None,name=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:applicationloadbalancing/getTargetGroup:getTargetGroup', __args__, opts=opts).value
 
-    return GetTargetGroupResult(
+    return AwaitableGetTargetGroupResult(
         arn=__ret__.get('arn'),
         arn_suffix=__ret__.get('arnSuffix'),
         deregistration_delay=__ret__.get('deregistrationDelay'),

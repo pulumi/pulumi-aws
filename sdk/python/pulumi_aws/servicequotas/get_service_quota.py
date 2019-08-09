@@ -64,14 +64,22 @@ class GetServiceQuotaResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetServiceQuotaResult(GetServiceQuotaResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetServiceQuotaResult(
+            adjustable=self.adjustable,
+            arn=self.arn,
+            default_value=self.default_value,
+            global_quota=self.global_quota,
+            quota_code=self.quota_code,
+            quota_name=self.quota_name,
+            service_code=self.service_code,
+            service_name=self.service_name,
+            value=self.value,
+            id=self.id)
 
 def get_service_quota(quota_code=None,quota_name=None,service_code=None,opts=None):
     """
@@ -90,7 +98,7 @@ def get_service_quota(quota_code=None,quota_name=None,service_code=None,opts=Non
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:servicequotas/getServiceQuota:getServiceQuota', __args__, opts=opts).value
 
-    return GetServiceQuotaResult(
+    return AwaitableGetServiceQuotaResult(
         adjustable=__ret__.get('adjustable'),
         arn=__ret__.get('arn'),
         default_value=__ret__.get('defaultValue'),

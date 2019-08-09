@@ -86,7 +86,7 @@ class Broker(pulumi.CustomResource):
     """
     The list of all ActiveMQ usernames for the specified broker. See below.
     """
-    def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an MQ Broker Resource. This resources also manages users for the broker.
         
@@ -132,71 +132,110 @@ class Broker(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['apply_immediately'] = apply_immediately
-
-        __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
-
-        if broker_name is None:
-            raise TypeError("Missing required property 'broker_name'")
-        __props__['broker_name'] = broker_name
-
-        __props__['configuration'] = configuration
-
-        __props__['deployment_mode'] = deployment_mode
-
-        if engine_type is None:
-            raise TypeError("Missing required property 'engine_type'")
-        __props__['engine_type'] = engine_type
-
-        if engine_version is None:
-            raise TypeError("Missing required property 'engine_version'")
-        __props__['engine_version'] = engine_version
-
-        if host_instance_type is None:
-            raise TypeError("Missing required property 'host_instance_type'")
-        __props__['host_instance_type'] = host_instance_type
-
-        __props__['logs'] = logs
-
-        __props__['maintenance_window_start_time'] = maintenance_window_start_time
-
-        __props__['publicly_accessible'] = publicly_accessible
-
-        if security_groups is None:
-            raise TypeError("Missing required property 'security_groups'")
-        __props__['security_groups'] = security_groups
-
-        __props__['subnet_ids'] = subnet_ids
-
-        __props__['tags'] = tags
-
-        if users is None:
-            raise TypeError("Missing required property 'users'")
-        __props__['users'] = users
-
-        __props__['arn'] = None
-        __props__['instances'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['apply_immediately'] = apply_immediately
+            __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
+            if broker_name is None:
+                raise TypeError("Missing required property 'broker_name'")
+            __props__['broker_name'] = broker_name
+            __props__['configuration'] = configuration
+            __props__['deployment_mode'] = deployment_mode
+            if engine_type is None:
+                raise TypeError("Missing required property 'engine_type'")
+            __props__['engine_type'] = engine_type
+            if engine_version is None:
+                raise TypeError("Missing required property 'engine_version'")
+            __props__['engine_version'] = engine_version
+            if host_instance_type is None:
+                raise TypeError("Missing required property 'host_instance_type'")
+            __props__['host_instance_type'] = host_instance_type
+            __props__['logs'] = logs
+            __props__['maintenance_window_start_time'] = maintenance_window_start_time
+            __props__['publicly_accessible'] = publicly_accessible
+            if security_groups is None:
+                raise TypeError("Missing required property 'security_groups'")
+            __props__['security_groups'] = security_groups
+            __props__['subnet_ids'] = subnet_ids
+            __props__['tags'] = tags
+            if users is None:
+                raise TypeError("Missing required property 'users'")
+            __props__['users'] = users
+            __props__['arn'] = None
+            __props__['instances'] = None
         super(Broker, __self__).__init__(
             'aws:mq/broker:Broker',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, instances=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None):
+        """
+        Get an existing Broker resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether any broker modifications
+               are applied immediately, or during the next maintenance window. Default is `false`.
+        :param pulumi.Input[str] arn: The ARN of the broker.
+        :param pulumi.Input[bool] auto_minor_version_upgrade: Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
+        :param pulumi.Input[str] broker_name: The name of the broker.
+        :param pulumi.Input[dict] configuration: Configuration of the broker. See below.
+        :param pulumi.Input[str] deployment_mode: The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
+        :param pulumi.Input[str] engine_type: The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
+        :param pulumi.Input[str] engine_version: The version of the broker engine. Currently, See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
+        :param pulumi.Input[str] host_instance_type: The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
+        :param pulumi.Input[list] instances: A list of information about allocated brokers (both active & standby).
+               * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+               * `instances.0.ip_address` - The IP Address of the broker.
+               * `instances.0.endpoints` - The broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
+               * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
+               * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
+               * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
+               * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
+               * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+        :param pulumi.Input[dict] logs: Logging configuration of the broker. See below.
+        :param pulumi.Input[dict] maintenance_window_start_time: Maintenance window start time. See below.
+        :param pulumi.Input[bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
+        :param pulumi.Input[list] security_groups: The list of security group IDs assigned to the broker.
+        :param pulumi.Input[list] subnet_ids: The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[list] users: The list of all ActiveMQ usernames for the specified broker. See below.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_broker.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["apply_immediately"] = apply_immediately
+        __props__["arn"] = arn
+        __props__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+        __props__["broker_name"] = broker_name
+        __props__["configuration"] = configuration
+        __props__["deployment_mode"] = deployment_mode
+        __props__["engine_type"] = engine_type
+        __props__["engine_version"] = engine_version
+        __props__["host_instance_type"] = host_instance_type
+        __props__["instances"] = instances
+        __props__["logs"] = logs
+        __props__["maintenance_window_start_time"] = maintenance_window_start_time
+        __props__["publicly_accessible"] = publicly_accessible
+        __props__["security_groups"] = security_groups
+        __props__["subnet_ids"] = subnet_ids
+        __props__["tags"] = tags
+        __props__["users"] = users
+        return Broker(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

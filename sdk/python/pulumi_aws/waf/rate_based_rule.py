@@ -29,7 +29,7 @@ class RateBasedRule(pulumi.CustomResource):
     """
     The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
     """
-    def __init__(__self__, resource_name, opts=None, metric_name=None, name=None, predicates=None, rate_key=None, rate_limit=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, metric_name=None, name=None, predicates=None, rate_key=None, rate_limit=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a WAF Rate Based Rule Resource
         
@@ -49,42 +49,59 @@ class RateBasedRule(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if metric_name is None:
-            raise TypeError("Missing required property 'metric_name'")
-        __props__['metric_name'] = metric_name
-
-        __props__['name'] = name
-
-        __props__['predicates'] = predicates
-
-        if rate_key is None:
-            raise TypeError("Missing required property 'rate_key'")
-        __props__['rate_key'] = rate_key
-
-        if rate_limit is None:
-            raise TypeError("Missing required property 'rate_limit'")
-        __props__['rate_limit'] = rate_limit
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if metric_name is None:
+                raise TypeError("Missing required property 'metric_name'")
+            __props__['metric_name'] = metric_name
+            __props__['name'] = name
+            __props__['predicates'] = predicates
+            if rate_key is None:
+                raise TypeError("Missing required property 'rate_key'")
+            __props__['rate_key'] = rate_key
+            if rate_limit is None:
+                raise TypeError("Missing required property 'rate_limit'")
+            __props__['rate_limit'] = rate_limit
         super(RateBasedRule, __self__).__init__(
             'aws:waf/rateBasedRule:RateBasedRule',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, metric_name=None, name=None, predicates=None, rate_key=None, rate_limit=None):
+        """
+        Get an existing RateBasedRule resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
+        :param pulumi.Input[str] name: The name or description of the rule.
+        :param pulumi.Input[list] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[str] rate_key: Valid value is IP.
+        :param pulumi.Input[float] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rate_based_rule.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["metric_name"] = metric_name
+        __props__["name"] = name
+        __props__["predicates"] = predicates
+        __props__["rate_key"] = rate_key
+        __props__["rate_limit"] = rate_limit
+        return RateBasedRule(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

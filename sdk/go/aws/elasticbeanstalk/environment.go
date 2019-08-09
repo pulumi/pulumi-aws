@@ -20,7 +20,7 @@ import (
 // Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
 // for supported options and examples.
 // 
-// The `setting` and `all_settings` mappings support the following format:
+// The `setting` and `allSettings` mappings support the following format:
 // 
 // * `namespace` - unique namespace identifying the option's associated AWS resource
 // * `name` - name of the configuration option

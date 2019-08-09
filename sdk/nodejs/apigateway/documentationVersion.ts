@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * const exampleDocumentationVersion = new aws.apigateway.DocumentationVersion("example", {
  *     description: "Example description",
  *     restApiId: exampleRestApi.id,
- *     version: "example_version",
+ *     version: "exampleVersion",
  * }, {dependsOn: [exampleDocumentationPart]});
  * ```
  *

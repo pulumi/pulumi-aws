@@ -10,7 +10,7 @@ import {Group} from "./group";
 /**
  * Attaches a Managed IAM Policy to an IAM group
  * 
- * > **NOTE:** The usage of this resource conflicts with the `aws_iam_policy_attachment` resource and will permanently show a difference if both are defined.
+ * > **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
  * 
  * ## Example Usage
  * 
@@ -23,7 +23,7 @@ import {Group} from "./group";
  *     description: "A test policy",
  *     policy: "", // insert policy here
  * });
- * const test_attach = new aws.iam.GroupPolicyAttachment("test-attach", {
+ * const testAttach = new aws.iam.GroupPolicyAttachment("test-attach", {
  *     group: group.name,
  *     policyArn: policy.arn,
  * });

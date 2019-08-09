@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * `aws_eip` provides details about a specific Elastic IP.
+ * `aws.ec2.Eip` provides details about a specific Elastic IP.
  * 
  * ## Example Usage
  * 
@@ -88,7 +88,7 @@ export interface GetElasticIpArgs {
      */
     readonly filters?: { name: string, values: string[] }[];
     /**
-     * The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+     * The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
      */
     readonly id?: string;
     /**

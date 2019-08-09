@@ -25,14 +25,14 @@ class GetBillingServiceAccountResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetBillingServiceAccountResult(GetBillingServiceAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetBillingServiceAccountResult(
+            arn=self.arn,
+            id=self.id)
 
 def get_billing_service_account(opts=None):
     """
@@ -48,6 +48,6 @@ def get_billing_service_account(opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getBillingServiceAccount:getBillingServiceAccount', __args__, opts=opts).value
 
-    return GetBillingServiceAccountResult(
+    return AwaitableGetBillingServiceAccountResult(
         arn=__ret__.get('arn'),
         id=__ret__.get('id'))

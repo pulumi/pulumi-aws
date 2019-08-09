@@ -59,14 +59,20 @@ class GetInstanceProfileResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetInstanceProfileResult(GetInstanceProfileResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetInstanceProfileResult(
+            arn=self.arn,
+            create_date=self.create_date,
+            name=self.name,
+            path=self.path,
+            role_arn=self.role_arn,
+            role_id=self.role_id,
+            role_name=self.role_name,
+            id=self.id)
 
 def get_instance_profile(name=None,opts=None):
     """
@@ -85,7 +91,7 @@ def get_instance_profile(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getInstanceProfile:getInstanceProfile', __args__, opts=opts).value
 
-    return GetInstanceProfileResult(
+    return AwaitableGetInstanceProfileResult(
         arn=__ret__.get('arn'),
         create_date=__ret__.get('createDate'),
         name=__ret__.get('name'),

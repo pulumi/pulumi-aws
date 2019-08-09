@@ -69,7 +69,7 @@ class NfsFileShare(pulumi.CustomResource):
     """
     Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
     """
-    def __init__(__self__, resource_name, opts=None, client_lists=None, default_storage_class=None, gateway_arn=None, guess_mime_type_enabled=None, kms_encrypted=None, kms_key_arn=None, location_arn=None, nfs_file_share_defaults=None, object_acl=None, read_only=None, requester_pays=None, role_arn=None, squash=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, client_lists=None, default_storage_class=None, gateway_arn=None, guess_mime_type_enabled=None, kms_encrypted=None, kms_key_arn=None, location_arn=None, nfs_file_share_defaults=None, object_acl=None, read_only=None, requester_pays=None, role_arn=None, squash=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an AWS Storage Gateway NFS File Share.
         
@@ -97,63 +97,91 @@ class NfsFileShare(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if client_lists is None:
-            raise TypeError("Missing required property 'client_lists'")
-        __props__['client_lists'] = client_lists
-
-        __props__['default_storage_class'] = default_storage_class
-
-        if gateway_arn is None:
-            raise TypeError("Missing required property 'gateway_arn'")
-        __props__['gateway_arn'] = gateway_arn
-
-        __props__['guess_mime_type_enabled'] = guess_mime_type_enabled
-
-        __props__['kms_encrypted'] = kms_encrypted
-
-        __props__['kms_key_arn'] = kms_key_arn
-
-        if location_arn is None:
-            raise TypeError("Missing required property 'location_arn'")
-        __props__['location_arn'] = location_arn
-
-        __props__['nfs_file_share_defaults'] = nfs_file_share_defaults
-
-        __props__['object_acl'] = object_acl
-
-        __props__['read_only'] = read_only
-
-        __props__['requester_pays'] = requester_pays
-
-        if role_arn is None:
-            raise TypeError("Missing required property 'role_arn'")
-        __props__['role_arn'] = role_arn
-
-        __props__['squash'] = squash
-
-        __props__['arn'] = None
-        __props__['fileshare_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if client_lists is None:
+                raise TypeError("Missing required property 'client_lists'")
+            __props__['client_lists'] = client_lists
+            __props__['default_storage_class'] = default_storage_class
+            if gateway_arn is None:
+                raise TypeError("Missing required property 'gateway_arn'")
+            __props__['gateway_arn'] = gateway_arn
+            __props__['guess_mime_type_enabled'] = guess_mime_type_enabled
+            __props__['kms_encrypted'] = kms_encrypted
+            __props__['kms_key_arn'] = kms_key_arn
+            if location_arn is None:
+                raise TypeError("Missing required property 'location_arn'")
+            __props__['location_arn'] = location_arn
+            __props__['nfs_file_share_defaults'] = nfs_file_share_defaults
+            __props__['object_acl'] = object_acl
+            __props__['read_only'] = read_only
+            __props__['requester_pays'] = requester_pays
+            if role_arn is None:
+                raise TypeError("Missing required property 'role_arn'")
+            __props__['role_arn'] = role_arn
+            __props__['squash'] = squash
+            __props__['arn'] = None
+            __props__['fileshare_id'] = None
         super(NfsFileShare, __self__).__init__(
             'aws:storagegateway/nfsFileShare:NfsFileShare',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, client_lists=None, default_storage_class=None, fileshare_id=None, gateway_arn=None, guess_mime_type_enabled=None, kms_encrypted=None, kms_key_arn=None, location_arn=None, nfs_file_share_defaults=None, object_acl=None, read_only=None, requester_pays=None, role_arn=None, squash=None):
+        """
+        Get an existing NfsFileShare resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the NFS File Share.
+        :param pulumi.Input[list] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
+        :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        :param pulumi.Input[str] fileshare_id: ID of the NFS File Share.
+        :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
+        :param pulumi.Input[bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
+        :param pulumi.Input[bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
+        :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
+        :param pulumi.Input[dict] nfs_file_share_defaults: Nested argument with file share default values. More information below.
+        :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
+        :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
+        :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
+        :param pulumi.Input[str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_nfs_file_share.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["client_lists"] = client_lists
+        __props__["default_storage_class"] = default_storage_class
+        __props__["fileshare_id"] = fileshare_id
+        __props__["gateway_arn"] = gateway_arn
+        __props__["guess_mime_type_enabled"] = guess_mime_type_enabled
+        __props__["kms_encrypted"] = kms_encrypted
+        __props__["kms_key_arn"] = kms_key_arn
+        __props__["location_arn"] = location_arn
+        __props__["nfs_file_share_defaults"] = nfs_file_share_defaults
+        __props__["object_acl"] = object_acl
+        __props__["read_only"] = read_only
+        __props__["requester_pays"] = requester_pays
+        __props__["role_arn"] = role_arn
+        __props__["squash"] = squash
+        return NfsFileShare(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

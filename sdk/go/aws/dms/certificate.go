@@ -80,12 +80,12 @@ func (r *Certificate) CertificateId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateId"])
 }
 
-// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 func (r *Certificate) CertificatePem() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificatePem"])
 }
 
-// The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
+// The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
 func (r *Certificate) CertificateWallet() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateWallet"])
 }
@@ -96,9 +96,9 @@ type CertificateState struct {
 	CertificateArn interface{}
 	// The certificate identifier.
 	CertificateId interface{}
-	// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 	CertificatePem interface{}
-	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
+	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
 	CertificateWallet interface{}
 }
 
@@ -106,8 +106,8 @@ type CertificateState struct {
 type CertificateArgs struct {
 	// The certificate identifier.
 	CertificateId interface{}
-	// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+	// The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
 	CertificatePem interface{}
-	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
+	// The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
 	CertificateWallet interface{}
 }

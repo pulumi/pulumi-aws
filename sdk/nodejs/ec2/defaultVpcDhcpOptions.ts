@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * **This is an advanced resource**, and has special caveats to be aware of when
  * using it. Please read this document in its entirety before using this resource.
  * 
- * The `aws_default_vpc_dhcp_options` behaves differently from normal resources, in that
+ * The `aws.ec2.DefaultVpcDhcpOptions` behaves differently from normal resources, in that
  * this provider does not _create_ this resource, but instead "adopts" it
  * into management.
  * 

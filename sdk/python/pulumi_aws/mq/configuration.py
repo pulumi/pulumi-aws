@@ -43,7 +43,7 @@ class Configuration(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, data=None, description=None, engine_type=None, engine_version=None, name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, data=None, description=None, engine_type=None, engine_version=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an MQ Configuration Resource. 
         
@@ -68,47 +68,70 @@ class Configuration(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if data is None:
-            raise TypeError("Missing required property 'data'")
-        __props__['data'] = data
-
-        __props__['description'] = description
-
-        if engine_type is None:
-            raise TypeError("Missing required property 'engine_type'")
-        __props__['engine_type'] = engine_type
-
-        if engine_version is None:
-            raise TypeError("Missing required property 'engine_version'")
-        __props__['engine_version'] = engine_version
-
-        __props__['name'] = name
-
-        __props__['tags'] = tags
-
-        __props__['arn'] = None
-        __props__['latest_revision'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if data is None:
+                raise TypeError("Missing required property 'data'")
+            __props__['data'] = data
+            __props__['description'] = description
+            if engine_type is None:
+                raise TypeError("Missing required property 'engine_type'")
+            __props__['engine_type'] = engine_type
+            if engine_version is None:
+                raise TypeError("Missing required property 'engine_version'")
+            __props__['engine_version'] = engine_version
+            __props__['name'] = name
+            __props__['tags'] = tags
+            __props__['arn'] = None
+            __props__['latest_revision'] = None
         super(Configuration, __self__).__init__(
             'aws:mq/configuration:Configuration',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, data=None, description=None, engine_type=None, engine_version=None, latest_revision=None, name=None, tags=None):
+        """
+        Get an existing Configuration resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the configuration.
+        :param pulumi.Input[str] data: The broker configuration in XML format.
+               See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
+               for supported parameters and format of the XML.
+        :param pulumi.Input[str] description: The description of the configuration.
+        :param pulumi.Input[str] engine_type: The type of broker engine.
+        :param pulumi.Input[str] engine_version: The version of the broker engine.
+        :param pulumi.Input[float] latest_revision: The latest revision of the configuration.
+        :param pulumi.Input[str] name: The name of the configuration
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_configuration.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["data"] = data
+        __props__["description"] = description
+        __props__["engine_type"] = engine_type
+        __props__["engine_version"] = engine_version
+        __props__["latest_revision"] = latest_revision
+        __props__["name"] = name
+        __props__["tags"] = tags
+        return Configuration(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

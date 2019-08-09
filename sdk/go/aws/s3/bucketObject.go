@@ -122,7 +122,7 @@ func (r *BucketObject) Bucket() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["bucket"])
 }
 
-// Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+// Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 func (r *BucketObject) CacheControl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["cacheControl"])
 }
@@ -137,7 +137,7 @@ func (r *BucketObject) ContentBase64() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["contentBase64"])
 }
 
-// Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+// Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
 func (r *BucketObject) ContentDisposition() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["contentDisposition"])
 }
@@ -158,7 +158,7 @@ func (r *BucketObject) ContentType() *pulumi.StringOutput {
 }
 
 // Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
-// This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
+// This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`.
 func (r *BucketObject) Etag() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["etag"])
 }
@@ -169,9 +169,9 @@ func (r *BucketObject) Key() *pulumi.StringOutput {
 }
 
 // Specifies the AWS KMS Key ARN to use for object encryption.
-// This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
+// This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
 // use the exported `arn` attribute:
-// `kms_key_id = "${aws_kms_key.foo.arn}"`
+// `kmsKeyId = "${aws_kms_key.foo.arn}"`
 func (r *BucketObject) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
@@ -219,13 +219,13 @@ type BucketObjectState struct {
 	Acl interface{}
 	// The name of the bucket to put the file in.
 	Bucket interface{}
-	// Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+	// Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 	CacheControl interface{}
 	// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
 	Content interface{}
 	// Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
 	ContentBase64 interface{}
-	// Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+	// Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
 	ContentDisposition interface{}
 	// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
 	ContentEncoding interface{}
@@ -234,14 +234,14 @@ type BucketObjectState struct {
 	// A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType interface{}
 	// Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
-	// This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
+	// This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`.
 	Etag interface{}
 	// The name of the object once it is in the bucket.
 	Key interface{}
 	// Specifies the AWS KMS Key ARN to use for object encryption.
-	// This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
+	// This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
 	// use the exported `arn` attribute:
-	// `kms_key_id = "${aws_kms_key.foo.arn}"`
+	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
 	KmsKeyId interface{}
 	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata interface{}
@@ -267,13 +267,13 @@ type BucketObjectArgs struct {
 	Acl interface{}
 	// The name of the bucket to put the file in.
 	Bucket interface{}
-	// Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+	// Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 	CacheControl interface{}
 	// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
 	Content interface{}
 	// Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
 	ContentBase64 interface{}
-	// Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+	// Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
 	ContentDisposition interface{}
 	// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
 	ContentEncoding interface{}
@@ -282,14 +282,14 @@ type BucketObjectArgs struct {
 	// A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType interface{}
 	// Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
-	// This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
+	// This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`.
 	Etag interface{}
 	// The name of the object once it is in the bucket.
 	Key interface{}
 	// Specifies the AWS KMS Key ARN to use for object encryption.
-	// This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
+	// This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
 	// use the exported `arn` attribute:
-	// `kms_key_id = "${aws_kms_key.foo.arn}"`
+	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
 	KmsKeyId interface{}
 	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata interface{}

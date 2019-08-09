@@ -183,7 +183,7 @@ func (r *GangliaLayer) DrainElbOnShutdown() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
 }
 
-// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 func (r *GangliaLayer) EbsVolumes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
 }
@@ -259,7 +259,7 @@ type GangliaLayerState struct {
 	CustomUndeployRecipes interface{}
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown interface{}
-	// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes interface{}
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer interface{}
@@ -304,7 +304,7 @@ type GangliaLayerArgs struct {
 	CustomUndeployRecipes interface{}
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown interface{}
-	// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes interface{}
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer interface{}

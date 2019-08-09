@@ -123,7 +123,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly ephemeralBlockDevices!: pulumi.Output<{ deviceName: string, noDevice?: boolean, virtualName?: string }[]>;
     /**
-     * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+     * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
     public readonly getPasswordData!: pulumi.Output<boolean | undefined>;
     /**
@@ -133,7 +133,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The IAM Instance Profile to
      * launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-     * * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     * * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
     public readonly iamInstanceProfile!: pulumi.Output<string | undefined>;
     /**
@@ -157,7 +157,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly ipv6Addresses!: pulumi.Output<string[]>;
     /**
-     * The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
+     * The key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      */
     public readonly keyName!: pulumi.Output<string>;
     /**
@@ -171,7 +171,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Base-64 encoded encrypted password data for the instance.
      * Useful for getting the administrator password for instances running Microsoft Windows.
-     * This attribute is only exported if `get_password_data` is true.
+     * This attribute is only exported if `getPasswordData` is true.
      * Note that this encrypted value will be stored in the state file, as with all exported attributes.
      * See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
@@ -201,7 +201,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicDns!: pulumi.Output<string>;
     /**
-     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws.ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
      */
     public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
@@ -231,11 +231,11 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly tenancy!: pulumi.Output<string>;
     /**
-     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
      */
     public readonly userData!: pulumi.Output<string | undefined>;
     /**
-     * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
     public readonly userDataBase64!: pulumi.Output<string | undefined>;
     /**
@@ -415,7 +415,7 @@ export interface InstanceState {
      */
     readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, noDevice?: pulumi.Input<boolean>, virtualName?: pulumi.Input<string> }>[]>;
     /**
-     * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+     * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
     readonly getPasswordData?: pulumi.Input<boolean>;
     /**
@@ -425,7 +425,7 @@ export interface InstanceState {
     /**
      * The IAM Instance Profile to
      * launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-     * * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     * * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
     readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
     /**
@@ -449,7 +449,7 @@ export interface InstanceState {
      */
     readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
+     * The key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      */
     readonly keyName?: pulumi.Input<string>;
     /**
@@ -463,7 +463,7 @@ export interface InstanceState {
     /**
      * Base-64 encoded encrypted password data for the instance.
      * Useful for getting the administrator password for instances running Microsoft Windows.
-     * This attribute is only exported if `get_password_data` is true.
+     * This attribute is only exported if `getPasswordData` is true.
      * Note that this encrypted value will be stored in the state file, as with all exported attributes.
      * See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
@@ -493,7 +493,7 @@ export interface InstanceState {
      */
     readonly publicDns?: pulumi.Input<string>;
     /**
-     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws.ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
      */
     readonly publicIp?: pulumi.Input<string>;
     /**
@@ -523,11 +523,11 @@ export interface InstanceState {
      */
     readonly tenancy?: pulumi.Input<string>;
     /**
-     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
      */
     readonly userData?: pulumi.Input<string>;
     /**
-     * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
     readonly userDataBase64?: pulumi.Input<string>;
     /**
@@ -594,7 +594,7 @@ export interface InstanceArgs {
      */
     readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, noDevice?: pulumi.Input<boolean>, virtualName?: pulumi.Input<string> }>[]>;
     /**
-     * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+     * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
     readonly getPasswordData?: pulumi.Input<boolean>;
     /**
@@ -604,7 +604,7 @@ export interface InstanceArgs {
     /**
      * The IAM Instance Profile to
      * launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-     * * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     * * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
     readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
     /**
@@ -624,7 +624,7 @@ export interface InstanceArgs {
      */
     readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
+     * The key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      */
     readonly keyName?: pulumi.Input<string>;
     /**
@@ -671,11 +671,11 @@ export interface InstanceArgs {
      */
     readonly tenancy?: pulumi.Input<string>;
     /**
-     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
      */
     readonly userData?: pulumi.Input<string>;
     /**
-     * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
     readonly userDataBase64?: pulumi.Input<string>;
     /**

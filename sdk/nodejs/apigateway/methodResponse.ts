@@ -35,7 +35,7 @@ import {RestApi} from "./restApi";
  *     restApi: myDemoAPI.id,
  *     type: "MOCK",
  * });
- * const response200 = new aws.apigateway.MethodResponse("response_200", {
+ * const response200 = new aws.apigateway.MethodResponse("response200", {
  *     httpMethod: myDemoMethod.httpMethod,
  *     resourceId: myDemoResource.id,
  *     restApi: myDemoAPI.id,
@@ -86,7 +86,7 @@ export class MethodResponse extends pulumi.CustomResource {
     public readonly responseModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of response parameters that can be sent to the caller.
-     * For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+     * For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      */
     public readonly responseParameters!: pulumi.Output<{[key: string]: boolean} | undefined>;
@@ -167,7 +167,7 @@ export interface MethodResponseState {
     readonly responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of response parameters that can be sent to the caller.
-     * For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+     * For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      */
     readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
@@ -199,7 +199,7 @@ export interface MethodResponseArgs {
     readonly responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of response parameters that can be sent to the caller.
-     * For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+     * For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      */
     readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;

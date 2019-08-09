@@ -10,12 +10,12 @@ import (
 
 // Provides an AutoScaling Group resource.
 // 
-// > **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
+// > **Note:** You must specify either `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
 // 
 // ## Waiting for Capacity
 // 
-// A newly-created ASG is initially empty and begins to scale to `min_size` (or
-// `desired_capacity`, if specified) by launching instances using the provided
+// A newly-created ASG is initially empty and begins to scale to `minSize` (or
+// `desiredCapacity`, if specified) by launching instances using the provided
 // Launch Configuration. These instances take time to launch and boot.
 // 
 // On ASG Update, changes to these values also take time to result in the target
@@ -27,10 +27,10 @@ import (
 // #### Waiting for ASG Capacity
 // 
 // The first is default behavior. This provider waits after ASG creation for
-// `min_size` (or `desired_capacity`, if specified) healthy instances to show up
+// `minSize` (or `desiredCapacity`, if specified) healthy instances to show up
 // in the ASG before continuing.
 // 
-// If `min_size` or `desired_capacity` are changed in a subsequent update,
+// If `minSize` or `desiredCapacity` are changed in a subsequent update,
 // this provider will also wait for the correct number of healthy instances before
 // continuing.
 // 
@@ -40,22 +40,22 @@ import (
 // for more information on an ASG's lifecycle.
 // 
 // This provider will wait for healthy instances for up to
-// `wait_for_capacity_timeout`. If ASG creation is taking more than a few minutes,
+// `waitForCapacityTimeout`. If ASG creation is taking more than a few minutes,
 // it's worth investigating for scaling activity errors, which can be caused by
 // problems with the selected Launch Configuration.
 // 
-// Setting `wait_for_capacity_timeout` to `"0"` disables ASG Capacity waiting.
+// Setting `waitForCapacityTimeout` to `"0"` disables ASG Capacity waiting.
 // 
 // #### Waiting for ELB Capacity
 // 
 // The second mechanism is optional, and affects ASGs with attached ELBs specified
-// via the `load_balancers` attribute or with ALBs specified with `target_group_arns`.
+// via the `loadBalancers` attribute or with ALBs specified with `targetGroupArns`.
 // 
-// The `min_elb_capacity` parameter causes this provider to wait for at least the
+// The `minElbCapacity` parameter causes this provider to wait for at least the
 // requested number of instances to show up `"InService"` in all attached ELBs
 // during ASG creation.  It has no effect on ASG updates.
 // 
-// If `wait_for_elb_capacity` is set, this provider will wait for exactly that number
+// If `waitForElbCapacity` is set, this provider will wait for exactly that number
 // of Instances to be `"InService"` in all attached ELBs on both creation and
 // updates.
 // 
@@ -64,7 +64,7 @@ import (
 // reason, the deployment will time out, and the ASG will be marked as
 // tainted (i.e. marked to be destroyed in a follow up run).
 // 
-// As with ASG Capacity, this provider will wait for up to `wait_for_capacity_timeout`
+// As with ASG Capacity, this provider will wait for up to `waitForCapacityTimeout`
 // for the proper number of instances to be healthy.
 // 
 // #### Troubleshooting Capacity Waiting Timeouts
@@ -217,7 +217,7 @@ func (r *Group) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
+// A list of one or more availability zones for the group. This parameter should not be specified when using `vpcZoneIdentifier`.
 func (r *Group) AvailabilityZones() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["availabilityZones"])
 }
@@ -235,7 +235,7 @@ func (r *Group) DesiredCapacity() *pulumi.IntOutput {
 }
 
 // A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
-// * `wait_for_capacity_timeout` (Default: "10m") A maximum
+// * `waitForCapacityTimeout` (Default: "10m") A maximum
 // [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 // wait for ASG instances to be healthy before timing out.  (See also Waiting
 // for Capacity below.) Setting this to "0" causes
@@ -267,9 +267,9 @@ func (r *Group) HealthCheckType() *pulumi.StringOutput {
 // [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
 // to attach to the autoscaling group **before** instances are launched. The
 // syntax is exactly the same as the separate
-// [`aws_autoscaling_lifecycle_hook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
-// resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
-// a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
+// [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+// resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
+// a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 func (r *Group) InitialLifecycleHooks() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["initialLifecycleHooks"])
 }
@@ -285,7 +285,7 @@ func (r *Group) LaunchTemplate() *pulumi.Output {
 }
 
 // A list of elastic load balancer names to add to the autoscaling
-// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
 func (r *Group) LoadBalancers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["loadBalancers"])
 }
@@ -363,7 +363,7 @@ func (r *Group) TagsCollection() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["tagsCollection"])
 }
 
-// A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
+// A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 func (r *Group) TargetGroupArns() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["targetGroupArns"])
 }
@@ -385,7 +385,7 @@ func (r *Group) WaitForCapacityTimeout() *pulumi.StringOutput {
 // Setting this will cause this provider to wait
 // for exactly this number of healthy instances from this autoscaling group in
 // all attached load balancers on both create and update operations. (Takes
-// precedence over `min_elb_capacity` behavior.)
+// precedence over `minElbCapacity` behavior.)
 // (See also Waiting for Capacity below.)
 func (r *Group) WaitForElbCapacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["waitForElbCapacity"])
@@ -395,7 +395,7 @@ func (r *Group) WaitForElbCapacity() *pulumi.IntOutput {
 type GroupState struct {
 	// The ARN for this AutoScaling Group
 	Arn interface{}
-	// A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
+	// A list of one or more availability zones for the group. This parameter should not be specified when using `vpcZoneIdentifier`.
 	AvailabilityZones interface{}
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown interface{}
@@ -404,7 +404,7 @@ type GroupState struct {
 	// Capacity below.)
 	DesiredCapacity interface{}
 	// A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
-	// * `wait_for_capacity_timeout` (Default: "10m") A maximum
+	// * `waitForCapacityTimeout` (Default: "10m") A maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for ASG instances to be healthy before timing out.  (See also Waiting
 	// for Capacity below.) Setting this to "0" causes
@@ -424,16 +424,16 @@ type GroupState struct {
 	// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
 	// to attach to the autoscaling group **before** instances are launched. The
 	// syntax is exactly the same as the separate
-	// [`aws_autoscaling_lifecycle_hook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
-	// resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
-	// a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
+	// [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+	// resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
+	// a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 	InitialLifecycleHooks interface{}
 	// The name of the launch configuration to use.
 	LaunchConfiguration interface{}
 	// Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
 	LaunchTemplate interface{}
 	// A list of elastic load balancer names to add to the autoscaling
-	// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
 	LoadBalancers interface{}
 	// The maximum size of the auto scale group.
 	MaxSize interface{}
@@ -469,7 +469,7 @@ type GroupState struct {
 	Tags interface{}
 	// A list of tag blocks (maps). Tags documented below.
 	TagsCollection interface{}
-	// A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
+	// A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns interface{}
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies interface{}
@@ -479,14 +479,14 @@ type GroupState struct {
 	// Setting this will cause this provider to wait
 	// for exactly this number of healthy instances from this autoscaling group in
 	// all attached load balancers on both create and update operations. (Takes
-	// precedence over `min_elb_capacity` behavior.)
+	// precedence over `minElbCapacity` behavior.)
 	// (See also Waiting for Capacity below.)
 	WaitForElbCapacity interface{}
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
+	// A list of one or more availability zones for the group. This parameter should not be specified when using `vpcZoneIdentifier`.
 	AvailabilityZones interface{}
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown interface{}
@@ -495,7 +495,7 @@ type GroupArgs struct {
 	// Capacity below.)
 	DesiredCapacity interface{}
 	// A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
-	// * `wait_for_capacity_timeout` (Default: "10m") A maximum
+	// * `waitForCapacityTimeout` (Default: "10m") A maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for ASG instances to be healthy before timing out.  (See also Waiting
 	// for Capacity below.) Setting this to "0" causes
@@ -515,16 +515,16 @@ type GroupArgs struct {
 	// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
 	// to attach to the autoscaling group **before** instances are launched. The
 	// syntax is exactly the same as the separate
-	// [`aws_autoscaling_lifecycle_hook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
-	// resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
-	// a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
+	// [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+	// resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
+	// a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 	InitialLifecycleHooks interface{}
 	// The name of the launch configuration to use.
 	LaunchConfiguration interface{}
 	// Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
 	LaunchTemplate interface{}
 	// A list of elastic load balancer names to add to the autoscaling
-	// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
 	LoadBalancers interface{}
 	// The maximum size of the auto scale group.
 	MaxSize interface{}
@@ -560,7 +560,7 @@ type GroupArgs struct {
 	Tags interface{}
 	// A list of tag blocks (maps). Tags documented below.
 	TagsCollection interface{}
-	// A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
+	// A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns interface{}
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies interface{}
@@ -570,7 +570,7 @@ type GroupArgs struct {
 	// Setting this will cause this provider to wait
 	// for exactly this number of healthy instances from this autoscaling group in
 	// all attached load balancers on both create and update operations. (Takes
-	// precedence over `min_elb_capacity` behavior.)
+	// precedence over `minElbCapacity` behavior.)
 	// (See also Waiting for Capacity below.)
 	WaitForElbCapacity interface{}
 }

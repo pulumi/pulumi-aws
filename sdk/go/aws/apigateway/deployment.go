@@ -10,8 +10,8 @@ import (
 
 // Provides an API Gateway Deployment.
 // 
-// > **Note:** Depends on having `aws_api_gateway_integration` inside your rest api (which in turn depends on `aws_api_gateway_method`). To avoid race conditions
-// you might need to add an explicit `depends_on = ["aws_api_gateway_integration.name"]`.
+// > **Note:** Depends on having `apigateway.Integration` inside your rest api (which in turn depends on `apigateway.Method`). To avoid race conditions
+// you might need to add an explicit `dependsOn = ["aws_api_gateway_integration.name"]`.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_deployment.html.markdown.
 type Deployment struct {
@@ -90,7 +90,7 @@ func (r *Deployment) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+// The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
 // when allowing API Gateway to invoke a Lambda function,
 // e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 func (r *Deployment) ExecutionArn() *pulumi.StringOutput {
@@ -129,7 +129,7 @@ type DeploymentState struct {
 	CreatedDate interface{}
 	// The description of the deployment
 	Description interface{}
-	// The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+	// The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn interface{}

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const my_domain = pulumi.output(aws.iam.getServerCertificate({
+ * const myDomain = pulumi.output(aws.iam.getServerCertificate({
  *     latest: true,
  *     namePrefix: "my-domain.org",
  * }));

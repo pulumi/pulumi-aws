@@ -66,7 +66,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly contentConfig!: pulumi.Output<{ bucket: string, storageClass?: string }>;
     /**
-     * The permissions for the `content_config` object. (documented below)
+     * The permissions for the `contentConfig` object. (documented below)
      */
     public readonly contentConfigPermissions!: pulumi.Output<{ accesses?: string[], grantee?: string, granteeType?: string }[] | undefined>;
     /**
@@ -94,7 +94,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly thumbnailConfig!: pulumi.Output<{ bucket: string, storageClass?: string }>;
     /**
-     * The permissions for the `thumbnail_config` object. (documented below)
+     * The permissions for the `thumbnailConfig` object. (documented below)
      */
     public readonly thumbnailConfigPermissions!: pulumi.Output<{ accesses?: string[], grantee?: string, granteeType?: string }[] | undefined>;
 
@@ -166,7 +166,7 @@ export interface PipelineState {
      */
     readonly contentConfig?: pulumi.Input<{ bucket?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>;
     /**
-     * The permissions for the `content_config` object. (documented below)
+     * The permissions for the `contentConfig` object. (documented below)
      */
     readonly contentConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
     /**
@@ -194,7 +194,7 @@ export interface PipelineState {
      */
     readonly thumbnailConfig?: pulumi.Input<{ bucket?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>;
     /**
-     * The permissions for the `thumbnail_config` object. (documented below)
+     * The permissions for the `thumbnailConfig` object. (documented below)
      */
     readonly thumbnailConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
 }
@@ -212,7 +212,7 @@ export interface PipelineArgs {
      */
     readonly contentConfig?: pulumi.Input<{ bucket?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>;
     /**
-     * The permissions for the `content_config` object. (documented below)
+     * The permissions for the `contentConfig` object. (documented below)
      */
     readonly contentConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
     /**
@@ -240,7 +240,7 @@ export interface PipelineArgs {
      */
     readonly thumbnailConfig?: pulumi.Input<{ bucket?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>;
     /**
-     * The permissions for the `thumbnail_config` object. (documented below)
+     * The permissions for the `thumbnailConfig` object. (documented below)
      */
     readonly thumbnailConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
 }

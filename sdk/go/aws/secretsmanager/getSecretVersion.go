@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
+// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
 func LookupSecretVersion(ctx *pulumi.Context, args *GetSecretVersionArgs) (*GetSecretVersionResult, error) {
@@ -37,7 +37,7 @@ func LookupSecretVersion(ctx *pulumi.Context, args *GetSecretVersionArgs) (*GetS
 type GetSecretVersionArgs struct {
 	// Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 	SecretId interface{}
-	// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
+	// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
 	VersionId interface{}
 	// Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
 	VersionStage interface{}

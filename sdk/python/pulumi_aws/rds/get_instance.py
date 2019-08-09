@@ -244,14 +244,51 @@ class GetInstanceResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetInstanceResult(GetInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetInstanceResult(
+            address=self.address,
+            allocated_storage=self.allocated_storage,
+            auto_minor_version_upgrade=self.auto_minor_version_upgrade,
+            availability_zone=self.availability_zone,
+            backup_retention_period=self.backup_retention_period,
+            ca_cert_identifier=self.ca_cert_identifier,
+            db_cluster_identifier=self.db_cluster_identifier,
+            db_instance_arn=self.db_instance_arn,
+            db_instance_class=self.db_instance_class,
+            db_instance_identifier=self.db_instance_identifier,
+            db_instance_port=self.db_instance_port,
+            db_name=self.db_name,
+            db_parameter_groups=self.db_parameter_groups,
+            db_security_groups=self.db_security_groups,
+            db_subnet_group=self.db_subnet_group,
+            enabled_cloudwatch_logs_exports=self.enabled_cloudwatch_logs_exports,
+            endpoint=self.endpoint,
+            engine=self.engine,
+            engine_version=self.engine_version,
+            hosted_zone_id=self.hosted_zone_id,
+            iops=self.iops,
+            kms_key_id=self.kms_key_id,
+            license_model=self.license_model,
+            master_username=self.master_username,
+            monitoring_interval=self.monitoring_interval,
+            monitoring_role_arn=self.monitoring_role_arn,
+            multi_az=self.multi_az,
+            option_group_memberships=self.option_group_memberships,
+            port=self.port,
+            preferred_backup_window=self.preferred_backup_window,
+            preferred_maintenance_window=self.preferred_maintenance_window,
+            publicly_accessible=self.publicly_accessible,
+            replicate_source_db=self.replicate_source_db,
+            resource_id=self.resource_id,
+            storage_encrypted=self.storage_encrypted,
+            storage_type=self.storage_type,
+            timezone=self.timezone,
+            vpc_security_groups=self.vpc_security_groups,
+            id=self.id)
 
 def get_instance(db_instance_identifier=None,opts=None):
     """
@@ -268,7 +305,7 @@ def get_instance(db_instance_identifier=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:rds/getInstance:getInstance', __args__, opts=opts).value
 
-    return GetInstanceResult(
+    return AwaitableGetInstanceResult(
         address=__ret__.get('address'),
         allocated_storage=__ret__.get('allocatedStorage'),
         auto_minor_version_upgrade=__ret__.get('autoMinorVersionUpgrade'),

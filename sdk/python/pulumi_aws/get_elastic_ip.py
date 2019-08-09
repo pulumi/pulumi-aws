@@ -88,18 +88,29 @@ class GetElasticIpResult:
         """
         Key-value map of tags associated with Elastic IP.
         """
-
+class AwaitableGetElasticIpResult(GetElasticIpResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetElasticIpResult(
+            association_id=self.association_id,
+            domain=self.domain,
+            filters=self.filters,
+            id=self.id,
+            instance_id=self.instance_id,
+            network_interface_id=self.network_interface_id,
+            network_interface_owner_id=self.network_interface_owner_id,
+            private_dns=self.private_dns,
+            private_ip=self.private_ip,
+            public_dns=self.public_dns,
+            public_ip=self.public_ip,
+            public_ipv4_pool=self.public_ipv4_pool,
+            tags=self.tags)
 
 def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
     """
-    `aws_eip` provides details about a specific Elastic IP.
+    `ec2.Eip` provides details about a specific Elastic IP.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.
     """
@@ -115,7 +126,7 @@ def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getElasticIp:getElasticIp', __args__, opts=opts).value
 
-    return GetElasticIpResult(
+    return AwaitableGetElasticIpResult(
         association_id=__ret__.get('associationId'),
         domain=__ret__.get('domain'),
         filters=__ret__.get('filters'),

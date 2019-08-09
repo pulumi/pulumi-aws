@@ -49,14 +49,18 @@ class GetPolicyResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetPolicyResult(GetPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetPolicyResult(
+            arn=self.arn,
+            description=self.description,
+            name=self.name,
+            path=self.path,
+            policy=self.policy,
+            id=self.id)
 
 def get_policy(arn=None,opts=None):
     """
@@ -74,7 +78,7 @@ def get_policy(arn=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getPolicy:getPolicy', __args__, opts=opts).value
 
-    return GetPolicyResult(
+    return AwaitableGetPolicyResult(
         arn=__ret__.get('arn'),
         description=__ret__.get('description'),
         name=__ret__.get('name'),

@@ -64,7 +64,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly agentVersion!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+     * If `manageBerkshelf` is enabled, the version of Berkshelf to use.
      */
     public readonly berkshelfVersion!: pulumi.Output<string | undefined>;
     /**
@@ -80,7 +80,7 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly configurationManagerVersion!: pulumi.Output<string | undefined>;
     /**
-     * When `use_custom_cookbooks` is set, provide this sub-object as
+     * When `useCustomCookbooks` is set, provide this sub-object as
      * described below.
      */
     public readonly customCookbooksSources!: pulumi.Output<{ password?: string, revision?: string, sshKey?: string, type: string, url: string, username?: string }[]>;
@@ -90,7 +90,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly customJson!: pulumi.Output<string | undefined>;
     /**
      * Name of the availability zone where instances will be created
-     * by default. This is required unless you set `vpc_id`.
+     * by default. This is required unless you set `vpcId`.
      */
     public readonly defaultAvailabilityZone!: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly defaultSshKeyName!: pulumi.Output<string | undefined>;
     /**
      * Id of the subnet in which instances will be created by default. Mandatory
-     * if `vpc_id` is set, and forbidden if it isn't.
+     * if `vpcId` is set, and forbidden if it isn't.
      */
     public readonly defaultSubnetId!: pulumi.Output<string>;
     /**
@@ -249,7 +249,7 @@ export interface StackState {
     readonly agentVersion?: pulumi.Input<string>;
     readonly arn?: pulumi.Input<string>;
     /**
-     * If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+     * If `manageBerkshelf` is enabled, the version of Berkshelf to use.
      */
     readonly berkshelfVersion?: pulumi.Input<string>;
     /**
@@ -265,7 +265,7 @@ export interface StackState {
      */
     readonly configurationManagerVersion?: pulumi.Input<string>;
     /**
-     * When `use_custom_cookbooks` is set, provide this sub-object as
+     * When `useCustomCookbooks` is set, provide this sub-object as
      * described below.
      */
     readonly customCookbooksSources?: pulumi.Input<pulumi.Input<{ password?: pulumi.Input<string>, revision?: pulumi.Input<string>, sshKey?: pulumi.Input<string>, type: pulumi.Input<string>, url: pulumi.Input<string>, username?: pulumi.Input<string> }>[]>;
@@ -275,7 +275,7 @@ export interface StackState {
     readonly customJson?: pulumi.Input<string>;
     /**
      * Name of the availability zone where instances will be created
-     * by default. This is required unless you set `vpc_id`.
+     * by default. This is required unless you set `vpcId`.
      */
     readonly defaultAvailabilityZone?: pulumi.Input<string>;
     /**
@@ -297,7 +297,7 @@ export interface StackState {
     readonly defaultSshKeyName?: pulumi.Input<string>;
     /**
      * Id of the subnet in which instances will be created by default. Mandatory
-     * if `vpc_id` is set, and forbidden if it isn't.
+     * if `vpcId` is set, and forbidden if it isn't.
      */
     readonly defaultSubnetId?: pulumi.Input<string>;
     /**
@@ -351,7 +351,7 @@ export interface StackArgs {
      */
     readonly agentVersion?: pulumi.Input<string>;
     /**
-     * If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+     * If `manageBerkshelf` is enabled, the version of Berkshelf to use.
      */
     readonly berkshelfVersion?: pulumi.Input<string>;
     /**
@@ -367,7 +367,7 @@ export interface StackArgs {
      */
     readonly configurationManagerVersion?: pulumi.Input<string>;
     /**
-     * When `use_custom_cookbooks` is set, provide this sub-object as
+     * When `useCustomCookbooks` is set, provide this sub-object as
      * described below.
      */
     readonly customCookbooksSources?: pulumi.Input<pulumi.Input<{ password?: pulumi.Input<string>, revision?: pulumi.Input<string>, sshKey?: pulumi.Input<string>, type: pulumi.Input<string>, url: pulumi.Input<string>, username?: pulumi.Input<string> }>[]>;
@@ -377,7 +377,7 @@ export interface StackArgs {
     readonly customJson?: pulumi.Input<string>;
     /**
      * Name of the availability zone where instances will be created
-     * by default. This is required unless you set `vpc_id`.
+     * by default. This is required unless you set `vpcId`.
      */
     readonly defaultAvailabilityZone?: pulumi.Input<string>;
     /**
@@ -399,7 +399,7 @@ export interface StackArgs {
     readonly defaultSshKeyName?: pulumi.Input<string>;
     /**
      * Id of the subnet in which instances will be created by default. Mandatory
-     * if `vpc_id` is set, and forbidden if it isn't.
+     * if `vpcId` is set, and forbidden if it isn't.
      */
     readonly defaultSubnetId?: pulumi.Input<string>;
     /**

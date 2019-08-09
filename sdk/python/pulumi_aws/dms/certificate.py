@@ -25,7 +25,7 @@ class Certificate(pulumi.CustomResource):
     """
     The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
     """
-    def __init__(__self__, resource_name, opts=None, certificate_id=None, certificate_pem=None, certificate_wallet=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, certificate_id=None, certificate_pem=None, certificate_wallet=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
         
@@ -46,36 +46,52 @@ class Certificate(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if certificate_id is None:
-            raise TypeError("Missing required property 'certificate_id'")
-        __props__['certificate_id'] = certificate_id
-
-        __props__['certificate_pem'] = certificate_pem
-
-        __props__['certificate_wallet'] = certificate_wallet
-
-        __props__['certificate_arn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if certificate_id is None:
+                raise TypeError("Missing required property 'certificate_id'")
+            __props__['certificate_id'] = certificate_id
+            __props__['certificate_pem'] = certificate_pem
+            __props__['certificate_wallet'] = certificate_wallet
+            __props__['certificate_arn'] = None
         super(Certificate, __self__).__init__(
             'aws:dms/certificate:Certificate',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, certificate_arn=None, certificate_id=None, certificate_pem=None, certificate_wallet=None):
+        """
+        Get an existing Certificate resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
+        :param pulumi.Input[str] certificate_id: The certificate identifier.
+        :param pulumi.Input[str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+        :param pulumi.Input[str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_certificate.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["certificate_arn"] = certificate_arn
+        __props__["certificate_id"] = certificate_id
+        __props__["certificate_pem"] = certificate_pem
+        __props__["certificate_wallet"] = certificate_wallet
+        return Certificate(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

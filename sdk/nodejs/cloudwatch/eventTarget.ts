@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const testStream = new aws.kinesis.Stream("test_stream", {
+ * const testStream = new aws.kinesis.Stream("testStream", {
  *     shardCount: 1,
  * });
  * const yada = new aws.cloudwatch.EventTarget("yada", {
@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stop_instances", {
+ * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstances", {
  *     description: "Stop instances nightly",
  *     scheduleExpression: "cron(0 0 * * ? *)",
  * });
- * const stopInstance = new aws.ssm.Document("stop_instance", {
+ * const stopInstance = new aws.ssm.Document("stopInstance", {
  *     content: `  {
  *     "schemaVersion": "1.2",
  *     "description": "Stop an instance",
@@ -87,10 +87,10 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * }));
- * const ssmLifecycleRole = new aws.iam.Role("ssm_lifecycle", {
+ * const ssmLifecycleRole = new aws.iam.Role("ssmLifecycle", {
  *     assumeRolePolicy: ssmLifecycleTrust.json,
  * });
- * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stop_instances", {
+ * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stopInstances", {
  *     arn: stopInstance.arn,
  *     roleArn: ssmLifecycleRole.arn,
  *     rule: stopInstancesEventRule.name,
@@ -118,7 +118,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * }));
- * const ssmLifecyclePolicy = new aws.iam.Policy("ssm_lifecycle", {
+ * const ssmLifecyclePolicy = new aws.iam.Policy("ssmLifecycle", {
  *     policy: ssmLifecyclePolicyDocument.json,
  * });
  * ```
@@ -129,11 +129,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stop_instances", {
+ * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstances", {
  *     description: "Stop instances nightly",
  *     scheduleExpression: "cron(0 0 * * ? *)",
  * });
- * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stop_instances", {
+ * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stopInstances", {
  *     arn: `arn:aws:ssm:${var_aws_region}::document/AWS-RunShellScript`,
  *     input: "{\"commands\":[\"halt\"]}",
  *     roleArn: aws_iam_role_ssm_lifecycle.arn,
@@ -151,7 +151,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ecsEvents = new aws.iam.Role("ecs_events", {
+ * const ecsEvents = new aws.iam.Role("ecsEvents", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -167,7 +167,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const ecsScheduledTask = new aws.cloudwatch.EventTarget("ecs_scheduled_task", {
+ * const ecsScheduledTask = new aws.cloudwatch.EventTarget("ecsScheduledTask", {
  *     arn: aws_ecs_cluster_cluster_name.arn,
  *     ecsTarget: {
  *         taskCount: 1,
@@ -185,7 +185,7 @@ import * as utilities from "../utilities";
  *     roleArn: ecsEvents.arn,
  *     rule: aws_cloudwatch_event_rule_every_hour.name,
  * });
- * const ecsEventsRunTaskWithAnyRole = new aws.iam.RolePolicy("ecs_events_run_task_with_any_role", {
+ * const ecsEventsRunTaskWithAnyRole = new aws.iam.RolePolicy("ecsEventsRunTaskWithAnyRole", {
  *     policy: aws_ecs_task_definition_task_name.arn.apply(arn => `{
  *     "Version": "2012-10-17",
  *     "Statement": [
@@ -265,7 +265,7 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly kinesisTarget!: pulumi.Output<{ partitionKeyPath?: string } | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
@@ -375,7 +375,7 @@ export interface EventTargetState {
      */
     readonly kinesisTarget?: pulumi.Input<{ partitionKeyPath?: pulumi.Input<string> }>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
@@ -430,7 +430,7 @@ export interface EventTargetArgs {
      */
     readonly kinesisTarget?: pulumi.Input<{ partitionKeyPath?: pulumi.Input<string> }>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
      */
     readonly roleArn?: pulumi.Input<string>;
     /**

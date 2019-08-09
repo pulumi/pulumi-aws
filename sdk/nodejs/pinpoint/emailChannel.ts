@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * const identity = new aws.ses.DomainIdentity("identity", {
  *     domain: "example.com",
  * });
- * const rolePolicy = new aws.iam.RolePolicy("role_policy", {
+ * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": {

@@ -48,7 +48,7 @@ class Key(pulumi.CustomResource):
     """
     A mapping of tags to assign to the object.
     """
-    def __init__(__self__, resource_name, opts=None, deletion_window_in_days=None, description=None, enable_key_rotation=None, is_enabled=None, key_usage=None, policy=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, deletion_window_in_days=None, description=None, enable_key_rotation=None, is_enabled=None, key_usage=None, policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a KMS customer master key.
         
@@ -73,43 +73,68 @@ class Key(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['deletion_window_in_days'] = deletion_window_in_days
-
-        __props__['description'] = description
-
-        __props__['enable_key_rotation'] = enable_key_rotation
-
-        __props__['is_enabled'] = is_enabled
-
-        __props__['key_usage'] = key_usage
-
-        __props__['policy'] = policy
-
-        __props__['tags'] = tags
-
-        __props__['arn'] = None
-        __props__['key_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['deletion_window_in_days'] = deletion_window_in_days
+            __props__['description'] = description
+            __props__['enable_key_rotation'] = enable_key_rotation
+            __props__['is_enabled'] = is_enabled
+            __props__['key_usage'] = key_usage
+            __props__['policy'] = policy
+            __props__['tags'] = tags
+            __props__['arn'] = None
+            __props__['key_id'] = None
         super(Key, __self__).__init__(
             'aws:kms/key:Key',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, deletion_window_in_days=None, description=None, enable_key_rotation=None, is_enabled=None, key_id=None, key_usage=None, policy=None, tags=None):
+        """
+        Get an existing Key resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the key.
+        :param pulumi.Input[float] deletion_window_in_days: Duration in days after which the key is deleted
+               after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
+        :param pulumi.Input[str] description: The description of the key as viewed in AWS console.
+        :param pulumi.Input[bool] enable_key_rotation: Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
+               is enabled. Defaults to false.
+        :param pulumi.Input[bool] is_enabled: Specifies whether the key is enabled. Defaults to true.
+        :param pulumi.Input[str] key_id: The globally unique identifier for the key.
+        :param pulumi.Input[str] key_usage: Specifies the intended use of the key.
+               Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+        :param pulumi.Input[str] policy: A valid policy JSON document.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_key.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["deletion_window_in_days"] = deletion_window_in_days
+        __props__["description"] = description
+        __props__["enable_key_rotation"] = enable_key_rotation
+        __props__["is_enabled"] = is_enabled
+        __props__["key_id"] = key_id
+        __props__["key_usage"] = key_usage
+        __props__["policy"] = policy
+        __props__["tags"] = tags
+        return Key(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

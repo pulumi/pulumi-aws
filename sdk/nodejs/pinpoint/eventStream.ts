@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testRole = new aws.iam.Role("test_role", {
+ * const testRole = new aws.iam.Role("testRole", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const testStream = new aws.kinesis.Stream("test_stream", {
+ * const testStream = new aws.kinesis.Stream("testStream", {
  *     shardCount: 1,
  * });
  * const app = new aws.pinpoint.App("app", {});
- * const testRolePolicy = new aws.iam.RolePolicy("test_role_policy", {
+ * const testRolePolicy = new aws.iam.RolePolicy("testRolePolicy", {
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": {

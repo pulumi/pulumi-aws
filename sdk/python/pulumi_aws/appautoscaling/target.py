@@ -34,9 +34,9 @@ class Target(pulumi.CustomResource):
     """
     The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
     """
-    def __init__(__self__, resource_name, opts=None, max_capacity=None, min_capacity=None, resource_id=None, role_arn=None, scalable_dimension=None, service_namespace=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, max_capacity=None, min_capacity=None, resource_id=None, role_arn=None, scalable_dimension=None, service_namespace=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the [`aws_appautoscaling_policy` resource](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html).
+        Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the [`appautoscaling.Policy` resource](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -56,48 +56,67 @@ class Target(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if max_capacity is None:
-            raise TypeError("Missing required property 'max_capacity'")
-        __props__['max_capacity'] = max_capacity
-
-        if min_capacity is None:
-            raise TypeError("Missing required property 'min_capacity'")
-        __props__['min_capacity'] = min_capacity
-
-        if resource_id is None:
-            raise TypeError("Missing required property 'resource_id'")
-        __props__['resource_id'] = resource_id
-
-        __props__['role_arn'] = role_arn
-
-        if scalable_dimension is None:
-            raise TypeError("Missing required property 'scalable_dimension'")
-        __props__['scalable_dimension'] = scalable_dimension
-
-        if service_namespace is None:
-            raise TypeError("Missing required property 'service_namespace'")
-        __props__['service_namespace'] = service_namespace
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if max_capacity is None:
+                raise TypeError("Missing required property 'max_capacity'")
+            __props__['max_capacity'] = max_capacity
+            if min_capacity is None:
+                raise TypeError("Missing required property 'min_capacity'")
+            __props__['min_capacity'] = min_capacity
+            if resource_id is None:
+                raise TypeError("Missing required property 'resource_id'")
+            __props__['resource_id'] = resource_id
+            __props__['role_arn'] = role_arn
+            if scalable_dimension is None:
+                raise TypeError("Missing required property 'scalable_dimension'")
+            __props__['scalable_dimension'] = scalable_dimension
+            if service_namespace is None:
+                raise TypeError("Missing required property 'service_namespace'")
+            __props__['service_namespace'] = service_namespace
         super(Target, __self__).__init__(
             'aws:appautoscaling/target:Target',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, max_capacity=None, min_capacity=None, resource_id=None, role_arn=None, scalable_dimension=None, service_namespace=None):
+        """
+        Get an existing Target resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] max_capacity: The max capacity of the scalable target.
+        :param pulumi.Input[float] min_capacity: The min capacity of the scalable target.
+        :param pulumi.Input[str] resource_id: The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role that allows Application
+               AutoScaling to modify your scalable target on your behalf.
+        :param pulumi.Input[str] scalable_dimension: The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+        :param pulumi.Input[str] service_namespace: The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_target.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["max_capacity"] = max_capacity
+        __props__["min_capacity"] = min_capacity
+        __props__["resource_id"] = resource_id
+        __props__["role_arn"] = role_arn
+        __props__["scalable_dimension"] = scalable_dimension
+        __props__["service_namespace"] = service_namespace
+        return Target(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

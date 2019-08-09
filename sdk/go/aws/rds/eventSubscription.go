@@ -16,7 +16,7 @@ import (
 // 
 // * `id` - The name of the RDS event notification subscription
 // * `arn` - The Amazon Resource Name of the RDS event notification subscription
-// * `customer_aws_id` - The AWS customer account associated with the RDS event notification subscription
+// * `customerAwsId` - The AWS customer account associated with the RDS event notification subscription
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_event_subscription.html.markdown.
 type EventSubscription struct {
@@ -125,7 +125,7 @@ func (r *EventSubscription) SnsTopic() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["snsTopic"])
 }
 
-// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
 func (r *EventSubscription) SourceIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["sourceIds"])
 }
@@ -154,7 +154,7 @@ type EventSubscriptionState struct {
 	NamePrefix interface{}
 	// The SNS topic to send events to.
 	SnsTopic interface{}
-	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
 	SourceIds interface{}
 	// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
 	SourceType interface{}
@@ -174,7 +174,7 @@ type EventSubscriptionArgs struct {
 	NamePrefix interface{}
 	// The SNS topic to send events to.
 	SnsTopic interface{}
-	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
 	SourceIds interface{}
 	// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
 	SourceType interface{}

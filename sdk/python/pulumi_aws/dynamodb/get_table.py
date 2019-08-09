@@ -73,14 +73,31 @@ class GetTableResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetTableResult(GetTableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetTableResult(
+            arn=self.arn,
+            attributes=self.attributes,
+            billing_mode=self.billing_mode,
+            global_secondary_indexes=self.global_secondary_indexes,
+            hash_key=self.hash_key,
+            local_secondary_indexes=self.local_secondary_indexes,
+            name=self.name,
+            point_in_time_recovery=self.point_in_time_recovery,
+            range_key=self.range_key,
+            read_capacity=self.read_capacity,
+            server_side_encryption=self.server_side_encryption,
+            stream_arn=self.stream_arn,
+            stream_enabled=self.stream_enabled,
+            stream_label=self.stream_label,
+            stream_view_type=self.stream_view_type,
+            tags=self.tags,
+            ttl=self.ttl,
+            write_capacity=self.write_capacity,
+            id=self.id)
 
 def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
     """
@@ -99,7 +116,7 @@ def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:dynamodb/getTable:getTable', __args__, opts=opts).value
 
-    return GetTableResult(
+    return AwaitableGetTableResult(
         arn=__ret__.get('arn'),
         attributes=__ret__.get('attributes'),
         billing_mode=__ret__.get('billingMode'),

@@ -34,20 +34,23 @@ class GetCipherTextResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetCipherTextResult(GetCipherTextResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetCipherTextResult(
+            ciphertext_blob=self.ciphertext_blob,
+            context=self.context,
+            key_id=self.key_id,
+            plaintext=self.plaintext,
+            id=self.id)
 
 def get_cipher_text(context=None,key_id=None,plaintext=None,opts=None):
     """
     The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
     by using an AWS KMS customer master key. The value returned by this data source
-    changes every apply. For a stable ciphertext value, see the [`aws_kms_ciphertext`
+    changes every apply. For a stable ciphertext value, see the [`kms.Ciphertext`
     resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
     
     > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
@@ -66,7 +69,7 @@ def get_cipher_text(context=None,key_id=None,plaintext=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:kms/getCipherText:getCipherText', __args__, opts=opts).value
 
-    return GetCipherTextResult(
+    return AwaitableGetCipherTextResult(
         ciphertext_blob=__ret__.get('ciphertextBlob'),
         context=__ret__.get('context'),
         key_id=__ret__.get('keyId'),

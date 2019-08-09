@@ -64,7 +64,7 @@ class SecurityGroup(pulumi.CustomResource):
     """
     The VPC ID.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, egress=None, ingress=None, name=None, name_prefix=None, revoke_rules_on_delete=None, tags=None, vpc_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, egress=None, ingress=None, name=None, name_prefix=None, revoke_rules_on_delete=None, tags=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a security group resource.
         
@@ -111,47 +111,85 @@ class SecurityGroup(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if description is None:
-            description = 'Managed by Pulumi'
-        __props__['description'] = description
-
-        __props__['egress'] = egress
-
-        __props__['ingress'] = ingress
-
-        __props__['name'] = name
-
-        __props__['name_prefix'] = name_prefix
-
-        __props__['revoke_rules_on_delete'] = revoke_rules_on_delete
-
-        __props__['tags'] = tags
-
-        __props__['vpc_id'] = vpc_id
-
-        __props__['arn'] = None
-        __props__['owner_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if description is None:
+                description = 'Managed by Pulumi'
+            __props__['description'] = description
+            __props__['egress'] = egress
+            __props__['ingress'] = ingress
+            __props__['name'] = name
+            __props__['name_prefix'] = name_prefix
+            __props__['revoke_rules_on_delete'] = revoke_rules_on_delete
+            __props__['tags'] = tags
+            __props__['vpc_id'] = vpc_id
+            __props__['arn'] = None
+            __props__['owner_id'] = None
         super(SecurityGroup, __self__).__init__(
             'aws:ec2/securityGroup:SecurityGroup',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, description=None, egress=None, ingress=None, name=None, name_prefix=None, owner_id=None, revoke_rules_on_delete=None, tags=None, vpc_id=None):
+        """
+        Get an existing SecurityGroup resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the security group
+        :param pulumi.Input[str] description: The security group description. Defaults to
+               "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+               `GroupDescription` attribute, for which there is no Update API. If you'd like
+               to classify your security groups in a way that can be updated, use `tags`.
+        :param pulumi.Input[list] egress: Can be specified multiple times for each
+               egress rule. Each egress block supports fields documented below.
+               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+        :param pulumi.Input[list] ingress: Can be specified multiple times for each
+               ingress rule. Each ingress block supports fields documented below.
+               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+        :param pulumi.Input[str] name: The name of the security group. If omitted, this provider will
+               assign a random, unique name
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
+               prefix. Conflicts with `name`.
+        :param pulumi.Input[str] owner_id: The owner ID.
+        :param pulumi.Input[bool] revoke_rules_on_delete: Instruct this provider to revoke all of the
+               Security Groups attached ingress and egress rules before deleting the rule
+               itself. This is normally not needed, however certain AWS services such as
+               Elastic Map Reduce may automatically add required rules to security groups used
+               with the service, and those rules may contain a cyclic dependency that prevent
+               the security groups from being destroyed without removing the dependency first.
+               Default `false`
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] vpc_id: The VPC ID.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["egress"] = egress
+        __props__["ingress"] = ingress
+        __props__["name"] = name
+        __props__["name_prefix"] = name_prefix
+        __props__["owner_id"] = owner_id
+        __props__["revoke_rules_on_delete"] = revoke_rules_on_delete
+        __props__["tags"] = tags
+        __props__["vpc_id"] = vpc_id
+        return SecurityGroup(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -44,7 +44,7 @@ class EventSubscription(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, enabled=None, event_categories=None, name=None, severity=None, sns_topic_arn=None, source_ids=None, source_type=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, enabled=None, event_categories=None, name=None, severity=None, sns_topic_arn=None, source_ids=None, source_type=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Redshift event subscription resource.
         
@@ -75,48 +75,70 @@ class EventSubscription(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['enabled'] = enabled
-
-        __props__['event_categories'] = event_categories
-
-        __props__['name'] = name
-
-        __props__['severity'] = severity
-
-        if sns_topic_arn is None:
-            raise TypeError("Missing required property 'sns_topic_arn'")
-        __props__['sns_topic_arn'] = sns_topic_arn
-
-        __props__['source_ids'] = source_ids
-
-        __props__['source_type'] = source_type
-
-        __props__['tags'] = tags
-
-        __props__['arn'] = None
-        __props__['customer_aws_id'] = None
-        __props__['status'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['enabled'] = enabled
+            __props__['event_categories'] = event_categories
+            __props__['name'] = name
+            __props__['severity'] = severity
+            if sns_topic_arn is None:
+                raise TypeError("Missing required property 'sns_topic_arn'")
+            __props__['sns_topic_arn'] = sns_topic_arn
+            __props__['source_ids'] = source_ids
+            __props__['source_type'] = source_type
+            __props__['tags'] = tags
+            __props__['arn'] = None
+            __props__['customer_aws_id'] = None
+            __props__['status'] = None
         super(EventSubscription, __self__).__init__(
             'aws:redshift/eventSubscription:EventSubscription',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, customer_aws_id=None, enabled=None, event_categories=None, name=None, severity=None, sns_topic_arn=None, source_ids=None, source_type=None, status=None, tags=None):
+        """
+        Get an existing EventSubscription resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: A boolean flag to enable/disable the subscription. Defaults to true.
+        :param pulumi.Input[list] event_categories: A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
+        :param pulumi.Input[str] name: The name of the Redshift event subscription.
+        :param pulumi.Input[str] severity: The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
+        :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic to send events to.
+        :param pulumi.Input[list] source_ids: A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+        :param pulumi.Input[str] source_type: The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_event_subscription.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["customer_aws_id"] = customer_aws_id
+        __props__["enabled"] = enabled
+        __props__["event_categories"] = event_categories
+        __props__["name"] = name
+        __props__["severity"] = severity
+        __props__["sns_topic_arn"] = sns_topic_arn
+        __props__["source_ids"] = source_ids
+        __props__["source_type"] = source_type
+        __props__["status"] = status
+        __props__["tags"] = tags
+        return EventSubscription(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

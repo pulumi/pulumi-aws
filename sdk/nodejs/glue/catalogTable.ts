@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
+ * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws.glue.CatalogTable", {
  *     databaseName: "MyCatalogDatabase",
  * });
  * ```
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
+ * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws.glue.CatalogTable", {
  *     databaseName: "MyCatalogDatabase",
  *     parameters: {
  *         EXTERNAL: "TRUE",
@@ -35,26 +35,26 @@ import * as utilities from "../utilities";
  *     storageDescriptor: {
  *         columns: [
  *             {
- *                 name: "my_string",
+ *                 name: "myString",
  *                 type: "string",
  *             },
  *             {
- *                 name: "my_double",
+ *                 name: "myDouble",
  *                 type: "double",
  *             },
  *             {
  *                 comment: "",
- *                 name: "my_date",
+ *                 name: "myDate",
  *                 type: "date",
  *             },
  *             {
  *                 comment: "",
- *                 name: "my_bigint",
+ *                 name: "myBigint",
  *                 type: "bigint",
  *             },
  *             {
  *                 comment: "",
- *                 name: "my_struct",
+ *                 name: "myStruct",
  *                 type: "struct<my_nested_string:string>",
  *             },
  *         ],

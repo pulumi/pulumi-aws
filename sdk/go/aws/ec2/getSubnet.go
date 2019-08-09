@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `aws_subnet` provides details about a specific VPC subnet.
+// `ec2.Subnet` provides details about a specific VPC subnet.
 // 
 // This resource can prove useful when a module accepts a subnet id as
 // an input variable and needs to, for example, determine the id of the

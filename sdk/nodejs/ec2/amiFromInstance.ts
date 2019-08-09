@@ -64,7 +64,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Machine architecture for created instances. Defaults to "x86_64".
+     * Machine architecture for created instances. Defaults to "x8664".
      */
     public /*out*/ readonly architecture!: pulumi.Output<string>;
     /**
@@ -205,7 +205,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
  */
 export interface AmiFromInstanceState {
     /**
-     * Machine architecture for created instances. Defaults to "x86_64".
+     * Machine architecture for created instances. Defaults to "x8664".
      */
     readonly architecture?: pulumi.Input<string>;
     /**

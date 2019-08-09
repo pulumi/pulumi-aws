@@ -10,7 +10,7 @@ import (
 
 // Provides a CodePipeline.
 // 
-// > **NOTE on `aws_codepipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
+// > **NOTE on `codepipeline.Pipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline.html.markdown.
 type Pipeline struct {
@@ -86,7 +86,7 @@ func (r *Pipeline) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// An artifact_store block. Artifact stores are documented below.
+// An artifactStore block. Artifact stores are documented below.
 // * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 func (r *Pipeline) ArtifactStore() *pulumi.Output {
 	return r.s.State["artifactStore"]
@@ -115,7 +115,7 @@ func (r *Pipeline) Tags() *pulumi.MapOutput {
 type PipelineState struct {
 	// The codepipeline ARN.
 	Arn interface{}
-	// An artifact_store block. Artifact stores are documented below.
+	// An artifactStore block. Artifact stores are documented below.
 	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore interface{}
 	// The name of the pipeline.
@@ -129,7 +129,7 @@ type PipelineState struct {
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
-	// An artifact_store block. Artifact stores are documented below.
+	// An artifactStore block. Artifact stores are documented below.
 	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore interface{}
 	// The name of the pipeline.

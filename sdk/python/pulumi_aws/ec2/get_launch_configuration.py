@@ -121,14 +121,30 @@ class GetLaunchConfigurationResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetLaunchConfigurationResult(
+            associate_public_ip_address=self.associate_public_ip_address,
+            ebs_block_devices=self.ebs_block_devices,
+            ebs_optimized=self.ebs_optimized,
+            enable_monitoring=self.enable_monitoring,
+            ephemeral_block_devices=self.ephemeral_block_devices,
+            iam_instance_profile=self.iam_instance_profile,
+            image_id=self.image_id,
+            instance_type=self.instance_type,
+            key_name=self.key_name,
+            name=self.name,
+            placement_tenancy=self.placement_tenancy,
+            root_block_devices=self.root_block_devices,
+            security_groups=self.security_groups,
+            spot_price=self.spot_price,
+            user_data=self.user_data,
+            vpc_classic_link_id=self.vpc_classic_link_id,
+            vpc_classic_link_security_groups=self.vpc_classic_link_security_groups,
+            id=self.id)
 
 def get_launch_configuration(name=None,opts=None):
     """
@@ -145,7 +161,7 @@ def get_launch_configuration(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLaunchConfiguration:getLaunchConfiguration', __args__, opts=opts).value
 
-    return GetLaunchConfigurationResult(
+    return AwaitableGetLaunchConfigurationResult(
         associate_public_ip_address=__ret__.get('associatePublicIpAddress'),
         ebs_block_devices=__ret__.get('ebsBlockDevices'),
         ebs_optimized=__ret__.get('ebsOptimized'),

@@ -93,7 +93,7 @@ class LaunchConfiguration(pulumi.CustomResource):
     """
     The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
     """
-    def __init__(__self__, resource_name, opts=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, name_prefix=None, placement_tenancy=None, root_block_device=None, security_groups=None, spot_price=None, user_data=None, user_data_base64=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, name_prefix=None, placement_tenancy=None, root_block_device=None, security_groups=None, spot_price=None, user_data=None, user_data_base64=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to create a new launch configuration, used for autoscaling groups.
         
@@ -190,68 +190,107 @@ class LaunchConfiguration(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['associate_public_ip_address'] = associate_public_ip_address
-
-        __props__['ebs_block_devices'] = ebs_block_devices
-
-        __props__['ebs_optimized'] = ebs_optimized
-
-        __props__['enable_monitoring'] = enable_monitoring
-
-        __props__['ephemeral_block_devices'] = ephemeral_block_devices
-
-        __props__['iam_instance_profile'] = iam_instance_profile
-
-        if image_id is None:
-            raise TypeError("Missing required property 'image_id'")
-        __props__['image_id'] = image_id
-
-        if instance_type is None:
-            raise TypeError("Missing required property 'instance_type'")
-        __props__['instance_type'] = instance_type
-
-        __props__['key_name'] = key_name
-
-        __props__['name'] = name
-
-        __props__['name_prefix'] = name_prefix
-
-        __props__['placement_tenancy'] = placement_tenancy
-
-        __props__['root_block_device'] = root_block_device
-
-        __props__['security_groups'] = security_groups
-
-        __props__['spot_price'] = spot_price
-
-        __props__['user_data'] = user_data
-
-        __props__['user_data_base64'] = user_data_base64
-
-        __props__['vpc_classic_link_id'] = vpc_classic_link_id
-
-        __props__['vpc_classic_link_security_groups'] = vpc_classic_link_security_groups
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['associate_public_ip_address'] = associate_public_ip_address
+            __props__['ebs_block_devices'] = ebs_block_devices
+            __props__['ebs_optimized'] = ebs_optimized
+            __props__['enable_monitoring'] = enable_monitoring
+            __props__['ephemeral_block_devices'] = ephemeral_block_devices
+            __props__['iam_instance_profile'] = iam_instance_profile
+            if image_id is None:
+                raise TypeError("Missing required property 'image_id'")
+            __props__['image_id'] = image_id
+            if instance_type is None:
+                raise TypeError("Missing required property 'instance_type'")
+            __props__['instance_type'] = instance_type
+            __props__['key_name'] = key_name
+            __props__['name'] = name
+            __props__['name_prefix'] = name_prefix
+            __props__['placement_tenancy'] = placement_tenancy
+            __props__['root_block_device'] = root_block_device
+            __props__['security_groups'] = security_groups
+            __props__['spot_price'] = spot_price
+            __props__['user_data'] = user_data
+            __props__['user_data_base64'] = user_data_base64
+            __props__['vpc_classic_link_id'] = vpc_classic_link_id
+            __props__['vpc_classic_link_security_groups'] = vpc_classic_link_security_groups
         super(LaunchConfiguration, __self__).__init__(
             'aws:ec2/launchConfiguration:LaunchConfiguration',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, name_prefix=None, placement_tenancy=None, root_block_device=None, security_groups=None, spot_price=None, user_data=None, user_data_base64=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None):
+        """
+        Get an existing LaunchConfiguration resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
+        :param pulumi.Input[list] ebs_block_devices: Additional EBS block devices to attach to the
+               instance.  See Block Devices below for details.
+        :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
+        :param pulumi.Input[bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
+        :param pulumi.Input[list] ephemeral_block_devices: Customize Ephemeral (also known as
+               "Instance Store") volumes on the instance. See Block Devices below for details.
+        :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate
+               with launched instances.
+        :param pulumi.Input[str] image_id: The EC2 image ID to launch.
+        :param pulumi.Input[str] instance_type: The size of instance to launch.
+        :param pulumi.Input[str] key_name: The key name that should be used for the instance.
+        :param pulumi.Input[str] name: The name of the launch configuration. If you leave
+               this blank, this provider will auto-generate a unique name.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
+               prefix. Conflicts with `name`.
+        :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are
+               `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
+               for more details
+        :param pulumi.Input[dict] root_block_device: Customize details about the root block
+               device of the instance. See Block Devices below for details.
+        :param pulumi.Input[list] security_groups: A list of associated security group IDS.
+        :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
+        :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+        :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+        :param pulumi.Input[str] vpc_classic_link_id: The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
+        :param pulumi.Input[list] vpc_classic_link_security_groups: The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_configuration.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["associate_public_ip_address"] = associate_public_ip_address
+        __props__["ebs_block_devices"] = ebs_block_devices
+        __props__["ebs_optimized"] = ebs_optimized
+        __props__["enable_monitoring"] = enable_monitoring
+        __props__["ephemeral_block_devices"] = ephemeral_block_devices
+        __props__["iam_instance_profile"] = iam_instance_profile
+        __props__["image_id"] = image_id
+        __props__["instance_type"] = instance_type
+        __props__["key_name"] = key_name
+        __props__["name"] = name
+        __props__["name_prefix"] = name_prefix
+        __props__["placement_tenancy"] = placement_tenancy
+        __props__["root_block_device"] = root_block_device
+        __props__["security_groups"] = security_groups
+        __props__["spot_price"] = spot_price
+        __props__["user_data"] = user_data
+        __props__["user_data_base64"] = user_data_base64
+        __props__["vpc_classic_link_id"] = vpc_classic_link_id
+        __props__["vpc_classic_link_security_groups"] = vpc_classic_link_security_groups
+        return LaunchConfiguration(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

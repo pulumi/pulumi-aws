@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * > **NOTE:** CloudFront distributions take about 15 minutes to a deployed state
  * after creation or modification. During this time, deletes to resources will be
  * blocked. If you need to delete a distribution that is enabled and you do not
- * want to wait, you need to use the `retain_on_delete` flag.
+ * want to wait, you need to use the `retainOnDelete` flag.
  * 
  * ## Example Usage
  * 
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *         Name: "My bucket",
  *     },
  * });
- * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
+ * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
  *     aliases: [
  *         "mysite.example.com",
  *         "yoursite.example.com",
@@ -160,7 +160,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
+ * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
  *     defaultCacheBehavior: {
  *         // ... other configuration ...
  *         targetOriginId: "groupS3",
@@ -329,7 +329,7 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly origins!: pulumi.Output<{ customHeaders?: { name: string, value: string }[], customOriginConfig?: { httpPort: number, httpsPort: number, originKeepaliveTimeout?: number, originProtocolPolicy: string, originReadTimeout?: number, originSslProtocols: string[] }, domainName: string, originId: string, originPath?: string, s3OriginConfig?: { originAccessIdentity: string } }[]>;
     /**
-     * One or more origin_group for this
+     * One or more originGroup for this
      * distribution (multiples allowed).
      */
     public readonly originGroups!: pulumi.Output<{ failoverCriteria: { statusCodes: number[] }, members: { originId: string }[], originId: string }[] | undefined>;
@@ -578,7 +578,7 @@ export interface DistributionState {
      */
     readonly origins?: pulumi.Input<pulumi.Input<{ customHeaders?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, customOriginConfig?: pulumi.Input<{ httpPort: pulumi.Input<number>, httpsPort: pulumi.Input<number>, originKeepaliveTimeout?: pulumi.Input<number>, originProtocolPolicy: pulumi.Input<string>, originReadTimeout?: pulumi.Input<number>, originSslProtocols: pulumi.Input<pulumi.Input<string>[]> }>, domainName: pulumi.Input<string>, originId: pulumi.Input<string>, originPath?: pulumi.Input<string>, s3OriginConfig?: pulumi.Input<{ originAccessIdentity: pulumi.Input<string> }> }>[]>;
     /**
-     * One or more origin_group for this
+     * One or more originGroup for this
      * distribution (multiples allowed).
      */
     readonly originGroups?: pulumi.Input<pulumi.Input<{ failoverCriteria: pulumi.Input<{ statusCodes: pulumi.Input<pulumi.Input<number>[]> }>, members: pulumi.Input<pulumi.Input<{ originId: pulumi.Input<string> }>[]>, originId: pulumi.Input<string> }>[]>;
@@ -691,7 +691,7 @@ export interface DistributionArgs {
      */
     readonly origins: pulumi.Input<pulumi.Input<{ customHeaders?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, customOriginConfig?: pulumi.Input<{ httpPort: pulumi.Input<number>, httpsPort: pulumi.Input<number>, originKeepaliveTimeout?: pulumi.Input<number>, originProtocolPolicy: pulumi.Input<string>, originReadTimeout?: pulumi.Input<number>, originSslProtocols: pulumi.Input<pulumi.Input<string>[]> }>, domainName: pulumi.Input<string>, originId: pulumi.Input<string>, originPath?: pulumi.Input<string>, s3OriginConfig?: pulumi.Input<{ originAccessIdentity: pulumi.Input<string> }> }>[]>;
     /**
-     * One or more origin_group for this
+     * One or more originGroup for this
      * distribution (multiples allowed).
      */
     readonly originGroups?: pulumi.Input<pulumi.Input<{ failoverCriteria: pulumi.Input<{ statusCodes: pulumi.Input<pulumi.Input<number>[]> }>, members: pulumi.Input<pulumi.Input<{ originId: pulumi.Input<string> }>[]>, originId: pulumi.Input<string> }>[]>;

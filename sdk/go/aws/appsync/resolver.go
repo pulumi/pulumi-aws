@@ -119,7 +119,7 @@ func (r *Resolver) Kind() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kind"])
 }
 
-// The PipelineConfig. A `pipeline_config` block is documented below.
+// The PipelineConfig. A `pipelineConfig` block is documented below.
 func (r *Resolver) PipelineConfig() *pulumi.Output {
 	return r.s.State["pipelineConfig"]
 }
@@ -151,7 +151,7 @@ type ResolverState struct {
 	Field interface{}
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind interface{}
-	// The PipelineConfig. A `pipeline_config` block is documented below.
+	// The PipelineConfig. A `pipelineConfig` block is documented below.
 	PipelineConfig interface{}
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
 	RequestTemplate interface{}
@@ -171,7 +171,7 @@ type ResolverArgs struct {
 	Field interface{}
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
 	Kind interface{}
-	// The PipelineConfig. A `pipeline_config` block is documented below.
+	// The PipelineConfig. A `pipelineConfig` block is documented below.
 	PipelineConfig interface{}
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
 	RequestTemplate interface{}

@@ -94,14 +94,26 @@ class GetTransitGatewayResult:
         """
         Whether VPN Equal Cost Multipath Protocol support is enabled.
         """
-
+class AwaitableGetTransitGatewayResult(GetTransitGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetTransitGatewayResult(
+            amazon_side_asn=self.amazon_side_asn,
+            arn=self.arn,
+            association_default_route_table_id=self.association_default_route_table_id,
+            auto_accept_shared_attachments=self.auto_accept_shared_attachments,
+            default_route_table_association=self.default_route_table_association,
+            default_route_table_propagation=self.default_route_table_propagation,
+            description=self.description,
+            dns_support=self.dns_support,
+            filters=self.filters,
+            id=self.id,
+            owner_id=self.owner_id,
+            propagation_default_route_table_id=self.propagation_default_route_table_id,
+            tags=self.tags,
+            vpn_ecmp_support=self.vpn_ecmp_support)
 
 def get_transit_gateway(filters=None,id=None,tags=None,opts=None):
     """
@@ -120,7 +132,7 @@ def get_transit_gateway(filters=None,id=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getTransitGateway:getTransitGateway', __args__, opts=opts).value
 
-    return GetTransitGatewayResult(
+    return AwaitableGetTransitGatewayResult(
         amazon_side_asn=__ret__.get('amazonSideAsn'),
         arn=__ret__.get('arn'),
         association_default_route_table_id=__ret__.get('associationDefaultRouteTableId'),

@@ -273,7 +273,7 @@ func (r *LaunchTemplate) RamDiskId() *pulumi.StringOutput {
 }
 
 // A list of security group names to associate with. If you are creating Instances in a VPC, use
-// `vpc_security_group_ids` instead.
+// `vpcSecurityGroupIds` instead.
 func (r *LaunchTemplate) SecurityGroupNames() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["securityGroupNames"])
 }
@@ -359,7 +359,7 @@ type LaunchTemplateState struct {
 	// The ID of the RAM disk.
 	RamDiskId interface{}
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
-	// `vpc_security_group_ids` instead.
+	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames interface{}
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications interface{}
@@ -426,7 +426,7 @@ type LaunchTemplateArgs struct {
 	// The ID of the RAM disk.
 	RamDiskId interface{}
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
-	// `vpc_security_group_ids` instead.
+	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames interface{}
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications interface{}

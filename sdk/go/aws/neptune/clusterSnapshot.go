@@ -126,7 +126,7 @@ func (r *ClusterSnapshot) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
-// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
 func (r *ClusterSnapshot) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
@@ -180,7 +180,7 @@ type ClusterSnapshotState struct {
 	Engine interface{}
 	// Version of the database engine for this DB cluster snapshot.
 	EngineVersion interface{}
-	// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
 	KmsKeyId interface{}
 	// License model information for the restored DB cluster.
 	LicenseModel interface{}

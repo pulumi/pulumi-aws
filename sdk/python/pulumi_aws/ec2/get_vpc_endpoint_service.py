@@ -85,14 +85,25 @@ class GetVpcEndpointServiceResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVpcEndpointServiceResult(
+            acceptance_required=self.acceptance_required,
+            availability_zones=self.availability_zones,
+            base_endpoint_dns_names=self.base_endpoint_dns_names,
+            manages_vpc_endpoints=self.manages_vpc_endpoints,
+            owner=self.owner,
+            private_dns_name=self.private_dns_name,
+            service=self.service,
+            service_id=self.service_id,
+            service_name=self.service_name,
+            service_type=self.service_type,
+            tags=self.tags,
+            vpc_endpoint_policy_supported=self.vpc_endpoint_policy_supported,
+            id=self.id)
 
 def get_vpc_endpoint_service(service=None,service_name=None,tags=None,opts=None):
     """
@@ -112,7 +123,7 @@ def get_vpc_endpoint_service(service=None,service_name=None,tags=None,opts=None)
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcEndpointService:getVpcEndpointService', __args__, opts=opts).value
 
-    return GetVpcEndpointServiceResult(
+    return AwaitableGetVpcEndpointServiceResult(
         acceptance_required=__ret__.get('acceptanceRequired'),
         availability_zones=__ret__.get('availabilityZones'),
         base_endpoint_dns_names=__ret__.get('baseEndpointDnsNames'),

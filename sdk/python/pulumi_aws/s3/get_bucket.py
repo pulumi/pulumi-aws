@@ -64,14 +64,21 @@ class GetBucketResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetBucketResult(GetBucketResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetBucketResult(
+            arn=self.arn,
+            bucket=self.bucket,
+            bucket_domain_name=self.bucket_domain_name,
+            bucket_regional_domain_name=self.bucket_regional_domain_name,
+            hosted_zone_id=self.hosted_zone_id,
+            region=self.region,
+            website_domain=self.website_domain,
+            website_endpoint=self.website_endpoint,
+            id=self.id)
 
 def get_bucket(bucket=None,opts=None):
     """
@@ -91,7 +98,7 @@ def get_bucket(bucket=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucket:getBucket', __args__, opts=opts).value
 
-    return GetBucketResult(
+    return AwaitableGetBucketResult(
         arn=__ret__.get('arn'),
         bucket=__ret__.get('bucket'),
         bucket_domain_name=__ret__.get('bucketDomainName'),

@@ -16,7 +16,7 @@ import (
 // 
 // * `arn` - Amazon Resource Name (ARN) of the Redshift event notification subscription
 // * `id` - The name of the Redshift event notification subscription
-// * `customer_aws_id` - The AWS customer account associated with the Redshift event notification subscription
+// * `customerAwsId` - The AWS customer account associated with the Redshift event notification subscription
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_event_subscription.html.markdown.
 type EventSubscription struct {
@@ -127,7 +127,7 @@ func (r *EventSubscription) SnsTopicArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["snsTopicArn"])
 }
 
-// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
 func (r *EventSubscription) SourceIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["sourceIds"])
 }
@@ -160,7 +160,7 @@ type EventSubscriptionState struct {
 	Severity interface{}
 	// The ARN of the SNS topic to send events to.
 	SnsTopicArn interface{}
-	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
 	SourceIds interface{}
 	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
 	SourceType interface{}
@@ -181,7 +181,7 @@ type EventSubscriptionArgs struct {
 	Severity interface{}
 	// The ARN of the SNS topic to send events to.
 	SnsTopicArn interface{}
-	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
 	SourceIds interface{}
 	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
 	SourceType interface{}

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const awesomeDevices = new aws.devicefarm.Project("awesome_devices", {});
+ * const awesomeDevices = new aws.devicefarm.Project("awesomeDevices", {});
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/devicefarm_project.html.markdown.

@@ -39,7 +39,7 @@ class MountTarget(pulumi.CustomResource):
     """
     The ID of the subnet to add the mount target in.
     """
-    def __init__(__self__, resource_name, opts=None, file_system_id=None, ip_address=None, security_groups=None, subnet_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, file_system_id=None, ip_address=None, security_groups=None, subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic File System (EFS) mount target.
         
@@ -60,42 +60,65 @@ class MountTarget(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if file_system_id is None:
-            raise TypeError("Missing required property 'file_system_id'")
-        __props__['file_system_id'] = file_system_id
-
-        __props__['ip_address'] = ip_address
-
-        __props__['security_groups'] = security_groups
-
-        if subnet_id is None:
-            raise TypeError("Missing required property 'subnet_id'")
-        __props__['subnet_id'] = subnet_id
-
-        __props__['dns_name'] = None
-        __props__['file_system_arn'] = None
-        __props__['network_interface_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if file_system_id is None:
+                raise TypeError("Missing required property 'file_system_id'")
+            __props__['file_system_id'] = file_system_id
+            __props__['ip_address'] = ip_address
+            __props__['security_groups'] = security_groups
+            if subnet_id is None:
+                raise TypeError("Missing required property 'subnet_id'")
+            __props__['subnet_id'] = subnet_id
+            __props__['dns_name'] = None
+            __props__['file_system_arn'] = None
+            __props__['network_interface_id'] = None
         super(MountTarget, __self__).__init__(
             'aws:efs/mountTarget:MountTarget',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, dns_name=None, file_system_arn=None, file_system_id=None, ip_address=None, network_interface_id=None, security_groups=None, subnet_id=None):
+        """
+        Get an existing MountTarget resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] dns_name: The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        :param pulumi.Input[str] file_system_arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[str] file_system_id: The ID of the file system for which the mount target is intended.
+        :param pulumi.Input[str] ip_address: The address (within the address range of the specified subnet) at
+               which the file system may be mounted via the mount target.
+        :param pulumi.Input[str] network_interface_id: The ID of the network interface that Amazon EFS created when it created the mount target.
+        :param pulumi.Input[list] security_groups: A list of up to 5 VPC security group IDs (that must
+               be for the same VPC as subnet specified) in effect for the mount target.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet to add the mount target in.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_mount_target.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["dns_name"] = dns_name
+        __props__["file_system_arn"] = file_system_arn
+        __props__["file_system_id"] = file_system_id
+        __props__["ip_address"] = ip_address
+        __props__["network_interface_id"] = network_interface_id
+        __props__["security_groups"] = security_groups
+        __props__["subnet_id"] = subnet_id
+        return MountTarget(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

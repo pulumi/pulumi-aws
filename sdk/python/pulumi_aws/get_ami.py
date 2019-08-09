@@ -205,14 +205,42 @@ class GetAmiResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAmiResult(GetAmiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAmiResult(
+            architecture=self.architecture,
+            block_device_mappings=self.block_device_mappings,
+            creation_date=self.creation_date,
+            description=self.description,
+            executable_users=self.executable_users,
+            filters=self.filters,
+            hypervisor=self.hypervisor,
+            image_id=self.image_id,
+            image_location=self.image_location,
+            image_owner_alias=self.image_owner_alias,
+            image_type=self.image_type,
+            kernel_id=self.kernel_id,
+            most_recent=self.most_recent,
+            name=self.name,
+            name_regex=self.name_regex,
+            owner_id=self.owner_id,
+            owners=self.owners,
+            platform=self.platform,
+            product_codes=self.product_codes,
+            public=self.public,
+            ramdisk_id=self.ramdisk_id,
+            root_device_name=self.root_device_name,
+            root_device_type=self.root_device_type,
+            root_snapshot_id=self.root_snapshot_id,
+            sriov_net_support=self.sriov_net_support,
+            state=self.state,
+            state_reason=self.state_reason,
+            tags=self.tags,
+            virtualization_type=self.virtualization_type,
+            id=self.id)
 
 def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,owners=None,tags=None,opts=None):
     """
@@ -235,7 +263,7 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getAmi:getAmi', __args__, opts=opts).value
 
-    return GetAmiResult(
+    return AwaitableGetAmiResult(
         architecture=__ret__.get('architecture'),
         block_device_mappings=__ret__.get('blockDeviceMappings'),
         creation_date=__ret__.get('creationDate'),

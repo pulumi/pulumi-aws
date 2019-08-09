@@ -82,14 +82,24 @@ class GetStackResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetStackResult(GetStackResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetStackResult(
+            capabilities=self.capabilities,
+            description=self.description,
+            disable_rollback=self.disable_rollback,
+            iam_role_arn=self.iam_role_arn,
+            name=self.name,
+            notification_arns=self.notification_arns,
+            outputs=self.outputs,
+            parameters=self.parameters,
+            tags=self.tags,
+            template_body=self.template_body,
+            timeout_in_minutes=self.timeout_in_minutes,
+            id=self.id)
 
 def get_stack(name=None,opts=None):
     """
@@ -107,7 +117,7 @@ def get_stack(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:cloudformation/getStack:getStack', __args__, opts=opts).value
 
-    return GetStackResult(
+    return AwaitableGetStackResult(
         capabilities=__ret__.get('capabilities'),
         description=__ret__.get('description'),
         disable_rollback=__ret__.get('disableRollback'),

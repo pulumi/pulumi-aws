@@ -34,14 +34,16 @@ class GetGatewayResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetGatewayResult(GetGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetGatewayResult(
+            amazon_side_asn=self.amazon_side_asn,
+            name=self.name,
+            owner_account_id=self.owner_account_id,
+            id=self.id)
 
 def get_gateway(name=None,opts=None):
     """
@@ -58,7 +60,7 @@ def get_gateway(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:directconnect/getGateway:getGateway', __args__, opts=opts).value
 
-    return GetGatewayResult(
+    return AwaitableGetGatewayResult(
         amazon_side_asn=__ret__.get('amazonSideAsn'),
         name=__ret__.get('name'),
         owner_account_id=__ret__.get('ownerAccountId'),

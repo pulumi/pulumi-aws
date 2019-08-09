@@ -72,9 +72,9 @@ type GetInstanceArgs struct {
 	// several valid keys, for a full reference, check out
 	// [describe-instances in the AWS CLI reference][1].
 	Filters interface{}
-	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData interface{}
-	// Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+	// Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
 	GetUserData interface{}
 	// Specify the exact Instance ID with which to populate the data source.
 	InstanceId interface{}
@@ -124,7 +124,7 @@ type GetInstanceResult struct {
 	NetworkInterfaceId interface{}
 	// Base-64 encoded encrypted password data for the instance.
 	// Useful for getting the administrator password for instances running Microsoft Windows.
-	// This attribute is only exported if `get_password_data` is true.
+	// This attribute is only exported if `getPasswordData` is true.
 	// See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	PasswordData interface{}
 	// The placement group of the Instance.
@@ -138,7 +138,7 @@ type GetInstanceResult struct {
 	// The public DNS name assigned to the Instance. For EC2-VPC, this
 	// is only available if you've enabled DNS hostnames for your VPC.
 	PublicDns interface{}
-	// The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+	// The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
 	PublicIp interface{}
 	// The root block device mappings of the Instance
 	RootBlockDevices interface{}
@@ -154,7 +154,7 @@ type GetInstanceResult struct {
 	Tenancy interface{}
 	// SHA-1 hash of User Data supplied to the Instance.
 	UserData interface{}
-	// Base64 encoded contents of User Data supplied to the Instance. Valid UTF-8 contents can be decoded with the [`base64decode` function](https://www.terraform.io/docs/configuration/functions/base64decode.html). This attribute is only exported if `get_user_data` is true.
+	// Base64 encoded contents of User Data supplied to the Instance. Valid UTF-8 contents can be decoded with the [`base64decode` function](https://www.terraform.io/docs/configuration/functions/base64decode.html). This attribute is only exported if `getUserData` is true.
 	UserDataBase64 interface{}
 	// The associated security groups in a non-default VPC.
 	VpcSecurityGroupIds interface{}

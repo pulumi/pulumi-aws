@@ -84,7 +84,7 @@ type GetAmiArgs struct {
 
 // A collection of values returned by getAmi.
 type GetAmiResult struct {
-	// The OS architecture of the AMI (ie: `i386` or `x86_64`).
+	// The OS architecture of the AMI (ie: `i386` or `x8664`).
 	Architecture interface{}
 	// The block device mappings of the AMI.
 	// * `block_device_mappings.#.device_name` - The physical name of the device.

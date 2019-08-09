@@ -40,18 +40,23 @@ class GetSecurityGroupResult:
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
-
+class AwaitableGetSecurityGroupResult(GetSecurityGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSecurityGroupResult(
+            arn=self.arn,
+            description=self.description,
+            filters=self.filters,
+            id=self.id,
+            name=self.name,
+            tags=self.tags,
+            vpc_id=self.vpc_id)
 
 def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=None,opts=None):
     """
-    `aws_security_group` provides details about a specific Security Group.
+    `ec2.SecurityGroup` provides details about a specific Security Group.
     
     This resource can prove useful when a module accepts a Security Group id as
     an input variable and needs to, for example, determine the id of the
@@ -72,7 +77,7 @@ def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=None,opts
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSecurityGroup:getSecurityGroup', __args__, opts=opts).value
 
-    return GetSecurityGroupResult(
+    return AwaitableGetSecurityGroupResult(
         arn=__ret__.get('arn'),
         description=__ret__.get('description'),
         filters=__ret__.get('filters'),

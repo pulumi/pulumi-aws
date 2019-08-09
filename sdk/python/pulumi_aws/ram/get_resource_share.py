@@ -46,18 +46,23 @@ class GetResourceShareResult:
         """
         The Tags attached to the RAM share
         """
-
+class AwaitableGetResourceShareResult(GetResourceShareResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetResourceShareResult(
+            arn=self.arn,
+            filters=self.filters,
+            id=self.id,
+            name=self.name,
+            resource_owner=self.resource_owner,
+            status=self.status,
+            tags=self.tags)
 
 def get_resource_share(filters=None,name=None,resource_owner=None,opts=None):
     """
-    `aws_ram_resource_share` Retrieve information about a RAM Resource Share.
+    `ram.ResourceShare` Retrieve information about a RAM Resource Share.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
     """
@@ -72,7 +77,7 @@ def get_resource_share(filters=None,name=None,resource_owner=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ram/getResourceShare:getResourceShare', __args__, opts=opts).value
 
-    return GetResourceShareResult(
+    return AwaitableGetResourceShareResult(
         arn=__ret__.get('arn'),
         filters=__ret__.get('filters'),
         id=__ret__.get('id'),

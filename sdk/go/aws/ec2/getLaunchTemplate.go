@@ -109,7 +109,7 @@ type GetLaunchTemplateResult struct {
 	// The ID of the RAM disk.
 	RamDiskId interface{}
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
-	// `vpc_security_group_ids` instead.
+	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames interface{}
 	// The tags to apply to the resources during launch.
 	TagSpecifications interface{}

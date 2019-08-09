@@ -91,7 +91,7 @@ export class Budget extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the target account for budget. Will use current user's account_id by default if omitted.
+     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
@@ -209,7 +209,7 @@ export class Budget extends pulumi.CustomResource {
  */
 export interface BudgetState {
     /**
-     * The ID of the target account for budget. Will use current user's account_id by default if omitted.
+     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
      */
     readonly accountId?: pulumi.Input<string>;
     /**
@@ -263,7 +263,7 @@ export interface BudgetState {
  */
 export interface BudgetArgs {
     /**
-     * The ID of the target account for budget. Will use current user's account_id by default if omitted.
+     * The ID of the target account for budget. Will use current user's accountId by default if omitted.
      */
     readonly accountId?: pulumi.Input<string>;
     /**

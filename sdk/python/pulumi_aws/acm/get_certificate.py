@@ -40,14 +40,19 @@ class GetCertificateResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetCertificateResult(GetCertificateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetCertificateResult(
+            arn=self.arn,
+            domain=self.domain,
+            key_types=self.key_types,
+            most_recent=self.most_recent,
+            statuses=self.statuses,
+            types=self.types,
+            id=self.id)
 
 def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,types=None,opts=None):
     """
@@ -70,7 +75,7 @@ def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,ty
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:acm/getCertificate:getCertificate', __args__, opts=opts).value
 
-    return GetCertificateResult(
+    return AwaitableGetCertificateResult(
         arn=__ret__.get('arn'),
         domain=__ret__.get('domain'),
         key_types=__ret__.get('keyTypes'),

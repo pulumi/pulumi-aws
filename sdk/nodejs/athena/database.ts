@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const hogeBucket = new aws.s3.Bucket("hoge", {});
  * const hogeDatabase = new aws.athena.Database("hoge", {
  *     bucket: hogeBucket.bucket,
- *     name: "database_name",
+ *     name: "databaseName",
  * });
  * ```
  *
@@ -54,7 +54,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
      */
     public readonly encryptionConfiguration!: pulumi.Output<{ encryptionOption: string, kmsKey?: string } | undefined>;
     /**
@@ -112,7 +112,7 @@ export interface DatabaseState {
      */
     readonly bucket?: pulumi.Input<string>;
     /**
-     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
      */
     readonly encryptionConfiguration?: pulumi.Input<{ encryptionOption: pulumi.Input<string>, kmsKey?: pulumi.Input<string> }>;
     /**
@@ -134,7 +134,7 @@ export interface DatabaseArgs {
      */
     readonly bucket: pulumi.Input<string>;
     /**
-     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
      */
     readonly encryptionConfiguration?: pulumi.Input<{ encryptionOption: pulumi.Input<string>, kmsKey?: pulumi.Input<string> }>;
     /**

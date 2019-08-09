@@ -55,7 +55,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     """
     The VPC ID associated with the DocDB cluster snapshot.
     """
-    def __init__(__self__, resource_name, opts=None, db_cluster_identifier=None, db_cluster_snapshot_identifier=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, db_cluster_identifier=None, db_cluster_snapshot_identifier=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a DocDB database cluster snapshot for DocDB clusters.
         
@@ -72,46 +72,79 @@ class ClusterSnapshot(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if db_cluster_identifier is None:
-            raise TypeError("Missing required property 'db_cluster_identifier'")
-        __props__['db_cluster_identifier'] = db_cluster_identifier
-
-        if db_cluster_snapshot_identifier is None:
-            raise TypeError("Missing required property 'db_cluster_snapshot_identifier'")
-        __props__['db_cluster_snapshot_identifier'] = db_cluster_snapshot_identifier
-
-        __props__['availability_zones'] = None
-        __props__['db_cluster_snapshot_arn'] = None
-        __props__['engine'] = None
-        __props__['engine_version'] = None
-        __props__['kms_key_id'] = None
-        __props__['port'] = None
-        __props__['snapshot_type'] = None
-        __props__['source_db_cluster_snapshot_arn'] = None
-        __props__['status'] = None
-        __props__['storage_encrypted'] = None
-        __props__['vpc_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if db_cluster_identifier is None:
+                raise TypeError("Missing required property 'db_cluster_identifier'")
+            __props__['db_cluster_identifier'] = db_cluster_identifier
+            if db_cluster_snapshot_identifier is None:
+                raise TypeError("Missing required property 'db_cluster_snapshot_identifier'")
+            __props__['db_cluster_snapshot_identifier'] = db_cluster_snapshot_identifier
+            __props__['availability_zones'] = None
+            __props__['db_cluster_snapshot_arn'] = None
+            __props__['engine'] = None
+            __props__['engine_version'] = None
+            __props__['kms_key_id'] = None
+            __props__['port'] = None
+            __props__['snapshot_type'] = None
+            __props__['source_db_cluster_snapshot_arn'] = None
+            __props__['status'] = None
+            __props__['storage_encrypted'] = None
+            __props__['vpc_id'] = None
         super(ClusterSnapshot, __self__).__init__(
             'aws:docdb/clusterSnapshot:ClusterSnapshot',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, availability_zones=None, db_cluster_identifier=None, db_cluster_snapshot_arn=None, db_cluster_snapshot_identifier=None, engine=None, engine_version=None, kms_key_id=None, port=None, snapshot_type=None, source_db_cluster_snapshot_arn=None, status=None, storage_encrypted=None, vpc_id=None):
+        """
+        Get an existing ClusterSnapshot resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] availability_zones: List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+        :param pulumi.Input[str] db_cluster_identifier: The DocDB Cluster Identifier from which to take the snapshot.
+        :param pulumi.Input[str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+        :param pulumi.Input[str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[str] engine: Specifies the name of the database engine.
+        :param pulumi.Input[str] engine_version: Version of the database engine for this DocDB cluster snapshot.
+        :param pulumi.Input[str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+        :param pulumi.Input[float] port: Port that the DocDB cluster was listening on at the time of the snapshot.
+        :param pulumi.Input[str] status: The status of this DocDB Cluster Snapshot.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DocDB cluster snapshot is encrypted.
+        :param pulumi.Input[str] vpc_id: The VPC ID associated with the DocDB cluster snapshot.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_snapshot.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["availability_zones"] = availability_zones
+        __props__["db_cluster_identifier"] = db_cluster_identifier
+        __props__["db_cluster_snapshot_arn"] = db_cluster_snapshot_arn
+        __props__["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        __props__["engine"] = engine
+        __props__["engine_version"] = engine_version
+        __props__["kms_key_id"] = kms_key_id
+        __props__["port"] = port
+        __props__["snapshot_type"] = snapshot_type
+        __props__["source_db_cluster_snapshot_arn"] = source_db_cluster_snapshot_arn
+        __props__["status"] = status
+        __props__["storage_encrypted"] = storage_encrypted
+        __props__["vpc_id"] = vpc_id
+        return ClusterSnapshot(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

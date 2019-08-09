@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testAlias = new aws.lambda.Alias("test_alias", {
+ * const testAlias = new aws.lambda.Alias("testAlias", {
  *     description: "a sample description",
  *     functionName: aws_lambda_function_lambda_function_test.arn,
  *     functionVersion: "1",
@@ -74,7 +74,7 @@ export class Alias extends pulumi.CustomResource {
      */
     public readonly functionVersion!: pulumi.Output<string>;
     /**
-     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
      */
     public /*out*/ readonly invokeArn!: pulumi.Output<string>;
     /**
@@ -153,7 +153,7 @@ export interface AliasState {
      */
     readonly functionVersion?: pulumi.Input<string>;
     /**
-     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
      */
     readonly invokeArn?: pulumi.Input<string>;
     /**

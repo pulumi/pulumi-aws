@@ -61,14 +61,27 @@ class GetKeyResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetKeyResult(GetKeyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetKeyResult(
+            arn=self.arn,
+            aws_account_id=self.aws_account_id,
+            creation_date=self.creation_date,
+            deletion_date=self.deletion_date,
+            description=self.description,
+            enabled=self.enabled,
+            expiration_model=self.expiration_model,
+            grant_tokens=self.grant_tokens,
+            key_id=self.key_id,
+            key_manager=self.key_manager,
+            key_state=self.key_state,
+            key_usage=self.key_usage,
+            origin=self.origin,
+            valid_to=self.valid_to,
+            id=self.id)
 
 def get_key(grant_tokens=None,key_id=None,opts=None):
     """
@@ -89,7 +102,7 @@ def get_key(grant_tokens=None,key_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:kms/getKey:getKey', __args__, opts=opts).value
 
-    return GetKeyResult(
+    return AwaitableGetKeyResult(
         arn=__ret__.get('arn'),
         aws_account_id=__ret__.get('awsAccountId'),
         creation_date=__ret__.get('creationDate'),

@@ -28,14 +28,15 @@ class GetClusterAuthResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetClusterAuthResult(GetClusterAuthResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetClusterAuthResult(
+            name=self.name,
+            token=self.token,
+            id=self.id)
 
 def get_cluster_auth(name=None,opts=None):
     """
@@ -57,7 +58,7 @@ def get_cluster_auth(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:eks/getClusterAuth:getClusterAuth', __args__, opts=opts).value
 
-    return GetClusterAuthResult(
+    return AwaitableGetClusterAuthResult(
         name=__ret__.get('name'),
         token=__ret__.get('token'),
         id=__ret__.get('id'))

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
  * Provides an AutoScaling Lifecycle Hook resource.
  * 
  * > **NOTE:** This provider has two types of ways you can add lifecycle hooks - via
- * the `initial_lifecycle_hook` attribute from the
- * [`aws_autoscaling_group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html)
+ * the `initialLifecycleHook` attribute from the
+ * [`aws.autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html)
  * resource, or via this one. Hooks added via this resource will not be added
  * until the autoscaling group has been created, and depending on your
  * [capacity](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html#waiting-for-capacity)
  * settings, after the initial instances have been launched, creating unintended
  * behavior. If you need hooks to run on all instances, add them with
- * `initial_lifecycle_hook` in
- * [`aws_autoscaling_group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
+ * `initialLifecycleHook` in
+ * [`aws.autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
  * but take care to not duplicate those hooks with this resource.
  * 
  * ## Example Usage

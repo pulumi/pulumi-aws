@@ -152,7 +152,7 @@ export class Directory extends pulumi.CustomResource {
      */
     public /*out*/ readonly accessUrl!: pulumi.Output<string>;
     /**
-     * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+     * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
      */
     public readonly alias!: pulumi.Output<string>;
     /**
@@ -276,7 +276,7 @@ export interface DirectoryState {
      */
     readonly accessUrl?: pulumi.Input<string>;
     /**
-     * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+     * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
      */
     readonly alias?: pulumi.Input<string>;
     /**
@@ -338,7 +338,7 @@ export interface DirectoryState {
  */
 export interface DirectoryArgs {
     /**
-     * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+     * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
      */
     readonly alias?: pulumi.Input<string>;
     /**

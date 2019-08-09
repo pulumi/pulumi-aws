@@ -18,7 +18,7 @@ import (
 // > **NOTE:** CloudFront distributions take about 15 minutes to a deployed state
 // after creation or modification. During this time, deletes to resources will be
 // blocked. If you need to delete a distribution that is enabled and you do not
-// want to wait, you need to use the `retain_on_delete` flag.
+// want to wait, you need to use the `retainOnDelete` flag.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_distribution.html.markdown.
 type Distribution struct {
@@ -268,7 +268,7 @@ func (r *Distribution) Origins() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["origins"])
 }
 
-// One or more origin_group for this
+// One or more originGroup for this
 // distribution (multiples allowed).
 func (r *Distribution) OriginGroups() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["originGroups"])
@@ -388,7 +388,7 @@ type DistributionState struct {
 	// One or more origins for this
 	// distribution (multiples allowed).
 	Origins interface{}
-	// One or more origin_group for this
+	// One or more originGroup for this
 	// distribution (multiples allowed).
 	OriginGroups interface{}
 	// The price class for this distribution. One of
@@ -459,7 +459,7 @@ type DistributionArgs struct {
 	// One or more origins for this
 	// distribution (multiples allowed).
 	Origins interface{}
-	// One or more origin_group for this
+	// One or more originGroup for this
 	// distribution (multiples allowed).
 	OriginGroups interface{}
 	// The price class for this distribution. One of

@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `aws_route53_zone` provides details about a specific Route 53 Hosted Zone.
+// `route53.Zone` provides details about a specific Route 53 Hosted Zone.
 // 
 // This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
 //
@@ -52,7 +52,7 @@ type GetZoneArgs struct {
 	// Used with `name` field. A mapping of tags, each pair of which must exactly match
 	// a pair on the desired Hosted Zone.
 	Tags interface{}
-	// Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
+	// Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
 	VpcId interface{}
 	// The Hosted Zone id of the desired Hosted Zone.
 	ZoneId interface{}

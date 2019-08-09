@@ -42,7 +42,7 @@ class IdentityPool(pulumi.CustomResource):
     """
     Key-Value pairs mapping provider names to provider app IDs.
     """
-    def __init__(__self__, resource_name, opts=None, allow_unauthenticated_identities=None, cognito_identity_providers=None, developer_provider_name=None, identity_pool_name=None, openid_connect_provider_arns=None, saml_provider_arns=None, supported_login_providers=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allow_unauthenticated_identities=None, cognito_identity_providers=None, developer_provider_name=None, identity_pool_name=None, openid_connect_provider_arns=None, saml_provider_arns=None, supported_login_providers=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AWS Cognito Identity Pool.
         
@@ -65,44 +65,65 @@ class IdentityPool(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['allow_unauthenticated_identities'] = allow_unauthenticated_identities
-
-        __props__['cognito_identity_providers'] = cognito_identity_providers
-
-        __props__['developer_provider_name'] = developer_provider_name
-
-        if identity_pool_name is None:
-            raise TypeError("Missing required property 'identity_pool_name'")
-        __props__['identity_pool_name'] = identity_pool_name
-
-        __props__['openid_connect_provider_arns'] = openid_connect_provider_arns
-
-        __props__['saml_provider_arns'] = saml_provider_arns
-
-        __props__['supported_login_providers'] = supported_login_providers
-
-        __props__['arn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['allow_unauthenticated_identities'] = allow_unauthenticated_identities
+            __props__['cognito_identity_providers'] = cognito_identity_providers
+            __props__['developer_provider_name'] = developer_provider_name
+            if identity_pool_name is None:
+                raise TypeError("Missing required property 'identity_pool_name'")
+            __props__['identity_pool_name'] = identity_pool_name
+            __props__['openid_connect_provider_arns'] = openid_connect_provider_arns
+            __props__['saml_provider_arns'] = saml_provider_arns
+            __props__['supported_login_providers'] = supported_login_providers
+            __props__['arn'] = None
         super(IdentityPool, __self__).__init__(
             'aws:cognito/identityPool:IdentityPool',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, allow_unauthenticated_identities=None, arn=None, cognito_identity_providers=None, developer_provider_name=None, identity_pool_name=None, openid_connect_provider_arns=None, saml_provider_arns=None, supported_login_providers=None):
+        """
+        Get an existing IdentityPool resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_unauthenticated_identities: Whether the identity pool supports unauthenticated logins or not.
+        :param pulumi.Input[str] arn: The ARN of the identity pool.
+        :param pulumi.Input[list] cognito_identity_providers: An array of Amazon Cognito Identity user pools and their client IDs.
+        :param pulumi.Input[str] developer_provider_name: The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
+               backend and the Cognito service to communicate about the developer provider.
+        :param pulumi.Input[str] identity_pool_name: The Cognito Identity Pool name.
+        :param pulumi.Input[list] openid_connect_provider_arns: A list of OpendID Connect provider ARNs.
+        :param pulumi.Input[list] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        :param pulumi.Input[dict] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["allow_unauthenticated_identities"] = allow_unauthenticated_identities
+        __props__["arn"] = arn
+        __props__["cognito_identity_providers"] = cognito_identity_providers
+        __props__["developer_provider_name"] = developer_provider_name
+        __props__["identity_pool_name"] = identity_pool_name
+        __props__["openid_connect_provider_arns"] = openid_connect_provider_arns
+        __props__["saml_provider_arns"] = saml_provider_arns
+        __props__["supported_login_providers"] = supported_login_providers
+        return IdentityPool(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -31,14 +31,17 @@ class GetSnapshotIdsResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSnapshotIdsResult(GetSnapshotIdsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSnapshotIdsResult(
+            filters=self.filters,
+            ids=self.ids,
+            owners=self.owners,
+            restorable_by_user_ids=self.restorable_by_user_ids,
+            id=self.id)
 
 def get_snapshot_ids(filters=None,owners=None,restorable_by_user_ids=None,opts=None):
     """
@@ -58,7 +61,7 @@ def get_snapshot_ids(filters=None,owners=None,restorable_by_user_ids=None,opts=N
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshotIds:getSnapshotIds', __args__, opts=opts).value
 
-    return GetSnapshotIdsResult(
+    return AwaitableGetSnapshotIdsResult(
         filters=__ret__.get('filters'),
         ids=__ret__.get('ids'),
         owners=__ret__.get('owners'),

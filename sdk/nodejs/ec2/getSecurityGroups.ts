@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             name: "vpc-id",
- *             values: [var_vpc_id],
+ *             values: [varVpcId],
  *         },
  *     ],
  * }));

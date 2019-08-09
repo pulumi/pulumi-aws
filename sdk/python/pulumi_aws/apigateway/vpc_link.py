@@ -21,7 +21,7 @@ class VpcLink(pulumi.CustomResource):
     """
     The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, name=None, target_arn=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, name=None, target_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway VPC Link.
         
@@ -39,34 +39,49 @@ class VpcLink(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['description'] = description
-
-        __props__['name'] = name
-
-        if target_arn is None:
-            raise TypeError("Missing required property 'target_arn'")
-        __props__['target_arn'] = target_arn
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['description'] = description
+            __props__['name'] = name
+            if target_arn is None:
+                raise TypeError("Missing required property 'target_arn'")
+            __props__['target_arn'] = target_arn
         super(VpcLink, __self__).__init__(
             'aws:apigateway/vpcLink:VpcLink',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, description=None, name=None, target_arn=None):
+        """
+        Get an existing VpcLink resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the VPC link.
+        :param pulumi.Input[str] name: The name used to label and identify the VPC link.
+        :param pulumi.Input[str] target_arn: The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_vpc_link.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["target_arn"] = target_arn
+        return VpcLink(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

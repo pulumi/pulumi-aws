@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a Load Balancer Listener Rule resource.
  * 
- * > **Note:** `aws_alb_listener_rule` is known as `aws_lb_listener_rule`. The functionality is identical.
+ * > **Note:** `aws.alb.ListenerRule` is known as `aws.lb.ListenerRule`. The functionality is identical.
  * 
  * ## Example Usage
  * 
@@ -18,15 +18,15 @@ import * as utilities from "../utilities";
  * const pool = new aws.cognito.UserPool("pool", {});
  * const client = new aws.cognito.UserPoolClient("client", {});
  * const domain = new aws.cognito.UserPoolDomain("domain", {});
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {});
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
+ * const frontEndListener = new aws.lb.Listener("frontEnd", {});
  * const admin = new aws.lb.ListenerRule("admin", {
  *     actions: [
  *         {
  *             authenticateOidc: {
  *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
- *                 clientId: "client_id",
- *                 clientSecret: "client_secret",
+ *                 clientId: "clientId",
+ *                 clientSecret: "clientSecret",
  *                 issuer: "https://example.com",
  *                 tokenEndpoint: "https://example.com/token_endpoint",
  *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     ],
  *     listenerArn: frontEndListener.arn,
  * });
- * const healthCheck = new aws.lb.ListenerRule("health_check", {
+ * const healthCheck = new aws.lb.ListenerRule("healthCheck", {
  *     actions: [{
  *         fixedResponse: {
  *             contentType: "text/plain",
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     }],
  *     listenerArn: frontEndListener.arn,
  * });
- * const hostBasedRouting = new aws.lb.ListenerRule("host_based_routing", {
+ * const hostBasedRouting = new aws.lb.ListenerRule("hostBasedRouting", {
  *     actions: [{
  *         targetGroupArn: aws_lb_target_group_static.arn,
  *         type: "forward",
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *     listenerArn: frontEndListener.arn,
  *     priority: 99,
  * });
- * const redirectHttpToHttps = new aws.lb.ListenerRule("redirect_http_to_https", {
+ * const redirectHttpToHttps = new aws.lb.ListenerRule("redirectHttpToHttps", {
  *     actions: [{
  *         redirect: {
  *             port: "443",

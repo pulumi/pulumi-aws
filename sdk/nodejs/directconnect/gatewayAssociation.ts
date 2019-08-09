@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Associates a Direct Connect Gateway with a VGW or transit gateway.
  * 
- * To create a cross-account association, create an [`aws_dx_gateway_association_proposal` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal.html)
+ * To create a cross-account association, create an [`aws.directconnect.GatewayAssociationProposal` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal.html)
  * in the AWS account that owns the VGW or transit gateway and then accept the proposal in the AWS account that owns the Direct Connect Gateway
- * by creating an `aws_dx_gateway_association` resource with the `proposal_id` and `associated_gateway_owner_account_id` attributes set.
+ * by creating an `aws.directconnect.GatewayAssociation` resource with the `proposalId` and `associatedGatewayOwnerAccountId` attributes set.
  * 
  * ## Example Usage
  * 
@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * A full example of how to create a VPN Gateway in one AWS account, create a Direct Connect Gateway in a second AWS account, and associate the VPN Gateway with the Direct Connect Gateway via the `aws_dx_gateway_association_proposal` and `aws_dx_gateway_association` resources can be found in [the `./examples/dx-gateway-cross-account-vgw-association` directory within the Github Repository](https://github.com/providers/provider-aws/tree/master/examples/dx-gateway-cross-account-vgw-association).
+ * A full example of how to create a VPN Gateway in one AWS account, create a Direct Connect Gateway in a second AWS account, and associate the VPN Gateway with the Direct Connect Gateway via the `aws.directconnect.GatewayAssociationProposal` and `aws.directconnect.GatewayAssociation` resources can be found in [the `./examples/dx-gateway-cross-account-vgw-association` directory within the Github Repository](https://github.com/providers/provider-aws/tree/master/examples/dx-gateway-cross-account-vgw-association).
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway_association.html.markdown.
  */
@@ -146,7 +146,7 @@ export class GatewayAssociation extends pulumi.CustomResource {
      */
     public readonly proposalId!: pulumi.Output<string | undefined>;
     /**
-     * *Deprecated:* Use `associated_gateway_id` instead. The ID of the VGW with which to associate the gateway.
+     * *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
      * Used for single account Direct Connect gateway associations.
      */
     public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
@@ -238,7 +238,7 @@ export interface GatewayAssociationState {
      */
     readonly proposalId?: pulumi.Input<string>;
     /**
-     * *Deprecated:* Use `associated_gateway_id` instead. The ID of the VGW with which to associate the gateway.
+     * *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
      * Used for single account Direct Connect gateway associations.
      */
     readonly vpnGatewayId?: pulumi.Input<string>;
@@ -272,7 +272,7 @@ export interface GatewayAssociationArgs {
      */
     readonly proposalId?: pulumi.Input<string>;
     /**
-     * *Deprecated:* Use `associated_gateway_id` instead. The ID of the VGW with which to associate the gateway.
+     * *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
      * Used for single account Direct Connect gateway associations.
      */
     readonly vpnGatewayId?: pulumi.Input<string>;

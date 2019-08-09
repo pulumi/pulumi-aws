@@ -112,14 +112,30 @@ class GetNetworkInterfaceResult:
         """
         The ID of the VPC.
         """
-
+class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetNetworkInterfaceResult(
+            associations=self.associations,
+            attachments=self.attachments,
+            availability_zone=self.availability_zone,
+            description=self.description,
+            filters=self.filters,
+            id=self.id,
+            interface_type=self.interface_type,
+            ipv6_addresses=self.ipv6_addresses,
+            mac_address=self.mac_address,
+            owner_id=self.owner_id,
+            private_dns_name=self.private_dns_name,
+            private_ip=self.private_ip,
+            private_ips=self.private_ips,
+            requester_id=self.requester_id,
+            security_groups=self.security_groups,
+            subnet_id=self.subnet_id,
+            tags=self.tags,
+            vpc_id=self.vpc_id)
 
 def get_network_interface(filters=None,id=None,tags=None,opts=None):
     """
@@ -138,7 +154,7 @@ def get_network_interface(filters=None,id=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInterface:getNetworkInterface', __args__, opts=opts).value
 
-    return GetNetworkInterfaceResult(
+    return AwaitableGetNetworkInterfaceResult(
         associations=__ret__.get('associations'),
         attachments=__ret__.get('attachments'),
         availability_zone=__ret__.get('availabilityZone'),

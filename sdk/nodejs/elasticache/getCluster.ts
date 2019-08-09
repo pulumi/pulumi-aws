@@ -57,7 +57,7 @@ export interface GetClusterResult {
      */
     readonly availabilityZone: string;
     /**
-     * List of node objects including `id`, `address`, `port` and `availability_zone`.
+     * List of node objects including `id`, `address`, `port` and `availabilityZone`.
      * Referenceable e.g. as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
      */
     readonly cacheNodes: { address: string, availabilityZone: string, id: string, port: number }[];

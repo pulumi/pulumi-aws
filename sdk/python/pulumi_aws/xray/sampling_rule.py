@@ -61,7 +61,7 @@ class SamplingRule(pulumi.CustomResource):
     """
     The version of the sampling rule format (`1` )
     """
-    def __init__(__self__, resource_name, opts=None, attributes=None, fixed_rate=None, host=None, http_method=None, priority=None, reservoir_size=None, resource_arn=None, rule_name=None, service_name=None, service_type=None, url_path=None, version=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, attributes=None, fixed_rate=None, host=None, http_method=None, priority=None, reservoir_size=None, resource_arn=None, rule_name=None, service_name=None, service_type=None, url_path=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates and manages an AWS XRay Sampling Rule.
         
@@ -88,72 +88,97 @@ class SamplingRule(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['attributes'] = attributes
-
-        if fixed_rate is None:
-            raise TypeError("Missing required property 'fixed_rate'")
-        __props__['fixed_rate'] = fixed_rate
-
-        if host is None:
-            raise TypeError("Missing required property 'host'")
-        __props__['host'] = host
-
-        if http_method is None:
-            raise TypeError("Missing required property 'http_method'")
-        __props__['http_method'] = http_method
-
-        if priority is None:
-            raise TypeError("Missing required property 'priority'")
-        __props__['priority'] = priority
-
-        if reservoir_size is None:
-            raise TypeError("Missing required property 'reservoir_size'")
-        __props__['reservoir_size'] = reservoir_size
-
-        if resource_arn is None:
-            raise TypeError("Missing required property 'resource_arn'")
-        __props__['resource_arn'] = resource_arn
-
-        __props__['rule_name'] = rule_name
-
-        if service_name is None:
-            raise TypeError("Missing required property 'service_name'")
-        __props__['service_name'] = service_name
-
-        if service_type is None:
-            raise TypeError("Missing required property 'service_type'")
-        __props__['service_type'] = service_type
-
-        if url_path is None:
-            raise TypeError("Missing required property 'url_path'")
-        __props__['url_path'] = url_path
-
-        if version is None:
-            raise TypeError("Missing required property 'version'")
-        __props__['version'] = version
-
-        __props__['arn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['attributes'] = attributes
+            if fixed_rate is None:
+                raise TypeError("Missing required property 'fixed_rate'")
+            __props__['fixed_rate'] = fixed_rate
+            if host is None:
+                raise TypeError("Missing required property 'host'")
+            __props__['host'] = host
+            if http_method is None:
+                raise TypeError("Missing required property 'http_method'")
+            __props__['http_method'] = http_method
+            if priority is None:
+                raise TypeError("Missing required property 'priority'")
+            __props__['priority'] = priority
+            if reservoir_size is None:
+                raise TypeError("Missing required property 'reservoir_size'")
+            __props__['reservoir_size'] = reservoir_size
+            if resource_arn is None:
+                raise TypeError("Missing required property 'resource_arn'")
+            __props__['resource_arn'] = resource_arn
+            __props__['rule_name'] = rule_name
+            if service_name is None:
+                raise TypeError("Missing required property 'service_name'")
+            __props__['service_name'] = service_name
+            if service_type is None:
+                raise TypeError("Missing required property 'service_type'")
+            __props__['service_type'] = service_type
+            if url_path is None:
+                raise TypeError("Missing required property 'url_path'")
+            __props__['url_path'] = url_path
+            if version is None:
+                raise TypeError("Missing required property 'version'")
+            __props__['version'] = version
+            __props__['arn'] = None
         super(SamplingRule, __self__).__init__(
             'aws:xray/samplingRule:SamplingRule',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, attributes=None, fixed_rate=None, host=None, http_method=None, priority=None, reservoir_size=None, resource_arn=None, rule_name=None, service_name=None, service_type=None, url_path=None, version=None):
+        """
+        Get an existing SamplingRule resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the sampling rule.
+        :param pulumi.Input[dict] attributes: Matches attributes derived from the request.
+        :param pulumi.Input[float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
+        :param pulumi.Input[str] host: Matches the hostname from a request URL.
+        :param pulumi.Input[str] http_method: Matches the HTTP method of a request.
+        :param pulumi.Input[float] priority: The priority of the sampling rule.
+        :param pulumi.Input[float] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+        :param pulumi.Input[str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
+        :param pulumi.Input[str] rule_name: The name of the sampling rule.
+        :param pulumi.Input[str] service_name: Matches the `name` that the service uses to identify itself in segments.
+        :param pulumi.Input[str] service_type: Matches the `origin` that the service uses to identify its type in segments.
+        :param pulumi.Input[str] url_path: Matches the path from a request URL.
+        :param pulumi.Input[float] version: The version of the sampling rule format (`1` )
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/xray_sampling_rule.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["attributes"] = attributes
+        __props__["fixed_rate"] = fixed_rate
+        __props__["host"] = host
+        __props__["http_method"] = http_method
+        __props__["priority"] = priority
+        __props__["reservoir_size"] = reservoir_size
+        __props__["resource_arn"] = resource_arn
+        __props__["rule_name"] = rule_name
+        __props__["service_name"] = service_name
+        __props__["service_type"] = service_type
+        __props__["url_path"] = url_path
+        __props__["version"] = version
+        return SamplingRule(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

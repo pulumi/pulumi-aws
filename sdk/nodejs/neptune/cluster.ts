@@ -9,10 +9,10 @@ import * as utilities from "../utilities";
  * applied to the entire cluster of Neptune Cluster Instances.
  * 
  * Changes to a Neptune Cluster can occur when you manually change a
- * parameter, such as `backup_retention_period`, and are reflected in the next maintenance
+ * parameter, such as `backupRetentionPeriod`, and are reflected in the next maintenance
  * window. Because of this, this provider may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
- * `apply_immediately` flag to instruct the service to apply the change immediately
+ * `applyImmediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
  * 
  * ## Example Usage
@@ -85,7 +85,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
     public readonly clusterIdentifierPrefix!: pulumi.Output<string>;
     /**
@@ -125,7 +125,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly iamRoles!: pulumi.Output<string[] | undefined>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyArn`, `storageEncrypted` needs to be set to true.
      */
     public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
@@ -157,7 +157,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
     /**
@@ -284,7 +284,7 @@ export interface ClusterState {
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
     readonly clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
@@ -324,7 +324,7 @@ export interface ClusterState {
      */
     readonly iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyArn`, `storageEncrypted` needs to be set to true.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
@@ -356,7 +356,7 @@ export interface ClusterState {
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
     /**
-     * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     readonly skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
@@ -398,7 +398,7 @@ export interface ClusterArgs {
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
     readonly clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
@@ -422,7 +422,7 @@ export interface ClusterArgs {
      */
     readonly iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyArn`, `storageEncrypted` needs to be set to true.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
@@ -450,7 +450,7 @@ export interface ClusterArgs {
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
     /**
-     * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     readonly skipFinalSnapshot?: pulumi.Input<boolean>;
     /**

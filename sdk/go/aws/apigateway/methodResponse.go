@@ -99,7 +99,7 @@ func (r *MethodResponse) ResponseModels() *pulumi.MapOutput {
 }
 
 // A map of response parameters that can be sent to the caller.
-// For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+// For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
 // would define that the header `X-Some-Header` can be provided on the response.
 func (r *MethodResponse) ResponseParameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["responseParameters"])
@@ -124,7 +124,7 @@ type MethodResponseState struct {
 	// A map of the API models used for the response's content type
 	ResponseModels interface{}
 	// A map of response parameters that can be sent to the caller.
-	// For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+	// For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
 	// would define that the header `X-Some-Header` can be provided on the response.
 	ResponseParameters interface{}
 	// The ID of the associated REST API
@@ -142,7 +142,7 @@ type MethodResponseArgs struct {
 	// A map of the API models used for the response's content type
 	ResponseModels interface{}
 	// A map of response parameters that can be sent to the caller.
-	// For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+	// For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
 	// would define that the header `X-Some-Header` can be provided on the response.
 	ResponseParameters interface{}
 	// The ID of the associated REST API

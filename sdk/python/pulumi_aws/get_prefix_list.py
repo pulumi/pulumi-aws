@@ -35,18 +35,20 @@ class GetPrefixListResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetPrefixListResult(GetPrefixListResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetPrefixListResult(
+            cidr_blocks=self.cidr_blocks,
+            name=self.name,
+            prefix_list_id=self.prefix_list_id,
+            id=self.id)
 
 def get_prefix_list(name=None,prefix_list_id=None,opts=None):
     """
-    `aws_prefix_list` provides details about a specific prefix list (PL)
+    `.getPrefixList` provides details about a specific prefix list (PL)
     in the current region.
     
     This can be used both to validate a prefix list given in a variable
@@ -66,7 +68,7 @@ def get_prefix_list(name=None,prefix_list_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getPrefixList:getPrefixList', __args__, opts=opts).value
 
-    return GetPrefixListResult(
+    return AwaitableGetPrefixListResult(
         cidr_blocks=__ret__.get('cidrBlocks'),
         name=__ret__.get('name'),
         prefix_list_id=__ret__.get('prefixListId'),

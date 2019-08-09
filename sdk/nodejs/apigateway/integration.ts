@@ -106,7 +106,7 @@ import {RestApi} from "./restApi";
  *     uri: pulumi.interpolate`arn:aws:apigateway:${myregion}:lambda:path/2015-03-31/functions/${lambda.arn}/invocations`,
  * });
  * // Lambda
- * const apigwLambda = new aws.lambda.Permission("apigw_lambda", {
+ * const apigwLambda = new aws.lambda.Permission("apigwLambda", {
  *     action: "lambda:InvokeFunction",
  *     function: lambda.functionName,
  *     principal: "apigateway.amazonaws.com",
@@ -208,7 +208,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly cacheNamespace!: pulumi.Output<string>;
     /**
-     * The id of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+     * The id of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
      */
     public readonly connectionId!: pulumi.Output<string | undefined>;
     /**
@@ -237,12 +237,12 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly integrationHttpMethod!: pulumi.Output<string | undefined>;
     /**
-     * The integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+     * The integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      */
     public readonly passthroughBehavior!: pulumi.Output<string>;
     /**
      * A map of request query string parameters and headers that should be passed to the backend responder.
-     * For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+     * For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
      */
     public readonly requestParameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -262,7 +262,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly timeoutMilliseconds!: pulumi.Output<number | undefined>;
     /**
-     * The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+     * The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -355,7 +355,7 @@ export interface IntegrationState {
      */
     readonly cacheNamespace?: pulumi.Input<string>;
     /**
-     * The id of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+     * The id of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
      */
     readonly connectionId?: pulumi.Input<string>;
     /**
@@ -384,12 +384,12 @@ export interface IntegrationState {
      */
     readonly integrationHttpMethod?: pulumi.Input<string>;
     /**
-     * The integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+     * The integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      */
     readonly passthroughBehavior?: pulumi.Input<string>;
     /**
      * A map of request query string parameters and headers that should be passed to the backend responder.
-     * For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+     * For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -409,7 +409,7 @@ export interface IntegrationState {
      */
     readonly timeoutMilliseconds?: pulumi.Input<number>;
     /**
-     * The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+     * The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      */
     readonly type?: pulumi.Input<string>;
     /**
@@ -433,7 +433,7 @@ export interface IntegrationArgs {
      */
     readonly cacheNamespace?: pulumi.Input<string>;
     /**
-     * The id of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+     * The id of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
      */
     readonly connectionId?: pulumi.Input<string>;
     /**
@@ -462,12 +462,12 @@ export interface IntegrationArgs {
      */
     readonly integrationHttpMethod?: pulumi.Input<string>;
     /**
-     * The integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+     * The integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      */
     readonly passthroughBehavior?: pulumi.Input<string>;
     /**
      * A map of request query string parameters and headers that should be passed to the backend responder.
-     * For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+     * For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -487,7 +487,7 @@ export interface IntegrationArgs {
      */
     readonly timeoutMilliseconds?: pulumi.Input<number>;
     /**
-     * The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+     * The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      */
     readonly type: pulumi.Input<string>;
     /**

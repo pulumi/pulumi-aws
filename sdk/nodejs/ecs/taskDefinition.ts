@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a revision of an ECS task definition to be used in `aws_ecs_service`.
+ * Manages a revision of an ECS task definition to be used in `aws.ecs.Service`.
  * 
  * ## Example Usage
  * 
@@ -76,7 +76,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly containerDefinitions!: pulumi.Output<string>;
     /**
-     * The number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
     public readonly cpu!: pulumi.Output<string | undefined>;
     /**
@@ -92,7 +92,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly ipcMode!: pulumi.Output<string | undefined>;
     /**
-     * The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * The amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
     public readonly memory!: pulumi.Output<string | undefined>;
     /**
@@ -104,7 +104,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly pidMode!: pulumi.Output<string | undefined>;
     /**
-     * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+     * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`.
      */
     public readonly placementConstraints!: pulumi.Output<{ expression?: string, type: string }[] | undefined>;
     /**
@@ -214,7 +214,7 @@ export interface TaskDefinitionState {
      */
     readonly containerDefinitions?: pulumi.Input<string>;
     /**
-     * The number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
     readonly cpu?: pulumi.Input<string>;
     /**
@@ -230,7 +230,7 @@ export interface TaskDefinitionState {
      */
     readonly ipcMode?: pulumi.Input<string>;
     /**
-     * The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * The amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
     readonly memory?: pulumi.Input<string>;
     /**
@@ -242,7 +242,7 @@ export interface TaskDefinitionState {
      */
     readonly pidMode?: pulumi.Input<string>;
     /**
-     * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+     * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
@@ -285,7 +285,7 @@ export interface TaskDefinitionArgs {
      */
     readonly containerDefinitions: pulumi.Input<string>;
     /**
-     * The number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
     readonly cpu?: pulumi.Input<string>;
     /**
@@ -301,7 +301,7 @@ export interface TaskDefinitionArgs {
      */
     readonly ipcMode?: pulumi.Input<string>;
     /**
-     * The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * The amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
     readonly memory?: pulumi.Input<string>;
     /**
@@ -313,7 +313,7 @@ export interface TaskDefinitionArgs {
      */
     readonly pidMode?: pulumi.Input<string>;
     /**
-     * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+     * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**

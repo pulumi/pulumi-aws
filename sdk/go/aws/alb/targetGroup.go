@@ -9,7 +9,7 @@ import (
 
 // Provides a Target Group resource for use with Load Balancer resources.
 // 
-// > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
+// > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group.html.markdown.
 type TargetGroup struct {
@@ -117,7 +117,7 @@ func (r *TargetGroup) HealthCheck() *pulumi.Output {
 	return r.s.State["healthCheck"]
 }
 
-// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
 func (r *TargetGroup) LambdaMultiValueHeadersEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["lambdaMultiValueHeadersEnabled"])
 }
@@ -137,7 +137,7 @@ func (r *TargetGroup) Port() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["port"])
 }
 
-// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
 func (r *TargetGroup) Protocol() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["protocol"])
 }
@@ -172,7 +172,7 @@ func (r *TargetGroup) TargetType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["targetType"])
 }
 
-// The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+// The identifier of the VPC in which to create the target group. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
 func (r *TargetGroup) VpcId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpcId"])
 }
@@ -187,7 +187,7 @@ type TargetGroupState struct {
 	DeregistrationDelay interface{}
 	// A Health Check block. Health Check blocks are documented below.
 	HealthCheck interface{}
-	// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+	// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
 	LambdaMultiValueHeadersEnabled interface{}
 	// The name of the target group. If omitted, this provider will assign a random, unique name.
 	Name interface{}
@@ -195,7 +195,7 @@ type TargetGroupState struct {
 	NamePrefix interface{}
 	// The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
 	Port interface{}
-	// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+	// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
 	Protocol interface{}
 	// Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
 	ProxyProtocolV2 interface{}
@@ -212,7 +212,7 @@ type TargetGroupState struct {
 	// the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
 	// You can't specify publicly routable IP addresses.
 	TargetType interface{}
-	// The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+	// The identifier of the VPC in which to create the target group. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
 	VpcId interface{}
 }
 
@@ -222,7 +222,7 @@ type TargetGroupArgs struct {
 	DeregistrationDelay interface{}
 	// A Health Check block. Health Check blocks are documented below.
 	HealthCheck interface{}
-	// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+	// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
 	LambdaMultiValueHeadersEnabled interface{}
 	// The name of the target group. If omitted, this provider will assign a random, unique name.
 	Name interface{}
@@ -230,7 +230,7 @@ type TargetGroupArgs struct {
 	NamePrefix interface{}
 	// The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
 	Port interface{}
-	// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+	// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
 	Protocol interface{}
 	// Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
 	ProxyProtocolV2 interface{}
@@ -247,6 +247,6 @@ type TargetGroupArgs struct {
 	// the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
 	// You can't specify publicly routable IP addresses.
 	TargetType interface{}
-	// The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+	// The identifier of the VPC in which to create the target group. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
 	VpcId interface{}
 }

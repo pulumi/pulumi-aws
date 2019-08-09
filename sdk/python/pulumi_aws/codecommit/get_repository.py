@@ -46,14 +46,18 @@ class GetRepositoryResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetRepositoryResult(GetRepositoryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRepositoryResult(
+            arn=self.arn,
+            clone_url_http=self.clone_url_http,
+            clone_url_ssh=self.clone_url_ssh,
+            repository_id=self.repository_id,
+            repository_name=self.repository_name,
+            id=self.id)
 
 def get_repository(repository_name=None,opts=None):
     """
@@ -70,7 +74,7 @@ def get_repository(repository_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:codecommit/getRepository:getRepository', __args__, opts=opts).value
 
-    return GetRepositoryResult(
+    return AwaitableGetRepositoryResult(
         arn=__ret__.get('arn'),
         clone_url_http=__ret__.get('cloneUrlHttp'),
         clone_url_ssh=__ret__.get('cloneUrlSsh'),

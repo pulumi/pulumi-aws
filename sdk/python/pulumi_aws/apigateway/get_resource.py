@@ -37,14 +37,17 @@ class GetResourceResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetResourceResult(GetResourceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetResourceResult(
+            parent_id=self.parent_id,
+            path=self.path,
+            path_part=self.path_part,
+            rest_api_id=self.rest_api_id,
+            id=self.id)
 
 def get_resource(path=None,rest_api_id=None,opts=None):
     """
@@ -63,7 +66,7 @@ def get_resource(path=None,rest_api_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getResource:getResource', __args__, opts=opts).value
 
-    return GetResourceResult(
+    return AwaitableGetResourceResult(
         parent_id=__ret__.get('parentId'),
         path=__ret__.get('path'),
         path_part=__ret__.get('pathPart'),

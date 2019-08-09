@@ -31,14 +31,16 @@ class GetProductResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetProductResult(GetProductResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetProductResult(
+            filters=self.filters,
+            result=self.result,
+            service_code=self.service_code,
+            id=self.id)
 
 def get_product(filters=None,service_code=None,opts=None):
     """
@@ -57,7 +59,7 @@ def get_product(filters=None,service_code=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:pricing/getProduct:getProduct', __args__, opts=opts).value
 
-    return GetProductResult(
+    return AwaitableGetProductResult(
         filters=__ret__.get('filters'),
         result=__ret__.get('result'),
         service_code=__ret__.get('serviceCode'),

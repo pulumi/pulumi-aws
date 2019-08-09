@@ -37,14 +37,19 @@ class GetAmiIdsResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAmiIdsResult(GetAmiIdsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAmiIdsResult(
+            executable_users=self.executable_users,
+            filters=self.filters,
+            ids=self.ids,
+            name_regex=self.name_regex,
+            owners=self.owners,
+            sort_ascending=self.sort_ascending,
+            id=self.id)
 
 def get_ami_ids(executable_users=None,filters=None,name_regex=None,owners=None,sort_ascending=None,opts=None):
     """
@@ -65,7 +70,7 @@ def get_ami_ids(executable_users=None,filters=None,name_regex=None,owners=None,s
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getAmiIds:getAmiIds', __args__, opts=opts).value
 
-    return GetAmiIdsResult(
+    return AwaitableGetAmiIdsResult(
         executable_users=__ret__.get('executableUsers'),
         filters=__ret__.get('filters'),
         ids=__ret__.get('ids'),

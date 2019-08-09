@@ -40,14 +40,18 @@ class GetInvocationResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetInvocationResult(GetInvocationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetInvocationResult(
+            function_name=self.function_name,
+            input=self.input,
+            qualifier=self.qualifier,
+            result=self.result,
+            result_map=self.result_map,
+            id=self.id)
 
 def get_invocation(function_name=None,input=None,qualifier=None,opts=None):
     """
@@ -68,7 +72,7 @@ def get_invocation(function_name=None,input=None,qualifier=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:lambda/getInvocation:getInvocation', __args__, opts=opts).value
 
-    return GetInvocationResult(
+    return AwaitableGetInvocationResult(
         function_name=__ret__.get('functionName'),
         input=__ret__.get('input'),
         qualifier=__ret__.get('qualifier'),

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the [`aws_dx_gateway_association` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association.html).
+// Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the [`directconnect.GatewayAssociation` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association.html).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway_association_proposal.html.markdown.
 type GatewayAssociationProposal struct {
@@ -108,7 +108,7 @@ func (r *GatewayAssociationProposal) DxGatewayOwnerAccountId() *pulumi.StringOut
 	return (*pulumi.StringOutput)(r.s.State["dxGatewayOwnerAccountId"])
 }
 
-// *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
+// *Deprecated:* Use `associatedGatewayId` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
 func (r *GatewayAssociationProposal) VpnGatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpnGatewayId"])
 }
@@ -127,7 +127,7 @@ type GatewayAssociationProposalState struct {
 	DxGatewayId interface{}
 	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId interface{}
-	// *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
+	// *Deprecated:* Use `associatedGatewayId` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
 	VpnGatewayId interface{}
 }
 
@@ -141,6 +141,6 @@ type GatewayAssociationProposalArgs struct {
 	DxGatewayId interface{}
 	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId interface{}
-	// *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
+	// *Deprecated:* Use `associatedGatewayId` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
 	VpnGatewayId interface{}
 }

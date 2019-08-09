@@ -143,7 +143,7 @@ class Instance(pulumi.CustomResource):
     Keyword to choose what virtualization mode created instances
     will use. Can be either `"paravirtual"` or `"hvm"`.
     """
-    def __init__(__self__, resource_name, opts=None, agent_version=None, ami_id=None, architecture=None, auto_scaling_type=None, availability_zone=None, created_at=None, delete_ebs=None, delete_eip=None, ebs_block_devices=None, ebs_optimized=None, ecs_cluster_arn=None, elastic_ip=None, ephemeral_block_devices=None, hostname=None, infrastructure_class=None, install_updates_on_boot=None, instance_profile_arn=None, instance_type=None, last_service_error_id=None, layer_ids=None, os=None, platform=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, registered_by=None, reported_agent_version=None, reported_os_family=None, reported_os_name=None, reported_os_version=None, root_block_devices=None, root_device_type=None, root_device_volume_id=None, security_group_ids=None, ssh_host_dsa_key_fingerprint=None, ssh_host_rsa_key_fingerprint=None, ssh_key_name=None, stack_id=None, state=None, status=None, subnet_id=None, tenancy=None, virtualization_type=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, agent_version=None, ami_id=None, architecture=None, auto_scaling_type=None, availability_zone=None, created_at=None, delete_ebs=None, delete_eip=None, ebs_block_devices=None, ebs_optimized=None, ecs_cluster_arn=None, elastic_ip=None, ephemeral_block_devices=None, hostname=None, infrastructure_class=None, install_updates_on_boot=None, instance_profile_arn=None, instance_type=None, last_service_error_id=None, layer_ids=None, os=None, platform=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, registered_by=None, reported_agent_version=None, reported_os_family=None, reported_os_name=None, reported_os_version=None, root_block_devices=None, root_device_type=None, root_device_volume_id=None, security_group_ids=None, ssh_host_dsa_key_fingerprint=None, ssh_host_rsa_key_fingerprint=None, ssh_key_name=None, stack_id=None, state=None, status=None, subnet_id=None, tenancy=None, virtualization_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an OpsWorks instance resource.
         
@@ -246,120 +246,167 @@ class Instance(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['agent_version'] = agent_version
-
-        __props__['ami_id'] = ami_id
-
-        __props__['architecture'] = architecture
-
-        __props__['auto_scaling_type'] = auto_scaling_type
-
-        __props__['availability_zone'] = availability_zone
-
-        __props__['created_at'] = created_at
-
-        __props__['delete_ebs'] = delete_ebs
-
-        __props__['delete_eip'] = delete_eip
-
-        __props__['ebs_block_devices'] = ebs_block_devices
-
-        __props__['ebs_optimized'] = ebs_optimized
-
-        __props__['ecs_cluster_arn'] = ecs_cluster_arn
-
-        __props__['elastic_ip'] = elastic_ip
-
-        __props__['ephemeral_block_devices'] = ephemeral_block_devices
-
-        __props__['hostname'] = hostname
-
-        __props__['infrastructure_class'] = infrastructure_class
-
-        __props__['install_updates_on_boot'] = install_updates_on_boot
-
-        __props__['instance_profile_arn'] = instance_profile_arn
-
-        __props__['instance_type'] = instance_type
-
-        __props__['last_service_error_id'] = last_service_error_id
-
-        if layer_ids is None:
-            raise TypeError("Missing required property 'layer_ids'")
-        __props__['layer_ids'] = layer_ids
-
-        __props__['os'] = os
-
-        __props__['platform'] = platform
-
-        __props__['private_dns'] = private_dns
-
-        __props__['private_ip'] = private_ip
-
-        __props__['public_dns'] = public_dns
-
-        __props__['public_ip'] = public_ip
-
-        __props__['registered_by'] = registered_by
-
-        __props__['reported_agent_version'] = reported_agent_version
-
-        __props__['reported_os_family'] = reported_os_family
-
-        __props__['reported_os_name'] = reported_os_name
-
-        __props__['reported_os_version'] = reported_os_version
-
-        __props__['root_block_devices'] = root_block_devices
-
-        __props__['root_device_type'] = root_device_type
-
-        __props__['root_device_volume_id'] = root_device_volume_id
-
-        __props__['security_group_ids'] = security_group_ids
-
-        __props__['ssh_host_dsa_key_fingerprint'] = ssh_host_dsa_key_fingerprint
-
-        __props__['ssh_host_rsa_key_fingerprint'] = ssh_host_rsa_key_fingerprint
-
-        __props__['ssh_key_name'] = ssh_key_name
-
-        if stack_id is None:
-            raise TypeError("Missing required property 'stack_id'")
-        __props__['stack_id'] = stack_id
-
-        __props__['state'] = state
-
-        __props__['status'] = status
-
-        __props__['subnet_id'] = subnet_id
-
-        __props__['tenancy'] = tenancy
-
-        __props__['virtualization_type'] = virtualization_type
-
-        __props__['ec2_instance_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['agent_version'] = agent_version
+            __props__['ami_id'] = ami_id
+            __props__['architecture'] = architecture
+            __props__['auto_scaling_type'] = auto_scaling_type
+            __props__['availability_zone'] = availability_zone
+            __props__['created_at'] = created_at
+            __props__['delete_ebs'] = delete_ebs
+            __props__['delete_eip'] = delete_eip
+            __props__['ebs_block_devices'] = ebs_block_devices
+            __props__['ebs_optimized'] = ebs_optimized
+            __props__['ecs_cluster_arn'] = ecs_cluster_arn
+            __props__['elastic_ip'] = elastic_ip
+            __props__['ephemeral_block_devices'] = ephemeral_block_devices
+            __props__['hostname'] = hostname
+            __props__['infrastructure_class'] = infrastructure_class
+            __props__['install_updates_on_boot'] = install_updates_on_boot
+            __props__['instance_profile_arn'] = instance_profile_arn
+            __props__['instance_type'] = instance_type
+            __props__['last_service_error_id'] = last_service_error_id
+            if layer_ids is None:
+                raise TypeError("Missing required property 'layer_ids'")
+            __props__['layer_ids'] = layer_ids
+            __props__['os'] = os
+            __props__['platform'] = platform
+            __props__['private_dns'] = private_dns
+            __props__['private_ip'] = private_ip
+            __props__['public_dns'] = public_dns
+            __props__['public_ip'] = public_ip
+            __props__['registered_by'] = registered_by
+            __props__['reported_agent_version'] = reported_agent_version
+            __props__['reported_os_family'] = reported_os_family
+            __props__['reported_os_name'] = reported_os_name
+            __props__['reported_os_version'] = reported_os_version
+            __props__['root_block_devices'] = root_block_devices
+            __props__['root_device_type'] = root_device_type
+            __props__['root_device_volume_id'] = root_device_volume_id
+            __props__['security_group_ids'] = security_group_ids
+            __props__['ssh_host_dsa_key_fingerprint'] = ssh_host_dsa_key_fingerprint
+            __props__['ssh_host_rsa_key_fingerprint'] = ssh_host_rsa_key_fingerprint
+            __props__['ssh_key_name'] = ssh_key_name
+            if stack_id is None:
+                raise TypeError("Missing required property 'stack_id'")
+            __props__['stack_id'] = stack_id
+            __props__['state'] = state
+            __props__['status'] = status
+            __props__['subnet_id'] = subnet_id
+            __props__['tenancy'] = tenancy
+            __props__['virtualization_type'] = virtualization_type
+            __props__['ec2_instance_id'] = None
         super(Instance, __self__).__init__(
             'aws:opsworks/instance:Instance',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, agent_version=None, ami_id=None, architecture=None, auto_scaling_type=None, availability_zone=None, created_at=None, delete_ebs=None, delete_eip=None, ebs_block_devices=None, ebs_optimized=None, ec2_instance_id=None, ecs_cluster_arn=None, elastic_ip=None, ephemeral_block_devices=None, hostname=None, infrastructure_class=None, install_updates_on_boot=None, instance_profile_arn=None, instance_type=None, last_service_error_id=None, layer_ids=None, os=None, platform=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, registered_by=None, reported_agent_version=None, reported_os_family=None, reported_os_name=None, reported_os_version=None, root_block_devices=None, root_device_type=None, root_device_volume_id=None, security_group_ids=None, ssh_host_dsa_key_fingerprint=None, ssh_host_rsa_key_fingerprint=None, ssh_key_name=None, stack_id=None, state=None, status=None, subnet_id=None, tenancy=None, virtualization_type=None):
+        """
+        Get an existing Instance resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] agent_version: The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
+        :param pulumi.Input[str] ami_id: The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
+        :param pulumi.Input[str] architecture: Machine architecture for created instances.  Can be either `"x86_64"` (the default) or `"i386"`
+        :param pulumi.Input[str] auto_scaling_type: Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
+        :param pulumi.Input[str] availability_zone: Name of the availability zone where instances will be created
+               by default.
+        :param pulumi.Input[list] ebs_block_devices: Additional EBS block devices to attach to the
+               instance.  See Block Devices below for details.
+        :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
+        :param pulumi.Input[str] ec2_instance_id: EC2 instance ID
+        :param pulumi.Input[list] ephemeral_block_devices: Customize Ephemeral (also known as
+               "Instance Store") volumes on the instance. See Block Devices below for details.
+        :param pulumi.Input[str] hostname: The instance's host name.
+        :param pulumi.Input[bool] install_updates_on_boot: Controls where to install OS and package updates when the instance boots.  Defaults to `true`.
+        :param pulumi.Input[str] instance_type: The type of instance to start
+        :param pulumi.Input[list] layer_ids: The ids of the layers the instance will belong to.
+        :param pulumi.Input[str] os: Name of operating system that will be installed.
+        :param pulumi.Input[str] private_dns: The private DNS name assigned to the instance. Can only be
+               used inside the Amazon EC2, and only available if you've enabled DNS hostnames
+               for your VPC
+        :param pulumi.Input[str] private_ip: The private IP address assigned to the instance
+        :param pulumi.Input[str] public_dns: The public DNS name assigned to the instance. For EC2-VPC, this
+               is only available if you've enabled DNS hostnames for your VPC
+        :param pulumi.Input[str] public_ip: The public IP address assigned to the instance, if applicable.
+        :param pulumi.Input[list] root_block_devices: Customize details about the root block
+               device of the instance. See Block Devices below for details.
+        :param pulumi.Input[str] root_device_type: Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
+        :param pulumi.Input[list] security_group_ids: The associated security groups.
+        :param pulumi.Input[str] ssh_key_name: Name of the SSH keypair that instances will have by default.
+        :param pulumi.Input[str] stack_id: The id of the stack the instance will belong to.
+        :param pulumi.Input[str] state: The desired state of the instance.  Can be either `"running"` or `"stopped"`.
+        :param pulumi.Input[str] subnet_id: Subnet ID to attach to
+        :param pulumi.Input[str] tenancy: Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
+        :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
+               will use. Can be either `"paravirtual"` or `"hvm"`.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_instance.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["agent_version"] = agent_version
+        __props__["ami_id"] = ami_id
+        __props__["architecture"] = architecture
+        __props__["auto_scaling_type"] = auto_scaling_type
+        __props__["availability_zone"] = availability_zone
+        __props__["created_at"] = created_at
+        __props__["delete_ebs"] = delete_ebs
+        __props__["delete_eip"] = delete_eip
+        __props__["ebs_block_devices"] = ebs_block_devices
+        __props__["ebs_optimized"] = ebs_optimized
+        __props__["ec2_instance_id"] = ec2_instance_id
+        __props__["ecs_cluster_arn"] = ecs_cluster_arn
+        __props__["elastic_ip"] = elastic_ip
+        __props__["ephemeral_block_devices"] = ephemeral_block_devices
+        __props__["hostname"] = hostname
+        __props__["infrastructure_class"] = infrastructure_class
+        __props__["install_updates_on_boot"] = install_updates_on_boot
+        __props__["instance_profile_arn"] = instance_profile_arn
+        __props__["instance_type"] = instance_type
+        __props__["last_service_error_id"] = last_service_error_id
+        __props__["layer_ids"] = layer_ids
+        __props__["os"] = os
+        __props__["platform"] = platform
+        __props__["private_dns"] = private_dns
+        __props__["private_ip"] = private_ip
+        __props__["public_dns"] = public_dns
+        __props__["public_ip"] = public_ip
+        __props__["registered_by"] = registered_by
+        __props__["reported_agent_version"] = reported_agent_version
+        __props__["reported_os_family"] = reported_os_family
+        __props__["reported_os_name"] = reported_os_name
+        __props__["reported_os_version"] = reported_os_version
+        __props__["root_block_devices"] = root_block_devices
+        __props__["root_device_type"] = root_device_type
+        __props__["root_device_volume_id"] = root_device_volume_id
+        __props__["security_group_ids"] = security_group_ids
+        __props__["ssh_host_dsa_key_fingerprint"] = ssh_host_dsa_key_fingerprint
+        __props__["ssh_host_rsa_key_fingerprint"] = ssh_host_rsa_key_fingerprint
+        __props__["ssh_key_name"] = ssh_key_name
+        __props__["stack_id"] = stack_id
+        __props__["state"] = state
+        __props__["status"] = status
+        __props__["subnet_id"] = subnet_id
+        __props__["tenancy"] = tenancy
+        __props__["virtualization_type"] = virtualization_type
+        return Instance(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

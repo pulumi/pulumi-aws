@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a Load Balancer Listener resource.
  * 
- * > **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
+ * > **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
  * 
  * ## Example Usage
  * 
@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndTargetGroup = new aws.lb.TargetGroup("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
+ * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEnd", {});
+ * const frontEndListener = new aws.lb.Listener("frontEnd", {
  *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
  *     defaultActions: [{
  *         targetGroupArn: frontEndTargetGroup.arn,
@@ -38,8 +38,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
+ * const frontEndListener = new aws.lb.Listener("frontEnd", {
  *     defaultActions: [{
  *         redirect: {
  *             port: "443",
@@ -60,8 +60,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
+ * const frontEndListener = new aws.lb.Listener("frontEnd", {
  *     defaultActions: [{
  *         fixedResponse: {
  *             contentType: "text/plain",
@@ -85,9 +85,9 @@ import * as utilities from "../utilities";
  * const pool = new aws.cognito.UserPool("pool", {});
  * const client = new aws.cognito.UserPoolClient("client", {});
  * const domain = new aws.cognito.UserPoolDomain("domain", {});
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndTargetGroup = new aws.lb.TargetGroup("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
+ * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEnd", {});
+ * const frontEndListener = new aws.lb.Listener("frontEnd", {
  *     defaultActions: [
  *         {
  *             authenticateCognito: {
@@ -114,15 +114,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndTargetGroup = new aws.lb.TargetGroup("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
+ * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEnd", {});
+ * const frontEndListener = new aws.lb.Listener("frontEnd", {
  *     defaultActions: [
  *         {
  *             authenticateOidc: {
  *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
- *                 clientId: "client_id",
- *                 clientSecret: "client_secret",
+ *                 clientId: "clientId",
+ *                 clientSecret: "clientSecret",
  *                 issuer: "https://example.com",
  *                 tokenEndpoint: "https://example.com/token_endpoint",
  *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
@@ -174,7 +174,7 @@ export class Listener extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+     * The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws.lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
      */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
@@ -258,7 +258,7 @@ export interface ListenerState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+     * The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws.lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
      */
     readonly certificateArn?: pulumi.Input<string>;
     /**
@@ -288,7 +288,7 @@ export interface ListenerState {
  */
 export interface ListenerArgs {
     /**
-     * The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+     * The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws.lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
      */
     readonly certificateArn?: pulumi.Input<string>;
     /**

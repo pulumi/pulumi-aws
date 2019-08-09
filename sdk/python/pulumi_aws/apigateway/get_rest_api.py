@@ -28,14 +28,15 @@ class GetRestApiResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetRestApiResult(GetRestApiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRestApiResult(
+            name=self.name,
+            root_resource_id=self.root_resource_id,
+            id=self.id)
 
 def get_rest_api(name=None,opts=None):
     """
@@ -55,7 +56,7 @@ def get_rest_api(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getRestApi:getRestApi', __args__, opts=opts).value
 
-    return GetRestApiResult(
+    return AwaitableGetRestApiResult(
         name=__ret__.get('name'),
         root_resource_id=__ret__.get('rootResourceId'),
         id=__ret__.get('id'))

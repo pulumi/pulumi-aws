@@ -110,7 +110,7 @@ func (r *FileSystem) PerformanceMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["performanceMode"])
 }
 
-// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 func (r *FileSystem) ProvisionedThroughputInMibps() *pulumi.Float64Output {
 	return (*pulumi.Float64Output)(r.s.State["provisionedThroughputInMibps"])
 }
@@ -120,7 +120,7 @@ func (r *FileSystem) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
 func (r *FileSystem) ThroughputMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["throughputMode"])
 }
@@ -142,11 +142,11 @@ type FileSystemState struct {
 	KmsKeyId interface{}
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode interface{}
-	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps interface{}
 	// A mapping of tags to assign to the file system.
 	Tags interface{}
-	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
 	ThroughputMode interface{}
 }
 
@@ -163,10 +163,10 @@ type FileSystemArgs struct {
 	KmsKeyId interface{}
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode interface{}
-	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps interface{}
 	// A mapping of tags to assign to the file system.
 	Tags interface{}
-	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
 	ThroughputMode interface{}
 }

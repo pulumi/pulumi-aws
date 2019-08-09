@@ -52,18 +52,24 @@ class GetSecretVersionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSecretVersionResult(GetSecretVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSecretVersionResult(
+            arn=self.arn,
+            secret_binary=self.secret_binary,
+            secret_id=self.secret_id,
+            secret_string=self.secret_string,
+            version_id=self.version_id,
+            version_stage=self.version_stage,
+            version_stages=self.version_stages,
+            id=self.id)
 
 def get_secret_version(secret_id=None,version_id=None,version_stage=None,opts=None):
     """
-    Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
+    Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
     """
@@ -78,7 +84,7 @@ def get_secret_version(secret_id=None,version_id=None,version_stage=None,opts=No
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecretVersion:getSecretVersion', __args__, opts=opts).value
 
-    return GetSecretVersionResult(
+    return AwaitableGetSecretVersionResult(
         arn=__ret__.get('arn'),
         secret_binary=__ret__.get('secretBinary'),
         secret_id=__ret__.get('secretId'),

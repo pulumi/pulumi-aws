@@ -52,14 +52,19 @@ class GetConfigurationResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetConfigurationResult(GetConfigurationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetConfigurationResult(
+            arn=self.arn,
+            description=self.description,
+            kafka_versions=self.kafka_versions,
+            latest_revision=self.latest_revision,
+            name=self.name,
+            server_properties=self.server_properties,
+            id=self.id)
 
 def get_configuration(name=None,opts=None):
     """
@@ -76,7 +81,7 @@ def get_configuration(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:msk/getConfiguration:getConfiguration', __args__, opts=opts).value
 
-    return GetConfigurationResult(
+    return AwaitableGetConfigurationResult(
         arn=__ret__.get('arn'),
         description=__ret__.get('description'),
         kafka_versions=__ret__.get('kafkaVersions'),

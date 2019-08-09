@@ -38,14 +38,17 @@ class GetSecurityGroupsResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSecurityGroupsResult(GetSecurityGroupsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSecurityGroupsResult(
+            filters=self.filters,
+            ids=self.ids,
+            tags=self.tags,
+            vpc_ids=self.vpc_ids,
+            id=self.id)
 
 def get_security_groups(filters=None,tags=None,opts=None):
     """
@@ -64,7 +67,7 @@ def get_security_groups(filters=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSecurityGroups:getSecurityGroups', __args__, opts=opts).value
 
-    return GetSecurityGroupsResult(
+    return AwaitableGetSecurityGroupsResult(
         filters=__ret__.get('filters'),
         ids=__ret__.get('ids'),
         tags=__ret__.get('tags'),

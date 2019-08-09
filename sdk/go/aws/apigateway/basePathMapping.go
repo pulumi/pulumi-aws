@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Connects a custom domain name registered via `aws_api_gateway_domain_name`
+// Connects a custom domain name registered via `apigateway.DomainName`
 // with a deployed API so that its methods can be called via the
 // custom domain name.
 //

@@ -118,7 +118,7 @@ func (r *MaintenanceWindowTask) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
+// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
 func (r *MaintenanceWindowTask) LoggingInfo() *pulumi.Output {
 	return r.s.State["loggingInfo"]
 }
@@ -158,12 +158,12 @@ func (r *MaintenanceWindowTask) TaskArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["taskArn"])
 }
 
-// The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+// The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
 func (r *MaintenanceWindowTask) TaskInvocationParameters() *pulumi.Output {
 	return r.s.State["taskInvocationParameters"]
 }
 
-// A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
+// A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
 func (r *MaintenanceWindowTask) TaskParameters() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["taskParameters"])
 }
@@ -182,7 +182,7 @@ func (r *MaintenanceWindowTask) WindowId() *pulumi.StringOutput {
 type MaintenanceWindowTaskState struct {
 	// The description of the maintenance window task.
 	Description interface{}
-	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
+	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
 	LoggingInfo interface{}
 	// The maximum number of targets this task can be run for in parallel.
 	MaxConcurrency interface{}
@@ -198,9 +198,9 @@ type MaintenanceWindowTaskState struct {
 	Targets interface{}
 	// The ARN of the task to execute.
 	TaskArn interface{}
-	// The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+	// The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
 	TaskInvocationParameters interface{}
-	// A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
+	// A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
 	TaskParameters interface{}
 	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
 	TaskType interface{}
@@ -212,7 +212,7 @@ type MaintenanceWindowTaskState struct {
 type MaintenanceWindowTaskArgs struct {
 	// The description of the maintenance window task.
 	Description interface{}
-	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
+	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
 	LoggingInfo interface{}
 	// The maximum number of targets this task can be run for in parallel.
 	MaxConcurrency interface{}
@@ -228,9 +228,9 @@ type MaintenanceWindowTaskArgs struct {
 	Targets interface{}
 	// The ARN of the task to execute.
 	TaskArn interface{}
-	// The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+	// The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
 	TaskInvocationParameters interface{}
-	// A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
+	// A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
 	TaskParameters interface{}
 	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
 	TaskType interface{}

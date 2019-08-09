@@ -69,7 +69,7 @@ export class Model extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+     * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      */
     public readonly containers!: pulumi.Output<{ containerHostname?: string, environment?: {[key: string]: any}, image: string, modelDataUrl?: string }[] | undefined>;
     /**
@@ -151,7 +151,7 @@ export interface ModelState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+     * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      */
     readonly containers?: pulumi.Input<pulumi.Input<{ containerHostname?: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, modelDataUrl?: pulumi.Input<string> }>[]>;
     /**
@@ -185,7 +185,7 @@ export interface ModelState {
  */
 export interface ModelArgs {
     /**
-     * Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+     * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      */
     readonly containers?: pulumi.Input<pulumi.Input<{ containerHostname?: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, modelDataUrl?: pulumi.Input<string> }>[]>;
     /**

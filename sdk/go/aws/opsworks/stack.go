@@ -141,7 +141,7 @@ func (r *Stack) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+// If `manageBerkshelf` is enabled, the version of Berkshelf to use.
 func (r *Stack) BerkshelfVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["berkshelfVersion"])
 }
@@ -161,7 +161,7 @@ func (r *Stack) ConfigurationManagerVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["configurationManagerVersion"])
 }
 
-// When `use_custom_cookbooks` is set, provide this sub-object as
+// When `useCustomCookbooks` is set, provide this sub-object as
 // described below.
 func (r *Stack) CustomCookbooksSources() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["customCookbooksSources"])
@@ -173,7 +173,7 @@ func (r *Stack) CustomJson() *pulumi.StringOutput {
 }
 
 // Name of the availability zone where instances will be created
-// by default. This is required unless you set `vpc_id`.
+// by default. This is required unless you set `vpcId`.
 func (r *Stack) DefaultAvailabilityZone() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultAvailabilityZone"])
 }
@@ -200,7 +200,7 @@ func (r *Stack) DefaultSshKeyName() *pulumi.StringOutput {
 }
 
 // Id of the subnet in which instances will be created by default. Mandatory
-// if `vpc_id` is set, and forbidden if it isn't.
+// if `vpcId` is set, and forbidden if it isn't.
 func (r *Stack) DefaultSubnetId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultSubnetId"])
 }
@@ -262,7 +262,7 @@ type StackState struct {
 	// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
 	AgentVersion interface{}
 	Arn interface{}
-	// If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+	// If `manageBerkshelf` is enabled, the version of Berkshelf to use.
 	BerkshelfVersion interface{}
 	// Color to paint next to the stack's resources in the OpsWorks console.
 	Color interface{}
@@ -270,13 +270,13 @@ type StackState struct {
 	ConfigurationManagerName interface{}
 	// Version of the configuration manager to use. Defaults to "11.4".
 	ConfigurationManagerVersion interface{}
-	// When `use_custom_cookbooks` is set, provide this sub-object as
+	// When `useCustomCookbooks` is set, provide this sub-object as
 	// described below.
 	CustomCookbooksSources interface{}
 	// Custom JSON attributes to apply to the entire stack.
 	CustomJson interface{}
 	// Name of the availability zone where instances will be created
-	// by default. This is required unless you set `vpc_id`.
+	// by default. This is required unless you set `vpcId`.
 	DefaultAvailabilityZone interface{}
 	// The ARN of an IAM Instance Profile that created instances
 	// will have by default.
@@ -288,7 +288,7 @@ type StackState struct {
 	// Name of the SSH keypair that instances will have by default.
 	DefaultSshKeyName interface{}
 	// Id of the subnet in which instances will be created by default. Mandatory
-	// if `vpc_id` is set, and forbidden if it isn't.
+	// if `vpcId` is set, and forbidden if it isn't.
 	DefaultSubnetId interface{}
 	// Keyword representing the naming scheme that will be used for instance hostnames
 	// within this stack.
@@ -318,7 +318,7 @@ type StackState struct {
 type StackArgs struct {
 	// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
 	AgentVersion interface{}
-	// If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+	// If `manageBerkshelf` is enabled, the version of Berkshelf to use.
 	BerkshelfVersion interface{}
 	// Color to paint next to the stack's resources in the OpsWorks console.
 	Color interface{}
@@ -326,13 +326,13 @@ type StackArgs struct {
 	ConfigurationManagerName interface{}
 	// Version of the configuration manager to use. Defaults to "11.4".
 	ConfigurationManagerVersion interface{}
-	// When `use_custom_cookbooks` is set, provide this sub-object as
+	// When `useCustomCookbooks` is set, provide this sub-object as
 	// described below.
 	CustomCookbooksSources interface{}
 	// Custom JSON attributes to apply to the entire stack.
 	CustomJson interface{}
 	// Name of the availability zone where instances will be created
-	// by default. This is required unless you set `vpc_id`.
+	// by default. This is required unless you set `vpcId`.
 	DefaultAvailabilityZone interface{}
 	// The ARN of an IAM Instance Profile that created instances
 	// will have by default.
@@ -344,7 +344,7 @@ type StackArgs struct {
 	// Name of the SSH keypair that instances will have by default.
 	DefaultSshKeyName interface{}
 	// Id of the subnet in which instances will be created by default. Mandatory
-	// if `vpc_id` is set, and forbidden if it isn't.
+	// if `vpcId` is set, and forbidden if it isn't.
 	DefaultSubnetId interface{}
 	// Keyword representing the naming scheme that will be used for instance hostnames
 	// within this stack.

@@ -169,7 +169,7 @@ func (r *Cluster) NodeType() *pulumi.StringOutput {
 }
 
 // List of node objects including `id`, `address`, `port` and
-// `availability_zone`. Referenceable e.g. as
+// `availabilityZone`. Referenceable e.g. as
 // `${aws_dax_cluster.test.nodes.0.address}`
 func (r *Cluster) Nodes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["nodes"])
@@ -252,7 +252,7 @@ type ClusterState struct {
 	// [Nodes][1] for supported node types
 	NodeType interface{}
 	// List of node objects including `id`, `address`, `port` and
-	// `availability_zone`. Referenceable e.g. as
+	// `availabilityZone`. Referenceable e.g. as
 	// `${aws_dax_cluster.test.nodes.0.address}`
 	Nodes interface{}
 	// An Amazon Resource Name (ARN) of an

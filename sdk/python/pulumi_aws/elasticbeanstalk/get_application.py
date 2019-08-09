@@ -37,14 +37,17 @@ class GetApplicationResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetApplicationResult(GetApplicationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetApplicationResult(
+            appversion_lifecycle=self.appversion_lifecycle,
+            arn=self.arn,
+            description=self.description,
+            name=self.name,
+            id=self.id)
 
 def get_application(name=None,opts=None):
     """
@@ -61,7 +64,7 @@ def get_application(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getApplication:getApplication', __args__, opts=opts).value
 
-    return GetApplicationResult(
+    return AwaitableGetApplicationResult(
         appversion_lifecycle=__ret__.get('appversionLifecycle'),
         arn=__ret__.get('arn'),
         description=__ret__.get('description'),

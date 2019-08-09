@@ -58,14 +58,20 @@ class GetServerResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetServerResult(GetServerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetServerResult(
+            arn=self.arn,
+            endpoint=self.endpoint,
+            identity_provider_type=self.identity_provider_type,
+            invocation_role=self.invocation_role,
+            logging_role=self.logging_role,
+            server_id=self.server_id,
+            url=self.url,
+            id=self.id)
 
 def get_server(server_id=None,opts=None):
     """
@@ -83,7 +89,7 @@ def get_server(server_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:transfer/getServer:getServer', __args__, opts=opts).value
 
-    return GetServerResult(
+    return AwaitableGetServerResult(
         arn=__ret__.get('arn'),
         endpoint=__ret__.get('endpoint'),
         identity_provider_type=__ret__.get('identityProviderType'),

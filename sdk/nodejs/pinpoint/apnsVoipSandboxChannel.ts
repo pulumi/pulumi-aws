@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as fs from "fs";
  * 
  * const app = new aws.pinpoint.App("app", {});
- * const apnsVoipSandbox = new aws.pinpoint.ApnsVoipSandboxChannel("apns_voip_sandbox", {
+ * const apnsVoipSandbox = new aws.pinpoint.ApnsVoipSandboxChannel("apnsVoipSandbox", {
  *     applicationId: app.applicationId,
  *     certificate: fs.readFileSync("./certificate.pem", "utf-8"),
  *     privateKey: fs.readFileSync("./private_key.key", "utf-8"),

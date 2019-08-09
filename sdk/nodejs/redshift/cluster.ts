@@ -131,7 +131,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enhancedVpcRouting!: pulumi.Output<boolean>;
     /**
-     * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+     * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -139,7 +139,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly iamRoles!: pulumi.Output<string[]>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
@@ -391,7 +391,7 @@ export interface ClusterState {
      */
     readonly enhancedVpcRouting?: pulumi.Input<boolean>;
     /**
-     * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+     * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
@@ -399,7 +399,7 @@ export interface ClusterState {
      */
     readonly iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
@@ -540,7 +540,7 @@ export interface ClusterArgs {
      */
     readonly enhancedVpcRouting?: pulumi.Input<boolean>;
     /**
-     * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+     * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
@@ -548,7 +548,7 @@ export interface ClusterArgs {
      */
     readonly iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**

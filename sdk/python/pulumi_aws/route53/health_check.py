@@ -86,7 +86,7 @@ class HealthCheck(pulumi.CustomResource):
     """
     The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
     """
-    def __init__(__self__, resource_name, opts=None, child_health_threshold=None, child_healthchecks=None, cloudwatch_alarm_name=None, cloudwatch_alarm_region=None, enable_sni=None, failure_threshold=None, fqdn=None, insufficient_data_health_status=None, invert_healthcheck=None, ip_address=None, measure_latency=None, port=None, reference_name=None, regions=None, request_interval=None, resource_path=None, search_string=None, tags=None, type=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, child_health_threshold=None, child_healthchecks=None, cloudwatch_alarm_name=None, cloudwatch_alarm_region=None, enable_sni=None, failure_threshold=None, fqdn=None, insufficient_data_health_status=None, invert_healthcheck=None, ip_address=None, measure_latency=None, port=None, reference_name=None, regions=None, request_interval=None, resource_path=None, search_string=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Route53 health check.
         
@@ -121,66 +121,98 @@ class HealthCheck(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['child_health_threshold'] = child_health_threshold
-
-        __props__['child_healthchecks'] = child_healthchecks
-
-        __props__['cloudwatch_alarm_name'] = cloudwatch_alarm_name
-
-        __props__['cloudwatch_alarm_region'] = cloudwatch_alarm_region
-
-        __props__['enable_sni'] = enable_sni
-
-        __props__['failure_threshold'] = failure_threshold
-
-        __props__['fqdn'] = fqdn
-
-        __props__['insufficient_data_health_status'] = insufficient_data_health_status
-
-        __props__['invert_healthcheck'] = invert_healthcheck
-
-        __props__['ip_address'] = ip_address
-
-        __props__['measure_latency'] = measure_latency
-
-        __props__['port'] = port
-
-        __props__['reference_name'] = reference_name
-
-        __props__['regions'] = regions
-
-        __props__['request_interval'] = request_interval
-
-        __props__['resource_path'] = resource_path
-
-        __props__['search_string'] = search_string
-
-        __props__['tags'] = tags
-
-        if type is None:
-            raise TypeError("Missing required property 'type'")
-        __props__['type'] = type
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['child_health_threshold'] = child_health_threshold
+            __props__['child_healthchecks'] = child_healthchecks
+            __props__['cloudwatch_alarm_name'] = cloudwatch_alarm_name
+            __props__['cloudwatch_alarm_region'] = cloudwatch_alarm_region
+            __props__['enable_sni'] = enable_sni
+            __props__['failure_threshold'] = failure_threshold
+            __props__['fqdn'] = fqdn
+            __props__['insufficient_data_health_status'] = insufficient_data_health_status
+            __props__['invert_healthcheck'] = invert_healthcheck
+            __props__['ip_address'] = ip_address
+            __props__['measure_latency'] = measure_latency
+            __props__['port'] = port
+            __props__['reference_name'] = reference_name
+            __props__['regions'] = regions
+            __props__['request_interval'] = request_interval
+            __props__['resource_path'] = resource_path
+            __props__['search_string'] = search_string
+            __props__['tags'] = tags
+            if type is None:
+                raise TypeError("Missing required property 'type'")
+            __props__['type'] = type
         super(HealthCheck, __self__).__init__(
             'aws:route53/healthCheck:HealthCheck',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, child_health_threshold=None, child_healthchecks=None, cloudwatch_alarm_name=None, cloudwatch_alarm_region=None, enable_sni=None, failure_threshold=None, fqdn=None, insufficient_data_health_status=None, invert_healthcheck=None, ip_address=None, measure_latency=None, port=None, reference_name=None, regions=None, request_interval=None, resource_path=None, search_string=None, tags=None, type=None):
+        """
+        Get an existing HealthCheck resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
+        :param pulumi.Input[list] child_healthchecks: For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
+        :param pulumi.Input[str] cloudwatch_alarm_name: The name of the CloudWatch alarm.
+        :param pulumi.Input[str] cloudwatch_alarm_region: The CloudWatchRegion that the CloudWatch alarm was created in.
+        :param pulumi.Input[bool] enable_sni: A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+        :param pulumi.Input[float] failure_threshold: The number of consecutive health checks that an endpoint must pass or fail.
+        :param pulumi.Input[str] fqdn: The fully qualified domain name of the endpoint to be checked.
+        :param pulumi.Input[str] insufficient_data_health_status: The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
+        :param pulumi.Input[bool] invert_healthcheck: A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
+        :param pulumi.Input[str] ip_address: The IP address of the endpoint to be checked.
+        :param pulumi.Input[bool] measure_latency: A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
+        :param pulumi.Input[float] port: The port of the endpoint to be checked.
+        :param pulumi.Input[str] reference_name: This is a reference name used in Caller Reference
+               (helpful for identifying single health_check set amongst others)
+        :param pulumi.Input[list] regions: A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+        :param pulumi.Input[float] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
+        :param pulumi.Input[str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
+        :param pulumi.Input[str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the health check.
+        :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_health_check.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["child_health_threshold"] = child_health_threshold
+        __props__["child_healthchecks"] = child_healthchecks
+        __props__["cloudwatch_alarm_name"] = cloudwatch_alarm_name
+        __props__["cloudwatch_alarm_region"] = cloudwatch_alarm_region
+        __props__["enable_sni"] = enable_sni
+        __props__["failure_threshold"] = failure_threshold
+        __props__["fqdn"] = fqdn
+        __props__["insufficient_data_health_status"] = insufficient_data_health_status
+        __props__["invert_healthcheck"] = invert_healthcheck
+        __props__["ip_address"] = ip_address
+        __props__["measure_latency"] = measure_latency
+        __props__["port"] = port
+        __props__["reference_name"] = reference_name
+        __props__["regions"] = regions
+        __props__["request_interval"] = request_interval
+        __props__["resource_path"] = resource_path
+        __props__["search_string"] = search_string
+        __props__["tags"] = tags
+        __props__["type"] = type
+        return HealthCheck(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

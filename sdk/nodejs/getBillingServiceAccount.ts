@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const main = pulumi.output(aws.getBillingServiceAccount({}));
- * const billingLogs = new aws.s3.Bucket("billing_logs", {
+ * const billingLogs = new aws.s3.Bucket("billingLogs", {
  *     acl: "private",
  *     policy: pulumi.interpolate`{
  *   "Id": "Policy",

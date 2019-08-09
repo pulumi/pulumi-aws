@@ -26,7 +26,7 @@ class TableItem(pulumi.CustomResource):
     """
     The name of the table to contain the item.
     """
-    def __init__(__self__, resource_name, opts=None, hash_key=None, item=None, range_key=None, table_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, hash_key=None, item=None, range_key=None, table_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a DynamoDB table item resource
         
@@ -49,40 +49,57 @@ class TableItem(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if hash_key is None:
-            raise TypeError("Missing required property 'hash_key'")
-        __props__['hash_key'] = hash_key
-
-        if item is None:
-            raise TypeError("Missing required property 'item'")
-        __props__['item'] = item
-
-        __props__['range_key'] = range_key
-
-        if table_name is None:
-            raise TypeError("Missing required property 'table_name'")
-        __props__['table_name'] = table_name
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if hash_key is None:
+                raise TypeError("Missing required property 'hash_key'")
+            __props__['hash_key'] = hash_key
+            if item is None:
+                raise TypeError("Missing required property 'item'")
+            __props__['item'] = item
+            __props__['range_key'] = range_key
+            if table_name is None:
+                raise TypeError("Missing required property 'table_name'")
+            __props__['table_name'] = table_name
         super(TableItem, __self__).__init__(
             'aws:dynamodb/tableItem:TableItem',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, hash_key=None, item=None, range_key=None, table_name=None):
+        """
+        Get an existing TableItem resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] hash_key: Hash key to use for lookups and identification of the item
+        :param pulumi.Input[str] item: JSON representation of a map of attribute name/value pairs, one for each attribute.
+               Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+        :param pulumi.Input[str] table_name: The name of the table to contain the item.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_table_item.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["hash_key"] = hash_key
+        __props__["item"] = item
+        __props__["range_key"] = range_key
+        __props__["table_name"] = table_name
+        return TableItem(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

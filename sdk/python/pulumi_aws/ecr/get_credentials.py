@@ -31,14 +31,17 @@ class GetCredentialsResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetCredentialsResult(GetCredentialsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetCredentialsResult(
+            authorization_token=self.authorization_token,
+            expires_at=self.expires_at,
+            proxy_endpoint=self.proxy_endpoint,
+            registry_id=self.registry_id,
+            id=self.id)
 
 def get_credentials(registry_id=None,opts=None):
     __args__ = dict()
@@ -50,7 +53,7 @@ def get_credentials(registry_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecr/getCredentials:getCredentials', __args__, opts=opts).value
 
-    return GetCredentialsResult(
+    return AwaitableGetCredentialsResult(
         authorization_token=__ret__.get('authorizationToken'),
         expires_at=__ret__.get('expiresAt'),
         proxy_endpoint=__ret__.get('proxyEndpoint'),

@@ -136,14 +136,34 @@ class GetBucketObjectResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetBucketObjectResult(GetBucketObjectResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetBucketObjectResult(
+            body=self.body,
+            bucket=self.bucket,
+            cache_control=self.cache_control,
+            content_disposition=self.content_disposition,
+            content_encoding=self.content_encoding,
+            content_language=self.content_language,
+            content_length=self.content_length,
+            content_type=self.content_type,
+            etag=self.etag,
+            expiration=self.expiration,
+            expires=self.expires,
+            key=self.key,
+            last_modified=self.last_modified,
+            metadata=self.metadata,
+            range=self.range,
+            server_side_encryption=self.server_side_encryption,
+            sse_kms_key_id=self.sse_kms_key_id,
+            storage_class=self.storage_class,
+            tags=self.tags,
+            version_id=self.version_id,
+            website_redirect_location=self.website_redirect_location,
+            id=self.id)
 
 def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,opts=None):
     """
@@ -167,7 +187,7 @@ def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucketObject:getBucketObject', __args__, opts=opts).value
 
-    return GetBucketObjectResult(
+    return AwaitableGetBucketObjectResult(
         body=__ret__.get('body'),
         bucket=__ret__.get('bucket'),
         cache_control=__ret__.get('cacheControl'),

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `aws_subnet` provides details about a specific VPC subnet.
+ * `aws.ec2.Subnet` provides details about a specific VPC subnet.
  * 
  * This resource can prove useful when a module accepts a subnet id as
  * an input variable and needs to, for example, determine the id of the

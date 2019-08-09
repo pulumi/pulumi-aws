@@ -91,14 +91,25 @@ class GetReplicationGroupResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetReplicationGroupResult(
+            auth_token_enabled=self.auth_token_enabled,
+            automatic_failover_enabled=self.automatic_failover_enabled,
+            configuration_endpoint_address=self.configuration_endpoint_address,
+            member_clusters=self.member_clusters,
+            node_type=self.node_type,
+            number_cache_clusters=self.number_cache_clusters,
+            port=self.port,
+            primary_endpoint_address=self.primary_endpoint_address,
+            replication_group_description=self.replication_group_description,
+            replication_group_id=self.replication_group_id,
+            snapshot_retention_limit=self.snapshot_retention_limit,
+            snapshot_window=self.snapshot_window,
+            id=self.id)
 
 def get_replication_group(replication_group_id=None,opts=None):
     """
@@ -115,7 +126,7 @@ def get_replication_group(replication_group_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:elasticache/getReplicationGroup:getReplicationGroup', __args__, opts=opts).value
 
-    return GetReplicationGroupResult(
+    return AwaitableGetReplicationGroupResult(
         auth_token_enabled=__ret__.get('authTokenEnabled'),
         automatic_failover_enabled=__ret__.get('automaticFailoverEnabled'),
         configuration_endpoint_address=__ret__.get('configurationEndpointAddress'),

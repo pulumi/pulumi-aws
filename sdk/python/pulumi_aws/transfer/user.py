@@ -37,9 +37,9 @@ class User(pulumi.CustomResource):
     """
     The name used for log in to your SFTP server.
     """
-    def __init__(__self__, resource_name, opts=None, home_directory=None, policy=None, role=None, server_id=None, tags=None, user_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, home_directory=None, policy=None, role=None, server_id=None, tags=None, user_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the [`aws_transfer_ssh_key` resource](https://www.terraform.io/docs/providers/aws/r/transfer_ssh_key.html).
+        Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the [`transfer.SshKey` resource](https://www.terraform.io/docs/providers/aws/r/transfer_ssh_key.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -58,46 +58,65 @@ class User(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['home_directory'] = home_directory
-
-        __props__['policy'] = policy
-
-        if role is None:
-            raise TypeError("Missing required property 'role'")
-        __props__['role'] = role
-
-        if server_id is None:
-            raise TypeError("Missing required property 'server_id'")
-        __props__['server_id'] = server_id
-
-        __props__['tags'] = tags
-
-        if user_name is None:
-            raise TypeError("Missing required property 'user_name'")
-        __props__['user_name'] = user_name
-
-        __props__['arn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['home_directory'] = home_directory
+            __props__['policy'] = policy
+            if role is None:
+                raise TypeError("Missing required property 'role'")
+            __props__['role'] = role
+            if server_id is None:
+                raise TypeError("Missing required property 'server_id'")
+            __props__['server_id'] = server_id
+            __props__['tags'] = tags
+            if user_name is None:
+                raise TypeError("Missing required property 'user_name'")
+            __props__['user_name'] = user_name
+            __props__['arn'] = None
         super(User, __self__).__init__(
             'aws:transfer/user:User',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, home_directory=None, policy=None, role=None, server_id=None, tags=None, user_name=None):
+        """
+        Get an existing User resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Transfer User
+        :param pulumi.Input[str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        :param pulumi.Input[str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+        :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] user_name: The name used for log in to your SFTP server.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_user.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["home_directory"] = home_directory
+        __props__["policy"] = policy
+        __props__["role"] = role
+        __props__["server_id"] = server_id
+        __props__["tags"] = tags
+        __props__["user_name"] = user_name
+        return User(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -92,18 +92,32 @@ class GetVpcResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
-
+class AwaitableGetVpcResult(GetVpcResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVpcResult(
+            arn=self.arn,
+            cidr_block=self.cidr_block,
+            cidr_block_associations=self.cidr_block_associations,
+            default=self.default,
+            dhcp_options_id=self.dhcp_options_id,
+            enable_dns_hostnames=self.enable_dns_hostnames,
+            enable_dns_support=self.enable_dns_support,
+            filters=self.filters,
+            id=self.id,
+            instance_tenancy=self.instance_tenancy,
+            ipv6_association_id=self.ipv6_association_id,
+            ipv6_cidr_block=self.ipv6_cidr_block,
+            main_route_table_id=self.main_route_table_id,
+            owner_id=self.owner_id,
+            state=self.state,
+            tags=self.tags)
 
 def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=None,state=None,tags=None,opts=None):
     """
-    `aws_vpc` provides details about a specific VPC.
+    `ec2.Vpc` provides details about a specific VPC.
     
     This resource can prove useful when a module accepts a vpc id as
     an input variable and needs to, for example, determine the CIDR block of that
@@ -126,7 +140,7 @@ def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=No
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpc:getVpc', __args__, opts=opts).value
 
-    return GetVpcResult(
+    return AwaitableGetVpcResult(
         arn=__ret__.get('arn'),
         cidr_block=__ret__.get('cidrBlock'),
         cidr_block_associations=__ret__.get('cidrBlockAssociations'),

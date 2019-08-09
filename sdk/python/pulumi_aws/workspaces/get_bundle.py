@@ -58,14 +58,20 @@ class GetBundleResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetBundleResult(GetBundleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetBundleResult(
+            bundle_id=self.bundle_id,
+            compute_types=self.compute_types,
+            description=self.description,
+            name=self.name,
+            owner=self.owner,
+            root_storages=self.root_storages,
+            user_storages=self.user_storages,
+            id=self.id)
 
 def get_bundle(bundle_id=None,opts=None):
     """
@@ -82,7 +88,7 @@ def get_bundle(bundle_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:workspaces/getBundle:getBundle', __args__, opts=opts).value
 
-    return GetBundleResult(
+    return AwaitableGetBundleResult(
         bundle_id=__ret__.get('bundleId'),
         compute_types=__ret__.get('computeTypes'),
         description=__ret__.get('description'),

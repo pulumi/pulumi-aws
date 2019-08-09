@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     availabilityZone: "us-east-1b",
  *     blueprintId: "string",
  *     bundleId: "string",
- *     keyPairName: "some_key_name",
+ *     keyPairName: "someKeyName",
  * });
  * const testStaticIp = new aws.lightsail.StaticIp("test", {});
  * const testStaticIpAttachment = new aws.lightsail.StaticIpAttachment("test", {

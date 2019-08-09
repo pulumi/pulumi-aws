@@ -101,7 +101,7 @@ func (r *FlowLog) LogDestinationType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["logDestinationType"])
 }
 
-// *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
 func (r *FlowLog) LogGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["logGroupName"])
 }
@@ -131,7 +131,7 @@ type FlowLogState struct {
 	LogDestination interface{}
 	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
 	LogDestinationType interface{}
-	// *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
 	LogGroupName interface{}
 	// Subnet ID to attach to
 	SubnetId interface{}
@@ -151,7 +151,7 @@ type FlowLogArgs struct {
 	LogDestination interface{}
 	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
 	LogDestinationType interface{}
-	// *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
 	LogGroupName interface{}
 	// Subnet ID to attach to
 	SubnetId interface{}

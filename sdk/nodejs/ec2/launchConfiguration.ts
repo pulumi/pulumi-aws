@@ -29,7 +29,7 @@ import {InstanceProfile} from "../iam";
  *     mostRecent: true,
  *     owners: ["099720109477"], // Canonical
  * }));
- * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
+ * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
  *     imageId: ubuntu.id,
  *     instanceType: "t2.micro",
  * });
@@ -41,9 +41,9 @@ import {InstanceProfile} from "../iam";
  * Web Service API. In order to update a Launch Configuration, this provider will
  * destroy the existing resource and create a replacement. In order to effectively
  * use a Launch Configuration resource with an [AutoScaling Group resource][1],
- * it's recommended to specify `create_before_destroy` in a [lifecycle][2] block.
+ * it's recommended to specify `createBeforeDestroy` in a [lifecycle][2] block.
  * Either omit the Launch Configuration `name` attribute, or specify a partial name
- * with `name_prefix`.  Example:
+ * with `namePrefix`.  Example:
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -63,7 +63,7 @@ import {InstanceProfile} from "../iam";
  *     mostRecent: true,
  *     owners: ["099720109477"], // Canonical
  * }));
- * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
+ * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
  *     imageId: ubuntu.id,
  *     instanceType: "t2.micro",
  *     namePrefix: "lc-example-",
@@ -82,7 +82,7 @@ import {InstanceProfile} from "../iam";
  * ## Using with Spot Instances
  * 
  * Launch configurations can set the spot instance pricing to be used for the
- * Auto Scaling Group to reserve instances. Simply specifying the `spot_price`
+ * Auto Scaling Group to reserve instances. Simply specifying the `spotPrice`
  * parameter will set the price on the Launch Configuration which will attempt to
  * reserve your instances at this price.  See the [AWS Spot Instance
  * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
@@ -106,7 +106,7 @@ import {InstanceProfile} from "../iam";
  *     mostRecent: true,
  *     owners: ["099720109477"], // Canonical
  * }));
- * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
+ * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
  *     imageId: ubuntu.id,
  *     instanceType: "m4.large",
  *     spotPrice: "0.001",
@@ -123,40 +123,40 @@ import {InstanceProfile} from "../iam";
  * Mapping docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
  * to understand the implications of using these attributes.
  * 
- * The `root_block_device` mapping supports the following:
+ * The `rootBlockDevice` mapping supports the following:
  * 
- * * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
+ * * `volumeType` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
  *   or `"io1"`. (Default: `"standard"`).
- * * `volume_size` - (Optional) The size of the volume in gigabytes.
+ * * `volumeSize` - (Optional) The size of the volume in gigabytes.
  * * `iops` - (Optional) The amount of provisioned
  *   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
- *   This must be set with a `volume_type` of `"io1"`.
- * * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+ *   This must be set with a `volumeType` of `"io1"`.
+ * * `deleteOnTermination` - (Optional) Whether the volume should be destroyed
  *   on instance termination (Default: `true`).
  * 
- * Modifying any of the `root_block_device` settings requires resource
+ * Modifying any of the `rootBlockDevice` settings requires resource
  * replacement.
  * 
- * Each `ebs_block_device` supports the following:
+ * Each `ebsBlockDevice` supports the following:
  * 
- * * `device_name` - (Required) The name of the device to mount.
- * * `snapshot_id` - (Optional) The Snapshot ID to mount.
- * * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
+ * * `deviceName` - (Required) The name of the device to mount.
+ * * `snapshotId` - (Optional) The Snapshot ID to mount.
+ * * `volumeType` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
  *   or `"io1"`. (Default: `"standard"`).
- * * `volume_size` - (Optional) The size of the volume in gigabytes.
+ * * `volumeSize` - (Optional) The size of the volume in gigabytes.
  * * `iops` - (Optional) The amount of provisioned
  *   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
- *   This must be set with a `volume_type` of `"io1"`.
- * * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+ *   This must be set with a `volumeType` of `"io1"`.
+ * * `deleteOnTermination` - (Optional) Whether the volume should be destroyed
  *   on instance termination (Default: `true`).
- * * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshot_id` as the encrypted flag will be determined by the snapshot. (Default: `false`).
+ * * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshotId` as the encrypted flag will be determined by the snapshot. (Default: `false`).
  * 
- * Modifying any `ebs_block_device` currently requires resource replacement.
+ * Modifying any `ebsBlockDevice` currently requires resource replacement.
  * 
- * Each `ephemeral_block_device` supports the following:
+ * Each `ephemeralBlockDevice` supports the following:
  * 
- * * `device_name` - The name of the block device to mount on the instance.
- * * `virtual_name` - The [Instance Store Device
+ * * `deviceName` - The name of the block device to mount on the instance.
+ * * `virtualName` - The [Instance Store Device
  *   Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
  *   (e.g. `"ephemeral0"`)
  * 
@@ -164,7 +164,7 @@ import {InstanceProfile} from "../iam";
  * available for attachment. AWS [publishes a
  * list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
  * of which ephemeral devices are available on each type. The devices are always
- * identified by the `virtual_name` in the format `"ephemeral{0..N}"`.
+ * identified by the `virtualName` in the format `"ephemeral{0..N}"`.
  * 
  * > **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
  * cannot currently be detected by this provider. After updating to block device
@@ -269,11 +269,11 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      */
     public readonly spotPrice!: pulumi.Output<string | undefined>;
     /**
-     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
      */
     public readonly userData!: pulumi.Output<string | undefined>;
     /**
-     * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
     public readonly userDataBase64!: pulumi.Output<string | undefined>;
     /**
@@ -428,11 +428,11 @@ export interface LaunchConfigurationState {
      */
     readonly spotPrice?: pulumi.Input<string>;
     /**
-     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
      */
     readonly userData?: pulumi.Input<string>;
     /**
-     * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
     readonly userDataBase64?: pulumi.Input<string>;
     /**
@@ -518,11 +518,11 @@ export interface LaunchConfigurationArgs {
      */
     readonly spotPrice?: pulumi.Input<string>;
     /**
-     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
      */
     readonly userData?: pulumi.Input<string>;
     /**
-     * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
     readonly userDataBase64?: pulumi.Input<string>;
     /**

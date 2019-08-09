@@ -79,7 +79,7 @@ export class NfsFileShare extends pulumi.CustomResource {
      */
     public readonly kmsEncrypted!: pulumi.Output<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
@@ -212,7 +212,7 @@ export interface NfsFileShareState {
      */
     readonly kmsEncrypted?: pulumi.Input<boolean>;
     /**
-     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
@@ -270,7 +270,7 @@ export interface NfsFileShareArgs {
      */
     readonly kmsEncrypted?: pulumi.Input<boolean>;
     /**
-     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**

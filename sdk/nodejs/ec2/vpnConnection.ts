@@ -7,10 +7,10 @@ import * as utilities from "../utilities";
 /**
  * Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
  * 
- * > **Note:** All arguments including `tunnel1_preshared_key` and `tunnel2_preshared_key` will be stored in the raw state as plain-text.
+ * > **Note:** All arguments including `tunnel1PresharedKey` and `tunnel2PresharedKey` will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
- * > **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
+ * > **Note:** The CIDR blocks in the arguments `tunnel1InsideCidr` and `tunnel2InsideCidr` must have a prefix of /30 and be a part of a specific range.
  * [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
  * 
  * ## Example Usage
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const customerGateway = new aws.ec2.CustomerGateway("customer_gateway", {
+ * const customerGateway = new aws.ec2.CustomerGateway("customerGateway", {
  *     bgpAsn: 65000,
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * const vpc = new aws.ec2.Vpc("vpc", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const vpnGateway = new aws.ec2.VpnGateway("vpn_gateway", {
+ * const vpnGateway = new aws.ec2.VpnGateway("vpnGateway", {
  *     vpcId: vpc.id,
  * });
  * const main = new aws.ec2.VpnConnection("main", {
@@ -106,7 +106,7 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
+     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
      */
     public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
@@ -281,7 +281,7 @@ export interface VpnConnectionState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
+     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
      */
     readonly transitGatewayAttachmentId?: pulumi.Input<string>;
     /**

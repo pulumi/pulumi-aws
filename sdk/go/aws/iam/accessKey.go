@@ -93,7 +93,7 @@ func (r *AccessKey) PgpKey() *pulumi.StringOutput {
 }
 
 // The secret access key. Note that this will be written
-// to the state file. Please supply a `pgp_key` instead, which will prevent the
+// to the state file. Please supply a `pgpKey` instead, which will prevent the
 // secret from being stored in plain text
 func (r *AccessKey) Secret() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secret"])
@@ -130,7 +130,7 @@ type AccessKeyState struct {
 	// keybase username in the form `keybase:some_person_that_exists`.
 	PgpKey interface{}
 	// The secret access key. Note that this will be written
-	// to the state file. Please supply a `pgp_key` instead, which will prevent the
+	// to the state file. Please supply a `pgpKey` instead, which will prevent the
 	// secret from being stored in plain text
 	Secret interface{}
 	// The secret access key converted into an SES SMTP

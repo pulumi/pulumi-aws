@@ -10,7 +10,7 @@ import (
 
 // Provides a DynamoDB table resource
 // 
-// > **Note:** It is recommended to use `lifecycle` [`ignore_changes`](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) for `read_capacity` and/or `write_capacity` if there's [autoscaling policy](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html) attached to the table.
+// > **Note:** It is recommended to use `lifecycle` [`ignoreChanges`](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) for `readCapacity` and/or `writeCapacity` if there's [autoscaling policy](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html) attached to the table.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_table.html.markdown.
 type Table struct {
@@ -117,7 +117,7 @@ func (r *Table) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+// List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
 func (r *Table) Attributes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["attributes"])
 }
@@ -162,7 +162,7 @@ func (r *Table) RangeKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["rangeKey"])
 }
 
-// The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 func (r *Table) ReadCapacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["readCapacity"])
 }
@@ -172,7 +172,7 @@ func (r *Table) ServerSideEncryption() *pulumi.Output {
 	return r.s.State["serverSideEncryption"]
 }
 
-// The ARN of the Table Stream. Only available when `stream_enabled = true`
+// The ARN of the Table Stream. Only available when `streamEnabled = true`
 func (r *Table) StreamArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["streamArn"])
 }
@@ -185,7 +185,7 @@ func (r *Table) StreamEnabled() *pulumi.BoolOutput {
 // A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
 // a unique identifier for the stream on its own. However, the combination of AWS customer ID,
 // table name and this field is guaranteed to be unique.
-// It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+// It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
 func (r *Table) StreamLabel() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["streamLabel"])
 }
@@ -205,7 +205,7 @@ func (r *Table) Ttl() *pulumi.Output {
 	return r.s.State["ttl"]
 }
 
-// The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
 func (r *Table) WriteCapacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["writeCapacity"])
 }
@@ -214,7 +214,7 @@ func (r *Table) WriteCapacity() *pulumi.IntOutput {
 type TableState struct {
 	// The arn of the table
 	Arn interface{}
-	// List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+	// List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
 	Attributes interface{}
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode interface{}
@@ -235,18 +235,18 @@ type TableState struct {
 	PointInTimeRecovery interface{}
 	// The name of the range key; must be defined
 	RangeKey interface{}
-	// The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+	// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity interface{}
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption interface{}
-	// The ARN of the Table Stream. Only available when `stream_enabled = true`
+	// The ARN of the Table Stream. Only available when `streamEnabled = true`
 	StreamArn interface{}
 	// Indicates whether Streams are to be enabled (true) or disabled (false).
 	StreamEnabled interface{}
 	// A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
 	// a unique identifier for the stream on its own. However, the combination of AWS customer ID,
 	// table name and this field is guaranteed to be unique.
-	// It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+	// It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
 	StreamLabel interface{}
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType interface{}
@@ -254,13 +254,13 @@ type TableState struct {
 	Tags interface{}
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl interface{}
-	// The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
 	WriteCapacity interface{}
 }
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
-	// List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+	// List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
 	Attributes interface{}
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode interface{}
@@ -281,7 +281,7 @@ type TableArgs struct {
 	PointInTimeRecovery interface{}
 	// The name of the range key; must be defined
 	RangeKey interface{}
-	// The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+	// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity interface{}
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption interface{}
@@ -293,6 +293,6 @@ type TableArgs struct {
 	Tags interface{}
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl interface{}
-	// The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
 	WriteCapacity interface{}
 }

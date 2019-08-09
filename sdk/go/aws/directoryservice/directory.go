@@ -106,7 +106,7 @@ func (r *Directory) AccessUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accessUrl"])
 }
 
-// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
 func (r *Directory) Alias() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["alias"])
 }
@@ -180,7 +180,7 @@ func (r *Directory) VpcSettings() *pulumi.Output {
 type DirectoryState struct {
 	// The access URL for the directory, such as `http://alias.awsapps.com`.
 	AccessUrl interface{}
-	// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+	// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
 	Alias interface{}
 	// Connector related information about the directory. Fields documented below.
 	ConnectSettings interface{}
@@ -212,7 +212,7 @@ type DirectoryState struct {
 
 // The set of arguments for constructing a Directory resource.
 type DirectoryArgs struct {
-	// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+	// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
 	Alias interface{}
 	// Connector related information about the directory. Fields documented below.
 	ConnectSettings interface{}

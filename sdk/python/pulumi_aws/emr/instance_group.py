@@ -43,7 +43,7 @@ class InstanceGroup(pulumi.CustomResource):
     """
     running_instance_count: pulumi.Output[float]
     status: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, autoscaling_policy=None, bid_price=None, cluster_id=None, ebs_configs=None, ebs_optimized=None, instance_count=None, instance_type=None, name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, autoscaling_policy=None, bid_price=None, cluster_id=None, ebs_configs=None, ebs_optimized=None, instance_count=None, instance_type=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic MapReduce Cluster Instance Group configuration.
         See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
@@ -71,49 +71,70 @@ class InstanceGroup(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['autoscaling_policy'] = autoscaling_policy
-
-        __props__['bid_price'] = bid_price
-
-        if cluster_id is None:
-            raise TypeError("Missing required property 'cluster_id'")
-        __props__['cluster_id'] = cluster_id
-
-        __props__['ebs_configs'] = ebs_configs
-
-        __props__['ebs_optimized'] = ebs_optimized
-
-        __props__['instance_count'] = instance_count
-
-        if instance_type is None:
-            raise TypeError("Missing required property 'instance_type'")
-        __props__['instance_type'] = instance_type
-
-        __props__['name'] = name
-
-        __props__['running_instance_count'] = None
-        __props__['status'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['autoscaling_policy'] = autoscaling_policy
+            __props__['bid_price'] = bid_price
+            if cluster_id is None:
+                raise TypeError("Missing required property 'cluster_id'")
+            __props__['cluster_id'] = cluster_id
+            __props__['ebs_configs'] = ebs_configs
+            __props__['ebs_optimized'] = ebs_optimized
+            __props__['instance_count'] = instance_count
+            if instance_type is None:
+                raise TypeError("Missing required property 'instance_type'")
+            __props__['instance_type'] = instance_type
+            __props__['name'] = name
+            __props__['running_instance_count'] = None
+            __props__['status'] = None
         super(InstanceGroup, __self__).__init__(
             'aws:emr/instanceGroup:InstanceGroup',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, autoscaling_policy=None, bid_price=None, cluster_id=None, ebs_configs=None, ebs_optimized=None, instance_count=None, instance_type=None, name=None, running_instance_count=None, status=None):
+        """
+        Get an existing InstanceGroup resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] autoscaling_policy: The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+        :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] instance_count: target number of instances for the instance group. defaults to 0.
+        :param pulumi.Input[str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_instance_group.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["autoscaling_policy"] = autoscaling_policy
+        __props__["bid_price"] = bid_price
+        __props__["cluster_id"] = cluster_id
+        __props__["ebs_configs"] = ebs_configs
+        __props__["ebs_optimized"] = ebs_optimized
+        __props__["instance_count"] = instance_count
+        __props__["instance_type"] = instance_type
+        __props__["name"] = name
+        __props__["running_instance_count"] = running_instance_count
+        __props__["status"] = status
+        return InstanceGroup(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -88,8 +88,8 @@ func (r *SnapshotCopy) ID() *pulumi.IDOutput {
 }
 
 // The data encryption key identifier for the snapshot.
-// * `source_snapshot_id` The ARN of the copied snapshot.
-// * `source_region` The region of the source snapshot.
+// * `sourceSnapshotId` The ARN of the copied snapshot.
+// * `sourceRegion` The region of the source snapshot.
 func (r *SnapshotCopy) DataEncryptionKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dataEncryptionKeyId"])
 }
@@ -105,8 +105,8 @@ func (r *SnapshotCopy) Encrypted() *pulumi.BoolOutput {
 }
 
 // The ARN for the KMS encryption key.
-// * `source_snapshot_id` The ARN for the snapshot to be copied.
-// * `source_region` The region of the source snapshot.
+// * `sourceSnapshotId` The ARN for the snapshot to be copied.
+// * `sourceRegion` The region of the source snapshot.
 func (r *SnapshotCopy) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
@@ -146,16 +146,16 @@ func (r *SnapshotCopy) VolumeSize() *pulumi.IntOutput {
 // Input properties used for looking up and filtering SnapshotCopy resources.
 type SnapshotCopyState struct {
 	// The data encryption key identifier for the snapshot.
-	// * `source_snapshot_id` The ARN of the copied snapshot.
-	// * `source_region` The region of the source snapshot.
+	// * `sourceSnapshotId` The ARN of the copied snapshot.
+	// * `sourceRegion` The region of the source snapshot.
 	DataEncryptionKeyId interface{}
 	// A description of what the snapshot is.
 	Description interface{}
 	// Whether the snapshot is encrypted.
 	Encrypted interface{}
 	// The ARN for the KMS encryption key.
-	// * `source_snapshot_id` The ARN for the snapshot to be copied.
-	// * `source_region` The region of the source snapshot.
+	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
+	// * `sourceRegion` The region of the source snapshot.
 	KmsKeyId interface{}
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias interface{}
@@ -177,8 +177,8 @@ type SnapshotCopyArgs struct {
 	// Whether the snapshot is encrypted.
 	Encrypted interface{}
 	// The ARN for the KMS encryption key.
-	// * `source_snapshot_id` The ARN for the snapshot to be copied.
-	// * `source_region` The region of the source snapshot.
+	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
+	// * `sourceRegion` The region of the source snapshot.
 	KmsKeyId interface{}
 	SourceRegion interface{}
 	SourceSnapshotId interface{}

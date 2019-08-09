@@ -80,7 +80,7 @@ class DomainName(pulumi.CustomResource):
     """
     The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
     """
-    def __init__(__self__, resource_name, opts=None, certificate_arn=None, certificate_body=None, certificate_chain=None, certificate_name=None, certificate_private_key=None, domain_name=None, endpoint_configuration=None, regional_certificate_arn=None, regional_certificate_name=None, security_policy=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, certificate_arn=None, certificate_body=None, certificate_chain=None, certificate_name=None, certificate_private_key=None, domain_name=None, endpoint_configuration=None, regional_certificate_arn=None, regional_certificate_name=None, security_policy=None, __props__=None, __name__=None, __opts__=None):
         """
         Registers a custom domain name for use with AWS API Gateway. Additional information about this functionality
         can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
@@ -88,7 +88,7 @@ class DomainName(pulumi.CustomResource):
         This resource just establishes ownership of and the TLS settings for
         a particular domain name. An API can be attached to a particular path
         under the registered domain name using
-        the `aws_api_gateway_base_path_mapping` resource.
+        the `apigateway.BasePathMapping` resource.
         
         API Gateway domains can be defined as either 'edge-optimized' or 'regional'.  In an edge-optimized configuration,
         API Gateway internally creates and manages a CloudFront distribution to route requests on the given hostname. In
@@ -101,7 +101,7 @@ class DomainName(pulumi.CustomResource):
         given domain name which is an alias (either Route53 alias or traditional CNAME) to the regional domain name exported in
         the `regional_domain_name` attribute.
         
-        > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the [`aws_acm_certificate` resource](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html).
+        > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the [`acm.Certificate` resource](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html).
         
         > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
@@ -136,54 +136,96 @@ class DomainName(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['certificate_arn'] = certificate_arn
-
-        __props__['certificate_body'] = certificate_body
-
-        __props__['certificate_chain'] = certificate_chain
-
-        __props__['certificate_name'] = certificate_name
-
-        __props__['certificate_private_key'] = certificate_private_key
-
-        if domain_name is None:
-            raise TypeError("Missing required property 'domain_name'")
-        __props__['domain_name'] = domain_name
-
-        __props__['endpoint_configuration'] = endpoint_configuration
-
-        __props__['regional_certificate_arn'] = regional_certificate_arn
-
-        __props__['regional_certificate_name'] = regional_certificate_name
-
-        __props__['security_policy'] = security_policy
-
-        __props__['certificate_upload_date'] = None
-        __props__['cloudfront_domain_name'] = None
-        __props__['cloudfront_zone_id'] = None
-        __props__['regional_domain_name'] = None
-        __props__['regional_zone_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['certificate_arn'] = certificate_arn
+            __props__['certificate_body'] = certificate_body
+            __props__['certificate_chain'] = certificate_chain
+            __props__['certificate_name'] = certificate_name
+            __props__['certificate_private_key'] = certificate_private_key
+            if domain_name is None:
+                raise TypeError("Missing required property 'domain_name'")
+            __props__['domain_name'] = domain_name
+            __props__['endpoint_configuration'] = endpoint_configuration
+            __props__['regional_certificate_arn'] = regional_certificate_arn
+            __props__['regional_certificate_name'] = regional_certificate_name
+            __props__['security_policy'] = security_policy
+            __props__['certificate_upload_date'] = None
+            __props__['cloudfront_domain_name'] = None
+            __props__['cloudfront_zone_id'] = None
+            __props__['regional_domain_name'] = None
+            __props__['regional_zone_id'] = None
         super(DomainName, __self__).__init__(
             'aws:apigateway/domainName:DomainName',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, certificate_arn=None, certificate_body=None, certificate_chain=None, certificate_name=None, certificate_private_key=None, certificate_upload_date=None, cloudfront_domain_name=None, cloudfront_zone_id=None, domain_name=None, endpoint_configuration=None, regional_certificate_arn=None, regional_certificate_name=None, regional_domain_name=None, regional_zone_id=None, security_policy=None):
+        """
+        Get an existing DomainName resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_arn: The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
+        :param pulumi.Input[str] certificate_body: The certificate issued for the domain name
+               being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
+               `regional_certificate_name`.
+        :param pulumi.Input[str] certificate_chain: The certificate for the CA that issued the
+               certificate, along with any intermediate CA certificates required to
+               create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`,
+               `regional_certificate_arn`, and `regional_certificate_name`.
+        :param pulumi.Input[str] certificate_name: The unique name to use when registering this
+               certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
+               `regional_certificate_name`. Required if `certificate_arn` is not set.
+        :param pulumi.Input[str] certificate_private_key: The private key associated with the
+               domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
+        :param pulumi.Input[str] certificate_upload_date: The upload date associated with the domain certificate.
+        :param pulumi.Input[str] cloudfront_domain_name: The hostname created by Cloudfront to represent
+               the distribution that implements this domain name mapping.
+        :param pulumi.Input[str] cloudfront_zone_id: For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`)
+               that can be used to create a Route53 alias record for the distribution.
+        :param pulumi.Input[str] domain_name: The fully-qualified domain name to register
+        :param pulumi.Input[dict] endpoint_configuration: Configuration block defining API endpoint information including type. Defined below.
+        :param pulumi.Input[str] regional_certificate_arn: The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+        :param pulumi.Input[str] regional_certificate_name: The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
+               `certificate_private_key`.
+        :param pulumi.Input[str] regional_domain_name: The hostname for the custom domain's regional endpoint.
+        :param pulumi.Input[str] regional_zone_id: The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
+        :param pulumi.Input[str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_domain_name.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["certificate_arn"] = certificate_arn
+        __props__["certificate_body"] = certificate_body
+        __props__["certificate_chain"] = certificate_chain
+        __props__["certificate_name"] = certificate_name
+        __props__["certificate_private_key"] = certificate_private_key
+        __props__["certificate_upload_date"] = certificate_upload_date
+        __props__["cloudfront_domain_name"] = cloudfront_domain_name
+        __props__["cloudfront_zone_id"] = cloudfront_zone_id
+        __props__["domain_name"] = domain_name
+        __props__["endpoint_configuration"] = endpoint_configuration
+        __props__["regional_certificate_arn"] = regional_certificate_arn
+        __props__["regional_certificate_name"] = regional_certificate_name
+        __props__["regional_domain_name"] = regional_domain_name
+        __props__["regional_zone_id"] = regional_zone_id
+        __props__["security_policy"] = security_policy
+        return DomainName(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

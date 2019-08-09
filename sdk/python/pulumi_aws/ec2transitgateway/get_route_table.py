@@ -46,14 +46,18 @@ class GetRouteTableResult:
         """
         EC2 Transit Gateway identifier
         """
-
+class AwaitableGetRouteTableResult(GetRouteTableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRouteTableResult(
+            default_association_route_table=self.default_association_route_table,
+            default_propagation_route_table=self.default_propagation_route_table,
+            filters=self.filters,
+            id=self.id,
+            tags=self.tags,
+            transit_gateway_id=self.transit_gateway_id)
 
 def get_route_table(filters=None,id=None,tags=None,opts=None):
     """
@@ -72,7 +76,7 @@ def get_route_table(filters=None,id=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getRouteTable:getRouteTable', __args__, opts=opts).value
 
-    return GetRouteTableResult(
+    return AwaitableGetRouteTableResult(
         default_association_route_table=__ret__.get('defaultAssociationRouteTable'),
         default_propagation_route_table=__ret__.get('defaultPropagationRouteTable'),
         filters=__ret__.get('filters'),

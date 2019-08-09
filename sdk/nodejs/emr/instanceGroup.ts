@@ -67,7 +67,7 @@ export class InstanceGroup extends pulumi.CustomResource {
      */
     public readonly clusterId!: pulumi.Output<string>;
     /**
-     * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly ebsConfigs!: pulumi.Output<{ iops?: number, size: number, type: string, volumesPerInstance?: number }[]>;
     /**
@@ -158,7 +158,7 @@ export interface InstanceGroupState {
      */
     readonly clusterId?: pulumi.Input<string>;
     /**
-     * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      */
     readonly ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>;
     /**
@@ -198,7 +198,7 @@ export interface InstanceGroupArgs {
      */
     readonly clusterId: pulumi.Input<string>;
     /**
-     * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      */
     readonly ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>;
     /**

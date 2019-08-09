@@ -45,11 +45,11 @@ class IntegrationResponse(pulumi.CustomResource):
     """
     The HTTP status code
     """
-    def __init__(__self__, resource_name, opts=None, content_handling=None, http_method=None, resource_id=None, response_parameters=None, response_templates=None, rest_api=None, selection_pattern=None, status_code=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content_handling=None, http_method=None, resource_id=None, response_parameters=None, response_templates=None, rest_api=None, selection_pattern=None, status_code=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an HTTP Method Integration Response for an API Gateway Resource.
         
-        > **Note:** Depends on having `aws_api_gateway_integration` inside your rest api. To ensure this
+        > **Note:** Depends on having `apigateway.Integration` inside your rest api. To ensure this
         you might need to add an explicit `depends_on` for clean runs.
         
         :param str resource_name: The name of the resource.
@@ -75,50 +75,74 @@ class IntegrationResponse(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['content_handling'] = content_handling
-
-        if http_method is None:
-            raise TypeError("Missing required property 'http_method'")
-        __props__['http_method'] = http_method
-
-        if resource_id is None:
-            raise TypeError("Missing required property 'resource_id'")
-        __props__['resource_id'] = resource_id
-
-        __props__['response_parameters'] = response_parameters
-
-        __props__['response_templates'] = response_templates
-
-        if rest_api is None:
-            raise TypeError("Missing required property 'rest_api'")
-        __props__['rest_api'] = rest_api
-
-        __props__['selection_pattern'] = selection_pattern
-
-        if status_code is None:
-            raise TypeError("Missing required property 'status_code'")
-        __props__['status_code'] = status_code
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['content_handling'] = content_handling
+            if http_method is None:
+                raise TypeError("Missing required property 'http_method'")
+            __props__['http_method'] = http_method
+            if resource_id is None:
+                raise TypeError("Missing required property 'resource_id'")
+            __props__['resource_id'] = resource_id
+            __props__['response_parameters'] = response_parameters
+            __props__['response_templates'] = response_templates
+            if rest_api is None:
+                raise TypeError("Missing required property 'rest_api'")
+            __props__['rest_api'] = rest_api
+            __props__['selection_pattern'] = selection_pattern
+            if status_code is None:
+                raise TypeError("Missing required property 'status_code'")
+            __props__['status_code'] = status_code
         super(IntegrationResponse, __self__).__init__(
             'aws:apigateway/integrationResponse:IntegrationResponse',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, content_handling=None, http_method=None, resource_id=None, response_parameters=None, response_templates=None, rest_api=None, selection_pattern=None, status_code=None):
+        """
+        Get an existing IntegrationResponse resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] content_handling: Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+        :param pulumi.Input[str] http_method: The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+        :param pulumi.Input[str] resource_id: The API resource ID
+        :param pulumi.Input[dict] response_parameters: A map of response parameters that can be read from the backend response.
+               For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
+        :param pulumi.Input[dict] response_templates: A map specifying the templates used to transform the integration response body
+        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[str] selection_pattern: Specifies the regular expression pattern used to choose
+               an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
+               If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
+               For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
+        :param pulumi.Input[str] status_code: The HTTP status code
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration_response.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["content_handling"] = content_handling
+        __props__["http_method"] = http_method
+        __props__["resource_id"] = resource_id
+        __props__["response_parameters"] = response_parameters
+        __props__["response_templates"] = response_templates
+        __props__["rest_api"] = rest_api
+        __props__["selection_pattern"] = selection_pattern
+        __props__["status_code"] = status_code
+        return IntegrationResponse(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

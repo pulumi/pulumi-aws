@@ -134,7 +134,7 @@ func (r *RailsAppLayer) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Keyword for the app server to use. Defaults to "apache_passenger".
+// Keyword for the app server to use. Defaults to "apachePassenger".
 func (r *RailsAppLayer) AppServer() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["appServer"])
 }
@@ -199,7 +199,7 @@ func (r *RailsAppLayer) DrainElbOnShutdown() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
 }
 
-// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 func (r *RailsAppLayer) EbsVolumes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
 }
@@ -261,7 +261,7 @@ func (r *RailsAppLayer) UseEbsOptimizedInstances() *pulumi.BoolOutput {
 
 // Input properties used for looking up and filtering RailsAppLayer resources.
 type RailsAppLayerState struct {
-	// Keyword for the app server to use. Defaults to "apache_passenger".
+	// Keyword for the app server to use. Defaults to "apachePassenger".
 	AppServer interface{}
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps interface{}
@@ -284,7 +284,7 @@ type RailsAppLayerState struct {
 	CustomUndeployRecipes interface{}
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown interface{}
-	// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes interface{}
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer interface{}
@@ -312,7 +312,7 @@ type RailsAppLayerState struct {
 
 // The set of arguments for constructing a RailsAppLayer resource.
 type RailsAppLayerArgs struct {
-	// Keyword for the app server to use. Defaults to "apache_passenger".
+	// Keyword for the app server to use. Defaults to "apachePassenger".
 	AppServer interface{}
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps interface{}
@@ -335,7 +335,7 @@ type RailsAppLayerArgs struct {
 	CustomUndeployRecipes interface{}
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown interface{}
-	// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 	EbsVolumes interface{}
 	// Name of an Elastic Load Balancer to attach to this layer
 	ElasticLoadBalancer interface{}

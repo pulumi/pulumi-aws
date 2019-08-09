@@ -52,18 +52,22 @@ class GetAvailabilityZoneResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAvailabilityZoneResult(GetAvailabilityZoneResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAvailabilityZoneResult(
+            name=self.name,
+            name_suffix=self.name_suffix,
+            region=self.region,
+            state=self.state,
+            zone_id=self.zone_id,
+            id=self.id)
 
 def get_availability_zone(name=None,state=None,zone_id=None,opts=None):
     """
-    `aws_availability_zone` provides details about a specific availability zone (AZ)
+    `.getAvailabilityZone` provides details about a specific availability zone (AZ)
     in the current region.
     
     This can be used both to validate an availability zone given in a variable
@@ -72,7 +76,7 @@ def get_availability_zone(name=None,state=None,zone_id=None,opts=None):
     consistent subnet numbering scheme across several regions by mapping both
     the region and the subnet letter to network numbers.
     
-    This is different from the `aws_availability_zones` (plural) data source,
+    This is different from the `.getAvailabilityZones` (plural) data source,
     which provides a list of the available zones.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
@@ -88,7 +92,7 @@ def get_availability_zone(name=None,state=None,zone_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZone:getAvailabilityZone', __args__, opts=opts).value
 
-    return GetAvailabilityZoneResult(
+    return AwaitableGetAvailabilityZoneResult(
         name=__ret__.get('name'),
         name_suffix=__ret__.get('nameSuffix'),
         region=__ret__.get('region'),

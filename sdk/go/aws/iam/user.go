@@ -9,7 +9,7 @@ import (
 
 // Provides an IAM user.
 // 
-// > *NOTE:* If policies are attached to the user via the [`aws_iam_policy_attachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`aws_iam_user_policy_attachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_user_policy_attachment.html) does not have this requirement.
+// > *NOTE:* If policies are attached to the user via the [`iam.PolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the user `name` or `path`, the `forceDestroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`iam.UserPolicyAttachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_user_policy_attachment.html) does not have this requirement.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user.html.markdown.
 type User struct {
@@ -79,7 +79,7 @@ func (r *User) Arn() *pulumi.StringOutput {
 }
 
 // When destroying this user, destroy even if it
-// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
 // a user with non-this provider-managed access keys and login profile will fail to be destroyed.
 func (r *User) ForceDestroy() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
@@ -115,7 +115,7 @@ type UserState struct {
 	// The ARN assigned by AWS for this user.
 	Arn interface{}
 	// When destroying this user, destroy even if it
-	// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+	// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
 	// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
 	ForceDestroy interface{}
 	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
@@ -133,7 +133,7 @@ type UserState struct {
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
 	// When destroying this user, destroy even if it
-	// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+	// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
 	// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
 	ForceDestroy interface{}
 	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".

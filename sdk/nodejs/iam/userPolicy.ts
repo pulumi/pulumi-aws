@@ -21,7 +21,7 @@ import {PolicyDocument} from "./documents";
  * const lbAccessKey = new aws.iam.AccessKey("lb", {
  *     user: lbUser.name,
  * });
- * const lbRo = new aws.iam.UserPolicy("lb_ro", {
+ * const lbRo = new aws.iam.UserPolicy("lbRo", {
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [

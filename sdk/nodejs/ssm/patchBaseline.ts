@@ -7,13 +7,13 @@ import * as utilities from "../utilities";
 /**
  * Provides an SSM Patch Baseline resource
  * 
- * > **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are 
+ * > **NOTE on Patch Baselines:** The `approvedPatches` and `approvalRule` are 
  * both marked as optional fields, but the Patch Baseline requires that at least one
  * of them is specified.
  * 
  * ## Example Usage
  * 
- * Basic usage using `approved_patches` only
+ * Basic usage using `approvedPatches` only
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -119,7 +119,7 @@ export class PatchBaseline extends pulumi.CustomResource {
     }
 
     /**
-     * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
+     * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
      */
     public readonly approvalRules!: pulumi.Output<{ approveAfterDays: number, complianceLevel?: string, enableNonSecurity?: boolean, patchFilters: { key: string, values: string[] }[] }[] | undefined>;
     /**
@@ -201,7 +201,7 @@ export class PatchBaseline extends pulumi.CustomResource {
  */
 export interface PatchBaselineState {
     /**
-     * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
+     * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
      */
     readonly approvalRules?: pulumi.Input<pulumi.Input<{ approveAfterDays: pulumi.Input<number>, complianceLevel?: pulumi.Input<string>, enableNonSecurity?: pulumi.Input<boolean>, patchFilters: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]> }>[]>;
     /**
@@ -240,7 +240,7 @@ export interface PatchBaselineState {
  */
 export interface PatchBaselineArgs {
     /**
-     * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
+     * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
      */
     readonly approvalRules?: pulumi.Input<pulumi.Input<{ approveAfterDays: pulumi.Input<number>, complianceLevel?: pulumi.Input<string>, enableNonSecurity?: pulumi.Input<boolean>, patchFilters: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]> }>[]>;
     /**

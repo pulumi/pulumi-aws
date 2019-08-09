@@ -55,14 +55,19 @@ class GetClusterResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetClusterResult(
+            cluster_certificates=self.cluster_certificates,
+            cluster_id=self.cluster_id,
+            cluster_state=self.cluster_state,
+            security_group_id=self.security_group_id,
+            subnet_ids=self.subnet_ids,
+            vpc_id=self.vpc_id,
+            id=self.id)
 
 def get_cluster(cluster_id=None,cluster_state=None,opts=None):
     """
@@ -80,7 +85,7 @@ def get_cluster(cluster_id=None,cluster_state=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:cloudhsmv2/getCluster:getCluster', __args__, opts=opts).value
 
-    return GetClusterResult(
+    return AwaitableGetClusterResult(
         cluster_certificates=__ret__.get('clusterCertificates'),
         cluster_id=__ret__.get('clusterId'),
         cluster_state=__ret__.get('clusterState'),

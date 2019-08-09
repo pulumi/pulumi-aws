@@ -10,7 +10,7 @@ import (
 
 // Provides an AWS Config Rule.
 // 
-// > **Note:** Config Rule requires an existing [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
+// > **Note:** Config Rule requires an existing [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `dependsOn` is recommended (as shown below) to avoid race conditions.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_config_rule.html.markdown.
 type Rule struct {
@@ -99,7 +99,7 @@ func (r *Rule) InputParameters() *pulumi.StringOutput {
 }
 
 // The frequency that you want AWS Config to run evaluations for a rule that
-// is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+// is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 func (r *Rule) MaximumExecutionFrequency() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["maximumExecutionFrequency"])
 }
@@ -139,7 +139,7 @@ type RuleState struct {
 	// A string in JSON format that is passed to the AWS Config rule Lambda function.
 	InputParameters interface{}
 	// The frequency that you want AWS Config to run evaluations for a rule that
-	// is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+	// is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 	MaximumExecutionFrequency interface{}
 	// The name of the rule
 	Name interface{}
@@ -161,7 +161,7 @@ type RuleArgs struct {
 	// A string in JSON format that is passed to the AWS Config rule Lambda function.
 	InputParameters interface{}
 	// The frequency that you want AWS Config to run evaluations for a rule that
-	// is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+	// is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 	MaximumExecutionFrequency interface{}
 	// The name of the rule
 	Name interface{}

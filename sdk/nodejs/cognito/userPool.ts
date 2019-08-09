@@ -52,7 +52,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly adminCreateUserConfig!: pulumi.Output<{ allowAdminCreateUserOnly?: boolean, inviteMessageTemplate?: { emailMessage?: string, emailSubject?: string, smsMessage?: string }, unusedAccountValidityDays?: number }>;
     /**
-     * Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `username_attributes`.
+     * Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
      */
     public readonly aliasAttributes!: pulumi.Output<string[] | undefined>;
     /**
@@ -76,11 +76,11 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly emailConfiguration!: pulumi.Output<{ emailSendingAccount?: string, replyToEmailAddress?: string, sourceArn?: string } | undefined>;
     /**
-     * A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+     * A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      */
     public readonly emailVerificationMessage!: pulumi.Output<string>;
     /**
-     * A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+     * A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
      */
     public readonly emailVerificationSubject!: pulumi.Output<string>;
     /**
@@ -120,7 +120,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly smsConfiguration!: pulumi.Output<{ externalId: string, snsCallerArn: string } | undefined>;
     /**
-     * A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+     * A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      */
     public readonly smsVerificationMessage!: pulumi.Output<string | undefined>;
     /**
@@ -132,7 +132,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly userPoolAddOns!: pulumi.Output<{ advancedSecurityMode: string } | undefined>;
     /**
-     * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+     * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      */
     public readonly usernameAttributes!: pulumi.Output<string[] | undefined>;
     /**
@@ -221,7 +221,7 @@ export interface UserPoolState {
      */
     readonly adminCreateUserConfig?: pulumi.Input<{ allowAdminCreateUserOnly?: pulumi.Input<boolean>, inviteMessageTemplate?: pulumi.Input<{ emailMessage?: pulumi.Input<string>, emailSubject?: pulumi.Input<string>, smsMessage?: pulumi.Input<string> }>, unusedAccountValidityDays?: pulumi.Input<number> }>;
     /**
-     * Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `username_attributes`.
+     * Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
      */
     readonly aliasAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -245,11 +245,11 @@ export interface UserPoolState {
      */
     readonly emailConfiguration?: pulumi.Input<{ emailSendingAccount?: pulumi.Input<string>, replyToEmailAddress?: pulumi.Input<string>, sourceArn?: pulumi.Input<string> }>;
     /**
-     * A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+     * A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      */
     readonly emailVerificationMessage?: pulumi.Input<string>;
     /**
-     * A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+     * A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
      */
     readonly emailVerificationSubject?: pulumi.Input<string>;
     /**
@@ -289,7 +289,7 @@ export interface UserPoolState {
      */
     readonly smsConfiguration?: pulumi.Input<{ externalId: pulumi.Input<string>, snsCallerArn: pulumi.Input<string> }>;
     /**
-     * A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+     * A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      */
     readonly smsVerificationMessage?: pulumi.Input<string>;
     /**
@@ -301,7 +301,7 @@ export interface UserPoolState {
      */
     readonly userPoolAddOns?: pulumi.Input<{ advancedSecurityMode: pulumi.Input<string> }>;
     /**
-     * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+     * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      */
     readonly usernameAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -319,7 +319,7 @@ export interface UserPoolArgs {
      */
     readonly adminCreateUserConfig?: pulumi.Input<{ allowAdminCreateUserOnly?: pulumi.Input<boolean>, inviteMessageTemplate?: pulumi.Input<{ emailMessage?: pulumi.Input<string>, emailSubject?: pulumi.Input<string>, smsMessage?: pulumi.Input<string> }>, unusedAccountValidityDays?: pulumi.Input<number> }>;
     /**
-     * Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `username_attributes`.
+     * Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
      */
     readonly aliasAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -335,11 +335,11 @@ export interface UserPoolArgs {
      */
     readonly emailConfiguration?: pulumi.Input<{ emailSendingAccount?: pulumi.Input<string>, replyToEmailAddress?: pulumi.Input<string>, sourceArn?: pulumi.Input<string> }>;
     /**
-     * A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+     * A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      */
     readonly emailVerificationMessage?: pulumi.Input<string>;
     /**
-     * A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+     * A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
      */
     readonly emailVerificationSubject?: pulumi.Input<string>;
     /**
@@ -371,7 +371,7 @@ export interface UserPoolArgs {
      */
     readonly smsConfiguration?: pulumi.Input<{ externalId: pulumi.Input<string>, snsCallerArn: pulumi.Input<string> }>;
     /**
-     * A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+     * A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      */
     readonly smsVerificationMessage?: pulumi.Input<string>;
     /**
@@ -383,7 +383,7 @@ export interface UserPoolArgs {
      */
     readonly userPoolAddOns?: pulumi.Input<{ advancedSecurityMode: pulumi.Input<string> }>;
     /**
-     * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+     * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      */
     readonly usernameAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

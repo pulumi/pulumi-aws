@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
+ * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
  *     definition: pulumi.interpolate`{
  *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
  *   "StartAt": "HelloWorld",

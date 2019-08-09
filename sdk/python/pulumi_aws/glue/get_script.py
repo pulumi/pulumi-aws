@@ -40,14 +40,18 @@ class GetScriptResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetScriptResult(GetScriptResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetScriptResult(
+            dag_edges=self.dag_edges,
+            dag_nodes=self.dag_nodes,
+            language=self.language,
+            python_script=self.python_script,
+            scala_code=self.scala_code,
+            id=self.id)
 
 def get_script(dag_edges=None,dag_nodes=None,language=None,opts=None):
     """
@@ -66,7 +70,7 @@ def get_script(dag_edges=None,dag_nodes=None,language=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:glue/getScript:getScript', __args__, opts=opts).value
 
-    return GetScriptResult(
+    return AwaitableGetScriptResult(
         dag_edges=__ret__.get('dagEdges'),
         dag_nodes=__ret__.get('dagNodes'),
         language=__ret__.get('language'),

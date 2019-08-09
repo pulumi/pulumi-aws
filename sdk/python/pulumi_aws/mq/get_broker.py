@@ -70,14 +70,30 @@ class GetBrokerResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetBrokerResult(GetBrokerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetBrokerResult(
+            arn=self.arn,
+            auto_minor_version_upgrade=self.auto_minor_version_upgrade,
+            broker_id=self.broker_id,
+            broker_name=self.broker_name,
+            configuration=self.configuration,
+            deployment_mode=self.deployment_mode,
+            engine_type=self.engine_type,
+            engine_version=self.engine_version,
+            host_instance_type=self.host_instance_type,
+            instances=self.instances,
+            logs=self.logs,
+            maintenance_window_start_time=self.maintenance_window_start_time,
+            publicly_accessible=self.publicly_accessible,
+            security_groups=self.security_groups,
+            subnet_ids=self.subnet_ids,
+            tags=self.tags,
+            users=self.users,
+            id=self.id)
 
 def get_broker(broker_id=None,broker_name=None,logs=None,tags=None,opts=None):
     """
@@ -97,7 +113,7 @@ def get_broker(broker_id=None,broker_name=None,logs=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:mq/getBroker:getBroker', __args__, opts=opts).value
 
-    return GetBrokerResult(
+    return AwaitableGetBrokerResult(
         arn=__ret__.get('arn'),
         auto_minor_version_upgrade=__ret__.get('autoMinorVersionUpgrade'),
         broker_id=__ret__.get('brokerId'),

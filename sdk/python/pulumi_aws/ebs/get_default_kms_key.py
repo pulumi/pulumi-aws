@@ -25,14 +25,14 @@ class GetDefaultKmsKeyResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetDefaultKmsKeyResult(GetDefaultKmsKeyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetDefaultKmsKeyResult(
+            key_arn=self.key_arn,
+            id=self.id)
 
 def get_default_kms_key(opts=None):
     """
@@ -48,6 +48,6 @@ def get_default_kms_key(opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ebs/getDefaultKmsKey:getDefaultKmsKey', __args__, opts=opts).value
 
-    return GetDefaultKmsKeyResult(
+    return AwaitableGetDefaultKmsKeyResult(
         key_arn=__ret__.get('keyArn'),
         id=__ret__.get('id'))

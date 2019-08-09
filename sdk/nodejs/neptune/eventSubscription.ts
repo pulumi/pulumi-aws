@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  * 
  * * `id` - The name of the Neptune event notification subscription.
  * * `arn` - The Amazon Resource Name of the Neptune event notification subscription.
- * * `customer_aws_id` - The AWS customer account associated with the Neptune event notification subscription.
+ * * `customerAwsId` - The AWS customer account associated with the Neptune event notification subscription.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_event_subscription.html.markdown.
  */
@@ -95,7 +95,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A list of event categories for a `source_type` that you want to subscribe to. Run `aws neptune describe-event-categories` to find all the event categories.
+     * A list of event categories for a `sourceType` that you want to subscribe to. Run `aws neptune describe-event-categories` to find all the event categories.
      */
     public readonly eventCategories!: pulumi.Output<string[] | undefined>;
     /**
@@ -111,7 +111,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly snsTopicArn!: pulumi.Output<string>;
     /**
-     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
+     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
      */
     public readonly sourceIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -183,7 +183,7 @@ export interface EventSubscriptionState {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * A list of event categories for a `source_type` that you want to subscribe to. Run `aws neptune describe-event-categories` to find all the event categories.
+     * A list of event categories for a `sourceType` that you want to subscribe to. Run `aws neptune describe-event-categories` to find all the event categories.
      */
     readonly eventCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -199,7 +199,7 @@ export interface EventSubscriptionState {
      */
     readonly snsTopicArn?: pulumi.Input<string>;
     /**
-     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
+     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
      */
     readonly sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -221,7 +221,7 @@ export interface EventSubscriptionArgs {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * A list of event categories for a `source_type` that you want to subscribe to. Run `aws neptune describe-event-categories` to find all the event categories.
+     * A list of event categories for a `sourceType` that you want to subscribe to. Run `aws neptune describe-event-categories` to find all the event categories.
      */
     readonly eventCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -237,7 +237,7 @@ export interface EventSubscriptionArgs {
      */
     readonly snsTopicArn: pulumi.Input<string>;
     /**
-     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
+     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
      */
     readonly sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

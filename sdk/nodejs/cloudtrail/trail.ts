@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * ### Basic
  * 
  * Enable CloudTrail to capture all compatible management events in region.
- * For capturing events from services like IAM, `include_global_service_events` must be enabled.
+ * For capturing events from services like IAM, `includeGlobalServiceEvents` must be enabled.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -108,7 +108,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const important_bucket = pulumi.output(aws.s3.getBucket({
+ * const importantBucket = pulumi.output(aws.s3.getBucket({
  *     bucket: "important-bucket",
  * }));
  * const example = new aws.cloudtrail.Trail("example", {

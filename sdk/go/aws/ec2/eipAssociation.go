@@ -10,9 +10,9 @@ import (
 // Provides an AWS EIP Association as a top level resource, to associate and
 // disassociate Elastic IPs from AWS Instances and Network Interfaces.
 // 
-// > **NOTE:** Do not use this resource to associate an EIP to `aws_lb` or `aws_nat_gateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
+// > **NOTE:** Do not use this resource to associate an EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocationId` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
 // 
-// > **NOTE:** `aws_eip_association` is useful in scenarios where EIPs are either
+// > **NOTE:** `ec2.EipAssociation` is useful in scenarios where EIPs are either
 // pre-existing or distributed to customers or users and therefore cannot be changed.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip_association.html.markdown.

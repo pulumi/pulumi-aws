@@ -45,7 +45,7 @@ class GraphQLApi(pulumi.CustomResource):
     """
     The Amazon Cognito User Pool configuration. Defined below.
     """
-    def __init__(__self__, resource_name, opts=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, schema=None, tags=None, user_pool_config=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, schema=None, tags=None, user_pool_config=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AppSync GraphQL API.
         
@@ -67,45 +67,67 @@ class GraphQLApi(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if authentication_type is None:
-            raise TypeError("Missing required property 'authentication_type'")
-        __props__['authentication_type'] = authentication_type
-
-        __props__['log_config'] = log_config
-
-        __props__['name'] = name
-
-        __props__['openid_connect_config'] = openid_connect_config
-
-        __props__['schema'] = schema
-
-        __props__['tags'] = tags
-
-        __props__['user_pool_config'] = user_pool_config
-
-        __props__['arn'] = None
-        __props__['uris'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if authentication_type is None:
+                raise TypeError("Missing required property 'authentication_type'")
+            __props__['authentication_type'] = authentication_type
+            __props__['log_config'] = log_config
+            __props__['name'] = name
+            __props__['openid_connect_config'] = openid_connect_config
+            __props__['schema'] = schema
+            __props__['tags'] = tags
+            __props__['user_pool_config'] = user_pool_config
+            __props__['arn'] = None
+            __props__['uris'] = None
         super(GraphQLApi, __self__).__init__(
             'aws:appsync/graphQLApi:GraphQLApi',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, schema=None, tags=None, uris=None, user_pool_config=None):
+        """
+        Get an existing GraphQLApi resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN
+        :param pulumi.Input[str] authentication_type: The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        :param pulumi.Input[dict] log_config: Nested argument containing logging configuration. Defined below.
+        :param pulumi.Input[str] name: A user-supplied name for the GraphqlApi.
+        :param pulumi.Input[dict] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param pulumi.Input[str] schema: The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] uris: Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        :param pulumi.Input[dict] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_graphql_api.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["authentication_type"] = authentication_type
+        __props__["log_config"] = log_config
+        __props__["name"] = name
+        __props__["openid_connect_config"] = openid_connect_config
+        __props__["schema"] = schema
+        __props__["tags"] = tags
+        __props__["uris"] = uris
+        __props__["user_pool_config"] = user_pool_config
+        return GraphQLApi(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

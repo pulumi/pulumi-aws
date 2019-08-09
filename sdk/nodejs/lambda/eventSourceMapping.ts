@@ -92,7 +92,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly eventSourceArn!: pulumi.Output<string>;
     /**
-     * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+     * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
      */
     public /*out*/ readonly functionArn!: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly startingPosition!: pulumi.Output<string | undefined>;
     /**
-     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
      */
     public readonly startingPositionTimestamp!: pulumi.Output<string | undefined>;
     /**
@@ -201,7 +201,7 @@ export interface EventSourceMappingState {
      */
     readonly eventSourceArn?: pulumi.Input<string>;
     /**
-     * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+     * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
      */
     readonly functionArn?: pulumi.Input<string>;
     /**
@@ -221,7 +221,7 @@ export interface EventSourceMappingState {
      */
     readonly startingPosition?: pulumi.Input<string>;
     /**
-     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
      */
     readonly startingPositionTimestamp?: pulumi.Input<string>;
     /**
@@ -263,7 +263,7 @@ export interface EventSourceMappingArgs {
      */
     readonly startingPosition?: pulumi.Input<string>;
     /**
-     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
      */
     readonly startingPositionTimestamp?: pulumi.Input<string>;
 }

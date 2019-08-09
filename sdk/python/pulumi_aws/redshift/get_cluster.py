@@ -196,14 +196,43 @@ class GetClusterResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetClusterResult(
+            allow_version_upgrade=self.allow_version_upgrade,
+            automated_snapshot_retention_period=self.automated_snapshot_retention_period,
+            availability_zone=self.availability_zone,
+            bucket_name=self.bucket_name,
+            cluster_identifier=self.cluster_identifier,
+            cluster_parameter_group_name=self.cluster_parameter_group_name,
+            cluster_public_key=self.cluster_public_key,
+            cluster_revision_number=self.cluster_revision_number,
+            cluster_security_groups=self.cluster_security_groups,
+            cluster_subnet_group_name=self.cluster_subnet_group_name,
+            cluster_type=self.cluster_type,
+            cluster_version=self.cluster_version,
+            database_name=self.database_name,
+            elastic_ip=self.elastic_ip,
+            enable_logging=self.enable_logging,
+            encrypted=self.encrypted,
+            endpoint=self.endpoint,
+            enhanced_vpc_routing=self.enhanced_vpc_routing,
+            iam_roles=self.iam_roles,
+            kms_key_id=self.kms_key_id,
+            master_username=self.master_username,
+            node_type=self.node_type,
+            number_of_nodes=self.number_of_nodes,
+            port=self.port,
+            preferred_maintenance_window=self.preferred_maintenance_window,
+            publicly_accessible=self.publicly_accessible,
+            s3_key_prefix=self.s3_key_prefix,
+            tags=self.tags,
+            vpc_id=self.vpc_id,
+            vpc_security_group_ids=self.vpc_security_group_ids,
+            id=self.id)
 
 def get_cluster(cluster_identifier=None,tags=None,opts=None):
     """
@@ -221,7 +250,7 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:redshift/getCluster:getCluster', __args__, opts=opts).value
 
-    return GetClusterResult(
+    return AwaitableGetClusterResult(
         allow_version_upgrade=__ret__.get('allowVersionUpgrade'),
         automated_snapshot_retention_period=__ret__.get('automatedSnapshotRetentionPeriod'),
         availability_zone=__ret__.get('availabilityZone'),

@@ -11,17 +11,17 @@ import * as utilities from "../utilities";
  * It deals with requesting certificates and managing their attributes and life-cycle.
  * This resource does not deal with validation of a certificate but can provide inputs
  * for other resources implementing the validation. It does not wait for a certificate to be issued.
- * Use a `aws_acm_certificate_validation` resource for this.
+ * Use a `aws.acm.CertificateValidation` resource for this.
  * 
- * Most commonly, this resource is used to together with `aws_route53_record` and
- * `aws_acm_certificate_validation` to request a DNS validated certificate,
+ * Most commonly, this resource is used to together with `aws.route53.Record` and
+ * `aws.acm.CertificateValidation` to request a DNS validated certificate,
  * deploy the required validation records and wait for validation to complete.
  * 
  * Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
  * of this provider.
  * 
- * It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
- * which is currently in use (eg, by `aws_lb_listener`).
+ * It's recommended to specify `createBeforeDestroy = true` in a [lifecycle][1] block to replace a certificate
+ * which is currently in use (eg, by `aws.lb.Listener`).
  * 
  * ## Example Usage
  * 
@@ -52,9 +52,9 @@ import * as utilities from "../utilities";
  * });
  * const exampleSelfSignedCert = new tls.SelfSignedCert("example", {
  *     allowedUses: [
- *         "key_encipherment",
- *         "digital_signature",
- *         "server_auth",
+ *         "keyEncipherment",
+ *         "digitalSignature",
+ *         "serverAuth",
  *     ],
  *     keyAlgorithm: "RSA",
  *     privateKeyPem: examplePrivateKey.privateKeyPem,

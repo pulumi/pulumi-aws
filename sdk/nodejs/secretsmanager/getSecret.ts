@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`aws_secretsmanager_secret_version` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
+ * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`aws.secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
  * 
  * ## Example Usage
  * 
@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const by_arn = pulumi.output(aws.secretsmanager.getSecret({
+ * const byArn = pulumi.output(aws.secretsmanager.getSecret({
  *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
  * }));
  * ```
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const by_name = pulumi.output(aws.secretsmanager.getSecret({
+ * const byName = pulumi.output(aws.secretsmanager.getSecret({
  *     name: "example",
  * }));
  * ```

@@ -124,7 +124,7 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly logDestinationType!: pulumi.Output<string | undefined>;
     /**
-     * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+     * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
      */
     public readonly logGroupName!: pulumi.Output<string>;
     /**
@@ -206,7 +206,7 @@ export interface FlowLogState {
      */
     readonly logDestinationType?: pulumi.Input<string>;
     /**
-     * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+     * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
      */
     readonly logGroupName?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface FlowLogArgs {
      */
     readonly logDestinationType?: pulumi.Input<string>;
     /**
-     * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+     * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
      */
     readonly logGroupName?: pulumi.Input<string>;
     /**

@@ -115,21 +115,39 @@ class GetClusterSnapshotResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetClusterSnapshotResult(GetClusterSnapshotResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetClusterSnapshotResult(
+            allocated_storage=self.allocated_storage,
+            availability_zones=self.availability_zones,
+            db_cluster_identifier=self.db_cluster_identifier,
+            db_cluster_snapshot_arn=self.db_cluster_snapshot_arn,
+            db_cluster_snapshot_identifier=self.db_cluster_snapshot_identifier,
+            engine=self.engine,
+            engine_version=self.engine_version,
+            include_public=self.include_public,
+            include_shared=self.include_shared,
+            kms_key_id=self.kms_key_id,
+            license_model=self.license_model,
+            most_recent=self.most_recent,
+            port=self.port,
+            snapshot_create_time=self.snapshot_create_time,
+            snapshot_type=self.snapshot_type,
+            source_db_cluster_snapshot_arn=self.source_db_cluster_snapshot_arn,
+            status=self.status,
+            storage_encrypted=self.storage_encrypted,
+            vpc_id=self.vpc_id,
+            id=self.id)
 
 def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifier=None,include_public=None,include_shared=None,most_recent=None,snapshot_type=None,opts=None):
     """
     Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
     
     > **NOTE:** This data source does not apply to snapshots created on DB Instances. 
-    See the [`aws_db_snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
+    See the [`rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
     """
@@ -147,7 +165,7 @@ def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifi
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:rds/getClusterSnapshot:getClusterSnapshot', __args__, opts=opts).value
 
-    return GetClusterSnapshotResult(
+    return AwaitableGetClusterSnapshotResult(
         allocated_storage=__ret__.get('allocatedStorage'),
         availability_zones=__ret__.get('availabilityZones'),
         db_cluster_identifier=__ret__.get('dbClusterIdentifier'),

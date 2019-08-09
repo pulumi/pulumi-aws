@@ -49,18 +49,27 @@ class GetRouteResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetRouteResult(GetRouteResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRouteResult(
+            destination_cidr_block=self.destination_cidr_block,
+            destination_ipv6_cidr_block=self.destination_ipv6_cidr_block,
+            egress_only_gateway_id=self.egress_only_gateway_id,
+            gateway_id=self.gateway_id,
+            instance_id=self.instance_id,
+            nat_gateway_id=self.nat_gateway_id,
+            network_interface_id=self.network_interface_id,
+            route_table_id=self.route_table_id,
+            transit_gateway_id=self.transit_gateway_id,
+            vpc_peering_connection_id=self.vpc_peering_connection_id,
+            id=self.id)
 
 def get_route(destination_cidr_block=None,destination_ipv6_cidr_block=None,egress_only_gateway_id=None,gateway_id=None,instance_id=None,nat_gateway_id=None,network_interface_id=None,route_table_id=None,transit_gateway_id=None,vpc_peering_connection_id=None,opts=None):
     """
-    `aws_route` provides details about a specific Route.
+    `ec2.Route` provides details about a specific Route.
     
     This resource can prove useful when finding the resource
     associated with a CIDR. For example, finding the peering
@@ -86,7 +95,7 @@ def get_route(destination_cidr_block=None,destination_ipv6_cidr_block=None,egres
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getRoute:getRoute', __args__, opts=opts).value
 
-    return GetRouteResult(
+    return AwaitableGetRouteResult(
         destination_cidr_block=__ret__.get('destinationCidrBlock'),
         destination_ipv6_cidr_block=__ret__.get('destinationIpv6CidrBlock'),
         egress_only_gateway_id=__ret__.get('egressOnlyGatewayId'),

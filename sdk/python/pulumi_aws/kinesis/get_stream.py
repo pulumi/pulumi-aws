@@ -73,14 +73,22 @@ class GetStreamResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetStreamResult(GetStreamResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetStreamResult(
+            arn=self.arn,
+            closed_shards=self.closed_shards,
+            creation_timestamp=self.creation_timestamp,
+            name=self.name,
+            open_shards=self.open_shards,
+            retention_period=self.retention_period,
+            shard_level_metrics=self.shard_level_metrics,
+            status=self.status,
+            tags=self.tags,
+            id=self.id)
 
 def get_stream(name=None,opts=None):
     """
@@ -100,7 +108,7 @@ def get_stream(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:kinesis/getStream:getStream', __args__, opts=opts).value
 
-    return GetStreamResult(
+    return AwaitableGetStreamResult(
         arn=__ret__.get('arn'),
         closed_shards=__ret__.get('closedShards'),
         creation_timestamp=__ret__.get('creationTimestamp'),

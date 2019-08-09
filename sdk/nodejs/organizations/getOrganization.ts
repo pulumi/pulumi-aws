@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const snsTopic = new aws.sns.Topic("sns_topic", {});
+ * const snsTopic = new aws.sns.Topic("snsTopic", {});
  * const example = pulumi.output(aws.organizations.getOrganization({}));
  * const snsTopicPolicyPolicyDocument = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocument({
  *     statements: [{
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         resources: [arn],
  *     }],
  * }));
- * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("sns_topic_policy", {
+ * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("snsTopicPolicy", {
  *     arn: snsTopic.arn,
  *     policy: snsTopicPolicyPolicyDocument.json,
  * });
@@ -63,7 +63,7 @@ export function getOrganization(opts?: pulumi.InvokeOptions): Promise<GetOrganiz
  */
 export interface GetOrganizationResult {
     /**
-     * List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
+     * List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
      */
     readonly accounts: { arn: string, email: string, id: string, name: string }[];
     /**
@@ -71,11 +71,11 @@ export interface GetOrganizationResult {
      */
     readonly arn: string;
     /**
-     * A list of AWS service principal names that have integration enabled with your organization. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
+     * A list of AWS service principal names that have integration enabled with your organization. Organization must have `featureSet` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
      */
     readonly awsServiceAccessPrincipals: string[];
     /**
-     * A list of Organizations policy types that are enabled in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+     * A list of Organizations policy types that are enabled in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
      */
     readonly enabledPolicyTypes: string[];
     /**

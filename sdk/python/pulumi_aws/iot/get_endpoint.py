@@ -33,14 +33,15 @@ class GetEndpointResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetEndpointResult(GetEndpointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetEndpointResult(
+            endpoint_address=self.endpoint_address,
+            endpoint_type=self.endpoint_type,
+            id=self.id)
 
 def get_endpoint(endpoint_type=None,opts=None):
     """
@@ -57,7 +58,7 @@ def get_endpoint(endpoint_type=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iot/getEndpoint:getEndpoint', __args__, opts=opts).value
 
-    return GetEndpointResult(
+    return AwaitableGetEndpointResult(
         endpoint_address=__ret__.get('endpointAddress'),
         endpoint_type=__ret__.get('endpointType'),
         id=__ret__.get('id'))

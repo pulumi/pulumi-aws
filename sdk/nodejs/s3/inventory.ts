@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * 
  * const inventory = new aws.s3.Bucket("inventory", {});
  * const test = new aws.s3.Bucket("test", {});
- * const test_prefix = new aws.s3.Inventory("test-prefix", {
+ * const testPrefix = new aws.s3.Inventory("test-prefix", {
  *     bucket: test.id,
  *     destination: {
  *         bucket: {

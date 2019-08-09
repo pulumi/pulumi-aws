@@ -28,14 +28,15 @@ class GetServiceAccountResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetServiceAccountResult(GetServiceAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetServiceAccountResult(
+            arn=self.arn,
+            region=self.region,
+            id=self.id)
 
 def get_service_account(region=None,opts=None):
     """
@@ -53,7 +54,7 @@ def get_service_account(region=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:elasticloadbalancing/getServiceAccount:getServiceAccount', __args__, opts=opts).value
 
-    return GetServiceAccountResult(
+    return AwaitableGetServiceAccountResult(
         arn=__ret__.get('arn'),
         region=__ret__.get('region'),
         id=__ret__.get('id'))

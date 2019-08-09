@@ -161,7 +161,7 @@ class GetInstanceResult:
             raise TypeError("Expected argument 'public_ip' to be a str")
         __self__.public_ip = public_ip
         """
-        The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+        The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         """
         if root_block_devices and not isinstance(root_block_devices, list):
             raise TypeError("Expected argument 'root_block_devices' to be a list")
@@ -223,14 +223,49 @@ class GetInstanceResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetInstanceResult(GetInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetInstanceResult(
+            ami=self.ami,
+            arn=self.arn,
+            associate_public_ip_address=self.associate_public_ip_address,
+            availability_zone=self.availability_zone,
+            credit_specifications=self.credit_specifications,
+            disable_api_termination=self.disable_api_termination,
+            ebs_block_devices=self.ebs_block_devices,
+            ebs_optimized=self.ebs_optimized,
+            ephemeral_block_devices=self.ephemeral_block_devices,
+            filters=self.filters,
+            get_password_data=self.get_password_data,
+            get_user_data=self.get_user_data,
+            host_id=self.host_id,
+            iam_instance_profile=self.iam_instance_profile,
+            instance_id=self.instance_id,
+            instance_state=self.instance_state,
+            instance_tags=self.instance_tags,
+            instance_type=self.instance_type,
+            key_name=self.key_name,
+            monitoring=self.monitoring,
+            network_interface_id=self.network_interface_id,
+            password_data=self.password_data,
+            placement_group=self.placement_group,
+            private_dns=self.private_dns,
+            private_ip=self.private_ip,
+            public_dns=self.public_dns,
+            public_ip=self.public_ip,
+            root_block_devices=self.root_block_devices,
+            security_groups=self.security_groups,
+            source_dest_check=self.source_dest_check,
+            subnet_id=self.subnet_id,
+            tags=self.tags,
+            tenancy=self.tenancy,
+            user_data=self.user_data,
+            user_data_base64=self.user_data_base64,
+            vpc_security_group_ids=self.vpc_security_group_ids,
+            id=self.id)
 
 def get_instance(filters=None,get_password_data=None,get_user_data=None,instance_id=None,instance_tags=None,tags=None,opts=None):
     """
@@ -253,7 +288,7 @@ def get_instance(filters=None,get_password_data=None,get_user_data=None,instance
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstance:getInstance', __args__, opts=opts).value
 
-    return GetInstanceResult(
+    return AwaitableGetInstanceResult(
         ami=__ret__.get('ami'),
         arn=__ret__.get('arn'),
         associate_public_ip_address=__ret__.get('associatePublicIpAddress'),

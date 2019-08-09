@@ -64,14 +64,21 @@ class GetClusterResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetClusterResult(
+            arn=self.arn,
+            bootstrap_brokers=self.bootstrap_brokers,
+            bootstrap_brokers_tls=self.bootstrap_brokers_tls,
+            cluster_name=self.cluster_name,
+            kafka_version=self.kafka_version,
+            number_of_broker_nodes=self.number_of_broker_nodes,
+            tags=self.tags,
+            zookeeper_connect_string=self.zookeeper_connect_string,
+            id=self.id)
 
 def get_cluster(cluster_name=None,tags=None,opts=None):
     """
@@ -89,7 +96,7 @@ def get_cluster(cluster_name=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:msk/getCluster:getCluster', __args__, opts=opts).value
 
-    return GetClusterResult(
+    return AwaitableGetClusterResult(
         arn=__ret__.get('arn'),
         bootstrap_brokers=__ret__.get('bootstrapBrokers'),
         bootstrap_brokers_tls=__ret__.get('bootstrapBrokersTls'),

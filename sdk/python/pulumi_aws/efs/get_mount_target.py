@@ -64,14 +64,21 @@ class GetMountTargetResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetMountTargetResult(GetMountTargetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetMountTargetResult(
+            dns_name=self.dns_name,
+            file_system_arn=self.file_system_arn,
+            file_system_id=self.file_system_id,
+            ip_address=self.ip_address,
+            mount_target_id=self.mount_target_id,
+            network_interface_id=self.network_interface_id,
+            security_groups=self.security_groups,
+            subnet_id=self.subnet_id,
+            id=self.id)
 
 def get_mount_target(mount_target_id=None,opts=None):
     """
@@ -88,7 +95,7 @@ def get_mount_target(mount_target_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:efs/getMountTarget:getMountTarget', __args__, opts=opts).value
 
-    return GetMountTargetResult(
+    return AwaitableGetMountTargetResult(
         dns_name=__ret__.get('dnsName'),
         file_system_arn=__ret__.get('fileSystemArn'),
         file_system_id=__ret__.get('fileSystemId'),

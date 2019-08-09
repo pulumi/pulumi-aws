@@ -73,7 +73,7 @@ func (r *Database) Bucket() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["bucket"])
 }
 
-// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
 func (r *Database) EncryptionConfiguration() *pulumi.Output {
 	return r.s.State["encryptionConfiguration"]
 }
@@ -92,7 +92,7 @@ func (r *Database) Name() *pulumi.StringOutput {
 type DatabaseState struct {
 	// Name of s3 bucket to save the results of the query execution.
 	Bucket interface{}
-	// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+	// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
 	EncryptionConfiguration interface{}
 	// A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
 	ForceDestroy interface{}
@@ -104,7 +104,7 @@ type DatabaseState struct {
 type DatabaseArgs struct {
 	// Name of s3 bucket to save the results of the query execution.
 	Bucket interface{}
-	// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+	// The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
 	EncryptionConfiguration interface{}
 	// A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
 	ForceDestroy interface{}

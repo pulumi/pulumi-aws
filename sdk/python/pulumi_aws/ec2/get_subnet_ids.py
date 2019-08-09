@@ -34,18 +34,21 @@ class GetSubnetIdsResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSubnetIdsResult(GetSubnetIdsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSubnetIdsResult(
+            filters=self.filters,
+            ids=self.ids,
+            tags=self.tags,
+            vpc_id=self.vpc_id,
+            id=self.id)
 
 def get_subnet_ids(filters=None,tags=None,vpc_id=None,opts=None):
     """
-    `aws_subnet_ids` provides a list of ids for a vpc_id
+    `ec2.getSubnetIds` provides a list of ids for a vpc_id
     
     This resource can be useful for getting back a list of subnet ids for a vpc.
 
@@ -62,7 +65,7 @@ def get_subnet_ids(filters=None,tags=None,vpc_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSubnetIds:getSubnetIds', __args__, opts=opts).value
 
-    return GetSubnetIdsResult(
+    return AwaitableGetSubnetIdsResult(
         filters=__ret__.get('filters'),
         ids=__ret__.get('ids'),
         tags=__ret__.get('tags'),

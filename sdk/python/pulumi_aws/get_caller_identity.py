@@ -37,14 +37,16 @@ class GetCallerIdentityResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetCallerIdentityResult(GetCallerIdentityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetCallerIdentityResult(
+            account_id=self.account_id,
+            arn=self.arn,
+            user_id=self.user_id,
+            id=self.id)
 
 def get_caller_identity(opts=None):
     """
@@ -61,7 +63,7 @@ def get_caller_identity(opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getCallerIdentity:getCallerIdentity', __args__, opts=opts).value
 
-    return GetCallerIdentityResult(
+    return AwaitableGetCallerIdentityResult(
         account_id=__ret__.get('accountId'),
         arn=__ret__.get('arn'),
         user_id=__ret__.get('userId'),

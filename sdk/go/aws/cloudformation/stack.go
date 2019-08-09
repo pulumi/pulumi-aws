@@ -100,7 +100,7 @@ func (r *Stack) Capabilities() *pulumi.ArrayOutput {
 }
 
 // Set to true to disable rollback of the stack if stack creation failed.
-// Conflicts with `on_failure`.
+// Conflicts with `onFailure`.
 func (r *Stack) DisableRollback() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["disableRollback"])
 }
@@ -121,7 +121,7 @@ func (r *Stack) NotificationArns() *pulumi.ArrayOutput {
 }
 
 // Action to be taken if stack creation fails. This must be
-// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
+// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
 func (r *Stack) OnFailure() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["onFailure"])
 }
@@ -137,13 +137,13 @@ func (r *Stack) Parameters() *pulumi.MapOutput {
 }
 
 // Structure containing the stack policy body.
-// Conflicts w/ `policy_url`.
+// Conflicts w/ `policyUrl`.
 func (r *Stack) PolicyBody() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policyBody"])
 }
 
 // Location of a file containing the stack policy.
-// Conflicts w/ `policy_body`.
+// Conflicts w/ `policyBody`.
 func (r *Stack) PolicyUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policyUrl"])
 }
@@ -174,7 +174,7 @@ type StackState struct {
 	// Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
 	Capabilities interface{}
 	// Set to true to disable rollback of the stack if stack creation failed.
-	// Conflicts with `on_failure`.
+	// Conflicts with `onFailure`.
 	DisableRollback interface{}
 	// The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
 	IamRoleArn interface{}
@@ -183,17 +183,17 @@ type StackState struct {
 	// A list of SNS topic ARNs to publish stack related events.
 	NotificationArns interface{}
 	// Action to be taken if stack creation fails. This must be
-	// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
+	// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
 	OnFailure interface{}
 	// A map of outputs from the stack.
 	Outputs interface{}
 	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters interface{}
 	// Structure containing the stack policy body.
-	// Conflicts w/ `policy_url`.
+	// Conflicts w/ `policyUrl`.
 	PolicyBody interface{}
 	// Location of a file containing the stack policy.
-	// Conflicts w/ `policy_body`.
+	// Conflicts w/ `policyBody`.
 	PolicyUrl interface{}
 	// A list of tags to associate with this stack.
 	Tags interface{}
@@ -211,7 +211,7 @@ type StackArgs struct {
 	// Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
 	Capabilities interface{}
 	// Set to true to disable rollback of the stack if stack creation failed.
-	// Conflicts with `on_failure`.
+	// Conflicts with `onFailure`.
 	DisableRollback interface{}
 	// The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
 	IamRoleArn interface{}
@@ -220,15 +220,15 @@ type StackArgs struct {
 	// A list of SNS topic ARNs to publish stack related events.
 	NotificationArns interface{}
 	// Action to be taken if stack creation fails. This must be
-	// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
+	// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
 	OnFailure interface{}
 	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters interface{}
 	// Structure containing the stack policy body.
-	// Conflicts w/ `policy_url`.
+	// Conflicts w/ `policyUrl`.
 	PolicyBody interface{}
 	// Location of a file containing the stack policy.
-	// Conflicts w/ `policy_body`.
+	// Conflicts w/ `policyBody`.
 	PolicyUrl interface{}
 	// A list of tags to associate with this stack.
 	Tags interface{}

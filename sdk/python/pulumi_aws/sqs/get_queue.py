@@ -34,14 +34,16 @@ class GetQueueResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetQueueResult(GetQueueResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetQueueResult(
+            arn=self.arn,
+            name=self.name,
+            url=self.url,
+            id=self.id)
 
 def get_queue(name=None,opts=None):
     """
@@ -60,7 +62,7 @@ def get_queue(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:sqs/getQueue:getQueue', __args__, opts=opts).value
 
-    return GetQueueResult(
+    return AwaitableGetQueueResult(
         arn=__ret__.get('arn'),
         name=__ret__.get('name'),
         url=__ret__.get('url'),

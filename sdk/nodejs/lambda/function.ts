@@ -19,7 +19,7 @@ import {ARN} from "../index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
+ * const iamForLambda = new aws.iam.Role("iamForLambda", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -35,7 +35,7 @@ import {ARN} from "../index";
  * }
  * `,
  * });
- * const testLambda = new aws.lambda.Function("test_lambda", {
+ * const testLambda = new aws.lambda.Function("testLambda", {
  *     environment: {
  *         variables: {
  *             foo: "bar",
@@ -50,7 +50,7 @@ import {ARN} from "../index";
  * 
  * ### Lambda Layers
  * 
- * > **NOTE:** The `aws_lambda_layer_version` attribute values for `arn` and `layer_arn` were swapped in version 2.0.0 of the this provider AWS Provider. For version 1.x, use `layer_arn` references. For version 2.x, use `arn` references.
+ * > **NOTE:** The `aws.lambda.LayerVersion` attribute values for `arn` and `layerArn` were swapped in version 2.0.0 of the this provider AWS Provider. For version 1.x, use `layerArn` references. For version 2.x, use `arn` references.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -70,8 +70,8 @@ import {ARN} from "../index";
  * [the AWS Lambda documentation for each runtime][8].
  * 
  * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
- * indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
- * package via S3 it may be useful to use the `aws_s3_bucket_object` resource to upload it.
+ * indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment
+ * package via S3 it may be useful to use the `aws.s3.BucketObject` resource to upload it.
  * 
  * For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
  * large files efficiently.
@@ -134,7 +134,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly handler!: pulumi.Output<string>;
     /**
-     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
      */
     public /*out*/ readonly invokeArn!: pulumi.Output<string>;
     /**
@@ -187,7 +187,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly s3ObjectVersion!: pulumi.Output<string | undefined>;
     /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
      */
     public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
@@ -334,7 +334,7 @@ export interface FunctionState {
      */
     readonly handler?: pulumi.Input<string>;
     /**
-     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
      */
     readonly invokeArn?: pulumi.Input<string>;
     /**
@@ -387,7 +387,7 @@ export interface FunctionState {
      */
     readonly s3ObjectVersion?: pulumi.Input<string>;
     /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
      */
     readonly sourceCodeHash?: pulumi.Input<string>;
     /**
@@ -482,7 +482,7 @@ export interface FunctionArgs {
      */
     readonly s3ObjectVersion?: pulumi.Input<string>;
     /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
      */
     readonly sourceCodeHash?: pulumi.Input<string>;
     /**

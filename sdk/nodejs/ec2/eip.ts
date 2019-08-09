@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Provides an Elastic IP resource.
  * 
- * > **Note:** EIP may require IGW to exist prior to association. Use `depends_on` to set an explicit dependency on the IGW.
+ * > **Note:** EIP may require IGW to exist prior to association. Use `dependsOn` to set an explicit dependency on the IGW.
  * 
- * > **Note:** Do not use `network_interface` to associate the EIP to `aws_lb` or `aws_nat_gateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
+ * > **Note:** Do not use `networkInterface` to associate the EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocationId` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
  * 
  * ## Example Usage
  * 
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const multi_ip = new aws.ec2.NetworkInterface("multi-ip", {
+ * const multiIp = new aws.ec2.NetworkInterface("multi-ip", {
  *     privateIps: [
  *         "10.0.0.10",
  *         "10.0.0.11",
@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  * const gw = new aws.ec2.InternetGateway("gw", {
  *     vpcId: defaultVpc.id,
  * });
- * const tfTestSubnet = new aws.ec2.Subnet("tf_test_subnet", {
+ * const tfTestSubnet = new aws.ec2.Subnet("tfTestSubnet", {
  *     cidrBlock: "10.0.0.0/24",
  *     mapPublicIpOnLaunch: true,
  *     vpcId: defaultVpc.id,
@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byoip_ip = new aws.ec2.Eip("byoip-ip", {
+ * const byoipIp = new aws.ec2.Eip("byoip-ip", {
  *     publicIpv4Pool: "ipv4pool-ec2-012345",
  *     vpc: true,
  * });

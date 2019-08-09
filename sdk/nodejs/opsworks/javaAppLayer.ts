@@ -89,7 +89,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
      */
     public readonly drainElbOnShutdown!: pulumi.Output<boolean | undefined>;
     /**
-     * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     public readonly ebsVolumes!: pulumi.Output<{ iops?: number, mountPoint: string, numberOfDisks: number, raidLevel?: string, size: number, type?: string }[] | undefined>;
     /**
@@ -258,7 +258,7 @@ export interface JavaAppLayerState {
      */
     readonly drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     readonly ebsVolumes?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, mountPoint: pulumi.Input<string>, numberOfDisks: pulumi.Input<number>, raidLevel?: pulumi.Input<string>, size: pulumi.Input<number>, type?: pulumi.Input<string> }>[]>;
     /**
@@ -349,7 +349,7 @@ export interface JavaAppLayerArgs {
      */
     readonly drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
-     * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
     readonly ebsVolumes?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, mountPoint: pulumi.Input<string>, numberOfDisks: pulumi.Input<number>, raidLevel?: pulumi.Input<string>, size: pulumi.Input<number>, type?: pulumi.Input<string> }>[]>;
     /**

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the [`aws_db_snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_snapshot.html).
+// Manages a RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the [`rds.Snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_snapshot.html).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_cluster_snapshot.html.markdown.
 type ClusterSnapshot struct {
@@ -126,7 +126,7 @@ func (r *ClusterSnapshot) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
-// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
 func (r *ClusterSnapshot) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
@@ -180,7 +180,7 @@ type ClusterSnapshotState struct {
 	Engine interface{}
 	// Version of the database engine for this DB cluster snapshot.
 	EngineVersion interface{}
-	// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
 	KmsKeyId interface{}
 	// License model information for the restored DB cluster.
 	LicenseModel interface{}

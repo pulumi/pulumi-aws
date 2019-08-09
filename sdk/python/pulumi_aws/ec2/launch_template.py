@@ -138,7 +138,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     A list of security group IDs to associate with.
     """
-    def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
         
@@ -189,84 +189,137 @@ class LaunchTemplate(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['block_device_mappings'] = block_device_mappings
-
-        __props__['capacity_reservation_specification'] = capacity_reservation_specification
-
-        __props__['credit_specification'] = credit_specification
-
-        __props__['description'] = description
-
-        __props__['disable_api_termination'] = disable_api_termination
-
-        __props__['ebs_optimized'] = ebs_optimized
-
-        __props__['elastic_gpu_specifications'] = elastic_gpu_specifications
-
-        __props__['elastic_inference_accelerator'] = elastic_inference_accelerator
-
-        __props__['iam_instance_profile'] = iam_instance_profile
-
-        __props__['image_id'] = image_id
-
-        __props__['instance_initiated_shutdown_behavior'] = instance_initiated_shutdown_behavior
-
-        __props__['instance_market_options'] = instance_market_options
-
-        __props__['instance_type'] = instance_type
-
-        __props__['kernel_id'] = kernel_id
-
-        __props__['key_name'] = key_name
-
-        __props__['license_specifications'] = license_specifications
-
-        __props__['monitoring'] = monitoring
-
-        __props__['name'] = name
-
-        __props__['name_prefix'] = name_prefix
-
-        __props__['network_interfaces'] = network_interfaces
-
-        __props__['placement'] = placement
-
-        __props__['ram_disk_id'] = ram_disk_id
-
-        __props__['security_group_names'] = security_group_names
-
-        __props__['tag_specifications'] = tag_specifications
-
-        __props__['tags'] = tags
-
-        __props__['user_data'] = user_data
-
-        __props__['vpc_security_group_ids'] = vpc_security_group_ids
-
-        __props__['arn'] = None
-        __props__['default_version'] = None
-        __props__['latest_version'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['block_device_mappings'] = block_device_mappings
+            __props__['capacity_reservation_specification'] = capacity_reservation_specification
+            __props__['credit_specification'] = credit_specification
+            __props__['description'] = description
+            __props__['disable_api_termination'] = disable_api_termination
+            __props__['ebs_optimized'] = ebs_optimized
+            __props__['elastic_gpu_specifications'] = elastic_gpu_specifications
+            __props__['elastic_inference_accelerator'] = elastic_inference_accelerator
+            __props__['iam_instance_profile'] = iam_instance_profile
+            __props__['image_id'] = image_id
+            __props__['instance_initiated_shutdown_behavior'] = instance_initiated_shutdown_behavior
+            __props__['instance_market_options'] = instance_market_options
+            __props__['instance_type'] = instance_type
+            __props__['kernel_id'] = kernel_id
+            __props__['key_name'] = key_name
+            __props__['license_specifications'] = license_specifications
+            __props__['monitoring'] = monitoring
+            __props__['name'] = name
+            __props__['name_prefix'] = name_prefix
+            __props__['network_interfaces'] = network_interfaces
+            __props__['placement'] = placement
+            __props__['ram_disk_id'] = ram_disk_id
+            __props__['security_group_names'] = security_group_names
+            __props__['tag_specifications'] = tag_specifications
+            __props__['tags'] = tags
+            __props__['user_data'] = user_data
+            __props__['vpc_security_group_ids'] = vpc_security_group_ids
+            __props__['arn'] = None
+            __props__['default_version'] = None
+            __props__['latest_version'] = None
         super(LaunchTemplate, __self__).__init__(
             'aws:ec2/launchTemplate:LaunchTemplate',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, block_device_mappings=None, capacity_reservation_specification=None, credit_specification=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+        """
+        Get an existing LaunchTemplate resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the launch template.
+        :param pulumi.Input[list] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
+               See Block Devices below for details.
+        :param pulumi.Input[dict] capacity_reservation_specification: Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+        :param pulumi.Input[dict] credit_specification: Customize the credit specification of the instance. See Credit
+               Specification below for more details.
+        :param pulumi.Input[float] default_version: The default version of the launch template.
+        :param pulumi.Input[str] description: Description of the launch template.
+        :param pulumi.Input[bool] disable_api_termination: If `true`, enables [EC2 Instance
+               Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+        :param pulumi.Input[str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
+        :param pulumi.Input[list] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
+               below for more details.
+        :param pulumi.Input[dict] elastic_inference_accelerator: Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        :param pulumi.Input[dict] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
+               below for more details.
+        :param pulumi.Input[str] image_id: The AMI from which to launch the instance.
+        :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Can be `stop` or `terminate`.
+               (Default: `stop`).
+        :param pulumi.Input[dict] instance_market_options: The market (purchasing) option for the instance. See Market Options
+               below for details.
+        :param pulumi.Input[str] instance_type: The type of the instance.
+        :param pulumi.Input[str] kernel_id: The kernel ID.
+        :param pulumi.Input[str] key_name: The key name to use for the instance.
+        :param pulumi.Input[float] latest_version: The latest version of the launch template.
+        :param pulumi.Input[list] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
+        :param pulumi.Input[dict] monitoring: The monitoring option for the instance. See Monitoring below for more details.
+        :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[list] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
+               Interfaces below for more details.
+        :param pulumi.Input[dict] placement: The placement of the instance. See Placement below for more details.
+        :param pulumi.Input[str] ram_disk_id: The ID of the RAM disk.
+        :param pulumi.Input[list] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
+               `vpc_security_group_ids` instead.
+        :param pulumi.Input[list] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the launch template.
+        :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
+        :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_template.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["block_device_mappings"] = block_device_mappings
+        __props__["capacity_reservation_specification"] = capacity_reservation_specification
+        __props__["credit_specification"] = credit_specification
+        __props__["default_version"] = default_version
+        __props__["description"] = description
+        __props__["disable_api_termination"] = disable_api_termination
+        __props__["ebs_optimized"] = ebs_optimized
+        __props__["elastic_gpu_specifications"] = elastic_gpu_specifications
+        __props__["elastic_inference_accelerator"] = elastic_inference_accelerator
+        __props__["iam_instance_profile"] = iam_instance_profile
+        __props__["image_id"] = image_id
+        __props__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
+        __props__["instance_market_options"] = instance_market_options
+        __props__["instance_type"] = instance_type
+        __props__["kernel_id"] = kernel_id
+        __props__["key_name"] = key_name
+        __props__["latest_version"] = latest_version
+        __props__["license_specifications"] = license_specifications
+        __props__["monitoring"] = monitoring
+        __props__["name"] = name
+        __props__["name_prefix"] = name_prefix
+        __props__["network_interfaces"] = network_interfaces
+        __props__["placement"] = placement
+        __props__["ram_disk_id"] = ram_disk_id
+        __props__["security_group_names"] = security_group_names
+        __props__["tag_specifications"] = tag_specifications
+        __props__["tags"] = tags
+        __props__["user_data"] = user_data
+        __props__["vpc_security_group_ids"] = vpc_security_group_ids
+        return LaunchTemplate(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -102,7 +102,7 @@ func (r *Volume) Iops() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["iops"])
 }
 
-// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 func (r *Volume) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
@@ -137,7 +137,7 @@ type VolumeState struct {
 	Encrypted interface{}
 	// The amount of IOPS to provision for the disk.
 	Iops interface{}
-	// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId interface{}
 	// The size of the drive in GiBs.
 	Size interface{}
@@ -157,7 +157,7 @@ type VolumeArgs struct {
 	Encrypted interface{}
 	// The amount of IOPS to provision for the disk.
 	Iops interface{}
-	// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId interface{}
 	// The size of the drive in GiBs.
 	Size interface{}

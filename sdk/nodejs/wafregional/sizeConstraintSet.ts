@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const sizeConstraintSet = new aws.wafregional.SizeConstraintSet("size_constraint_set", {
+ * const sizeConstraintSet = new aws.wafregional.SizeConstraintSet("sizeConstraintSet", {
  *     sizeConstraints: [{
  *         comparisonOperator: "EQ",
  *         fieldToMatch: {

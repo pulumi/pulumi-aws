@@ -79,14 +79,24 @@ class GetLayerVersionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetLayerVersionResult(GetLayerVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetLayerVersionResult(
+            arn=self.arn,
+            compatible_runtime=self.compatible_runtime,
+            compatible_runtimes=self.compatible_runtimes,
+            created_date=self.created_date,
+            description=self.description,
+            layer_arn=self.layer_arn,
+            layer_name=self.layer_name,
+            license_info=self.license_info,
+            source_code_hash=self.source_code_hash,
+            source_code_size=self.source_code_size,
+            version=self.version,
+            id=self.id)
 
 def get_layer_version(compatible_runtime=None,layer_name=None,version=None,opts=None):
     """
@@ -105,7 +115,7 @@ def get_layer_version(compatible_runtime=None,layer_name=None,version=None,opts=
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:lambda/getLayerVersion:getLayerVersion', __args__, opts=opts).value
 
-    return GetLayerVersionResult(
+    return AwaitableGetLayerVersionResult(
         arn=__ret__.get('arn'),
         compatible_runtime=__ret__.get('compatibleRuntime'),
         compatible_runtimes=__ret__.get('compatibleRuntimes'),

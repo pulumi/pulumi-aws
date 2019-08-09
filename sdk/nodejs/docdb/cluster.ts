@@ -11,10 +11,10 @@ import * as utilities from "../utilities";
  * parameter, such as `port`, and are reflected in the next maintenance
  * window. Because of this, this provider may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
- * `apply_immediately` flag to instruct the service to apply the change immediately
+ * `applyImmediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
  * 
- * > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
+ * > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
@@ -88,7 +88,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
      */
     public readonly clusterIdentifierPrefix!: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
@@ -162,7 +162,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
     /**
-     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
     /**
@@ -293,7 +293,7 @@ export interface ClusterState {
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
      */
     readonly clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
@@ -340,7 +340,7 @@ export interface ClusterState {
      */
     readonly hostedZoneId?: pulumi.Input<string>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
@@ -367,7 +367,7 @@ export interface ClusterState {
      */
     readonly readerEndpoint?: pulumi.Input<string>;
     /**
-     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     readonly skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
@@ -413,7 +413,7 @@ export interface ClusterArgs {
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
      */
     readonly clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
@@ -448,7 +448,7 @@ export interface ClusterArgs {
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
@@ -471,7 +471,7 @@ export interface ClusterArgs {
     readonly preferredBackupWindow?: pulumi.Input<string>;
     readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     readonly skipFinalSnapshot?: pulumi.Input<boolean>;
     /**

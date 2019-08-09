@@ -19,8 +19,8 @@ import (
 // [the AWS Lambda documentation for each runtime][8].
 // 
 // Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
-// indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
-// package via S3 it may be useful to use the `aws_s3_bucket_object` resource to upload it.
+// indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment
+// package via S3 it may be useful to use the `s3.BucketObject` resource to upload it.
 // 
 // For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
 // large files efficiently.
@@ -187,7 +187,7 @@ func (r *Function) Handler() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["handler"])
 }
 
-// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
 func (r *Function) InvokeArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["invokeArn"])
 }
@@ -253,7 +253,7 @@ func (r *Function) S3ObjectVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["s3ObjectVersion"])
 }
 
-// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
+// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
 func (r *Function) SourceCodeHash() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceCodeHash"])
 }
@@ -303,7 +303,7 @@ type FunctionState struct {
 	Name interface{}
 	// The function [entrypoint][3] in your code.
 	Handler interface{}
-	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
 	InvokeArn interface{}
 	// The ARN for the KMS encryption key.
 	KmsKeyArn interface{}
@@ -330,7 +330,7 @@ type FunctionState struct {
 	S3Key interface{}
 	// The object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion interface{}
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
 	SourceCodeHash interface{}
 	// The size in bytes of the function .zip file.
 	SourceCodeSize interface{}
@@ -379,7 +379,7 @@ type FunctionArgs struct {
 	S3Key interface{}
 	// The object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion interface{}
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
 	SourceCodeHash interface{}
 	// A mapping of tags to assign to the object.
 	Tags interface{}

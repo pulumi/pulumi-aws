@@ -17,39 +17,39 @@ import (
 // Mapping docs](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
 // to understand the implications of using these attributes.
 // 
-// The `root_block_device` mapping supports the following:
+// The `rootBlockDevice` mapping supports the following:
 // 
-// * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
+// * `volumeType` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
 //   or `"io1"`. (Default: `"standard"`).
-// * `volume_size` - (Optional) The size of the volume in gigabytes.
+// * `volumeSize` - (Optional) The size of the volume in gigabytes.
 // * `iops` - (Optional) The amount of provisioned
 //   [IOPS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-//   This must be set with a `volume_type` of `"io1"`.
-// * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+//   This must be set with a `volumeType` of `"io1"`.
+// * `deleteOnTermination` - (Optional) Whether the volume should be destroyed
 //   on instance termination (Default: `true`).
 // 
-// Modifying any of the `root_block_device` settings requires resource
+// Modifying any of the `rootBlockDevice` settings requires resource
 // replacement.
 // 
-// Each `ebs_block_device` supports the following:
+// Each `ebsBlockDevice` supports the following:
 // 
-// * `device_name` - The name of the device to mount.
-// * `snapshot_id` - (Optional) The Snapshot ID to mount.
-// * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
+// * `deviceName` - The name of the device to mount.
+// * `snapshotId` - (Optional) The Snapshot ID to mount.
+// * `volumeType` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
 //   or `"io1"`. (Default: `"standard"`).
-// * `volume_size` - (Optional) The size of the volume in gigabytes.
+// * `volumeSize` - (Optional) The size of the volume in gigabytes.
 // * `iops` - (Optional) The amount of provisioned
 //   [IOPS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-//   This must be set with a `volume_type` of `"io1"`.
-// * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+//   This must be set with a `volumeType` of `"io1"`.
+// * `deleteOnTermination` - (Optional) Whether the volume should be destroyed
 //   on instance termination (Default: `true`).
 // 
-// Modifying any `ebs_block_device` currently requires resource replacement.
+// Modifying any `ebsBlockDevice` currently requires resource replacement.
 // 
-// Each `ephemeral_block_device` supports the following:
+// Each `ephemeralBlockDevice` supports the following:
 // 
-// * `device_name` - The name of the block device to mount on the instance.
-// * `virtual_name` - The [Instance Store Device
+// * `deviceName` - The name of the block device to mount on the instance.
+// * `virtualName` - The [Instance Store Device
 //   Name](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
 //   (e.g. `"ephemeral0"`)
 // 
@@ -57,7 +57,7 @@ import (
 // available for attachment. AWS [publishes a
 // list](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
 // of which ephemeral devices are available on each type. The devices are always
-// identified by the `virtual_name` in the format `"ephemeral{0..N}"`.
+// identified by the `virtualName` in the format `"ephemeral{0..N}"`.
 // 
 // > **NOTE:** Currently, changes to `*_block_device` configuration of _existing_
 // resources cannot be automatically detected by this provider. After making updates
@@ -257,7 +257,7 @@ func (r *Instance) AmiId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["amiId"])
 }
 
-// Machine architecture for created instances.  Can be either `"x86_64"` (the default) or `"i386"`
+// Machine architecture for created instances.  Can be either `"x8664"` (the default) or `"i386"`
 func (r *Instance) Architecture() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["architecture"])
 }
@@ -468,7 +468,7 @@ type InstanceState struct {
 	AgentVersion interface{}
 	// The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
 	AmiId interface{}
-	// Machine architecture for created instances.  Can be either `"x86_64"` (the default) or `"i386"`
+	// Machine architecture for created instances.  Can be either `"x8664"` (the default) or `"i386"`
 	Architecture interface{}
 	// Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
 	AutoScalingType interface{}
@@ -552,7 +552,7 @@ type InstanceArgs struct {
 	AgentVersion interface{}
 	// The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
 	AmiId interface{}
-	// Machine architecture for created instances.  Can be either `"x86_64"` (the default) or `"i386"`
+	// Machine architecture for created instances.  Can be either `"x8664"` (the default) or `"i386"`
 	Architecture interface{}
 	// Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
 	AutoScalingType interface{}

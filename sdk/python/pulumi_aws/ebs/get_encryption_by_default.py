@@ -25,14 +25,14 @@ class GetEncryptionByDefaultResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetEncryptionByDefaultResult(GetEncryptionByDefaultResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetEncryptionByDefaultResult(
+            enabled=self.enabled,
+            id=self.id)
 
 def get_encryption_by_default(opts=None):
     """
@@ -48,6 +48,6 @@ def get_encryption_by_default(opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ebs/getEncryptionByDefault:getEncryptionByDefault', __args__, opts=opts).value
 
-    return GetEncryptionByDefaultResult(
+    return AwaitableGetEncryptionByDefaultResult(
         enabled=__ret__.get('enabled'),
         id=__ret__.get('id'))

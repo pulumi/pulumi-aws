@@ -31,14 +31,15 @@ class GetKeyResult:
         """
         Set to the value of the API Key.
         """
-
+class AwaitableGetKeyResult(GetKeyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetKeyResult(
+            id=self.id,
+            name=self.name,
+            value=self.value)
 
 def get_key(id=None,opts=None):
     """
@@ -56,7 +57,7 @@ def get_key(id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getKey:getKey', __args__, opts=opts).value
 
-    return GetKeyResult(
+    return AwaitableGetKeyResult(
         id=__ret__.get('id'),
         name=__ret__.get('name'),
         value=__ret__.get('value'))
