@@ -73,7 +73,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `resource_query` block. Resource queries are documented below.
+     * A `resourceQuery` block. Resource queries are documented below.
      */
     public readonly resourceQuery!: pulumi.Output<{ query: string, type?: string }>;
 
@@ -131,7 +131,7 @@ export interface GroupState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `resource_query` block. Resource queries are documented below.
+     * A `resourceQuery` block. Resource queries are documented below.
      */
     readonly resourceQuery?: pulumi.Input<{ query: pulumi.Input<string>, type?: pulumi.Input<string> }>;
 }
@@ -149,7 +149,7 @@ export interface GroupArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `resource_query` block. Resource queries are documented below.
+     * A `resourceQuery` block. Resource queries are documented below.
      */
     readonly resourceQuery: pulumi.Input<{ query: pulumi.Input<string>, type?: pulumi.Input<string> }>;
 }

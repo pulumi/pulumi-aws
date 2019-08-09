@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * // Request a Spot fleet
- * const cheapCompute = new aws.ec2.SpotFleetRequest("cheap_compute", {
+ * const cheapCompute = new aws.ec2.SpotFleetRequest("cheapCompute", {
  *     allocationStrategy: "diversified",
  *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
  *     launchSpecifications: [
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * > **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
+ * > **NOTE:** This provider does not support the functionality where multiple `subnetId` or `availabilityZone` parameters can be specified in the same
  * launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used:
  * 
  * ```typescript
@@ -142,7 +142,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
     /**
      * 
      * The number of Spot pools across which to allocate your target Spot capacity.
-     * Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+     * Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
      * the cheapest Spot pools and evenly allocates your target Spot capacity across
      * the number of Spot pools that you specify.
      */
@@ -176,7 +176,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public readonly targetCapacity!: pulumi.Output<number>;
     /**
-     * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+     * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      */
     public readonly targetGroupArns!: pulumi.Output<string[]>;
     /**
@@ -308,7 +308,7 @@ export interface SpotFleetRequestState {
     /**
      * 
      * The number of Spot pools across which to allocate your target Spot capacity.
-     * Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+     * Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
      * the cheapest Spot pools and evenly allocates your target Spot capacity across
      * the number of Spot pools that you specify.
      */
@@ -342,7 +342,7 @@ export interface SpotFleetRequestState {
      */
     readonly targetCapacity?: pulumi.Input<number>;
     /**
-     * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+     * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      */
     readonly targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -403,7 +403,7 @@ export interface SpotFleetRequestArgs {
     /**
      * 
      * The number of Spot pools across which to allocate your target Spot capacity.
-     * Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+     * Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
      * the cheapest Spot pools and evenly allocates your target Spot capacity across
      * the number of Spot pools that you specify.
      */
@@ -433,7 +433,7 @@ export interface SpotFleetRequestArgs {
      */
     readonly targetCapacity: pulumi.Input<number>;
     /**
-     * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+     * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      */
     readonly targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

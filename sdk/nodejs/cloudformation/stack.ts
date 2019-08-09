@@ -77,7 +77,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly capabilities!: pulumi.Output<string[] | undefined>;
     /**
      * Set to true to disable rollback of the stack if stack creation failed.
-     * Conflicts with `on_failure`.
+     * Conflicts with `onFailure`.
      */
     public readonly disableRollback!: pulumi.Output<boolean | undefined>;
     /**
@@ -94,7 +94,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly notificationArns!: pulumi.Output<string[] | undefined>;
     /**
      * Action to be taken if stack creation fails. This must be
-     * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
+     * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
      */
     public readonly onFailure!: pulumi.Output<string | undefined>;
     /**
@@ -107,12 +107,12 @@ export class Stack extends pulumi.CustomResource {
     public readonly parameters!: pulumi.Output<{[key: string]: any}>;
     /**
      * Structure containing the stack policy body.
-     * Conflicts w/ `policy_url`.
+     * Conflicts w/ `policyUrl`.
      */
     public readonly policyBody!: pulumi.Output<string>;
     /**
      * Location of a file containing the stack policy.
-     * Conflicts w/ `policy_body`.
+     * Conflicts w/ `policyBody`.
      */
     public readonly policyUrl!: pulumi.Output<string | undefined>;
     /**
@@ -197,7 +197,7 @@ export interface StackState {
     readonly capabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Set to true to disable rollback of the stack if stack creation failed.
-     * Conflicts with `on_failure`.
+     * Conflicts with `onFailure`.
      */
     readonly disableRollback?: pulumi.Input<boolean>;
     /**
@@ -214,7 +214,7 @@ export interface StackState {
     readonly notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Action to be taken if stack creation fails. This must be
-     * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
+     * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
      */
     readonly onFailure?: pulumi.Input<string>;
     /**
@@ -227,12 +227,12 @@ export interface StackState {
     readonly parameters?: pulumi.Input<{[key: string]: any}>;
     /**
      * Structure containing the stack policy body.
-     * Conflicts w/ `policy_url`.
+     * Conflicts w/ `policyUrl`.
      */
     readonly policyBody?: pulumi.Input<string>;
     /**
      * Location of a file containing the stack policy.
-     * Conflicts w/ `policy_body`.
+     * Conflicts w/ `policyBody`.
      */
     readonly policyUrl?: pulumi.Input<string>;
     /**
@@ -264,7 +264,7 @@ export interface StackArgs {
     readonly capabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Set to true to disable rollback of the stack if stack creation failed.
-     * Conflicts with `on_failure`.
+     * Conflicts with `onFailure`.
      */
     readonly disableRollback?: pulumi.Input<boolean>;
     /**
@@ -281,7 +281,7 @@ export interface StackArgs {
     readonly notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Action to be taken if stack creation fails. This must be
-     * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
+     * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
      */
     readonly onFailure?: pulumi.Input<string>;
     /**
@@ -290,12 +290,12 @@ export interface StackArgs {
     readonly parameters?: pulumi.Input<{[key: string]: any}>;
     /**
      * Structure containing the stack policy body.
-     * Conflicts w/ `policy_url`.
+     * Conflicts w/ `policyUrl`.
      */
     readonly policyBody?: pulumi.Input<string>;
     /**
      * Location of a file containing the stack policy.
-     * Conflicts w/ `policy_body`.
+     * Conflicts w/ `policyBody`.
      */
     readonly policyUrl?: pulumi.Input<string>;
     /**

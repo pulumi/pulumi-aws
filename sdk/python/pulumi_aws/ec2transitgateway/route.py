@@ -25,7 +25,7 @@ class Route(pulumi.CustomResource):
     """
     Identifier of EC2 Transit Gateway Route Table.
     """
-    def __init__(__self__, resource_name, opts=None, blackhole=None, destination_cidr_block=None, transit_gateway_attachment_id=None, transit_gateway_route_table_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, blackhole=None, destination_cidr_block=None, transit_gateway_attachment_id=None, transit_gateway_route_table_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EC2 Transit Gateway Route.
         
@@ -44,38 +44,54 @@ class Route(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['blackhole'] = blackhole
-
-        if destination_cidr_block is None:
-            raise TypeError("Missing required property 'destination_cidr_block'")
-        __props__['destination_cidr_block'] = destination_cidr_block
-
-        __props__['transit_gateway_attachment_id'] = transit_gateway_attachment_id
-
-        if transit_gateway_route_table_id is None:
-            raise TypeError("Missing required property 'transit_gateway_route_table_id'")
-        __props__['transit_gateway_route_table_id'] = transit_gateway_route_table_id
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['blackhole'] = blackhole
+            if destination_cidr_block is None:
+                raise TypeError("Missing required property 'destination_cidr_block'")
+            __props__['destination_cidr_block'] = destination_cidr_block
+            __props__['transit_gateway_attachment_id'] = transit_gateway_attachment_id
+            if transit_gateway_route_table_id is None:
+                raise TypeError("Missing required property 'transit_gateway_route_table_id'")
+            __props__['transit_gateway_route_table_id'] = transit_gateway_route_table_id
         super(Route, __self__).__init__(
             'aws:ec2transitgateway/route:Route',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, blackhole=None, destination_cidr_block=None, transit_gateway_attachment_id=None, transit_gateway_route_table_id=None):
+        """
+        Get an existing Route resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches this route (default to `false`).
+        :param pulumi.Input[str] destination_cidr_block: IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
+        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_route.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["blackhole"] = blackhole
+        __props__["destination_cidr_block"] = destination_cidr_block
+        __props__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        __props__["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+        return Route(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

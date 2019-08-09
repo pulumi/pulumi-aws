@@ -31,14 +31,16 @@ class GetDirectConnectGatewayAttachmentResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetDirectConnectGatewayAttachmentResult(GetDirectConnectGatewayAttachmentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetDirectConnectGatewayAttachmentResult(
+            dx_gateway_id=self.dx_gateway_id,
+            tags=self.tags,
+            transit_gateway_id=self.transit_gateway_id,
+            id=self.id)
 
 def get_direct_connect_gateway_attachment(dx_gateway_id=None,tags=None,transit_gateway_id=None,opts=None):
     """
@@ -57,7 +59,7 @@ def get_direct_connect_gateway_attachment(dx_gateway_id=None,tags=None,transit_g
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment', __args__, opts=opts).value
 
-    return GetDirectConnectGatewayAttachmentResult(
+    return AwaitableGetDirectConnectGatewayAttachmentResult(
         dx_gateway_id=__ret__.get('dxGatewayId'),
         tags=__ret__.get('tags'),
         transit_gateway_id=__ret__.get('transitGatewayId'),

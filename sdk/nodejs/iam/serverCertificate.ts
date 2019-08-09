@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
- * const testCert = new aws.iam.ServerCertificate("test_cert", {
+ * const testCert = new aws.iam.ServerCertificate("testCert", {
  *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
  *     privateKey: fs.readFileSync("test-key.pem", "utf-8"),
  * });
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testCertAlt = new aws.iam.ServerCertificate("test_cert_alt", {
+ * const testCertAlt = new aws.iam.ServerCertificate("testCertAlt", {
  *     certificateBody: `-----BEGIN CERTIFICATE-----
  * [......] # cert contents
  * -----END CERTIFICATE-----
@@ -56,9 +56,9 @@ import * as utilities from "../utilities";
  * 
  * Some properties of an IAM Server Certificates cannot be updated while they are
  * in use. In order for this provider to effectively manage a Certificate in this situation, it is
- * recommended you utilize the `name_prefix` attribute and enable the
- * `create_before_destroy` [lifecycle block][lifecycle]. This will allow this provider
- * to create a new, updated `aws_iam_server_certificate` resource and replace it in
+ * recommended you utilize the `namePrefix` attribute and enable the
+ * `createBeforeDestroy` [lifecycle block][lifecycle]. This will allow this provider
+ * to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
  * dependant resources before attempting to destroy the old version.
  * 
  * ```typescript
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
- * const testCert = new aws.iam.ServerCertificate("test_cert", {
+ * const testCert = new aws.iam.ServerCertificate("testCert", {
  *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
  *     namePrefix: "example-cert",
  *     privateKey: fs.readFileSync("test-key.pem", "utf-8"),

@@ -101,7 +101,7 @@ class UserPool(pulumi.CustomResource):
     """
     The verification message templates configuration.
     """
-    def __init__(__self__, resource_name, opts=None, admin_create_user_config=None, alias_attributes=None, auto_verified_attributes=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, tags=None, user_pool_add_ons=None, username_attributes=None, verification_message_template=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, admin_create_user_config=None, alias_attributes=None, auto_verified_attributes=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, tags=None, user_pool_add_ons=None, username_attributes=None, verification_message_template=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Cognito User Pool resource.
         
@@ -135,69 +135,107 @@ class UserPool(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['admin_create_user_config'] = admin_create_user_config
-
-        __props__['alias_attributes'] = alias_attributes
-
-        __props__['auto_verified_attributes'] = auto_verified_attributes
-
-        __props__['device_configuration'] = device_configuration
-
-        __props__['email_configuration'] = email_configuration
-
-        __props__['email_verification_message'] = email_verification_message
-
-        __props__['email_verification_subject'] = email_verification_subject
-
-        __props__['lambda_config'] = lambda_config
-
-        __props__['mfa_configuration'] = mfa_configuration
-
-        __props__['name'] = name
-
-        __props__['password_policy'] = password_policy
-
-        __props__['schemas'] = schemas
-
-        __props__['sms_authentication_message'] = sms_authentication_message
-
-        __props__['sms_configuration'] = sms_configuration
-
-        __props__['sms_verification_message'] = sms_verification_message
-
-        __props__['tags'] = tags
-
-        __props__['user_pool_add_ons'] = user_pool_add_ons
-
-        __props__['username_attributes'] = username_attributes
-
-        __props__['verification_message_template'] = verification_message_template
-
-        __props__['arn'] = None
-        __props__['creation_date'] = None
-        __props__['endpoint'] = None
-        __props__['last_modified_date'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['admin_create_user_config'] = admin_create_user_config
+            __props__['alias_attributes'] = alias_attributes
+            __props__['auto_verified_attributes'] = auto_verified_attributes
+            __props__['device_configuration'] = device_configuration
+            __props__['email_configuration'] = email_configuration
+            __props__['email_verification_message'] = email_verification_message
+            __props__['email_verification_subject'] = email_verification_subject
+            __props__['lambda_config'] = lambda_config
+            __props__['mfa_configuration'] = mfa_configuration
+            __props__['name'] = name
+            __props__['password_policy'] = password_policy
+            __props__['schemas'] = schemas
+            __props__['sms_authentication_message'] = sms_authentication_message
+            __props__['sms_configuration'] = sms_configuration
+            __props__['sms_verification_message'] = sms_verification_message
+            __props__['tags'] = tags
+            __props__['user_pool_add_ons'] = user_pool_add_ons
+            __props__['username_attributes'] = username_attributes
+            __props__['verification_message_template'] = verification_message_template
+            __props__['arn'] = None
+            __props__['creation_date'] = None
+            __props__['endpoint'] = None
+            __props__['last_modified_date'] = None
         super(UserPool, __self__).__init__(
             'aws:cognito/userPool:UserPool',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, creation_date=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, endpoint=None, lambda_config=None, last_modified_date=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, tags=None, user_pool_add_ons=None, username_attributes=None, verification_message_template=None):
+        """
+        Get an existing UserPool resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] admin_create_user_config: The configuration for AdminCreateUser requests.
+        :param pulumi.Input[list] alias_attributes: Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `username_attributes`.
+        :param pulumi.Input[str] arn: The ARN of the user pool.
+        :param pulumi.Input[list] auto_verified_attributes: The attributes to be auto-verified. Possible values: email, phone_number.
+        :param pulumi.Input[str] creation_date: The date the user pool was created.
+        :param pulumi.Input[dict] device_configuration: The configuration for the user pool's device tracking.
+        :param pulumi.Input[dict] email_configuration: The Email Configuration.
+        :param pulumi.Input[str] email_verification_message: A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+        :param pulumi.Input[str] email_verification_subject: A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+        :param pulumi.Input[str] endpoint: The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
+        :param pulumi.Input[dict] lambda_config: A container for the AWS Lambda triggers associated with the user pool.
+        :param pulumi.Input[str] last_modified_date: The date the user pool was last modified.
+        :param pulumi.Input[str] mfa_configuration: Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
+        :param pulumi.Input[str] name: The name of the attribute.
+        :param pulumi.Input[dict] password_policy: A container for information about the user pool password policy.
+        :param pulumi.Input[list] schemas: A container with the schema attributes of a user pool. Maximum of 50 attributes.
+        :param pulumi.Input[str] sms_authentication_message: A string representing the SMS authentication message.
+        :param pulumi.Input[dict] sms_configuration: The SMS Configuration.
+        :param pulumi.Input[str] sms_verification_message: A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the User Pool.
+        :param pulumi.Input[dict] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features.
+        :param pulumi.Input[list] username_attributes: Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+        :param pulumi.Input[dict] verification_message_template: The verification message templates configuration.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["admin_create_user_config"] = admin_create_user_config
+        __props__["alias_attributes"] = alias_attributes
+        __props__["arn"] = arn
+        __props__["auto_verified_attributes"] = auto_verified_attributes
+        __props__["creation_date"] = creation_date
+        __props__["device_configuration"] = device_configuration
+        __props__["email_configuration"] = email_configuration
+        __props__["email_verification_message"] = email_verification_message
+        __props__["email_verification_subject"] = email_verification_subject
+        __props__["endpoint"] = endpoint
+        __props__["lambda_config"] = lambda_config
+        __props__["last_modified_date"] = last_modified_date
+        __props__["mfa_configuration"] = mfa_configuration
+        __props__["name"] = name
+        __props__["password_policy"] = password_policy
+        __props__["schemas"] = schemas
+        __props__["sms_authentication_message"] = sms_authentication_message
+        __props__["sms_configuration"] = sms_configuration
+        __props__["sms_verification_message"] = sms_verification_message
+        __props__["tags"] = tags
+        __props__["user_pool_add_ons"] = user_pool_add_ons
+        __props__["username_attributes"] = username_attributes
+        __props__["verification_message_template"] = verification_message_template
+        return UserPool(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

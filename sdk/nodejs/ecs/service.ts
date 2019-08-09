@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * > **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `aws_iam_role_policy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
+ * > **Note:** To prevent a race condition during service deletion, make sure to set `dependsOn` to the related `aws.iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
  * 
  * Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
  * 
@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * 
  * ### Ignoring Changes to Desired Count
  * 
- * You can utilize the generic this provider resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignore_changes` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+ * You can utilize the generic this provider resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignoreChanges` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -40,24 +40,24 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * ## deployment_controller
+ * ## deploymentController
  * 
- * The `deployment_controller` configuration block supports the following:
+ * The `deploymentController` configuration block supports the following:
  * 
  * * `type` - (Optional) Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
  * 
- * ## load_balancer
+ * ## loadBalancer
  * 
- * `load_balancer` supports the following:
+ * `loadBalancer` supports the following:
  * 
- * * `elb_name` - (Required for ELB Classic) The name of the ELB (Classic) to associate with the service.
- * * `target_group_arn` - (Required for ALB/NLB) The ARN of the Load Balancer target group to associate with the service.
- * * `container_name` - (Required) The name of the container to associate with the load balancer (as it appears in a container definition).
- * * `container_port` - (Required) The port on the container to associate with the load balancer.
+ * * `elbName` - (Required for ELB Classic) The name of the ELB (Classic) to associate with the service.
+ * * `targetGroupArn` - (Required for ALB/NLB) The ARN of the Load Balancer target group to associate with the service.
+ * * `containerName` - (Required) The name of the container to associate with the load balancer (as it appears in a container definition).
+ * * `containerPort` - (Required) The port on the container to associate with the load balancer.
  * 
- * ## ordered_placement_strategy
+ * ## orderedPlacementStrategy
  * 
- * `ordered_placement_strategy` supports the following:
+ * `orderedPlacementStrategy` supports the following:
  * 
  * * `type` - (Required) The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
  * * `field` - (Optional) For the `spread` placement strategy, valid values are `instanceId` (or `host`,
@@ -67,9 +67,9 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
  * 
- * ## placement_constraints
+ * ## placementConstraints
  * 
- * `placement_constraints` support the following:
+ * `placementConstraints` support the following:
  * 
  * * `type` - (Required) The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
  * * `expression` -  (Optional) Cluster Query Language expression to apply to the constraint. Does not need to be specified
@@ -78,24 +78,24 @@ import * as utilities from "../utilities";
  * Service Developer
  * Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
  * 
- * ## network_configuration
+ * ## networkConfiguration
  * 
- * `network_configuration` support the following:
+ * `networkConfiguration` support the following:
  * 
  * * `subnets` - (Required) The subnets associated with the task or service.
- * * `security_groups` - (Optional) The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
- * * `assign_public_ip` - (Optional) Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+ * * `securityGroups` - (Optional) The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+ * * `assignPublicIp` - (Optional) Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
  * 
  * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
  * 
- * ## service_registries
+ * ## serviceRegistries
  * 
- * `service_registries` support the following:
+ * `serviceRegistries` support the following:
  * 
- * * `registry_arn` - (Required) The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws_service_discovery_service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+ * * `registryArn` - (Required) The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
  * * `port` - (Optional) The port value used if your Service Discovery service specified an SRV record.
- * * `container_port` - (Optional) The port value, already specified in the task definition, to be used for your service discovery service.
- * * `container_name` - (Optional) The container name value, already specified in the task definition, to be used for your service discovery service.
+ * * `containerPort` - (Optional) The port value, already specified in the task definition, to be used for your service discovery service.
+ * * `containerName` - (Optional) The container name value, already specified in the task definition, to be used for your service discovery service.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_service.html.markdown.
  */
@@ -175,16 +175,16 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly networkConfiguration!: pulumi.Output<{ assignPublicIp?: boolean, securityGroups?: string[], subnets: string[] } | undefined>;
     /**
-     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
+     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
      */
     public readonly orderedPlacementStrategies!: pulumi.Output<{ field?: string, type: string }[] | undefined>;
     /**
      * rules that are taken into consideration during task placement. Maximum number of
-     * `placement_constraints` is `10`. Defined below.
+     * `placementConstraints` is `10`. Defined below.
      */
     public readonly placementConstraints!: pulumi.Output<{ expression?: string, type: string }[] | undefined>;
     /**
-     * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
     public readonly platformVersion!: pulumi.Output<string>;
     /**
@@ -196,7 +196,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly schedulingStrategy!: pulumi.Output<string | undefined>;
     /**
-     * The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
+     * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
      */
     public readonly serviceRegistries!: pulumi.Output<{ containerName?: string, containerPort?: number, port?: number, registryArn: string } | undefined>;
     /**
@@ -336,16 +336,16 @@ export interface ServiceState {
      */
     readonly networkConfiguration?: pulumi.Input<{ assignPublicIp?: pulumi.Input<boolean>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
-     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
+     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
      */
     readonly orderedPlacementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * rules that are taken into consideration during task placement. Maximum number of
-     * `placement_constraints` is `10`. Defined below.
+     * `placementConstraints` is `10`. Defined below.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
-     * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
     readonly platformVersion?: pulumi.Input<string>;
     /**
@@ -357,7 +357,7 @@ export interface ServiceState {
      */
     readonly schedulingStrategy?: pulumi.Input<string>;
     /**
-     * The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
+     * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
      */
     readonly serviceRegistries?: pulumi.Input<{ containerName?: pulumi.Input<string>, containerPort?: pulumi.Input<number>, port?: pulumi.Input<number>, registryArn: pulumi.Input<string> }>;
     /**
@@ -427,16 +427,16 @@ export interface ServiceArgs {
      */
     readonly networkConfiguration?: pulumi.Input<{ assignPublicIp?: pulumi.Input<boolean>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
-     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
+     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
      */
     readonly orderedPlacementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * rules that are taken into consideration during task placement. Maximum number of
-     * `placement_constraints` is `10`. Defined below.
+     * `placementConstraints` is `10`. Defined below.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
-     * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
     readonly platformVersion?: pulumi.Input<string>;
     /**
@@ -448,7 +448,7 @@ export interface ServiceArgs {
      */
     readonly schedulingStrategy?: pulumi.Input<string>;
     /**
-     * The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
+     * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
      */
     readonly serviceRegistries?: pulumi.Input<{ containerName?: pulumi.Input<string>, containerPort?: pulumi.Input<number>, port?: pulumi.Input<number>, registryArn: pulumi.Input<string> }>;
     /**

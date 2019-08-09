@@ -16,7 +16,7 @@ import {Function} from "./function";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
+ * const iamForLambda = new aws.iam.Role("iamForLambda", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -32,18 +32,18 @@ import {Function} from "./function";
  * }
  * `,
  * });
- * const testLambda = new aws.lambda.Function("test_lambda", {
+ * const testLambda = new aws.lambda.Function("testLambda", {
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
  *     handler: "exports.handler",
  *     role: iamForLambda.arn,
  *     runtime: "nodejs8.10",
  * });
- * const testAlias = new aws.lambda.Alias("test_alias", {
+ * const testAlias = new aws.lambda.Alias("testAlias", {
  *     description: "a sample description",
  *     functionName: testLambda.functionName,
  *     functionVersion: "$LATEST",
  * });
- * const allowCloudwatch = new aws.lambda.Permission("allow_cloudwatch", {
+ * const allowCloudwatch = new aws.lambda.Permission("allowCloudwatch", {
  *     action: "lambda:InvokeFunction",
  *     function: testLambda.functionName,
  *     principal: "events.amazonaws.com",
@@ -81,7 +81,7 @@ import {Function} from "./function";
  *     role: defaultRole.arn,
  *     runtime: "python2.7",
  * });
- * const withSns = new aws.lambda.Permission("with_sns", {
+ * const withSns = new aws.lambda.Permission("withSns", {
  *     action: "lambda:InvokeFunction",
  *     function: func.functionName,
  *     principal: "sns.amazonaws.com",
@@ -103,7 +103,7 @@ import {Function} from "./function";
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
- * const lambdaPermission = new aws.lambda.Permission("lambda_permission", {
+ * const lambdaPermission = new aws.lambda.Permission("lambdaPermission", {
  *     action: "lambda:InvokeFunction",
  *     function: "MyDemoFunction",
  *     principal: "apigateway.amazonaws.com",
@@ -182,7 +182,7 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly statementId!: pulumi.Output<string>;
     /**
-     * A statement identifier prefix. This provider will generate a unique suffix. Conflicts with `statement_id`.
+     * A statement identifier prefix. This provider will generate a unique suffix. Conflicts with `statementId`.
      */
     public readonly statementIdPrefix!: pulumi.Output<string | undefined>;
 
@@ -285,7 +285,7 @@ export interface PermissionState {
      */
     readonly statementId?: pulumi.Input<string>;
     /**
-     * A statement identifier prefix. This provider will generate a unique suffix. Conflicts with `statement_id`.
+     * A statement identifier prefix. This provider will generate a unique suffix. Conflicts with `statementId`.
      */
     readonly statementIdPrefix?: pulumi.Input<string>;
 }
@@ -336,7 +336,7 @@ export interface PermissionArgs {
      */
     readonly statementId?: pulumi.Input<string>;
     /**
-     * A statement identifier prefix. This provider will generate a unique suffix. Conflicts with `statement_id`.
+     * A statement identifier prefix. This provider will generate a unique suffix. Conflicts with `statementId`.
      */
     readonly statementIdPrefix?: pulumi.Input<string>;
 }

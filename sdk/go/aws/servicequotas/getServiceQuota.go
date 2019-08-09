@@ -41,7 +41,7 @@ type GetServiceQuotaArgs struct {
 	QuotaCode interface{}
 	// Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
 	QuotaName interface{}
-	// Service code for the quota. Available values can be found with the [`aws_servicequotas_service` data source](https://www.terraform.io/docs/providers/aws/d/servicequotas_service.html) or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+	// Service code for the quota. Available values can be found with the [`servicequotas.getService` data source](https://www.terraform.io/docs/providers/aws/d/servicequotas_service.html) or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceCode interface{}
 }
 

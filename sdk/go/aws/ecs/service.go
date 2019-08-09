@@ -8,30 +8,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `aws_iam_role_policy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
+// > **Note:** To prevent a race condition during service deletion, make sure to set `dependsOn` to the related `iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
 // 
 // Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
 // 
 // See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 // 
-// ## deployment_controller
+// ## deploymentController
 // 
-// The `deployment_controller` configuration block supports the following:
+// The `deploymentController` configuration block supports the following:
 // 
 // * `type` - (Optional) Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
 // 
-// ## load_balancer
+// ## loadBalancer
 // 
-// `load_balancer` supports the following:
+// `loadBalancer` supports the following:
 // 
-// * `elb_name` - (Required for ELB Classic) The name of the ELB (Classic) to associate with the service.
-// * `target_group_arn` - (Required for ALB/NLB) The ARN of the Load Balancer target group to associate with the service.
-// * `container_name` - (Required) The name of the container to associate with the load balancer (as it appears in a container definition).
-// * `container_port` - (Required) The port on the container to associate with the load balancer.
+// * `elbName` - (Required for ELB Classic) The name of the ELB (Classic) to associate with the service.
+// * `targetGroupArn` - (Required for ALB/NLB) The ARN of the Load Balancer target group to associate with the service.
+// * `containerName` - (Required) The name of the container to associate with the load balancer (as it appears in a container definition).
+// * `containerPort` - (Required) The port on the container to associate with the load balancer.
 // 
-// ## ordered_placement_strategy
+// ## orderedPlacementStrategy
 // 
-// `ordered_placement_strategy` supports the following:
+// `orderedPlacementStrategy` supports the following:
 // 
 // * `type` - (Required) The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
 // * `field` - (Optional) For the `spread` placement strategy, valid values are `instanceId` (or `host`,
@@ -41,9 +41,9 @@ import (
 // 
 // > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
 // 
-// ## placement_constraints
+// ## placementConstraints
 // 
-// `placement_constraints` support the following:
+// `placementConstraints` support the following:
 // 
 // * `type` - (Required) The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
 // * `expression` -  (Optional) Cluster Query Language expression to apply to the constraint. Does not need to be specified
@@ -52,24 +52,24 @@ import (
 // Service Developer
 // Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 // 
-// ## network_configuration
+// ## networkConfiguration
 // 
-// `network_configuration` support the following:
+// `networkConfiguration` support the following:
 // 
 // * `subnets` - (Required) The subnets associated with the task or service.
-// * `security_groups` - (Optional) The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-// * `assign_public_ip` - (Optional) Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+// * `securityGroups` - (Optional) The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+// * `assignPublicIp` - (Optional) Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
 // 
 // For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 // 
-// ## service_registries
+// ## serviceRegistries
 // 
-// `service_registries` support the following:
+// `serviceRegistries` support the following:
 // 
-// * `registry_arn` - (Required) The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws_service_discovery_service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+// * `registryArn` - (Required) The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
 // * `port` - (Optional) The port value used if your Service Discovery service specified an SRV record.
-// * `container_port` - (Optional) The port value, already specified in the task definition, to be used for your service discovery service.
-// * `container_name` - (Optional) The container name value, already specified in the task definition, to be used for your service discovery service.
+// * `containerPort` - (Optional) The port value, already specified in the task definition, to be used for your service discovery service.
+// * `containerName` - (Optional) The container name value, already specified in the task definition, to be used for your service discovery service.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_service.html.markdown.
 type Service struct {
@@ -240,18 +240,18 @@ func (r *Service) NetworkConfiguration() *pulumi.Output {
 	return r.s.State["networkConfiguration"]
 }
 
-// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
+// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
 func (r *Service) OrderedPlacementStrategies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["orderedPlacementStrategies"])
 }
 
 // rules that are taken into consideration during task placement. Maximum number of
-// `placement_constraints` is `10`. Defined below.
+// `placementConstraints` is `10`. Defined below.
 func (r *Service) PlacementConstraints() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["placementConstraints"])
 }
 
-// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 func (r *Service) PlatformVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["platformVersion"])
 }
@@ -266,7 +266,7 @@ func (r *Service) SchedulingStrategy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["schedulingStrategy"])
 }
 
-// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
+// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
 func (r *Service) ServiceRegistries() *pulumi.Output {
 	return r.s.State["serviceRegistries"]
 }
@@ -312,18 +312,18 @@ type ServiceState struct {
 	Name interface{}
 	// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
 	NetworkConfiguration interface{}
-	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
+	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
 	OrderedPlacementStrategies interface{}
 	// rules that are taken into consideration during task placement. Maximum number of
-	// `placement_constraints` is `10`. Defined below.
+	// `placementConstraints` is `10`. Defined below.
 	PlacementConstraints interface{}
-	// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion interface{}
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags interface{}
 	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
 	SchedulingStrategy interface{}
-	// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
+	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
 	ServiceRegistries interface{}
 	// Key-value mapping of resource tags
 	Tags interface{}
@@ -359,18 +359,18 @@ type ServiceArgs struct {
 	Name interface{}
 	// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
 	NetworkConfiguration interface{}
-	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
+	// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
 	OrderedPlacementStrategies interface{}
 	// rules that are taken into consideration during task placement. Maximum number of
-	// `placement_constraints` is `10`. Defined below.
+	// `placementConstraints` is `10`. Defined below.
 	PlacementConstraints interface{}
-	// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion interface{}
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags interface{}
 	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
 	SchedulingStrategy interface{}
-	// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
+	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
 	ServiceRegistries interface{}
 	// Key-value mapping of resource tags
 	Tags interface{}

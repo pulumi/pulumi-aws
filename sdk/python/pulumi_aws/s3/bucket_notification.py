@@ -25,11 +25,11 @@ class BucketNotification(pulumi.CustomResource):
     """
     The notification configuration to SNS Topic (documented below).
     """
-    def __init__(__self__, resource_name, opts=None, bucket=None, lambda_functions=None, queues=None, topics=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, bucket=None, lambda_functions=None, queues=None, topics=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
         
-        > **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `aws_s3_bucket_notification` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+        > **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -46,36 +46,52 @@ class BucketNotification(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if bucket is None:
-            raise TypeError("Missing required property 'bucket'")
-        __props__['bucket'] = bucket
-
-        __props__['lambda_functions'] = lambda_functions
-
-        __props__['queues'] = queues
-
-        __props__['topics'] = topics
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if bucket is None:
+                raise TypeError("Missing required property 'bucket'")
+            __props__['bucket'] = bucket
+            __props__['lambda_functions'] = lambda_functions
+            __props__['queues'] = queues
+            __props__['topics'] = topics
         super(BucketNotification, __self__).__init__(
             'aws:s3/bucketNotification:BucketNotification',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, bucket=None, lambda_functions=None, queues=None, topics=None):
+        """
+        Get an existing BucketNotification resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: The name of the bucket to put notification configuration.
+        :param pulumi.Input[list] lambda_functions: Used to configure notifications to a Lambda Function (documented below).
+        :param pulumi.Input[list] queues: The notification configuration to SQS Queue (documented below).
+        :param pulumi.Input[list] topics: The notification configuration to SNS Topic (documented below).
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_notification.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["bucket"] = bucket
+        __props__["lambda_functions"] = lambda_functions
+        __props__["queues"] = queues
+        __props__["topics"] = topics
+        return BucketNotification(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

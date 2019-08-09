@@ -25,12 +25,12 @@ class Ciphertext(pulumi.CustomResource):
     """
     Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
     """
-    def __init__(__self__, resource_name, opts=None, context=None, key_id=None, plaintext=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, context=None, key_id=None, plaintext=None, __props__=None, __name__=None, __opts__=None):
         """
         The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
         by using an AWS KMS customer master key. The value returned by this resource
         is stable across every apply. For a changing ciphertext value each apply, see
-        the [`aws_kms_ciphertext` data source](https://www.terraform.io/docs/providers/aws/d/kms_ciphertext.html).
+        the [`kms.Ciphertext` data source](https://www.terraform.io/docs/providers/aws/d/kms_ciphertext.html).
         
         > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
@@ -49,38 +49,54 @@ class Ciphertext(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['context'] = context
-
-        if key_id is None:
-            raise TypeError("Missing required property 'key_id'")
-        __props__['key_id'] = key_id
-
-        if plaintext is None:
-            raise TypeError("Missing required property 'plaintext'")
-        __props__['plaintext'] = plaintext
-
-        __props__['ciphertext_blob'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['context'] = context
+            if key_id is None:
+                raise TypeError("Missing required property 'key_id'")
+            __props__['key_id'] = key_id
+            if plaintext is None:
+                raise TypeError("Missing required property 'plaintext'")
+            __props__['plaintext'] = plaintext
+            __props__['ciphertext_blob'] = None
         super(Ciphertext, __self__).__init__(
             'aws:kms/ciphertext:Ciphertext',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, ciphertext_blob=None, context=None, key_id=None, plaintext=None):
+        """
+        Get an existing Ciphertext resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ciphertext_blob: Base64 encoded ciphertext
+        :param pulumi.Input[dict] context: An optional mapping that makes up the encryption context.
+        :param pulumi.Input[str] key_id: Globally unique key ID for the customer master key.
+        :param pulumi.Input[str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_ciphertext.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["ciphertext_blob"] = ciphertext_blob
+        __props__["context"] = context
+        __props__["key_id"] = key_id
+        __props__["plaintext"] = plaintext
+        return Ciphertext(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

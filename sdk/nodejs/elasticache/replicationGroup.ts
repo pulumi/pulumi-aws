@@ -7,14 +7,14 @@ import * as utilities from "../utilities";
 /**
  * Provides an ElastiCache Replication Group resource.
  * For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
- * [`aws_elasticache_cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
+ * [`aws.elasticache.Cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
  * 
- * > **Note:** When you change an attribute, such as `engine_version`, by
+ * > **Note:** When you change an attribute, such as `engineVersion`, by
  * default the ElastiCache API applies it in the next maintenance window. Because
  * of this, this provider may report a difference in its planning phase because the
  * actual modification has not yet taken place. You can use the
- * `apply_immediately` flag to instruct the service to apply the change
- * immediately. Using `apply_immediately` can result in a brief downtime as
+ * `applyImmediately` flag to instruct the service to apply the change
+ * immediately. Using `applyImmediately` can result in a brief downtime as
  * servers reboots.
  * 
  * ## Example Usage
@@ -43,8 +43,8 @@ import * as utilities from "../utilities";
  * 
  * You have two options for adjusting the number of replicas:
  * 
- * * Adjusting `number_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g. preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
- * * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the [`aws_elasticache_cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html) and its `replication_group_id` attribute. In this situation, you will need to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` to prevent perpetual differences with the `number_cache_cluster` attribute.
+ * * Adjusting `numberCacheClusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g. preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
+ * * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the [`aws.elasticache.Cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html) and its `replicationGroupId` attribute. In this situation, you will need to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` to prevent perpetual differences with the `numberCacheCluster` attribute.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * > **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.
+ * > **Note:** We currently do not support passing a `primaryClusterId` in order to create the Replication Group.
  * 
  * > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
  * and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
@@ -132,7 +132,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly atRestEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+     * The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
     public readonly authToken!: pulumi.Output<string | undefined>;
     /**
@@ -148,7 +148,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
-     * Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+     * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
      */
     public readonly clusterMode!: pulumi.Output<{ numNodeGroups: number, replicasPerNodeGroup: number }>;
     /**
@@ -222,7 +222,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly snapshotArns!: pulumi.Output<string[] | undefined>;
     /**
-     * The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+     * The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
      */
     public readonly snapshotName!: pulumi.Output<string | undefined>;
     /**
@@ -230,7 +230,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * retain automatic cache cluster snapshots before deleting them. For example, if you set
      * SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
      * before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-     * Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+     * Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
      */
     public readonly snapshotRetentionLimit!: pulumi.Output<number | undefined>;
     /**
@@ -351,7 +351,7 @@ export interface ReplicationGroupState {
      */
     readonly atRestEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+     * The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
     readonly authToken?: pulumi.Input<string>;
     /**
@@ -367,7 +367,7 @@ export interface ReplicationGroupState {
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+     * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
      */
     readonly clusterMode?: pulumi.Input<{ numNodeGroups: pulumi.Input<number>, replicasPerNodeGroup: pulumi.Input<number> }>;
     /**
@@ -441,7 +441,7 @@ export interface ReplicationGroupState {
      */
     readonly snapshotArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+     * The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
      */
     readonly snapshotName?: pulumi.Input<string>;
     /**
@@ -449,7 +449,7 @@ export interface ReplicationGroupState {
      * retain automatic cache cluster snapshots before deleting them. For example, if you set
      * SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
      * before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-     * Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+     * Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
      */
     readonly snapshotRetentionLimit?: pulumi.Input<number>;
     /**
@@ -484,7 +484,7 @@ export interface ReplicationGroupArgs {
      */
     readonly atRestEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+     * The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
     readonly authToken?: pulumi.Input<string>;
     /**
@@ -500,7 +500,7 @@ export interface ReplicationGroupArgs {
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+     * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
      */
     readonly clusterMode?: pulumi.Input<{ numNodeGroups: pulumi.Input<number>, replicasPerNodeGroup: pulumi.Input<number> }>;
     /**
@@ -562,7 +562,7 @@ export interface ReplicationGroupArgs {
      */
     readonly snapshotArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+     * The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
      */
     readonly snapshotName?: pulumi.Input<string>;
     /**
@@ -570,7 +570,7 @@ export interface ReplicationGroupArgs {
      * retain automatic cache cluster snapshots before deleting them. For example, if you set
      * SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
      * before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-     * Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+     * Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
      */
     readonly snapshotRetentionLimit?: pulumi.Input<number>;
     /**

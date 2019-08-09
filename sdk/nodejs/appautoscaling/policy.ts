@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodb_table_read_target", {
+ * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodbTableReadTarget", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
  *     resourceId: "table/tableName",
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });
- * const dynamodbTableReadPolicy = new aws.appautoscaling.Policy("dynamodb_table_read_policy", {
+ * const dynamodbTableReadPolicy = new aws.appautoscaling.Policy("dynamodbTableReadPolicy", {
  *     policyType: "TargetTrackingScaling",
  *     resourceId: dynamodbTableReadTarget.resourceId,
  *     scalableDimension: dynamodbTableReadTarget.scalableDimension,
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ecsTarget = new aws.appautoscaling.Target("ecs_target", {
+ * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
  *     resourceId: "service/clusterName/serviceName",
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
  * });
- * const ecsPolicy = new aws.appautoscaling.Policy("ecs_policy", {
+ * const ecsPolicy = new aws.appautoscaling.Policy("ecsPolicy", {
  *     policyType: "StepScaling",
  *     resourceId: ecsTarget.resourceId,
  *     scalableDimension: ecsTarget.scalableDimension,
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ecsService = new aws.ecs.Service("ecs_service", {
+ * const ecsService = new aws.ecs.Service("ecsService", {
  *     cluster: "clusterName",
  *     desiredCount: 2,
  *     taskDefinition: "taskDefinitionFamily:1",
@@ -112,27 +112,27 @@ import * as utilities from "../utilities";
  * 
  * ## Nested fields
  * 
- * ### `target_tracking_scaling_policy_configuration`
+ * ### `targetTrackingScalingPolicyConfiguration`
  * 
- * * `target_value` - (Required) The target value for the metric.
- * * `disable_scale_in` - (Optional) Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
- * * `scale_in_cooldown` - (Optional) The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
- * * `scale_out_cooldown` - (Optional) The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
- * * `customized_metric_specification` - (Optional) A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
- * * `predefined_metric_specification` - (Optional) A predefined metric. See supported fields below.
+ * * `targetValue` - (Required) The target value for the metric.
+ * * `disableScaleIn` - (Optional) Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+ * * `scaleInCooldown` - (Optional) The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+ * * `scaleOutCooldown` - (Optional) The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+ * * `customizedMetricSpecification` - (Optional) A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+ * * `predefinedMetricSpecification` - (Optional) A predefined metric. See supported fields below.
  * 
- * ### `customized_metric_specification`
+ * ### `customizedMetricSpecification`
  * 
  * * `dimensions` - (Optional) The dimensions of the metric.
- * * `metric_name` - (Required) The name of the metric.
+ * * `metricName` - (Required) The name of the metric.
  * * `namespace` - (Required) The namespace of the metric.
  * * `statistic` - (Required) The statistic of the metric.
  * * `unit` - (Optional) The unit of the metric.
  * 
- * ### `predefined_metric_specification`
+ * ### `predefinedMetricSpecification`
  * 
- * * `predefined_metric_type` - (Required) The metric type.
- * * `resource_label` - (Optional) Reserved for future use.
+ * * `predefinedMetricType` - (Required) The metric type.
+ * * `resourceLabel` - (Optional) Reserved for future use.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_policy.html.markdown.
  */
@@ -189,11 +189,11 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly serviceNamespace!: pulumi.Output<string>;
     /**
-     * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+     * Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
      */
     public readonly stepScalingPolicyConfiguration!: pulumi.Output<{ adjustmentType?: string, cooldown?: number, metricAggregationType?: string, minAdjustmentMagnitude?: number, stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] } | undefined>;
     /**
-     * A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+     * A target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
      */
     public readonly targetTrackingScalingPolicyConfiguration!: pulumi.Output<{ customizedMetricSpecification?: { dimensions?: { name: string, value: string }[], metricName: string, namespace: string, statistic: string, unit?: string }, disableScaleIn?: boolean, predefinedMetricSpecification?: { predefinedMetricType: string, resourceLabel?: string }, scaleInCooldown?: number, scaleOutCooldown?: number, targetValue: number } | undefined>;
 
@@ -280,11 +280,11 @@ export interface PolicyState {
      */
     readonly serviceNamespace?: pulumi.Input<string>;
     /**
-     * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+     * Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
      */
     readonly stepScalingPolicyConfiguration?: pulumi.Input<{ adjustmentType?: pulumi.Input<string>, cooldown?: pulumi.Input<number>, metricAggregationType?: pulumi.Input<string>, minAdjustmentMagnitude?: pulumi.Input<number>, stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]> }>;
     /**
-     * A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+     * A target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
      */
     readonly targetTrackingScalingPolicyConfiguration?: pulumi.Input<{ customizedMetricSpecification?: pulumi.Input<{ dimensions?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, metricName: pulumi.Input<string>, namespace: pulumi.Input<string>, statistic: pulumi.Input<string>, unit?: pulumi.Input<string> }>, disableScaleIn?: pulumi.Input<boolean>, predefinedMetricSpecification?: pulumi.Input<{ predefinedMetricType: pulumi.Input<string>, resourceLabel?: pulumi.Input<string> }>, scaleInCooldown?: pulumi.Input<number>, scaleOutCooldown?: pulumi.Input<number>, targetValue: pulumi.Input<number> }>;
 }
@@ -315,11 +315,11 @@ export interface PolicyArgs {
      */
     readonly serviceNamespace: pulumi.Input<string>;
     /**
-     * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+     * Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
      */
     readonly stepScalingPolicyConfiguration?: pulumi.Input<{ adjustmentType?: pulumi.Input<string>, cooldown?: pulumi.Input<number>, metricAggregationType?: pulumi.Input<string>, minAdjustmentMagnitude?: pulumi.Input<number>, stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]> }>;
     /**
-     * A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+     * A target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
      */
     readonly targetTrackingScalingPolicyConfiguration?: pulumi.Input<{ customizedMetricSpecification?: pulumi.Input<{ dimensions?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, metricName: pulumi.Input<string>, namespace: pulumi.Input<string>, statistic: pulumi.Input<string>, unit?: pulumi.Input<string> }>, disableScaleIn?: pulumi.Input<boolean>, predefinedMetricSpecification?: pulumi.Input<{ predefinedMetricType: pulumi.Input<string>, resourceLabel?: pulumi.Input<string> }>, scaleInCooldown?: pulumi.Input<number>, scaleOutCooldown?: pulumi.Input<number>, targetValue: pulumi.Input<number> }>;
 }

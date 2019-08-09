@@ -180,14 +180,39 @@ class GetLaunchTemplateResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetLaunchTemplateResult(
+            arn=self.arn,
+            block_device_mappings=self.block_device_mappings,
+            credit_specifications=self.credit_specifications,
+            default_version=self.default_version,
+            description=self.description,
+            disable_api_termination=self.disable_api_termination,
+            ebs_optimized=self.ebs_optimized,
+            elastic_gpu_specifications=self.elastic_gpu_specifications,
+            iam_instance_profiles=self.iam_instance_profiles,
+            image_id=self.image_id,
+            instance_initiated_shutdown_behavior=self.instance_initiated_shutdown_behavior,
+            instance_market_options=self.instance_market_options,
+            instance_type=self.instance_type,
+            kernel_id=self.kernel_id,
+            key_name=self.key_name,
+            latest_version=self.latest_version,
+            monitorings=self.monitorings,
+            name=self.name,
+            network_interfaces=self.network_interfaces,
+            placements=self.placements,
+            ram_disk_id=self.ram_disk_id,
+            security_group_names=self.security_group_names,
+            tag_specifications=self.tag_specifications,
+            tags=self.tags,
+            user_data=self.user_data,
+            vpc_security_group_ids=self.vpc_security_group_ids,
+            id=self.id)
 
 def get_launch_template(name=None,tags=None,opts=None):
     """
@@ -205,7 +230,7 @@ def get_launch_template(name=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLaunchTemplate:getLaunchTemplate', __args__, opts=opts).value
 
-    return GetLaunchTemplateResult(
+    return AwaitableGetLaunchTemplateResult(
         arn=__ret__.get('arn'),
         block_device_mappings=__ret__.get('blockDeviceMappings'),
         credit_specifications=__ret__.get('creditSpecifications'),

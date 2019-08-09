@@ -18,16 +18,16 @@ import {ARN} from "../index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testStream = new aws.kinesis.Stream("test_stream", {
+ * const testStream = new aws.kinesis.Stream("testStream", {
  *     shardCount: 1,
  * });
- * const testApplication = new aws.kinesis.AnalyticsApplication("test_application", {
+ * const testApplication = new aws.kinesis.AnalyticsApplication("testApplication", {
  *     inputs: {
  *         kinesisStream: {
  *             resourceArn: testStream.arn,
  *             roleArn: aws_iam_role_test.arn,
  *         },
- *         namePrefix: "test_prefix",
+ *         namePrefix: "testPrefix",
  *         parallelism: {
  *             count: 1,
  *         },

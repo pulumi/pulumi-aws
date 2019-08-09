@@ -22,18 +22,18 @@ class GetWebAclResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetWebAclResult(GetWebAclResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetWebAclResult(
+            name=self.name,
+            id=self.id)
 
 def get_web_acl(name=None,opts=None):
     """
-    `aws_wafregional_web_acl` Retrieves a WAF Regional Web ACL Resource Id.
+    `wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_web_acl.html.markdown.
     """
@@ -46,6 +46,6 @@ def get_web_acl(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:wafregional/getWebAcl:getWebAcl', __args__, opts=opts).value
 
-    return GetWebAclResult(
+    return AwaitableGetWebAclResult(
         name=__ret__.get('name'),
         id=__ret__.get('id'))

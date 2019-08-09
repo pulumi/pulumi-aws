@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * Instances and DocDB manages the replication. You can use the [count][3]
  * meta-parameter to make multiple instances and join them all to the same DocDB
  * Cluster, or you may specify different Cluster Instance resources with various
- * `instance_class` sizes.
+ * `instanceClass` sizes.
  * 
  * ## Example Usage
  * 
@@ -87,7 +87,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * The identifier of the [`aws_docdb_cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+     * The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
@@ -262,7 +262,7 @@ export interface ClusterInstanceState {
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws_docdb_cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+     * The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
@@ -358,7 +358,7 @@ export interface ClusterInstanceArgs {
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws_docdb_cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+     * The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
      */
     readonly clusterIdentifier: pulumi.Input<string>;
     /**

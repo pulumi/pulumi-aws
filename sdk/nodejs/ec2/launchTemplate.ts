@@ -146,7 +146,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
     public readonly ramDiskId!: pulumi.Output<string | undefined>;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
-     * `vpc_security_group_ids` instead.
+     * `vpcSecurityGroupIds` instead.
      */
     public readonly securityGroupNames!: pulumi.Output<string[] | undefined>;
     /**
@@ -366,7 +366,7 @@ export interface LaunchTemplateState {
     readonly ramDiskId?: pulumi.Input<string>;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
-     * `vpc_security_group_ids` instead.
+     * `vpcSecurityGroupIds` instead.
      */
     readonly securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -489,7 +489,7 @@ export interface LaunchTemplateArgs {
     readonly ramDiskId?: pulumi.Input<string>;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
-     * `vpc_security_group_ids` instead.
+     * `vpcSecurityGroupIds` instead.
      */
     readonly securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**

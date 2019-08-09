@@ -57,7 +57,7 @@ class SecurityGroupRule(pulumi.CustomResource):
     The type of rule being created. Valid options are `ingress` (inbound)
     or `egress` (outbound).
     """
-    def __init__(__self__, resource_name, opts=None, cidr_blocks=None, description=None, from_port=None, ipv6_cidr_blocks=None, prefix_list_ids=None, protocol=None, security_group_id=None, self=None, source_security_group_id=None, to_port=None, type=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cidr_blocks=None, description=None, from_port=None, ipv6_cidr_blocks=None, prefix_list_ids=None, protocol=None, security_group_id=None, self=None, source_security_group_id=None, to_port=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a security group rule resource. Represents a single `ingress` or
         `egress` group rule, which can be added to external Security Groups.
@@ -99,58 +99,85 @@ class SecurityGroupRule(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['cidr_blocks'] = cidr_blocks
-
-        __props__['description'] = description
-
-        if from_port is None:
-            raise TypeError("Missing required property 'from_port'")
-        __props__['from_port'] = from_port
-
-        __props__['ipv6_cidr_blocks'] = ipv6_cidr_blocks
-
-        __props__['prefix_list_ids'] = prefix_list_ids
-
-        if protocol is None:
-            raise TypeError("Missing required property 'protocol'")
-        __props__['protocol'] = protocol
-
-        if security_group_id is None:
-            raise TypeError("Missing required property 'security_group_id'")
-        __props__['security_group_id'] = security_group_id
-
-        __props__['self'] = self
-
-        __props__['source_security_group_id'] = source_security_group_id
-
-        if to_port is None:
-            raise TypeError("Missing required property 'to_port'")
-        __props__['to_port'] = to_port
-
-        if type is None:
-            raise TypeError("Missing required property 'type'")
-        __props__['type'] = type
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['cidr_blocks'] = cidr_blocks
+            __props__['description'] = description
+            if from_port is None:
+                raise TypeError("Missing required property 'from_port'")
+            __props__['from_port'] = from_port
+            __props__['ipv6_cidr_blocks'] = ipv6_cidr_blocks
+            __props__['prefix_list_ids'] = prefix_list_ids
+            if protocol is None:
+                raise TypeError("Missing required property 'protocol'")
+            __props__['protocol'] = protocol
+            if security_group_id is None:
+                raise TypeError("Missing required property 'security_group_id'")
+            __props__['security_group_id'] = security_group_id
+            __props__['self'] = self
+            __props__['source_security_group_id'] = source_security_group_id
+            if to_port is None:
+                raise TypeError("Missing required property 'to_port'")
+            __props__['to_port'] = to_port
+            if type is None:
+                raise TypeError("Missing required property 'type'")
+            __props__['type'] = type
         super(SecurityGroupRule, __self__).__init__(
             'aws:ec2/securityGroupRule:SecurityGroupRule',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, cidr_blocks=None, description=None, from_port=None, ipv6_cidr_blocks=None, prefix_list_ids=None, protocol=None, security_group_id=None, self=None, source_security_group_id=None, to_port=None, type=None):
+        """
+        Get an existing SecurityGroupRule resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+        :param pulumi.Input[str] description: Description of the rule.
+        :param pulumi.Input[float] from_port: The start port (or ICMP type number if protocol is "icmp").
+        :param pulumi.Input[list] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
+        :param pulumi.Input[list] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints).
+               Only valid with `egress`.
+        :param pulumi.Input[str] protocol: The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        :param pulumi.Input[str] security_group_id: The security group to apply this rule to.
+        :param pulumi.Input[bool] self: If true, the security group itself will be added as
+               a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+        :param pulumi.Input[str] source_security_group_id: The security group id to allow access to/from,
+               depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+        :param pulumi.Input[float] to_port: The end port (or ICMP code if protocol is "icmp").
+        :param pulumi.Input[str] type: The type of rule being created. Valid options are `ingress` (inbound)
+               or `egress` (outbound).
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group_rule.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["cidr_blocks"] = cidr_blocks
+        __props__["description"] = description
+        __props__["from_port"] = from_port
+        __props__["ipv6_cidr_blocks"] = ipv6_cidr_blocks
+        __props__["prefix_list_ids"] = prefix_list_ids
+        __props__["protocol"] = protocol
+        __props__["security_group_id"] = security_group_id
+        __props__["self"] = self
+        __props__["source_security_group_id"] = source_security_group_id
+        __props__["to_port"] = to_port
+        __props__["type"] = type
+        return SecurityGroupRule(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

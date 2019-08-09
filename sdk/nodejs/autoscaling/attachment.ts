@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * > **NOTE on AutoScaling Groups and ASG Attachments:** This provider currently provides
  * both a standalone ASG Attachment resource (describing an ASG attached to
  * an ELB), and an AutoScaling Group resource with
- * `load_balancers` defined in-line. At this time you cannot use an ASG with in-line
+ * `loadBalancers` defined in-line. At this time you cannot use an ASG with in-line
  * load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
  * conflict and will overwrite attachments.
  * 
@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * // Create a new load balancer attachment
- * const asgAttachmentBar = new aws.autoscaling.Attachment("asg_attachment_bar", {
+ * const asgAttachmentBar = new aws.autoscaling.Attachment("asgAttachmentBar", {
  *     autoscalingGroupName: aws_autoscaling_group_asg.id,
  *     elb: aws_elb_bar.id,
  * });
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * // Create a new ALB Target Group attachment
- * const asgAttachmentBar = new aws.autoscaling.Attachment("asg_attachment_bar", {
+ * const asgAttachmentBar = new aws.autoscaling.Attachment("asgAttachmentBar", {
  *     albTargetGroupArn: aws_alb_target_group_test.arn,
  *     autoscalingGroupName: aws_autoscaling_group_asg.id,
  * });

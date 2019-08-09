@@ -157,7 +157,7 @@ func (r *Domain) Endpoint() *pulumi.StringOutput {
 }
 
 // Domain-specific endpoint for kibana without https scheme.
-// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 // * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
 func (r *Domain) KibanaEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kibanaEndpoint"])
@@ -215,7 +215,7 @@ type DomainState struct {
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
 	Endpoint interface{}
 	// Domain-specific endpoint for kibana without https scheme.
-	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
 	KibanaEndpoint interface{}
 	// Options for publishing slow logs to CloudWatch Logs.

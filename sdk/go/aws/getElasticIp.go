@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `aws_eip` provides details about a specific Elastic IP.
+// `ec2.Eip` provides details about a specific Elastic IP.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.
 func LookupElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs) (*GetElasticIpResult, error) {
@@ -43,7 +43,7 @@ func LookupElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs) (*GetElasticIp
 type GetElasticIpArgs struct {
 	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
 	Filters interface{}
-	// The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+	// The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
 	Id interface{}
 	// The public IP of the specific EIP to retrieve.
 	PublicIp interface{}

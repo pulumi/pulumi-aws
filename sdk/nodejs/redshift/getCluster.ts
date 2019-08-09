@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const testCluster = pulumi.output(aws.redshift.getCluster({
  *     clusterIdentifier: "test-cluster",
  * }));
- * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
+ * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "redshift",
  *     redshiftConfiguration: {
  *         clusterJdbcurl: pulumi.interpolate`jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,

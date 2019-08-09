@@ -49,14 +49,23 @@ class GetServerCertificateResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetServerCertificateResult(GetServerCertificateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetServerCertificateResult(
+            arn=self.arn,
+            certificate_body=self.certificate_body,
+            certificate_chain=self.certificate_chain,
+            expiration_date=self.expiration_date,
+            latest=self.latest,
+            name=self.name,
+            name_prefix=self.name_prefix,
+            path=self.path,
+            path_prefix=self.path_prefix,
+            upload_date=self.upload_date,
+            id=self.id)
 
 def get_server_certificate(latest=None,name=None,name_prefix=None,path_prefix=None,opts=None):
     """
@@ -81,7 +90,7 @@ def get_server_certificate(latest=None,name=None,name_prefix=None,path_prefix=No
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getServerCertificate:getServerCertificate', __args__, opts=opts).value
 
-    return GetServerCertificateResult(
+    return AwaitableGetServerCertificateResult(
         arn=__ret__.get('arn'),
         certificate_body=__ret__.get('certificateBody'),
         certificate_chain=__ret__.get('certificateChain'),

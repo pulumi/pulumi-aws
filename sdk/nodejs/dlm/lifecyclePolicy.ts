@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const dlmLifecycleRole = new aws.iam.Role("dlm_lifecycle_role", {
+ * const dlmLifecycleRole = new aws.iam.Role("dlmLifecycleRole", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     },
  *     state: "ENABLED",
  * });
- * const dlmLifecycle = new aws.iam.RolePolicy("dlm_lifecycle", {
+ * const dlmLifecycle = new aws.iam.RolePolicy("dlmLifecycle", {
  *     policy: `{
  *    "Version": "2012-10-17",
  *    "Statement": [
@@ -121,7 +121,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      */
     public readonly executionRoleArn!: pulumi.Output<string>;
     /**
-     * See the `policy_details` configuration block. Max of 1.
+     * See the `policyDetails` configuration block. Max of 1.
      */
     public readonly policyDetails!: pulumi.Output<{ resourceTypes: string[], schedules: { copyTags: boolean, createRule: { interval: number, intervalUnit?: string, times: string }, name: string, retainRule: { count: number }, tagsToAdd?: {[key: string]: any} }[], targetTags: {[key: string]: any} }>;
     /**
@@ -185,7 +185,7 @@ export interface LifecyclePolicyState {
      */
     readonly executionRoleArn?: pulumi.Input<string>;
     /**
-     * See the `policy_details` configuration block. Max of 1.
+     * See the `policyDetails` configuration block. Max of 1.
      */
     readonly policyDetails?: pulumi.Input<{ resourceTypes: pulumi.Input<pulumi.Input<string>[]>, schedules: pulumi.Input<pulumi.Input<{ copyTags?: pulumi.Input<boolean>, createRule: pulumi.Input<{ interval: pulumi.Input<number>, intervalUnit?: pulumi.Input<string>, times?: pulumi.Input<string> }>, name: pulumi.Input<string>, retainRule: pulumi.Input<{ count: pulumi.Input<number> }>, tagsToAdd?: pulumi.Input<{[key: string]: any}> }>[]>, targetTags: pulumi.Input<{[key: string]: any}> }>;
     /**
@@ -207,7 +207,7 @@ export interface LifecyclePolicyArgs {
      */
     readonly executionRoleArn: pulumi.Input<string>;
     /**
-     * See the `policy_details` configuration block. Max of 1.
+     * See the `policyDetails` configuration block. Max of 1.
      */
     readonly policyDetails: pulumi.Input<{ resourceTypes: pulumi.Input<pulumi.Input<string>[]>, schedules: pulumi.Input<pulumi.Input<{ copyTags?: pulumi.Input<boolean>, createRule: pulumi.Input<{ interval: pulumi.Input<number>, intervalUnit?: pulumi.Input<string>, times?: pulumi.Input<string> }>, name: pulumi.Input<string>, retainRule: pulumi.Input<{ count: pulumi.Input<number> }>, tagsToAdd?: pulumi.Input<{[key: string]: any}> }>[]>, targetTags: pulumi.Input<{[key: string]: any}> }>;
     /**

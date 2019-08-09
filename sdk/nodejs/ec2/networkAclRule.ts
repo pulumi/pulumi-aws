@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * > **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
+ * > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl_rule.html.markdown.
  */

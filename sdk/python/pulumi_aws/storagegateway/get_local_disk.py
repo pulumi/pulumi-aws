@@ -34,14 +34,17 @@ class GetLocalDiskResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetLocalDiskResult(GetLocalDiskResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetLocalDiskResult(
+            disk_id=self.disk_id,
+            disk_node=self.disk_node,
+            disk_path=self.disk_path,
+            gateway_arn=self.gateway_arn,
+            id=self.id)
 
 def get_local_disk(disk_node=None,disk_path=None,gateway_arn=None,opts=None):
     """
@@ -60,7 +63,7 @@ def get_local_disk(disk_node=None,disk_path=None,gateway_arn=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:storagegateway/getLocalDisk:getLocalDisk', __args__, opts=opts).value
 
-    return GetLocalDiskResult(
+    return AwaitableGetLocalDiskResult(
         disk_id=__ret__.get('diskId'),
         disk_node=__ret__.get('diskNode'),
         disk_path=__ret__.get('diskPath'),

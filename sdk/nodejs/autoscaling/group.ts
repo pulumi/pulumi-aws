@@ -11,7 +11,7 @@ import {Metric, MetricsGranularity} from "./metrics";
 /**
  * Provides an AutoScaling Group resource.
  * 
- * > **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
+ * > **Note:** You must specify either `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
  * 
  * ## Example Usage
  * 
@@ -157,7 +157,7 @@ import {Metric, MetricsGranularity} from "./metrics";
  *             propagate_at_launch: true,
  *             value: "value2",
  *         },
- *         ...[{"key": "interpolation1", "value": "value3", "propagate_at_launch": true}, {"key": "interpolation2", "value": "value4", "propagate_at_launch": true}].concat(extraTags),
+ *         ...[{"key": "interpolation1", "value": "value3", "propagateAtLaunch": true}, {"key": "interpolation2", "value": "value4", "propagateAtLaunch": true}].concat(extraTags),
  *     ],
  *     vpcZoneIdentifiers: [
  *         aws_subnet_example1.id,
@@ -168,8 +168,8 @@ import {Metric, MetricsGranularity} from "./metrics";
  * 
  * ## Waiting for Capacity
  * 
- * A newly-created ASG is initially empty and begins to scale to `min_size` (or
- * `desired_capacity`, if specified) by launching instances using the provided
+ * A newly-created ASG is initially empty and begins to scale to `minSize` (or
+ * `desiredCapacity`, if specified) by launching instances using the provided
  * Launch Configuration. These instances take time to launch and boot.
  * 
  * On ASG Update, changes to these values also take time to result in the target
@@ -181,10 +181,10 @@ import {Metric, MetricsGranularity} from "./metrics";
  * #### Waiting for ASG Capacity
  * 
  * The first is default behavior. This provider waits after ASG creation for
- * `min_size` (or `desired_capacity`, if specified) healthy instances to show up
+ * `minSize` (or `desiredCapacity`, if specified) healthy instances to show up
  * in the ASG before continuing.
  * 
- * If `min_size` or `desired_capacity` are changed in a subsequent update,
+ * If `minSize` or `desiredCapacity` are changed in a subsequent update,
  * this provider will also wait for the correct number of healthy instances before
  * continuing.
  * 
@@ -194,22 +194,22 @@ import {Metric, MetricsGranularity} from "./metrics";
  * for more information on an ASG's lifecycle.
  * 
  * This provider will wait for healthy instances for up to
- * `wait_for_capacity_timeout`. If ASG creation is taking more than a few minutes,
+ * `waitForCapacityTimeout`. If ASG creation is taking more than a few minutes,
  * it's worth investigating for scaling activity errors, which can be caused by
  * problems with the selected Launch Configuration.
  * 
- * Setting `wait_for_capacity_timeout` to `"0"` disables ASG Capacity waiting.
+ * Setting `waitForCapacityTimeout` to `"0"` disables ASG Capacity waiting.
  * 
  * #### Waiting for ELB Capacity
  * 
  * The second mechanism is optional, and affects ASGs with attached ELBs specified
- * via the `load_balancers` attribute or with ALBs specified with `target_group_arns`.
+ * via the `loadBalancers` attribute or with ALBs specified with `targetGroupArns`.
  * 
- * The `min_elb_capacity` parameter causes this provider to wait for at least the
+ * The `minElbCapacity` parameter causes this provider to wait for at least the
  * requested number of instances to show up `"InService"` in all attached ELBs
  * during ASG creation.  It has no effect on ASG updates.
  * 
- * If `wait_for_elb_capacity` is set, this provider will wait for exactly that number
+ * If `waitForElbCapacity` is set, this provider will wait for exactly that number
  * of Instances to be `"InService"` in all attached ELBs on both creation and
  * updates.
  * 
@@ -218,7 +218,7 @@ import {Metric, MetricsGranularity} from "./metrics";
  * reason, the deployment will time out, and the ASG will be marked as
  * tainted (i.e. marked to be destroyed in a follow up run).
  * 
- * As with ASG Capacity, this provider will wait for up to `wait_for_capacity_timeout`
+ * As with ASG Capacity, this provider will wait for up to `waitForCapacityTimeout`
  * for the proper number of instances to be healthy.
  * 
  * #### Troubleshooting Capacity Waiting Timeouts
@@ -262,7 +262,7 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
+     * A list of one or more availability zones for the group. This parameter should not be specified when using `vpcZoneIdentifier`.
      */
     public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
@@ -277,7 +277,7 @@ export class Group extends pulumi.CustomResource {
     public readonly desiredCapacity!: pulumi.Output<number>;
     /**
      * A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
-     * * `wait_for_capacity_timeout` (Default: "10m") A maximum
+     * * `waitForCapacityTimeout` (Default: "10m") A maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
      * wait for ASG instances to be healthy before timing out.  (See also Waiting
      * for Capacity below.) Setting this to "0" causes
@@ -305,9 +305,9 @@ export class Group extends pulumi.CustomResource {
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
      * to attach to the autoscaling group **before** instances are launched. The
      * syntax is exactly the same as the separate
-     * [`aws_autoscaling_lifecycle_hook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
-     * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
-     * a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
+     * [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+     * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
+     * a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
     public readonly initialLifecycleHooks!: pulumi.Output<{ defaultResult: string, heartbeatTimeout?: number, lifecycleTransition: string, name: string, notificationMetadata?: string, notificationTargetArn?: string, roleArn?: string }[] | undefined>;
     /**
@@ -320,7 +320,7 @@ export class Group extends pulumi.CustomResource {
     public readonly launchTemplate!: pulumi.Output<{ id: string, name: string, version?: string } | undefined>;
     /**
      * A list of elastic load balancer names to add to the autoscaling
-     * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+     * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
      */
     public readonly loadBalancers!: pulumi.Output<string[]>;
     /**
@@ -384,7 +384,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly tagsCollection!: pulumi.Output<{[key: string]: any}[] | undefined>;
     /**
-     * A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
+     * A list of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
      */
     public readonly targetGroupArns!: pulumi.Output<string[]>;
     /**
@@ -400,7 +400,7 @@ export class Group extends pulumi.CustomResource {
      * Setting this will cause this provider to wait
      * for exactly this number of healthy instances from this autoscaling group in
      * all attached load balancers on both create and update operations. (Takes
-     * precedence over `min_elb_capacity` behavior.)
+     * precedence over `minElbCapacity` behavior.)
      * (See also Waiting for Capacity below.)
      */
     public readonly waitForElbCapacity!: pulumi.Output<number | undefined>;
@@ -506,7 +506,7 @@ export interface GroupState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
+     * A list of one or more availability zones for the group. This parameter should not be specified when using `vpcZoneIdentifier`.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -521,7 +521,7 @@ export interface GroupState {
     readonly desiredCapacity?: pulumi.Input<number>;
     /**
      * A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
-     * * `wait_for_capacity_timeout` (Default: "10m") A maximum
+     * * `waitForCapacityTimeout` (Default: "10m") A maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
      * wait for ASG instances to be healthy before timing out.  (See also Waiting
      * for Capacity below.) Setting this to "0" causes
@@ -549,9 +549,9 @@ export interface GroupState {
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
      * to attach to the autoscaling group **before** instances are launched. The
      * syntax is exactly the same as the separate
-     * [`aws_autoscaling_lifecycle_hook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
-     * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
-     * a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
+     * [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+     * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
+     * a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
     readonly initialLifecycleHooks?: pulumi.Input<pulumi.Input<{ defaultResult?: pulumi.Input<string>, heartbeatTimeout?: pulumi.Input<number>, lifecycleTransition: pulumi.Input<string>, name: pulumi.Input<string>, notificationMetadata?: pulumi.Input<string>, notificationTargetArn?: pulumi.Input<string>, roleArn?: pulumi.Input<string> }>[]>;
     /**
@@ -564,7 +564,7 @@ export interface GroupState {
     readonly launchTemplate?: pulumi.Input<{ id?: pulumi.Input<string>, name?: pulumi.Input<string>, version?: pulumi.Input<string> }>;
     /**
      * A list of elastic load balancer names to add to the autoscaling
-     * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+     * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
      */
     readonly loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -628,7 +628,7 @@ export interface GroupState {
      */
     readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
     /**
-     * A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
+     * A list of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
      */
     readonly targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -644,7 +644,7 @@ export interface GroupState {
      * Setting this will cause this provider to wait
      * for exactly this number of healthy instances from this autoscaling group in
      * all attached load balancers on both create and update operations. (Takes
-     * precedence over `min_elb_capacity` behavior.)
+     * precedence over `minElbCapacity` behavior.)
      * (See also Waiting for Capacity below.)
      */
     readonly waitForElbCapacity?: pulumi.Input<number>;
@@ -655,7 +655,7 @@ export interface GroupState {
  */
 export interface GroupArgs {
     /**
-     * A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
+     * A list of one or more availability zones for the group. This parameter should not be specified when using `vpcZoneIdentifier`.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -670,7 +670,7 @@ export interface GroupArgs {
     readonly desiredCapacity?: pulumi.Input<number>;
     /**
      * A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
-     * * `wait_for_capacity_timeout` (Default: "10m") A maximum
+     * * `waitForCapacityTimeout` (Default: "10m") A maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
      * wait for ASG instances to be healthy before timing out.  (See also Waiting
      * for Capacity below.) Setting this to "0" causes
@@ -698,9 +698,9 @@ export interface GroupArgs {
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
      * to attach to the autoscaling group **before** instances are launched. The
      * syntax is exactly the same as the separate
-     * [`aws_autoscaling_lifecycle_hook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
-     * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
-     * a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
+     * [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+     * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
+     * a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
     readonly initialLifecycleHooks?: pulumi.Input<pulumi.Input<{ defaultResult?: pulumi.Input<string>, heartbeatTimeout?: pulumi.Input<number>, lifecycleTransition: pulumi.Input<string>, name: pulumi.Input<string>, notificationMetadata?: pulumi.Input<string>, notificationTargetArn?: pulumi.Input<string>, roleArn?: pulumi.Input<string> }>[]>;
     /**
@@ -713,7 +713,7 @@ export interface GroupArgs {
     readonly launchTemplate?: pulumi.Input<{ id?: pulumi.Input<string>, name?: pulumi.Input<string>, version?: pulumi.Input<string> }>;
     /**
      * A list of elastic load balancer names to add to the autoscaling
-     * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+     * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
      */
     readonly loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -777,7 +777,7 @@ export interface GroupArgs {
      */
     readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
     /**
-     * A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
+     * A list of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
      */
     readonly targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -793,7 +793,7 @@ export interface GroupArgs {
      * Setting this will cause this provider to wait
      * for exactly this number of healthy instances from this autoscaling group in
      * all attached load balancers on both create and update operations. (Takes
-     * precedence over `min_elb_capacity` behavior.)
+     * precedence over `minElbCapacity` behavior.)
      * (See also Waiting for Capacity below.)
      */
     readonly waitForElbCapacity?: pulumi.Input<number>;

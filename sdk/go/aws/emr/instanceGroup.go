@@ -107,7 +107,7 @@ func (r *InstanceGroup) ClusterId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterId"])
 }
 
-// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 func (r *InstanceGroup) EbsConfigs() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsConfigs"])
 }
@@ -148,7 +148,7 @@ type InstanceGroupState struct {
 	BidPrice interface{}
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId interface{}
-	// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs interface{}
 	// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
 	EbsOptimized interface{}
@@ -170,7 +170,7 @@ type InstanceGroupArgs struct {
 	BidPrice interface{}
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId interface{}
-	// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs interface{}
 	// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
 	EbsOptimized interface{}

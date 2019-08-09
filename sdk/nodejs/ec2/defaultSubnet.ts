@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics)
  * in the current region.
  * 
- * The `aws_default_subnet` behaves differently from normal resources, in that
+ * The `aws.ec2.DefaultSubnet` behaves differently from normal resources, in that
  * this provider does not _create_ this resource, but instead "adopts" it
  * into management.
  * 
@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const defaultAz1 = new aws.ec2.DefaultSubnet("default_az1", {
+ * const defaultAz1 = new aws.ec2.DefaultSubnet("defaultAz1", {
  *     availabilityZone: "us-west-2a",
  *     tags: {
  *         Name: "Default subnet for us-west-2a",

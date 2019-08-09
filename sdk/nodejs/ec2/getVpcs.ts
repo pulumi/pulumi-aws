@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * export const foo = fooVpcs.ids;
  * ```
  * 
- * An example use case would be interpolate the `aws_vpcs` output into `count` of an aws_flow_log resource.
+ * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

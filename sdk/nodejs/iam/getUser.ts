@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = pulumi.output(aws.iam.getUser({
- *     userName: "an_example_user_name",
+ *     userName: "anExampleUserName",
  * }));
  * ```
  *

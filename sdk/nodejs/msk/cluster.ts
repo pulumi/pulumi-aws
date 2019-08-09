@@ -25,17 +25,17 @@ import * as utilities from "../utilities";
  * const sg = new aws.ec2.SecurityGroup("sg", {
  *     vpcId: vpc.id,
  * });
- * const subnetAz1 = new aws.ec2.Subnet("subnet_az1", {
+ * const subnetAz1 = new aws.ec2.Subnet("subnetAz1", {
  *     availabilityZone: azs.apply(azs => azs.names[0]),
  *     cidrBlock: "192.168.0.0/24",
  *     vpcId: vpc.id,
  * });
- * const subnetAz2 = new aws.ec2.Subnet("subnet_az2", {
+ * const subnetAz2 = new aws.ec2.Subnet("subnetAz2", {
  *     availabilityZone: azs.apply(azs => azs.names[1]),
  *     cidrBlock: "192.168.1.0/24",
  *     vpcId: vpc.id,
  * });
- * const subnetAz3 = new aws.ec2.Subnet("subnet_az3", {
+ * const subnetAz3 = new aws.ec2.Subnet("subnetAz3", {
  *     availabilityZone: azs.apply(azs => azs.names[2]),
  *     cidrBlock: "192.168.2.0/24",
  *     vpcId: vpc.id,
@@ -101,11 +101,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+     * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
      */
     public /*out*/ readonly bootstrapBrokers!: pulumi.Output<string>;
     /**
-     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
      */
     public /*out*/ readonly bootstrapBrokersTls!: pulumi.Output<string>;
     /**
@@ -229,11 +229,11 @@ export interface ClusterState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+     * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
      */
     readonly bootstrapBrokers?: pulumi.Input<string>;
     /**
-     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
      */
     readonly bootstrapBrokersTls?: pulumi.Input<string>;
     /**

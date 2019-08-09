@@ -11,10 +11,10 @@ import (
 // *Amazon Machine Image* (AMI).
 // 
 // If you just want to duplicate an existing AMI, possibly copying it to another
-// region, it's better to use `aws_ami_copy` instead.
+// region, it's better to use `ec2.AmiCopy` instead.
 // 
 // If you just want to share an existing AMI with another AWS account,
-// it's better to use `aws_ami_launch_permission` instead.
+// it's better to use `ec2.AmiLaunchPermission` instead.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami.html.markdown.
 type Ami struct {
@@ -102,7 +102,7 @@ func (r *Ami) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Machine architecture for created instances. Defaults to "x86_64".
+// Machine architecture for created instances. Defaults to "x8664".
 func (r *Ami) Architecture() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["architecture"])
 }
@@ -186,7 +186,7 @@ func (r *Ami) VirtualizationType() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Ami resources.
 type AmiState struct {
-	// Machine architecture for created instances. Defaults to "x86_64".
+	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture interface{}
 	// A longer, human-readable description for the AMI.
 	Description interface{}
@@ -227,7 +227,7 @@ type AmiState struct {
 
 // The set of arguments for constructing a Ami resource.
 type AmiArgs struct {
-	// Machine architecture for created instances. Defaults to "x86_64".
+	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture interface{}
 	// A longer, human-readable description for the AMI.
 	Description interface{}

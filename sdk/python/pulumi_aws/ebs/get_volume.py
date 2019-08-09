@@ -85,14 +85,25 @@ class GetVolumeResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetVolumeResult(GetVolumeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVolumeResult(
+            arn=self.arn,
+            availability_zone=self.availability_zone,
+            encrypted=self.encrypted,
+            filters=self.filters,
+            iops=self.iops,
+            kms_key_id=self.kms_key_id,
+            most_recent=self.most_recent,
+            size=self.size,
+            snapshot_id=self.snapshot_id,
+            tags=self.tags,
+            volume_id=self.volume_id,
+            volume_type=self.volume_type,
+            id=self.id)
 
 def get_volume(filters=None,most_recent=None,tags=None,opts=None):
     """
@@ -112,7 +123,7 @@ def get_volume(filters=None,most_recent=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ebs/getVolume:getVolume', __args__, opts=opts).value
 
-    return GetVolumeResult(
+    return AwaitableGetVolumeResult(
         arn=__ret__.get('arn'),
         availability_zone=__ret__.get('availabilityZone'),
         encrypted=__ret__.get('encrypted'),

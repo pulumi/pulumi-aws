@@ -17,14 +17,14 @@ class UserGroupMembership(pulumi.CustomResource):
     """
     The name of the [IAM User][2] to add to groups
     """
-    def __init__(__self__, resource_name, opts=None, groups=None, user=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, groups=None, user=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource for adding an [IAM User][2] to [IAM Groups][1]. This
         resource can be used multiple times with the same user for non-overlapping
         groups.
         
         To exclusively manage the users in a group, see the
-        [`aws_iam_group_membership` resource][3].
+        [`iam.GroupMembership` resource][3].
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -39,34 +39,48 @@ class UserGroupMembership(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if groups is None:
-            raise TypeError("Missing required property 'groups'")
-        __props__['groups'] = groups
-
-        if user is None:
-            raise TypeError("Missing required property 'user'")
-        __props__['user'] = user
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if groups is None:
+                raise TypeError("Missing required property 'groups'")
+            __props__['groups'] = groups
+            if user is None:
+                raise TypeError("Missing required property 'user'")
+            __props__['user'] = user
         super(UserGroupMembership, __self__).__init__(
             'aws:iam/userGroupMembership:UserGroupMembership',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, groups=None, user=None):
+        """
+        Get an existing UserGroupMembership resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] groups: A list of [IAM Groups][1] to add the user to
+        :param pulumi.Input[str] user: The name of the [IAM User][2] to add to groups
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_group_membership.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["groups"] = groups
+        __props__["user"] = user
+        return UserGroupMembership(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

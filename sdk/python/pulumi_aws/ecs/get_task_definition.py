@@ -52,14 +52,19 @@ class GetTaskDefinitionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetTaskDefinitionResult(GetTaskDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetTaskDefinitionResult(
+            family=self.family,
+            network_mode=self.network_mode,
+            revision=self.revision,
+            status=self.status,
+            task_definition=self.task_definition,
+            task_role_arn=self.task_role_arn,
+            id=self.id)
 
 def get_task_definition(task_definition=None,opts=None):
     """
@@ -77,7 +82,7 @@ def get_task_definition(task_definition=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecs/getTaskDefinition:getTaskDefinition', __args__, opts=opts).value
 
-    return GetTaskDefinitionResult(
+    return AwaitableGetTaskDefinitionResult(
         family=__ret__.get('family'),
         network_mode=__ret__.get('networkMode'),
         revision=__ret__.get('revision'),

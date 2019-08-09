@@ -131,7 +131,7 @@ export class HealthCheck extends pulumi.CustomResource {
      */
     public readonly cloudwatchAlarmRegion!: pulumi.Output<string | undefined>;
     /**
-     * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+     * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
      */
     public readonly enableSni!: pulumi.Output<boolean>;
     /**
@@ -164,7 +164,7 @@ export class HealthCheck extends pulumi.CustomResource {
     public readonly port!: pulumi.Output<number | undefined>;
     /**
      * This is a reference name used in Caller Reference
-     * (helpful for identifying single health_check set amongst others)
+     * (helpful for identifying single healthCheck set amongst others)
      */
     public readonly referenceName!: pulumi.Output<string | undefined>;
     /**
@@ -280,7 +280,7 @@ export interface HealthCheckState {
      */
     readonly cloudwatchAlarmRegion?: pulumi.Input<string>;
     /**
-     * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+     * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
      */
     readonly enableSni?: pulumi.Input<boolean>;
     /**
@@ -313,7 +313,7 @@ export interface HealthCheckState {
     readonly port?: pulumi.Input<number>;
     /**
      * This is a reference name used in Caller Reference
-     * (helpful for identifying single health_check set amongst others)
+     * (helpful for identifying single healthCheck set amongst others)
      */
     readonly referenceName?: pulumi.Input<string>;
     /**
@@ -363,7 +363,7 @@ export interface HealthCheckArgs {
      */
     readonly cloudwatchAlarmRegion?: pulumi.Input<string>;
     /**
-     * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+     * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
      */
     readonly enableSni?: pulumi.Input<boolean>;
     /**
@@ -396,7 +396,7 @@ export interface HealthCheckArgs {
     readonly port?: pulumi.Input<number>;
     /**
      * This is a reference name used in Caller Reference
-     * (helpful for identifying single health_check set amongst others)
+     * (helpful for identifying single healthCheck set amongst others)
      */
     readonly referenceName?: pulumi.Input<string>;
     /**

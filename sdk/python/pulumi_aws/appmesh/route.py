@@ -41,7 +41,7 @@ class Route(pulumi.CustomResource):
     """
     The name of the virtual router in which to create the route.
     """
-    def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, tags=None, virtual_router_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, tags=None, virtual_router_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AWS App Mesh route resource.
         
@@ -61,46 +61,68 @@ class Route(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if mesh_name is None:
-            raise TypeError("Missing required property 'mesh_name'")
-        __props__['mesh_name'] = mesh_name
-
-        __props__['name'] = name
-
-        if spec is None:
-            raise TypeError("Missing required property 'spec'")
-        __props__['spec'] = spec
-
-        __props__['tags'] = tags
-
-        if virtual_router_name is None:
-            raise TypeError("Missing required property 'virtual_router_name'")
-        __props__['virtual_router_name'] = virtual_router_name
-
-        __props__['arn'] = None
-        __props__['created_date'] = None
-        __props__['last_updated_date'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if mesh_name is None:
+                raise TypeError("Missing required property 'mesh_name'")
+            __props__['mesh_name'] = mesh_name
+            __props__['name'] = name
+            if spec is None:
+                raise TypeError("Missing required property 'spec'")
+            __props__['spec'] = spec
+            __props__['tags'] = tags
+            if virtual_router_name is None:
+                raise TypeError("Missing required property 'virtual_router_name'")
+            __props__['virtual_router_name'] = virtual_router_name
+            __props__['arn'] = None
+            __props__['created_date'] = None
+            __props__['last_updated_date'] = None
         super(Route, __self__).__init__(
             'aws:appmesh/route:Route',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, created_date=None, last_updated_date=None, mesh_name=None, name=None, spec=None, tags=None, virtual_router_name=None):
+        """
+        Get an existing Route resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the route.
+        :param pulumi.Input[str] created_date: The creation date of the route.
+        :param pulumi.Input[str] last_updated_date: The last update date of the route.
+        :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the route.
+        :param pulumi.Input[str] name: The name to use for the route.
+        :param pulumi.Input[dict] spec: The route specification to apply.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] virtual_router_name: The name of the virtual router in which to create the route.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_route.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["created_date"] = created_date
+        __props__["last_updated_date"] = last_updated_date
+        __props__["mesh_name"] = mesh_name
+        __props__["name"] = name
+        __props__["spec"] = spec
+        __props__["tags"] = tags
+        __props__["virtual_router_name"] = virtual_router_name
+        return Route(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

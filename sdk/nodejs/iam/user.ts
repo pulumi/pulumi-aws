@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an IAM user.
  * 
- * > *NOTE:* If policies are attached to the user via the [`aws_iam_policy_attachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`aws_iam_user_policy_attachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_user_policy_attachment.html) does not have this requirement.
+ * > *NOTE:* If policies are attached to the user via the [`aws.iam.PolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the user `name` or `path`, the `forceDestroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`aws.iam.UserPolicyAttachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_user_policy_attachment.html) does not have this requirement.
  * 
  * ## Example Usage
  * 
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * const lbAccessKey = new aws.iam.AccessKey("lb", {
  *     user: lbUser.name,
  * });
- * const lbRo = new aws.iam.UserPolicy("lb_ro", {
+ * const lbRo = new aws.iam.UserPolicy("lbRo", {
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -77,7 +77,7 @@ export class User extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * When destroying this user, destroy even if it
-     * has non-this provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+     * has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
      * a user with non-this provider-managed access keys and login profile will fail to be destroyed.
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
@@ -152,7 +152,7 @@ export interface UserState {
     readonly arn?: pulumi.Input<string>;
     /**
      * When destroying this user, destroy even if it
-     * has non-this provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+     * has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
      * a user with non-this provider-managed access keys and login profile will fail to be destroyed.
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
@@ -184,7 +184,7 @@ export interface UserState {
 export interface UserArgs {
     /**
      * When destroying this user, destroy even if it
-     * has non-this provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+     * has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
      * a user with non-this provider-managed access keys and login profile will fail to be destroyed.
      */
     readonly forceDestroy?: pulumi.Input<boolean>;

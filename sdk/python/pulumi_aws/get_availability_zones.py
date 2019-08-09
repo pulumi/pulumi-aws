@@ -40,14 +40,18 @@ class GetAvailabilityZonesResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAvailabilityZonesResult(GetAvailabilityZonesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAvailabilityZonesResult(
+            blacklisted_names=self.blacklisted_names,
+            blacklisted_zone_ids=self.blacklisted_zone_ids,
+            names=self.names,
+            state=self.state,
+            zone_ids=self.zone_ids,
+            id=self.id)
 
 def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=None,state=None,opts=None):
     """
@@ -55,7 +59,7 @@ def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=None,stat
     Availability Zones which can be accessed by an AWS account within the region
     configured in the provider.
     
-    This is different from the `aws_availability_zone` (singular) data source,
+    This is different from the `.getAvailabilityZone` (singular) data source,
     which provides some details about a specific availability zone.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
@@ -71,7 +75,7 @@ def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=None,stat
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZones:getAvailabilityZones', __args__, opts=opts).value
 
-    return GetAvailabilityZonesResult(
+    return AwaitableGetAvailabilityZonesResult(
         blacklisted_names=__ret__.get('blacklistedNames'),
         blacklisted_zone_ids=__ret__.get('blacklistedZoneIds'),
         names=__ret__.get('names'),

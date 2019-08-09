@@ -34,14 +34,16 @@ class GetLogGroupResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetLogGroupResult(GetLogGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetLogGroupResult(
+            arn=self.arn,
+            creation_time=self.creation_time,
+            name=self.name,
+            id=self.id)
 
 def get_log_group(name=None,opts=None):
     """
@@ -58,7 +60,7 @@ def get_log_group(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getLogGroup:getLogGroup', __args__, opts=opts).value
 
-    return GetLogGroupResult(
+    return AwaitableGetLogGroupResult(
         arn=__ret__.get('arn'),
         creation_time=__ret__.get('creationTime'),
         name=__ret__.get('name'),

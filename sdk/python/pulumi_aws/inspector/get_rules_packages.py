@@ -25,14 +25,14 @@ class GetRulesPackagesResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetRulesPackagesResult(GetRulesPackagesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRulesPackagesResult(
+            arns=self.arns,
+            id=self.id)
 
 def get_rules_packages(opts=None):
     """
@@ -50,6 +50,6 @@ def get_rules_packages(opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:inspector/getRulesPackages:getRulesPackages', __args__, opts=opts).value
 
-    return GetRulesPackagesResult(
+    return AwaitableGetRulesPackagesResult(
         arns=__ret__.get('arns'),
         id=__ret__.get('id'))

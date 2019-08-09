@@ -15,7 +15,7 @@ import (
 // of when using it. Please read this document in its entirety before using this
 // resource.
 // 
-// The `aws_default_security_group` behaves differently from normal resources, in that
+// The `ec2.DefaultSecurityGroup` behaves differently from normal resources, in that
 // this provider does not _create_ this resource, but instead "adopts" it
 // into management. We can do this because these default security groups cannot be
 // destroyed, and are created with a known set of default ingress/egress rules.
@@ -28,21 +28,21 @@ import (
 // This resource treats its inline rules as absolute; only the rules defined
 // inline are created, and any additions/removals external to this resource will
 // result in diff shown. For these reasons, this resource is incompatible with the
-// `aws_security_group_rule` resource.
+// `ec2.SecurityGroupRule` resource.
 // 
 // For more information about Default Security Groups, see the AWS Documentation on
 // [Default Security Groups][aws-default-security-groups].
 // 
 // ## Usage
 // 
-// With the exceptions mentioned above, `aws_default_security_group` should
-// identical behavior to `aws_security_group`. Please consult [AWS_SECURITY_GROUP](https://www.terraform.io/docs/providers/aws/r/security_group.html)
+// With the exceptions mentioned above, `ec2.DefaultSecurityGroup` should
+// identical behavior to `ec2.SecurityGroup`. Please consult [AWS_SECURITY_GROUP](https://www.terraform.io/docs/providers/aws/r/security_group.html)
 // for further usage documentation.
 // 
-// ### Removing `aws_default_security_group` from your configuration
+// ### Removing `ec2.DefaultSecurityGroup` from your configuration
 // 
 // Each AWS VPC (or region, if using EC2 Classic) comes with a Default Security
-// Group that cannot be deleted. The `aws_default_security_group` allows you to
+// Group that cannot be deleted. The `ec2.DefaultSecurityGroup` allows you to
 // manage this Security Group, but this provider cannot destroy it. Removing this resource
 // from your configuration will remove it from your statefile and management, but
 // will not destroy the Security Group. All ingress or egress rules will be left as
@@ -148,7 +148,7 @@ func (r *DefaultSecurityGroup) Tags() *pulumi.MapOutput {
 }
 
 // The VPC ID. **Note that changing
-// the `vpc_id` will _not_ restore any default security group rules that were
+// the `vpcId` will _not_ restore any default security group rules that were
 // modified, added, or removed.** It will be left in its current state
 func (r *DefaultSecurityGroup) VpcId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpcId"])
@@ -171,7 +171,7 @@ type DefaultSecurityGroupState struct {
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// The VPC ID. **Note that changing
-	// the `vpc_id` will _not_ restore any default security group rules that were
+	// the `vpcId` will _not_ restore any default security group rules that were
 	// modified, added, or removed.** It will be left in its current state
 	VpcId interface{}
 }
@@ -188,7 +188,7 @@ type DefaultSecurityGroupArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// The VPC ID. **Note that changing
-	// the `vpc_id` will _not_ restore any default security group rules that were
+	// the `vpcId` will _not_ restore any default security group rules that were
 	// modified, added, or removed.** It will be left in its current state
 	VpcId interface{}
 }

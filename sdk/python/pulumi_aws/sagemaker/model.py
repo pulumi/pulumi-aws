@@ -41,7 +41,7 @@ class Model(pulumi.CustomResource):
     """
     Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
     """
-    def __init__(__self__, resource_name, opts=None, containers=None, enable_network_isolation=None, execution_role_arn=None, name=None, primary_container=None, tags=None, vpc_config=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, containers=None, enable_network_isolation=None, execution_role_arn=None, name=None, primary_container=None, tags=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a SageMaker model resource.
         
@@ -63,44 +63,64 @@ class Model(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['containers'] = containers
-
-        __props__['enable_network_isolation'] = enable_network_isolation
-
-        if execution_role_arn is None:
-            raise TypeError("Missing required property 'execution_role_arn'")
-        __props__['execution_role_arn'] = execution_role_arn
-
-        __props__['name'] = name
-
-        __props__['primary_container'] = primary_container
-
-        __props__['tags'] = tags
-
-        __props__['vpc_config'] = vpc_config
-
-        __props__['arn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['containers'] = containers
+            __props__['enable_network_isolation'] = enable_network_isolation
+            if execution_role_arn is None:
+                raise TypeError("Missing required property 'execution_role_arn'")
+            __props__['execution_role_arn'] = execution_role_arn
+            __props__['name'] = name
+            __props__['primary_container'] = primary_container
+            __props__['tags'] = tags
+            __props__['vpc_config'] = vpc_config
+            __props__['arn'] = None
         super(Model, __self__).__init__(
             'aws:sagemaker/model:Model',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, containers=None, enable_network_isolation=None, execution_role_arn=None, name=None, primary_container=None, tags=None, vpc_config=None):
+        """
+        Get an existing Model resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this model.
+        :param pulumi.Input[list] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+        :param pulumi.Input[bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
+        :param pulumi.Input[str] execution_role_arn: A role that SageMaker can assume to access model artifacts and docker images for deployment.
+        :param pulumi.Input[str] name: The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[dict] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] vpc_config: Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_model.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["containers"] = containers
+        __props__["enable_network_isolation"] = enable_network_isolation
+        __props__["execution_role_arn"] = execution_role_arn
+        __props__["name"] = name
+        __props__["primary_container"] = primary_container
+        __props__["tags"] = tags
+        __props__["vpc_config"] = vpc_config
+        return Model(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

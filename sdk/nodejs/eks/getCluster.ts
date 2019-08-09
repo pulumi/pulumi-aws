@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * }));
  * 
  * export const endpoint = example.endpoint;
- * export const kubeconfig_certificate_authority_data = example.certificateAuthority.data;
+ * export const kubeconfigCertificateAuthorityData = example.certificateAuthority.data;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster.html.markdown.

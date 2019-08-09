@@ -34,14 +34,17 @@ class GetRouteTablesResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetRouteTablesResult(GetRouteTablesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRouteTablesResult(
+            filters=self.filters,
+            ids=self.ids,
+            tags=self.tags,
+            vpc_id=self.vpc_id,
+            id=self.id)
 
 def get_route_tables(filters=None,tags=None,vpc_id=None,opts=None):
     """
@@ -60,7 +63,7 @@ def get_route_tables(filters=None,tags=None,vpc_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getRouteTables:getRouteTables', __args__, opts=opts).value
 
-    return GetRouteTablesResult(
+    return AwaitableGetRouteTablesResult(
         filters=__ret__.get('filters'),
         ids=__ret__.get('ids'),
         tags=__ret__.get('tags'),

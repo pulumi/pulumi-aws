@@ -13,10 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const myStackPermission = new aws.opsworks.Permission("my_stack_permission", {
+ * const myStackPermission = new aws.opsworks.Permission("myStackPermission", {
  *     allowSsh: true,
  *     allowSudo: true,
- *     level: "iam_only",
+ *     level: "iamOnly",
  *     stackId: aws_opsworks_stack_stack.id,
  *     userArn: aws_iam_user_user.arn,
  * });
@@ -60,7 +60,7 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly allowSudo!: pulumi.Output<boolean>;
     /**
-     * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+     * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
      */
     public readonly level!: pulumi.Output<string>;
     /**
@@ -124,7 +124,7 @@ export interface PermissionState {
      */
     readonly allowSudo?: pulumi.Input<boolean>;
     /**
-     * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+     * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
      */
     readonly level?: pulumi.Input<string>;
     /**
@@ -150,7 +150,7 @@ export interface PermissionArgs {
      */
     readonly allowSudo?: pulumi.Input<boolean>;
     /**
-     * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+     * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
      */
     readonly level?: pulumi.Input<string>;
     /**

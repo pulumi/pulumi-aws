@@ -64,14 +64,21 @@ class GetComputeEnvironmentResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetComputeEnvironmentResult(
+            arn=self.arn,
+            compute_environment_name=self.compute_environment_name,
+            ecs_cluster_arn=self.ecs_cluster_arn,
+            service_role=self.service_role,
+            state=self.state,
+            status=self.status,
+            status_reason=self.status_reason,
+            type=self.type,
+            id=self.id)
 
 def get_compute_environment(compute_environment_name=None,opts=None):
     """
@@ -89,7 +96,7 @@ def get_compute_environment(compute_environment_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:batch/getComputeEnvironment:getComputeEnvironment', __args__, opts=opts).value
 
-    return GetComputeEnvironmentResult(
+    return AwaitableGetComputeEnvironmentResult(
         arn=__ret__.get('arn'),
         compute_environment_name=__ret__.get('computeEnvironmentName'),
         ecs_cluster_arn=__ret__.get('ecsClusterArn'),

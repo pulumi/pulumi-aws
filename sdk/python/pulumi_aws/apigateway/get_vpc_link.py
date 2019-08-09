@@ -22,14 +22,14 @@ class GetVpcLinkResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
-
+class AwaitableGetVpcLinkResult(GetVpcLinkResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVpcLinkResult(
+            id=self.id,
+            name=self.name)
 
 def get_vpc_link(name=None,opts=None):
     """
@@ -49,6 +49,6 @@ def get_vpc_link(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getVpcLink:getVpcLink', __args__, opts=opts).value
 
-    return GetVpcLinkResult(
+    return AwaitableGetVpcLinkResult(
         id=__ret__.get('id'),
         name=__ret__.get('name'))

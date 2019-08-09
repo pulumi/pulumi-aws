@@ -63,7 +63,7 @@ export class AmiCopy extends pulumi.CustomResource {
     }
 
     /**
-     * Machine architecture for created instances. Defaults to "x86_64".
+     * Machine architecture for created instances. Defaults to "x8664".
      */
     public /*out*/ readonly architecture!: pulumi.Output<string>;
     /**
@@ -119,7 +119,7 @@ export class AmiCopy extends pulumi.CustomResource {
     public /*out*/ readonly rootSnapshotId!: pulumi.Output<string>;
     /**
      * The id of the AMI to copy. This id must be valid in the region
-     * given by `source_ami_region`.
+     * given by `sourceAmiRegion`.
      */
     public readonly sourceAmiId!: pulumi.Output<string>;
     /**
@@ -218,7 +218,7 @@ export class AmiCopy extends pulumi.CustomResource {
  */
 export interface AmiCopyState {
     /**
-     * Machine architecture for created instances. Defaults to "x86_64".
+     * Machine architecture for created instances. Defaults to "x8664".
      */
     readonly architecture?: pulumi.Input<string>;
     /**
@@ -274,7 +274,7 @@ export interface AmiCopyState {
     readonly rootSnapshotId?: pulumi.Input<string>;
     /**
      * The id of the AMI to copy. This id must be valid in the region
-     * given by `source_ami_region`.
+     * given by `sourceAmiRegion`.
      */
     readonly sourceAmiId?: pulumi.Input<string>;
     /**
@@ -331,7 +331,7 @@ export interface AmiCopyArgs {
     readonly name?: pulumi.Input<string>;
     /**
      * The id of the AMI to copy. This id must be valid in the region
-     * given by `source_ami_region`.
+     * given by `sourceAmiRegion`.
      */
     readonly sourceAmiId: pulumi.Input<string>;
     /**

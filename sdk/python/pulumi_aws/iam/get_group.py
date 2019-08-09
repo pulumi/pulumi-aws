@@ -40,14 +40,17 @@ class GetGroupResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetGroupResult(GetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetGroupResult(
+            arn=self.arn,
+            group_id=self.group_id,
+            group_name=self.group_name,
+            path=self.path,
+            id=self.id)
 
 def get_group(group_name=None,opts=None):
     """
@@ -66,7 +69,7 @@ def get_group(group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getGroup:getGroup', __args__, opts=opts).value
 
-    return GetGroupResult(
+    return AwaitableGetGroupResult(
         arn=__ret__.get('arn'),
         group_id=__ret__.get('groupId'),
         group_name=__ret__.get('groupName'),

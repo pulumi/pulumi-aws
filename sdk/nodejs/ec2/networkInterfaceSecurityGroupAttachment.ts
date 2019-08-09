@@ -10,8 +10,8 @@ import * as utilities from "../utilities";
  * secondary ENI or one attached as the primary interface on an instance.
  * 
  * > **NOTE on instances, interfaces, and security groups:** This provider currently
- * provides the capability to assign security groups via the [`aws_instance`][1]
- * and the [`aws_network_interface`][2] resources. Using this resource in
+ * provides the capability to assign security groups via the [`aws.ec2.Instance`][1]
+ * and the [`aws.ec2.NetworkInterface`][2] resources. Using this resource in
  * conjunction with security groups provided in-line in those resources will cause
  * conflicts, and will lead to spurious diffs and undefined behavior - please use
  * one or the other.
@@ -24,8 +24,8 @@ import * as utilities from "../utilities";
  * The following provides a very basic example of setting up an instance (provided
  * by `instance`) in the default security group, creating a security group
  * (provided by `sg`) and then attaching the security group to the instance's
- * primary network interface via the `aws_network_interface_sg_attachment` resource,
- * named `sg_attachment`:
+ * primary network interface via the `aws.ec2.NetworkInterfaceSecurityGroupAttachment` resource,
+ * named `sgAttachment`:
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -51,15 +51,15 @@ import * as utilities from "../utilities";
  *         type: "test-instance",
  *     },
  * });
- * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", {
+ * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
  *     networkInterfaceId: instance.primaryNetworkInterfaceId,
  *     securityGroupId: sg.id,
  * });
  * ```
  * 
- * In this example, `instance` is provided by the `aws_instance` data source,
+ * In this example, `instance` is provided by the `aws.ec2.Instance` data source,
  * fetching an external instance, possibly not managed by this provider.
- * `sg_attachment` then attaches to the output instance's `network_interface_id`:
+ * `sgAttachment` then attaches to the output instance's `networkInterfaceId`:
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  * const instance = pulumi.output(aws.ec2.getInstance({
  *     instanceId: "i-1234567890abcdef0",
  * }));
- * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sg_attachment", {
+ * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
  *     networkInterfaceId: instance.networkInterfaceId,
  *     securityGroupId: sg.id,
  * });

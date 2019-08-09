@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * ### Public Subdomain Zone
  * 
  * For use in subdomains, note that you need to create a
- * `aws_route53_record` of type `NS` as well as the subdomain
+ * `aws.route53.Record` of type `NS` as well as the subdomain
  * zone.
  * 
  * ```typescript
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const main = new aws.route53.Zone("main", {});
- * const dev_ns = new aws.route53.Record("dev-ns", {
+ * const devNs = new aws.route53.Record("dev-ns", {
  *     records: [
  *         dev.nameServers[0],
  *         dev.nameServers[1],
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * 
  * ### Private Zone
  * 
- * > **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate [Zone VPC Association](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) resource. At this time, you cannot use in-line VPC associations in conjunction with any `aws_route53_zone_association` resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use the generic this provider resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignore_changes` to manage additional associations via the `aws_route53_zone_association` resource.
+ * > **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate [Zone VPC Association](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) resource. At this time, you cannot use in-line VPC associations in conjunction with any `aws.route53.ZoneAssociation` resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use the generic this provider resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignoreChanges` to manage additional associations via the `aws.route53.ZoneAssociation` resource.
  * 
  * > **NOTE:** Private zones require at least one VPC association at all times.
  * 
@@ -119,7 +119,7 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+     * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`aws.route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
      */
     public readonly vpcs!: pulumi.Output<{ vpcId: string, vpcRegion: string }[] | undefined>;
     /**
@@ -199,7 +199,7 @@ export interface ZoneState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+     * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`aws.route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
      */
     readonly vpcs?: pulumi.Input<pulumi.Input<{ vpcId: pulumi.Input<string>, vpcRegion?: pulumi.Input<string> }>[]>;
     /**
@@ -233,7 +233,7 @@ export interface ZoneArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+     * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`aws.route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
      */
     readonly vpcs?: pulumi.Input<pulumi.Input<{ vpcId: pulumi.Input<string>, vpcRegion?: pulumi.Input<string> }>[]>;
 }

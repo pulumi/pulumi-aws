@@ -84,7 +84,7 @@ func (r *LifecyclePolicy) ExecutionRoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["executionRoleArn"])
 }
 
-// See the `policy_details` configuration block. Max of 1.
+// See the `policyDetails` configuration block. Max of 1.
 func (r *LifecyclePolicy) PolicyDetails() *pulumi.Output {
 	return r.s.State["policyDetails"]
 }
@@ -100,7 +100,7 @@ type LifecyclePolicyState struct {
 	Description interface{}
 	// The ARN of an IAM role that is able to be assumed by the DLM service.
 	ExecutionRoleArn interface{}
-	// See the `policy_details` configuration block. Max of 1.
+	// See the `policyDetails` configuration block. Max of 1.
 	PolicyDetails interface{}
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State interface{}
@@ -112,7 +112,7 @@ type LifecyclePolicyArgs struct {
 	Description interface{}
 	// The ARN of an IAM role that is able to be assumed by the DLM service.
 	ExecutionRoleArn interface{}
-	// See the `policy_details` configuration block. Max of 1.
+	// See the `policyDetails` configuration block. Max of 1.
 	PolicyDetails interface{}
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State interface{}

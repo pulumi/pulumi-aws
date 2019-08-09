@@ -70,18 +70,26 @@ class GetSecretResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSecretResult(GetSecretResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSecretResult(
+            arn=self.arn,
+            description=self.description,
+            kms_key_id=self.kms_key_id,
+            name=self.name,
+            policy=self.policy,
+            rotation_enabled=self.rotation_enabled,
+            rotation_lambda_arn=self.rotation_lambda_arn,
+            rotation_rules=self.rotation_rules,
+            tags=self.tags,
+            id=self.id)
 
 def get_secret(arn=None,name=None,opts=None):
     """
-    Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`aws_secretsmanager_secret_version` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
+    Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret.html.markdown.
     """
@@ -95,7 +103,7 @@ def get_secret(arn=None,name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecret:getSecret', __args__, opts=opts).value
 
-    return GetSecretResult(
+    return AwaitableGetSecretResult(
         arn=__ret__.get('arn'),
         description=__ret__.get('description'),
         kms_key_id=__ret__.get('kmsKeyId'),

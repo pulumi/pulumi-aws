@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a CodeBuild Project resource. See also the [`aws_codebuild_webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
+// Provides a CodeBuild Project resource. See also the [`codebuild.Webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_project.html.markdown.
 type Project struct {
@@ -124,12 +124,12 @@ func (r *Project) Artifacts() *pulumi.Output {
 	return r.s.State["artifacts"]
 }
 
-// Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+// Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
 func (r *Project) BadgeEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["badgeEnabled"])
 }
 
-// The URL of the build badge when `badge_enabled` is enabled.
+// The URL of the build badge when `badgeEnabled` is enabled.
 func (r *Project) BadgeUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["badgeUrl"])
 }
@@ -205,9 +205,9 @@ type ProjectState struct {
 	Arn interface{}
 	// Information about the project's build output artifacts. Artifact blocks are documented below.
 	Artifacts interface{}
-	// Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+	// Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
 	BadgeEnabled interface{}
-	// The URL of the build badge when `badge_enabled` is enabled.
+	// The URL of the build badge when `badgeEnabled` is enabled.
 	BadgeUrl interface{}
 	// How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
 	BuildTimeout interface{}
@@ -241,7 +241,7 @@ type ProjectState struct {
 type ProjectArgs struct {
 	// Information about the project's build output artifacts. Artifact blocks are documented below.
 	Artifacts interface{}
-	// Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+	// Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
 	BadgeEnabled interface{}
 	// How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
 	BuildTimeout interface{}

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
  * by using an AWS KMS customer master key. The value returned by this data source
- * changes every apply. For a stable ciphertext value, see the [`aws_kms_ciphertext`
+ * changes every apply. For a stable ciphertext value, see the [`aws.kms.Ciphertext`
  * resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
  * 
  * > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
@@ -19,15 +19,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const oauthConfig = new aws.kms.Key("oauth_config", {
+ * const oauthConfig = new aws.kms.Key("oauthConfig", {
  *     description: "oauth config",
  *     isEnabled: true,
  * });
  * const oauth = oauthConfig.keyId.apply(keyId => aws.kms.getCipherText({
  *     keyId: keyId,
  *     plaintext: `{
- *   "client_id": "e587dbae22222f55da22",
- *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
+ *   "clientId": "e587dbae22222f55da22",
+ *   "clientSecret": "8289575d00000ace55e1815ec13673955721b8a5"
  * }
  * `,
  * }));

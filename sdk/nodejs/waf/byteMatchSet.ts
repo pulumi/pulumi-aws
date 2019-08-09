@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byteSet = new aws.waf.ByteMatchSet("byte_set", {
+ * const byteSet = new aws.waf.ByteMatchSet("byteSet", {
  *     byteMatchTuples: [{
  *         fieldToMatch: {
  *             data: "referer",

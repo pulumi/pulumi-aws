@@ -79,14 +79,23 @@ class GetOrganizationResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetOrganizationResult(GetOrganizationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetOrganizationResult(
+            accounts=self.accounts,
+            arn=self.arn,
+            aws_service_access_principals=self.aws_service_access_principals,
+            enabled_policy_types=self.enabled_policy_types,
+            feature_set=self.feature_set,
+            master_account_arn=self.master_account_arn,
+            master_account_email=self.master_account_email,
+            master_account_id=self.master_account_id,
+            non_master_accounts=self.non_master_accounts,
+            roots=self.roots,
+            id=self.id)
 
 def get_organization(opts=None):
     """
@@ -102,7 +111,7 @@ def get_organization(opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:organizations/getOrganization:getOrganization', __args__, opts=opts).value
 
-    return GetOrganizationResult(
+    return AwaitableGetOrganizationResult(
         accounts=__ret__.get('accounts'),
         arn=__ret__.get('arn'),
         aws_service_access_principals=__ret__.get('awsServiceAccessPrincipals'),

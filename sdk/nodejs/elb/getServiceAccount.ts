@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const main = pulumi.output(aws.elb.getServiceAccount({}));
- * const elbLogs = new aws.s3.Bucket("elb_logs", {
+ * const elbLogs = new aws.s3.Bucket("elbLogs", {
  *     acl: "private",
  *     policy: pulumi.interpolate`{
  *   "Id": "Policy",

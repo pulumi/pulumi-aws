@@ -42,7 +42,7 @@ class ApplicationVersion(pulumi.CustomResource):
     """
     Key-value mapping of tags for the Elastic Beanstalk Application Version.
     """
-    def __init__(__self__, resource_name, opts=None, application=None, bucket=None, description=None, force_delete=None, key=None, name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, application=None, bucket=None, description=None, force_delete=None, key=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic Beanstalk Application Version Resource. Elastic Beanstalk allows
         you to deploy and manage applications in the AWS cloud without worrying about
@@ -57,7 +57,7 @@ class ApplicationVersion(pulumi.CustomResource):
         To work around this you can:
         <ol>
         <li>Create each environment in a separate AWS account</li>
-        <li>Create your `aws_elastic_beanstalk_application_version` resources with a unique names in your 
+        <li>Create your `elasticbeanstalk.ApplicationVersion` resources with a unique names in your 
         Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.</li>
         </ol>
         
@@ -80,48 +80,69 @@ class ApplicationVersion(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if application is None:
-            raise TypeError("Missing required property 'application'")
-        __props__['application'] = application
-
-        if bucket is None:
-            raise TypeError("Missing required property 'bucket'")
-        __props__['bucket'] = bucket
-
-        __props__['description'] = description
-
-        __props__['force_delete'] = force_delete
-
-        if key is None:
-            raise TypeError("Missing required property 'key'")
-        __props__['key'] = key
-
-        __props__['name'] = name
-
-        __props__['tags'] = tags
-
-        __props__['arn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if application is None:
+                raise TypeError("Missing required property 'application'")
+            __props__['application'] = application
+            if bucket is None:
+                raise TypeError("Missing required property 'bucket'")
+            __props__['bucket'] = bucket
+            __props__['description'] = description
+            __props__['force_delete'] = force_delete
+            if key is None:
+                raise TypeError("Missing required property 'key'")
+            __props__['key'] = key
+            __props__['name'] = name
+            __props__['tags'] = tags
+            __props__['arn'] = None
         super(ApplicationVersion, __self__).__init__(
             'aws:elasticbeanstalk/applicationVersion:ApplicationVersion',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, application=None, arn=None, bucket=None, description=None, force_delete=None, key=None, name=None, tags=None):
+        """
+        Get an existing ApplicationVersion resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application: Name of the Beanstalk Application the version is associated with.
+        :param pulumi.Input[str] arn: The ARN assigned by AWS for this Elastic Beanstalk Application.
+        :param pulumi.Input[str] bucket: S3 bucket that contains the Application Version source bundle.
+        :param pulumi.Input[str] description: Short description of the Application Version.
+        :param pulumi.Input[bool] force_delete: On delete, force an Application Version to be deleted when it may be in use
+               by multiple Elastic Beanstalk Environments.
+        :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
+        :param pulumi.Input[str] name: A unique name for the this Application Version.
+        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application Version.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application_version.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["application"] = application
+        __props__["arn"] = arn
+        __props__["bucket"] = bucket
+        __props__["description"] = description
+        __props__["force_delete"] = force_delete
+        __props__["key"] = key
+        __props__["name"] = name
+        __props__["tags"] = tags
+        return ApplicationVersion(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

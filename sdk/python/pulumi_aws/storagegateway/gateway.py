@@ -50,7 +50,7 @@ class Gateway(pulumi.CustomResource):
     """
     Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
     """
-    def __init__(__self__, resource_name, opts=None, activation_key=None, gateway_ip_address=None, gateway_name=None, gateway_timezone=None, gateway_type=None, medium_changer_type=None, smb_active_directory_settings=None, smb_guest_password=None, tape_drive_type=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, activation_key=None, gateway_ip_address=None, gateway_name=None, gateway_timezone=None, gateway_type=None, medium_changer_type=None, smb_active_directory_settings=None, smb_guest_password=None, tape_drive_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an AWS Storage Gateway file, tape, or volume gateway in the provider region.
         
@@ -75,51 +75,74 @@ class Gateway(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['activation_key'] = activation_key
-
-        __props__['gateway_ip_address'] = gateway_ip_address
-
-        if gateway_name is None:
-            raise TypeError("Missing required property 'gateway_name'")
-        __props__['gateway_name'] = gateway_name
-
-        if gateway_timezone is None:
-            raise TypeError("Missing required property 'gateway_timezone'")
-        __props__['gateway_timezone'] = gateway_timezone
-
-        __props__['gateway_type'] = gateway_type
-
-        __props__['medium_changer_type'] = medium_changer_type
-
-        __props__['smb_active_directory_settings'] = smb_active_directory_settings
-
-        __props__['smb_guest_password'] = smb_guest_password
-
-        __props__['tape_drive_type'] = tape_drive_type
-
-        __props__['arn'] = None
-        __props__['gateway_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['activation_key'] = activation_key
+            __props__['gateway_ip_address'] = gateway_ip_address
+            if gateway_name is None:
+                raise TypeError("Missing required property 'gateway_name'")
+            __props__['gateway_name'] = gateway_name
+            if gateway_timezone is None:
+                raise TypeError("Missing required property 'gateway_timezone'")
+            __props__['gateway_timezone'] = gateway_timezone
+            __props__['gateway_type'] = gateway_type
+            __props__['medium_changer_type'] = medium_changer_type
+            __props__['smb_active_directory_settings'] = smb_active_directory_settings
+            __props__['smb_guest_password'] = smb_guest_password
+            __props__['tape_drive_type'] = tape_drive_type
+            __props__['arn'] = None
+            __props__['gateway_id'] = None
         super(Gateway, __self__).__init__(
             'aws:storagegateway/gateway:Gateway',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, activation_key=None, arn=None, gateway_id=None, gateway_ip_address=None, gateway_name=None, gateway_timezone=None, gateway_type=None, medium_changer_type=None, smb_active_directory_settings=None, smb_guest_password=None, tape_drive_type=None):
+        """
+        Get an existing Gateway resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] activation_key: Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[str] gateway_id: Identifier of the gateway.
+        :param pulumi.Input[str] gateway_ip_address: Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+        :param pulumi.Input[str] gateway_name: Name of the gateway.
+        :param pulumi.Input[str] gateway_timezone: Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
+        :param pulumi.Input[str] gateway_type: Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
+        :param pulumi.Input[dict] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+        :param pulumi.Input[str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
+        :param pulumi.Input[str] tape_drive_type: Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_gateway.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["activation_key"] = activation_key
+        __props__["arn"] = arn
+        __props__["gateway_id"] = gateway_id
+        __props__["gateway_ip_address"] = gateway_ip_address
+        __props__["gateway_name"] = gateway_name
+        __props__["gateway_timezone"] = gateway_timezone
+        __props__["gateway_type"] = gateway_type
+        __props__["medium_changer_type"] = medium_changer_type
+        __props__["smb_active_directory_settings"] = smb_active_directory_settings
+        __props__["smb_guest_password"] = smb_guest_password
+        __props__["tape_drive_type"] = tape_drive_type
+        return Gateway(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

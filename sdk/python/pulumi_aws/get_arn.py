@@ -54,14 +54,19 @@ class GetArnResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetArnResult(GetArnResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetArnResult(
+            account=self.account,
+            arn=self.arn,
+            partition=self.partition,
+            region=self.region,
+            resource=self.resource,
+            service=self.service,
+            id=self.id)
 
 def get_arn(arn=None,opts=None):
     """
@@ -78,7 +83,7 @@ def get_arn(arn=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getArn:getArn', __args__, opts=opts).value
 
-    return GetArnResult(
+    return AwaitableGetArnResult(
         account=__ret__.get('account'),
         arn=__ret__.get('arn'),
         partition=__ret__.get('partition'),

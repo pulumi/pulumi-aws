@@ -165,7 +165,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
+     * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
      */
     public readonly loggingInfo!: pulumi.Output<{ s3BucketName: string, s3BucketPrefix?: string, s3Region: string } | undefined>;
     /**
@@ -197,11 +197,11 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      */
     public readonly taskArn!: pulumi.Output<string>;
     /**
-     * The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+     * The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
      */
     public readonly taskInvocationParameters!: pulumi.Output<{ automationParameters?: { documentVersion?: string, parameters?: { name: string, values: string[] }[] }, lambdaParameters?: { clientContext?: string, payload?: string, qualifier?: string }, runCommandParameters?: { comment?: string, documentHash?: string, documentHashType?: string, notificationConfig?: { notificationArn?: string, notificationEvents?: string[], notificationType?: string }, outputS3Bucket?: string, outputS3KeyPrefix?: string, parameters?: { name: string, values: string[] }[], serviceRoleArn?: string, timeoutSeconds?: number }, stepFunctionsParameters?: { input?: string, name?: string } } | undefined>;
     /**
-     * A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
+     * A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
      */
     public readonly taskParameters!: pulumi.Output<{ name: string, values: string[] }[] | undefined>;
     /**
@@ -295,7 +295,7 @@ export interface MaintenanceWindowTaskState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
+     * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
      */
     readonly loggingInfo?: pulumi.Input<{ s3BucketName: pulumi.Input<string>, s3BucketPrefix?: pulumi.Input<string>, s3Region: pulumi.Input<string> }>;
     /**
@@ -327,11 +327,11 @@ export interface MaintenanceWindowTaskState {
      */
     readonly taskArn?: pulumi.Input<string>;
     /**
-     * The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+     * The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
      */
     readonly taskInvocationParameters?: pulumi.Input<{ automationParameters?: pulumi.Input<{ documentVersion?: pulumi.Input<string>, parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]> }>, lambdaParameters?: pulumi.Input<{ clientContext?: pulumi.Input<string>, payload?: pulumi.Input<string>, qualifier?: pulumi.Input<string> }>, runCommandParameters?: pulumi.Input<{ comment?: pulumi.Input<string>, documentHash?: pulumi.Input<string>, documentHashType?: pulumi.Input<string>, notificationConfig?: pulumi.Input<{ notificationArn?: pulumi.Input<string>, notificationEvents?: pulumi.Input<pulumi.Input<string>[]>, notificationType?: pulumi.Input<string> }>, outputS3Bucket?: pulumi.Input<string>, outputS3KeyPrefix?: pulumi.Input<string>, parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>, serviceRoleArn?: pulumi.Input<string>, timeoutSeconds?: pulumi.Input<number> }>, stepFunctionsParameters?: pulumi.Input<{ input?: pulumi.Input<string>, name?: pulumi.Input<string> }> }>;
     /**
-     * A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
+     * A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
      */
     readonly taskParameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
@@ -353,7 +353,7 @@ export interface MaintenanceWindowTaskArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
+     * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
      */
     readonly loggingInfo?: pulumi.Input<{ s3BucketName: pulumi.Input<string>, s3BucketPrefix?: pulumi.Input<string>, s3Region: pulumi.Input<string> }>;
     /**
@@ -385,11 +385,11 @@ export interface MaintenanceWindowTaskArgs {
      */
     readonly taskArn: pulumi.Input<string>;
     /**
-     * The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+     * The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
      */
     readonly taskInvocationParameters?: pulumi.Input<{ automationParameters?: pulumi.Input<{ documentVersion?: pulumi.Input<string>, parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]> }>, lambdaParameters?: pulumi.Input<{ clientContext?: pulumi.Input<string>, payload?: pulumi.Input<string>, qualifier?: pulumi.Input<string> }>, runCommandParameters?: pulumi.Input<{ comment?: pulumi.Input<string>, documentHash?: pulumi.Input<string>, documentHashType?: pulumi.Input<string>, notificationConfig?: pulumi.Input<{ notificationArn?: pulumi.Input<string>, notificationEvents?: pulumi.Input<pulumi.Input<string>[]>, notificationType?: pulumi.Input<string> }>, outputS3Bucket?: pulumi.Input<string>, outputS3KeyPrefix?: pulumi.Input<string>, parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>, serviceRoleArn?: pulumi.Input<string>, timeoutSeconds?: pulumi.Input<number> }>, stepFunctionsParameters?: pulumi.Input<{ input?: pulumi.Input<string>, name?: pulumi.Input<string> }> }>;
     /**
-     * A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
+     * A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
      */
     readonly taskParameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**

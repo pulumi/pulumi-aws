@@ -10,7 +10,7 @@ import (
 // Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
 // 
 // > **NOTE:** This data source does not apply to snapshots created on DB Instances. 
-// See the [`aws_db_snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
+// See the [`rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
 func LookupClusterSnapshot(ctx *pulumi.Context, args *GetClusterSnapshotArgs) (*GetClusterSnapshotResult, error) {
@@ -89,7 +89,7 @@ type GetClusterSnapshotResult struct {
 	EngineVersion interface{}
 	IncludePublic interface{}
 	IncludeShared interface{}
-	// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
 	KmsKeyId interface{}
 	// License model information for the restored DB cluster.
 	LicenseModel interface{}

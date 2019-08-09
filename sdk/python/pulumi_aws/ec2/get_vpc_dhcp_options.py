@@ -70,14 +70,22 @@ class GetVpcDhcpOptionsResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetVpcDhcpOptionsResult(GetVpcDhcpOptionsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVpcDhcpOptionsResult(
+            dhcp_options_id=self.dhcp_options_id,
+            domain_name=self.domain_name,
+            domain_name_servers=self.domain_name_servers,
+            filters=self.filters,
+            netbios_name_servers=self.netbios_name_servers,
+            netbios_node_type=self.netbios_node_type,
+            ntp_servers=self.ntp_servers,
+            owner_id=self.owner_id,
+            tags=self.tags,
+            id=self.id)
 
 def get_vpc_dhcp_options(dhcp_options_id=None,filters=None,tags=None,opts=None):
     """
@@ -96,7 +104,7 @@ def get_vpc_dhcp_options(dhcp_options_id=None,filters=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions', __args__, opts=opts).value
 
-    return GetVpcDhcpOptionsResult(
+    return AwaitableGetVpcDhcpOptionsResult(
         dhcp_options_id=__ret__.get('dhcpOptionsId'),
         domain_name=__ret__.get('domainName'),
         domain_name_servers=__ret__.get('domainNameServers'),

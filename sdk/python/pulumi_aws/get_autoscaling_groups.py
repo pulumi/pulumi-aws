@@ -34,14 +34,16 @@ class GetAutoscalingGroupsResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAutoscalingGroupsResult(GetAutoscalingGroupsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAutoscalingGroupsResult(
+            arns=self.arns,
+            filters=self.filters,
+            names=self.names,
+            id=self.id)
 
 def get_autoscaling_groups(filters=None,opts=None):
     """
@@ -59,7 +61,7 @@ def get_autoscaling_groups(filters=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getAutoscalingGroups:getAutoscalingGroups', __args__, opts=opts).value
 
-    return GetAutoscalingGroupsResult(
+    return AwaitableGetAutoscalingGroupsResult(
         arns=__ret__.get('arns'),
         filters=__ret__.get('filters'),
         names=__ret__.get('names'),

@@ -133,7 +133,7 @@ func (r *HealthCheck) CloudwatchAlarmRegion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["cloudwatchAlarmRegion"])
 }
 
-// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 func (r *HealthCheck) EnableSni() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableSni"])
 }
@@ -174,7 +174,7 @@ func (r *HealthCheck) Port() *pulumi.IntOutput {
 }
 
 // This is a reference name used in Caller Reference
-// (helpful for identifying single health_check set amongst others)
+// (helpful for identifying single healthCheck set amongst others)
 func (r *HealthCheck) ReferenceName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["referenceName"])
 }
@@ -219,7 +219,7 @@ type HealthCheckState struct {
 	CloudwatchAlarmName interface{}
 	// The CloudWatchRegion that the CloudWatch alarm was created in.
 	CloudwatchAlarmRegion interface{}
-	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni interface{}
 	// The number of consecutive health checks that an endpoint must pass or fail.
 	FailureThreshold interface{}
@@ -236,7 +236,7 @@ type HealthCheckState struct {
 	// The port of the endpoint to be checked.
 	Port interface{}
 	// This is a reference name used in Caller Reference
-	// (helpful for identifying single health_check set amongst others)
+	// (helpful for identifying single healthCheck set amongst others)
 	ReferenceName interface{}
 	// A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
 	Regions interface{}
@@ -262,7 +262,7 @@ type HealthCheckArgs struct {
 	CloudwatchAlarmName interface{}
 	// The CloudWatchRegion that the CloudWatch alarm was created in.
 	CloudwatchAlarmRegion interface{}
-	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni interface{}
 	// The number of consecutive health checks that an endpoint must pass or fail.
 	FailureThreshold interface{}
@@ -279,7 +279,7 @@ type HealthCheckArgs struct {
 	// The port of the endpoint to be checked.
 	Port interface{}
 	// This is a reference name used in Caller Reference
-	// (helpful for identifying single health_check set amongst others)
+	// (helpful for identifying single healthCheck set amongst others)
 	ReferenceName interface{}
 	// A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
 	Regions interface{}

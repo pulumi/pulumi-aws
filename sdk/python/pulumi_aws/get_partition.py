@@ -22,14 +22,14 @@ class GetPartitionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetPartitionResult(GetPartitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetPartitionResult(
+            partition=self.partition,
+            id=self.id)
 
 def get_partition(opts=None):
     """
@@ -45,6 +45,6 @@ def get_partition(opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getPartition:getPartition', __args__, opts=opts).value
 
-    return GetPartitionResult(
+    return AwaitableGetPartitionResult(
         partition=__ret__.get('partition'),
         id=__ret__.get('id'))

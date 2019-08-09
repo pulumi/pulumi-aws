@@ -64,18 +64,31 @@ class GetSubnetResult:
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
-
+class AwaitableGetSubnetResult(GetSubnetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSubnetResult(
+            arn=self.arn,
+            assign_ipv6_address_on_creation=self.assign_ipv6_address_on_creation,
+            availability_zone=self.availability_zone,
+            availability_zone_id=self.availability_zone_id,
+            cidr_block=self.cidr_block,
+            default_for_az=self.default_for_az,
+            filters=self.filters,
+            id=self.id,
+            ipv6_cidr_block=self.ipv6_cidr_block,
+            ipv6_cidr_block_association_id=self.ipv6_cidr_block_association_id,
+            map_public_ip_on_launch=self.map_public_ip_on_launch,
+            owner_id=self.owner_id,
+            state=self.state,
+            tags=self.tags,
+            vpc_id=self.vpc_id)
 
 def get_subnet(availability_zone=None,availability_zone_id=None,cidr_block=None,default_for_az=None,filters=None,id=None,ipv6_cidr_block=None,state=None,tags=None,vpc_id=None,opts=None):
     """
-    `aws_subnet` provides details about a specific VPC subnet.
+    `ec2.Subnet` provides details about a specific VPC subnet.
     
     This resource can prove useful when a module accepts a subnet id as
     an input variable and needs to, for example, determine the id of the
@@ -101,7 +114,7 @@ def get_subnet(availability_zone=None,availability_zone_id=None,cidr_block=None,
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSubnet:getSubnet', __args__, opts=opts).value
 
-    return GetSubnetResult(
+    return AwaitableGetSubnetResult(
         arn=__ret__.get('arn'),
         assign_ipv6_address_on_creation=__ret__.get('assignIpv6AddressOnCreation'),
         availability_zone=__ret__.get('availabilityZone'),

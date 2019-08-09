@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *         Name: "HelloWorld",
  *     },
  * });
- * const exampleSnapshot = new aws.ebs.Snapshot("example_snapshot", {
+ * const exampleSnapshot = new aws.ebs.Snapshot("exampleSnapshot", {
  *     tags: {
  *         Name: "HelloWorld_snap",
  *     },
  *     volumeId: example.id,
  * });
- * const exampleCopy = new aws.ebs.SnapshotCopy("example_copy", {
+ * const exampleCopy = new aws.ebs.SnapshotCopy("exampleCopy", {
  *     sourceRegion: "us-west-2",
  *     sourceSnapshotId: exampleSnapshot.id,
  *     tags: {
@@ -66,8 +66,8 @@ export class SnapshotCopy extends pulumi.CustomResource {
 
     /**
      * The data encryption key identifier for the snapshot.
-     * * `source_snapshot_id` The ARN of the copied snapshot.
-     * * `source_region` The region of the source snapshot.
+     * * `sourceSnapshotId` The ARN of the copied snapshot.
+     * * `sourceRegion` The region of the source snapshot.
      */
     public /*out*/ readonly dataEncryptionKeyId!: pulumi.Output<string>;
     /**
@@ -80,8 +80,8 @@ export class SnapshotCopy extends pulumi.CustomResource {
     public readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN for the KMS encryption key.
-     * * `source_snapshot_id` The ARN for the snapshot to be copied.
-     * * `source_region` The region of the source snapshot.
+     * * `sourceSnapshotId` The ARN for the snapshot to be copied.
+     * * `sourceRegion` The region of the source snapshot.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
@@ -164,8 +164,8 @@ export class SnapshotCopy extends pulumi.CustomResource {
 export interface SnapshotCopyState {
     /**
      * The data encryption key identifier for the snapshot.
-     * * `source_snapshot_id` The ARN of the copied snapshot.
-     * * `source_region` The region of the source snapshot.
+     * * `sourceSnapshotId` The ARN of the copied snapshot.
+     * * `sourceRegion` The region of the source snapshot.
      */
     readonly dataEncryptionKeyId?: pulumi.Input<string>;
     /**
@@ -178,8 +178,8 @@ export interface SnapshotCopyState {
     readonly encrypted?: pulumi.Input<boolean>;
     /**
      * The ARN for the KMS encryption key.
-     * * `source_snapshot_id` The ARN for the snapshot to be copied.
-     * * `source_region` The region of the source snapshot.
+     * * `sourceSnapshotId` The ARN for the snapshot to be copied.
+     * * `sourceRegion` The region of the source snapshot.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
@@ -217,8 +217,8 @@ export interface SnapshotCopyArgs {
     readonly encrypted?: pulumi.Input<boolean>;
     /**
      * The ARN for the KMS encryption key.
-     * * `source_snapshot_id` The ARN for the snapshot to be copied.
-     * * `source_region` The region of the source snapshot.
+     * * `sourceSnapshotId` The ARN for the snapshot to be copied.
+     * * `sourceRegion` The region of the source snapshot.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     readonly sourceRegion: pulumi.Input<string>;

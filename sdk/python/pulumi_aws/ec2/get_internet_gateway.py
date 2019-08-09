@@ -37,18 +37,22 @@ class GetInternetGatewayResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetInternetGatewayResult(GetInternetGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetInternetGatewayResult(
+            attachments=self.attachments,
+            filters=self.filters,
+            internet_gateway_id=self.internet_gateway_id,
+            owner_id=self.owner_id,
+            tags=self.tags,
+            id=self.id)
 
 def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=None):
     """
-    `aws_internet_gateway` provides details about a specific Internet Gateway.
+    `ec2.InternetGateway` provides details about a specific Internet Gateway.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
     """
@@ -63,7 +67,7 @@ def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=No
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts).value
 
-    return GetInternetGatewayResult(
+    return AwaitableGetInternetGatewayResult(
         attachments=__ret__.get('attachments'),
         filters=__ret__.get('filters'),
         internet_gateway_id=__ret__.get('internetGatewayId'),

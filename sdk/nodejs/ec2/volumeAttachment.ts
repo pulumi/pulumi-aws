@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Provides an AWS EBS Volume Attachment as a top level resource, to attach and
  * detach volumes from AWS Instances.
  * 
- * > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `aws_instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `aws_ebs_volume` + `aws_ebs_volume_attachment` resources for a given instance.
+ * > **NOTE on EBS block devices:** If you use `ebsBlockDevice` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebsBlockDevice` cannot be mixed with external `aws.ebs.Volume` + `awsEbsVolumeAttachment` resources for a given instance.
  * 
  * ## Example Usage
  * 
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *         Name: "HelloWorld",
  *     },
  * });
- * const ebsAtt = new aws.ec2.VolumeAttachment("ebs_att", {
+ * const ebsAtt = new aws.ec2.VolumeAttachment("ebsAtt", {
  *     deviceName: "/dev/sdh",
  *     instanceId: web.id,
  *     volumeId: example.id,

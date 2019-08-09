@@ -55,14 +55,22 @@ class GetNatGatewayResult:
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
-
+class AwaitableGetNatGatewayResult(GetNatGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetNatGatewayResult(
+            allocation_id=self.allocation_id,
+            filters=self.filters,
+            id=self.id,
+            network_interface_id=self.network_interface_id,
+            private_ip=self.private_ip,
+            public_ip=self.public_ip,
+            state=self.state,
+            subnet_id=self.subnet_id,
+            tags=self.tags,
+            vpc_id=self.vpc_id)
 
 def get_nat_gateway(filters=None,id=None,state=None,subnet_id=None,tags=None,vpc_id=None,opts=None):
     """
@@ -84,7 +92,7 @@ def get_nat_gateway(filters=None,id=None,state=None,subnet_id=None,tags=None,vpc
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNatGateway:getNatGateway', __args__, opts=opts).value
 
-    return GetNatGatewayResult(
+    return AwaitableGetNatGatewayResult(
         allocation_id=__ret__.get('allocationId'),
         filters=__ret__.get('filters'),
         id=__ret__.get('id'),

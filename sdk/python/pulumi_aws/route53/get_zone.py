@@ -70,18 +70,28 @@ class GetZoneResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetZoneResult(GetZoneResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetZoneResult(
+            caller_reference=self.caller_reference,
+            comment=self.comment,
+            linked_service_description=self.linked_service_description,
+            linked_service_principal=self.linked_service_principal,
+            name=self.name,
+            name_servers=self.name_servers,
+            private_zone=self.private_zone,
+            resource_record_set_count=self.resource_record_set_count,
+            tags=self.tags,
+            vpc_id=self.vpc_id,
+            zone_id=self.zone_id,
+            id=self.id)
 
 def get_zone(name=None,private_zone=None,resource_record_set_count=None,tags=None,vpc_id=None,zone_id=None,opts=None):
     """
-    `aws_route53_zone` provides details about a specific Route 53 Hosted Zone.
+    `route53.Zone` provides details about a specific Route 53 Hosted Zone.
     
     This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
 
@@ -101,7 +111,7 @@ def get_zone(name=None,private_zone=None,resource_record_set_count=None,tags=Non
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:route53/getZone:getZone', __args__, opts=opts).value
 
-    return GetZoneResult(
+    return AwaitableGetZoneResult(
         caller_reference=__ret__.get('callerReference'),
         comment=__ret__.get('comment'),
         linked_service_description=__ret__.get('linkedServiceDescription'),

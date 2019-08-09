@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  *     availabilityZone: "us-west-2a",
  *     size: 40,
  * });
- * const exampleSnapshot = new aws.ebs.Snapshot("example_snapshot", {
+ * const exampleSnapshot = new aws.ebs.Snapshot("exampleSnapshot", {
  *     volumeId: example.id,
  * });
- * const examplePerm = new aws.ec2.SnapshotCreateVolumePermission("example_perm", {
+ * const examplePerm = new aws.ec2.SnapshotCreateVolumePermission("examplePerm", {
  *     accountId: "12345678",
  *     snapshotId: exampleSnapshot.id,
  * });

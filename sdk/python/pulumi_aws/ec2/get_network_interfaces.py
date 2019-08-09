@@ -31,14 +31,16 @@ class GetNetworkInterfacesResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetNetworkInterfacesResult(GetNetworkInterfacesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetNetworkInterfacesResult(
+            filters=self.filters,
+            ids=self.ids,
+            tags=self.tags,
+            id=self.id)
 
 def get_network_interfaces(filters=None,tags=None,opts=None):
     __args__ = dict()
@@ -51,7 +53,7 @@ def get_network_interfaces(filters=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInterfaces:getNetworkInterfaces', __args__, opts=opts).value
 
-    return GetNetworkInterfacesResult(
+    return AwaitableGetNetworkInterfacesResult(
         filters=__ret__.get('filters'),
         ids=__ret__.get('ids'),
         tags=__ret__.get('tags'),

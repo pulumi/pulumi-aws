@@ -49,14 +49,20 @@ class GetImageResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetImageResult(GetImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetImageResult(
+            image_digest=self.image_digest,
+            image_pushed_at=self.image_pushed_at,
+            image_size_in_bytes=self.image_size_in_bytes,
+            image_tag=self.image_tag,
+            image_tags=self.image_tags,
+            registry_id=self.registry_id,
+            repository_name=self.repository_name,
+            id=self.id)
 
 def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=None,opts=None):
     """
@@ -76,7 +82,7 @@ def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecr/getImage:getImage', __args__, opts=opts).value
 
-    return GetImageResult(
+    return AwaitableGetImageResult(
         image_digest=__ret__.get('imageDigest'),
         image_pushed_at=__ret__.get('imagePushedAt'),
         image_size_in_bytes=__ret__.get('imageSizeInBytes'),

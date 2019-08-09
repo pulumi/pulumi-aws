@@ -50,7 +50,7 @@ class Certificate(pulumi.CustomResource):
     Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
     * Importing an existing certificate
     """
-    def __init__(__self__, resource_name, opts=None, certificate_body=None, certificate_chain=None, domain_name=None, private_key=None, subject_alternative_names=None, tags=None, validation_method=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, certificate_body=None, certificate_chain=None, domain_name=None, private_key=None, subject_alternative_names=None, tags=None, validation_method=None, __props__=None, __name__=None, __opts__=None):
         """
         The ACM certificate resource allows requesting and management of certificates
         from the Amazon Certificate Manager.
@@ -58,17 +58,17 @@ class Certificate(pulumi.CustomResource):
         It deals with requesting certificates and managing their attributes and life-cycle.
         This resource does not deal with validation of a certificate but can provide inputs
         for other resources implementing the validation. It does not wait for a certificate to be issued.
-        Use a `aws_acm_certificate_validation` resource for this.
+        Use a `acm.CertificateValidation` resource for this.
         
-        Most commonly, this resource is used to together with `aws_route53_record` and
-        `aws_acm_certificate_validation` to request a DNS validated certificate,
+        Most commonly, this resource is used to together with `route53.Record` and
+        `acm.CertificateValidation` to request a DNS validated certificate,
         deploy the required validation records and wait for validation to complete.
         
         Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
         of this provider.
         
         It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
-        which is currently in use (eg, by `aws_lb_listener`).
+        which is currently in use (eg, by `lb.Listener`).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -89,44 +89,69 @@ class Certificate(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['certificate_body'] = certificate_body
-
-        __props__['certificate_chain'] = certificate_chain
-
-        __props__['domain_name'] = domain_name
-
-        __props__['private_key'] = private_key
-
-        __props__['subject_alternative_names'] = subject_alternative_names
-
-        __props__['tags'] = tags
-
-        __props__['validation_method'] = validation_method
-
-        __props__['arn'] = None
-        __props__['domain_validation_options'] = None
-        __props__['validation_emails'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['certificate_body'] = certificate_body
+            __props__['certificate_chain'] = certificate_chain
+            __props__['domain_name'] = domain_name
+            __props__['private_key'] = private_key
+            __props__['subject_alternative_names'] = subject_alternative_names
+            __props__['tags'] = tags
+            __props__['validation_method'] = validation_method
+            __props__['arn'] = None
+            __props__['domain_validation_options'] = None
+            __props__['validation_emails'] = None
         super(Certificate, __self__).__init__(
             'aws:acm/certificate:Certificate',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, certificate_body=None, certificate_chain=None, domain_name=None, domain_validation_options=None, private_key=None, subject_alternative_names=None, tags=None, validation_emails=None, validation_method=None):
+        """
+        Get an existing Certificate resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the certificate
+        :param pulumi.Input[str] certificate_body: The certificate's PEM-formatted public key
+        :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
+        :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued
+        :param pulumi.Input[list] domain_validation_options: A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+        :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
+        :param pulumi.Input[list] subject_alternative_names: A list of domains that should be SANs in the issued certificate
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[list] validation_emails: A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+               * Importing an existing certificate
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["certificate_body"] = certificate_body
+        __props__["certificate_chain"] = certificate_chain
+        __props__["domain_name"] = domain_name
+        __props__["domain_validation_options"] = domain_validation_options
+        __props__["private_key"] = private_key
+        __props__["subject_alternative_names"] = subject_alternative_names
+        __props__["tags"] = tags
+        __props__["validation_emails"] = validation_emails
+        __props__["validation_method"] = validation_method
+        return Certificate(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

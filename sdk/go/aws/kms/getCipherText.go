@@ -9,7 +9,7 @@ import (
 
 // The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
 // by using an AWS KMS customer master key. The value returned by this data source
-// changes every apply. For a stable ciphertext value, see the [`aws_kms_ciphertext`
+// changes every apply. For a stable ciphertext value, see the [`kms.Ciphertext`
 // resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
 // 
 // > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.

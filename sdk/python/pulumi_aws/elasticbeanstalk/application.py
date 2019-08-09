@@ -26,7 +26,7 @@ class Application(pulumi.CustomResource):
     """
     Key-value mapping of tags for the Elastic Beanstalk Application.
     """
-    def __init__(__self__, resource_name, opts=None, appversion_lifecycle=None, description=None, name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, appversion_lifecycle=None, description=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic Beanstalk Application Resource. Elastic Beanstalk allows
         you to deploy and manage applications in the AWS cloud without worrying about
@@ -49,36 +49,52 @@ class Application(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['appversion_lifecycle'] = appversion_lifecycle
-
-        __props__['description'] = description
-
-        __props__['name'] = name
-
-        __props__['tags'] = tags
-
-        __props__['arn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['appversion_lifecycle'] = appversion_lifecycle
+            __props__['description'] = description
+            __props__['name'] = name
+            __props__['tags'] = tags
+            __props__['arn'] = None
         super(Application, __self__).__init__(
             'aws:elasticbeanstalk/application:Application',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, appversion_lifecycle=None, arn=None, description=None, name=None, tags=None):
+        """
+        Get an existing Application resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN assigned by AWS for this Elastic Beanstalk Application.
+        :param pulumi.Input[str] description: Short description of the application
+        :param pulumi.Input[str] name: The name of the application, must be unique within your account
+        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["appversion_lifecycle"] = appversion_lifecycle
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["tags"] = tags
+        return Application(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a CodeBuild Project resource. See also the [`aws_codebuild_webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
+ * Provides a CodeBuild Project resource. See also the [`aws.codebuild.Webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
  * 
  * ## Example Usage
  * 
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *         location: exampleBucket.bucket,
  *         type: "S3",
  *     },
- *     description: "test_codebuild_project",
+ *     description: "testCodebuildProject",
  *     environment: {
  *         computeType: "BUILD_GENERAL1_SMALL",
  *         environmentVariables: [
@@ -89,7 +89,7 @@ import * as utilities from "../utilities";
  *         vpcId: aws_vpc_example.id,
  *     },
  * });
- * const project_with_cache = new aws.codebuild.Project("project-with-cache", {
+ * const projectWithCache = new aws.codebuild.Project("project-with-cache", {
  *     artifacts: {
  *         type: "NO_ARTIFACTS",
  *     },
@@ -101,7 +101,7 @@ import * as utilities from "../utilities";
  *         ],
  *         type: "LOCAL",
  *     },
- *     description: "test_codebuild_project_cache",
+ *     description: "testCodebuildProjectCache",
  *     environment: {
  *         computeType: "BUILD_GENERAL1_SMALL",
  *         environmentVariables: [{
@@ -223,11 +223,11 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly artifacts!: pulumi.Output<{ encryptionDisabled?: boolean, location?: string, name?: string, namespaceType?: string, overrideArtifactName?: boolean, packaging?: string, path?: string, type: string }>;
     /**
-     * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+     * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
      */
     public readonly badgeEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The URL of the build badge when `badge_enabled` is enabled.
+     * The URL of the build badge when `badgeEnabled` is enabled.
      */
     public /*out*/ readonly badgeUrl!: pulumi.Output<string>;
     /**
@@ -368,11 +368,11 @@ export interface ProjectState {
      */
     readonly artifacts?: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, overrideArtifactName?: pulumi.Input<boolean>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
-     * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+     * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
      */
     readonly badgeEnabled?: pulumi.Input<boolean>;
     /**
-     * The URL of the build badge when `badge_enabled` is enabled.
+     * The URL of the build badge when `badgeEnabled` is enabled.
      */
     readonly badgeUrl?: pulumi.Input<string>;
     /**
@@ -438,7 +438,7 @@ export interface ProjectArgs {
      */
     readonly artifacts: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, overrideArtifactName?: pulumi.Input<boolean>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
-     * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+     * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
      */
     readonly badgeEnabled?: pulumi.Input<boolean>;
     /**

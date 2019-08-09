@@ -37,14 +37,19 @@ class GetParameterResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetParameterResult(GetParameterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetParameterResult(
+            arn=self.arn,
+            name=self.name,
+            type=self.type,
+            value=self.value,
+            version=self.version,
+            with_decryption=self.with_decryption,
+            id=self.id)
 
 def get_parameter(name=None,with_decryption=None,opts=None):
     """
@@ -62,7 +67,7 @@ def get_parameter(name=None,with_decryption=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ssm/getParameter:getParameter', __args__, opts=opts).value
 
-    return GetParameterResult(
+    return AwaitableGetParameterResult(
         arn=__ret__.get('arn'),
         name=__ret__.get('name'),
         type=__ret__.get('type'),

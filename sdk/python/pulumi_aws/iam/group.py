@@ -25,7 +25,7 @@ class Group(pulumi.CustomResource):
     """
     The [unique ID][1] assigned by AWS.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, path=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, path=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an IAM group.
         
@@ -42,33 +42,50 @@ class Group(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['name'] = name
-
-        __props__['path'] = path
-
-        __props__['arn'] = None
-        __props__['unique_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['name'] = name
+            __props__['path'] = path
+            __props__['arn'] = None
+            __props__['unique_id'] = None
         super(Group, __self__).__init__(
             'aws:iam/group:Group',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, name=None, path=None, unique_id=None):
+        """
+        Get an existing Group resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN assigned by AWS for this group.
+        :param pulumi.Input[str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+        :param pulumi.Input[str] path: Path in which to create the group.
+        :param pulumi.Input[str] unique_id: The [unique ID][1] assigned by AWS.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["name"] = name
+        __props__["path"] = path
+        __props__["unique_id"] = unique_id
+        return Group(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

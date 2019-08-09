@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const myInstance = new aws.opsworks.RdsDbInstance("my_instance", {
+ * const myInstance = new aws.opsworks.RdsDbInstance("myInstance", {
  *     dbPassword: "somePass",
  *     dbUser: "someUser",
  *     rdsDbInstanceArn: aws_db_instance_my_instance.arn,

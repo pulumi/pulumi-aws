@@ -25,7 +25,7 @@ class IdentityNotificationTopic(pulumi.CustomResource):
     """
     The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, include_original_headers=None, notification_type=None, topic_arn=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, identity=None, include_original_headers=None, notification_type=None, topic_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Resource for managing SES Identity Notification Topics
         
@@ -44,38 +44,54 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if identity is None:
-            raise TypeError("Missing required property 'identity'")
-        __props__['identity'] = identity
-
-        __props__['include_original_headers'] = include_original_headers
-
-        if notification_type is None:
-            raise TypeError("Missing required property 'notification_type'")
-        __props__['notification_type'] = notification_type
-
-        __props__['topic_arn'] = topic_arn
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if identity is None:
+                raise TypeError("Missing required property 'identity'")
+            __props__['identity'] = identity
+            __props__['include_original_headers'] = include_original_headers
+            if notification_type is None:
+                raise TypeError("Missing required property 'notification_type'")
+            __props__['notification_type'] = notification_type
+            __props__['topic_arn'] = topic_arn
         super(IdentityNotificationTopic, __self__).__init__(
             'aws:ses/identityNotificationTopic:IdentityNotificationTopic',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, identity=None, include_original_headers=None, notification_type=None, topic_arn=None):
+        """
+        Get an existing IdentityNotificationTopic resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] identity: The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+        :param pulumi.Input[bool] include_original_headers: Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+        :param pulumi.Input[str] notification_type: The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
+        :param pulumi.Input[str] topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_notification_topic.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["identity"] = identity
+        __props__["include_original_headers"] = include_original_headers
+        __props__["notification_type"] = notification_type
+        __props__["topic_arn"] = topic_arn
+        return IdentityNotificationTopic(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

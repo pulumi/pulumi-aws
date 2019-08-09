@@ -100,14 +100,29 @@ class GetSnapshotResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSnapshotResult(GetSnapshotResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSnapshotResult(
+            data_encryption_key_id=self.data_encryption_key_id,
+            description=self.description,
+            encrypted=self.encrypted,
+            filters=self.filters,
+            kms_key_id=self.kms_key_id,
+            most_recent=self.most_recent,
+            owner_alias=self.owner_alias,
+            owner_id=self.owner_id,
+            owners=self.owners,
+            restorable_by_user_ids=self.restorable_by_user_ids,
+            snapshot_id=self.snapshot_id,
+            snapshot_ids=self.snapshot_ids,
+            state=self.state,
+            tags=self.tags,
+            volume_id=self.volume_id,
+            volume_size=self.volume_size,
+            id=self.id)
 
 def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_ids=None,snapshot_ids=None,tags=None,opts=None):
     """
@@ -129,7 +144,7 @@ def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_id
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshot:getSnapshot', __args__, opts=opts).value
 
-    return GetSnapshotResult(
+    return AwaitableGetSnapshotResult(
         data_encryption_key_id=__ret__.get('dataEncryptionKeyId'),
         description=__ret__.get('description'),
         encrypted=__ret__.get('encrypted'),

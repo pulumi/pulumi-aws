@@ -131,7 +131,7 @@ func (r *EventTarget) KinesisTarget() *pulumi.Output {
 	return r.s.State["kinesisTarget"]
 }
 
-// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
+// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
 func (r *EventTarget) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
 }
@@ -173,7 +173,7 @@ type EventTargetState struct {
 	InputTransformer interface{}
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget interface{}
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
+	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
 	RoleArn interface{}
 	// The name of the rule you want to add targets to.
 	Rule interface{}
@@ -202,7 +202,7 @@ type EventTargetArgs struct {
 	InputTransformer interface{}
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget interface{}
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
+	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
 	RoleArn interface{}
 	// The name of the rule you want to add targets to.
 	Rule interface{}

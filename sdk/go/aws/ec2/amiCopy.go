@@ -116,7 +116,7 @@ func (r *AmiCopy) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Machine architecture for created instances. Defaults to "x86_64".
+// Machine architecture for created instances. Defaults to "x8664".
 func (r *AmiCopy) Architecture() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["architecture"])
 }
@@ -190,7 +190,7 @@ func (r *AmiCopy) RootSnapshotId() *pulumi.StringOutput {
 }
 
 // The id of the AMI to copy. This id must be valid in the region
-// given by `source_ami_region`.
+// given by `sourceAmiRegion`.
 func (r *AmiCopy) SourceAmiId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceAmiId"])
 }
@@ -221,7 +221,7 @@ func (r *AmiCopy) VirtualizationType() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering AmiCopy resources.
 type AmiCopyState struct {
-	// Machine architecture for created instances. Defaults to "x86_64".
+	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture interface{}
 	// A longer, human-readable description for the AMI.
 	Description interface{}
@@ -253,7 +253,7 @@ type AmiCopyState struct {
 	RootDeviceName interface{}
 	RootSnapshotId interface{}
 	// The id of the AMI to copy. This id must be valid in the region
-	// given by `source_ami_region`.
+	// given by `sourceAmiRegion`.
 	SourceAmiId interface{}
 	// The region from which the AMI will be copied. This may be the
 	// same as the AWS provider region in order to create a copy within the same region.
@@ -286,7 +286,7 @@ type AmiCopyArgs struct {
 	// A region-unique name for the AMI.
 	Name interface{}
 	// The id of the AMI to copy. This id must be valid in the region
-	// given by `source_ami_region`.
+	// given by `sourceAmiRegion`.
 	SourceAmiId interface{}
 	// The region from which the AMI will be copied. This may be the
 	// same as the AWS provider region in order to create a copy within the same region.

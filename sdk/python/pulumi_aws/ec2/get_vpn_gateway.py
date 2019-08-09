@@ -34,14 +34,19 @@ class GetVpnGatewayResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
-
+class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVpnGatewayResult(
+            amazon_side_asn=self.amazon_side_asn,
+            attached_vpc_id=self.attached_vpc_id,
+            availability_zone=self.availability_zone,
+            filters=self.filters,
+            id=self.id,
+            state=self.state,
+            tags=self.tags)
 
 def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=None,filters=None,id=None,state=None,tags=None,opts=None):
     """
@@ -65,7 +70,7 @@ def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpnGateway:getVpnGateway', __args__, opts=opts).value
 
-    return GetVpnGatewayResult(
+    return AwaitableGetVpnGatewayResult(
         amazon_side_asn=__ret__.get('amazonSideAsn'),
         attached_vpc_id=__ret__.get('attachedVpcId'),
         availability_zone=__ret__.get('availabilityZone'),

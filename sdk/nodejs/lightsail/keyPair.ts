@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * // Create a new Lightsail Key Pair
- * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {});
+ * const lgKeyPair = new aws.lightsail.KeyPair("lgKeyPair", {});
  * ```
  * 
  * ## Create new Key Pair, encrypting the private key with a PGP Key
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {
+ * const lgKeyPair = new aws.lightsail.KeyPair("lgKeyPair", {
  *     pgpKey: "keybase:keybaseusername",
  * });
  * ```
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
- * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {
+ * const lgKeyPair = new aws.lightsail.KeyPair("lgKeyPair", {
  *     publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf-8"),
  * });
  * ```
@@ -84,8 +84,8 @@ export class KeyPair extends pulumi.CustomResource {
     public /*out*/ readonly encryptedFingerprint!: pulumi.Output<string>;
     /**
      * the private key material, base 64 encoded and
-     * encrypted with the given `pgp_key`. This is only populated when creating a new
-     * key and `pgp_key` is supplied
+     * encrypted with the given `pgpKey`. This is only populated when creating a new
+     * key and `pgpKey` is supplied
      */
     public /*out*/ readonly encryptedPrivateKey!: pulumi.Output<string>;
     /**
@@ -105,7 +105,7 @@ export class KeyPair extends pulumi.CustomResource {
     public readonly pgpKey!: pulumi.Output<string | undefined>;
     /**
      * the private key, base64 encoded. This is only populated
-     * when creating a new key, and when no `pgp_key` is provided
+     * when creating a new key, and when no `pgpKey` is provided
      */
     public /*out*/ readonly privateKey!: pulumi.Output<string>;
     /**
@@ -173,8 +173,8 @@ export interface KeyPairState {
     readonly encryptedFingerprint?: pulumi.Input<string>;
     /**
      * the private key material, base 64 encoded and
-     * encrypted with the given `pgp_key`. This is only populated when creating a new
-     * key and `pgp_key` is supplied
+     * encrypted with the given `pgpKey`. This is only populated when creating a new
+     * key and `pgpKey` is supplied
      */
     readonly encryptedPrivateKey?: pulumi.Input<string>;
     /**
@@ -194,7 +194,7 @@ export interface KeyPairState {
     readonly pgpKey?: pulumi.Input<string>;
     /**
      * the private key, base64 encoded. This is only populated
-     * when creating a new key, and when no `pgp_key` is provided
+     * when creating a new key, and when no `pgpKey` is provided
      */
     readonly privateKey?: pulumi.Input<string>;
     /**

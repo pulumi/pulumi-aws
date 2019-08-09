@@ -25,14 +25,14 @@ class GetAccountAliasResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAccountAliasResult(GetAccountAliasResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAccountAliasResult(
+            account_alias=self.account_alias,
+            id=self.id)
 
 def get_account_alias(opts=None):
     """
@@ -49,6 +49,6 @@ def get_account_alias(opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getAccountAlias:getAccountAlias', __args__, opts=opts).value
 
-    return GetAccountAliasResult(
+    return AwaitableGetAccountAliasResult(
         account_alias=__ret__.get('accountAlias'),
         id=__ret__.get('id'))

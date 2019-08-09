@@ -70,14 +70,22 @@ class GetRoleResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetRoleResult(GetRoleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRoleResult(
+            arn=self.arn,
+            assume_role_policy=self.assume_role_policy,
+            create_date=self.create_date,
+            description=self.description,
+            max_session_duration=self.max_session_duration,
+            name=self.name,
+            path=self.path,
+            permissions_boundary=self.permissions_boundary,
+            unique_id=self.unique_id,
+            id=self.id)
 
 def get_role(name=None,opts=None):
     """
@@ -96,7 +104,7 @@ def get_role(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getRole:getRole', __args__, opts=opts).value
 
-    return GetRoleResult(
+    return AwaitableGetRoleResult(
         arn=__ret__.get('arn'),
         assume_role_policy=__ret__.get('assumeRolePolicy'),
         create_date=__ret__.get('createDate'),

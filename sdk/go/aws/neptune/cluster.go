@@ -11,10 +11,10 @@ import (
 // applied to the entire cluster of Neptune Cluster Instances.
 // 
 // Changes to a Neptune Cluster can occur when you manually change a
-// parameter, such as `backup_retention_period`, and are reflected in the next maintenance
+// parameter, such as `backupRetentionPeriod`, and are reflected in the next maintenance
 // window. Because of this, this provider may report a difference in its planning
 // phase because a modification has not yet taken place. You can use the
-// `apply_immediately` flag to instruct the service to apply the change immediately
+// `applyImmediately` flag to instruct the service to apply the change immediately
 // (see documentation below).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster.html.markdown.
@@ -163,7 +163,7 @@ func (r *Cluster) ClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
 
-// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 func (r *Cluster) ClusterIdentifierPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifierPrefix"])
 }
@@ -213,7 +213,7 @@ func (r *Cluster) IamRoles() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["iamRoles"])
 }
 
-// The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+// The ARN for the KMS encryption key. When specifying `kmsKeyArn`, `storageEncrypted` needs to be set to true.
 func (r *Cluster) KmsKeyArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyArn"])
 }
@@ -253,7 +253,7 @@ func (r *Cluster) ReplicationSourceIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["replicationSourceIdentifier"])
 }
 
-// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 func (r *Cluster) SkipFinalSnapshot() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["skipFinalSnapshot"])
 }
@@ -290,7 +290,7 @@ type ClusterState struct {
 	BackupRetentionPeriod interface{}
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier interface{}
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix interface{}
 	// List of Neptune Instances that are a part of this cluster
 	ClusterMembers interface{}
@@ -310,7 +310,7 @@ type ClusterState struct {
 	IamDatabaseAuthenticationEnabled interface{}
 	// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
 	IamRoles interface{}
-	// The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+	// The ARN for the KMS encryption key. When specifying `kmsKeyArn`, `storageEncrypted` needs to be set to true.
 	KmsKeyArn interface{}
 	// A cluster parameter group to associate with the cluster.
 	NeptuneClusterParameterGroupName interface{}
@@ -326,7 +326,7 @@ type ClusterState struct {
 	ReaderEndpoint interface{}
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier interface{}
-	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot interface{}
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
 	SnapshotIdentifier interface{}
@@ -348,7 +348,7 @@ type ClusterArgs struct {
 	BackupRetentionPeriod interface{}
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier interface{}
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix interface{}
 	// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
 	Engine interface{}
@@ -360,7 +360,7 @@ type ClusterArgs struct {
 	IamDatabaseAuthenticationEnabled interface{}
 	// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
 	IamRoles interface{}
-	// The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+	// The ARN for the KMS encryption key. When specifying `kmsKeyArn`, `storageEncrypted` needs to be set to true.
 	KmsKeyArn interface{}
 	// A cluster parameter group to associate with the cluster.
 	NeptuneClusterParameterGroupName interface{}
@@ -374,7 +374,7 @@ type ClusterArgs struct {
 	PreferredMaintenanceWindow interface{}
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier interface{}
-	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot interface{}
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
 	SnapshotIdentifier interface{}

@@ -9,8 +9,8 @@ import {RestApi} from "./restApi";
 /**
  * Provides an HTTP Method Integration Response for an API Gateway Resource.
  * 
- * > **Note:** Depends on having `aws_api_gateway_integration` inside your rest api. To ensure this
- * you might need to add an explicit `depends_on` for clean runs.
+ * > **Note:** Depends on having `aws.apigateway.Integration` inside your rest api. To ensure this
+ * you might need to add an explicit `dependsOn` for clean runs.
  * 
  * ## Example Usage
  * 
@@ -38,7 +38,7 @@ import {RestApi} from "./restApi";
  *     restApi: myDemoAPI.id,
  *     type: "MOCK",
  * });
- * const response200 = new aws.apigateway.MethodResponse("response_200", {
+ * const response200 = new aws.apigateway.MethodResponse("response200", {
  *     httpMethod: myDemoMethod.httpMethod,
  *     resourceId: myDemoResource.id,
  *     restApi: myDemoAPI.id,
@@ -104,7 +104,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
     public readonly resourceId!: pulumi.Output<string>;
     /**
      * A map of response parameters that can be read from the backend response.
-     * For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
+     * For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
      */
     public readonly responseParameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -199,7 +199,7 @@ export interface IntegrationResponseState {
     readonly resourceId?: pulumi.Input<string>;
     /**
      * A map of response parameters that can be read from the backend response.
-     * For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
+     * For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
      */
     readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -241,7 +241,7 @@ export interface IntegrationResponseArgs {
     readonly resourceId: pulumi.Input<string>;
     /**
      * A map of response parameters that can be read from the backend response.
-     * For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
+     * For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
      */
     readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

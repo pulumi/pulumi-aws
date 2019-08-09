@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     description: "neptune cluster parameter group",
  *     family: "neptune1",
  *     parameters: [{
- *         name: "neptune_enable_audit_log",
+ *         name: "neptuneEnableAuditLog",
  *         value: "1",
  *     }],
  * });

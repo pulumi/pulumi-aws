@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * > **Note**: Any modifications to the `db_option_group` are set to happen immediately as we default to applying immediately.
+ * > **Note**: Any modifications to the `dbOptionGroup` are set to happen immediately as we default to applying immediately.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_option_group.html.markdown.
  */

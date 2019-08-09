@@ -313,7 +313,7 @@ class Instance(pulumi.CustomResource):
     List of VPC security groups to
     associate.
     """
-    def __init__(__self__, resource_name, opts=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an RDS instance resource.  A DB instance is an isolated database
         environment in the cloud.  A DB instance can contain multiple user-created
@@ -479,135 +479,289 @@ class Instance(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['allocated_storage'] = allocated_storage
-
-        __props__['allow_major_version_upgrade'] = allow_major_version_upgrade
-
-        __props__['apply_immediately'] = apply_immediately
-
-        __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
-
-        __props__['availability_zone'] = availability_zone
-
-        __props__['backup_retention_period'] = backup_retention_period
-
-        __props__['backup_window'] = backup_window
-
-        __props__['character_set_name'] = character_set_name
-
-        __props__['copy_tags_to_snapshot'] = copy_tags_to_snapshot
-
-        __props__['db_subnet_group_name'] = db_subnet_group_name
-
-        __props__['deletion_protection'] = deletion_protection
-
-        __props__['domain'] = domain
-
-        __props__['domain_iam_role_name'] = domain_iam_role_name
-
-        __props__['enabled_cloudwatch_logs_exports'] = enabled_cloudwatch_logs_exports
-
-        __props__['engine'] = engine
-
-        __props__['engine_version'] = engine_version
-
-        __props__['final_snapshot_identifier'] = final_snapshot_identifier
-
-        __props__['iam_database_authentication_enabled'] = iam_database_authentication_enabled
-
-        __props__['identifier'] = identifier
-
-        __props__['identifier_prefix'] = identifier_prefix
-
-        if instance_class is None:
-            raise TypeError("Missing required property 'instance_class'")
-        __props__['instance_class'] = instance_class
-
-        __props__['iops'] = iops
-
-        __props__['kms_key_id'] = kms_key_id
-
-        __props__['license_model'] = license_model
-
-        __props__['maintenance_window'] = maintenance_window
-
-        __props__['max_allocated_storage'] = max_allocated_storage
-
-        __props__['monitoring_interval'] = monitoring_interval
-
-        __props__['monitoring_role_arn'] = monitoring_role_arn
-
-        __props__['multi_az'] = multi_az
-
-        __props__['name'] = name
-
-        __props__['option_group_name'] = option_group_name
-
-        __props__['parameter_group_name'] = parameter_group_name
-
-        __props__['password'] = password
-
-        __props__['performance_insights_enabled'] = performance_insights_enabled
-
-        __props__['performance_insights_kms_key_id'] = performance_insights_kms_key_id
-
-        __props__['performance_insights_retention_period'] = performance_insights_retention_period
-
-        __props__['port'] = port
-
-        __props__['publicly_accessible'] = publicly_accessible
-
-        __props__['replicate_source_db'] = replicate_source_db
-
-        __props__['s3_import'] = s3_import
-
-        __props__['security_group_names'] = security_group_names
-
-        __props__['skip_final_snapshot'] = skip_final_snapshot
-
-        __props__['snapshot_identifier'] = snapshot_identifier
-
-        __props__['storage_encrypted'] = storage_encrypted
-
-        __props__['storage_type'] = storage_type
-
-        __props__['tags'] = tags
-
-        __props__['timezone'] = timezone
-
-        __props__['username'] = username
-
-        __props__['vpc_security_group_ids'] = vpc_security_group_ids
-
-        __props__['address'] = None
-        __props__['arn'] = None
-        __props__['ca_cert_identifier'] = None
-        __props__['endpoint'] = None
-        __props__['hosted_zone_id'] = None
-        __props__['replicas'] = None
-        __props__['resource_id'] = None
-        __props__['status'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['allocated_storage'] = allocated_storage
+            __props__['allow_major_version_upgrade'] = allow_major_version_upgrade
+            __props__['apply_immediately'] = apply_immediately
+            __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
+            __props__['availability_zone'] = availability_zone
+            __props__['backup_retention_period'] = backup_retention_period
+            __props__['backup_window'] = backup_window
+            __props__['character_set_name'] = character_set_name
+            __props__['copy_tags_to_snapshot'] = copy_tags_to_snapshot
+            __props__['db_subnet_group_name'] = db_subnet_group_name
+            __props__['deletion_protection'] = deletion_protection
+            __props__['domain'] = domain
+            __props__['domain_iam_role_name'] = domain_iam_role_name
+            __props__['enabled_cloudwatch_logs_exports'] = enabled_cloudwatch_logs_exports
+            __props__['engine'] = engine
+            __props__['engine_version'] = engine_version
+            __props__['final_snapshot_identifier'] = final_snapshot_identifier
+            __props__['iam_database_authentication_enabled'] = iam_database_authentication_enabled
+            __props__['identifier'] = identifier
+            __props__['identifier_prefix'] = identifier_prefix
+            if instance_class is None:
+                raise TypeError("Missing required property 'instance_class'")
+            __props__['instance_class'] = instance_class
+            __props__['iops'] = iops
+            __props__['kms_key_id'] = kms_key_id
+            __props__['license_model'] = license_model
+            __props__['maintenance_window'] = maintenance_window
+            __props__['max_allocated_storage'] = max_allocated_storage
+            __props__['monitoring_interval'] = monitoring_interval
+            __props__['monitoring_role_arn'] = monitoring_role_arn
+            __props__['multi_az'] = multi_az
+            __props__['name'] = name
+            __props__['option_group_name'] = option_group_name
+            __props__['parameter_group_name'] = parameter_group_name
+            __props__['password'] = password
+            __props__['performance_insights_enabled'] = performance_insights_enabled
+            __props__['performance_insights_kms_key_id'] = performance_insights_kms_key_id
+            __props__['performance_insights_retention_period'] = performance_insights_retention_period
+            __props__['port'] = port
+            __props__['publicly_accessible'] = publicly_accessible
+            __props__['replicate_source_db'] = replicate_source_db
+            __props__['s3_import'] = s3_import
+            __props__['security_group_names'] = security_group_names
+            __props__['skip_final_snapshot'] = skip_final_snapshot
+            __props__['snapshot_identifier'] = snapshot_identifier
+            __props__['storage_encrypted'] = storage_encrypted
+            __props__['storage_type'] = storage_type
+            __props__['tags'] = tags
+            __props__['timezone'] = timezone
+            __props__['username'] = username
+            __props__['vpc_security_group_ids'] = vpc_security_group_ids
+            __props__['address'] = None
+            __props__['arn'] = None
+            __props__['ca_cert_identifier'] = None
+            __props__['endpoint'] = None
+            __props__['hosted_zone_id'] = None
+            __props__['replicas'] = None
+            __props__['resource_id'] = None
+            __props__['status'] = None
         super(Instance, __self__).__init__(
             'aws:rds/instance:Instance',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, address=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, arn=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, ca_cert_identifier=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, publicly_accessible=None, replicas=None, replicate_source_db=None, resource_id=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, status=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None):
+        """
+        Get an existing Instance resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] address: The hostname of the RDS instance. See also `endpoint` and `port`.
+        :param pulumi.Input[float] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+        :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version
+               upgrades are allowed. Changing this parameter does not result in an outage and
+               the change is asynchronously applied as soon as possible.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications
+               are applied immediately, or during the next maintenance window. Default is
+               `false`. See [Amazon RDS Documentation for more
+               information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        :param pulumi.Input[str] arn: The ARN of the RDS instance.
+        :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades
+               will be applied automatically to the DB instance during the maintenance window.
+               Defaults to true.
+        :param pulumi.Input[str] availability_zone: The AZ for the RDS instance.
+        :param pulumi.Input[float] backup_retention_period: The days to retain backups for. Must be
+               between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+        :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which
+               automated backups are created if they are enabled. Example: "09:46-10:16". Must
+               not overlap with `maintenance_window`.
+        :param pulumi.Input[str] ca_cert_identifier: Specifies the identifier of the CA certificate for the
+               DB instance.
+        :param pulumi.Input[str] character_set_name: The character set name to use for DB
+               encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
+               Supported in Amazon
+               RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+               for more information.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
+        :param pulumi.Input[str] db_subnet_group_name: Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
+               be created in the VPC associated with the DB subnet group. If unspecified, will
+               be created in the `default` VPC, or in EC2 Classic, if available. When working
+               with read replicas, it should be specified only if the source database
+               specifies an instance in another AWS Region. See [DBSubnetGroupName in API
+               action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
+               for additional read replica contraints.
+        :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in.
+        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
+        :param pulumi.Input[list] enabled_cloudwatch_logs_exports: List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+        :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
+        :param pulumi.Input[str] engine: (Required unless a `snapshot_identifier` or `replicate_source_db`
+               is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+               Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
+               For information on the difference between the available Aurora MySQL engines
+               see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+               in the Amazon RDS User Guide.
+        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade`
+               is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
+               this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+               For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+               Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+        :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
+               when this DB instance is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] hosted_zone_id: The canonical hosted zone ID of the DB instance (to be used
+               in a Route 53 Alias record).
+        :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or
+               mappings of AWS Identity and Access Management (IAM) accounts to database
+               accounts is enabled.
+        :param pulumi.Input[str] identifier: The name of the RDS instance,
+               if omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[str] identifier_prefix: Creates a unique
+               identifier beginning with the specified prefix. Conflicts with `identifier`.
+        :param pulumi.Input[str] instance_class: The instance type of the RDS instance.
+        :param pulumi.Input[float] iops: The amount of provisioned IOPS. Setting this implies a
+               storage_type of "io1".
+        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
+               encrypted replica, set this to the destination KMS ARN.
+        :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e. Oracle
+               SE1) License model information for this DB instance.
+        :param pulumi.Input[str] maintenance_window: The window to perform maintenance in.
+               Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
+               Maintenance Window
+               docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
+               for more information.
+        :param pulumi.Input[float] max_allocated_storage: When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
+        :param pulumi.Input[float] monitoring_interval: The interval, in seconds, between points
+               when Enhanced Monitoring metrics are collected for the DB instance. To disable
+               collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
+               Values: 0, 1, 5, 10, 15, 30, 60.
+        :param pulumi.Input[str] monitoring_role_arn: The ARN for the IAM role that permits RDS
+               to send enhanced monitoring metrics to CloudWatch Logs. You can find more
+               information on the [AWS
+               Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
+               what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
+        :param pulumi.Input[bool] multi_az: Specifies if the RDS instance is multi-AZ
+        :param pulumi.Input[str] name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
+        :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
+        :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
+               associate.
+        :param pulumi.Input[str] password: (Required unless a `snapshot_identifier` or `replicate_source_db`
+               is provided) Password for the master DB user. Note that this may show up in
+               logs, and it will be stored in the state file.
+        :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights are enabled. Defaults to false.
+        :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+        :param pulumi.Input[float] performance_insights_retention_period: The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        :param pulumi.Input[float] port: The port on which the DB accepts connections.
+        :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly
+               accessible. Default is `false`.
+        :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replicate
+               database, and to use this value as the source database. This correlates to the
+               `identifier` of another Amazon RDS Database to replicate. Note that if you are
+               creating a cross-region replica of an encrypted database you will also need to
+               specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
+               PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
+               for more information on using Replication.
+        :param pulumi.Input[str] resource_id: The RDS Resource ID of this instance.
+        :param pulumi.Input[dict] s3_import: Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
+        :param pulumi.Input[list] security_group_names: List of DB Security Groups to
+               associate. Only used for [DB Instances on the _EC2-Classic_
+               Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
+        :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is
+               created before the DB instance is deleted. If true is specified, no DBSnapshot
+               is created. If false is specified, a DB snapshot is created before the DB
+               instance is deleted, using the value from `final_snapshot_identifier`. Default
+               is `false`.
+        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this
+               database from a snapshot. This correlates to the snapshot ID you'd find in the
+               RDS console, e.g: rds:production-2015-06-26-06-05.
+        :param pulumi.Input[str] status: The RDS instance status.
+        :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB instance is
+               encrypted. Note that if you are creating a cross-region read replica this field
+               is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+               default is `false` if not specified.
+        :param pulumi.Input[str] storage_type: One of "standard" (magnetic), "gp2" (general
+               purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
+               specified, "gp2" if not.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
+               only supported by Microsoft SQL Server. The `timezone` can only be set on
+               creation. See [MSSQL User
+               Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
+               for more information.
+        :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
+               is provided) Username for the master DB user.
+        :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to
+               associate.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["address"] = address
+        __props__["allocated_storage"] = allocated_storage
+        __props__["allow_major_version_upgrade"] = allow_major_version_upgrade
+        __props__["apply_immediately"] = apply_immediately
+        __props__["arn"] = arn
+        __props__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+        __props__["availability_zone"] = availability_zone
+        __props__["backup_retention_period"] = backup_retention_period
+        __props__["backup_window"] = backup_window
+        __props__["ca_cert_identifier"] = ca_cert_identifier
+        __props__["character_set_name"] = character_set_name
+        __props__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+        __props__["db_subnet_group_name"] = db_subnet_group_name
+        __props__["deletion_protection"] = deletion_protection
+        __props__["domain"] = domain
+        __props__["domain_iam_role_name"] = domain_iam_role_name
+        __props__["enabled_cloudwatch_logs_exports"] = enabled_cloudwatch_logs_exports
+        __props__["endpoint"] = endpoint
+        __props__["engine"] = engine
+        __props__["engine_version"] = engine_version
+        __props__["final_snapshot_identifier"] = final_snapshot_identifier
+        __props__["hosted_zone_id"] = hosted_zone_id
+        __props__["iam_database_authentication_enabled"] = iam_database_authentication_enabled
+        __props__["identifier"] = identifier
+        __props__["identifier_prefix"] = identifier_prefix
+        __props__["instance_class"] = instance_class
+        __props__["iops"] = iops
+        __props__["kms_key_id"] = kms_key_id
+        __props__["license_model"] = license_model
+        __props__["maintenance_window"] = maintenance_window
+        __props__["max_allocated_storage"] = max_allocated_storage
+        __props__["monitoring_interval"] = monitoring_interval
+        __props__["monitoring_role_arn"] = monitoring_role_arn
+        __props__["multi_az"] = multi_az
+        __props__["name"] = name
+        __props__["option_group_name"] = option_group_name
+        __props__["parameter_group_name"] = parameter_group_name
+        __props__["password"] = password
+        __props__["performance_insights_enabled"] = performance_insights_enabled
+        __props__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+        __props__["performance_insights_retention_period"] = performance_insights_retention_period
+        __props__["port"] = port
+        __props__["publicly_accessible"] = publicly_accessible
+        __props__["replicas"] = replicas
+        __props__["replicate_source_db"] = replicate_source_db
+        __props__["resource_id"] = resource_id
+        __props__["s3_import"] = s3_import
+        __props__["security_group_names"] = security_group_names
+        __props__["skip_final_snapshot"] = skip_final_snapshot
+        __props__["snapshot_identifier"] = snapshot_identifier
+        __props__["status"] = status
+        __props__["storage_encrypted"] = storage_encrypted
+        __props__["storage_type"] = storage_type
+        __props__["tags"] = tags
+        __props__["timezone"] = timezone
+        __props__["username"] = username
+        __props__["vpc_security_group_ids"] = vpc_security_group_ids
+        return Instance(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

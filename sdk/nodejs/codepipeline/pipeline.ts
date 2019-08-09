@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a CodePipeline.
  * 
- * > **NOTE on `aws_codepipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
+ * > **NOTE on `aws.codepipeline.Pipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
  * 
  * ## Example Usage
  * 
@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const codepipelineRole = new aws.iam.Role("codepipeline_role", {
+ * const codepipelineRole = new aws.iam.Role("codepipelineRole", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const codepipelineBucket = new aws.s3.Bucket("codepipeline_bucket", {
+ * const codepipelineBucket = new aws.s3.Bucket("codepipelineBucket", {
  *     acl: "private",
  * });
  * const s3kmskey = pulumi.output(aws.kms.getAlias({
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *                     Repo: "test",
  *                 },
  *                 name: "Source",
- *                 outputArtifacts: ["source_output"],
+ *                 outputArtifacts: ["sourceOutput"],
  *                 owner: "ThirdParty",
  *                 provider: "GitHub",
  *                 version: "1",
@@ -69,9 +69,9 @@ import * as utilities from "../utilities";
  *                 configuration: {
  *                     ProjectName: "test",
  *                 },
- *                 inputArtifacts: ["source_output"],
+ *                 inputArtifacts: ["sourceOutput"],
  *                 name: "Build",
- *                 outputArtifacts: ["build_output"],
+ *                 outputArtifacts: ["buildOutput"],
  *                 owner: "AWS",
  *                 provider: "CodeBuild",
  *                 version: "1",
@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  *                     StackName: "MyStack",
  *                     TemplatePath: "build_output::sam-templated.yaml",
  *                 },
- *                 inputArtifacts: ["build_output"],
+ *                 inputArtifacts: ["buildOutput"],
  *                 name: "Deploy",
  *                 owner: "AWS",
  *                 provider: "CloudFormation",
@@ -98,7 +98,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const codepipelinePolicy = new aws.iam.RolePolicy("codepipeline_policy", {
+ * const codepipelinePolicy = new aws.iam.RolePolicy("codepipelinePolicy", {
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -164,7 +164,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * An artifact_store block. Artifact stores are documented below.
+     * An artifactStore block. Artifact stores are documented below.
      * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     public readonly artifactStore!: pulumi.Output<{ encryptionKey?: { id: string, type: string }, location: string, type: string }>;
@@ -238,7 +238,7 @@ export interface PipelineState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * An artifact_store block. Artifact stores are documented below.
+     * An artifactStore block. Artifact stores are documented below.
      * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     readonly artifactStore?: pulumi.Input<{ encryptionKey?: pulumi.Input<{ id: pulumi.Input<string>, type: pulumi.Input<string> }>, location: pulumi.Input<string>, type: pulumi.Input<string> }>;
@@ -262,7 +262,7 @@ export interface PipelineState {
  */
 export interface PipelineArgs {
     /**
-     * An artifact_store block. Artifact stores are documented below.
+     * An artifactStore block. Artifact stores are documented below.
      * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     readonly artifactStore: pulumi.Input<{ encryptionKey?: pulumi.Input<{ id: pulumi.Input<string>, type: pulumi.Input<string> }>, location: pulumi.Input<string>, type: pulumi.Input<string> }>;

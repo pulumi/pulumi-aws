@@ -81,7 +81,7 @@ func (r *Permission) AllowSudo() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["allowSudo"])
 }
 
-// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
 func (r *Permission) Level() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["level"])
 }
@@ -102,7 +102,7 @@ type PermissionState struct {
 	AllowSsh interface{}
 	// Whether the user is allowed to use sudo to elevate privileges
 	AllowSudo interface{}
-	// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+	// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
 	Level interface{}
 	// The stack to set the permissions for
 	StackId interface{}
@@ -116,7 +116,7 @@ type PermissionArgs struct {
 	AllowSsh interface{}
 	// Whether the user is allowed to use sudo to elevate privileges
 	AllowSudo interface{}
-	// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+	// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
 	Level interface{}
 	// The stack to set the permissions for
 	StackId interface{}

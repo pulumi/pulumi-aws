@@ -28,14 +28,15 @@ class GetSecretsResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSecretsResult(GetSecretsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSecretsResult(
+            plaintext=self.plaintext,
+            secrets=self.secrets,
+            id=self.id)
 
 def get_secrets(secrets=None,opts=None):
     """
@@ -52,7 +53,7 @@ def get_secrets(secrets=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:kms/getSecrets:getSecrets', __args__, opts=opts).value
 
-    return GetSecretsResult(
+    return AwaitableGetSecretsResult(
         plaintext=__ret__.get('plaintext'),
         secrets=__ret__.get('secrets'),
         id=__ret__.get('id'))

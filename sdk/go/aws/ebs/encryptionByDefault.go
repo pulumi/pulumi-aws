@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a resource to manage whether default EBS encryption is enabled for your AWS account in the current AWS region. To manage the default KMS key for the region, see the [`aws_ebs_default_kms_key` resource](https://www.terraform.io/docs/providers/aws/r/ebs_default_kms_key.html).
+// Provides a resource to manage whether default EBS encryption is enabled for your AWS account in the current AWS region. To manage the default KMS key for the region, see the [`ebs.DefaultKmsKey` resource](https://www.terraform.io/docs/providers/aws/r/ebs_default_kms_key.html).
 // 
 // > **NOTE:** Removing this resource disables default EBS encryption.
 //

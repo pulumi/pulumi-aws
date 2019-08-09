@@ -15,7 +15,7 @@ import (
 // Instances and DocDB manages the replication. You can use the [count][3]
 // meta-parameter to make multiple instances and join them all to the same DocDB
 // Cluster, or you may specify different Cluster Instance resources with various
-// `instance_class` sizes.
+// `instanceClass` sizes.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_instance.html.markdown.
 type ClusterInstance struct {
@@ -142,7 +142,7 @@ func (r *ClusterInstance) AvailabilityZone() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
-// The identifier of the [`aws_docdb_cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
 func (r *ClusterInstance) ClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
@@ -250,7 +250,7 @@ type ClusterInstanceState struct {
 	AutoMinorVersionUpgrade interface{}
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone interface{}
-	// The identifier of the [`aws_docdb_cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
 	ClusterIdentifier interface{}
 	// The DB subnet group to associate with this DB instance.
 	DbSubnetGroupName interface{}
@@ -304,7 +304,7 @@ type ClusterInstanceArgs struct {
 	AutoMinorVersionUpgrade interface{}
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone interface{}
-	// The identifier of the [`aws_docdb_cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
 	ClusterIdentifier interface{}
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine interface{}

@@ -22,18 +22,18 @@ class GetRuleResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetRuleResult(GetRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRuleResult(
+            name=self.name,
+            id=self.id)
 
 def get_rule(name=None,opts=None):
     """
-    `aws_waf_rule` Retrieves a WAF Rule Resource Id.
+    `waf.Rule` Retrieves a WAF Rule Resource Id.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rule.html.markdown.
     """
@@ -46,6 +46,6 @@ def get_rule(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:waf/getRule:getRule', __args__, opts=opts).value
 
-    return GetRuleResult(
+    return AwaitableGetRuleResult(
         name=__ret__.get('name'),
         id=__ret__.get('id'))

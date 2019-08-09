@@ -49,14 +49,18 @@ class GetUserResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetUserResult(
+            arn=self.arn,
+            path=self.path,
+            permissions_boundary=self.permissions_boundary,
+            user_id=self.user_id,
+            user_name=self.user_name,
+            id=self.id)
 
 def get_user(user_name=None,opts=None):
     """
@@ -75,7 +79,7 @@ def get_user(user_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getUser:getUser', __args__, opts=opts).value
 
-    return GetUserResult(
+    return AwaitableGetUserResult(
         arn=__ret__.get('arn'),
         path=__ret__.get('path'),
         permissions_boundary=__ret__.get('permissionsBoundary'),

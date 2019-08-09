@@ -43,7 +43,7 @@ type GetLayerVersionArgs struct {
 	CompatibleRuntime interface{}
 	// Name of the lambda layer.
 	LayerName interface{}
-	// Specific layer version. Conflicts with `compatible_runtime`. If omitted, the latest available layer version will be used.
+	// Specific layer version. Conflicts with `compatibleRuntime`. If omitted, the latest available layer version will be used.
 	Version interface{}
 }
 

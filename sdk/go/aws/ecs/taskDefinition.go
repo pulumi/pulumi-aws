@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a revision of an ECS task definition to be used in `aws_ecs_service`.
+// Manages a revision of an ECS task definition to be used in `ecs.Service`.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_task_definition.html.markdown.
 type TaskDefinition struct {
@@ -120,7 +120,7 @@ func (r *TaskDefinition) ContainerDefinitions() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["containerDefinitions"])
 }
 
-// The number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+// The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 func (r *TaskDefinition) Cpu() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["cpu"])
 }
@@ -140,7 +140,7 @@ func (r *TaskDefinition) IpcMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ipcMode"])
 }
 
-// The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+// The amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 func (r *TaskDefinition) Memory() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["memory"])
 }
@@ -155,7 +155,7 @@ func (r *TaskDefinition) PidMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["pidMode"])
 }
 
-// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`.
 func (r *TaskDefinition) PlacementConstraints() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["placementConstraints"])
 }
@@ -201,7 +201,7 @@ type TaskDefinitionState struct {
 	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
 	// official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions interface{}
-	// The number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+	// The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu interface{}
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn interface{}
@@ -209,13 +209,13 @@ type TaskDefinitionState struct {
 	Family interface{}
 	// The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode interface{}
-	// The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+	// The amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Memory interface{}
 	// The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, `awsvpc`, and `host`.
 	NetworkMode interface{}
 	// The process namespace to use for the containers in the task. The valid values are `host` and `task`.
 	PidMode interface{}
-	// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+	// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`.
 	PlacementConstraints interface{}
 	// The proxy configuration details for the App Mesh proxy.
 	ProxyConfiguration interface{}
@@ -240,7 +240,7 @@ type TaskDefinitionArgs struct {
 	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
 	// official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions interface{}
-	// The number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+	// The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu interface{}
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn interface{}
@@ -248,13 +248,13 @@ type TaskDefinitionArgs struct {
 	Family interface{}
 	// The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode interface{}
-	// The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+	// The amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Memory interface{}
 	// The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, `awsvpc`, and `host`.
 	NetworkMode interface{}
 	// The process namespace to use for the containers in the task. The valid values are `host` and `task`.
 	PidMode interface{}
-	// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+	// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`.
 	PlacementConstraints interface{}
 	// The proxy configuration details for the App Mesh proxy.
 	ProxyConfiguration interface{}

@@ -40,14 +40,17 @@ class GetAliasResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAliasResult(GetAliasResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAliasResult(
+            arn=self.arn,
+            name=self.name,
+            target_key_arn=self.target_key_arn,
+            target_key_id=self.target_key_id,
+            id=self.id)
 
 def get_alias(name=None,opts=None):
     """
@@ -66,7 +69,7 @@ def get_alias(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:kms/getAlias:getAlias', __args__, opts=opts).value
 
-    return GetAliasResult(
+    return AwaitableGetAliasResult(
         arn=__ret__.get('arn'),
         name=__ret__.get('name'),
         target_key_arn=__ret__.get('targetKeyArn'),

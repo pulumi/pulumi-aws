@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a [RDS Aurora Cluster][2]. To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`aws_rds_cluster_instance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`aws_db_instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
+// Manages a [RDS Aurora Cluster][2]. To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`rds.ClusterInstance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`rds.Instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
 // 
 // For information on the difference between the available Aurora MySQL engines
 // see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
@@ -17,10 +17,10 @@ import (
 // parameter, such as `port`, and are reflected in the next maintenance
 // window. Because of this, this provider may report a difference in its planning
 // phase because a modification has not yet taken place. You can use the
-// `apply_immediately` flag to instruct the service to apply the change immediately
+// `applyImmediately` flag to instruct the service to apply the change immediately
 // (see documentation below).
 // 
-// > **Note:** using `apply_immediately` can result in a
+// > **Note:** using `applyImmediately` can result in a
 // brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance][4]
 // for more information.
 // 
@@ -197,7 +197,7 @@ func (r *Cluster) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignore_changes` if necessary.
+// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
 func (r *Cluster) AvailabilityZones() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["availabilityZones"])
 }
@@ -217,7 +217,7 @@ func (r *Cluster) ClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
 
-// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 func (r *Cluster) ClusterIdentifierPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifierPrefix"])
 }
@@ -247,7 +247,7 @@ func (r *Cluster) DbClusterParameterGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbClusterParameterGroupName"])
 }
 
-// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
 func (r *Cluster) DbSubnetGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
 }
@@ -290,7 +290,7 @@ func (r *Cluster) FinalSnapshotIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["finalSnapshotIdentifier"])
 }
 
-// The global cluster identifier specified on [`aws_rds_global_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+// The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
 func (r *Cluster) GlobalClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["globalClusterIdentifier"])
 }
@@ -310,7 +310,7 @@ func (r *Cluster) IamRoles() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["iamRoles"])
 }
 
-// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 func (r *Cluster) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
@@ -357,12 +357,12 @@ func (r *Cluster) S3Import() *pulumi.Output {
 	return r.s.State["s3Import"]
 }
 
-// Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 func (r *Cluster) ScalingConfiguration() *pulumi.Output {
 	return r.s.State["scalingConfiguration"]
 }
 
-// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 func (r *Cluster) SkipFinalSnapshot() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["skipFinalSnapshot"])
 }
@@ -377,7 +377,7 @@ func (r *Cluster) SourceRegion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceRegion"])
 }
 
-// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
+// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
 func (r *Cluster) StorageEncrypted() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["storageEncrypted"])
 }
@@ -401,7 +401,7 @@ type ClusterState struct {
 	ApplyImmediately interface{}
 	// Amazon Resource Name (ARN) of cluster
 	Arn interface{}
-	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignore_changes` if necessary.
+	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
 	AvailabilityZones interface{}
 	// The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow interface{}
@@ -409,7 +409,7 @@ type ClusterState struct {
 	BackupRetentionPeriod interface{}
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier interface{}
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix interface{}
 	// List of RDS Instances that are a part of this cluster
 	ClusterMembers interface{}
@@ -421,7 +421,7 @@ type ClusterState struct {
 	DatabaseName interface{}
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName interface{}
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
 	DbSubnetGroupName interface{}
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection interface{}
@@ -440,7 +440,7 @@ type ClusterState struct {
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
 	FinalSnapshotIdentifier interface{}
-	// The global cluster identifier specified on [`aws_rds_global_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+	// The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
 	GlobalClusterIdentifier interface{}
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId interface{}
@@ -448,7 +448,7 @@ type ClusterState struct {
 	IamDatabaseAuthenticationEnabled interface{}
 	// A List of ARNs for the IAM roles to associate to the RDS Cluster.
 	IamRoles interface{}
-	// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId interface{}
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
@@ -468,15 +468,15 @@ type ClusterState struct {
 	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier interface{}
 	S3Import interface{}
-	// Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 	ScalingConfiguration interface{}
-	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot interface{}
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
 	SnapshotIdentifier interface{}
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion interface{}
-	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
+	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
 	StorageEncrypted interface{}
 	// A mapping of tags to assign to the DB cluster.
 	Tags interface{}
@@ -491,7 +491,7 @@ type ClusterArgs struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately interface{}
-	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignore_changes` if necessary.
+	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
 	AvailabilityZones interface{}
 	// The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow interface{}
@@ -499,7 +499,7 @@ type ClusterArgs struct {
 	BackupRetentionPeriod interface{}
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier interface{}
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix interface{}
 	// List of RDS Instances that are a part of this cluster
 	ClusterMembers interface{}
@@ -509,7 +509,7 @@ type ClusterArgs struct {
 	DatabaseName interface{}
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName interface{}
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
 	DbSubnetGroupName interface{}
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection interface{}
@@ -526,13 +526,13 @@ type ClusterArgs struct {
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
 	FinalSnapshotIdentifier interface{}
-	// The global cluster identifier specified on [`aws_rds_global_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+	// The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
 	GlobalClusterIdentifier interface{}
 	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
 	IamDatabaseAuthenticationEnabled interface{}
 	// A List of ARNs for the IAM roles to associate to the RDS Cluster.
 	IamRoles interface{}
-	// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId interface{}
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
@@ -549,15 +549,15 @@ type ClusterArgs struct {
 	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier interface{}
 	S3Import interface{}
-	// Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 	ScalingConfiguration interface{}
-	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot interface{}
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
 	SnapshotIdentifier interface{}
 	// The source region for an encrypted replica DB cluster.
 	SourceRegion interface{}
-	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
+	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
 	StorageEncrypted interface{}
 	// A mapping of tags to assign to the DB cluster.
 	Tags interface{}

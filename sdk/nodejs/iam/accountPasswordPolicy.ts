@@ -62,7 +62,7 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
     public readonly allowUsersToChangePassword!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether passwords in the account expire.
-     * Returns `true` if `max_password_age` contains a value greater than `0`.
+     * Returns `true` if `maxPasswordAge` contains a value greater than `0`.
      * Returns `false` if it is `0` or _not present_.
      */
     public /*out*/ readonly expirePasswords!: pulumi.Output<boolean>;
@@ -156,7 +156,7 @@ export interface AccountPasswordPolicyState {
     readonly allowUsersToChangePassword?: pulumi.Input<boolean>;
     /**
      * Indicates whether passwords in the account expire.
-     * Returns `true` if `max_password_age` contains a value greater than `0`.
+     * Returns `true` if `maxPasswordAge` contains a value greater than `0`.
      * Returns `false` if it is `0` or _not present_.
      */
     readonly expirePasswords?: pulumi.Input<boolean>;

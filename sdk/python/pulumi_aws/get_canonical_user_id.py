@@ -25,14 +25,14 @@ class GetCanonicalUserIdResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetCanonicalUserIdResult(GetCanonicalUserIdResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetCanonicalUserIdResult(
+            display_name=self.display_name,
+            id=self.id)
 
 def get_canonical_user_id(opts=None):
     """
@@ -49,6 +49,6 @@ def get_canonical_user_id(opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getCanonicalUserId:getCanonicalUserId', __args__, opts=opts).value
 
-    return GetCanonicalUserIdResult(
+    return AwaitableGetCanonicalUserIdResult(
         display_name=__ret__.get('displayName'),
         id=__ret__.get('id'))

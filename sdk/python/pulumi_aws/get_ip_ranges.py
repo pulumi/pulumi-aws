@@ -53,14 +53,20 @@ class GetIpRangesResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetIpRangesResult(GetIpRangesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetIpRangesResult(
+            cidr_blocks=self.cidr_blocks,
+            create_date=self.create_date,
+            ipv6_cidr_blocks=self.ipv6_cidr_blocks,
+            regions=self.regions,
+            services=self.services,
+            sync_token=self.sync_token,
+            url=self.url,
+            id=self.id)
 
 def get_ip_ranges(regions=None,services=None,url=None,opts=None):
     """
@@ -79,7 +85,7 @@ def get_ip_ranges(regions=None,services=None,url=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getIpRanges:getIpRanges', __args__, opts=opts).value
 
-    return GetIpRangesResult(
+    return AwaitableGetIpRangesResult(
         cidr_blocks=__ret__.get('cidrBlocks'),
         create_date=__ret__.get('createDate'),
         ipv6_cidr_blocks=__ret__.get('ipv6CidrBlocks'),

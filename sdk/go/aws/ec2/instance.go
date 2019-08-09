@@ -234,7 +234,7 @@ func (r *Instance) EphemeralBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
 }
 
-// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 func (r *Instance) GetPasswordData() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["getPasswordData"])
 }
@@ -246,7 +246,7 @@ func (r *Instance) HostId() *pulumi.StringOutput {
 
 // The IAM Instance Profile to
 // launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-// * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+// * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 func (r *Instance) IamInstanceProfile() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["iamInstanceProfile"])
 }
@@ -278,7 +278,7 @@ func (r *Instance) Ipv6Addresses() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ipv6Addresses"])
 }
 
-// The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
+// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 func (r *Instance) KeyName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyName"])
 }
@@ -295,7 +295,7 @@ func (r *Instance) NetworkInterfaces() *pulumi.ArrayOutput {
 
 // Base-64 encoded encrypted password data for the instance.
 // Useful for getting the administrator password for instances running Microsoft Windows.
-// This attribute is only exported if `get_password_data` is true.
+// This attribute is only exported if `getPasswordData` is true.
 // Note that this encrypted value will be stored in the state file, as with all exported attributes.
 // See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 func (r *Instance) PasswordData() *pulumi.StringOutput {
@@ -331,7 +331,7 @@ func (r *Instance) PublicDns() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["publicDns"])
 }
 
-// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
 func (r *Instance) PublicIp() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["publicIp"])
 }
@@ -368,12 +368,12 @@ func (r *Instance) Tenancy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tenancy"])
 }
 
-// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
 func (r *Instance) UserData() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["userData"])
 }
 
-// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 func (r *Instance) UserDataBase64() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["userDataBase64"])
 }
@@ -421,13 +421,13 @@ type InstanceState struct {
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices interface{}
-	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData interface{}
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId interface{}
 	// The IAM Instance Profile to
 	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-	// * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+	// * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	IamInstanceProfile interface{}
 	// Shutdown behavior for the
 	// instance. Amazon defaults this to `stop` for EBS-backed instances and
@@ -441,7 +441,7 @@ type InstanceState struct {
 	Ipv6AddressCount interface{}
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses interface{}
-	// The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
+	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName interface{}
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring interface{}
@@ -449,7 +449,7 @@ type InstanceState struct {
 	NetworkInterfaces interface{}
 	// Base-64 encoded encrypted password data for the instance.
 	// Useful for getting the administrator password for instances running Microsoft Windows.
-	// This attribute is only exported if `get_password_data` is true.
+	// This attribute is only exported if `getPasswordData` is true.
 	// Note that this encrypted value will be stored in the state file, as with all exported attributes.
 	// See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	PasswordData interface{}
@@ -467,7 +467,7 @@ type InstanceState struct {
 	// The public DNS name assigned to the instance. For EC2-VPC, this
 	// is only available if you've enabled DNS hostnames for your VPC
 	PublicDns interface{}
-	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
 	PublicIp interface{}
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
@@ -483,9 +483,9 @@ type InstanceState struct {
 	Tags interface{}
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy interface{}
-	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
 	UserData interface{}
-	// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 interface{}
 	// A mapping of tags to assign to the devices created by the instance at launch time.
 	VolumeTags interface{}
@@ -524,13 +524,13 @@ type InstanceArgs struct {
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices interface{}
-	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData interface{}
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId interface{}
 	// The IAM Instance Profile to
 	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-	// * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+	// * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	IamInstanceProfile interface{}
 	// Shutdown behavior for the
 	// instance. Amazon defaults this to `stop` for EBS-backed instances and
@@ -542,7 +542,7 @@ type InstanceArgs struct {
 	Ipv6AddressCount interface{}
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses interface{}
-	// The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
+	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName interface{}
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring interface{}
@@ -567,9 +567,9 @@ type InstanceArgs struct {
 	Tags interface{}
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy interface{}
-	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
 	UserData interface{}
-	// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 interface{}
 	// A mapping of tags to assign to the devices created by the instance at launch time.
 	VolumeTags interface{}

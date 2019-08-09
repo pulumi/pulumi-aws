@@ -13,7 +13,7 @@ import (
 // groups.
 // 
 // To exclusively manage the users in a group, see the
-// [`aws_iam_group_membership` resource][3].
+// [`iam.GroupMembership` resource][3].
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_group_membership.html.markdown.
 type UserGroupMembership struct {

@@ -28,14 +28,15 @@ class GetEventCategoriesResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetEventCategoriesResult(GetEventCategoriesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetEventCategoriesResult(
+            event_categories=self.event_categories,
+            source_type=self.source_type,
+            id=self.id)
 
 def get_event_categories(source_type=None,opts=None):
     __args__ = dict()
@@ -47,7 +48,7 @@ def get_event_categories(source_type=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:rds/getEventCategories:getEventCategories', __args__, opts=opts).value
 
-    return GetEventCategoriesResult(
+    return AwaitableGetEventCategoriesResult(
         event_categories=__ret__.get('eventCategories'),
         source_type=__ret__.get('sourceType'),
         id=__ret__.get('id'))

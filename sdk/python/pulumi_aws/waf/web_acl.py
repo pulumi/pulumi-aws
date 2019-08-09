@@ -30,7 +30,7 @@ class WebAcl(pulumi.CustomResource):
     """
     Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
     """
-    def __init__(__self__, resource_name, opts=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a WAF Web ACL Resource
         
@@ -50,42 +50,59 @@ class WebAcl(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if default_action is None:
-            raise TypeError("Missing required property 'default_action'")
-        __props__['default_action'] = default_action
-
-        __props__['logging_configuration'] = logging_configuration
-
-        if metric_name is None:
-            raise TypeError("Missing required property 'metric_name'")
-        __props__['metric_name'] = metric_name
-
-        __props__['name'] = name
-
-        __props__['rules'] = rules
-
-        __props__['arn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if default_action is None:
+                raise TypeError("Missing required property 'default_action'")
+            __props__['default_action'] = default_action
+            __props__['logging_configuration'] = logging_configuration
+            if metric_name is None:
+                raise TypeError("Missing required property 'metric_name'")
+            __props__['metric_name'] = metric_name
+            __props__['name'] = name
+            __props__['rules'] = rules
+            __props__['arn'] = None
         super(WebAcl, __self__).__init__(
             'aws:waf/webAcl:WebAcl',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None):
+        """
+        Get an existing WebAcl resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] default_action: Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
+        :param pulumi.Input[dict] logging_configuration: Configuration block to enable WAF logging. Detailed below.
+        :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
+        :param pulumi.Input[str] name: The name or description of the web ACL.
+        :param pulumi.Input[list] rules: Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_web_acl.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["default_action"] = default_action
+        __props__["logging_configuration"] = logging_configuration
+        __props__["metric_name"] = metric_name
+        __props__["name"] = name
+        __props__["rules"] = rules
+        return WebAcl(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

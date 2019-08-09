@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `aws_security_group` provides details about a specific Security Group.
+// `ec2.SecurityGroup` provides details about a specific Security Group.
 // 
 // This resource can prove useful when a module accepts a Security Group id as
 // an input variable and needs to, for example, determine the id of the

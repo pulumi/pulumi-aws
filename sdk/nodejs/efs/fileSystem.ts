@@ -77,7 +77,7 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly performanceMode!: pulumi.Output<string>;
     /**
-     * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+     * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */
     public readonly provisionedThroughputInMibps!: pulumi.Output<number | undefined>;
     /**
@@ -85,7 +85,7 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */
     public readonly throughputMode!: pulumi.Output<string | undefined>;
 
@@ -165,7 +165,7 @@ export interface FileSystemState {
      */
     readonly performanceMode?: pulumi.Input<string>;
     /**
-     * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+     * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */
     readonly provisionedThroughputInMibps?: pulumi.Input<number>;
     /**
@@ -173,7 +173,7 @@ export interface FileSystemState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */
     readonly throughputMode?: pulumi.Input<string>;
 }
@@ -202,7 +202,7 @@ export interface FileSystemArgs {
      */
     readonly performanceMode?: pulumi.Input<string>;
     /**
-     * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+     * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */
     readonly provisionedThroughputInMibps?: pulumi.Input<number>;
     /**
@@ -210,7 +210,7 @@ export interface FileSystemArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */
     readonly throughputMode?: pulumi.Input<string>;
 }

@@ -112,7 +112,7 @@ func (r *RestApi) EndpointConfiguration() *pulumi.Output {
 	return r.s.State["endpointConfiguration"]
 }
 
-// The execution ARN part to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+// The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
 // when allowing API Gateway to invoke a Lambda function,
 // e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 func (r *RestApi) ExecutionArn() *pulumi.StringOutput {
@@ -153,7 +153,7 @@ type RestApiState struct {
 	Description interface{}
 	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration interface{}
-	// The execution ARN part to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+	// The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn interface{}

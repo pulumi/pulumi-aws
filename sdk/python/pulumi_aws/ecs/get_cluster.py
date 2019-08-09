@@ -52,14 +52,19 @@ class GetClusterResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetClusterResult(
+            arn=self.arn,
+            cluster_name=self.cluster_name,
+            pending_tasks_count=self.pending_tasks_count,
+            registered_container_instances_count=self.registered_container_instances_count,
+            running_tasks_count=self.running_tasks_count,
+            status=self.status,
+            id=self.id)
 
 def get_cluster(cluster_name=None,opts=None):
     """
@@ -77,7 +82,7 @@ def get_cluster(cluster_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecs/getCluster:getCluster', __args__, opts=opts).value
 
-    return GetClusterResult(
+    return AwaitableGetClusterResult(
         arn=__ret__.get('arn'),
         cluster_name=__ret__.get('clusterName'),
         pending_tasks_count=__ret__.get('pendingTasksCount'),

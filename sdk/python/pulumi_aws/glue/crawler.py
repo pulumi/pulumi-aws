@@ -65,7 +65,7 @@ class Crawler(pulumi.CustomResource):
     """
     The table prefix used for catalog tables that are created.
     """
-    def __init__(__self__, resource_name, opts=None, classifiers=None, configuration=None, database_name=None, description=None, dynamodb_targets=None, jdbc_targets=None, name=None, role=None, s3_targets=None, schedule=None, schema_change_policy=None, security_configuration=None, table_prefix=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, classifiers=None, configuration=None, database_name=None, description=None, dynamodb_targets=None, jdbc_targets=None, name=None, role=None, s3_targets=None, schedule=None, schema_change_policy=None, security_configuration=None, table_prefix=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
         
@@ -93,58 +93,84 @@ class Crawler(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['classifiers'] = classifiers
-
-        __props__['configuration'] = configuration
-
-        if database_name is None:
-            raise TypeError("Missing required property 'database_name'")
-        __props__['database_name'] = database_name
-
-        __props__['description'] = description
-
-        __props__['dynamodb_targets'] = dynamodb_targets
-
-        __props__['jdbc_targets'] = jdbc_targets
-
-        __props__['name'] = name
-
-        if role is None:
-            raise TypeError("Missing required property 'role'")
-        __props__['role'] = role
-
-        __props__['s3_targets'] = s3_targets
-
-        __props__['schedule'] = schedule
-
-        __props__['schema_change_policy'] = schema_change_policy
-
-        __props__['security_configuration'] = security_configuration
-
-        __props__['table_prefix'] = table_prefix
-
-        __props__['arn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['classifiers'] = classifiers
+            __props__['configuration'] = configuration
+            if database_name is None:
+                raise TypeError("Missing required property 'database_name'")
+            __props__['database_name'] = database_name
+            __props__['description'] = description
+            __props__['dynamodb_targets'] = dynamodb_targets
+            __props__['jdbc_targets'] = jdbc_targets
+            __props__['name'] = name
+            if role is None:
+                raise TypeError("Missing required property 'role'")
+            __props__['role'] = role
+            __props__['s3_targets'] = s3_targets
+            __props__['schedule'] = schedule
+            __props__['schema_change_policy'] = schema_change_policy
+            __props__['security_configuration'] = security_configuration
+            __props__['table_prefix'] = table_prefix
+            __props__['arn'] = None
         super(Crawler, __self__).__init__(
             'aws:glue/crawler:Crawler',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, classifiers=None, configuration=None, database_name=None, description=None, dynamodb_targets=None, jdbc_targets=None, name=None, role=None, s3_targets=None, schedule=None, schema_change_policy=None, security_configuration=None, table_prefix=None):
+        """
+        Get an existing Crawler resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the crawler 
+        :param pulumi.Input[list] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
+        :param pulumi.Input[str] configuration: JSON string of configuration information.
+        :param pulumi.Input[str] database_name: Glue database where results are written.
+        :param pulumi.Input[str] description: Description of the crawler.
+        :param pulumi.Input[list] dynamodb_targets: List of nested DynamoDB target arguments. See below.
+        :param pulumi.Input[list] jdbc_targets: List of nested JBDC target arguments. See below.
+        :param pulumi.Input[str] name: Name of the crawler.
+        :param pulumi.Input[str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
+        :param pulumi.Input[list] s3_targets: List nested Amazon S3 target arguments. See below.
+        :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
+        :param pulumi.Input[dict] schema_change_policy: Policy for the crawler's update and deletion behavior.
+        :param pulumi.Input[str] security_configuration: The name of Security Configuration to be used by the crawler
+        :param pulumi.Input[str] table_prefix: The table prefix used for catalog tables that are created.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["classifiers"] = classifiers
+        __props__["configuration"] = configuration
+        __props__["database_name"] = database_name
+        __props__["description"] = description
+        __props__["dynamodb_targets"] = dynamodb_targets
+        __props__["jdbc_targets"] = jdbc_targets
+        __props__["name"] = name
+        __props__["role"] = role
+        __props__["s3_targets"] = s3_targets
+        __props__["schedule"] = schedule
+        __props__["schema_change_policy"] = schema_change_policy
+        __props__["security_configuration"] = security_configuration
+        __props__["table_prefix"] = table_prefix
+        return Crawler(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

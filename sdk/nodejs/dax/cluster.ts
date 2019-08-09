@@ -97,7 +97,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly nodeType!: pulumi.Output<string>;
     /**
      * List of node objects including `id`, `address`, `port` and
-     * `availability_zone`. Referenceable e.g. as
+     * `availabilityZone`. Referenceable e.g. as
      * `${aws_dax_cluster.test.nodes.0.address}`
      */
     public /*out*/ readonly nodes!: pulumi.Output<{ address: string, availabilityZone: string, id: string, port: number }[]>;
@@ -266,7 +266,7 @@ export interface ClusterState {
     readonly nodeType?: pulumi.Input<string>;
     /**
      * List of node objects including `id`, `address`, `port` and
-     * `availability_zone`. Referenceable e.g. as
+     * `availabilityZone`. Referenceable e.g. as
      * `${aws_dax_cluster.test.nodes.0.address}`
      */
     readonly nodes?: pulumi.Input<pulumi.Input<{ address?: pulumi.Input<string>, availabilityZone?: pulumi.Input<string>, id?: pulumi.Input<string>, port?: pulumi.Input<number> }>[]>;

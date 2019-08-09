@@ -37,12 +37,12 @@ class VolumeAttachment(pulumi.CustomResource):
     """
     ID of the Volume to be attached
     """
-    def __init__(__self__, resource_name, opts=None, device_name=None, force_detach=None, instance_id=None, skip_destroy=None, volume_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, device_name=None, force_detach=None, instance_id=None, skip_destroy=None, volume_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AWS EBS Volume Attachment as a top level resource, to attach and
         detach volumes from AWS Instances.
         
-        > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `aws_instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `aws_ebs_volume` + `aws_ebs_volume_attachment` resources for a given instance.
+        > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` + `aws_ebs_volume_attachment` resources for a given instance.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -68,42 +68,67 @@ class VolumeAttachment(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if device_name is None:
-            raise TypeError("Missing required property 'device_name'")
-        __props__['device_name'] = device_name
-
-        __props__['force_detach'] = force_detach
-
-        if instance_id is None:
-            raise TypeError("Missing required property 'instance_id'")
-        __props__['instance_id'] = instance_id
-
-        __props__['skip_destroy'] = skip_destroy
-
-        if volume_id is None:
-            raise TypeError("Missing required property 'volume_id'")
-        __props__['volume_id'] = volume_id
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if device_name is None:
+                raise TypeError("Missing required property 'device_name'")
+            __props__['device_name'] = device_name
+            __props__['force_detach'] = force_detach
+            if instance_id is None:
+                raise TypeError("Missing required property 'instance_id'")
+            __props__['instance_id'] = instance_id
+            __props__['skip_destroy'] = skip_destroy
+            if volume_id is None:
+                raise TypeError("Missing required property 'volume_id'")
+            __props__['volume_id'] = volume_id
         super(VolumeAttachment, __self__).__init__(
             'aws:ec2/volumeAttachment:VolumeAttachment',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, device_name=None, force_detach=None, instance_id=None, skip_destroy=None, volume_id=None):
+        """
+        Get an existing VolumeAttachment resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] device_name: The device name to expose to the instance (for
+               example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+        :param pulumi.Input[bool] force_detach: Set to `true` if you want to force the
+               volume to detach. Useful if previous attempts failed, but use this option only
+               as a last resort, as this can result in **data loss**. See
+               [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+        :param pulumi.Input[str] instance_id: ID of the Instance to attach to
+        :param pulumi.Input[bool] skip_destroy: Set this to true if you do not wish
+               to detach the volume from the instance to which it is attached at destroy
+               time, and instead just remove the attachment from this provider state. This is
+               useful when destroying an instance which has volumes created by some other
+               means attached.
+        :param pulumi.Input[str] volume_id: ID of the Volume to be attached
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/volume_attachment.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["device_name"] = device_name
+        __props__["force_detach"] = force_detach
+        __props__["instance_id"] = instance_id
+        __props__["skip_destroy"] = skip_destroy
+        __props__["volume_id"] = volume_id
+        return VolumeAttachment(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -58,9 +58,9 @@ class Group(pulumi.CustomResource):
     [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
     to attach to the autoscaling group **before** instances are launched. The
     syntax is exactly the same as the separate
-    [`aws_autoscaling_lifecycle_hook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+    [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
     resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
-    a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
+    a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
     """
     launch_configuration: pulumi.Output[str]
     """
@@ -137,7 +137,7 @@ class Group(pulumi.CustomResource):
     """
     target_group_arns: pulumi.Output[list]
     """
-    A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
+    A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
     """
     termination_policies: pulumi.Output[list]
     """
@@ -156,7 +156,7 @@ class Group(pulumi.CustomResource):
     precedence over `min_elb_capacity` behavior.)
     (See also Waiting for Capacity below.)
     """
-    def __init__(__self__, resource_name, opts=None, availability_zones=None, default_cooldown=None, desired_capacity=None, enabled_metrics=None, force_delete=None, health_check_grace_period=None, health_check_type=None, initial_lifecycle_hooks=None, launch_configuration=None, launch_template=None, load_balancers=None, max_size=None, metrics_granularity=None, min_elb_capacity=None, min_size=None, mixed_instances_policy=None, name=None, name_prefix=None, placement_group=None, protect_from_scale_in=None, service_linked_role_arn=None, suspended_processes=None, tags=None, tags_collection=None, target_group_arns=None, termination_policies=None, vpc_zone_identifiers=None, wait_for_capacity_timeout=None, wait_for_elb_capacity=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, availability_zones=None, default_cooldown=None, desired_capacity=None, enabled_metrics=None, force_delete=None, health_check_grace_period=None, health_check_type=None, initial_lifecycle_hooks=None, launch_configuration=None, launch_template=None, load_balancers=None, max_size=None, metrics_granularity=None, min_elb_capacity=None, min_size=None, mixed_instances_policy=None, name=None, name_prefix=None, placement_group=None, protect_from_scale_in=None, service_linked_role_arn=None, suspended_processes=None, tags=None, tags_collection=None, target_group_arns=None, termination_policies=None, vpc_zone_identifiers=None, wait_for_capacity_timeout=None, wait_for_elb_capacity=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AutoScaling Group resource.
         
@@ -248,9 +248,9 @@ class Group(pulumi.CustomResource):
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the autoscaling group **before** instances are launched. The
                syntax is exactly the same as the separate
-               [`aws_autoscaling_lifecycle_hook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+               [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
-               a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
+               a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
         :param pulumi.Input[str] launch_configuration: The name of the launch configuration to use.
         :param pulumi.Input[dict] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
         :param pulumi.Input[list] load_balancers: A list of elastic load balancer names to add to the autoscaling
@@ -276,7 +276,7 @@ class Group(pulumi.CustomResource):
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
         :param pulumi.Input[list] tags: A list of tag blocks. Tags documented below.
         :param pulumi.Input[list] tags_collection: A list of tag blocks (maps). Tags documented below.
-        :param pulumi.Input[list] target_group_arns: A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
+        :param pulumi.Input[list] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         :param pulumi.Input[list] termination_policies: A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
         :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in.
         :param pulumi.Input[float] wait_for_elb_capacity: Setting this will cause this provider to wait
@@ -293,90 +293,161 @@ class Group(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['availability_zones'] = availability_zones
-
-        __props__['default_cooldown'] = default_cooldown
-
-        __props__['desired_capacity'] = desired_capacity
-
-        __props__['enabled_metrics'] = enabled_metrics
-
-        __props__['force_delete'] = force_delete
-
-        __props__['health_check_grace_period'] = health_check_grace_period
-
-        __props__['health_check_type'] = health_check_type
-
-        __props__['initial_lifecycle_hooks'] = initial_lifecycle_hooks
-
-        __props__['launch_configuration'] = launch_configuration
-
-        __props__['launch_template'] = launch_template
-
-        __props__['load_balancers'] = load_balancers
-
-        if max_size is None:
-            raise TypeError("Missing required property 'max_size'")
-        __props__['max_size'] = max_size
-
-        __props__['metrics_granularity'] = metrics_granularity
-
-        __props__['min_elb_capacity'] = min_elb_capacity
-
-        if min_size is None:
-            raise TypeError("Missing required property 'min_size'")
-        __props__['min_size'] = min_size
-
-        __props__['mixed_instances_policy'] = mixed_instances_policy
-
-        __props__['name'] = name
-
-        __props__['name_prefix'] = name_prefix
-
-        __props__['placement_group'] = placement_group
-
-        __props__['protect_from_scale_in'] = protect_from_scale_in
-
-        __props__['service_linked_role_arn'] = service_linked_role_arn
-
-        __props__['suspended_processes'] = suspended_processes
-
-        __props__['tags'] = tags
-
-        __props__['tags_collection'] = tags_collection
-
-        __props__['target_group_arns'] = target_group_arns
-
-        __props__['termination_policies'] = termination_policies
-
-        __props__['vpc_zone_identifiers'] = vpc_zone_identifiers
-
-        __props__['wait_for_capacity_timeout'] = wait_for_capacity_timeout
-
-        __props__['wait_for_elb_capacity'] = wait_for_elb_capacity
-
-        __props__['arn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['availability_zones'] = availability_zones
+            __props__['default_cooldown'] = default_cooldown
+            __props__['desired_capacity'] = desired_capacity
+            __props__['enabled_metrics'] = enabled_metrics
+            __props__['force_delete'] = force_delete
+            __props__['health_check_grace_period'] = health_check_grace_period
+            __props__['health_check_type'] = health_check_type
+            __props__['initial_lifecycle_hooks'] = initial_lifecycle_hooks
+            __props__['launch_configuration'] = launch_configuration
+            __props__['launch_template'] = launch_template
+            __props__['load_balancers'] = load_balancers
+            if max_size is None:
+                raise TypeError("Missing required property 'max_size'")
+            __props__['max_size'] = max_size
+            __props__['metrics_granularity'] = metrics_granularity
+            __props__['min_elb_capacity'] = min_elb_capacity
+            if min_size is None:
+                raise TypeError("Missing required property 'min_size'")
+            __props__['min_size'] = min_size
+            __props__['mixed_instances_policy'] = mixed_instances_policy
+            __props__['name'] = name
+            __props__['name_prefix'] = name_prefix
+            __props__['placement_group'] = placement_group
+            __props__['protect_from_scale_in'] = protect_from_scale_in
+            __props__['service_linked_role_arn'] = service_linked_role_arn
+            __props__['suspended_processes'] = suspended_processes
+            __props__['tags'] = tags
+            __props__['tags_collection'] = tags_collection
+            __props__['target_group_arns'] = target_group_arns
+            __props__['termination_policies'] = termination_policies
+            __props__['vpc_zone_identifiers'] = vpc_zone_identifiers
+            __props__['wait_for_capacity_timeout'] = wait_for_capacity_timeout
+            __props__['wait_for_elb_capacity'] = wait_for_elb_capacity
+            __props__['arn'] = None
         super(Group, __self__).__init__(
             'aws:autoscaling/group:Group',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, availability_zones=None, default_cooldown=None, desired_capacity=None, enabled_metrics=None, force_delete=None, health_check_grace_period=None, health_check_type=None, initial_lifecycle_hooks=None, launch_configuration=None, launch_template=None, load_balancers=None, max_size=None, metrics_granularity=None, min_elb_capacity=None, min_size=None, mixed_instances_policy=None, name=None, name_prefix=None, placement_group=None, protect_from_scale_in=None, service_linked_role_arn=None, suspended_processes=None, tags=None, tags_collection=None, target_group_arns=None, termination_policies=None, vpc_zone_identifiers=None, wait_for_capacity_timeout=None, wait_for_elb_capacity=None):
+        """
+        Get an existing Group resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN for this AutoScaling Group
+        :param pulumi.Input[list] availability_zones: A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
+        :param pulumi.Input[float] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        :param pulumi.Input[float] desired_capacity: The number of Amazon EC2 instances that
+               should be running in the group. (See also Waiting for
+               Capacity below.)
+        :param pulumi.Input[list] enabled_metrics: A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
+               * `wait_for_capacity_timeout` (Default: "10m") A maximum
+               [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+               wait for ASG instances to be healthy before timing out.  (See also Waiting
+               for Capacity below.) Setting this to "0" causes
+               this provider to skip all Capacity Waiting behavior.
+        :param pulumi.Input[bool] force_delete: Allows deleting the autoscaling group without waiting
+               for all instances in the pool to terminate.  You can force an autoscaling group to delete
+               even if it's in the process of scaling a resource. Normally, this provider
+               drains all the instances before deleting the group.  This bypasses that
+               behavior and potentially leaves resources dangling.
+        :param pulumi.Input[float] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
+        :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
+        :param pulumi.Input[list] initial_lifecycle_hooks: One or more
+               [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
+               to attach to the autoscaling group **before** instances are launched. The
+               syntax is exactly the same as the separate
+               [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+               resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
+               a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
+        :param pulumi.Input[str] launch_configuration: The name of the launch configuration to use.
+        :param pulumi.Input[dict] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+        :param pulumi.Input[list] load_balancers: A list of elastic load balancer names to add to the autoscaling
+               group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+        :param pulumi.Input[float] max_size: The maximum size of the auto scale group.
+        :param pulumi.Input[str] metrics_granularity: The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+        :param pulumi.Input[float] min_elb_capacity: Setting this causes this provider to wait for
+               this number of instances from this autoscaling group to show up healthy in the
+               ELB only on creation. Updates will not wait on ELB instance number changes.
+               (See also Waiting for Capacity below.)
+        :param pulumi.Input[float] min_size: The minimum size of the auto scale group.
+               (See also Waiting for Capacity below.)
+        :param pulumi.Input[dict] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
+        :param pulumi.Input[str] name: The name of the auto scaling group. By default generated by this provider.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
+               prefix. Conflicts with `name`.
+        :param pulumi.Input[str] placement_group: The name of the placement group into which you'll launch your instances, if any.
+        :param pulumi.Input[bool] protect_from_scale_in: Allows setting instance protection. The
+               autoscaling group will not select instances with this setting for terminination
+               during scale in events.
+        :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
+        :param pulumi.Input[list] suspended_processes: A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
+               Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
+        :param pulumi.Input[list] tags: A list of tag blocks. Tags documented below.
+        :param pulumi.Input[list] tags_collection: A list of tag blocks (maps). Tags documented below.
+        :param pulumi.Input[list] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+        :param pulumi.Input[list] termination_policies: A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
+        :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in.
+        :param pulumi.Input[float] wait_for_elb_capacity: Setting this will cause this provider to wait
+               for exactly this number of healthy instances from this autoscaling group in
+               all attached load balancers on both create and update operations. (Takes
+               precedence over `min_elb_capacity` behavior.)
+               (See also Waiting for Capacity below.)
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_group.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["availability_zones"] = availability_zones
+        __props__["default_cooldown"] = default_cooldown
+        __props__["desired_capacity"] = desired_capacity
+        __props__["enabled_metrics"] = enabled_metrics
+        __props__["force_delete"] = force_delete
+        __props__["health_check_grace_period"] = health_check_grace_period
+        __props__["health_check_type"] = health_check_type
+        __props__["initial_lifecycle_hooks"] = initial_lifecycle_hooks
+        __props__["launch_configuration"] = launch_configuration
+        __props__["launch_template"] = launch_template
+        __props__["load_balancers"] = load_balancers
+        __props__["max_size"] = max_size
+        __props__["metrics_granularity"] = metrics_granularity
+        __props__["min_elb_capacity"] = min_elb_capacity
+        __props__["min_size"] = min_size
+        __props__["mixed_instances_policy"] = mixed_instances_policy
+        __props__["name"] = name
+        __props__["name_prefix"] = name_prefix
+        __props__["placement_group"] = placement_group
+        __props__["protect_from_scale_in"] = protect_from_scale_in
+        __props__["service_linked_role_arn"] = service_linked_role_arn
+        __props__["suspended_processes"] = suspended_processes
+        __props__["tags"] = tags
+        __props__["tags_collection"] = tags_collection
+        __props__["target_group_arns"] = target_group_arns
+        __props__["termination_policies"] = termination_policies
+        __props__["vpc_zone_identifiers"] = vpc_zone_identifiers
+        __props__["wait_for_capacity_timeout"] = wait_for_capacity_timeout
+        __props__["wait_for_elb_capacity"] = wait_for_elb_capacity
+        return Group(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -31,14 +31,16 @@ class GetSolutionStackResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSolutionStackResult(GetSolutionStackResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSolutionStackResult(
+            most_recent=self.most_recent,
+            name=self.name,
+            name_regex=self.name_regex,
+            id=self.id)
 
 def get_solution_stack(most_recent=None,name_regex=None,opts=None):
     """
@@ -56,7 +58,7 @@ def get_solution_stack(most_recent=None,name_regex=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts).value
 
-    return GetSolutionStackResult(
+    return AwaitableGetSolutionStackResult(
         most_recent=__ret__.get('mostRecent'),
         name=__ret__.get('name'),
         name_regex=__ret__.get('nameRegex'),

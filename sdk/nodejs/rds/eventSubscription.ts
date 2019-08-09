@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const defaultInstance = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
- *     dbSubnetGroupName: "my_database_subnet_group",
+ *     dbSubnetGroupName: "myDatabaseSubnetGroup",
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
  *     instanceClass: "db.t2.micro",
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * 
  * * `id` - The name of the RDS event notification subscription
  * * `arn` - The Amazon Resource Name of the RDS event notification subscription
- * * `customer_aws_id` - The AWS customer account associated with the RDS event notification subscription
+ * * `customerAwsId` - The AWS customer account associated with the RDS event notification subscription
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_event_subscription.html.markdown.
  */
@@ -104,7 +104,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly snsTopic!: pulumi.Output<string>;
     /**
-     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
      */
     public readonly sourceIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -192,7 +192,7 @@ export interface EventSubscriptionState {
      */
     readonly snsTopic?: pulumi.Input<string>;
     /**
-     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
      */
     readonly sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -230,7 +230,7 @@ export interface EventSubscriptionArgs {
      */
     readonly snsTopic: pulumi.Input<string>;
     /**
-     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
      */
     readonly sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

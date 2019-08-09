@@ -116,11 +116,11 @@ export class ClusterEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+     * List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
      */
     public readonly excludedMembers!: pulumi.Output<string[] | undefined>;
     /**
-     * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+     * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
      */
     public readonly staticMembers!: pulumi.Output<string[] | undefined>;
 
@@ -198,11 +198,11 @@ export interface ClusterEndpointState {
      */
     readonly endpoint?: pulumi.Input<string>;
     /**
-     * List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+     * List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
      */
     readonly excludedMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+     * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
      */
     readonly staticMembers?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -224,11 +224,11 @@ export interface ClusterEndpointArgs {
      */
     readonly customEndpointType: pulumi.Input<string>;
     /**
-     * List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+     * List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
      */
     readonly excludedMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+     * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
      */
     readonly staticMembers?: pulumi.Input<pulumi.Input<string>[]>;
 }

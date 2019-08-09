@@ -25,9 +25,9 @@ class BasePathMapping(pulumi.CustomResource):
     """
     The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
     """
-    def __init__(__self__, resource_name, opts=None, rest_api=None, base_path=None, domain_name=None, stage_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, rest_api=None, base_path=None, domain_name=None, stage_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Connects a custom domain name registered via `aws_api_gateway_domain_name`
+        Connects a custom domain name registered via `apigateway.DomainName`
         with a deployed API so that its methods can be called via the
         custom domain name.
         
@@ -46,38 +46,54 @@ class BasePathMapping(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if rest_api is None:
-            raise TypeError("Missing required property 'rest_api'")
-        __props__['rest_api'] = rest_api
-
-        __props__['base_path'] = base_path
-
-        if domain_name is None:
-            raise TypeError("Missing required property 'domain_name'")
-        __props__['domain_name'] = domain_name
-
-        __props__['stage_name'] = stage_name
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if rest_api is None:
+                raise TypeError("Missing required property 'rest_api'")
+            __props__['rest_api'] = rest_api
+            __props__['base_path'] = base_path
+            if domain_name is None:
+                raise TypeError("Missing required property 'domain_name'")
+            __props__['domain_name'] = domain_name
+            __props__['stage_name'] = stage_name
         super(BasePathMapping, __self__).__init__(
             'aws:apigateway/basePathMapping:BasePathMapping',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, rest_api=None, base_path=None, domain_name=None, stage_name=None):
+        """
+        Get an existing BasePathMapping resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] rest_api: The id of the API to connect.
+        :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
+        :param pulumi.Input[str] domain_name: The already-registered domain name to connect the API to.
+        :param pulumi.Input[str] stage_name: The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_base_path_mapping.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["rest_api"] = rest_api
+        __props__["base_path"] = base_path
+        __props__["domain_name"] = domain_name
+        __props__["stage_name"] = stage_name
+        return BasePathMapping(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -33,7 +33,7 @@ import {PolicyDocument} from "../iam/documents";
  * 
  * ### Access Policy
  * 
- * > See also: [`aws_elasticsearch_domain_policy` resource](https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html)
+ * > See also: [`aws.elasticsearch.DomainPolicy` resource](https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html)
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -245,7 +245,7 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * Domain-specific endpoint for kibana without https scheme.
-     * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+     * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
      * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
      */
     public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string>;
@@ -380,7 +380,7 @@ export interface DomainState {
     readonly endpoint?: pulumi.Input<string>;
     /**
      * Domain-specific endpoint for kibana without https scheme.
-     * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+     * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
      * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
      */
     readonly kibanaEndpoint?: pulumi.Input<string>;

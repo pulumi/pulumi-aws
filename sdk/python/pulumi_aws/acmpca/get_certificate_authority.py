@@ -87,14 +87,24 @@ class GetCertificateAuthorityResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetCertificateAuthorityResult(
+            arn=self.arn,
+            certificate=self.certificate,
+            certificate_chain=self.certificate_chain,
+            certificate_signing_request=self.certificate_signing_request,
+            not_after=self.not_after,
+            not_before=self.not_before,
+            revocation_configurations=self.revocation_configurations,
+            serial=self.serial,
+            status=self.status,
+            tags=self.tags,
+            type=self.type,
+            id=self.id)
 
 def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,opts=None):
     """
@@ -113,7 +123,7 @@ def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:acmpca/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts).value
 
-    return GetCertificateAuthorityResult(
+    return AwaitableGetCertificateAuthorityResult(
         arn=__ret__.get('arn'),
         certificate=__ret__.get('certificate'),
         certificate_chain=__ret__.get('certificateChain'),

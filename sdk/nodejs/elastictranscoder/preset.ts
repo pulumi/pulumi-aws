@@ -131,7 +131,7 @@ export class Preset extends pulumi.CustomResource {
     public readonly videoCodecOptions!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Watermark parameters for the video parameters (documented below)
-     * * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
+     * * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
      */
     public readonly videoWatermarks!: pulumi.Output<{ horizontalAlign?: string, horizontalOffset?: string, id?: string, maxHeight?: string, maxWidth?: string, opacity?: string, sizingPolicy?: string, target?: string, verticalAlign?: string, verticalOffset?: string }[] | undefined>;
 
@@ -223,7 +223,7 @@ export interface PresetState {
     readonly videoCodecOptions?: pulumi.Input<{[key: string]: any}>;
     /**
      * Watermark parameters for the video parameters (documented below)
-     * * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
+     * * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
      */
     readonly videoWatermarks?: pulumi.Input<pulumi.Input<{ horizontalAlign?: pulumi.Input<string>, horizontalOffset?: pulumi.Input<string>, id?: pulumi.Input<string>, maxHeight?: pulumi.Input<string>, maxWidth?: pulumi.Input<string>, opacity?: pulumi.Input<string>, sizingPolicy?: pulumi.Input<string>, target?: pulumi.Input<string>, verticalAlign?: pulumi.Input<string>, verticalOffset?: pulumi.Input<string> }>[]>;
 }
@@ -264,7 +264,7 @@ export interface PresetArgs {
     readonly videoCodecOptions?: pulumi.Input<{[key: string]: any}>;
     /**
      * Watermark parameters for the video parameters (documented below)
-     * * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
+     * * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
      */
     readonly videoWatermarks?: pulumi.Input<pulumi.Input<{ horizontalAlign?: pulumi.Input<string>, horizontalOffset?: pulumi.Input<string>, id?: pulumi.Input<string>, maxHeight?: pulumi.Input<string>, maxWidth?: pulumi.Input<string>, opacity?: pulumi.Input<string>, sizingPolicy?: pulumi.Input<string>, target?: pulumi.Input<string>, verticalAlign?: pulumi.Input<string>, verticalOffset?: pulumi.Input<string> }>[]>;
 }

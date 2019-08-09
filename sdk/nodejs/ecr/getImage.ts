@@ -44,11 +44,11 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetImageArgs {
     /**
-     * The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+     * The sha256 digest of the image manifest. At least one of `imageDigest` or `imageTag` must be specified.
      */
     readonly imageDigest?: string;
     /**
-     * The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+     * The tag associated with this image. At least one of `imageDigest` or `imageTag` must be specified.
      */
     readonly imageTag?: string;
     /**

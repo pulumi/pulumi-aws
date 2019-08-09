@@ -55,7 +55,7 @@ class RestApi(pulumi.CustomResource):
     """
     The resource ID of the REST API's root
     """
-    def __init__(__self__, resource_name, opts=None, api_key_source=None, binary_media_types=None, body=None, description=None, endpoint_configuration=None, minimum_compression_size=None, name=None, policy=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_key_source=None, binary_media_types=None, body=None, description=None, endpoint_configuration=None, minimum_compression_size=None, name=None, policy=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway REST API.
         
@@ -78,46 +78,73 @@ class RestApi(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['api_key_source'] = api_key_source
-
-        __props__['binary_media_types'] = binary_media_types
-
-        __props__['body'] = body
-
-        __props__['description'] = description
-
-        __props__['endpoint_configuration'] = endpoint_configuration
-
-        __props__['minimum_compression_size'] = minimum_compression_size
-
-        __props__['name'] = name
-
-        __props__['policy'] = policy
-
-        __props__['created_date'] = None
-        __props__['execution_arn'] = None
-        __props__['root_resource_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['api_key_source'] = api_key_source
+            __props__['binary_media_types'] = binary_media_types
+            __props__['body'] = body
+            __props__['description'] = description
+            __props__['endpoint_configuration'] = endpoint_configuration
+            __props__['minimum_compression_size'] = minimum_compression_size
+            __props__['name'] = name
+            __props__['policy'] = policy
+            __props__['created_date'] = None
+            __props__['execution_arn'] = None
+            __props__['root_resource_id'] = None
         super(RestApi, __self__).__init__(
             'aws:apigateway/restApi:RestApi',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, api_key_source=None, binary_media_types=None, body=None, created_date=None, description=None, endpoint_configuration=None, execution_arn=None, minimum_compression_size=None, name=None, policy=None, root_resource_id=None):
+        """
+        Get an existing RestApi resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_key_source: The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
+        :param pulumi.Input[list] binary_media_types: The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
+        :param pulumi.Input[str] body: An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
+        :param pulumi.Input[str] created_date: The creation date of the REST API
+        :param pulumi.Input[str] description: The description of the REST API
+        :param pulumi.Input[dict] endpoint_configuration: Nested argument defining API endpoint configuration including endpoint type. Defined below.
+        :param pulumi.Input[str] execution_arn: The execution ARN part to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+               when allowing API Gateway to invoke a Lambda function,
+               e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+        :param pulumi.Input[float] minimum_compression_size: Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
+        :param pulumi.Input[str] name: The name of the REST API
+        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
+        :param pulumi.Input[str] root_resource_id: The resource ID of the REST API's root
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_rest_api.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["api_key_source"] = api_key_source
+        __props__["binary_media_types"] = binary_media_types
+        __props__["body"] = body
+        __props__["created_date"] = created_date
+        __props__["description"] = description
+        __props__["endpoint_configuration"] = endpoint_configuration
+        __props__["execution_arn"] = execution_arn
+        __props__["minimum_compression_size"] = minimum_compression_size
+        __props__["name"] = name
+        __props__["policy"] = policy
+        __props__["root_resource_id"] = root_resource_id
+        return RestApi(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

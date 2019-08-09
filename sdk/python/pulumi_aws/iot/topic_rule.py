@@ -44,7 +44,7 @@ class TopicRule(pulumi.CustomResource):
     The version of the SQL rules engine to use when evaluating the rule.
     """
     sqs: pulumi.Output[dict]
-    def __init__(__self__, resource_name, opts=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, elasticsearch=None, enabled=None, firehose=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, elasticsearch=None, enabled=None, firehose=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a TopicRule resource with the given unique name, props, and options.
         
@@ -64,66 +64,84 @@ class TopicRule(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['cloudwatch_alarm'] = cloudwatch_alarm
-
-        __props__['cloudwatch_metric'] = cloudwatch_metric
-
-        __props__['description'] = description
-
-        __props__['dynamodb'] = dynamodb
-
-        __props__['elasticsearch'] = elasticsearch
-
-        if enabled is None:
-            raise TypeError("Missing required property 'enabled'")
-        __props__['enabled'] = enabled
-
-        __props__['firehose'] = firehose
-
-        __props__['kinesis'] = kinesis
-
-        __props__['lambda_'] = lambda_
-
-        __props__['name'] = name
-
-        __props__['republish'] = republish
-
-        __props__['s3'] = s3
-
-        __props__['sns'] = sns
-
-        if sql is None:
-            raise TypeError("Missing required property 'sql'")
-        __props__['sql'] = sql
-
-        if sql_version is None:
-            raise TypeError("Missing required property 'sql_version'")
-        __props__['sql_version'] = sql_version
-
-        __props__['sqs'] = sqs
-
-        __props__['arn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['cloudwatch_alarm'] = cloudwatch_alarm
+            __props__['cloudwatch_metric'] = cloudwatch_metric
+            __props__['description'] = description
+            __props__['dynamodb'] = dynamodb
+            __props__['elasticsearch'] = elasticsearch
+            if enabled is None:
+                raise TypeError("Missing required property 'enabled'")
+            __props__['enabled'] = enabled
+            __props__['firehose'] = firehose
+            __props__['kinesis'] = kinesis
+            __props__['lambda_'] = lambda_
+            __props__['name'] = name
+            __props__['republish'] = republish
+            __props__['s3'] = s3
+            __props__['sns'] = sns
+            if sql is None:
+                raise TypeError("Missing required property 'sql'")
+            __props__['sql'] = sql
+            if sql_version is None:
+                raise TypeError("Missing required property 'sql_version'")
+            __props__['sql_version'] = sql_version
+            __props__['sqs'] = sqs
+            __props__['arn'] = None
         super(TopicRule, __self__).__init__(
             'aws:iot/topicRule:TopicRule',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, elasticsearch=None, enabled=None, firehose=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None):
+        """
+        Get an existing TopicRule resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the topic rule
+        :param pulumi.Input[str] description: The description of the rule.
+        :param pulumi.Input[bool] enabled: Specifies whether the rule is enabled.
+        :param pulumi.Input[str] name: The name of the rule.
+        :param pulumi.Input[str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
+        :param pulumi.Input[str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_topic_rule.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["cloudwatch_alarm"] = cloudwatch_alarm
+        __props__["cloudwatch_metric"] = cloudwatch_metric
+        __props__["description"] = description
+        __props__["dynamodb"] = dynamodb
+        __props__["elasticsearch"] = elasticsearch
+        __props__["enabled"] = enabled
+        __props__["firehose"] = firehose
+        __props__["kinesis"] = kinesis
+        __props__["lambda_"] = lambda_
+        __props__["name"] = name
+        __props__["republish"] = republish
+        __props__["s3"] = s3
+        __props__["sns"] = sns
+        __props__["sql"] = sql
+        __props__["sql_version"] = sql_version
+        __props__["sqs"] = sqs
+        return TopicRule(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

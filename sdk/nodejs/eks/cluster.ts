@@ -26,14 +26,14 @@ import * as utilities from "../utilities";
  * });
  * 
  * export const endpoint = example.endpoint;
- * export const kubeconfig_certificate_authority_data = example.certificateAuthority.data;
+ * export const kubeconfigCertificateAuthorityData = example.certificateAuthority.data;
  * ```
  * 
  * ### Enabling Control Plane Logging
  * 
- * [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabled_cluster_log_types` argument. To manage the CloudWatch Log Group retention period, the [`aws_cloudwatch_log_group` resource](https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_group.html) can be used.
+ * [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabledClusterLogTypes` argument. To manage the CloudWatch Log Group retention period, the [`aws.cloudwatch.LogGroup` resource](https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_group.html) can be used.
  * 
- * > The below configuration uses [`depends_on`](https://www.terraform.io/docs/configuration/resources.html#depends_on-explicit-resource-dependencies) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
+ * > The below configuration uses [`dependsOn`](https://www.terraform.io/docs/configuration/resources.html#depends_on-explicit-resource-dependencies) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

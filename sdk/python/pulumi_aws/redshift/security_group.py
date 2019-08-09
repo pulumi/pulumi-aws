@@ -21,7 +21,7 @@ class SecurityGroup(pulumi.CustomResource):
     """
     The name of the Redshift security group.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, ingress=None, name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, ingress=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters
         
@@ -39,36 +39,51 @@ class SecurityGroup(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if description is None:
-            description = 'Managed by Pulumi'
-        __props__['description'] = description
-
-        if ingress is None:
-            raise TypeError("Missing required property 'ingress'")
-        __props__['ingress'] = ingress
-
-        __props__['name'] = name
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if description is None:
+                description = 'Managed by Pulumi'
+            __props__['description'] = description
+            if ingress is None:
+                raise TypeError("Missing required property 'ingress'")
+            __props__['ingress'] = ingress
+            __props__['name'] = name
         super(SecurityGroup, __self__).__init__(
             'aws:redshift/securityGroup:SecurityGroup',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, description=None, ingress=None, name=None):
+        """
+        Get an existing SecurityGroup resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the Redshift security group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[list] ingress: A list of ingress rules.
+        :param pulumi.Input[str] name: The name of the Redshift security group.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_security_group.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["description"] = description
+        __props__["ingress"] = ingress
+        __props__["name"] = name
+        return SecurityGroup(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

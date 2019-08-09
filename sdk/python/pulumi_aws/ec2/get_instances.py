@@ -46,14 +46,19 @@ class GetInstancesResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetInstancesResult(GetInstancesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetInstancesResult(
+            filters=self.filters,
+            ids=self.ids,
+            instance_state_names=self.instance_state_names,
+            instance_tags=self.instance_tags,
+            private_ips=self.private_ips,
+            public_ips=self.public_ips,
+            id=self.id)
 
 def get_instances(filters=None,instance_state_names=None,instance_tags=None,opts=None):
     """
@@ -70,7 +75,7 @@ def get_instances(filters=None,instance_state_names=None,instance_tags=None,opts
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstances:getInstances', __args__, opts=opts).value
 
-    return GetInstancesResult(
+    return AwaitableGetInstancesResult(
         filters=__ret__.get('filters'),
         ids=__ret__.get('ids'),
         instance_state_names=__ret__.get('instanceStateNames'),

@@ -64,14 +64,21 @@ class GetVpcAttachmentResult:
         """
         Identifier of the AWS account that owns the EC2 VPC.
         """
-
+class AwaitableGetVpcAttachmentResult(GetVpcAttachmentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVpcAttachmentResult(
+            dns_support=self.dns_support,
+            filters=self.filters,
+            id=self.id,
+            ipv6_support=self.ipv6_support,
+            subnet_ids=self.subnet_ids,
+            tags=self.tags,
+            transit_gateway_id=self.transit_gateway_id,
+            vpc_id=self.vpc_id,
+            vpc_owner_id=self.vpc_owner_id)
 
 def get_vpc_attachment(filters=None,id=None,tags=None,opts=None):
     """
@@ -90,7 +97,7 @@ def get_vpc_attachment(filters=None,id=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getVpcAttachment:getVpcAttachment', __args__, opts=opts).value
 
-    return GetVpcAttachmentResult(
+    return AwaitableGetVpcAttachmentResult(
         dns_support=__ret__.get('dnsSupport'),
         filters=__ret__.get('filters'),
         id=__ret__.get('id'),

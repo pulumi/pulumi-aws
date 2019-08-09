@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  * 
  * ## Note on ECDSA Key Algorithm
  * 
- * If the ARN of the `ssl_certificate_id` that is pointed to references a
+ * If the ARN of the `sslCertificateId` that is pointed to references a
  * certificate that was signed by an ECDSA key, note that ELB only supports the
  * P256 and P384 curves.  Using a certificate signed by a key using a different
  * curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
@@ -133,7 +133,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
-     * A health_check block. Health Check documented below.
+     * A healthCheck block. Health Check documented below.
      */
     public readonly healthCheck!: pulumi.Output<{ healthyThreshold: number, interval: number, target: string, timeout: number, unhealthyThreshold: number }>;
     /**
@@ -295,7 +295,7 @@ export interface LoadBalancerState {
      */
     readonly dnsName?: pulumi.Input<string>;
     /**
-     * A health_check block. Health Check documented below.
+     * A healthCheck block. Health Check documented below.
      */
     readonly healthCheck?: pulumi.Input<{ healthyThreshold: pulumi.Input<number>, interval: pulumi.Input<number>, target: pulumi.Input<string>, timeout: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>;
     /**
@@ -379,7 +379,7 @@ export interface LoadBalancerArgs {
      */
     readonly crossZoneLoadBalancing?: pulumi.Input<boolean>;
     /**
-     * A health_check block. Health Check documented below.
+     * A healthCheck block. Health Check documented below.
      */
     readonly healthCheck?: pulumi.Input<{ healthyThreshold: pulumi.Input<number>, interval: pulumi.Input<number>, target: pulumi.Input<string>, timeout: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>;
     /**

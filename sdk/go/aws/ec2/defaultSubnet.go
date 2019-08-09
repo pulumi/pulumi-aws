@@ -11,7 +11,7 @@ import (
 // Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics)
 // in the current region.
 // 
-// The `aws_default_subnet` behaves differently from normal resources, in that
+// The `ec2.DefaultSubnet` behaves differently from normal resources, in that
 // this provider does not _create_ this resource, but instead "adopts" it
 // into management.
 //

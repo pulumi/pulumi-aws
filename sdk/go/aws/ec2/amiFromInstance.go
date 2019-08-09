@@ -113,7 +113,7 @@ func (r *AmiFromInstance) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Machine architecture for created instances. Defaults to "x86_64".
+// Machine architecture for created instances. Defaults to "x8664".
 func (r *AmiFromInstance) Architecture() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["architecture"])
 }
@@ -209,7 +209,7 @@ func (r *AmiFromInstance) VirtualizationType() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering AmiFromInstance resources.
 type AmiFromInstanceState struct {
-	// Machine architecture for created instances. Defaults to "x86_64".
+	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture interface{}
 	// A longer, human-readable description for the AMI.
 	Description interface{}

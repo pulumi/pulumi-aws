@@ -63,14 +63,20 @@ class GetJobQueueResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetJobQueueResult(GetJobQueueResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetJobQueueResult(
+            arn=self.arn,
+            compute_environment_orders=self.compute_environment_orders,
+            name=self.name,
+            priority=self.priority,
+            state=self.state,
+            status=self.status,
+            status_reason=self.status_reason,
+            id=self.id)
 
 def get_job_queue(name=None,opts=None):
     """
@@ -88,7 +94,7 @@ def get_job_queue(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:batch/getJobQueue:getJobQueue', __args__, opts=opts).value
 
-    return GetJobQueueResult(
+    return AwaitableGetJobQueueResult(
         arn=__ret__.get('arn'),
         compute_environment_orders=__ret__.get('computeEnvironmentOrders'),
         name=__ret__.get('name'),

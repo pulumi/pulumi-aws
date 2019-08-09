@@ -30,7 +30,7 @@ class Alias(pulumi.CustomResource):
     """
     Identifier for the key for which the alias is for, can be either an ARN or key_id.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, name_prefix=None, target_key_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, name_prefix=None, target_key_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
         but API (hence this provider too) allows you to create as many aliases as
@@ -51,37 +51,56 @@ class Alias(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['name'] = name
-
-        __props__['name_prefix'] = name_prefix
-
-        if target_key_id is None:
-            raise TypeError("Missing required property 'target_key_id'")
-        __props__['target_key_id'] = target_key_id
-
-        __props__['arn'] = None
-        __props__['target_key_arn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['name'] = name
+            __props__['name_prefix'] = name_prefix
+            if target_key_id is None:
+                raise TypeError("Missing required property 'target_key_id'")
+            __props__['target_key_id'] = target_key_id
+            __props__['arn'] = None
+            __props__['target_key_arn'] = None
         super(Alias, __self__).__init__(
             'aws:kms/alias:Alias',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, name=None, name_prefix=None, target_key_arn=None, target_key_id=None):
+        """
+        Get an existing Alias resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the key alias.
+        :param pulumi.Input[str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+        :param pulumi.Input[str] name_prefix: Creates an unique alias beginning with the specified prefix.
+               The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+        :param pulumi.Input[str] target_key_arn: The Amazon Resource Name (ARN) of the target key identifier.
+        :param pulumi.Input[str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_alias.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["name"] = name
+        __props__["name_prefix"] = name_prefix
+        __props__["target_key_arn"] = target_key_arn
+        __props__["target_key_id"] = target_key_id
+        return Alias(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

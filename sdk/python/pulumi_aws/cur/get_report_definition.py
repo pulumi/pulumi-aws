@@ -70,14 +70,22 @@ class GetReportDefinitionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetReportDefinitionResult(GetReportDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetReportDefinitionResult(
+            additional_artifacts=self.additional_artifacts,
+            additional_schema_elements=self.additional_schema_elements,
+            compression=self.compression,
+            format=self.format,
+            report_name=self.report_name,
+            s3_bucket=self.s3_bucket,
+            s3_prefix=self.s3_prefix,
+            s3_region=self.s3_region,
+            time_unit=self.time_unit,
+            id=self.id)
 
 def get_report_definition(report_name=None,opts=None):
     """
@@ -98,7 +106,7 @@ def get_report_definition(report_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:cur/getReportDefinition:getReportDefinition', __args__, opts=opts).value
 
-    return GetReportDefinitionResult(
+    return AwaitableGetReportDefinitionResult(
         additional_artifacts=__ret__.get('additionalArtifacts'),
         additional_schema_elements=__ret__.get('additionalSchemaElements'),
         compression=__ret__.get('compression'),

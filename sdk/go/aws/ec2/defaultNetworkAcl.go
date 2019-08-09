@@ -15,7 +15,7 @@ import (
 // of when using it. Please read this document in its entirety before using this
 // resource.
 // 
-// The `aws_default_network_acl` behaves differently from normal resources, in that
+// The `ec2.DefaultNetworkAcl` behaves differently from normal resources, in that
 // this provider does not _create_ this resource, but instead attempts to "adopt" it
 // into management. We can do this because each VPC created has a Default Network
 // ACL that cannot be destroyed, and is created with a known set of default rules.
@@ -28,7 +28,7 @@ import (
 // This resource treats its inline rules as absolute; only the rules defined
 // inline are created, and any additions/removals external to this resource will
 // result in diffs being shown. For these reasons, this resource is incompatible with the
-// `aws_network_acl_rule` resource.
+// `ec2.NetworkAclRule` resource.
 // 
 // For more information about Network ACLs, see the AWS Documentation on
 // [Network ACLs][aws-network-acls].
@@ -99,7 +99,7 @@ func (r *DefaultNetworkAcl) ID() *pulumi.IDOutput {
 }
 
 // The Network ACL ID to manage. This
-// attribute is exported from `aws_vpc`, or manually found via the AWS Console.
+// attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
 func (r *DefaultNetworkAcl) DefaultNetworkAclId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultNetworkAclId"])
 }
@@ -138,7 +138,7 @@ func (r *DefaultNetworkAcl) VpcId() *pulumi.StringOutput {
 // Input properties used for looking up and filtering DefaultNetworkAcl resources.
 type DefaultNetworkAclState struct {
 	// The Network ACL ID to manage. This
-	// attribute is exported from `aws_vpc`, or manually found via the AWS Console.
+	// attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
 	DefaultNetworkAclId interface{}
 	// Specifies an egress rule. Parameters defined below.
 	Egress interface{}
@@ -158,7 +158,7 @@ type DefaultNetworkAclState struct {
 // The set of arguments for constructing a DefaultNetworkAcl resource.
 type DefaultNetworkAclArgs struct {
 	// The Network ACL ID to manage. This
-	// attribute is exported from `aws_vpc`, or manually found via the AWS Console.
+	// attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
 	DefaultNetworkAclId interface{}
 	// Specifies an egress rule. Parameters defined below.
 	Egress interface{}

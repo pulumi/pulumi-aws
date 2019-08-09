@@ -105,7 +105,7 @@ func (r *LogSubscriptionFilter) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
 func (r *LogSubscriptionFilter) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
 }
@@ -122,7 +122,7 @@ type LogSubscriptionFilterState struct {
 	LogGroup interface{}
 	// A name for the subscription filter
 	Name interface{}
-	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
 	RoleArn interface{}
 }
 
@@ -138,6 +138,6 @@ type LogSubscriptionFilterArgs struct {
 	LogGroup interface{}
 	// A name for the subscription filter
 	Name interface{}
-	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
 	RoleArn interface{}
 }

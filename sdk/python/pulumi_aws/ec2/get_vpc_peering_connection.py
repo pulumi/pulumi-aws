@@ -63,14 +63,26 @@ class GetVpcPeeringConnectionResult:
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
-
+class AwaitableGetVpcPeeringConnectionResult(GetVpcPeeringConnectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVpcPeeringConnectionResult(
+            accepter=self.accepter,
+            cidr_block=self.cidr_block,
+            filters=self.filters,
+            id=self.id,
+            owner_id=self.owner_id,
+            peer_cidr_block=self.peer_cidr_block,
+            peer_owner_id=self.peer_owner_id,
+            peer_region=self.peer_region,
+            peer_vpc_id=self.peer_vpc_id,
+            region=self.region,
+            requester=self.requester,
+            status=self.status,
+            tags=self.tags,
+            vpc_id=self.vpc_id)
 
 def get_vpc_peering_connection(cidr_block=None,filters=None,id=None,owner_id=None,peer_cidr_block=None,peer_owner_id=None,peer_region=None,peer_vpc_id=None,region=None,status=None,tags=None,vpc_id=None,opts=None):
     """
@@ -99,7 +111,7 @@ def get_vpc_peering_connection(cidr_block=None,filters=None,id=None,owner_id=Non
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection', __args__, opts=opts).value
 
-    return GetVpcPeeringConnectionResult(
+    return AwaitableGetVpcPeeringConnectionResult(
         accepter=__ret__.get('accepter'),
         cidr_block=__ret__.get('cidrBlock'),
         filters=__ret__.get('filters'),

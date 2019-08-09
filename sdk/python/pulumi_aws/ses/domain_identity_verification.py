@@ -17,12 +17,12 @@ class DomainIdentityVerification(pulumi.CustomResource):
     """
     The domain name of the SES domain identity to verify.
     """
-    def __init__(__self__, resource_name, opts=None, domain=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, domain=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents a successful verification of an SES domain identity.
         
-        Most commonly, this resource is used together with `aws_route53_record` and
-        `aws_ses_domain_identity` to request an SES domain identity,
+        Most commonly, this resource is used together with `route53.Record` and
+        `ses.DomainIdentity` to request an SES domain identity,
         deploy the required DNS verification records, and wait for verification to complete.
         
         > **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
@@ -39,32 +39,46 @@ class DomainIdentityVerification(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if domain is None:
-            raise TypeError("Missing required property 'domain'")
-        __props__['domain'] = domain
-
-        __props__['arn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if domain is None:
+                raise TypeError("Missing required property 'domain'")
+            __props__['domain'] = domain
+            __props__['arn'] = None
         super(DomainIdentityVerification, __self__).__init__(
             'aws:ses/domainIdentityVerification:DomainIdentityVerification',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, domain=None):
+        """
+        Get an existing DomainIdentityVerification resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the domain identity.
+        :param pulumi.Input[str] domain: The domain name of the SES domain identity to verify.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity_verification.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["domain"] = domain
+        return DomainIdentityVerification(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

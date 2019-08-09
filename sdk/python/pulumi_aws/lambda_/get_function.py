@@ -148,14 +148,36 @@ class GetFunctionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetFunctionResult(GetFunctionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetFunctionResult(
+            arn=self.arn,
+            dead_letter_config=self.dead_letter_config,
+            description=self.description,
+            environment=self.environment,
+            function_name=self.function_name,
+            handler=self.handler,
+            invoke_arn=self.invoke_arn,
+            kms_key_arn=self.kms_key_arn,
+            last_modified=self.last_modified,
+            layers=self.layers,
+            memory_size=self.memory_size,
+            qualified_arn=self.qualified_arn,
+            qualifier=self.qualifier,
+            reserved_concurrent_executions=self.reserved_concurrent_executions,
+            role=self.role,
+            runtime=self.runtime,
+            source_code_hash=self.source_code_hash,
+            source_code_size=self.source_code_size,
+            tags=self.tags,
+            timeout=self.timeout,
+            tracing_config=self.tracing_config,
+            version=self.version,
+            vpc_config=self.vpc_config,
+            id=self.id)
 
 def get_function(function_name=None,qualifier=None,tags=None,opts=None):
     """
@@ -174,7 +196,7 @@ def get_function(function_name=None,qualifier=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:lambda/getFunction:getFunction', __args__, opts=opts).value
 
-    return GetFunctionResult(
+    return AwaitableGetFunctionResult(
         arn=__ret__.get('arn'),
         dead_letter_config=__ret__.get('deadLetterConfig'),
         description=__ret__.get('description'),

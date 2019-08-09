@@ -145,14 +145,34 @@ class GetClusterResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetClusterResult(
+            arn=self.arn,
+            availability_zone=self.availability_zone,
+            cache_nodes=self.cache_nodes,
+            cluster_address=self.cluster_address,
+            cluster_id=self.cluster_id,
+            configuration_endpoint=self.configuration_endpoint,
+            engine=self.engine,
+            engine_version=self.engine_version,
+            maintenance_window=self.maintenance_window,
+            node_type=self.node_type,
+            notification_topic_arn=self.notification_topic_arn,
+            num_cache_nodes=self.num_cache_nodes,
+            parameter_group_name=self.parameter_group_name,
+            port=self.port,
+            replication_group_id=self.replication_group_id,
+            security_group_ids=self.security_group_ids,
+            security_group_names=self.security_group_names,
+            snapshot_retention_limit=self.snapshot_retention_limit,
+            snapshot_window=self.snapshot_window,
+            subnet_group_name=self.subnet_group_name,
+            tags=self.tags,
+            id=self.id)
 
 def get_cluster(cluster_id=None,tags=None,opts=None):
     """
@@ -170,7 +190,7 @@ def get_cluster(cluster_id=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:elasticache/getCluster:getCluster', __args__, opts=opts).value
 
-    return GetClusterResult(
+    return AwaitableGetClusterResult(
         arn=__ret__.get('arn'),
         availability_zone=__ret__.get('availabilityZone'),
         cache_nodes=__ret__.get('cacheNodes'),

@@ -22,18 +22,18 @@ class GetIpsetResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetIpsetResult(GetIpsetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetIpsetResult(
+            name=self.name,
+            id=self.id)
 
 def get_ipset(name=None,opts=None):
     """
-    `aws_wafregional_ipset` Retrieves a WAF Regional IP Set Resource Id.
+    `wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_ipset.html.markdown.
     """
@@ -46,6 +46,6 @@ def get_ipset(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:wafregional/getIpset:getIpset', __args__, opts=opts).value
 
-    return GetIpsetResult(
+    return AwaitableGetIpsetResult(
         name=__ret__.get('name'),
         id=__ret__.get('id'))

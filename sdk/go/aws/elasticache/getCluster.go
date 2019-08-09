@@ -58,7 +58,7 @@ type GetClusterResult struct {
 	Arn interface{}
 	// The Availability Zone for the cache cluster.
 	AvailabilityZone interface{}
-	// List of node objects including `id`, `address`, `port` and `availability_zone`.
+	// List of node objects including `id`, `address`, `port` and `availabilityZone`.
 	// Referenceable e.g. as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
 	CacheNodes interface{}
 	// (Memcached only) The DNS name of the cache cluster without the port appended.

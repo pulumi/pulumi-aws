@@ -65,7 +65,7 @@ class ReceiptRule(pulumi.CustomResource):
     """
     A list of WorkMail Action blocks. Documented below.
     """
-    def __init__(__self__, resource_name, opts=None, add_header_actions=None, after=None, bounce_actions=None, enabled=None, lambda_actions=None, name=None, recipients=None, rule_set_name=None, s3_actions=None, scan_enabled=None, sns_actions=None, stop_actions=None, tls_policy=None, workmail_actions=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, add_header_actions=None, after=None, bounce_actions=None, enabled=None, lambda_actions=None, name=None, recipients=None, rule_set_name=None, s3_actions=None, scan_enabled=None, sns_actions=None, stop_actions=None, tls_policy=None, workmail_actions=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SES receipt rule resource
         
@@ -94,56 +94,82 @@ class ReceiptRule(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['add_header_actions'] = add_header_actions
-
-        __props__['after'] = after
-
-        __props__['bounce_actions'] = bounce_actions
-
-        __props__['enabled'] = enabled
-
-        __props__['lambda_actions'] = lambda_actions
-
-        __props__['name'] = name
-
-        __props__['recipients'] = recipients
-
-        if rule_set_name is None:
-            raise TypeError("Missing required property 'rule_set_name'")
-        __props__['rule_set_name'] = rule_set_name
-
-        __props__['s3_actions'] = s3_actions
-
-        __props__['scan_enabled'] = scan_enabled
-
-        __props__['sns_actions'] = sns_actions
-
-        __props__['stop_actions'] = stop_actions
-
-        __props__['tls_policy'] = tls_policy
-
-        __props__['workmail_actions'] = workmail_actions
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['add_header_actions'] = add_header_actions
+            __props__['after'] = after
+            __props__['bounce_actions'] = bounce_actions
+            __props__['enabled'] = enabled
+            __props__['lambda_actions'] = lambda_actions
+            __props__['name'] = name
+            __props__['recipients'] = recipients
+            if rule_set_name is None:
+                raise TypeError("Missing required property 'rule_set_name'")
+            __props__['rule_set_name'] = rule_set_name
+            __props__['s3_actions'] = s3_actions
+            __props__['scan_enabled'] = scan_enabled
+            __props__['sns_actions'] = sns_actions
+            __props__['stop_actions'] = stop_actions
+            __props__['tls_policy'] = tls_policy
+            __props__['workmail_actions'] = workmail_actions
         super(ReceiptRule, __self__).__init__(
             'aws:ses/receiptRule:ReceiptRule',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, add_header_actions=None, after=None, bounce_actions=None, enabled=None, lambda_actions=None, name=None, recipients=None, rule_set_name=None, s3_actions=None, scan_enabled=None, sns_actions=None, stop_actions=None, tls_policy=None, workmail_actions=None):
+        """
+        Get an existing ReceiptRule resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] add_header_actions: A list of Add Header Action blocks. Documented below.
+        :param pulumi.Input[str] after: The name of the rule to place this rule after
+        :param pulumi.Input[list] bounce_actions: A list of Bounce Action blocks. Documented below.
+        :param pulumi.Input[bool] enabled: If true, the rule will be enabled
+        :param pulumi.Input[list] lambda_actions: A list of Lambda Action blocks. Documented below.
+        :param pulumi.Input[str] name: The name of the rule
+        :param pulumi.Input[list] recipients: A list of email addresses
+        :param pulumi.Input[str] rule_set_name: The name of the rule set
+        :param pulumi.Input[list] s3_actions: A list of S3 Action blocks. Documented below.
+        :param pulumi.Input[bool] scan_enabled: If true, incoming emails will be scanned for spam and viruses
+        :param pulumi.Input[list] sns_actions: A list of SNS Action blocks. Documented below.
+        :param pulumi.Input[list] stop_actions: A list of Stop Action blocks. Documented below.
+        :param pulumi.Input[str] tls_policy: Require or Optional
+        :param pulumi.Input[list] workmail_actions: A list of WorkMail Action blocks. Documented below.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_receipt_rule.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["add_header_actions"] = add_header_actions
+        __props__["after"] = after
+        __props__["bounce_actions"] = bounce_actions
+        __props__["enabled"] = enabled
+        __props__["lambda_actions"] = lambda_actions
+        __props__["name"] = name
+        __props__["recipients"] = recipients
+        __props__["rule_set_name"] = rule_set_name
+        __props__["s3_actions"] = s3_actions
+        __props__["scan_enabled"] = scan_enabled
+        __props__["sns_actions"] = sns_actions
+        __props__["stop_actions"] = stop_actions
+        __props__["tls_policy"] = tls_policy
+        __props__["workmail_actions"] = workmail_actions
+        return ReceiptRule(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

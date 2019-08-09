@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testDestination = new aws.cloudwatch.LogDestination("test_destination", {
+ * const testDestination = new aws.cloudwatch.LogDestination("testDestination", {
  *     roleArn: aws_iam_role_iam_for_cloudwatch.arn,
  *     targetArn: aws_kinesis_stream_kinesis_for_cloudwatch.arn,
  * });
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *         resources: [arn],
  *     }],
  * }));
- * const testDestinationPolicyLogDestinationPolicy = new aws.cloudwatch.LogDestinationPolicy("test_destination_policy", {
+ * const testDestinationPolicyLogDestinationPolicy = new aws.cloudwatch.LogDestinationPolicy("testDestinationPolicy", {
  *     accessPolicy: testDestinationPolicyPolicyDocument.json,
  *     destinationName: testDestination.name,
  * });

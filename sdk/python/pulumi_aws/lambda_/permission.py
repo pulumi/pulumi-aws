@@ -54,7 +54,7 @@ class Permission(pulumi.CustomResource):
     """
     A statement identifier prefix. This provider will generate a unique suffix. Conflicts with `statement_id`.
     """
-    def __init__(__self__, resource_name, opts=None, action=None, event_source_token=None, function=None, principal=None, qualifier=None, source_account=None, source_arn=None, statement_id=None, statement_id_prefix=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, action=None, event_source_token=None, function=None, principal=None, qualifier=None, source_account=None, source_arn=None, statement_id=None, statement_id_prefix=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates a Lambda permission to allow external sources invoking the Lambda function
         (e.g. CloudWatch Event Rule, SNS or S3).
@@ -88,50 +88,80 @@ class Permission(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if action is None:
-            raise TypeError("Missing required property 'action'")
-        __props__['action'] = action
-
-        __props__['event_source_token'] = event_source_token
-
-        if function is None:
-            raise TypeError("Missing required property 'function'")
-        __props__['function'] = function
-
-        if principal is None:
-            raise TypeError("Missing required property 'principal'")
-        __props__['principal'] = principal
-
-        __props__['qualifier'] = qualifier
-
-        __props__['source_account'] = source_account
-
-        __props__['source_arn'] = source_arn
-
-        __props__['statement_id'] = statement_id
-
-        __props__['statement_id_prefix'] = statement_id_prefix
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if action is None:
+                raise TypeError("Missing required property 'action'")
+            __props__['action'] = action
+            __props__['event_source_token'] = event_source_token
+            if function is None:
+                raise TypeError("Missing required property 'function'")
+            __props__['function'] = function
+            if principal is None:
+                raise TypeError("Missing required property 'principal'")
+            __props__['principal'] = principal
+            __props__['qualifier'] = qualifier
+            __props__['source_account'] = source_account
+            __props__['source_arn'] = source_arn
+            __props__['statement_id'] = statement_id
+            __props__['statement_id_prefix'] = statement_id_prefix
         super(Permission, __self__).__init__(
             'aws:lambda/permission:Permission',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, action=None, event_source_token=None, function=None, principal=None, qualifier=None, source_account=None, source_arn=None, statement_id=None, statement_id_prefix=None):
+        """
+        Get an existing Permission resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action: The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
+        :param pulumi.Input[str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills][1].
+        :param pulumi.Input[str] function: Name of the Lambda function whose resource policy you are updating
+        :param pulumi.Input[str] principal: The principal who is getting this permission.
+               e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
+               such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        :param pulumi.Input[str] qualifier: Query parameter to specify function version or alias name.
+               The permission will then apply to the specific qualified ARN.
+               e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+        :param pulumi.Input[str] source_account: This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+        :param pulumi.Input[str] source_arn: When granting Amazon S3 or CloudWatch Events permission to
+               invoke your function, you should specify this field with the Amazon Resource Name (ARN)
+               for the S3 Bucket or CloudWatch Events Rule as its value.  This ensures that only events
+               generated from the specified bucket or rule can invoke the function.
+               API Gateway ARNs have a unique structure described
+               [here](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+        :param pulumi.Input[str] statement_id: A unique statement identifier. By default generated by this provider.
+        :param pulumi.Input[str] statement_id_prefix: A statement identifier prefix. This provider will generate a unique suffix. Conflicts with `statement_id`.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_permission.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["action"] = action
+        __props__["event_source_token"] = event_source_token
+        __props__["function"] = function
+        __props__["principal"] = principal
+        __props__["qualifier"] = qualifier
+        __props__["source_account"] = source_account
+        __props__["source_arn"] = source_arn
+        __props__["statement_id"] = statement_id
+        __props__["statement_id_prefix"] = statement_id_prefix
+        return Permission(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -51,15 +51,15 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
     """
     The VPC Peering Connection ID to manage.
     """
-    def __init__(__self__, resource_name, opts=None, accepter=None, auto_accept=None, requester=None, tags=None, vpc_peering_connection_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, accepter=None, auto_accept=None, requester=None, tags=None, vpc_peering_connection_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to manage the accepter's side of a VPC Peering Connection.
         
         When a cross-account (requester's AWS account differs from the accepter's AWS account) or an inter-region
         VPC Peering Connection is created, a VPC Peering Connection resource is automatically created in the
         accepter's account.
-        The requester can use the `aws_vpc_peering_connection` resource to manage its side of the connection
-        and the accepter can use the `aws_vpc_peering_connection_accepter` resource to "adopt" its side of the
+        The requester can use the `ec2.VpcPeeringConnection` resource to manage its side of the connection
+        and the accepter can use the `ec2.VpcPeeringConnectionAccepter` resource to "adopt" its side of the
         connection into management.
         
         :param str resource_name: The name of the resource.
@@ -80,44 +80,72 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['accepter'] = accepter
-
-        __props__['auto_accept'] = auto_accept
-
-        __props__['requester'] = requester
-
-        __props__['tags'] = tags
-
-        if vpc_peering_connection_id is None:
-            raise TypeError("Missing required property 'vpc_peering_connection_id'")
-        __props__['vpc_peering_connection_id'] = vpc_peering_connection_id
-
-        __props__['accept_status'] = None
-        __props__['peer_owner_id'] = None
-        __props__['peer_region'] = None
-        __props__['peer_vpc_id'] = None
-        __props__['vpc_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['accepter'] = accepter
+            __props__['auto_accept'] = auto_accept
+            __props__['requester'] = requester
+            __props__['tags'] = tags
+            if vpc_peering_connection_id is None:
+                raise TypeError("Missing required property 'vpc_peering_connection_id'")
+            __props__['vpc_peering_connection_id'] = vpc_peering_connection_id
+            __props__['accept_status'] = None
+            __props__['peer_owner_id'] = None
+            __props__['peer_region'] = None
+            __props__['peer_vpc_id'] = None
+            __props__['vpc_id'] = None
         super(VpcPeeringConnectionAccepter, __self__).__init__(
             'aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, accept_status=None, accepter=None, auto_accept=None, peer_owner_id=None, peer_region=None, peer_vpc_id=None, requester=None, tags=None, vpc_id=None, vpc_peering_connection_id=None):
+        """
+        Get an existing VpcPeeringConnectionAccepter resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] accept_status: The status of the VPC Peering Connection request.
+        :param pulumi.Input[dict] accepter: A configuration block that describes [VPC Peering Connection]
+               (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+        :param pulumi.Input[bool] auto_accept: Whether or not to accept the peering request. Defaults to `false`.
+        :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the requester VPC.
+        :param pulumi.Input[str] peer_region: The region of the accepter VPC.
+        :param pulumi.Input[str] peer_vpc_id: The ID of the requester VPC.
+        :param pulumi.Input[dict] requester: A configuration block that describes [VPC Peering Connection]
+               (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] vpc_id: The ID of the accepter VPC.
+        :param pulumi.Input[str] vpc_peering_connection_id: The VPC Peering Connection ID to manage.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_accepter.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["accept_status"] = accept_status
+        __props__["accepter"] = accepter
+        __props__["auto_accept"] = auto_accept
+        __props__["peer_owner_id"] = peer_owner_id
+        __props__["peer_region"] = peer_region
+        __props__["peer_vpc_id"] = peer_vpc_id
+        __props__["requester"] = requester
+        __props__["tags"] = tags
+        __props__["vpc_id"] = vpc_id
+        __props__["vpc_peering_connection_id"] = vpc_peering_connection_id
+        return VpcPeeringConnectionAccepter(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

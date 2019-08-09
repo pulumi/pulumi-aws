@@ -31,14 +31,16 @@ class GetUserPoolsResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetUserPoolsResult(GetUserPoolsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetUserPoolsResult(
+            arns=self.arns,
+            ids=self.ids,
+            name=self.name,
+            id=self.id)
 
 def get_user_pools(name=None,opts=None):
     """
@@ -55,7 +57,7 @@ def get_user_pools(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:cognito/getUserPools:getUserPools', __args__, opts=opts).value
 
-    return GetUserPoolsResult(
+    return AwaitableGetUserPoolsResult(
         arns=__ret__.get('arns'),
         ids=__ret__.get('ids'),
         name=__ret__.get('name'),

@@ -55,14 +55,20 @@ class GetServiceResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetServiceResult(
+            arn=self.arn,
+            cluster_arn=self.cluster_arn,
+            desired_count=self.desired_count,
+            launch_type=self.launch_type,
+            scheduling_strategy=self.scheduling_strategy,
+            service_name=self.service_name,
+            task_definition=self.task_definition,
+            id=self.id)
 
 def get_service(cluster_arn=None,service_name=None,opts=None):
     """
@@ -81,7 +87,7 @@ def get_service(cluster_arn=None,service_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecs/getService:getService', __args__, opts=opts).value
 
-    return GetServiceResult(
+    return AwaitableGetServiceResult(
         arn=__ret__.get('arn'),
         cluster_arn=__ret__.get('clusterArn'),
         desired_count=__ret__.get('desiredCount'),

@@ -52,18 +52,25 @@ class GetRouteTableResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetRouteTableResult(GetRouteTableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRouteTableResult(
+            associations=self.associations,
+            filters=self.filters,
+            owner_id=self.owner_id,
+            route_table_id=self.route_table_id,
+            routes=self.routes,
+            subnet_id=self.subnet_id,
+            tags=self.tags,
+            vpc_id=self.vpc_id,
+            id=self.id)
 
 def get_route_table(filters=None,route_table_id=None,subnet_id=None,tags=None,vpc_id=None,opts=None):
     """
-    `aws_route_table` provides details about a specific Route Table.
+    `ec2.RouteTable` provides details about a specific Route Table.
     
     This resource can prove useful when a module accepts a Subnet id as
     an input variable and needs to, for example, add a route in
@@ -84,7 +91,7 @@ def get_route_table(filters=None,route_table_id=None,subnet_id=None,tags=None,vp
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getRouteTable:getRouteTable', __args__, opts=opts).value
 
-    return GetRouteTableResult(
+    return AwaitableGetRouteTableResult(
         associations=__ret__.get('associations'),
         filters=__ret__.get('filters'),
         owner_id=__ret__.get('ownerId'),

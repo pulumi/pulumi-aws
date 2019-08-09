@@ -64,7 +64,7 @@ export class KeyPair extends pulumi.CustomResource {
      */
     public readonly keyName!: pulumi.Output<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
      */
     public readonly keyNamePrefix!: pulumi.Output<string | undefined>;
     /**
@@ -122,7 +122,7 @@ export interface KeyPairState {
      */
     readonly keyName?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
      */
     readonly keyNamePrefix?: pulumi.Input<string>;
     /**
@@ -140,7 +140,7 @@ export interface KeyPairArgs {
      */
     readonly keyName?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
      */
     readonly keyNamePrefix?: pulumi.Input<string>;
     /**

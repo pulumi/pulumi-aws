@@ -46,14 +46,18 @@ class GetRepositoryResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetRepositoryResult(GetRepositoryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRepositoryResult(
+            arn=self.arn,
+            name=self.name,
+            registry_id=self.registry_id,
+            repository_url=self.repository_url,
+            tags=self.tags,
+            id=self.id)
 
 def get_repository(name=None,tags=None,opts=None):
     """
@@ -71,7 +75,7 @@ def get_repository(name=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecr/getRepository:getRepository', __args__, opts=opts).value
 
-    return GetRepositoryResult(
+    return AwaitableGetRepositoryResult(
         arn=__ret__.get('arn'),
         name=__ret__.get('name'),
         registry_id=__ret__.get('registryId'),

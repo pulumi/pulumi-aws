@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a DynamoDB table resource
  * 
- * > **Note:** It is recommended to use `lifecycle` [`ignore_changes`](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) for `read_capacity` and/or `write_capacity` if there's [autoscaling policy](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html) attached to the table.
+ * > **Note:** It is recommended to use `lifecycle` [`ignoreChanges`](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) for `readCapacity` and/or `writeCapacity` if there's [autoscaling policy](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html) attached to the table.
  * 
  * ## Example Usage
  * 
@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const basic_dynamodb_table = new aws.dynamodb.Table("basic-dynamodb-table", {
+ * const basicDynamodbTable = new aws.dynamodb.Table("basic-dynamodb-table", {
  *     attributes: [
  *         {
  *             name: "UserId",
@@ -92,7 +92,7 @@ export class Table extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+     * List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
      */
     public readonly attributes!: pulumi.Output<{ name: string, type: string }[]>;
     /**
@@ -129,7 +129,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly rangeKey!: pulumi.Output<string | undefined>;
     /**
-     * The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     public readonly readCapacity!: pulumi.Output<number | undefined>;
     /**
@@ -137,7 +137,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly serverSideEncryption!: pulumi.Output<{ enabled: boolean }>;
     /**
-     * The ARN of the Table Stream. Only available when `stream_enabled = true`
+     * The ARN of the Table Stream. Only available when `streamEnabled = true`
      */
     public /*out*/ readonly streamArn!: pulumi.Output<string>;
     /**
@@ -148,7 +148,7 @@ export class Table extends pulumi.CustomResource {
      * A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
      * a unique identifier for the stream on its own. However, the combination of AWS customer ID,
      * table name and this field is guaranteed to be unique.
-     * It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+     * It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
      */
     public /*out*/ readonly streamLabel!: pulumi.Output<string>;
     /**
@@ -164,7 +164,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly ttl!: pulumi.Output<{ attributeName: string, enabled?: boolean } | undefined>;
     /**
-     * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     public readonly writeCapacity!: pulumi.Output<number | undefined>;
 
@@ -245,7 +245,7 @@ export interface TableState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+     * List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
      */
     readonly attributes?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
@@ -282,7 +282,7 @@ export interface TableState {
      */
     readonly rangeKey?: pulumi.Input<string>;
     /**
-     * The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     readonly readCapacity?: pulumi.Input<number>;
     /**
@@ -290,7 +290,7 @@ export interface TableState {
      */
     readonly serverSideEncryption?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
     /**
-     * The ARN of the Table Stream. Only available when `stream_enabled = true`
+     * The ARN of the Table Stream. Only available when `streamEnabled = true`
      */
     readonly streamArn?: pulumi.Input<string>;
     /**
@@ -301,7 +301,7 @@ export interface TableState {
      * A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
      * a unique identifier for the stream on its own. However, the combination of AWS customer ID,
      * table name and this field is guaranteed to be unique.
-     * It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+     * It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
      */
     readonly streamLabel?: pulumi.Input<string>;
     /**
@@ -317,7 +317,7 @@ export interface TableState {
      */
     readonly ttl?: pulumi.Input<{ attributeName: pulumi.Input<string>, enabled?: pulumi.Input<boolean> }>;
     /**
-     * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     readonly writeCapacity?: pulumi.Input<number>;
 }
@@ -327,7 +327,7 @@ export interface TableState {
  */
 export interface TableArgs {
     /**
-     * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+     * List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
      */
     readonly attributes: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
@@ -364,7 +364,7 @@ export interface TableArgs {
      */
     readonly rangeKey?: pulumi.Input<string>;
     /**
-     * The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     readonly readCapacity?: pulumi.Input<number>;
     /**
@@ -388,7 +388,7 @@ export interface TableArgs {
      */
     readonly ttl?: pulumi.Input<{ attributeName: pulumi.Input<string>, enabled?: pulumi.Input<boolean> }>;
     /**
-     * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     readonly writeCapacity?: pulumi.Input<number>;
 }

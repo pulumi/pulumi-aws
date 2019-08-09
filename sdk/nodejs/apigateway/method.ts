@@ -118,16 +118,16 @@ export class Method extends pulumi.CustomResource {
     /**
      * A map of the API models used for the request's content type
      * where key is the content type (e.g. `application/json`)
-     * and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
+     * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
     public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of request query string parameters and headers that should be passed to the integration.
-     * For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
+     * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
      */
     public readonly requestParameters!: pulumi.Output<{[key: string]: boolean} | undefined>;
     /**
-     * The ID of a `aws_api_gateway_request_validator`
+     * The ID of a `aws.apigateway.RequestValidator`
      */
     public readonly requestValidatorId!: pulumi.Output<string | undefined>;
     /**
@@ -224,16 +224,16 @@ export interface MethodState {
     /**
      * A map of the API models used for the request's content type
      * where key is the content type (e.g. `application/json`)
-     * and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
+     * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
     readonly requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of request query string parameters and headers that should be passed to the integration.
-     * For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
+     * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**
-     * The ID of a `aws_api_gateway_request_validator`
+     * The ID of a `aws.apigateway.RequestValidator`
      */
     readonly requestValidatorId?: pulumi.Input<string>;
     /**
@@ -273,16 +273,16 @@ export interface MethodArgs {
     /**
      * A map of the API models used for the request's content type
      * where key is the content type (e.g. `application/json`)
-     * and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
+     * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
     readonly requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of request query string parameters and headers that should be passed to the integration.
-     * For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
+     * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**
-     * The ID of a `aws_api_gateway_request_validator`
+     * The ID of a `aws.apigateway.RequestValidator`
      */
     readonly requestValidatorId?: pulumi.Input<string>;
     /**

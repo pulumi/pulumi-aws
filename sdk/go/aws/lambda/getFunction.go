@@ -60,7 +60,7 @@ type GetFunctionArgs struct {
 
 // A collection of values returned by getFunction.
 type GetFunctionResult struct {
-	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
+	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
 	Arn interface{}
 	// Configure the function's *dead letter queue*.
 	DeadLetterConfig interface{}

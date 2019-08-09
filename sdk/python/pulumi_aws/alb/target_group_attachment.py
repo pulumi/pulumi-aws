@@ -25,11 +25,11 @@ class TargetGroupAttachment(pulumi.CustomResource):
     """
     The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
     """
-    def __init__(__self__, resource_name, opts=None, availability_zone=None, port=None, target_group_arn=None, target_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, availability_zone=None, port=None, target_group_arn=None, target_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the [`aws_elb_attachment` resource](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html).
+        Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the [`elb.Attachment` resource](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html).
         
-        > **Note:** `aws_alb_target_group_attachment` is known as `aws_lb_target_group_attachment`. The functionality is identical.
+        > **Note:** `alb.TargetGroupAttachment` is known as `lb.TargetGroupAttachment`. The functionality is identical.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -46,31 +46,25 @@ class TargetGroupAttachment(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['availability_zone'] = availability_zone
-
-        __props__['port'] = port
-
-        if target_group_arn is None:
-            raise TypeError("Missing required property 'target_group_arn'")
-        __props__['target_group_arn'] = target_group_arn
-
-        if target_id is None:
-            raise TypeError("Missing required property 'target_id'")
-        __props__['target_id'] = target_id
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['availability_zone'] = availability_zone
+            __props__['port'] = port
+            if target_group_arn is None:
+                raise TypeError("Missing required property 'target_group_arn'")
+            __props__['target_group_arn'] = target_group_arn
+            if target_id is None:
+                raise TypeError("Missing required property 'target_id'")
+            __props__['target_id'] = target_id
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(TargetGroupAttachment, __self__).__init__(
@@ -79,7 +73,29 @@ class TargetGroupAttachment(pulumi.CustomResource):
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, availability_zone=None, port=None, target_group_arn=None, target_id=None):
+        """
+        Get an existing TargetGroupAttachment resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] availability_zone: The Availability Zone where the IP address of the target is to be registered.
+        :param pulumi.Input[float] port: The port on which targets receive traffic.
+        :param pulumi.Input[str] target_group_arn: The ARN of the target group with which to register targets
+        :param pulumi.Input[str] target_id: The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group_attachment.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["availability_zone"] = availability_zone
+        __props__["port"] = port
+        __props__["target_group_arn"] = target_group_arn
+        __props__["target_id"] = target_id
+        return TargetGroupAttachment(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

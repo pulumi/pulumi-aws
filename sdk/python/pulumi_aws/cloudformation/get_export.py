@@ -34,14 +34,16 @@ class GetExportResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetExportResult(GetExportResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetExportResult(
+            exporting_stack_id=self.exporting_stack_id,
+            name=self.name,
+            value=self.value,
+            id=self.id)
 
 def get_export(name=None,opts=None):
     """
@@ -61,7 +63,7 @@ def get_export(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:cloudformation/getExport:getExport', __args__, opts=opts).value
 
-    return GetExportResult(
+    return AwaitableGetExportResult(
         exporting_stack_id=__ret__.get('exportingStackId'),
         name=__ret__.get('name'),
         value=__ret__.get('value'),

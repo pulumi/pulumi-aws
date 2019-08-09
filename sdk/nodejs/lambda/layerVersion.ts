@@ -15,21 +15,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const lambdaLayer = new aws.lambda.LayerVersion("lambda_layer", {
+ * const lambdaLayer = new aws.lambda.LayerVersion("lambdaLayer", {
  *     compatibleRuntimes: ["nodejs8.10"],
  *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
- *     layerName: "lambda_layer_name",
+ *     layerName: "lambdaLayerName",
  * });
  * ```
  * 
  * ## Specifying the Deployment Package
  * 
- * AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
- * See [Runtimes][2] for the valid values of `compatible_runtimes`.
+ * AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatibleRuntimes` this layer specifies.
+ * See [Runtimes][2] for the valid values of `compatibleRuntimes`.
  * 
  * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
- * indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
- * package via S3 it may be useful to use the `aws_s3_bucket_object` resource to upload it.
+ * indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment
+ * package via S3 it may be useful to use the `aws.s3.BucketObject` resource to upload it.
  * 
  * For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
  * large files efficiently.
@@ -108,7 +108,7 @@ export class LayerVersion extends pulumi.CustomResource {
      */
     public readonly s3ObjectVersion!: pulumi.Output<string | undefined>;
     /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
      */
     public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
@@ -226,7 +226,7 @@ export interface LayerVersionState {
      */
     readonly s3ObjectVersion?: pulumi.Input<string>;
     /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
      */
     readonly sourceCodeHash?: pulumi.Input<string>;
     /**
@@ -276,7 +276,7 @@ export interface LayerVersionArgs {
      */
     readonly s3ObjectVersion?: pulumi.Input<string>;
     /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
      */
     readonly sourceCodeHash?: pulumi.Input<string>;
 }

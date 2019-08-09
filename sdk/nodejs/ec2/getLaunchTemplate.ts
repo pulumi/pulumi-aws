@@ -141,7 +141,7 @@ export interface GetLaunchTemplateResult {
     readonly ramDiskId: string;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
-     * `vpc_security_group_ids` instead.
+     * `vpcSecurityGroupIds` instead.
      */
     readonly securityGroupNames: string[];
     /**

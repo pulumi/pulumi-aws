@@ -73,14 +73,31 @@ class GetLoadBalancerResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetLoadBalancerResult(
+            access_logs=self.access_logs,
+            availability_zones=self.availability_zones,
+            connection_draining=self.connection_draining,
+            connection_draining_timeout=self.connection_draining_timeout,
+            cross_zone_load_balancing=self.cross_zone_load_balancing,
+            dns_name=self.dns_name,
+            health_check=self.health_check,
+            idle_timeout=self.idle_timeout,
+            instances=self.instances,
+            internal=self.internal,
+            listeners=self.listeners,
+            name=self.name,
+            security_groups=self.security_groups,
+            source_security_group=self.source_security_group,
+            source_security_group_id=self.source_security_group_id,
+            subnets=self.subnets,
+            tags=self.tags,
+            zone_id=self.zone_id,
+            id=self.id)
 
 def get_load_balancer(name=None,tags=None,opts=None):
     """
@@ -104,7 +121,7 @@ def get_load_balancer(name=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:elasticloadbalancing/getLoadBalancer:getLoadBalancer', __args__, opts=opts).value
 
-    return GetLoadBalancerResult(
+    return AwaitableGetLoadBalancerResult(
         access_logs=__ret__.get('accessLogs'),
         availability_zones=__ret__.get('availabilityZones'),
         connection_draining=__ret__.get('connectionDraining'),

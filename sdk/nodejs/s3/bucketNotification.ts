@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
  * 
- * > **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `aws_s3_bucket_notification` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+ * > **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `aws.s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration.
  * 
  * ## Example Usage
  * 
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
+ * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
  *     topics: [{
  *         events: ["s3:ObjectCreated:*"],
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
+ * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
  *     queues: [{
  *         events: ["s3:ObjectCreated:*"],
@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
+ * const iamForLambda = new aws.iam.Role("iamForLambda", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -105,13 +105,13 @@ import * as utilities from "../utilities";
  *     role: iamForLambda.arn,
  *     runtime: "go1.x",
  * });
- * const allowBucket = new aws.lambda.Permission("allow_bucket", {
+ * const allowBucket = new aws.lambda.Permission("allowBucket", {
  *     action: "lambda:InvokeFunction",
  *     function: func.arn,
  *     principal: "s3.amazonaws.com",
  *     sourceArn: bucket.arn,
  * });
- * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
+ * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
  *     lambdaFunctions: [{
  *         events: ["s3:ObjectCreated:*"],
@@ -128,7 +128,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
+ * const iamForLambda = new aws.iam.Role("iamForLambda", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -155,19 +155,19 @@ import * as utilities from "../utilities";
  *     handler: "exports.example",
  *     role: iamForLambda.arn,
  * });
- * const allowBucket1 = new aws.lambda.Permission("allow_bucket1", {
+ * const allowBucket1 = new aws.lambda.Permission("allowBucket1", {
  *     action: "lambda:InvokeFunction",
  *     function: func1.arn,
  *     principal: "s3.amazonaws.com",
  *     sourceArn: bucket.arn,
  * });
- * const allowBucket2 = new aws.lambda.Permission("allow_bucket2", {
+ * const allowBucket2 = new aws.lambda.Permission("allowBucket2", {
  *     action: "lambda:InvokeFunction",
  *     function: func2.arn,
  *     principal: "s3.amazonaws.com",
  *     sourceArn: bucket.arn,
  * });
- * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
+ * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
  *     lambdaFunctions: [
  *         {
@@ -210,7 +210,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
+ * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
  *     queues: [
  *         {

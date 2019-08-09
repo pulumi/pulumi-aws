@@ -13,16 +13,16 @@ import {StorageType} from "./storageType";
  * databases.
  * 
  * Changes to a DB instance can occur when you manually change a parameter, such as
- * `allocated_storage`, and are reflected in the next maintenance window. Because
+ * `allocatedStorage`, and are reflected in the next maintenance window. Because
  * of this, this provider may report a difference in its planning phase because a
- * modification has not yet taken place. You can use the `apply_immediately` flag
+ * modification has not yet taken place. You can use the `applyImmediately` flag
  * to instruct the service to apply the change immediately (see documentation
  * below).
  * 
- * When upgrading the major version of an engine, `allow_major_version_upgrade`
+ * When upgrading the major version of an engine, `allowMajorVersionUpgrade`
  * must be set to `true`.
  * 
- * > **Note:** using `apply_immediately` can result in a brief downtime as the
+ * > **Note:** using `applyImmediately` can result in a brief downtime as the
  * server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
  * 
  * > **Note:** All arguments including the username and password will be stored in
@@ -58,7 +58,7 @@ import {StorageType} from "./storageType";
  * 
  * ### Storage Autoscaling
  * 
- * To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
+ * To enable Storage Autoscaling with instances that support the feature, define the `maxAllocatedStorage` argument higher than the `allocatedStorage` argument. This provider will automatically hide differences with the `allocatedStorage` argument value if autoscaling occurs.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -104,7 +104,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly address!: pulumi.Output<string>;
     /**
-     * The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+     * The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
      */
     public readonly allocatedStorage!: pulumi.Output<number>;
     /**
@@ -142,7 +142,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The daily time range (in UTC) during which
      * automated backups are created if they are enabled. Example: "09:46-10:16". Must
-     * not overlap with `maintenance_window`.
+     * not overlap with `maintenanceWindow`.
      */
     public readonly backupWindow!: pulumi.Output<string>;
     /**
@@ -193,7 +193,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
      * For information on the difference between the available Aurora MySQL engines
@@ -202,7 +202,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string>;
     /**
-     * The engine version to use. If `auto_minor_version_upgrade`
+     * The engine version to use. If `autoMinorVersionUpgrade`
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
      * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
@@ -241,7 +241,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly instanceClass!: pulumi.Output<string>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storage_type of "io1".
+     * storageType of "io1".
      */
     public readonly iops!: pulumi.Output<number | undefined>;
     /**
@@ -263,7 +263,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly maintenanceWindow!: pulumi.Output<string>;
     /**
-     * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
+     * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
      */
     public readonly maxAllocatedStorage!: pulumi.Output<number | undefined>;
     /**
@@ -299,7 +299,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly parameterGroupName!: pulumi.Output<string>;
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Password for the master DB user. Note that this may show up in
      * logs, and it will be stored in the state file.
      */
@@ -309,11 +309,11 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly performanceInsightsEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
      */
     public readonly performanceInsightsKmsKeyId!: pulumi.Output<string>;
     /**
-     * The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+     * The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
     public readonly performanceInsightsRetentionPeriod!: pulumi.Output<number>;
     /**
@@ -331,7 +331,7 @@ export class Instance extends pulumi.CustomResource {
      * database, and to use this value as the source database. This correlates to the
      * `identifier` of another Amazon RDS Database to replicate. Note that if you are
      * creating a cross-region replica of an encrypted database you will also need to
-     * specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
+     * specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
      * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
      * for more information on using Replication.
      */
@@ -354,7 +354,7 @@ export class Instance extends pulumi.CustomResource {
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
      * is created. If false is specified, a DB snapshot is created before the DB
-     * instance is deleted, using the value from `final_snapshot_identifier`. Default
+     * instance is deleted, using the value from `finalSnapshotIdentifier`. Default
      * is `false`.
      */
     public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
@@ -371,7 +371,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Specifies whether the DB instance is
      * encrypted. Note that if you are creating a cross-region read replica this field
-     * is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+     * is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
      * default is `false` if not specified.
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
@@ -394,7 +394,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly timezone!: pulumi.Output<string>;
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Username for the master DB user.
      */
     public readonly username!: pulumi.Output<string>;
@@ -556,7 +556,7 @@ export interface InstanceState {
      */
     readonly address?: pulumi.Input<string>;
     /**
-     * The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+     * The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
      */
     readonly allocatedStorage?: pulumi.Input<number>;
     /**
@@ -594,7 +594,7 @@ export interface InstanceState {
     /**
      * The daily time range (in UTC) during which
      * automated backups are created if they are enabled. Example: "09:46-10:16". Must
-     * not overlap with `maintenance_window`.
+     * not overlap with `maintenanceWindow`.
      */
     readonly backupWindow?: pulumi.Input<string>;
     /**
@@ -645,7 +645,7 @@ export interface InstanceState {
      */
     readonly endpoint?: pulumi.Input<string>;
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
      * For information on the difference between the available Aurora MySQL engines
@@ -654,7 +654,7 @@ export interface InstanceState {
      */
     readonly engine?: pulumi.Input<string>;
     /**
-     * The engine version to use. If `auto_minor_version_upgrade`
+     * The engine version to use. If `autoMinorVersionUpgrade`
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
      * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
@@ -693,7 +693,7 @@ export interface InstanceState {
     readonly instanceClass?: pulumi.Input<string | InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storage_type of "io1".
+     * storageType of "io1".
      */
     readonly iops?: pulumi.Input<number>;
     /**
@@ -715,7 +715,7 @@ export interface InstanceState {
      */
     readonly maintenanceWindow?: pulumi.Input<string>;
     /**
-     * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
+     * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
      */
     readonly maxAllocatedStorage?: pulumi.Input<number>;
     /**
@@ -751,7 +751,7 @@ export interface InstanceState {
      */
     readonly parameterGroupName?: pulumi.Input<string>;
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Password for the master DB user. Note that this may show up in
      * logs, and it will be stored in the state file.
      */
@@ -761,11 +761,11 @@ export interface InstanceState {
      */
     readonly performanceInsightsEnabled?: pulumi.Input<boolean>;
     /**
-     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
      */
     readonly performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
-     * The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+     * The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
     readonly performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**
@@ -783,7 +783,7 @@ export interface InstanceState {
      * database, and to use this value as the source database. This correlates to the
      * `identifier` of another Amazon RDS Database to replicate. Note that if you are
      * creating a cross-region replica of an encrypted database you will also need to
-     * specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
+     * specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
      * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
      * for more information on using Replication.
      */
@@ -806,7 +806,7 @@ export interface InstanceState {
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
      * is created. If false is specified, a DB snapshot is created before the DB
-     * instance is deleted, using the value from `final_snapshot_identifier`. Default
+     * instance is deleted, using the value from `finalSnapshotIdentifier`. Default
      * is `false`.
      */
     readonly skipFinalSnapshot?: pulumi.Input<boolean>;
@@ -823,7 +823,7 @@ export interface InstanceState {
     /**
      * Specifies whether the DB instance is
      * encrypted. Note that if you are creating a cross-region read replica this field
-     * is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+     * is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
      * default is `false` if not specified.
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
@@ -846,7 +846,7 @@ export interface InstanceState {
      */
     readonly timezone?: pulumi.Input<string>;
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Username for the master DB user.
      */
     readonly username?: pulumi.Input<string>;
@@ -862,7 +862,7 @@ export interface InstanceState {
  */
 export interface InstanceArgs {
     /**
-     * The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+     * The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
      */
     readonly allocatedStorage?: pulumi.Input<number>;
     /**
@@ -896,7 +896,7 @@ export interface InstanceArgs {
     /**
      * The daily time range (in UTC) during which
      * automated backups are created if they are enabled. Example: "09:46-10:16". Must
-     * not overlap with `maintenance_window`.
+     * not overlap with `maintenanceWindow`.
      */
     readonly backupWindow?: pulumi.Input<string>;
     /**
@@ -938,7 +938,7 @@ export interface InstanceArgs {
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
      * For information on the difference between the available Aurora MySQL engines
@@ -947,7 +947,7 @@ export interface InstanceArgs {
      */
     readonly engine?: pulumi.Input<string>;
     /**
-     * The engine version to use. If `auto_minor_version_upgrade`
+     * The engine version to use. If `autoMinorVersionUpgrade`
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
      * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
@@ -981,7 +981,7 @@ export interface InstanceArgs {
     readonly instanceClass: pulumi.Input<string | InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storage_type of "io1".
+     * storageType of "io1".
      */
     readonly iops?: pulumi.Input<number>;
     /**
@@ -1003,7 +1003,7 @@ export interface InstanceArgs {
      */
     readonly maintenanceWindow?: pulumi.Input<string>;
     /**
-     * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
+     * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
      */
     readonly maxAllocatedStorage?: pulumi.Input<number>;
     /**
@@ -1039,7 +1039,7 @@ export interface InstanceArgs {
      */
     readonly parameterGroupName?: pulumi.Input<string>;
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Password for the master DB user. Note that this may show up in
      * logs, and it will be stored in the state file.
      */
@@ -1049,11 +1049,11 @@ export interface InstanceArgs {
      */
     readonly performanceInsightsEnabled?: pulumi.Input<boolean>;
     /**
-     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
      */
     readonly performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
-     * The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+     * The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
     readonly performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**
@@ -1070,7 +1070,7 @@ export interface InstanceArgs {
      * database, and to use this value as the source database. This correlates to the
      * `identifier` of another Amazon RDS Database to replicate. Note that if you are
      * creating a cross-region replica of an encrypted database you will also need to
-     * specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
+     * specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
      * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
      * for more information on using Replication.
      */
@@ -1089,7 +1089,7 @@ export interface InstanceArgs {
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
      * is created. If false is specified, a DB snapshot is created before the DB
-     * instance is deleted, using the value from `final_snapshot_identifier`. Default
+     * instance is deleted, using the value from `finalSnapshotIdentifier`. Default
      * is `false`.
      */
     readonly skipFinalSnapshot?: pulumi.Input<boolean>;
@@ -1102,7 +1102,7 @@ export interface InstanceArgs {
     /**
      * Specifies whether the DB instance is
      * encrypted. Note that if you are creating a cross-region read replica this field
-     * is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+     * is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
      * default is `false` if not specified.
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
@@ -1125,7 +1125,7 @@ export interface InstanceArgs {
      */
     readonly timezone?: pulumi.Input<string>;
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Username for the master DB user.
      */
     readonly username?: pulumi.Input<string>;

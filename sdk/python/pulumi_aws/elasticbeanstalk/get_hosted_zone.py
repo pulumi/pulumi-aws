@@ -25,14 +25,14 @@ class GetHostedZoneResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetHostedZoneResult(GetHostedZoneResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetHostedZoneResult(
+            region=self.region,
+            id=self.id)
 
 def get_hosted_zone(region=None,opts=None):
     """
@@ -49,6 +49,6 @@ def get_hosted_zone(region=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getHostedZone:getHostedZone', __args__, opts=opts).value
 
-    return GetHostedZoneResult(
+    return AwaitableGetHostedZoneResult(
         region=__ret__.get('region'),
         id=__ret__.get('id'))

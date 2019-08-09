@@ -117,7 +117,7 @@ func (r *ClusterSnapshot) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
-// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
 func (r *ClusterSnapshot) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
@@ -164,7 +164,7 @@ type ClusterSnapshotState struct {
 	Engine interface{}
 	// Version of the database engine for this DocDB cluster snapshot.
 	EngineVersion interface{}
-	// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
 	KmsKeyId interface{}
 	// Port that the DocDB cluster was listening on at the time of the snapshot.
 	Port interface{}

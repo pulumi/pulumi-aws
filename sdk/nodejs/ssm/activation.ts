@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testRole = new aws.iam.Role("test_role", {
+ * const testRole = new aws.iam.Role("testRole", {
  *     assumeRolePolicy: `  {
  *     "Version": "2012-10-17",
  *     "Statement": {
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *   }
  * `,
  * });
- * const testAttach = new aws.iam.RolePolicyAttachment("test_attach", {
+ * const testAttach = new aws.iam.RolePolicyAttachment("testAttach", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
  *     role: testRole.name,
  * });

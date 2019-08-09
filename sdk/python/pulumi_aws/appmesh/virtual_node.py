@@ -37,13 +37,13 @@ class VirtualNode(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AWS App Mesh virtual node resource.
         
         ## Breaking Changes
         
-        Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `aws_appmesh_virtual_node` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
+        Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `appmesh.VirtualNode` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
         
         * Rename the `service_name` attribute of the `dns` object to `hostname`.
         
@@ -67,42 +67,63 @@ class VirtualNode(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if mesh_name is None:
-            raise TypeError("Missing required property 'mesh_name'")
-        __props__['mesh_name'] = mesh_name
-
-        __props__['name'] = name
-
-        if spec is None:
-            raise TypeError("Missing required property 'spec'")
-        __props__['spec'] = spec
-
-        __props__['tags'] = tags
-
-        __props__['arn'] = None
-        __props__['created_date'] = None
-        __props__['last_updated_date'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if mesh_name is None:
+                raise TypeError("Missing required property 'mesh_name'")
+            __props__['mesh_name'] = mesh_name
+            __props__['name'] = name
+            if spec is None:
+                raise TypeError("Missing required property 'spec'")
+            __props__['spec'] = spec
+            __props__['tags'] = tags
+            __props__['arn'] = None
+            __props__['created_date'] = None
+            __props__['last_updated_date'] = None
         super(VirtualNode, __self__).__init__(
             'aws:appmesh/virtualNode:VirtualNode',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, arn=None, created_date=None, last_updated_date=None, mesh_name=None, name=None, spec=None, tags=None):
+        """
+        Get an existing VirtualNode resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the virtual node.
+        :param pulumi.Input[str] created_date: The creation date of the virtual node.
+        :param pulumi.Input[str] last_updated_date: The last update date of the virtual node.
+        :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual node.
+        :param pulumi.Input[str] name: The name to use for the virtual node.
+        :param pulumi.Input[dict] spec: The virtual node specification to apply.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_node.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["arn"] = arn
+        __props__["created_date"] = created_date
+        __props__["last_updated_date"] = last_updated_date
+        __props__["mesh_name"] = mesh_name
+        __props__["name"] = name
+        __props__["spec"] = spec
+        __props__["tags"] = tags
+        return VirtualNode(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

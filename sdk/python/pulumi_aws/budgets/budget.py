@@ -57,7 +57,7 @@ class Budget(pulumi.CustomResource):
     """
     The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
     """
-    def __init__(__self__, resource_name, opts=None, account_id=None, budget_type=None, cost_filters=None, cost_types=None, limit_amount=None, limit_unit=None, name=None, name_prefix=None, notifications=None, time_period_end=None, time_period_start=None, time_unit=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_id=None, budget_type=None, cost_filters=None, cost_types=None, limit_amount=None, limit_unit=None, name=None, name_prefix=None, notifications=None, time_period_end=None, time_period_start=None, time_unit=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
         
@@ -84,60 +84,84 @@ class Budget(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['account_id'] = account_id
-
-        if budget_type is None:
-            raise TypeError("Missing required property 'budget_type'")
-        __props__['budget_type'] = budget_type
-
-        __props__['cost_filters'] = cost_filters
-
-        __props__['cost_types'] = cost_types
-
-        if limit_amount is None:
-            raise TypeError("Missing required property 'limit_amount'")
-        __props__['limit_amount'] = limit_amount
-
-        if limit_unit is None:
-            raise TypeError("Missing required property 'limit_unit'")
-        __props__['limit_unit'] = limit_unit
-
-        __props__['name'] = name
-
-        __props__['name_prefix'] = name_prefix
-
-        __props__['notifications'] = notifications
-
-        __props__['time_period_end'] = time_period_end
-
-        if time_period_start is None:
-            raise TypeError("Missing required property 'time_period_start'")
-        __props__['time_period_start'] = time_period_start
-
-        if time_unit is None:
-            raise TypeError("Missing required property 'time_unit'")
-        __props__['time_unit'] = time_unit
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['account_id'] = account_id
+            if budget_type is None:
+                raise TypeError("Missing required property 'budget_type'")
+            __props__['budget_type'] = budget_type
+            __props__['cost_filters'] = cost_filters
+            __props__['cost_types'] = cost_types
+            if limit_amount is None:
+                raise TypeError("Missing required property 'limit_amount'")
+            __props__['limit_amount'] = limit_amount
+            if limit_unit is None:
+                raise TypeError("Missing required property 'limit_unit'")
+            __props__['limit_unit'] = limit_unit
+            __props__['name'] = name
+            __props__['name_prefix'] = name_prefix
+            __props__['notifications'] = notifications
+            __props__['time_period_end'] = time_period_end
+            if time_period_start is None:
+                raise TypeError("Missing required property 'time_period_start'")
+            __props__['time_period_start'] = time_period_start
+            if time_unit is None:
+                raise TypeError("Missing required property 'time_unit'")
+            __props__['time_unit'] = time_unit
         super(Budget, __self__).__init__(
             'aws:budgets/budget:Budget',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, account_id=None, budget_type=None, cost_filters=None, cost_types=None, limit_amount=None, limit_unit=None, name=None, name_prefix=None, notifications=None, time_period_end=None, time_period_start=None, time_unit=None):
+        """
+        Get an existing Budget resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        :param pulumi.Input[str] budget_type: Whether this budget tracks monetary cost or usage.
+        :param pulumi.Input[dict] cost_filters: Map of CostFilters key/value pairs to apply to the budget.
+        :param pulumi.Input[dict] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+        :param pulumi.Input[str] limit_amount: The amount of cost or usage being measured for a budget.
+        :param pulumi.Input[str] limit_unit: The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        :param pulumi.Input[str] name: The name of a budget. Unique within accounts.
+        :param pulumi.Input[str] name_prefix: The prefix of the name of a budget. Unique within accounts.
+        :param pulumi.Input[list] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+        :param pulumi.Input[str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+        :param pulumi.Input[str] time_period_start: The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        :param pulumi.Input[str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/budgets_budget.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["account_id"] = account_id
+        __props__["budget_type"] = budget_type
+        __props__["cost_filters"] = cost_filters
+        __props__["cost_types"] = cost_types
+        __props__["limit_amount"] = limit_amount
+        __props__["limit_unit"] = limit_unit
+        __props__["name"] = name
+        __props__["name_prefix"] = name_prefix
+        __props__["notifications"] = notifications
+        __props__["time_period_end"] = time_period_end
+        __props__["time_period_start"] = time_period_start
+        __props__["time_unit"] = time_unit
+        return Budget(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

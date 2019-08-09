@@ -10,13 +10,13 @@ import (
 
 // Manages an AWS Storage Gateway cached iSCSI volume.
 // 
-// > **NOTE:** The gateway must have cache added (e.g. via the [`aws_storagegateway_cache`](https://www.terraform.io/docs/providers/aws/r/storagegateway_cache.html) resource) before creating volumes otherwise the Storage Gateway API will return an error.
+// > **NOTE:** The gateway must have cache added (e.g. via the [`storagegateway.Cache`](https://www.terraform.io/docs/providers/aws/r/storagegateway_cache.html) resource) before creating volumes otherwise the Storage Gateway API will return an error.
 // 
-// > **NOTE:** The gateway must have an upload buffer added (e.g. via the [`aws_storagegateway_upload_buffer`](https://www.terraform.io/docs/providers/aws/r/storagegateway_upload_buffer.html) resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
+// > **NOTE:** The gateway must have an upload buffer added (e.g. via the [`storagegateway.UploadBuffer`](https://www.terraform.io/docs/providers/aws/r/storagegateway_upload_buffer.html) resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
 // 
 // ## Example Usage
 // 
-// > **NOTE:** These examples are referencing the [`aws_storagegateway_cache`](https://www.terraform.io/docs/providers/aws/r/storagegateway_cache.html) resource `gateway_arn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = ["aws_storagegateway_cache.example"]`) to ensure proper ordering.
+// > **NOTE:** These examples are referencing the [`storagegateway.Cache`](https://www.terraform.io/docs/providers/aws/r/storagegateway_cache.html) resource `gatewayArn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `dependsOn = ["aws_storagegateway_cache.example"]`) to ensure proper ordering.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_cached_iscsi_volume.html.markdown.
 type CachesIscsiVolume struct {
@@ -140,7 +140,7 @@ func (r *CachesIscsiVolume) SnapshotId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["snapshotId"])
 }
 
-// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
+// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 func (r *CachesIscsiVolume) SourceVolumeArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceVolumeArn"])
 }
@@ -186,7 +186,7 @@ type CachesIscsiVolumeState struct {
 	NetworkInterfacePort interface{}
 	// The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
 	SnapshotId interface{}
-	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
+	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 	SourceVolumeArn interface{}
 	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn interface{}
@@ -208,7 +208,7 @@ type CachesIscsiVolumeArgs struct {
 	NetworkInterfaceId interface{}
 	// The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
 	SnapshotId interface{}
-	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
+	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 	SourceVolumeArn interface{}
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
 	TargetName interface{}

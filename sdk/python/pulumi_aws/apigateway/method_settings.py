@@ -25,7 +25,7 @@ class MethodSettings(pulumi.CustomResource):
     """
     The name of the stage
     """
-    def __init__(__self__, resource_name, opts=None, method_path=None, rest_api=None, settings=None, stage_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, method_path=None, rest_api=None, settings=None, stage_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway Method Settings, e.g. logging or monitoring.
         
@@ -44,42 +44,58 @@ class MethodSettings(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if method_path is None:
-            raise TypeError("Missing required property 'method_path'")
-        __props__['method_path'] = method_path
-
-        if rest_api is None:
-            raise TypeError("Missing required property 'rest_api'")
-        __props__['rest_api'] = rest_api
-
-        if settings is None:
-            raise TypeError("Missing required property 'settings'")
-        __props__['settings'] = settings
-
-        if stage_name is None:
-            raise TypeError("Missing required property 'stage_name'")
-        __props__['stage_name'] = stage_name
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if method_path is None:
+                raise TypeError("Missing required property 'method_path'")
+            __props__['method_path'] = method_path
+            if rest_api is None:
+                raise TypeError("Missing required property 'rest_api'")
+            __props__['rest_api'] = rest_api
+            if settings is None:
+                raise TypeError("Missing required property 'settings'")
+            __props__['settings'] = settings
+            if stage_name is None:
+                raise TypeError("Missing required property 'stage_name'")
+            __props__['stage_name'] = stage_name
         super(MethodSettings, __self__).__init__(
             'aws:apigateway/methodSettings:MethodSettings',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, method_path=None, rest_api=None, settings=None, stage_name=None):
+        """
+        Get an existing MethodSettings resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
+        :param pulumi.Input[str] rest_api: The ID of the REST API
+        :param pulumi.Input[dict] settings: The settings block, see below.
+        :param pulumi.Input[str] stage_name: The name of the stage
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_settings.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["method_path"] = method_path
+        __props__["rest_api"] = rest_api
+        __props__["settings"] = settings
+        __props__["stage_name"] = stage_name
+        return MethodSettings(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

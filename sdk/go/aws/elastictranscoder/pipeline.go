@@ -105,7 +105,7 @@ func (r *Pipeline) ContentConfig() *pulumi.Output {
 	return r.s.State["contentConfig"]
 }
 
-// The permissions for the `content_config` object. (documented below)
+// The permissions for the `contentConfig` object. (documented below)
 func (r *Pipeline) ContentConfigPermissions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["contentConfigPermissions"])
 }
@@ -140,7 +140,7 @@ func (r *Pipeline) ThumbnailConfig() *pulumi.Output {
 	return r.s.State["thumbnailConfig"]
 }
 
-// The permissions for the `thumbnail_config` object. (documented below)
+// The permissions for the `thumbnailConfig` object. (documented below)
 func (r *Pipeline) ThumbnailConfigPermissions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["thumbnailConfigPermissions"])
 }
@@ -152,7 +152,7 @@ type PipelineState struct {
 	AwsKmsKeyArn interface{}
 	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
 	ContentConfig interface{}
-	// The permissions for the `content_config` object. (documented below)
+	// The permissions for the `contentConfig` object. (documented below)
 	ContentConfigPermissions interface{}
 	// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
 	InputBucket interface{}
@@ -166,7 +166,7 @@ type PipelineState struct {
 	Role interface{}
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig interface{}
-	// The permissions for the `thumbnail_config` object. (documented below)
+	// The permissions for the `thumbnailConfig` object. (documented below)
 	ThumbnailConfigPermissions interface{}
 }
 
@@ -176,7 +176,7 @@ type PipelineArgs struct {
 	AwsKmsKeyArn interface{}
 	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
 	ContentConfig interface{}
-	// The permissions for the `content_config` object. (documented below)
+	// The permissions for the `contentConfig` object. (documented below)
 	ContentConfigPermissions interface{}
 	// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
 	InputBucket interface{}
@@ -190,6 +190,6 @@ type PipelineArgs struct {
 	Role interface{}
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig interface{}
-	// The permissions for the `thumbnail_config` object. (documented below)
+	// The permissions for the `thumbnailConfig` object. (documented below)
 	ThumbnailConfigPermissions interface{}
 }

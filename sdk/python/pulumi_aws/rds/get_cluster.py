@@ -100,14 +100,40 @@ class GetClusterResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetClusterResult(
+            arn=self.arn,
+            availability_zones=self.availability_zones,
+            backup_retention_period=self.backup_retention_period,
+            cluster_identifier=self.cluster_identifier,
+            cluster_members=self.cluster_members,
+            cluster_resource_id=self.cluster_resource_id,
+            database_name=self.database_name,
+            db_cluster_parameter_group_name=self.db_cluster_parameter_group_name,
+            db_subnet_group_name=self.db_subnet_group_name,
+            enabled_cloudwatch_logs_exports=self.enabled_cloudwatch_logs_exports,
+            endpoint=self.endpoint,
+            engine=self.engine,
+            engine_version=self.engine_version,
+            final_snapshot_identifier=self.final_snapshot_identifier,
+            hosted_zone_id=self.hosted_zone_id,
+            iam_database_authentication_enabled=self.iam_database_authentication_enabled,
+            iam_roles=self.iam_roles,
+            kms_key_id=self.kms_key_id,
+            master_username=self.master_username,
+            port=self.port,
+            preferred_backup_window=self.preferred_backup_window,
+            preferred_maintenance_window=self.preferred_maintenance_window,
+            reader_endpoint=self.reader_endpoint,
+            replication_source_identifier=self.replication_source_identifier,
+            storage_encrypted=self.storage_encrypted,
+            tags=self.tags,
+            vpc_security_group_ids=self.vpc_security_group_ids,
+            id=self.id)
 
 def get_cluster(cluster_identifier=None,tags=None,opts=None):
     """
@@ -125,7 +151,7 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:rds/getCluster:getCluster', __args__, opts=opts).value
 
-    return GetClusterResult(
+    return AwaitableGetClusterResult(
         arn=__ret__.get('arn'),
         availability_zones=__ret__.get('availabilityZones'),
         backup_retention_period=__ret__.get('backupRetentionPeriod'),

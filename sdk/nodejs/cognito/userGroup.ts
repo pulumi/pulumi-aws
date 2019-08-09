@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const mainUserPool = new aws.cognito.UserPool("main", {});
- * const groupRole = new aws.iam.Role("group_role", {
+ * const groupRole = new aws.iam.Role("groupRole", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [

@@ -61,14 +61,21 @@ class GetFileSystemResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetFileSystemResult(GetFileSystemResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetFileSystemResult(
+            arn=self.arn,
+            creation_token=self.creation_token,
+            dns_name=self.dns_name,
+            encrypted=self.encrypted,
+            file_system_id=self.file_system_id,
+            kms_key_id=self.kms_key_id,
+            performance_mode=self.performance_mode,
+            tags=self.tags,
+            id=self.id)
 
 def get_file_system(creation_token=None,file_system_id=None,tags=None,opts=None):
     """
@@ -87,7 +94,7 @@ def get_file_system(creation_token=None,file_system_id=None,tags=None,opts=None)
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:efs/getFileSystem:getFileSystem', __args__, opts=opts).value
 
-    return GetFileSystemResult(
+    return AwaitableGetFileSystemResult(
         arn=__ret__.get('arn'),
         creation_token=__ret__.get('creationToken'),
         dns_name=__ret__.get('dnsName'),

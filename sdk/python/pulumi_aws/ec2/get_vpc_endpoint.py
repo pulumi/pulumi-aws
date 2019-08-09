@@ -103,14 +103,29 @@ class GetVpcEndpointResult:
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
-
+class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVpcEndpointResult(
+            cidr_blocks=self.cidr_blocks,
+            dns_entries=self.dns_entries,
+            id=self.id,
+            network_interface_ids=self.network_interface_ids,
+            owner_id=self.owner_id,
+            policy=self.policy,
+            prefix_list_id=self.prefix_list_id,
+            private_dns_enabled=self.private_dns_enabled,
+            requester_managed=self.requester_managed,
+            route_table_ids=self.route_table_ids,
+            security_group_ids=self.security_group_ids,
+            service_name=self.service_name,
+            state=self.state,
+            subnet_ids=self.subnet_ids,
+            tags=self.tags,
+            vpc_endpoint_type=self.vpc_endpoint_type,
+            vpc_id=self.vpc_id)
 
 def get_vpc_endpoint(id=None,service_name=None,state=None,tags=None,vpc_id=None,opts=None):
     """
@@ -132,7 +147,7 @@ def get_vpc_endpoint(id=None,service_name=None,state=None,tags=None,vpc_id=None,
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts).value
 
-    return GetVpcEndpointResult(
+    return AwaitableGetVpcEndpointResult(
         cidr_blocks=__ret__.get('cidrBlocks'),
         dns_entries=__ret__.get('dnsEntries'),
         id=__ret__.get('id'),

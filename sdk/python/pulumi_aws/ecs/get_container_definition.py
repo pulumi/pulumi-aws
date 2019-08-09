@@ -73,14 +73,23 @@ class GetContainerDefinitionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetContainerDefinitionResult(GetContainerDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetContainerDefinitionResult(
+            container_name=self.container_name,
+            cpu=self.cpu,
+            disable_networking=self.disable_networking,
+            docker_labels=self.docker_labels,
+            environment=self.environment,
+            image=self.image,
+            image_digest=self.image_digest,
+            memory=self.memory,
+            memory_reservation=self.memory_reservation,
+            task_definition=self.task_definition,
+            id=self.id)
 
 def get_container_definition(container_name=None,task_definition=None,opts=None):
     """
@@ -99,7 +108,7 @@ def get_container_definition(container_name=None,task_definition=None,opts=None)
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecs/getContainerDefinition:getContainerDefinition', __args__, opts=opts).value
 
-    return GetContainerDefinitionResult(
+    return AwaitableGetContainerDefinitionResult(
         container_name=__ret__.get('containerName'),
         cpu=__ret__.get('cpu'),
         disable_networking=__ret__.get('disableNetworking'),

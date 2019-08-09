@@ -37,18 +37,20 @@ class GetRegionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetRegionResult(GetRegionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRegionResult(
+            description=self.description,
+            endpoint=self.endpoint,
+            name=self.name,
+            id=self.id)
 
 def get_region(endpoint=None,name=None,opts=None):
     """
-    `aws_region` provides details about a specific AWS region.
+    `.getRegion` provides details about a specific AWS region.
     
     As well as validating a given region name this resource can be used to
     discover the name of the region configured within the provider. The latter
@@ -67,7 +69,7 @@ def get_region(endpoint=None,name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getRegion:getRegion', __args__, opts=opts).value
 
-    return GetRegionResult(
+    return AwaitableGetRegionResult(
         description=__ret__.get('description'),
         endpoint=__ret__.get('endpoint'),
         name=__ret__.get('name'),

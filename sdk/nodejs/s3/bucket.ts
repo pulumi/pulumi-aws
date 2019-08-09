@@ -95,7 +95,7 @@ import {RoutingRule} from "./routingRules";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const logBucket = new aws.s3.Bucket("log_bucket", {
+ * const logBucket = new aws.s3.Bucket("logBucket", {
  *     acl: "log-delivery-write",
  * });
  * const bucket = new aws.s3.Bucket("b", {
@@ -148,7 +148,7 @@ import {RoutingRule} from "./routingRules";
  *         },
  *     ],
  * });
- * const versioningBucket = new aws.s3.Bucket("versioning_bucket", {
+ * const versioningBucket = new aws.s3.Bucket("versioningBucket", {
  *     acl: "private",
  *     lifecycleRules: [{
  *         enabled: true,

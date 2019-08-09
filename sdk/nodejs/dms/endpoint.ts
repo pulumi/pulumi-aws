@@ -94,11 +94,11 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly extraConnectionAttributes!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
-     * Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+     * Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
      */
     public readonly mongodbSettings!: pulumi.Output<{ authMechanism?: string, authSource?: string, authType?: string, docsToInvestigate?: string, extractDocId?: string, nestingLevel?: string } | undefined>;
     /**
@@ -110,7 +110,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
-     * Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+     * Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
      */
     public readonly s3Settings!: pulumi.Output<{ bucketFolder?: string, bucketName?: string, compressionType?: string, csvDelimiter?: string, csvRowDelimiter?: string, externalTableDefinition?: string, serviceAccessRoleArn?: string } | undefined>;
     /**
@@ -236,11 +236,11 @@ export interface EndpointState {
      */
     readonly extraConnectionAttributes?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+     * Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
      */
     readonly mongodbSettings?: pulumi.Input<{ authMechanism?: pulumi.Input<string>, authSource?: pulumi.Input<string>, authType?: pulumi.Input<string>, docsToInvestigate?: pulumi.Input<string>, extractDocId?: pulumi.Input<string>, nestingLevel?: pulumi.Input<string> }>;
     /**
@@ -252,7 +252,7 @@ export interface EndpointState {
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+     * Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
      */
     readonly s3Settings?: pulumi.Input<{ bucketFolder?: pulumi.Input<string>, bucketName?: pulumi.Input<string>, compressionType?: pulumi.Input<string>, csvDelimiter?: pulumi.Input<string>, csvRowDelimiter?: pulumi.Input<string>, externalTableDefinition?: pulumi.Input<string>, serviceAccessRoleArn?: pulumi.Input<string> }>;
     /**
@@ -306,11 +306,11 @@ export interface EndpointArgs {
      */
     readonly extraConnectionAttributes?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+     * Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
      */
     readonly mongodbSettings?: pulumi.Input<{ authMechanism?: pulumi.Input<string>, authSource?: pulumi.Input<string>, authType?: pulumi.Input<string>, docsToInvestigate?: pulumi.Input<string>, extractDocId?: pulumi.Input<string>, nestingLevel?: pulumi.Input<string> }>;
     /**
@@ -322,7 +322,7 @@ export interface EndpointArgs {
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+     * Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
      */
     readonly s3Settings?: pulumi.Input<{ bucketFolder?: pulumi.Input<string>, bucketName?: pulumi.Input<string>, compressionType?: pulumi.Input<string>, csvDelimiter?: pulumi.Input<string>, csvRowDelimiter?: pulumi.Input<string>, externalTableDefinition?: pulumi.Input<string>, serviceAccessRoleArn?: pulumi.Input<string> }>;
     /**

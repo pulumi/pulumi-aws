@@ -10,8 +10,8 @@ import (
 
 // Provides an HTTP Method Integration Response for an API Gateway Resource.
 // 
-// > **Note:** Depends on having `aws_api_gateway_integration` inside your rest api. To ensure this
-// you might need to add an explicit `depends_on` for clean runs.
+// > **Note:** Depends on having `apigateway.Integration` inside your rest api. To ensure this
+// you might need to add an explicit `dependsOn` for clean runs.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration_response.html.markdown.
 type IntegrationResponse struct {
@@ -108,7 +108,7 @@ func (r *IntegrationResponse) ResourceId() *pulumi.StringOutput {
 }
 
 // A map of response parameters that can be read from the backend response.
-// For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
+// For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
 func (r *IntegrationResponse) ResponseParameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["responseParameters"])
 }
@@ -145,7 +145,7 @@ type IntegrationResponseState struct {
 	// The API resource ID
 	ResourceId interface{}
 	// A map of response parameters that can be read from the backend response.
-	// For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
+	// For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
 	ResponseParameters interface{}
 	// A map specifying the templates used to transform the integration response body
 	ResponseTemplates interface{}
@@ -169,7 +169,7 @@ type IntegrationResponseArgs struct {
 	// The API resource ID
 	ResourceId interface{}
 	// A map of response parameters that can be read from the backend response.
-	// For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
+	// For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
 	ResponseParameters interface{}
 	// A map specifying the templates used to transform the integration response body
 	ResponseTemplates interface{}

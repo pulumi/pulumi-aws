@@ -78,7 +78,7 @@ func (r *OpenIdConnectProvider) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 func (r *OpenIdConnectProvider) ClientIdLists() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["clientIdLists"])
 }
@@ -97,7 +97,7 @@ func (r *OpenIdConnectProvider) Url() *pulumi.StringOutput {
 type OpenIdConnectProviderState struct {
 	// The ARN assigned by AWS for this provider.
 	Arn interface{}
-	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists interface{}
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
 	ThumbprintLists interface{}
@@ -107,7 +107,7 @@ type OpenIdConnectProviderState struct {
 
 // The set of arguments for constructing a OpenIdConnectProvider resource.
 type OpenIdConnectProviderArgs struct {
-	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists interface{}
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
 	ThumbprintLists interface{}

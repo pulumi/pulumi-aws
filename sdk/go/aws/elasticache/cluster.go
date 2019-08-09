@@ -9,13 +9,13 @@ import (
 
 // Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
 // For working with Redis (Cluster Mode Enabled) replication groups, see the
-// [`aws_elasticache_replication_group` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group.html).
+// [`elasticache.ReplicationGroup` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group.html).
 // 
-// > **Note:** When you change an attribute, such as `node_type`, by default
+// > **Note:** When you change an attribute, such as `nodeType`, by default
 // it is applied in the next maintenance window. Because of this, this provider may report
 // a difference in its planning phase because the actual modification has not yet taken
-// place. You can use the `apply_immediately` flag to instruct the service to apply the
-// change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
+// place. You can use the `applyImmediately` flag to instruct the service to apply the
+// change immediately. Using `applyImmediately` can result in a brief downtime as the server reboots.
 // See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_cluster.html.markdown.
@@ -141,17 +141,17 @@ func (r *Cluster) ApplyImmediately() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["applyImmediately"])
 }
 
-// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
+// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
 func (r *Cluster) AvailabilityZone() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
-// Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
+// Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`
 func (r *Cluster) AzMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["azMode"])
 }
 
-// List of node objects including `id`, `address`, `port` and `availability_zone`.
+// List of node objects including `id`, `address`, `port` and `availabilityZone`.
 // Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
 func (r *Cluster) CacheNodes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["cacheNodes"])
@@ -221,12 +221,12 @@ func (r *Cluster) ParameterGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["parameterGroupName"])
 }
 
-// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`.
 func (r *Cluster) Port() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["port"])
 }
 
-// A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+// A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `numCacheNodes`. If you want all the nodes in the same Availability Zone, use `availabilityZone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
 func (r *Cluster) PreferredAvailabilityZones() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["preferredAvailabilityZones"])
 }
@@ -255,7 +255,7 @@ func (r *Cluster) SnapshotArns() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["snapshotArns"])
 }
 
-// The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
+// The name of a snapshot from which to restore data into the new node group.  Changing the `snapshotName` forces a new resource.
 func (r *Cluster) SnapshotName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["snapshotName"])
 }
@@ -264,7 +264,7 @@ func (r *Cluster) SnapshotName() *pulumi.StringOutput {
 // retain automatic cache cluster snapshots before deleting them. For example, if you set
 // SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
 // before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-// Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
 func (r *Cluster) SnapshotRetentionLimit() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["snapshotRetentionLimit"])
 }
@@ -293,11 +293,11 @@ type ClusterState struct {
 	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
 	// (Available since v0.6.0)
 	ApplyImmediately interface{}
-	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
+	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
 	AvailabilityZone interface{}
-	// Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
+	// Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`
 	AzMode interface{}
-	// List of node objects including `id`, `address`, `port` and `availability_zone`.
+	// List of node objects including `id`, `address`, `port` and `availabilityZone`.
 	// Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
 	CacheNodes interface{}
 	// (Memcached only) The DNS name of the cache cluster without the port appended.
@@ -334,9 +334,9 @@ type ClusterState struct {
 	// Name of the parameter group to associate
 	// with this cache cluster
 	ParameterGroupName interface{}
-	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`.
 	Port interface{}
-	// A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+	// A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `numCacheNodes`. If you want all the nodes in the same Availability Zone, use `availabilityZone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
 	PreferredAvailabilityZones interface{}
 	// The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId interface{}
@@ -350,13 +350,13 @@ type ClusterState struct {
 	// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
 	// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
 	SnapshotArns interface{}
-	// The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
+	// The name of a snapshot from which to restore data into the new node group.  Changing the `snapshotName` forces a new resource.
 	SnapshotName interface{}
 	// The number of days for which ElastiCache will
 	// retain automatic cache cluster snapshots before deleting them. For example, if you set
 	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
 	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
 	SnapshotRetentionLimit interface{}
 	// The daily time range (in UTC) during which ElastiCache will
 	// begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
@@ -375,9 +375,9 @@ type ClusterArgs struct {
 	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
 	// (Available since v0.6.0)
 	ApplyImmediately interface{}
-	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
+	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
 	AvailabilityZone interface{}
-	// Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
+	// Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`
 	AzMode interface{}
 	// Group identifier. ElastiCache converts
 	// this name to lowercase
@@ -409,9 +409,9 @@ type ClusterArgs struct {
 	// Name of the parameter group to associate
 	// with this cache cluster
 	ParameterGroupName interface{}
-	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
+	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`.
 	Port interface{}
-	// A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+	// A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `numCacheNodes`. If you want all the nodes in the same Availability Zone, use `availabilityZone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
 	PreferredAvailabilityZones interface{}
 	// The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId interface{}
@@ -425,13 +425,13 @@ type ClusterArgs struct {
 	// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
 	// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
 	SnapshotArns interface{}
-	// The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
+	// The name of a snapshot from which to restore data into the new node group.  Changing the `snapshotName` forces a new resource.
 	SnapshotName interface{}
 	// The number of days for which ElastiCache will
 	// retain automatic cache cluster snapshots before deleting them. For example, if you set
 	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
 	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
 	SnapshotRetentionLimit interface{}
 	// The daily time range (in UTC) during which ElastiCache will
 	// begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00

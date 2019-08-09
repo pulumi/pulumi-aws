@@ -11,7 +11,7 @@ import (
 // Requests automatic route propagation between a VPN gateway and a route table.
 // 
 // > **Note:** This resource should not be used with a route table that has
-// the `propagating_vgws` argument set. If that argument is set, any route
+// the `propagatingVgws` argument set. If that argument is set, any route
 // propagation not explicitly listed in its value will be removed.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_route_propagation.html.markdown.
@@ -69,28 +69,28 @@ func (r *VpnGatewayRoutePropagation) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The id of the `aws_route_table` to propagate routes into.
+// The id of the `ec2.RouteTable` to propagate routes into.
 func (r *VpnGatewayRoutePropagation) RouteTableId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["routeTableId"])
 }
 
-// The id of the `aws_vpn_gateway` to propagate routes from.
+// The id of the `ec2.VpnGateway` to propagate routes from.
 func (r *VpnGatewayRoutePropagation) VpnGatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpnGatewayId"])
 }
 
 // Input properties used for looking up and filtering VpnGatewayRoutePropagation resources.
 type VpnGatewayRoutePropagationState struct {
-	// The id of the `aws_route_table` to propagate routes into.
+	// The id of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId interface{}
-	// The id of the `aws_vpn_gateway` to propagate routes from.
+	// The id of the `ec2.VpnGateway` to propagate routes from.
 	VpnGatewayId interface{}
 }
 
 // The set of arguments for constructing a VpnGatewayRoutePropagation resource.
 type VpnGatewayRoutePropagationArgs struct {
-	// The id of the `aws_route_table` to propagate routes into.
+	// The id of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId interface{}
-	// The id of the `aws_vpn_gateway` to propagate routes from.
+	// The id of the `ec2.VpnGateway` to propagate routes from.
 	VpnGatewayId interface{}
 }

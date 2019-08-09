@@ -46,14 +46,19 @@ class GetDocumentResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetDocumentResult(GetDocumentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetDocumentResult(
+            arn=self.arn,
+            content=self.content,
+            document_format=self.document_format,
+            document_type=self.document_type,
+            document_version=self.document_version,
+            name=self.name,
+            id=self.id)
 
 def get_document(document_format=None,document_version=None,name=None,opts=None):
     """
@@ -72,7 +77,7 @@ def get_document(document_format=None,document_version=None,name=None,opts=None)
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ssm/getDocument:getDocument', __args__, opts=opts).value
 
-    return GetDocumentResult(
+    return AwaitableGetDocumentResult(
         arn=__ret__.get('arn'),
         content=__ret__.get('content'),
         document_format=__ret__.get('documentFormat'),

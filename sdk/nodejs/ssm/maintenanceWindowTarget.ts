@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     resourceType: "INSTANCE",
  *     targets: [{
  *         key: "tag:Name",
- *         values: ["acceptance_test"],
+ *         values: ["acceptanceTest"],
  *     }],
  *     windowId: window.id,
  * });

@@ -53,7 +53,7 @@ class Parameter(pulumi.CustomResource):
     """
     The version of the parameter.
     """
-    def __init__(__self__, resource_name, opts=None, allowed_pattern=None, arn=None, description=None, key_id=None, name=None, overwrite=None, tags=None, tier=None, type=None, value=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allowed_pattern=None, arn=None, description=None, key_id=None, name=None, overwrite=None, tags=None, tier=None, type=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SSM Parameter resource.
         
@@ -78,52 +78,75 @@ class Parameter(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['allowed_pattern'] = allowed_pattern
-
-        __props__['arn'] = arn
-
-        __props__['description'] = description
-
-        __props__['key_id'] = key_id
-
-        __props__['name'] = name
-
-        __props__['overwrite'] = overwrite
-
-        __props__['tags'] = tags
-
-        __props__['tier'] = tier
-
-        if type is None:
-            raise TypeError("Missing required property 'type'")
-        __props__['type'] = type
-
-        if value is None:
-            raise TypeError("Missing required property 'value'")
-        __props__['value'] = value
-
-        __props__['version'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['allowed_pattern'] = allowed_pattern
+            __props__['arn'] = arn
+            __props__['description'] = description
+            __props__['key_id'] = key_id
+            __props__['name'] = name
+            __props__['overwrite'] = overwrite
+            __props__['tags'] = tags
+            __props__['tier'] = tier
+            if type is None:
+                raise TypeError("Missing required property 'type'")
+            __props__['type'] = type
+            if value is None:
+                raise TypeError("Missing required property 'value'")
+            __props__['value'] = value
+            __props__['version'] = None
         super(Parameter, __self__).__init__(
             'aws:ssm/parameter:Parameter',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, allowed_pattern=None, arn=None, description=None, key_id=None, name=None, overwrite=None, tags=None, tier=None, type=None, value=None, version=None):
+        """
+        Get an existing Parameter resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value.
+        :param pulumi.Input[str] arn: The ARN of the parameter.
+        :param pulumi.Input[str] description: The description of the parameter.
+        :param pulumi.Input[str] key_id: The KMS key id or arn for encrypting a SecureString.
+        :param pulumi.Input[str] name: The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+        :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
+        :param pulumi.Input[str] tier: The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        :param pulumi.Input[str] type: The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+        :param pulumi.Input[str] value: The value of the parameter.
+        :param pulumi.Input[float] version: The version of the parameter.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_parameter.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["allowed_pattern"] = allowed_pattern
+        __props__["arn"] = arn
+        __props__["description"] = description
+        __props__["key_id"] = key_id
+        __props__["name"] = name
+        __props__["overwrite"] = overwrite
+        __props__["tags"] = tags
+        __props__["tier"] = tier
+        __props__["type"] = type
+        __props__["value"] = value
+        __props__["version"] = version
+        return Parameter(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

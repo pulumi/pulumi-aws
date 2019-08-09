@@ -76,14 +76,23 @@ class GetClusterResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetClusterResult(
+            arn=self.arn,
+            certificate_authority=self.certificate_authority,
+            created_at=self.created_at,
+            enabled_cluster_log_types=self.enabled_cluster_log_types,
+            endpoint=self.endpoint,
+            name=self.name,
+            platform_version=self.platform_version,
+            role_arn=self.role_arn,
+            version=self.version,
+            vpc_config=self.vpc_config,
+            id=self.id)
 
 def get_cluster(name=None,opts=None):
     """
@@ -100,7 +109,7 @@ def get_cluster(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:eks/getCluster:getCluster', __args__, opts=opts).value
 
-    return GetClusterResult(
+    return AwaitableGetClusterResult(
         arn=__ret__.get('arn'),
         certificate_authority=__ret__.get('certificateAuthority'),
         created_at=__ret__.get('createdAt'),

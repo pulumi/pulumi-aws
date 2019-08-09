@@ -131,7 +131,7 @@ export class Resolver extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * The PipelineConfig. A `pipeline_config` block is documented below.
+     * The PipelineConfig. A `pipelineConfig` block is documented below.
      */
     public readonly pipelineConfig!: pulumi.Output<{ functions?: string[] } | undefined>;
     /**
@@ -231,7 +231,7 @@ export interface ResolverState {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * The PipelineConfig. A `pipeline_config` block is documented below.
+     * The PipelineConfig. A `pipelineConfig` block is documented below.
      */
     readonly pipelineConfig?: pulumi.Input<{ functions?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
@@ -269,7 +269,7 @@ export interface ResolverArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * The PipelineConfig. A `pipeline_config` block is documented below.
+     * The PipelineConfig. A `pipelineConfig` block is documented below.
      */
     readonly pipelineConfig?: pulumi.Input<{ functions?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**

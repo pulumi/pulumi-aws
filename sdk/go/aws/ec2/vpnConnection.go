@@ -10,10 +10,10 @@ import (
 
 // Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
 // 
-// > **Note:** All arguments including `tunnel1_preshared_key` and `tunnel2_preshared_key` will be stored in the raw state as plain-text.
+// > **Note:** All arguments including `tunnel1PresharedKey` and `tunnel2PresharedKey` will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 // 
-// > **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
+// > **Note:** The CIDR blocks in the arguments `tunnel1InsideCidr` and `tunnel2InsideCidr` must have a prefix of /30 and be a part of a specific range.
 // [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection.html.markdown.
@@ -147,7 +147,7 @@ func (r *VpnConnection) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
+// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
 func (r *VpnConnection) TransitGatewayAttachmentId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["transitGatewayAttachmentId"])
 }
@@ -252,7 +252,7 @@ type VpnConnectionState struct {
 	StaticRoutesOnly interface{}
 	// Tags to apply to the connection.
 	Tags interface{}
-	// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
+	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
 	TransitGatewayAttachmentId interface{}
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId interface{}

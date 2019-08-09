@@ -40,14 +40,19 @@ class GetPolicyDocumentResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetPolicyDocumentResult(GetPolicyDocumentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetPolicyDocumentResult(
+            json=self.json,
+            override_json=self.override_json,
+            policy_id=self.policy_id,
+            source_json=self.source_json,
+            statements=self.statements,
+            version=self.version,
+            id=self.id)
 
 def get_policy_document(override_json=None,policy_id=None,source_json=None,statements=None,version=None,opts=None):
     """
@@ -55,7 +60,7 @@ def get_policy_document(override_json=None,policy_id=None,source_json=None,state
     
     This is a data source which can be used to construct a JSON representation of
     an IAM policy document, for use with resources which expect policy documents,
-    such as the `aws_iam_policy` resource.
+    such as the `iam.Policy` resource.
     
     
     Using this data source to generate policy documents is *optional*. It is also
@@ -95,7 +100,7 @@ def get_policy_document(override_json=None,policy_id=None,source_json=None,state
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getPolicyDocument:getPolicyDocument', __args__, opts=opts).value
 
-    return GetPolicyDocumentResult(
+    return AwaitableGetPolicyDocumentResult(
         json=__ret__.get('json'),
         override_json=__ret__.get('overrideJson'),
         policy_id=__ret__.get('policyId'),

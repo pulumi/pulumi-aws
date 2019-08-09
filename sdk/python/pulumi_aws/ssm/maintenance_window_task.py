@@ -61,7 +61,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     """
     The Id of the maintenance window to register the task with.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, logging_info=None, max_concurrency=None, max_errors=None, name=None, priority=None, service_role_arn=None, targets=None, task_arn=None, task_invocation_parameters=None, task_parameters=None, task_type=None, window_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, logging_info=None, max_concurrency=None, max_errors=None, name=None, priority=None, service_role_arn=None, targets=None, task_arn=None, task_invocation_parameters=None, task_parameters=None, task_type=None, window_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SSM Maintenance Window Task resource
         
@@ -89,66 +89,91 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['description'] = description
-
-        __props__['logging_info'] = logging_info
-
-        if max_concurrency is None:
-            raise TypeError("Missing required property 'max_concurrency'")
-        __props__['max_concurrency'] = max_concurrency
-
-        if max_errors is None:
-            raise TypeError("Missing required property 'max_errors'")
-        __props__['max_errors'] = max_errors
-
-        __props__['name'] = name
-
-        __props__['priority'] = priority
-
-        if service_role_arn is None:
-            raise TypeError("Missing required property 'service_role_arn'")
-        __props__['service_role_arn'] = service_role_arn
-
-        if targets is None:
-            raise TypeError("Missing required property 'targets'")
-        __props__['targets'] = targets
-
-        if task_arn is None:
-            raise TypeError("Missing required property 'task_arn'")
-        __props__['task_arn'] = task_arn
-
-        __props__['task_invocation_parameters'] = task_invocation_parameters
-
-        __props__['task_parameters'] = task_parameters
-
-        if task_type is None:
-            raise TypeError("Missing required property 'task_type'")
-        __props__['task_type'] = task_type
-
-        if window_id is None:
-            raise TypeError("Missing required property 'window_id'")
-        __props__['window_id'] = window_id
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['description'] = description
+            __props__['logging_info'] = logging_info
+            if max_concurrency is None:
+                raise TypeError("Missing required property 'max_concurrency'")
+            __props__['max_concurrency'] = max_concurrency
+            if max_errors is None:
+                raise TypeError("Missing required property 'max_errors'")
+            __props__['max_errors'] = max_errors
+            __props__['name'] = name
+            __props__['priority'] = priority
+            if service_role_arn is None:
+                raise TypeError("Missing required property 'service_role_arn'")
+            __props__['service_role_arn'] = service_role_arn
+            if targets is None:
+                raise TypeError("Missing required property 'targets'")
+            __props__['targets'] = targets
+            if task_arn is None:
+                raise TypeError("Missing required property 'task_arn'")
+            __props__['task_arn'] = task_arn
+            __props__['task_invocation_parameters'] = task_invocation_parameters
+            __props__['task_parameters'] = task_parameters
+            if task_type is None:
+                raise TypeError("Missing required property 'task_type'")
+            __props__['task_type'] = task_type
+            if window_id is None:
+                raise TypeError("Missing required property 'window_id'")
+            __props__['window_id'] = window_id
         super(MaintenanceWindowTask, __self__).__init__(
             'aws:ssm/maintenanceWindowTask:MaintenanceWindowTask',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, description=None, logging_info=None, max_concurrency=None, max_errors=None, name=None, priority=None, service_role_arn=None, targets=None, task_arn=None, task_invocation_parameters=None, task_parameters=None, task_type=None, window_id=None):
+        """
+        Get an existing MaintenanceWindowTask resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the maintenance window task.
+        :param pulumi.Input[dict] logging_info: A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
+        :param pulumi.Input[str] max_concurrency: The maximum number of targets this task can be run for in parallel.
+        :param pulumi.Input[str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
+        :param pulumi.Input[str] name: The parameter name.
+        :param pulumi.Input[float] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+        :param pulumi.Input[str] service_role_arn: The IAM service role to assume during task execution.
+        :param pulumi.Input[list] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        :param pulumi.Input[str] task_arn: The ARN of the task to execute.
+        :param pulumi.Input[dict] task_invocation_parameters: The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+        :param pulumi.Input[list] task_parameters: A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
+        :param pulumi.Input[str] task_type: The type of task being registered. The only allowed value is `RUN_COMMAND`.
+        :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_task.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["description"] = description
+        __props__["logging_info"] = logging_info
+        __props__["max_concurrency"] = max_concurrency
+        __props__["max_errors"] = max_errors
+        __props__["name"] = name
+        __props__["priority"] = priority
+        __props__["service_role_arn"] = service_role_arn
+        __props__["targets"] = targets
+        __props__["task_arn"] = task_arn
+        __props__["task_invocation_parameters"] = task_invocation_parameters
+        __props__["task_parameters"] = task_parameters
+        __props__["task_type"] = task_type
+        __props__["window_id"] = window_id
+        return MaintenanceWindowTask(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

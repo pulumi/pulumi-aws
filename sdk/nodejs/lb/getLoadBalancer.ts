@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * > **Note:** `aws_alb` is known as `aws_lb`. The functionality is identical.
+ * > **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
  * 
  * Provides information about a Load Balancer.
  * 

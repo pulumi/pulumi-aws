@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `aws_route_table` provides details about a specific Route Table.
+// `ec2.RouteTable` provides details about a specific Route Table.
 // 
 // This resource can prove useful when a module accepts a Subnet id as
 // an input variable and needs to, for example, add a route in

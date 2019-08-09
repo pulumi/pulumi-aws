@@ -121,14 +121,31 @@ class GetGroupResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetGroupResult(GetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetGroupResult(
+            arn=self.arn,
+            availability_zones=self.availability_zones,
+            default_cooldown=self.default_cooldown,
+            desired_capacity=self.desired_capacity,
+            health_check_grace_period=self.health_check_grace_period,
+            health_check_type=self.health_check_type,
+            launch_configuration=self.launch_configuration,
+            load_balancers=self.load_balancers,
+            max_size=self.max_size,
+            min_size=self.min_size,
+            name=self.name,
+            new_instances_protected_from_scale_in=self.new_instances_protected_from_scale_in,
+            placement_group=self.placement_group,
+            service_linked_role_arn=self.service_linked_role_arn,
+            status=self.status,
+            target_group_arns=self.target_group_arns,
+            termination_policies=self.termination_policies,
+            vpc_zone_identifier=self.vpc_zone_identifier,
+            id=self.id)
 
 def get_group(name=None,opts=None):
     """
@@ -145,7 +162,7 @@ def get_group(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:autoscaling/getGroup:getGroup', __args__, opts=opts).value
 
-    return GetGroupResult(
+    return AwaitableGetGroupResult(
         arn=__ret__.get('arn'),
         availability_zones=__ret__.get('availabilityZones'),
         default_cooldown=__ret__.get('defaultCooldown'),

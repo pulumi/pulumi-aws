@@ -31,14 +31,16 @@ class GetVpnAttachmentResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetVpnAttachmentResult(GetVpnAttachmentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVpnAttachmentResult(
+            tags=self.tags,
+            transit_gateway_id=self.transit_gateway_id,
+            vpn_connection_id=self.vpn_connection_id,
+            id=self.id)
 
 def get_vpn_attachment(tags=None,transit_gateway_id=None,vpn_connection_id=None,opts=None):
     """
@@ -57,7 +59,7 @@ def get_vpn_attachment(tags=None,transit_gateway_id=None,vpn_connection_id=None,
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getVpnAttachment:getVpnAttachment', __args__, opts=opts).value
 
-    return GetVpnAttachmentResult(
+    return AwaitableGetVpnAttachmentResult(
         tags=__ret__.get('tags'),
         transit_gateway_id=__ret__.get('transitGatewayId'),
         vpn_connection_id=__ret__.get('vpnConnectionId'),
