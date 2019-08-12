@@ -35,6 +35,6 @@ require (
 replace (
 	github.com/Nvveen/Gotty => github.com/ijc25/Gotty v0.0.0-20170406111628-a8b993ba6abd
 	github.com/golang/glog => github.com/pulumi/glog v0.0.0-20180820174630-7eaa6ffb71e4
-	github.com/terraform-providers/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20190807193028-a1be149c8690
 	github.com/pulumi/pulumi-terraform => /Users/justin/go/src/github.com/pulumi/pulumi-terraform
+	github.com/terraform-providers/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20190807193028-a1be149c8690
 )
