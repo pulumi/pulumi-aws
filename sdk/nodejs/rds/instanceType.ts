@@ -21,6 +21,12 @@
 // Based from https://aws.amazon.com/rds/instance-types/
 
 export module InstanceTypes {
+    export const T3_Micro: InstanceType = "db.t3.micro";
+    export const T3_Small: InstanceType = "db.t3.small";
+    export const T3_Medium: InstanceType = "db.t3.medium";
+    export const T3_Large: InstanceType = "db.t3.large";
+    export const T3_XLarge: InstanceType = "db.t3.xlarge";
+    export const T3_2XLarge: InstanceType = "db.t3.2xlarge";
     export const T2_Micro: InstanceType = "db.t2.micro";
     export const T2_Small: InstanceType = "db.t2.small";
     export const T2_Medium: InstanceType = "db.t2.medium";
@@ -77,6 +83,12 @@ export module InstanceTypes {
 }
 
 export type InstanceType =
+    "db.t3.micro" |
+    "db.t3.small" |
+    "db.t3.medium" |
+    "db.t3.large" |
+    "db.t3.xlarge" |
+    "db.t3.2xlarge" |
     "db.t2.micro" |
     "db.t2.small" |
     "db.t2.medium" |
@@ -130,5 +142,3 @@ export type InstanceType =
     "db.x1e.4xlarge" |
     "db.x1e.8xlarge" |
     "db.x1e.32xlarge" ;
-
-
