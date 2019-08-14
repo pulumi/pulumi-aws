@@ -157,6 +157,13 @@ export module InstanceTypes {
     export const T3_Nano: InstanceType = "t3.nano";
     export const T3_Small: InstanceType = "t3.small";
     export const T3_XLarge: InstanceType = "t3.xlarge";
+    export const T3a_2XLarge: InstanceType = "t3a.2xlarge";
+    export const T3a_Large: InstanceType = "t3a.large";
+    export const T3a_Medium: InstanceType = "t3a.medium";
+    export const T3a_Micro: InstanceType = "t3a.micro";
+    export const T3a_Nano: InstanceType = "t3a.nano";
+    export const T3a_Small: InstanceType = "t3a.small";
+    export const T3a_XLarge: InstanceType = "t3a.xlarge";
     export const U_12tb1Metal: InstanceType = "u-12tb1.metal";
     export const U_6tb1Metal: InstanceType = "u-6tb1.metal";
     export const U_9tb1Metal: InstanceType = "u-9tb1.metal";
@@ -312,6 +319,13 @@ export type InstanceType =
     "t3.nano" |
     "t3.small" |
     "t3.xlarge" |
+    "t3a.2xlarge" |
+    "t3a.large" |
+    "t3a.medium" |
+    "t3a.micro" |
+    "t3a.nano" |
+    "t3a.small" |
+    "t3a.xlarge" |
     "u-12tb1.metal" |
     "u-6tb1.metal" |
     "u-9tb1.metal" |
