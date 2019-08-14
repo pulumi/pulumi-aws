@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
  * 
  * For information about Lambda Layers and how to use them, see [AWS Lambda Layers][1]
  * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const lambdaLayer = new aws.lambda.LayerVersion("lambdaLayer", {
- *     compatibleRuntimes: ["nodejs8.10"],
- *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
- *     layerName: "lambdaLayerName",
- * });
- * ```
- * 
  * ## Specifying the Deployment Package
  * 
  * AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatibleRuntimes` this layer specifies.

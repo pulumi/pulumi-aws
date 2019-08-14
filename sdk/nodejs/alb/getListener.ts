@@ -12,27 +12,6 @@ import * as utilities from "../utilities";
  * This data source can prove useful when a module accepts an LB Listener as an
  * input variable and needs to know the LB it is attached to, or other
  * information specific to the listener in question.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const listenerArn = config.require("listenerArn");
- * 
- * const selected = pulumi.output(aws.lb.getLoadBalancer({
- *     name: "default-public",
- * }));
- * const listener = pulumi.output(aws.lb.getListener({
- *     arn: listenerArn,
- * }));
- * const selected443 = selected.apply(selected => aws.lb.getListener({
- *     loadBalancerArn: selected.arn,
- *     port: 443,
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_listener.html.markdown.
  */

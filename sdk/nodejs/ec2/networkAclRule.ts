@@ -12,30 +12,6 @@ import * as utilities from "../utilities";
  * defined in-line. At this time you cannot use a Network ACL with in-line rules
  * in conjunction with any Network ACL Rule resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const barNetworkAcl = new aws.ec2.NetworkAcl("bar", {
- *     vpcId: aws_vpc_foo.id,
- * });
- * const barNetworkAclRule = new aws.ec2.NetworkAclRule("bar", {
- *     // Opening to 0.0.0.0/0 can lead to security vulnerabilities.
- *     cidrBlock: "", // add a CIDR block here
- *     egress: false,
- *     fromPort: 22,
- *     networkAclId: barNetworkAcl.id,
- *     protocol: "tcp",
- *     ruleAction: "allow",
- *     ruleNumber: 200,
- *     toPort: 22,
- * });
- * ```
- * 
- * > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl_rule.html.markdown.
  */

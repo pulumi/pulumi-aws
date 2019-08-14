@@ -6,31 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Identity Provider resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.cognito.UserPool("example", {
- *     autoVerifiedAttributes: ["email"],
- * });
- * const exampleProvider = new aws.cognito.IdentityProvider("exampleProvider", {
- *     attributeMapping: {
- *         email: "email",
- *         username: "sub",
- *     },
- *     providerDetails: {
- *         authorize_scopes: "email",
- *         client_id: "your clientId",
- *         client_secret: "your clientSecret",
- *     },
- *     providerName: "Google",
- *     providerType: "Google",
- *     userPoolId: example.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_provider.html.markdown.
  */

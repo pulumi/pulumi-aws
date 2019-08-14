@@ -8,63 +8,6 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides a HTTP Method for an API Gateway Resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
- *     description: "This is my API for demonstration purposes",
- * });
- * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
- *     parentId: myDemoAPI.rootResourceId,
- *     pathPart: "mydemoresource",
- *     restApi: myDemoAPI.id,
- * });
- * const myDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
- *     authorization: "NONE",
- *     httpMethod: "GET",
- *     resourceId: myDemoResource.id,
- *     restApi: myDemoAPI.id,
- * });
- * ```
- * 
- * ## Usage with Cognito User Pool Authorizer
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const cognitoUserPoolName = config.require("cognitoUserPoolName");
- * 
- * const thisRestApi = new aws.apigateway.RestApi("this", {});
- * const thisUserPools = pulumi.output(aws.cognito.getUserPools({
- *     name: cognitoUserPoolName,
- * }));
- * const thisAuthorizer = new aws.apigateway.Authorizer("this", {
- *     providerArns: thisUserPools.arns,
- *     restApi: thisRestApi.id,
- *     type: "COGNITO_USER_POOLS",
- * });
- * const thisResource = new aws.apigateway.Resource("this", {
- *     parentId: thisRestApi.rootResourceId,
- *     pathPart: "{proxy+}",
- *     restApi: thisRestApi.id,
- * });
- * const any = new aws.apigateway.Method("any", {
- *     authorization: "COGNITO_USER_POOLS",
- *     authorizerId: thisAuthorizer.id,
- *     httpMethod: "ANY",
- *     requestParameters: {
- *         "method.request.path.proxy": true,
- *     },
- *     resourceId: thisResource.id,
- *     restApi: thisRestApi.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method.html.markdown.
  */

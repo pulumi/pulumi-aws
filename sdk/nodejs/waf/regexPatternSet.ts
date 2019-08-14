@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regex Pattern Set Resource
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.waf.RegexPatternSet("example", {
- *     regexPatternStrings: [
- *         "one",
- *         "two",
- *     ],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_regex_pattern_set.html.markdown.
  */

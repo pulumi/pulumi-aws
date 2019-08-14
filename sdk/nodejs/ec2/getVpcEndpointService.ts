@@ -7,40 +7,6 @@ import * as utilities from "../utilities";
 /**
  * The VPC Endpoint Service data source details about a specific service that
  * can be specified when creating a VPC endpoint within the region configured in the provider.
- * 
- * ## Example Usage
- * 
- * AWS service usage:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * // Create a VPC
- * const foo = new aws.ec2.Vpc("foo", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * // Declare the data source
- * const s3 = pulumi.output(aws.ec2.getVpcEndpointService({
- *     service: "s3",
- * }));
- * // Create a VPC endpoint
- * const ep = new aws.ec2.VpcEndpoint("ep", {
- *     serviceName: s3.serviceName,
- *     vpcId: foo.id,
- * });
- * ```
- * 
- * Non-AWS service usage:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const custome = pulumi.output(aws.ec2.getVpcEndpointService({
- *     serviceName: "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
  */

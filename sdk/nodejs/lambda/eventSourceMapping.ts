@@ -9,46 +9,6 @@ import * as utilities from "../utilities";
  * 
  * For information about Lambda and how to use it, see [What is AWS Lambda?][1].
  * For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
- * 
- * ## Example Usage
- * 
- * ### DynamoDB
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_dynamodb_table_example.streamArn,
- *     functionName: aws_lambda_function_example.arn,
- *     startingPosition: "LATEST",
- * });
- * ```
- * 
- * ### Kinesis
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_kinesis_stream_example.arn,
- *     functionName: aws_lambda_function_example.arn,
- *     startingPosition: "LATEST",
- * });
- * ```
- * 
- * ### SQS
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_sqs_queue_sqs_queue_test.arn,
- *     functionName: aws_lambda_function_example.arn,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_event_source_mapping.html.markdown.
  */

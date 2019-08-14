@@ -9,24 +9,6 @@ import * as utilities from "../utilities";
  * 
  * For information about Lambda and how to use it, see [What is AWS Lambda?][1]
  * For information about function aliases, see [CreateAlias][2] and [AliasRoutingConfiguration][3] in the API docs.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testAlias = new aws.lambda.Alias("testAlias", {
- *     description: "a sample description",
- *     functionName: aws_lambda_function_lambda_function_test.arn,
- *     functionVersion: "1",
- *     routingConfig: {
- *         additionalVersionWeights: {
- *             "2": 0.5,
- *         },
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_alias.html.markdown.
  */

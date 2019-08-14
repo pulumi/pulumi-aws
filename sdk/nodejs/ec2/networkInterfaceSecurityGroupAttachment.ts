@@ -19,66 +19,6 @@ import * as utilities from "../utilities";
  * [1]: /docs/providers/aws/d/instance.html
  * [2]: /docs/providers/aws/r/network_interface.html
  * 
- * ## Example Usage
- * 
- * The following provides a very basic example of setting up an instance (provided
- * by `instance`) in the default security group, creating a security group
- * (provided by `sg`) and then attaching the security group to the instance's
- * primary network interface via the `aws.ec2.NetworkInterfaceSecurityGroupAttachment` resource,
- * named `sgAttachment`:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const sg = new aws.ec2.SecurityGroup("sg", {
- *     tags: {
- *         type: "test-security-group",
- *     },
- * });
- * const ami = pulumi.output(aws.getAmi({
- *     filters: [{
- *         name: "name",
- *         values: ["amzn-ami-hvm-*"],
- *     }],
- *     mostRecent: true,
- *     owners: ["amazon"],
- * }));
- * const instance = new aws.ec2.Instance("instance", {
- *     ami: ami.id,
- *     instanceType: "t2.micro",
- *     tags: {
- *         type: "test-instance",
- *     },
- * });
- * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
- *     networkInterfaceId: instance.primaryNetworkInterfaceId,
- *     securityGroupId: sg.id,
- * });
- * ```
- * 
- * In this example, `instance` is provided by the `aws.ec2.Instance` data source,
- * fetching an external instance, possibly not managed by this provider.
- * `sgAttachment` then attaches to the output instance's `networkInterfaceId`:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const sg = new aws.ec2.SecurityGroup("sg", {
- *     tags: {
- *         type: "test-security-group",
- *     },
- * });
- * const instance = pulumi.output(aws.ec2.getInstance({
- *     instanceId: "i-1234567890abcdef0",
- * }));
- * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
- *     networkInterfaceId: instance.networkInterfaceId,
- *     securityGroupId: sg.id,
- * });
- * ```
- * 
  * ## Output Reference
  * 
  * There are no outputs for this resource.

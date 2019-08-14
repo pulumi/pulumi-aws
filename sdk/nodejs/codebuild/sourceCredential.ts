@@ -6,33 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeBuild Source Credentials Resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.codebuild.SourceCredential("example", {
- *     authType: "PERSONAL_ACCESS_TOKEN",
- *     serverType: "GITHUB",
- *     token: "example",
- * });
- * ```
- * 
- * ### Bitbucket Server Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.codebuild.SourceCredential("example", {
- *     authType: "BASIC_AUTH",
- *     serverType: "BITBUCKET",
- *     token: "example",
- *     userName: "test-user",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_source_credential.html.markdown.
  */

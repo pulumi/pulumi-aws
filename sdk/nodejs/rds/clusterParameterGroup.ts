@@ -9,28 +9,6 @@ import * as utilities from "../utilities";
  * 
  * * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
  * * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultClusterParameterGroup = new aws.rds.ClusterParameterGroup("default", {
- *     description: "RDS default cluster parameter group",
- *     family: "aurora5.6",
- *     parameters: [
- *         {
- *             name: "characterSetServer",
- *             value: "utf8",
- *         },
- *         {
- *             name: "characterSetClient",
- *             value: "utf8",
- *         },
- *     ],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_parameter_group.html.markdown.
  */

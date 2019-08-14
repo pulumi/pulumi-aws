@@ -6,28 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ebsVolume = pulumi.output(aws.ebs.getSnapshot({
- *     filters: [
- *         {
- *             name: "volume-size",
- *             values: ["40"],
- *         },
- *         {
- *             name: "tag:Name",
- *             values: ["Example"],
- *         },
- *     ],
- *     mostRecent: true,
- *     owners: ["self"],
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
  */

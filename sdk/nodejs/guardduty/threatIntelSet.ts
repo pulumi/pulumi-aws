@@ -8,32 +8,6 @@ import * as utilities from "../utilities";
  * Provides a resource to manage a GuardDuty ThreatIntelSet.
  * 
  * > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage ThreatIntelSets. ThreatIntelSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-threat-intel-set.html)
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const master = new aws.guardduty.Detector("master", {
- *     enable: true,
- * });
- * const bucket = new aws.s3.Bucket("bucket", {
- *     acl: "private",
- * });
- * const myThreatIntelSetBucketObject = new aws.s3.BucketObject("MyThreatIntelSet", {
- *     acl: "public-read",
- *     bucket: bucket.id,
- *     content: "10.0.0.0/8\n",
- *     key: "MyThreatIntelSet",
- * });
- * const myThreatIntelSetThreatIntelSet = new aws.guardduty.ThreatIntelSet("MyThreatIntelSet", {
- *     activate: true,
- *     detectorId: master.id,
- *     format: "TXT",
- *     location: pulumi.interpolate`https://s3.amazonaws.com/${myThreatIntelSetBucketObject.bucket}/${myThreatIntelSetBucketObject.key}`,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/guardduty_threatintelset.html.markdown.
  */

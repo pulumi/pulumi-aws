@@ -13,32 +13,6 @@ import * as utilities from "../utilities";
  * meta-parameter to make multiple instances and join them all to the same DocDB
  * Cluster, or you may specify different Cluster Instance resources with various
  * `instanceClass` sizes.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultCluster = new aws.docdb.Cluster("default", {
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *         "us-west-2c",
- *     ],
- *     clusterIdentifier: "docdb-cluster-demo",
- *     masterPassword: "barbut8chars",
- *     masterUsername: "foo",
- * });
- * const clusterInstances: aws.docdb.ClusterInstance[] = [];
- * for (let i = 0; i < 2; i++) {
- *     clusterInstances.push(new aws.docdb.ClusterInstance(`cluster_instances-${i}`, {
- *         clusterIdentifier: defaultCluster.id,
- *         identifier: `docdb-cluster-demo-${i}`,
- *         instanceClass: "db.r4.large",
- *     }));
- * }
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_instance.html.markdown.
  */

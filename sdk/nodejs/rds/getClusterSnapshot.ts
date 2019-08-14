@@ -9,30 +9,6 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** This data source does not apply to snapshots created on DB Instances. 
  * See the [`aws.rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const developmentFinalSnapshot = pulumi.output(aws.rds.getClusterSnapshot({
- *     dbClusterIdentifier: "developmentCluster",
- *     mostRecent: true,
- * }));
- * // Use the last snapshot of the dev database before it was destroyed to create
- * // a new dev database.
- * const auroraCluster = new aws.rds.Cluster("aurora", {
- *     clusterIdentifier: "developmentCluster",
- *     dbSubnetGroupName: "myDbSubnetGroup",
- *     snapshotIdentifier: developmentFinalSnapshot.id,
- * });
- * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
- *     clusterIdentifier: auroraCluster.id,
- *     dbSubnetGroupName: "myDbSubnetGroup",
- *     instanceClass: "db.t2.small",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
  */

@@ -9,22 +9,6 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultCluster = new aws.redshift.Cluster("default", {
- *     clusterIdentifier: "tf-redshift-cluster",
- *     clusterType: "single-node",
- *     databaseName: "mydb",
- *     masterPassword: "Mustbe8characters",
- *     masterUsername: "foo",
- *     nodeType: "dc1.large",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_cluster.html.markdown.
  */

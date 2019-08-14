@@ -10,22 +10,6 @@ import * as utilities from "../utilities";
  * Manages Password Policy for the AWS Account.
  * See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
  * in the official AWS docs.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const strict = new aws.iam.AccountPasswordPolicy("strict", {
- *     allowUsersToChangePassword: true,
- *     minimumPasswordLength: 8,
- *     requireLowercaseCharacters: true,
- *     requireNumbers: true,
- *     requireSymbols: true,
- *     requireUppercaseCharacters: true,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_password_policy.html.markdown.
  */

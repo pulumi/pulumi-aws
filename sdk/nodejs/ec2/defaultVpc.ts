@@ -15,21 +15,6 @@ import * as utilities from "../utilities";
  * The `aws.ec2.DefaultVpc` behaves differently from normal resources, in that
  * this provider does not _create_ this resource, but instead "adopts" it
  * into management.
- * 
- * ## Example Usage
- * 
- * Basic usage with tags:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultDefaultVpc = new aws.ec2.DefaultVpc("default", {
- *     tags: {
- *         Name: "Default VPC",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc.html.markdown.
  */

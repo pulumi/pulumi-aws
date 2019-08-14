@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information on an Amazon MSK Cluster.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = pulumi.output(aws.msk.getCluster({
- *     clusterName: "example",
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_cluster.html.markdown.
  */

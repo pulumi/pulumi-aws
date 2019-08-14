@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
  * By using this data source, you can reference SQS queues without having to hardcode
  * the ARNs as input.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = pulumi.output(aws.sqs.getQueue({
- *     name: "queue",
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
  */

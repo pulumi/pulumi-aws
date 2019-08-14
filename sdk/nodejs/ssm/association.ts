@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Associates an SSM Document to an instance or EC2 tag.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ssm.Association("example", {
- *     targets: [{
- *         key: "InstanceIds",
- *         values: [aws_instance_example.id],
- *     }],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_association.html.markdown.
  */

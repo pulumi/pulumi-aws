@@ -10,27 +10,6 @@ import * as utilities from "../utilities";
  * > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
  * 
  * > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleCurReportDefinition = new aws.cur.ReportDefinition("exampleCurReportDefinition", {
- *     additionalArtifacts: [
- *         "REDSHIFT",
- *         "QUICKSIGHT",
- *     ],
- *     additionalSchemaElements: ["RESOURCES"],
- *     compression: "GZIP",
- *     format: "textORcsv",
- *     reportName: "example-cur-report-definition",
- *     s3Bucket: "example-bucket-name",
- *     s3Region: "us-east-1",
- *     timeUnit: "HOURLY",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cur_report_definition.html.markdown.
  */

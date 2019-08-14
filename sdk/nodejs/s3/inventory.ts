@@ -6,58 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
- * 
- * ## Example Usage
- * 
- * ### Add inventory configuration
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const inventory = new aws.s3.Bucket("inventory", {});
- * const testBucket = new aws.s3.Bucket("test", {});
- * const testInventory = new aws.s3.Inventory("test", {
- *     bucket: testBucket.id,
- *     destination: {
- *         bucket: {
- *             bucketArn: inventory.arn,
- *             format: "ORC",
- *         },
- *     },
- *     includedObjectVersions: "All",
- *     schedule: {
- *         frequency: "Daily",
- *     },
- * });
- * ```
- * 
- * ### Add inventory configuration with S3 bucket object prefix
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const inventory = new aws.s3.Bucket("inventory", {});
- * const test = new aws.s3.Bucket("test", {});
- * const testPrefix = new aws.s3.Inventory("test-prefix", {
- *     bucket: test.id,
- *     destination: {
- *         bucket: {
- *             bucketArn: inventory.arn,
- *             format: "ORC",
- *             prefix: "inventory",
- *         },
- *     },
- *     filter: {
- *         prefix: "documents/",
- *     },
- *     includedObjectVersions: "All",
- *     schedule: {
- *         frequency: "Daily",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_inventory.html.markdown.
  */

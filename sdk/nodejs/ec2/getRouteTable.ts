@@ -10,28 +10,6 @@ import * as utilities from "../utilities";
  * This resource can prove useful when a module accepts a Subnet id as
  * an input variable and needs to, for example, add a route in
  * the Route Table.
- * 
- * ## Example Usage
- * 
- * The following example shows how one might accept a Route Table id as a variable
- * and use this data source to obtain the data necessary to create a route.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const subnetId = config.require("subnetId");
- * 
- * const selected = pulumi.output(aws.ec2.getRouteTable({
- *     subnetId: subnetId,
- * }));
- * const route = new aws.ec2.Route("route", {
- *     destinationCidrBlock: "10.0.1.0/22",
- *     routeTableId: selected.id,
- *     vpcPeeringConnectionId: "pcx-45ff3dc1",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_table.html.markdown.
  */

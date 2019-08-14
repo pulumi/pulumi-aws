@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Direct Connect Gateway.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.directconnect.Gateway("example", {
- *     amazonSideAsn: "64512",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway.html.markdown.
  */

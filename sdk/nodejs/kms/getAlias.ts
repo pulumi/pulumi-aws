@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to get the ARN of a KMS key alias.
  * By using this data source, you can reference key alias
  * without having to hard code the ARN as input.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const s3 = pulumi.output(aws.kms.getAlias({
- *     name: "alias/aws/s3",
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
  */

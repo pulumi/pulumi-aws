@@ -8,26 +8,6 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides a Model for a API Gateway.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
- *     description: "This is my API for demonstration purposes",
- * });
- * const myDemoModel = new aws.apigateway.Model("MyDemoModel", {
- *     contentType: "application/json",
- *     description: "a JSON schema",
- *     restApi: myDemoAPI.id,
- *     schema: `{
- *   "type": "object"
- * }
- * `,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_model.html.markdown.
  */

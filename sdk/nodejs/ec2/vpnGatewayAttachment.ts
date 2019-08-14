@@ -11,30 +11,6 @@ import * as utilities from "../utilities";
  * > **Note:** The `aws.ec2.VpnGateway`
  * resource can also automatically attach the Virtual Private Gateway it creates
  * to an existing VPC by setting the `vpcId` attribute accordingly.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const network = new aws.ec2.Vpc("network", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const vpn = new aws.ec2.VpnGateway("vpn", {
- *     tags: {
- *         Name: "example-vpn-gateway",
- *     },
- * });
- * const vpnAttachment = new aws.ec2.VpnGatewayAttachment("vpnAttachment", {
- *     vpcId: network.id,
- *     vpnGatewayId: vpn.id,
- * });
- * ```
- * 
- * See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
- * and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
- * guides for more information.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_attachment.html.markdown.
  */

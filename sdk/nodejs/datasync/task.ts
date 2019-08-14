@@ -8,21 +8,6 @@ import {ARN} from "../index";
 
 /**
  * Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.datasync.Task("example", {
- *     destinationLocationArn: aws_datasync_location_s3_destination.arn,
- *     options: {
- *         bytesPerSecond: -1,
- *     },
- *     sourceLocationArn: aws_datasync_location_nfs_source.arn,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_task.html.markdown.
  */

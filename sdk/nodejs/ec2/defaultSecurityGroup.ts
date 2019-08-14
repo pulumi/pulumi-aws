@@ -31,59 +31,6 @@ import * as utilities from "../utilities";
  * For more information about Default Security Groups, see the AWS Documentation on
  * [Default Security Groups][aws-default-security-groups].
  * 
- * ## Basic Example Usage, with default rules
- * 
- * The following config gives the Default Security Group the same rules that AWS
- * provides by default, but pulls the resource under management by this provider. This means that
- * any ingress or egress rules added or changed will be detected as drift.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const defaultDefaultSecurityGroup = new aws.ec2.DefaultSecurityGroup("default", {
- *     egress: [{
- *         cidrBlocks: ["0.0.0.0/0"],
- *         fromPort: 0,
- *         protocol: "-1",
- *         toPort: 0,
- *     }],
- *     ingress: [{
- *         fromPort: 0,
- *         protocol: "-1",
- *         self: true,
- *         toPort: 0,
- *     }],
- *     vpcId: mainvpc.id,
- * });
- * ```
- * 
- * ## Example config to deny all Egress traffic, allowing Ingress
- * 
- * The following denies all Egress traffic by omitting any `egress` rules, while
- * including the default `ingress` rule to allow all traffic.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const defaultDefaultSecurityGroup = new aws.ec2.DefaultSecurityGroup("default", {
- *     ingress: [{
- *         fromPort: 0,
- *         protocol: "-1",
- *         self: true,
- *         toPort: 0,
- *     }],
- *     vpcId: mainvpc.id,
- * });
- * ```
- * 
  * ## Usage
  * 
  * With the exceptions mentioned above, `aws.ec2.DefaultSecurityGroup` should

@@ -8,29 +8,6 @@ import * as utilities from "../utilities";
  * Provides an SES domain DKIM generation resource.
  * 
  * Domain ownership needs to be confirmed first using [sesDomainIdentity Resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html)
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleDomainIdentity = new aws.ses.DomainIdentity("example", {
- *     domain: "example.com",
- * });
- * const exampleDomainDkim = new aws.ses.DomainDkim("example", {
- *     domain: exampleDomainIdentity.domain,
- * });
- * const exampleAmazonsesDkimRecord: aws.route53.Record[] = [];
- * for (let i = 0; i < 3; i++) {
- *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`example_amazonses_dkim_record-${i}`, {
- *         records: [exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[i]}.dkim.amazonses.com`)],
- *         ttl: 600,
- *         type: "CNAME",
- *         zoneId: "ABCDEFGHIJ123",
- *     }));
- * }
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_dkim.html.markdown.
  */

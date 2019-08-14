@@ -12,29 +12,6 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** `aws.ec2.EipAssociation` is useful in scenarios where EIPs are either
  * pre-existing or distributed to customers or users and therefore cannot be changed.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2.Eip("example", {
- *     vpc: true,
- * });
- * const web = new aws.ec2.Instance("web", {
- *     ami: "ami-21f78e11",
- *     availabilityZone: "us-west-2a",
- *     instanceType: "t1.micro",
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * const eipAssoc = new aws.ec2.EipAssociation("eipAssoc", {
- *     allocationId: example.id,
- *     instanceId: web.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip_association.html.markdown.
  */

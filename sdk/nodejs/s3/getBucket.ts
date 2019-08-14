@@ -9,47 +9,6 @@ import * as utilities from "../utilities";
  * 
  * This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
  * Distribution.
- * 
- * ## Example Usage
- * 
- * ### Route53 Record
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testZone = pulumi.output(aws.route53.getZone({
- *     name: "test.com.",
- * }));
- * const selected = pulumi.output(aws.s3.getBucket({
- *     bucket: "bucket.test.com",
- * }));
- * const example = new aws.route53.Record("example", {
- *     aliases: [{
- *         name: selected.websiteDomain,
- *         zoneId: selected.hostedZoneId,
- *     }],
- *     type: "A",
- *     zoneId: testZone.id,
- * });
- * ```
- * 
- * ### CloudFront Origin
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const selected = pulumi.output(aws.s3.getBucket({
- *     bucket: "a-test-bucket",
- * }));
- * const test = new aws.cloudfront.Distribution("test", {
- *     origins: [{
- *         domainName: selected.bucketDomainName,
- *         originId: "s3-selected-bucket",
- *     }],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
  */

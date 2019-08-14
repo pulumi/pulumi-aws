@@ -14,26 +14,6 @@ import * as utilities from "../utilities";
  * phase because a modification has not yet taken place. You can use the
  * `applyImmediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultCluster = new aws.neptune.Cluster("default", {
- *     applyImmediately: true,
- *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "neptune-cluster-demo",
- *     engine: "neptune",
- *     iamDatabaseAuthenticationEnabled: true,
- *     preferredBackupWindow: "07:00-09:00",
- *     skipFinalSnapshot: true,
- * });
- * ```
- * 
- * > **Note:** AWS Neptune does not support user name/password–based access control.
- * See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster.html.markdown.
  */

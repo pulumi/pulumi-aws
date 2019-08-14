@@ -9,31 +9,6 @@ import * as utilities from "../utilities";
  * detach volumes from AWS Instances.
  * 
  * > **NOTE on EBS block devices:** If you use `ebsBlockDevice` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebsBlockDevice` cannot be mixed with external `aws.ebs.Volume` + `awsEbsVolumeAttachment` resources for a given instance.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ebs.Volume("example", {
- *     availabilityZone: "us-west-2a",
- *     size: 1,
- * });
- * const web = new aws.ec2.Instance("web", {
- *     ami: "ami-21f78e11",
- *     availabilityZone: "us-west-2a",
- *     instanceType: "t1.micro",
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * const ebsAtt = new aws.ec2.VolumeAttachment("ebsAtt", {
- *     deviceName: "/dev/sdh",
- *     instanceId: web.id,
- *     volumeId: example.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/volume_attachment.html.markdown.
  */

@@ -9,35 +9,6 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
  * See the [`aws.rds.ClusterSnapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const prod = new aws.rds.Instance("prod", {
- *     allocatedStorage: 10,
- *     dbSubnetGroupName: "myDatabaseSubnetGroup",
- *     engine: "mysql",
- *     engineVersion: "5.6.17",
- *     instanceClass: "db.t2.micro",
- *     name: "mydb",
- *     parameterGroupName: "default.mysql5.6",
- *     password: "bar",
- *     username: "foo",
- * });
- * const latestProdSnapshot = prod.id.apply(id => aws.rds.getSnapshot({
- *     dbInstanceIdentifier: id,
- *     mostRecent: true,
- * }));
- * // Use the latest production snapshot to create a dev instance.
- * const dev = new aws.rds.Instance("dev", {
- *     instanceClass: "db.t2.micro",
- *     name: "mydbdev",
- *     snapshotIdentifier: latestProdSnapshot.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
  */

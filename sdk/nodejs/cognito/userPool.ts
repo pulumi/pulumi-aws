@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool resource.
- * 
- * ## Example Usage
- * 
- * ### Basic configuration
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const pool = new aws.cognito.UserPool("pool", {});
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool.html.markdown.
  */

@@ -6,44 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS App Mesh virtual service resource.
- * 
- * ## Example Usage
- * 
- * ### Virtual Node Provider
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const servicea = new aws.appmesh.VirtualService("servicea", {
- *     meshName: aws_appmesh_mesh_simple.id,
- *     spec: {
- *         provider: {
- *             virtualNode: {
- *                 virtualNodeName: aws_appmesh_virtual_node_serviceb1.name,
- *             },
- *         },
- *     },
- * });
- * ```
- * 
- * ### Virtual Router Provider
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const servicea = new aws.appmesh.VirtualService("servicea", {
- *     meshName: aws_appmesh_mesh_simple.id,
- *     spec: {
- *         provider: {
- *             virtualRouter: {
- *                 virtualRouterName: aws_appmesh_virtual_router_serviceb.name,
- *             },
- *         },
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_service.html.markdown.
  */

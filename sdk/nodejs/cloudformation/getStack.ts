@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * The CloudFormation Stack data source allows access to stack
  * outputs and other useful data including the template body.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const network = pulumi.output(aws.cloudformation.getStack({
- *     name: "my-network-stack",
- * }));
- * const web = new aws.ec2.Instance("web", {
- *     ami: "ami-abb07bcb",
- *     instanceType: "t1.micro",
- *     subnetId: network.apply(network => network.outputs["SubnetId"]),
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_stack.html.markdown.
  */

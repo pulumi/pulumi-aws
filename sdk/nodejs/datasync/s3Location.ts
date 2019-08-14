@@ -8,21 +8,6 @@ import {ARN} from "../index";
 
 /**
  * Manages an S3 Location within AWS DataSync.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.datasync.S3Location("example", {
- *     s3BucketArn: aws_s3_bucket_example.arn,
- *     s3Config: {
- *         bucketAccessRoleArn: aws_iam_role_example.arn,
- *     },
- *     subdirectory: "/example/prefix",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_s3.html.markdown.
  */

@@ -9,24 +9,6 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API - recreate the resource instead.
  * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.licensemanager.LicenseConfiguration("example", {
- *     description: "Example",
- *     licenseCount: 10,
- *     licenseCountHardLimit: true,
- *     licenseCountingType: "Socket",
- *     licenseRules: ["#minimumSockets=2"],
- *     tags: {
- *         foo: "barr",
- *     },
- * });
- * ```
- * 
  * ## Rules
  * 
  * License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:

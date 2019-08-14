@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DAX Subnet Group resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.dax.SubnetGroup("example", {
- *     subnetIds: [
- *         aws_subnet_example1.id,
- *         aws_subnet_example2.id,
- *     ],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_subnet_group.html.markdown.
  */

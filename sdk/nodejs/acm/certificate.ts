@@ -23,53 +23,6 @@ import * as utilities from "../utilities";
  * It's recommended to specify `createBeforeDestroy = true` in a [lifecycle][1] block to replace a certificate
  * which is currently in use (eg, by `aws.lb.Listener`).
  * 
- * ## Example Usage
- * 
- * ### Certificate creation
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const cert = new aws.acm.Certificate("cert", {
- *     domainName: "example.com",
- *     tags: {
- *         Environment: "test",
- *     },
- *     validationMethod: "DNS",
- * });
- * ```
- * 
- * ### Importation of existing certificate
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as tls from "@pulumi/tls";
- * 
- * const examplePrivateKey = new tls.PrivateKey("example", {
- *     algorithm: "RSA",
- * });
- * const exampleSelfSignedCert = new tls.SelfSignedCert("example", {
- *     allowedUses: [
- *         "keyEncipherment",
- *         "digitalSignature",
- *         "serverAuth",
- *     ],
- *     keyAlgorithm: "RSA",
- *     privateKeyPem: examplePrivateKey.privateKeyPem,
- *     subjects: [{
- *         commonName: "example.com",
- *         organization: "ACME Examples, Inc",
- *     }],
- *     validityPeriodHours: 12,
- * });
- * const cert = new aws.acm.Certificate("cert", {
- *     certificateBody: exampleSelfSignedCert.certPem,
- *     privateKey: examplePrivateKey.privateKeyPem,
- * });
- * ```
- * 
  * ## options Configuration Block
  * 
  * Supported nested arguments for the `options` configuration block:

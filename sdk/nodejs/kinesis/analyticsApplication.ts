@@ -11,44 +11,6 @@ import {ARN} from "../index";
  * allows processing and analyzing streaming data using standard SQL.
  * 
  * For more details, see the [Amazon Kinesis Analytics Documentation][1].
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testStream = new aws.kinesis.Stream("testStream", {
- *     shardCount: 1,
- * });
- * const testApplication = new aws.kinesis.AnalyticsApplication("testApplication", {
- *     inputs: {
- *         kinesisStream: {
- *             resourceArn: testStream.arn,
- *             roleArn: aws_iam_role_test.arn,
- *         },
- *         namePrefix: "testPrefix",
- *         parallelism: {
- *             count: 1,
- *         },
- *         schema: {
- *             recordColumns: [{
- *                 mapping: "$.test",
- *                 name: "test",
- *                 sqlType: "VARCHAR(8)",
- *             }],
- *             recordEncoding: "UTF-8",
- *             recordFormat: {
- *                 mappingParameters: {
- *                     json: {
- *                         recordRowPath: "$",
- *                     },
- *                 },
- *             },
- *         },
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_analytics_application.html.markdown.
  */

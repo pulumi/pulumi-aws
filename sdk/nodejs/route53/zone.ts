@@ -6,63 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Route53 Hosted Zone.
- * 
- * ## Example Usage
- * 
- * ### Public Zone
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const primary = new aws.route53.Zone("primary", {});
- * ```
- * 
- * ### Public Subdomain Zone
- * 
- * For use in subdomains, note that you need to create a
- * `aws.route53.Record` of type `NS` as well as the subdomain
- * zone.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const dev = new aws.route53.Zone("dev", {
- *     tags: {
- *         Environment: "dev",
- *     },
- * });
- * const main = new aws.route53.Zone("main", {});
- * const devNs = new aws.route53.Record("dev-ns", {
- *     records: [
- *         dev.nameServers[0],
- *         dev.nameServers[1],
- *         dev.nameServers[2],
- *         dev.nameServers[3],
- *     ],
- *     ttl: 30,
- *     type: "NS",
- *     zoneId: main.zoneId,
- * });
- * ```
- * 
- * ### Private Zone
- * 
- * > **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate [Zone VPC Association](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) resource. At this time, you cannot use in-line VPC associations in conjunction with any `aws.route53.ZoneAssociation` resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use the generic this provider resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignoreChanges` to manage additional associations via the `aws.route53.ZoneAssociation` resource.
- * 
- * > **NOTE:** Private zones require at least one VPC association at all times.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const privateZone = new aws.route53.Zone("private", {
- *     vpcs: [{
- *         vpcId: aws_vpc_example.id,
- *     }],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone.html.markdown.
  */

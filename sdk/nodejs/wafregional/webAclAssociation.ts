@@ -8,66 +8,6 @@ import * as utilities from "../utilities";
  * Manages an association with WAF Regional Web ACL.
  * 
  * > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const fooVpc = new aws.ec2.Vpc("foo", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const ipset = new aws.wafregional.IpSet("ipset", {
- *     ipSetDescriptors: [{
- *         type: "IPV4",
- *         value: "192.0.7.0/24",
- *     }],
- * });
- * const available = pulumi.output(aws.getAvailabilityZones({}));
- * const bar = new aws.ec2.Subnet("bar", {
- *     availabilityZone: available.apply(available => available.names[1]),
- *     cidrBlock: "10.1.2.0/24",
- *     vpcId: fooVpc.id,
- * });
- * const fooSubnet = new aws.ec2.Subnet("foo", {
- *     availabilityZone: available.apply(available => available.names[0]),
- *     cidrBlock: "10.1.1.0/24",
- *     vpcId: fooVpc.id,
- * });
- * const fooLoadBalancer = new aws.alb.LoadBalancer("foo", {
- *     internal: true,
- *     subnets: [
- *         fooSubnet.id,
- *         bar.id,
- *     ],
- * });
- * const fooRule = new aws.wafregional.Rule("foo", {
- *     metricName: "tfWAFRule",
- *     predicates: [{
- *         dataId: ipset.id,
- *         negated: false,
- *         type: "IPMatch",
- *     }],
- * });
- * const fooWebAcl = new aws.wafregional.WebAcl("foo", {
- *     defaultAction: {
- *         type: "ALLOW",
- *     },
- *     metricName: "foo",
- *     rules: [{
- *         action: {
- *             type: "BLOCK",
- *         },
- *         priority: 1,
- *         ruleId: fooRule.id,
- *     }],
- * });
- * const fooWebAclAssociation = new aws.wafregional.WebAclAssociation("foo", {
- *     resourceArn: fooLoadBalancer.arn,
- *     webAclId: fooWebAcl.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_web_acl_association.html.markdown.
  */

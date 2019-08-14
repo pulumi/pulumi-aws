@@ -8,35 +8,6 @@ import {PolicyDocument} from "../iam/documents";
 
 /**
  * Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.elasticsearch.Domain("example", {
- *     elasticsearchVersion: "2.3",
- * });
- * const main = new aws.elasticsearch.DomainPolicy("main", {
- *     accessPolicies: pulumi.interpolate`{
- *     "Version": "2012-10-17",
- *     "Statement": [
- *         {
- *             "Action": "es:*",
- *             "Principal": "*",
- *             "Effect": "Allow",
- *             "Condition": {
- *                 "IpAddress": {"aws:SourceIp": "127.0.0.1/32"}
- *             },
- *             "Resource": "${example.arn}/*"
- *         }
- *     ]
- * }
- * `,
- *     domainName: example.domainName,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticsearch_domain_policy.html.markdown.
  */

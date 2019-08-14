@@ -12,22 +12,6 @@ import * as utilities from "../utilities";
  * This data source can prove useful when a module accepts an LB as an input
  * variable and needs to, for example, determine the security groups associated
  * with it, etc.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const lbArn = config.get("lbArn") || "";
- * const lbName = config.get("lbName") || "";
- * 
- * const test = pulumi.output(aws.lb.getLoadBalancer({
- *     arn: lbArn,
- *     name: lbName,
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb.html.markdown.
  */

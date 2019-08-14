@@ -6,40 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Cognito Identity Pool.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
- * const defaultSamlProvider = new aws.iam.SamlProvider("default", {
- *     samlMetadataDocument: fs.readFileSync("saml-metadata.xml", "utf-8"),
- * });
- * const main = new aws.cognito.IdentityPool("main", {
- *     allowUnauthenticatedIdentities: false,
- *     cognitoIdentityProviders: [
- *         {
- *             clientId: "6lhlkkfbfb4q5kpp90urffae",
- *             providerName: "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
- *             serverSideTokenCheck: false,
- *         },
- *         {
- *             clientId: "7kodkvfqfb4qfkp39eurffae",
- *             providerName: "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
- *             serverSideTokenCheck: false,
- *         },
- *     ],
- *     identityPoolName: "identity pool",
- *     openidConnectProviderArns: ["arn:aws:iam::123456789012:oidc-provider/foo.example.com"],
- *     samlProviderArns: [defaultSamlProvider.arn],
- *     supportedLoginProviders: {
- *         "accounts.google.com": "123456789012.apps.googleusercontent.com",
- *         "graph.facebook.com": "7346241598935552",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool.html.markdown.
  */

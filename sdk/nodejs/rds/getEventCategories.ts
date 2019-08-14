@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- * 
- * List the event categories of all the RDS resources. 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleEventCategories = pulumi.output(aws.rds.getEventCategories({}));
- * 
- * export const example = exampleEventCategories.eventCategories;
- * ```
- * 
- * List the event categories specific to the RDS resource `db-snapshot`.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleEventCategories = pulumi.output(aws.rds.getEventCategories({
- *     sourceType: "db-snapshot",
- * }));
- * 
- * export const example = exampleEventCategories.eventCategories;
- * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_event_categories.html.markdown.
- */
 export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventCategoriesResult> & GetEventCategoriesResult {
     args = args || {};
     if (!opts) {

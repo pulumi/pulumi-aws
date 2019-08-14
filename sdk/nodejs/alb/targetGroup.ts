@@ -8,52 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Target Group resource for use with Load Balancer resources.
  * 
  * > **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
- * 
- * ## Example Usage
- * 
- * ### Instance Target Group
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const test = new aws.lb.TargetGroup("test", {
- *     port: 80,
- *     protocol: "HTTP",
- *     vpcId: main.id,
- * });
- * ```
- * 
- * ### IP Target Group
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const ipExample = new aws.lb.TargetGroup("ip-example", {
- *     port: 80,
- *     protocol: "HTTP",
- *     targetType: "ip",
- *     vpcId: main.id,
- * });
- * ```
- * 
- * ### Lambda Target Group
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const lambdaExample = new aws.lb.TargetGroup("lambda-example", {
- *     targetType: "lambda",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group.html.markdown.
  */

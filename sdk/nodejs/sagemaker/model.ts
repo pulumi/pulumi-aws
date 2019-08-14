@@ -6,34 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SageMaker model resource.
- * 
- * ## Example Usage
- * 
- * Basic usage:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const model = new aws.sagemaker.Model("m", {
- *     executionRoleArn: aws_iam_role_foo.arn,
- *     primaryContainer: {
- *         image: "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
- *     },
- * });
- * const assumeRole = pulumi.output(aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             identifiers: ["sagemaker.amazonaws.com"],
- *             type: "Service",
- *         }],
- *     }],
- * }));
- * const role = new aws.iam.Role("r", {
- *     assumeRolePolicy: assumeRole.json,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_model.html.markdown.
  */

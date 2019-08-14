@@ -7,27 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the ID of an Amazon EC2 Instance for use in other
  * resources.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const foo = pulumi.output(aws.ec2.getInstance({
- *     filters: [
- *         {
- *             name: "image-id",
- *             values: ["ami-xxxxxxxx"],
- *         },
- *         {
- *             name: "tag:Name",
- *             values: ["instance-name-tag"],
- *         },
- *     ],
- *     instanceId: "i-instanceid",
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
  */

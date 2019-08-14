@@ -11,69 +11,6 @@ import {LoadBalancerType} from "../alb/loadBalancerType";
  * Provides a Load Balancer resource.
  * 
  * > **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
- * 
- * ## Example Usage
- * 
- * ### Application Load Balancer
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const test = new aws.lb.LoadBalancer("test", {
- *     accessLogs: {
- *         bucket: aws_s3_bucket_lb_logs.bucket,
- *         enabled: true,
- *         prefix: "test-lb",
- *     },
- *     enableDeletionProtection: true,
- *     internal: false,
- *     loadBalancerType: "application",
- *     securityGroups: [aws_security_group_lb_sg.id],
- *     subnets: [aws_subnet_public.map(v => v.id)],
- *     tags: {
- *         Environment: "production",
- *     },
- * });
- * ```
- * 
- * ### Network Load Balancer
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const test = new aws.lb.LoadBalancer("test", {
- *     enableDeletionProtection: true,
- *     internal: false,
- *     loadBalancerType: "network",
- *     subnets: [aws_subnet_public.map(v => v.id)],
- *     tags: {
- *         Environment: "production",
- *     },
- * });
- * ```
- * 
- * ### Specifying Elastic IPs
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.lb.LoadBalancer("example", {
- *     loadBalancerType: "network",
- *     subnetMappings: [
- *         {
- *             allocationId: aws_eip_example1.id,
- *             subnetId: aws_subnet_example1.id,
- *         },
- *         {
- *             allocationId: aws_eip_example2.id,
- *             subnetId: aws_subnet_example2.id,
- *         },
- *     ],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_legacy.html.markdown.
  */

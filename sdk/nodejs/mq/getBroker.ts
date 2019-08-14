@@ -6,24 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a MQ Broker.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const brokerId = config.get("brokerId") || "";
- * const brokerName = config.get("brokerName") || "";
- * 
- * const byId = pulumi.output(aws.mq.getBroker({
- *     brokerId: brokerId,
- * }));
- * const byName = pulumi.output(aws.mq.getBroker({
- *     brokerName: brokerName,
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/mq_broker.html.markdown.
  */

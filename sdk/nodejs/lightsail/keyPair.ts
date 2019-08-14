@@ -10,39 +10,6 @@ import * as utilities from "../utilities";
  * Lightsail.
  * 
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
- * 
- * ## Example Usage, creating a new Key Pair
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * // Create a new Lightsail Key Pair
- * const lgKeyPair = new aws.lightsail.KeyPair("lgKeyPair", {});
- * ```
- * 
- * ## Create new Key Pair, encrypting the private key with a PGP Key
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const lgKeyPair = new aws.lightsail.KeyPair("lgKeyPair", {
- *     pgpKey: "keybase:keybaseusername",
- * });
- * ```
- * 
- * ## Import an existing public key
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
- * const lgKeyPair = new aws.lightsail.KeyPair("lgKeyPair", {
- *     publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf-8"),
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_key_pair.html.markdown.
  */

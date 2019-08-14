@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = pulumi.output(aws.wafregional.getIpset({
- *     name: "tfWAFRegionalIPSet",
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_ipset.html.markdown.
  */

@@ -7,17 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the name and value of a pre-existing API Key, for
  * example to supply credentials for a dependency microservice.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const myApiKey = pulumi.output(aws.apigateway.getKey({
- *     id: "ru3mpjgse6",
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_api_key.html.markdown.
  */

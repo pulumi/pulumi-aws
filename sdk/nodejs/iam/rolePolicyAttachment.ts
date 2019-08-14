@@ -11,50 +11,6 @@ import {Role} from "./role";
  * Attaches a Managed IAM Policy to an IAM role
  * 
  * > **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const policy = new aws.iam.Policy("policy", {
- *     description: "A test policy",
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "ec2:Describe*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `,
- * });
- * const role = new aws.iam.Role("role", {
- *     assumeRolePolicy: `    {
- *       "Version": "2012-10-17",
- *       "Statement": [
- *         {
- *           "Action": "sts:AssumeRole",
- *           "Principal": {
- *             "Service": "ec2.amazonaws.com"
- *           },
- *           "Effect": "Allow",
- *           "Sid": ""
- *         }
- *       ]
- *     }
- * `,
- * });
- * const testAttach = new aws.iam.RolePolicyAttachment("test-attach", {
- *     policyArn: policy.arn,
- *     role: role.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy_attachment.html.markdown.
  */

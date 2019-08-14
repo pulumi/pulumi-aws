@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks permission resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const myStackPermission = new aws.opsworks.Permission("myStackPermission", {
- *     allowSsh: true,
- *     allowSudo: true,
- *     level: "iamOnly",
- *     stackId: aws_opsworks_stack_stack.id,
- *     userArn: aws_iam_user_user.arn,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_permission.html.markdown.
  */

@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information on an EC2 Transit Gateway VPN Attachment.
- * 
- * ## Example Usage
- * 
- * ### By Transit Gateway and VPN Connection Identifiers
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = pulumi.all([aws_ec2_transit_gateway_example.id, aws_vpn_connection_example.id]).apply(([aws_ec2_transit_gateway_exampleId, aws_vpn_connection_exampleId]) => aws.ec2transitgateway.getVpnAttachment({
- *     transitGatewayId: aws_ec2_transit_gateway_exampleId,
- *     vpnConnectionId: aws_vpn_connection_exampleId,
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpn_attachment.html.markdown.
  */
