@@ -6,6 +6,9 @@ ___NULL___
 
 ---
 
+## 1.0.0-beta.1 (2019-08)
+* No significant changes
+
 ## 0.18.27 (2019-08-09)
 * Update to pulumi-terraform 9db2fc93cd
 * Update to v2.23.0 of the AWS Terraform Provider

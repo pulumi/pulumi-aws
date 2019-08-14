@@ -43,7 +43,7 @@ setup(name='pulumi_aws',
       packages=find_packages(),
       install_requires=[
           'parver>=0.2.1',
-          'pulumi>=0.17.28,<0.18.0',
+          'pulumi>=0.17.28,<2.0.0',
           'semver>=2.8.1'
       ],
       zip_safe=False)
