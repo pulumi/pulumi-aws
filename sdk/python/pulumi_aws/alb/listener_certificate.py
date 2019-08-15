@@ -56,7 +56,7 @@ class ListenerCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'listener_arn'")
             __props__['listener_arn'] = listener_arn
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:applicationloadbalancing/listenerCertificate:ListenerCertificate")])
-        opts = alias_opts if opts is None else opts.merge(alias_opts)
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ListenerCertificate, __self__).__init__(
             'aws:alb/listenerCertificate:ListenerCertificate',
             resource_name,
@@ -76,7 +76,7 @@ class ListenerCertificate(pulumi.CustomResource):
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_listener_certificate.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["certificate_arn"] = certificate_arn

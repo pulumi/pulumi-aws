@@ -66,7 +66,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_id'")
             __props__['target_id'] = target_id
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment")])
-        opts = alias_opts if opts is None else opts.merge(alias_opts)
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TargetGroupAttachment, __self__).__init__(
             'aws:lb/targetGroupAttachment:TargetGroupAttachment',
             resource_name,
@@ -88,7 +88,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group_attachment.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["availability_zone"] = availability_zone

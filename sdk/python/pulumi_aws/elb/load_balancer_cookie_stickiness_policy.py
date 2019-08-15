@@ -72,7 +72,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
             __props__['load_balancer'] = load_balancer
             __props__['name'] = name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy")])
-        opts = alias_opts if opts is None else opts.merge(alias_opts)
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadBalancerCookieStickinessPolicy, __self__).__init__(
             'aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy',
             resource_name,
@@ -98,7 +98,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_cookie_stickiness_policy.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["cookie_expiration_period"] = cookie_expiration_period
