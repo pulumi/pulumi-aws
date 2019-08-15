@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +63,7 @@ export class SizeConstraintSet extends pulumi.CustomResource {
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    public readonly sizeConstraints!: pulumi.Output<{ comparisonOperator: string, fieldToMatch: { data?: string, type: string }, size: number, textTransformation: string }[] | undefined>;
+    public readonly sizeConstraints!: pulumi.Output<outputs.wafregional.SizeConstraintSetSizeConstraint[] | undefined>;
 
     /**
      * Create a SizeConstraintSet resource with the given unique name, arguments, and options.
@@ -104,7 +106,7 @@ export interface SizeConstraintSetState {
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    readonly sizeConstraints?: pulumi.Input<pulumi.Input<{ comparisonOperator: pulumi.Input<string>, fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, size: pulumi.Input<number>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly sizeConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraint>[]>;
 }
 
 /**
@@ -118,5 +120,5 @@ export interface SizeConstraintSetArgs {
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    readonly sizeConstraints?: pulumi.Input<pulumi.Input<{ comparisonOperator: pulumi.Input<string>, fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, size: pulumi.Input<number>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly sizeConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraint>[]>;
 }

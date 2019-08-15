@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -95,7 +97,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * The notifications for the Vault. Fields documented below.
      */
-    public readonly notifications!: pulumi.Output<{ events: string[], snsTopic: string }[] | undefined>;
+    public readonly notifications!: pulumi.Output<outputs.glacier.VaultNotification[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -163,7 +165,7 @@ export interface VaultState {
     /**
      * The notifications for the Vault. Fields documented below.
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, snsTopic: pulumi.Input<string> }>[]>;
+    readonly notifications?: pulumi.Input<pulumi.Input<inputs.glacier.VaultNotification>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -186,7 +188,7 @@ export interface VaultArgs {
     /**
      * The notifications for the Vault. Fields documented below.
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, snsTopic: pulumi.Input<string> }>[]>;
+    readonly notifications?: pulumi.Input<pulumi.Input<inputs.glacier.VaultNotification>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

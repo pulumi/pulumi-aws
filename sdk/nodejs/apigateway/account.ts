@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -96,7 +98,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Account-Level throttle settings. See exported fields below.
      */
-    public /*out*/ readonly throttleSettings!: pulumi.Output<{ burstLimit: number, rateLimit: number }>;
+    public /*out*/ readonly throttleSettings!: pulumi.Output<outputs.apigateway.AccountThrottleSettings>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -141,7 +143,7 @@ export interface AccountState {
     /**
      * Account-Level throttle settings. See exported fields below.
      */
-    readonly throttleSettings?: pulumi.Input<{ burstLimit?: pulumi.Input<number>, rateLimit?: pulumi.Input<number> }>;
+    readonly throttleSettings?: pulumi.Input<inputs.apigateway.AccountThrottleSettings>;
 }
 
 /**

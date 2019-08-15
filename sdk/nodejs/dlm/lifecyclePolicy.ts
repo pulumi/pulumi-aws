@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -123,7 +125,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     /**
      * See the `policyDetails` configuration block. Max of 1.
      */
-    public readonly policyDetails!: pulumi.Output<{ resourceTypes: string[], schedules: { copyTags: boolean, createRule: { interval: number, intervalUnit?: string, times: string }, name: string, retainRule: { count: number }, tagsToAdd?: {[key: string]: any} }[], targetTags: {[key: string]: any} }>;
+    public readonly policyDetails!: pulumi.Output<outputs.dlm.LifecyclePolicyPolicyDetails>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
@@ -187,7 +189,7 @@ export interface LifecyclePolicyState {
     /**
      * See the `policyDetails` configuration block. Max of 1.
      */
-    readonly policyDetails?: pulumi.Input<{ resourceTypes: pulumi.Input<pulumi.Input<string>[]>, schedules: pulumi.Input<pulumi.Input<{ copyTags?: pulumi.Input<boolean>, createRule: pulumi.Input<{ interval: pulumi.Input<number>, intervalUnit?: pulumi.Input<string>, times?: pulumi.Input<string> }>, name: pulumi.Input<string>, retainRule: pulumi.Input<{ count: pulumi.Input<number> }>, tagsToAdd?: pulumi.Input<{[key: string]: any}> }>[]>, targetTags: pulumi.Input<{[key: string]: any}> }>;
+    readonly policyDetails?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
@@ -209,7 +211,7 @@ export interface LifecyclePolicyArgs {
     /**
      * See the `policyDetails` configuration block. Max of 1.
      */
-    readonly policyDetails: pulumi.Input<{ resourceTypes: pulumi.Input<pulumi.Input<string>[]>, schedules: pulumi.Input<pulumi.Input<{ copyTags?: pulumi.Input<boolean>, createRule: pulumi.Input<{ interval: pulumi.Input<number>, intervalUnit?: pulumi.Input<string>, times?: pulumi.Input<string> }>, name: pulumi.Input<string>, retainRule: pulumi.Input<{ count: pulumi.Input<number> }>, tagsToAdd?: pulumi.Input<{[key: string]: any}> }>[]>, targetTags: pulumi.Input<{[key: string]: any}> }>;
+    readonly policyDetails: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */

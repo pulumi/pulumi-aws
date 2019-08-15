@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +76,7 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * Information about the webhook's trigger. Filter group blocks are documented below.
      */
-    public readonly filterGroups!: pulumi.Output<{ filters?: { excludeMatchedPattern?: boolean, pattern: string, type: string }[] }[] | undefined>;
+    public readonly filterGroups!: pulumi.Output<outputs.codebuild.WebhookFilterGroup[] | undefined>;
     /**
      * The CodeBuild endpoint where webhook events are sent.
      */
@@ -144,7 +146,7 @@ export interface WebhookState {
     /**
      * Information about the webhook's trigger. Filter group blocks are documented below.
      */
-    readonly filterGroups?: pulumi.Input<pulumi.Input<{ filters?: pulumi.Input<pulumi.Input<{ excludeMatchedPattern?: pulumi.Input<boolean>, pattern: pulumi.Input<string>, type: pulumi.Input<string> }>[]> }>[]>;
+    readonly filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[]>;
     /**
      * The CodeBuild endpoint where webhook events are sent.
      */
@@ -174,7 +176,7 @@ export interface WebhookArgs {
     /**
      * Information about the webhook's trigger. Filter group blocks are documented below.
      */
-    readonly filterGroups?: pulumi.Input<pulumi.Input<{ filters?: pulumi.Input<pulumi.Input<{ excludeMatchedPattern?: pulumi.Input<boolean>, pattern: pulumi.Input<string>, type: pulumi.Input<string> }>[]> }>[]>;
+    readonly filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[]>;
     /**
      * The name of the build project.
      */

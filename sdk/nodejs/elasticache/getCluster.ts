@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +62,7 @@ export interface GetClusterResult {
      * List of node objects including `id`, `address`, `port` and `availabilityZone`.
      * Referenceable e.g. as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
      */
-    readonly cacheNodes: { address: string, availabilityZone: string, id: string, port: number }[];
+    readonly cacheNodes: outputs.elasticache.GetClusterCacheNode[];
     /**
      * (Memcached only) The DNS name of the cache cluster without the port appended.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 import {Application} from "./application";
@@ -103,7 +105,7 @@ export class Environment extends pulumi.CustomResource {
      * are a combination of default settings and their overrides from `setting` in
      * the configuration.
      */
-    public /*out*/ readonly allSettings!: pulumi.Output<{ name: string, namespace: string, resource?: string, value: string }[]>;
+    public /*out*/ readonly allSettings!: pulumi.Output<outputs.elasticbeanstalk.EnvironmentAllSetting[]>;
     /**
      * Name of the application that contains the version
      * to be deployed
@@ -165,7 +167,7 @@ export class Environment extends pulumi.CustomResource {
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    public readonly settings!: pulumi.Output<{ name: string, namespace: string, resource?: string, value: string }[] | undefined>;
+    public readonly settings!: pulumi.Output<outputs.elasticbeanstalk.EnvironmentSetting[] | undefined>;
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation][1]
@@ -284,7 +286,7 @@ export interface EnvironmentState {
      * are a combination of default settings and their overrides from `setting` in
      * the configuration.
      */
-    readonly allSettings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly allSettings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentAllSetting>[]>;
     /**
      * Name of the application that contains the version
      * to be deployed
@@ -346,7 +348,7 @@ export interface EnvironmentState {
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentSetting>[]>;
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation][1]
@@ -424,7 +426,7 @@ export interface EnvironmentArgs {
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentSetting>[]>;
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation][1]

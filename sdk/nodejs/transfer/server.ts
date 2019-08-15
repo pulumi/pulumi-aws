@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -94,7 +96,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
      */
-    public readonly endpointDetails!: pulumi.Output<{ vpcEndpointId: string } | undefined>;
+    public readonly endpointDetails!: pulumi.Output<outputs.transfer.ServerEndpointDetails | undefined>;
     /**
      * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
      */
@@ -185,7 +187,7 @@ export interface ServerState {
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
      */
-    readonly endpointDetails?: pulumi.Input<{ vpcEndpointId: pulumi.Input<string> }>;
+    readonly endpointDetails?: pulumi.Input<inputs.transfer.ServerEndpointDetails>;
     /**
      * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
      */
@@ -223,7 +225,7 @@ export interface ServerArgs {
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
      */
-    readonly endpointDetails?: pulumi.Input<{ vpcEndpointId: pulumi.Input<string> }>;
+    readonly endpointDetails?: pulumi.Input<inputs.transfer.ServerEndpointDetails>;
     /**
      * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
      */

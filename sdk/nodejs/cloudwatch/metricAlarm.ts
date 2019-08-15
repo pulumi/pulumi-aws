@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 import {Topic} from "../sns/topic";
@@ -198,7 +200,7 @@ export class MetricAlarm extends pulumi.CustomResource {
     /**
      * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
      */
-    public readonly metricQueries!: pulumi.Output<{ expression?: string, id: string, label?: string, metric?: { dimensions?: {[key: string]: any}, metricName: string, namespace?: string, period: number, stat: string, unit?: string }, returnData?: boolean }[] | undefined>;
+    public readonly metricQueries!: pulumi.Output<outputs.cloudwatch.MetricAlarmMetricQuery[] | undefined>;
     /**
      * The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -378,7 +380,7 @@ export interface MetricAlarmState {
     /**
      * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
      */
-    readonly metricQueries?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, id: pulumi.Input<string>, label?: pulumi.Input<string>, metric?: pulumi.Input<{ dimensions?: pulumi.Input<{[key: string]: any}>, metricName: pulumi.Input<string>, namespace?: pulumi.Input<string>, period: pulumi.Input<number>, stat: pulumi.Input<string>, unit?: pulumi.Input<string> }>, returnData?: pulumi.Input<boolean> }>[]>;
+    readonly metricQueries?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricAlarmMetricQuery>[]>;
     /**
      * The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -476,7 +478,7 @@ export interface MetricAlarmArgs {
     /**
      * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
      */
-    readonly metricQueries?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, id: pulumi.Input<string>, label?: pulumi.Input<string>, metric?: pulumi.Input<{ dimensions?: pulumi.Input<{[key: string]: any}>, metricName: pulumi.Input<string>, namespace?: pulumi.Input<string>, period: pulumi.Input<number>, stat: pulumi.Input<string>, unit?: pulumi.Input<string> }>, returnData?: pulumi.Input<boolean> }>[]>;
+    readonly metricQueries?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricAlarmMetricQuery>[]>;
     /**
      * The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).

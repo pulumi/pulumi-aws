@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -181,7 +183,7 @@ export class Trail extends pulumi.CustomResource {
     /**
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
      */
-    public readonly eventSelectors!: pulumi.Output<{ dataResources?: { type: string, values: string[] }[], includeManagementEvents?: boolean, readWriteType?: string }[] | undefined>;
+    public readonly eventSelectors!: pulumi.Output<outputs.cloudtrail.TrailEventSelector[] | undefined>;
     /**
      * The region in which the trail was created.
      */
@@ -319,7 +321,7 @@ export interface TrailState {
     /**
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
      */
-    readonly eventSelectors?: pulumi.Input<pulumi.Input<{ dataResources?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>, includeManagementEvents?: pulumi.Input<boolean>, readWriteType?: pulumi.Input<string> }>[]>;
+    readonly eventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailEventSelector>[]>;
     /**
      * The region in which the trail was created.
      */
@@ -393,7 +395,7 @@ export interface TrailArgs {
     /**
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
      */
-    readonly eventSelectors?: pulumi.Input<pulumi.Input<{ dataResources?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>, includeManagementEvents?: pulumi.Input<boolean>, readWriteType?: pulumi.Input<string> }>[]>;
+    readonly eventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailEventSelector>[]>;
     /**
      * Specifies whether the trail is publishing events
      * from global services such as IAM to the log files. Defaults to `true`.

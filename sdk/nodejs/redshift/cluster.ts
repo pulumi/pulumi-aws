@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -145,7 +147,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Logging, documented below.
      */
-    public readonly logging!: pulumi.Output<{ bucketName: string, enable: boolean, s3KeyPrefix: string } | undefined>;
+    public readonly logging!: pulumi.Output<outputs.redshift.ClusterLogging | undefined>;
     /**
      * Password for the master DB user.
      * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
@@ -193,7 +195,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
      */
-    public readonly snapshotCopy!: pulumi.Output<{ destinationRegion: string, grantName?: string, retentionPeriod?: number } | undefined>;
+    public readonly snapshotCopy!: pulumi.Output<outputs.redshift.ClusterSnapshotCopy | undefined>;
     /**
      * The name of the snapshot from which to create the new cluster.
      */
@@ -405,7 +407,7 @@ export interface ClusterState {
     /**
      * Logging, documented below.
      */
-    readonly logging?: pulumi.Input<{ bucketName?: pulumi.Input<string>, enable: pulumi.Input<boolean>, s3KeyPrefix?: pulumi.Input<string> }>;
+    readonly logging?: pulumi.Input<inputs.redshift.ClusterLogging>;
     /**
      * Password for the master DB user.
      * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
@@ -453,7 +455,7 @@ export interface ClusterState {
     /**
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
      */
-    readonly snapshotCopy?: pulumi.Input<{ destinationRegion: pulumi.Input<string>, grantName?: pulumi.Input<string>, retentionPeriod?: pulumi.Input<number> }>;
+    readonly snapshotCopy?: pulumi.Input<inputs.redshift.ClusterSnapshotCopy>;
     /**
      * The name of the snapshot from which to create the new cluster.
      */
@@ -554,7 +556,7 @@ export interface ClusterArgs {
     /**
      * Logging, documented below.
      */
-    readonly logging?: pulumi.Input<{ bucketName?: pulumi.Input<string>, enable: pulumi.Input<boolean>, s3KeyPrefix?: pulumi.Input<string> }>;
+    readonly logging?: pulumi.Input<inputs.redshift.ClusterLogging>;
     /**
      * Password for the master DB user.
      * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
@@ -602,7 +604,7 @@ export interface ClusterArgs {
     /**
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
      */
-    readonly snapshotCopy?: pulumi.Input<{ destinationRegion: pulumi.Input<string>, grantName?: pulumi.Input<string>, retentionPeriod?: pulumi.Input<number> }>;
+    readonly snapshotCopy?: pulumi.Input<inputs.redshift.ClusterSnapshotCopy>;
     /**
      * The name of the snapshot from which to create the new cluster.
      */

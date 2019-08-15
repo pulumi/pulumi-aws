@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 import {Deployment} from "./deployment";
@@ -110,7 +112,7 @@ export class Stage extends pulumi.CustomResource {
     /**
      * Enables access logs for the API stage. Detailed below.
      */
-    public readonly accessLogSettings!: pulumi.Output<{ destinationArn: string, format: string } | undefined>;
+    public readonly accessLogSettings!: pulumi.Output<outputs.apigateway.StageAccessLogSettings | undefined>;
     /**
      * Specifies whether a cache cluster is enabled for the stage
      */
@@ -238,7 +240,7 @@ export interface StageState {
     /**
      * Enables access logs for the API stage. Detailed below.
      */
-    readonly accessLogSettings?: pulumi.Input<{ destinationArn: pulumi.Input<string>, format: pulumi.Input<string> }>;
+    readonly accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
     /**
      * Specifies whether a cache cluster is enabled for the stage
      */
@@ -304,7 +306,7 @@ export interface StageArgs {
     /**
      * Enables access logs for the API stage. Detailed below.
      */
-    readonly accessLogSettings?: pulumi.Input<{ destinationArn: pulumi.Input<string>, format: pulumi.Input<string> }>;
+    readonly accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
     /**
      * Specifies whether a cache cluster is enabled for the stage
      */

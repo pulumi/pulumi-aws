@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -75,7 +77,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<{ deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.AmiFromInstanceEbsBlockDevice[]>;
     /**
      * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
@@ -84,7 +86,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<{ deviceName: string, virtualName: string }[]>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.AmiFromInstanceEphemeralBlockDevice[]>;
     /**
      * Path to an S3 object containing an image manifest, e.g. created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
@@ -216,7 +218,7 @@ export interface AmiFromInstanceState {
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName?: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEbsBlockDevice>[]>;
     /**
      * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
@@ -225,7 +227,7 @@ export interface AmiFromInstanceState {
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
+    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEphemeralBlockDevice>[]>;
     /**
      * Path to an S3 object containing an image manifest, e.g. created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
@@ -291,12 +293,12 @@ export interface AmiFromInstanceArgs {
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName?: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEbsBlockDevice>[]>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
+    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEphemeralBlockDevice>[]>;
     /**
      * A region-unique name for the AMI.
      */

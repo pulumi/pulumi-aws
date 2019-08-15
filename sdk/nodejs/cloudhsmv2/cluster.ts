@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,7 +91,7 @@ export class Cluster extends pulumi.CustomResource {
      * * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
      * * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
      */
-    public /*out*/ readonly clusterCertificates!: pulumi.Output<{ awsHardwareCertificate: string, clusterCertificate: string, clusterCsr: string, hsmCertificate: string, manufacturerHardwareCertificate: string }>;
+    public /*out*/ readonly clusterCertificates!: pulumi.Output<outputs.cloudhsmv2.ClusterClusterCertificates>;
     /**
      * The id of the CloudHSM cluster.
      */
@@ -185,7 +187,7 @@ export interface ClusterState {
      * * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
      * * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
      */
-    readonly clusterCertificates?: pulumi.Input<{ awsHardwareCertificate?: pulumi.Input<string>, clusterCertificate?: pulumi.Input<string>, clusterCsr?: pulumi.Input<string>, hsmCertificate?: pulumi.Input<string>, manufacturerHardwareCertificate?: pulumi.Input<string> }>;
+    readonly clusterCertificates?: pulumi.Input<inputs.cloudhsmv2.ClusterClusterCertificates>;
     /**
      * The id of the CloudHSM cluster.
      */

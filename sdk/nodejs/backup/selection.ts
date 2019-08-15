@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -125,7 +127,7 @@ export class Selection extends pulumi.CustomResource {
     /**
      * Tag-based conditions used to specify a set of resources to assign to a backup plan.
      */
-    public readonly selectionTags!: pulumi.Output<{ key: string, type: string, value: string }[] | undefined>;
+    public readonly selectionTags!: pulumi.Output<outputs.backup.SelectionSelectionTag[] | undefined>;
 
     /**
      * Create a Selection resource with the given unique name, arguments, and options.
@@ -192,7 +194,7 @@ export interface SelectionState {
     /**
      * Tag-based conditions used to specify a set of resources to assign to a backup plan.
      */
-    readonly selectionTags?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly selectionTags?: pulumi.Input<pulumi.Input<inputs.backup.SelectionSelectionTag>[]>;
 }
 
 /**
@@ -218,5 +220,5 @@ export interface SelectionArgs {
     /**
      * Tag-based conditions used to specify a set of resources to assign to a backup plan.
      */
-    readonly selectionTags?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly selectionTags?: pulumi.Input<pulumi.Input<inputs.backup.SelectionSelectionTag>[]>;
 }

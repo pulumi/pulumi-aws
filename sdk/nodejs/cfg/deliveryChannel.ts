@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -105,7 +107,7 @@ export class DeliveryChannel extends pulumi.CustomResource {
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
-    public readonly snapshotDeliveryProperties!: pulumi.Output<{ deliveryFrequency?: string } | undefined>;
+    public readonly snapshotDeliveryProperties!: pulumi.Output<outputs.cfg.DeliveryChannelSnapshotDeliveryProperties | undefined>;
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      */
@@ -169,7 +171,7 @@ export interface DeliveryChannelState {
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
-    readonly snapshotDeliveryProperties?: pulumi.Input<{ deliveryFrequency?: pulumi.Input<string> }>;
+    readonly snapshotDeliveryProperties?: pulumi.Input<inputs.cfg.DeliveryChannelSnapshotDeliveryProperties>;
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      */
@@ -195,7 +197,7 @@ export interface DeliveryChannelArgs {
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
-    readonly snapshotDeliveryProperties?: pulumi.Input<{ deliveryFrequency?: pulumi.Input<string> }>;
+    readonly snapshotDeliveryProperties?: pulumi.Input<inputs.cfg.DeliveryChannelSnapshotDeliveryProperties>;
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      */

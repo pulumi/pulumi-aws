@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -31,7 +33,7 @@ export interface GetSecretsArgs {
     /**
      * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
      */
-    readonly secrets: { context?: {[key: string]: string}, grantTokens?: string[], name: string, payload: string }[];
+    readonly secrets: inputs.kms.GetSecretsSecret[];
 }
 
 /**
@@ -42,7 +44,7 @@ export interface GetSecretsResult {
      * Map containing each `secret` `name` as the key with its decrypted plaintext value
      */
     readonly plaintext: {[key: string]: string};
-    readonly secrets: { context?: {[key: string]: string}, grantTokens?: string[], name: string, payload: string }[];
+    readonly secrets: outputs.kms.GetSecretsSecret[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

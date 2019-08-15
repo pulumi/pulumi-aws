@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -70,7 +72,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * A list of Neptune parameters to apply.
      */
-    public readonly parameters!: pulumi.Output<{ applyMethod?: string, name: string, value: string }[] | undefined>;
+    public readonly parameters!: pulumi.Output<outputs.neptune.ParameterGroupParameter[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -140,7 +142,7 @@ export interface ParameterGroupState {
     /**
      * A list of Neptune parameters to apply.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<{ applyMethod?: pulumi.Input<string>, name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<inputs.neptune.ParameterGroupParameter>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -166,7 +168,7 @@ export interface ParameterGroupArgs {
     /**
      * A list of Neptune parameters to apply.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<{ applyMethod?: pulumi.Input<string>, name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<inputs.neptune.ParameterGroupParameter>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

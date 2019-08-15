@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +62,7 @@ export class ByteMatchSet extends pulumi.CustomResource {
      * with ASCII characters) that you want to search for in web requests,
      * the location in requests that you want to search, and other settings.
      */
-    public readonly byteMatchTuples!: pulumi.Output<{ fieldToMatch: { data?: string, type: string }, positionalConstraint: string, targetString?: string, textTransformation: string }[] | undefined>;
+    public readonly byteMatchTuples!: pulumi.Output<outputs.waf.ByteMatchSetByteMatchTuple[] | undefined>;
     /**
      * The name or description of the Byte Match Set.
      */
@@ -105,7 +107,7 @@ export interface ByteMatchSetState {
      * with ASCII characters) that you want to search for in web requests,
      * the location in requests that you want to search, and other settings.
      */
-    readonly byteMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, positionalConstraint: pulumi.Input<string>, targetString?: pulumi.Input<string>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.ByteMatchSetByteMatchTuple>[]>;
     /**
      * The name or description of the Byte Match Set.
      */
@@ -121,7 +123,7 @@ export interface ByteMatchSetArgs {
      * with ASCII characters) that you want to search for in web requests,
      * the location in requests that you want to search, and other settings.
      */
-    readonly byteMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, positionalConstraint: pulumi.Input<string>, targetString?: pulumi.Input<string>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.ByteMatchSetByteMatchTuple>[]>;
     /**
      * The name or description of the Byte Match Set.
      */

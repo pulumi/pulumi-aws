@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -110,7 +112,7 @@ export class Cluster extends pulumi.CustomResource {
      * List of node objects including `id`, `address`, `port` and `availabilityZone`.
      * Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
      */
-    public /*out*/ readonly cacheNodes!: pulumi.Output<{ address: string, availabilityZone: string, id: string, port: number }[]>;
+    public /*out*/ readonly cacheNodes!: pulumi.Output<outputs.elasticache.ClusterCacheNode[]>;
     /**
      * (Memcached only) The DNS name of the cache cluster without the port appended.
      */
@@ -319,7 +321,7 @@ export interface ClusterState {
      * List of node objects including `id`, `address`, `port` and `availabilityZone`.
      * Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
      */
-    readonly cacheNodes?: pulumi.Input<pulumi.Input<{ address?: pulumi.Input<string>, availabilityZone?: pulumi.Input<string>, id?: pulumi.Input<string>, port?: pulumi.Input<number> }>[]>;
+    readonly cacheNodes?: pulumi.Input<pulumi.Input<inputs.elasticache.ClusterCacheNode>[]>;
     /**
      * (Memcached only) The DNS name of the cache cluster without the port appended.
      */

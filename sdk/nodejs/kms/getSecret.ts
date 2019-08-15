@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -28,14 +30,14 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getSecret.
  */
 export interface GetSecretArgs {
-    readonly secrets: { context?: {[key: string]: string}, grantTokens?: string[], name: string, payload: string }[];
+    readonly secrets: inputs.kms.GetSecretSecret[];
 }
 
 /**
  * A collection of values returned by getSecret.
  */
 export interface GetSecretResult {
-    readonly secrets: { context?: {[key: string]: string}, grantTokens?: string[], name: string, payload: string }[];
+    readonly secrets: outputs.kms.GetSecretSecret[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
