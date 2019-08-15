@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -590,7 +588,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
      */
-    public readonly bootstrapActions!: pulumi.Output<outputs.emr.ClusterBootstrapAction[] | undefined>;
+    public readonly bootstrapActions!: pulumi.Output<{ args?: string[], name: string, path: string }[] | undefined>;
     public /*out*/ readonly clusterState!: pulumi.Output<string>;
     /**
      * List of configurations supplied for the EMR cluster you are creating
@@ -607,7 +605,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `coreInstanceCount` argument, `coreInstanceType` argument, or `instanceGroup` configuration blocks are set. Detailed below.
      */
-    public readonly coreInstanceGroup!: pulumi.Output<outputs.emr.ClusterCoreInstanceGroup>;
+    public readonly coreInstanceGroup!: pulumi.Output<{ autoscalingPolicy?: string, bidPrice?: string, ebsConfigs: { iops?: number, size: number, type: string, volumesPerInstance?: number }[], id: string, instanceCount?: number, instanceType: string, name?: string }>;
     /**
      * Use the `coreInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set.
      */
@@ -623,11 +621,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Attributes for the EC2 instances running the job flow. Defined below
      */
-    public readonly ec2Attributes!: pulumi.Output<outputs.emr.ClusterEc2Attributes | undefined>;
+    public readonly ec2Attributes!: pulumi.Output<{ additionalMasterSecurityGroups?: string, additionalSlaveSecurityGroups?: string, emrManagedMasterSecurityGroup?: string, emrManagedSlaveSecurityGroup?: string, instanceProfile: string, keyName?: string, serviceAccessSecurityGroup?: string, subnetId?: string } | undefined>;
     /**
      * Use the `masterInstanceGroup` configuration block, `coreInstanceGroup` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instanceGroup` objects for each instance group in the cluster. Exactly one of `masterInstanceType` and `instanceGroup` must be specified. If `instanceGroup` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `masterInstanceGroup` or `coreInstanceGroup` configuration blocks are set. Defined below
      */
-    public readonly instanceGroups!: pulumi.Output<outputs.emr.ClusterInstanceGroup[]>;
+    public readonly instanceGroups!: pulumi.Output<{ autoscalingPolicy?: string, bidPrice?: string, ebsConfigs: { iops?: number, size: number, type: string, volumesPerInstance?: number }[], id: string, instanceCount?: number, instanceRole: string, instanceType: string, name?: string }[]>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
@@ -635,7 +633,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Kerberos configuration for the cluster. Defined below
      */
-    public readonly kerberosAttributes!: pulumi.Output<outputs.emr.ClusterKerberosAttributes | undefined>;
+    public readonly kerberosAttributes!: pulumi.Output<{ adDomainJoinPassword?: string, adDomainJoinUser?: string, crossRealmTrustPrincipalPassword?: string, kdcAdminPassword: string, realm: string } | undefined>;
     /**
      * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
      */
@@ -643,7 +641,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `masterInstanceType` argument or `instanceGroup` configuration blocks are set. Detailed below.
      */
-    public readonly masterInstanceGroup!: pulumi.Output<outputs.emr.ClusterMasterInstanceGroup>;
+    public readonly masterInstanceGroup!: pulumi.Output<{ bidPrice?: string, ebsConfigs: { iops?: number, size: number, type: string, volumesPerInstance?: number }[], id: string, instanceCount?: number, instanceType: string, name?: string }>;
     /**
      * Use the `masterInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the master node. Cannot be specified if `masterInstanceGroup` or `instanceGroup` configuration blocks are set.
      */
@@ -676,7 +674,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
-    public readonly steps!: pulumi.Output<outputs.emr.ClusterStep[]>;
+    public readonly steps!: pulumi.Output<{ actionOnFailure: string, hadoopJarStep: { args?: string[], jar: string, mainClass?: string, properties?: {[key: string]: any} }, name: string }[]>;
     /**
      * list of tags to apply to the EMR Cluster
      */
@@ -799,7 +797,7 @@ export interface ClusterState {
     /**
      * List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
      */
-    readonly bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[]>;
+    readonly bootstrapActions?: pulumi.Input<pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, path: pulumi.Input<string> }>[]>;
     readonly clusterState?: pulumi.Input<string>;
     /**
      * List of configurations supplied for the EMR cluster you are creating
@@ -816,7 +814,7 @@ export interface ClusterState {
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `coreInstanceCount` argument, `coreInstanceType` argument, or `instanceGroup` configuration blocks are set. Detailed below.
      */
-    readonly coreInstanceGroup?: pulumi.Input<inputs.emr.ClusterCoreInstanceGroup>;
+    readonly coreInstanceGroup?: pulumi.Input<{ autoscalingPolicy?: pulumi.Input<string>, bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, id?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>;
     /**
      * Use the `coreInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set.
      */
@@ -832,11 +830,11 @@ export interface ClusterState {
     /**
      * Attributes for the EC2 instances running the job flow. Defined below
      */
-    readonly ec2Attributes?: pulumi.Input<inputs.emr.ClusterEc2Attributes>;
+    readonly ec2Attributes?: pulumi.Input<{ additionalMasterSecurityGroups?: pulumi.Input<string>, additionalSlaveSecurityGroups?: pulumi.Input<string>, emrManagedMasterSecurityGroup?: pulumi.Input<string>, emrManagedSlaveSecurityGroup?: pulumi.Input<string>, instanceProfile: pulumi.Input<string>, keyName?: pulumi.Input<string>, serviceAccessSecurityGroup?: pulumi.Input<string>, subnetId?: pulumi.Input<string> }>;
     /**
      * Use the `masterInstanceGroup` configuration block, `coreInstanceGroup` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instanceGroup` objects for each instance group in the cluster. Exactly one of `masterInstanceType` and `instanceGroup` must be specified. If `instanceGroup` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `masterInstanceGroup` or `coreInstanceGroup` configuration blocks are set. Defined below
      */
-    readonly instanceGroups?: pulumi.Input<pulumi.Input<inputs.emr.ClusterInstanceGroup>[]>;
+    readonly instanceGroups?: pulumi.Input<pulumi.Input<{ autoscalingPolicy?: pulumi.Input<string>, bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, id?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceRole: pulumi.Input<string>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
@@ -844,7 +842,7 @@ export interface ClusterState {
     /**
      * Kerberos configuration for the cluster. Defined below
      */
-    readonly kerberosAttributes?: pulumi.Input<inputs.emr.ClusterKerberosAttributes>;
+    readonly kerberosAttributes?: pulumi.Input<{ adDomainJoinPassword?: pulumi.Input<string>, adDomainJoinUser?: pulumi.Input<string>, crossRealmTrustPrincipalPassword?: pulumi.Input<string>, kdcAdminPassword: pulumi.Input<string>, realm: pulumi.Input<string> }>;
     /**
      * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
      */
@@ -852,7 +850,7 @@ export interface ClusterState {
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `masterInstanceType` argument or `instanceGroup` configuration blocks are set. Detailed below.
      */
-    readonly masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
+    readonly masterInstanceGroup?: pulumi.Input<{ bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, id?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>;
     /**
      * Use the `masterInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the master node. Cannot be specified if `masterInstanceGroup` or `instanceGroup` configuration blocks are set.
      */
@@ -885,7 +883,7 @@ export interface ClusterState {
     /**
      * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
-    readonly steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
+    readonly steps?: pulumi.Input<pulumi.Input<{ actionOnFailure: pulumi.Input<string>, hadoopJarStep: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, jar: pulumi.Input<string>, mainClass?: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: any}> }>, name: pulumi.Input<string> }>[]>;
     /**
      * list of tags to apply to the EMR Cluster
      */
@@ -919,7 +917,7 @@ export interface ClusterArgs {
     /**
      * List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
      */
-    readonly bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[]>;
+    readonly bootstrapActions?: pulumi.Input<pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, path: pulumi.Input<string> }>[]>;
     /**
      * List of configurations supplied for the EMR cluster you are creating
      */
@@ -935,7 +933,7 @@ export interface ClusterArgs {
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `coreInstanceCount` argument, `coreInstanceType` argument, or `instanceGroup` configuration blocks are set. Detailed below.
      */
-    readonly coreInstanceGroup?: pulumi.Input<inputs.emr.ClusterCoreInstanceGroup>;
+    readonly coreInstanceGroup?: pulumi.Input<{ autoscalingPolicy?: pulumi.Input<string>, bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, id?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>;
     /**
      * Use the `coreInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set.
      */
@@ -951,11 +949,11 @@ export interface ClusterArgs {
     /**
      * Attributes for the EC2 instances running the job flow. Defined below
      */
-    readonly ec2Attributes?: pulumi.Input<inputs.emr.ClusterEc2Attributes>;
+    readonly ec2Attributes?: pulumi.Input<{ additionalMasterSecurityGroups?: pulumi.Input<string>, additionalSlaveSecurityGroups?: pulumi.Input<string>, emrManagedMasterSecurityGroup?: pulumi.Input<string>, emrManagedSlaveSecurityGroup?: pulumi.Input<string>, instanceProfile: pulumi.Input<string>, keyName?: pulumi.Input<string>, serviceAccessSecurityGroup?: pulumi.Input<string>, subnetId?: pulumi.Input<string> }>;
     /**
      * Use the `masterInstanceGroup` configuration block, `coreInstanceGroup` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instanceGroup` objects for each instance group in the cluster. Exactly one of `masterInstanceType` and `instanceGroup` must be specified. If `instanceGroup` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `masterInstanceGroup` or `coreInstanceGroup` configuration blocks are set. Defined below
      */
-    readonly instanceGroups?: pulumi.Input<pulumi.Input<inputs.emr.ClusterInstanceGroup>[]>;
+    readonly instanceGroups?: pulumi.Input<pulumi.Input<{ autoscalingPolicy?: pulumi.Input<string>, bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, id?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceRole: pulumi.Input<string>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
@@ -963,7 +961,7 @@ export interface ClusterArgs {
     /**
      * Kerberos configuration for the cluster. Defined below
      */
-    readonly kerberosAttributes?: pulumi.Input<inputs.emr.ClusterKerberosAttributes>;
+    readonly kerberosAttributes?: pulumi.Input<{ adDomainJoinPassword?: pulumi.Input<string>, adDomainJoinUser?: pulumi.Input<string>, crossRealmTrustPrincipalPassword?: pulumi.Input<string>, kdcAdminPassword: pulumi.Input<string>, realm: pulumi.Input<string> }>;
     /**
      * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
      */
@@ -971,7 +969,7 @@ export interface ClusterArgs {
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `masterInstanceType` argument or `instanceGroup` configuration blocks are set. Detailed below.
      */
-    readonly masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
+    readonly masterInstanceGroup?: pulumi.Input<{ bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, id?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>;
     /**
      * Use the `masterInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the master node. Cannot be specified if `masterInstanceGroup` or `instanceGroup` configuration blocks are set.
      */
@@ -999,7 +997,7 @@ export interface ClusterArgs {
     /**
      * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
-    readonly steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
+    readonly steps?: pulumi.Input<pulumi.Input<{ actionOnFailure: pulumi.Input<string>, hadoopJarStep: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, jar: pulumi.Input<string>, mainClass?: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: any}> }>, name: pulumi.Input<string> }>[]>;
     /**
      * list of tags to apply to the EMR Cluster
      */

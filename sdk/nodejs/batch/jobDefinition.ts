@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -114,7 +112,7 @@ export class JobDefinition extends pulumi.CustomResource {
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
      * Maximum number of `retryStrategy` is `1`.  Defined below.
      */
-    public readonly retryStrategy!: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
+    public readonly retryStrategy!: pulumi.Output<{ attempts?: number } | undefined>;
     /**
      * The revision of the job definition.
      */
@@ -122,7 +120,7 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
-    public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
+    public readonly timeout!: pulumi.Output<{ attemptDurationSeconds?: number } | undefined>;
     /**
      * The type of job definition.  Must be `container`
      */
@@ -198,7 +196,7 @@ export interface JobDefinitionState {
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
      * Maximum number of `retryStrategy` is `1`.  Defined below.
      */
-    readonly retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
+    readonly retryStrategy?: pulumi.Input<{ attempts?: pulumi.Input<number> }>;
     /**
      * The revision of the job definition.
      */
@@ -206,7 +204,7 @@ export interface JobDefinitionState {
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
-    readonly timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
+    readonly timeout?: pulumi.Input<{ attemptDurationSeconds?: pulumi.Input<number> }>;
     /**
      * The type of job definition.  Must be `container`
      */
@@ -234,11 +232,11 @@ export interface JobDefinitionArgs {
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
      * Maximum number of `retryStrategy` is `1`.  Defined below.
      */
-    readonly retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
+    readonly retryStrategy?: pulumi.Input<{ attempts?: pulumi.Input<number> }>;
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
-    readonly timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
+    readonly timeout?: pulumi.Input<{ attemptDurationSeconds?: pulumi.Input<number> }>;
     /**
      * The type of job definition.  Must be `container`
      */

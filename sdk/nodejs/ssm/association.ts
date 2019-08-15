@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -84,7 +82,7 @@ export class Association extends pulumi.CustomResource {
     /**
      * An output location block. Output Location is documented below.
      */
-    public readonly outputLocation!: pulumi.Output<outputs.ssm.AssociationOutputLocation | undefined>;
+    public readonly outputLocation!: pulumi.Output<{ s3BucketName: string, s3KeyPrefix?: string } | undefined>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
@@ -96,7 +94,7 @@ export class Association extends pulumi.CustomResource {
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    public readonly targets!: pulumi.Output<outputs.ssm.AssociationTarget[]>;
+    public readonly targets!: pulumi.Output<{ key: string, values: string[] }[]>;
 
     /**
      * Create a Association resource with the given unique name, arguments, and options.
@@ -184,7 +182,7 @@ export interface AssociationState {
     /**
      * An output location block. Output Location is documented below.
      */
-    readonly outputLocation?: pulumi.Input<inputs.ssm.AssociationOutputLocation>;
+    readonly outputLocation?: pulumi.Input<{ s3BucketName: pulumi.Input<string>, s3KeyPrefix?: pulumi.Input<string> }>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
@@ -196,7 +194,7 @@ export interface AssociationState {
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    readonly targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
+    readonly targets?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
 }
 
 /**
@@ -234,7 +232,7 @@ export interface AssociationArgs {
     /**
      * An output location block. Output Location is documented below.
      */
-    readonly outputLocation?: pulumi.Input<inputs.ssm.AssociationOutputLocation>;
+    readonly outputLocation?: pulumi.Input<{ s3BucketName: pulumi.Input<string>, s3KeyPrefix?: pulumi.Input<string> }>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
@@ -246,5 +244,5 @@ export interface AssociationArgs {
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    readonly targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
+    readonly targets?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
 }

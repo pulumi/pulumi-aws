@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -15,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.acmpca.getCertificateAuthority({
+ * const example = pulumi.output(aws.acmpca.getCertificateAuthority({
  *     arn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
- * });
+ * }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
@@ -47,7 +45,7 @@ export interface GetCertificateAuthorityArgs {
      * Amazon Resource Name (ARN) of the certificate authority.
      */
     readonly arn: string;
-    readonly revocationConfigurations?: inputs.acmpca.GetCertificateAuthorityRevocationConfiguration[];
+    readonly revocationConfigurations?: { crlConfigurations?: { customCname?: string, enabled?: boolean, expirationInDays?: number, s3BucketName?: string }[] }[];
     readonly tags?: {[key: string]: any};
 }
 
@@ -84,7 +82,7 @@ export interface GetCertificateAuthorityResult {
      * * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
      * * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
      */
-    readonly revocationConfigurations: outputs.acmpca.GetCertificateAuthorityRevocationConfiguration[];
+    readonly revocationConfigurations: { crlConfigurations: { customCname: string, enabled: boolean, expirationInDays: number, s3BucketName: string }[] }[];
     /**
      * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      */

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +84,7 @@ export class Alias extends pulumi.CustomResource {
     /**
      * The Lambda alias' route configuration settings. Fields documented below
      */
-    public readonly routingConfig!: pulumi.Output<outputs.lambda.AliasRoutingConfig | undefined>;
+    public readonly routingConfig!: pulumi.Output<{ additionalVersionWeights?: {[key: string]: number} } | undefined>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -165,7 +163,7 @@ export interface AliasState {
     /**
      * The Lambda alias' route configuration settings. Fields documented below
      */
-    readonly routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig>;
+    readonly routingConfig?: pulumi.Input<{ additionalVersionWeights?: pulumi.Input<{[key: string]: pulumi.Input<number>}> }>;
 }
 
 /**
@@ -191,5 +189,5 @@ export interface AliasArgs {
     /**
      * The Lambda alias' route configuration settings. Fields documented below
      */
-    readonly routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig>;
+    readonly routingConfig?: pulumi.Input<{ additionalVersionWeights?: pulumi.Input<{[key: string]: pulumi.Input<number>}> }>;
 }

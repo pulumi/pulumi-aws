@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -17,9 +15,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byAllocationId = aws.getElasticIp({
+ * const byAllocationId = pulumi.output(aws.getElasticIp({
  *     id: "eipalloc-12345678",
- * });
+ * }));
  * ```
  * 
  * ### Search By Filters (EC2-Classic or VPC)
@@ -28,12 +26,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byFilter = aws.getElasticIp({
+ * const byFilter = pulumi.output(aws.getElasticIp({
  *     filters: [{
  *         name: "tag:Name",
  *         values: ["exampleNameTagValue"],
  *     }],
- * });
+ * }));
  * ```
  * 
  * ### Search By Public IP (EC2-Classic or VPC)
@@ -42,9 +40,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byPublicIp = aws.getElasticIp({
+ * const byPublicIp = pulumi.output(aws.getElasticIp({
  *     publicIp: "1.2.3.4",
- * });
+ * }));
  * ```
  * 
  * ### Search By Tags (EC2-Classic or VPC)
@@ -53,11 +51,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byTags = aws.getElasticIp({
+ * const byTags = pulumi.output(aws.getElasticIp({
  *     tags: {
  *         Name: "exampleNameTagValue",
  *     },
- * });
+ * }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.
@@ -88,7 +86,7 @@ export interface GetElasticIpArgs {
     /**
      * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
      */
-    readonly filters?: inputs.GetElasticIpFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
      */
@@ -115,7 +113,7 @@ export interface GetElasticIpResult {
      * Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
      */
     readonly domain: string;
-    readonly filters?: outputs.GetElasticIpFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
      */

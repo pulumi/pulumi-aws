@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -17,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const foo = aws.ssm.getDocument({
+ * const foo = pulumi.output(aws.ssm.getDocument({
  *     documentFormat: "YAML",
  *     name: "AWS-GatherSoftwareInventory",
- * });
+ * }));
  * 
  * export const content = foo.content;
  * ```

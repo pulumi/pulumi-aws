@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +64,7 @@ export class Workgroup extends pulumi.CustomResource {
     /**
      * Configuration block with various settings for the workgroup. Documented below.
      */
-    public readonly configuration!: pulumi.Output<outputs.athena.WorkgroupConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<{ bytesScannedCutoffPerQuery?: number, enforceWorkgroupConfiguration?: boolean, publishCloudwatchMetricsEnabled?: boolean, resultConfiguration?: { encryptionConfiguration?: { encryptionOption?: string, kmsKeyArn?: string }, outputLocation?: string } } | undefined>;
     /**
      * Description of the workgroup.
      */
@@ -133,7 +131,7 @@ export interface WorkgroupState {
     /**
      * Configuration block with various settings for the workgroup. Documented below.
      */
-    readonly configuration?: pulumi.Input<inputs.athena.WorkgroupConfiguration>;
+    readonly configuration?: pulumi.Input<{ bytesScannedCutoffPerQuery?: pulumi.Input<number>, enforceWorkgroupConfiguration?: pulumi.Input<boolean>, publishCloudwatchMetricsEnabled?: pulumi.Input<boolean>, resultConfiguration?: pulumi.Input<{ encryptionConfiguration?: pulumi.Input<{ encryptionOption?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string> }>, outputLocation?: pulumi.Input<string> }> }>;
     /**
      * Description of the workgroup.
      */
@@ -159,7 +157,7 @@ export interface WorkgroupArgs {
     /**
      * Configuration block with various settings for the workgroup. Documented below.
      */
-    readonly configuration?: pulumi.Input<inputs.athena.WorkgroupConfiguration>;
+    readonly configuration?: pulumi.Input<{ bytesScannedCutoffPerQuery?: pulumi.Input<number>, enforceWorkgroupConfiguration?: pulumi.Input<boolean>, publishCloudwatchMetricsEnabled?: pulumi.Input<boolean>, resultConfiguration?: pulumi.Input<{ encryptionConfiguration?: pulumi.Input<{ encryptionOption?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string> }>, outputLocation?: pulumi.Input<string> }> }>;
     /**
      * Description of the workgroup.
      */

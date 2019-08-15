@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -52,7 +50,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * The configuration for AdminCreateUser requests.
      */
-    public readonly adminCreateUserConfig!: pulumi.Output<outputs.cognito.UserPoolAdminCreateUserConfig>;
+    public readonly adminCreateUserConfig!: pulumi.Output<{ allowAdminCreateUserOnly?: boolean, inviteMessageTemplate?: { emailMessage?: string, emailSubject?: string, smsMessage?: string }, unusedAccountValidityDays?: number }>;
     /**
      * Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
      */
@@ -72,11 +70,11 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * The configuration for the user pool's device tracking.
      */
-    public readonly deviceConfiguration!: pulumi.Output<outputs.cognito.UserPoolDeviceConfiguration | undefined>;
+    public readonly deviceConfiguration!: pulumi.Output<{ challengeRequiredOnNewDevice?: boolean, deviceOnlyRememberedOnUserPrompt?: boolean } | undefined>;
     /**
      * The Email Configuration.
      */
-    public readonly emailConfiguration!: pulumi.Output<outputs.cognito.UserPoolEmailConfiguration | undefined>;
+    public readonly emailConfiguration!: pulumi.Output<{ emailSendingAccount?: string, replyToEmailAddress?: string, sourceArn?: string } | undefined>;
     /**
      * A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      */
@@ -92,7 +90,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * A container for the AWS Lambda triggers associated with the user pool.
      */
-    public readonly lambdaConfig!: pulumi.Output<outputs.cognito.UserPoolLambdaConfig>;
+    public readonly lambdaConfig!: pulumi.Output<{ createAuthChallenge?: string, customMessage?: string, defineAuthChallenge?: string, postAuthentication?: string, postConfirmation?: string, preAuthentication?: string, preSignUp?: string, preTokenGeneration?: string, userMigration?: string, verifyAuthChallengeResponse?: string }>;
     /**
      * The date the user pool was last modified.
      */
@@ -108,11 +106,11 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * A container for information about the user pool password policy.
      */
-    public readonly passwordPolicy!: pulumi.Output<outputs.cognito.UserPoolPasswordPolicy>;
+    public readonly passwordPolicy!: pulumi.Output<{ minimumLength?: number, requireLowercase?: boolean, requireNumbers?: boolean, requireSymbols?: boolean, requireUppercase?: boolean }>;
     /**
      * A container with the schema attributes of a user pool. Maximum of 50 attributes.
      */
-    public readonly schemas!: pulumi.Output<outputs.cognito.UserPoolSchema[] | undefined>;
+    public readonly schemas!: pulumi.Output<{ attributeDataType: string, developerOnlyAttribute?: boolean, mutable?: boolean, name: string, numberAttributeConstraints?: { maxValue?: string, minValue?: string }, required?: boolean, stringAttributeConstraints?: { maxLength?: string, minLength?: string } }[] | undefined>;
     /**
      * A string representing the SMS authentication message.
      */
@@ -120,7 +118,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * The SMS Configuration.
      */
-    public readonly smsConfiguration!: pulumi.Output<outputs.cognito.UserPoolSmsConfiguration | undefined>;
+    public readonly smsConfiguration!: pulumi.Output<{ externalId: string, snsCallerArn: string } | undefined>;
     /**
      * A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      */
@@ -132,7 +130,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features.
      */
-    public readonly userPoolAddOns!: pulumi.Output<outputs.cognito.UserPoolUserPoolAddOns | undefined>;
+    public readonly userPoolAddOns!: pulumi.Output<{ advancedSecurityMode: string } | undefined>;
     /**
      * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      */
@@ -140,7 +138,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * The verification message templates configuration.
      */
-    public readonly verificationMessageTemplate!: pulumi.Output<outputs.cognito.UserPoolVerificationMessageTemplate>;
+    public readonly verificationMessageTemplate!: pulumi.Output<{ defaultEmailOption?: string, emailMessage: string, emailMessageByLink: string, emailSubject: string, emailSubjectByLink: string, smsMessage: string }>;
 
     /**
      * Create a UserPool resource with the given unique name, arguments, and options.
@@ -221,7 +219,7 @@ export interface UserPoolState {
     /**
      * The configuration for AdminCreateUser requests.
      */
-    readonly adminCreateUserConfig?: pulumi.Input<inputs.cognito.UserPoolAdminCreateUserConfig>;
+    readonly adminCreateUserConfig?: pulumi.Input<{ allowAdminCreateUserOnly?: pulumi.Input<boolean>, inviteMessageTemplate?: pulumi.Input<{ emailMessage?: pulumi.Input<string>, emailSubject?: pulumi.Input<string>, smsMessage?: pulumi.Input<string> }>, unusedAccountValidityDays?: pulumi.Input<number> }>;
     /**
      * Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
      */
@@ -241,11 +239,11 @@ export interface UserPoolState {
     /**
      * The configuration for the user pool's device tracking.
      */
-    readonly deviceConfiguration?: pulumi.Input<inputs.cognito.UserPoolDeviceConfiguration>;
+    readonly deviceConfiguration?: pulumi.Input<{ challengeRequiredOnNewDevice?: pulumi.Input<boolean>, deviceOnlyRememberedOnUserPrompt?: pulumi.Input<boolean> }>;
     /**
      * The Email Configuration.
      */
-    readonly emailConfiguration?: pulumi.Input<inputs.cognito.UserPoolEmailConfiguration>;
+    readonly emailConfiguration?: pulumi.Input<{ emailSendingAccount?: pulumi.Input<string>, replyToEmailAddress?: pulumi.Input<string>, sourceArn?: pulumi.Input<string> }>;
     /**
      * A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      */
@@ -261,7 +259,7 @@ export interface UserPoolState {
     /**
      * A container for the AWS Lambda triggers associated with the user pool.
      */
-    readonly lambdaConfig?: pulumi.Input<inputs.cognito.UserPoolLambdaConfig>;
+    readonly lambdaConfig?: pulumi.Input<{ createAuthChallenge?: pulumi.Input<string>, customMessage?: pulumi.Input<string>, defineAuthChallenge?: pulumi.Input<string>, postAuthentication?: pulumi.Input<string>, postConfirmation?: pulumi.Input<string>, preAuthentication?: pulumi.Input<string>, preSignUp?: pulumi.Input<string>, preTokenGeneration?: pulumi.Input<string>, userMigration?: pulumi.Input<string>, verifyAuthChallengeResponse?: pulumi.Input<string> }>;
     /**
      * The date the user pool was last modified.
      */
@@ -277,11 +275,11 @@ export interface UserPoolState {
     /**
      * A container for information about the user pool password policy.
      */
-    readonly passwordPolicy?: pulumi.Input<inputs.cognito.UserPoolPasswordPolicy>;
+    readonly passwordPolicy?: pulumi.Input<{ minimumLength?: pulumi.Input<number>, requireLowercase?: pulumi.Input<boolean>, requireNumbers?: pulumi.Input<boolean>, requireSymbols?: pulumi.Input<boolean>, requireUppercase?: pulumi.Input<boolean> }>;
     /**
      * A container with the schema attributes of a user pool. Maximum of 50 attributes.
      */
-    readonly schemas?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolSchema>[]>;
+    readonly schemas?: pulumi.Input<pulumi.Input<{ attributeDataType: pulumi.Input<string>, developerOnlyAttribute?: pulumi.Input<boolean>, mutable?: pulumi.Input<boolean>, name: pulumi.Input<string>, numberAttributeConstraints?: pulumi.Input<{ maxValue?: pulumi.Input<string>, minValue?: pulumi.Input<string> }>, required?: pulumi.Input<boolean>, stringAttributeConstraints?: pulumi.Input<{ maxLength?: pulumi.Input<string>, minLength?: pulumi.Input<string> }> }>[]>;
     /**
      * A string representing the SMS authentication message.
      */
@@ -289,7 +287,7 @@ export interface UserPoolState {
     /**
      * The SMS Configuration.
      */
-    readonly smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolSmsConfiguration>;
+    readonly smsConfiguration?: pulumi.Input<{ externalId: pulumi.Input<string>, snsCallerArn: pulumi.Input<string> }>;
     /**
      * A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      */
@@ -301,7 +299,7 @@ export interface UserPoolState {
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features.
      */
-    readonly userPoolAddOns?: pulumi.Input<inputs.cognito.UserPoolUserPoolAddOns>;
+    readonly userPoolAddOns?: pulumi.Input<{ advancedSecurityMode: pulumi.Input<string> }>;
     /**
      * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      */
@@ -309,7 +307,7 @@ export interface UserPoolState {
     /**
      * The verification message templates configuration.
      */
-    readonly verificationMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolVerificationMessageTemplate>;
+    readonly verificationMessageTemplate?: pulumi.Input<{ defaultEmailOption?: pulumi.Input<string>, emailMessage?: pulumi.Input<string>, emailMessageByLink?: pulumi.Input<string>, emailSubject?: pulumi.Input<string>, emailSubjectByLink?: pulumi.Input<string>, smsMessage?: pulumi.Input<string> }>;
 }
 
 /**
@@ -319,7 +317,7 @@ export interface UserPoolArgs {
     /**
      * The configuration for AdminCreateUser requests.
      */
-    readonly adminCreateUserConfig?: pulumi.Input<inputs.cognito.UserPoolAdminCreateUserConfig>;
+    readonly adminCreateUserConfig?: pulumi.Input<{ allowAdminCreateUserOnly?: pulumi.Input<boolean>, inviteMessageTemplate?: pulumi.Input<{ emailMessage?: pulumi.Input<string>, emailSubject?: pulumi.Input<string>, smsMessage?: pulumi.Input<string> }>, unusedAccountValidityDays?: pulumi.Input<number> }>;
     /**
      * Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
      */
@@ -331,11 +329,11 @@ export interface UserPoolArgs {
     /**
      * The configuration for the user pool's device tracking.
      */
-    readonly deviceConfiguration?: pulumi.Input<inputs.cognito.UserPoolDeviceConfiguration>;
+    readonly deviceConfiguration?: pulumi.Input<{ challengeRequiredOnNewDevice?: pulumi.Input<boolean>, deviceOnlyRememberedOnUserPrompt?: pulumi.Input<boolean> }>;
     /**
      * The Email Configuration.
      */
-    readonly emailConfiguration?: pulumi.Input<inputs.cognito.UserPoolEmailConfiguration>;
+    readonly emailConfiguration?: pulumi.Input<{ emailSendingAccount?: pulumi.Input<string>, replyToEmailAddress?: pulumi.Input<string>, sourceArn?: pulumi.Input<string> }>;
     /**
      * A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      */
@@ -347,7 +345,7 @@ export interface UserPoolArgs {
     /**
      * A container for the AWS Lambda triggers associated with the user pool.
      */
-    readonly lambdaConfig?: pulumi.Input<inputs.cognito.UserPoolLambdaConfig>;
+    readonly lambdaConfig?: pulumi.Input<{ createAuthChallenge?: pulumi.Input<string>, customMessage?: pulumi.Input<string>, defineAuthChallenge?: pulumi.Input<string>, postAuthentication?: pulumi.Input<string>, postConfirmation?: pulumi.Input<string>, preAuthentication?: pulumi.Input<string>, preSignUp?: pulumi.Input<string>, preTokenGeneration?: pulumi.Input<string>, userMigration?: pulumi.Input<string>, verifyAuthChallengeResponse?: pulumi.Input<string> }>;
     /**
      * Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
      */
@@ -359,11 +357,11 @@ export interface UserPoolArgs {
     /**
      * A container for information about the user pool password policy.
      */
-    readonly passwordPolicy?: pulumi.Input<inputs.cognito.UserPoolPasswordPolicy>;
+    readonly passwordPolicy?: pulumi.Input<{ minimumLength?: pulumi.Input<number>, requireLowercase?: pulumi.Input<boolean>, requireNumbers?: pulumi.Input<boolean>, requireSymbols?: pulumi.Input<boolean>, requireUppercase?: pulumi.Input<boolean> }>;
     /**
      * A container with the schema attributes of a user pool. Maximum of 50 attributes.
      */
-    readonly schemas?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolSchema>[]>;
+    readonly schemas?: pulumi.Input<pulumi.Input<{ attributeDataType: pulumi.Input<string>, developerOnlyAttribute?: pulumi.Input<boolean>, mutable?: pulumi.Input<boolean>, name: pulumi.Input<string>, numberAttributeConstraints?: pulumi.Input<{ maxValue?: pulumi.Input<string>, minValue?: pulumi.Input<string> }>, required?: pulumi.Input<boolean>, stringAttributeConstraints?: pulumi.Input<{ maxLength?: pulumi.Input<string>, minLength?: pulumi.Input<string> }> }>[]>;
     /**
      * A string representing the SMS authentication message.
      */
@@ -371,7 +369,7 @@ export interface UserPoolArgs {
     /**
      * The SMS Configuration.
      */
-    readonly smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolSmsConfiguration>;
+    readonly smsConfiguration?: pulumi.Input<{ externalId: pulumi.Input<string>, snsCallerArn: pulumi.Input<string> }>;
     /**
      * A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      */
@@ -383,7 +381,7 @@ export interface UserPoolArgs {
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features.
      */
-    readonly userPoolAddOns?: pulumi.Input<inputs.cognito.UserPoolUserPoolAddOns>;
+    readonly userPoolAddOns?: pulumi.Input<{ advancedSecurityMode: pulumi.Input<string> }>;
     /**
      * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      */
@@ -391,5 +389,5 @@ export interface UserPoolArgs {
     /**
      * The verification message templates configuration.
      */
-    readonly verificationMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolVerificationMessageTemplate>;
+    readonly verificationMessageTemplate?: pulumi.Input<{ defaultEmailOption?: pulumi.Input<string>, emailMessage?: pulumi.Input<string>, emailMessageByLink?: pulumi.Input<string>, emailSubject?: pulumi.Input<string>, emailSubjectByLink?: pulumi.Input<string>, smsMessage?: pulumi.Input<string> }>;
 }

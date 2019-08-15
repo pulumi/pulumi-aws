@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -107,7 +105,7 @@ export class Budget extends pulumi.CustomResource {
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
      */
-    public readonly costTypes!: pulumi.Output<outputs.budgets.BudgetCostTypes>;
+    public readonly costTypes!: pulumi.Output<{ includeCredit?: boolean, includeDiscount?: boolean, includeOtherSubscription?: boolean, includeRecurring?: boolean, includeRefund?: boolean, includeSubscription?: boolean, includeSupport?: boolean, includeTax?: boolean, includeUpfront?: boolean, useAmortized?: boolean, useBlended?: boolean }>;
     /**
      * The amount of cost or usage being measured for a budget.
      */
@@ -127,7 +125,7 @@ export class Budget extends pulumi.CustomResource {
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
      */
-    public readonly notifications!: pulumi.Output<outputs.budgets.BudgetNotification[] | undefined>;
+    public readonly notifications!: pulumi.Output<{ comparisonOperator: string, notificationType: string, subscriberEmailAddresses?: string[], subscriberSnsTopicArns?: string[], threshold: number, thresholdType: string }[] | undefined>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
@@ -225,7 +223,7 @@ export interface BudgetState {
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
      */
-    readonly costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
+    readonly costTypes?: pulumi.Input<{ includeCredit?: pulumi.Input<boolean>, includeDiscount?: pulumi.Input<boolean>, includeOtherSubscription?: pulumi.Input<boolean>, includeRecurring?: pulumi.Input<boolean>, includeRefund?: pulumi.Input<boolean>, includeSubscription?: pulumi.Input<boolean>, includeSupport?: pulumi.Input<boolean>, includeTax?: pulumi.Input<boolean>, includeUpfront?: pulumi.Input<boolean>, useAmortized?: pulumi.Input<boolean>, useBlended?: pulumi.Input<boolean> }>;
     /**
      * The amount of cost or usage being measured for a budget.
      */
@@ -245,7 +243,7 @@ export interface BudgetState {
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetNotification>[]>;
+    readonly notifications?: pulumi.Input<pulumi.Input<{ comparisonOperator: pulumi.Input<string>, notificationType: pulumi.Input<string>, subscriberEmailAddresses?: pulumi.Input<pulumi.Input<string>[]>, subscriberSnsTopicArns?: pulumi.Input<pulumi.Input<string>[]>, threshold: pulumi.Input<number>, thresholdType: pulumi.Input<string> }>[]>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
@@ -279,7 +277,7 @@ export interface BudgetArgs {
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
      */
-    readonly costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
+    readonly costTypes?: pulumi.Input<{ includeCredit?: pulumi.Input<boolean>, includeDiscount?: pulumi.Input<boolean>, includeOtherSubscription?: pulumi.Input<boolean>, includeRecurring?: pulumi.Input<boolean>, includeRefund?: pulumi.Input<boolean>, includeSubscription?: pulumi.Input<boolean>, includeSupport?: pulumi.Input<boolean>, includeTax?: pulumi.Input<boolean>, includeUpfront?: pulumi.Input<boolean>, useAmortized?: pulumi.Input<boolean>, useBlended?: pulumi.Input<boolean> }>;
     /**
      * The amount of cost or usage being measured for a budget.
      */
@@ -299,7 +297,7 @@ export interface BudgetArgs {
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetNotification>[]>;
+    readonly notifications?: pulumi.Input<pulumi.Input<{ comparisonOperator: pulumi.Input<string>, notificationType: pulumi.Input<string>, subscriberEmailAddresses?: pulumi.Input<pulumi.Input<string>[]>, subscriberSnsTopicArns?: pulumi.Input<pulumi.Input<string>[]>, threshold: pulumi.Input<number>, thresholdType: pulumi.Input<string> }>[]>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */

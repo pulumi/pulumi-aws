@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -127,11 +125,11 @@ export class DeploymentConfig extends pulumi.CustomResource {
     /**
      * A minimumHealthyHosts block. Minimum Healthy Hosts are documented below.
      */
-    public readonly minimumHealthyHosts!: pulumi.Output<outputs.codedeploy.DeploymentConfigMinimumHealthyHosts | undefined>;
+    public readonly minimumHealthyHosts!: pulumi.Output<{ type?: string, value?: number } | undefined>;
     /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
-    public readonly trafficRoutingConfig!: pulumi.Output<outputs.codedeploy.DeploymentConfigTrafficRoutingConfig | undefined>;
+    public readonly trafficRoutingConfig!: pulumi.Output<{ timeBasedCanary?: { interval?: number, percentage?: number }, timeBasedLinear?: { interval?: number, percentage?: number }, type?: string } | undefined>;
 
     /**
      * Create a DeploymentConfig resource with the given unique name, arguments, and options.
@@ -191,11 +189,11 @@ export interface DeploymentConfigState {
     /**
      * A minimumHealthyHosts block. Minimum Healthy Hosts are documented below.
      */
-    readonly minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
+    readonly minimumHealthyHosts?: pulumi.Input<{ type?: pulumi.Input<string>, value?: pulumi.Input<number> }>;
     /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
-    readonly trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
+    readonly trafficRoutingConfig?: pulumi.Input<{ timeBasedCanary?: pulumi.Input<{ interval?: pulumi.Input<number>, percentage?: pulumi.Input<number> }>, timeBasedLinear?: pulumi.Input<{ interval?: pulumi.Input<number>, percentage?: pulumi.Input<number> }>, type?: pulumi.Input<string> }>;
 }
 
 /**
@@ -213,9 +211,9 @@ export interface DeploymentConfigArgs {
     /**
      * A minimumHealthyHosts block. Minimum Healthy Hosts are documented below.
      */
-    readonly minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
+    readonly minimumHealthyHosts?: pulumi.Input<{ type?: pulumi.Input<string>, value?: pulumi.Input<number> }>;
     /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
-    readonly trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
+    readonly trafficRoutingConfig?: pulumi.Input<{ timeBasedCanary?: pulumi.Input<{ interval?: pulumi.Input<number>, percentage?: pulumi.Input<number> }>, timeBasedLinear?: pulumi.Input<{ interval?: pulumi.Input<number>, percentage?: pulumi.Input<number> }>, type?: pulumi.Input<string> }>;
 }

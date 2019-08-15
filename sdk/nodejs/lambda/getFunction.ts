@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -18,9 +16,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const functionName = config.require("functionName");
  * 
- * const existing = aws.lambda.getFunction({
+ * const existing = pulumi.output(aws.lambda.getFunction({
  *     functionName: functionName,
- * });
+ * }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
@@ -68,7 +66,7 @@ export interface GetFunctionResult {
     /**
      * Configure the function's *dead letter queue*.
      */
-    readonly deadLetterConfig: outputs.lambda.GetFunctionDeadLetterConfig;
+    readonly deadLetterConfig: { targetArn: string };
     /**
      * Description of what your Lambda Function does.
      */
@@ -76,7 +74,7 @@ export interface GetFunctionResult {
     /**
      * The Lambda environment's configuration settings.
      */
-    readonly environment: outputs.lambda.GetFunctionEnvironment;
+    readonly environment: { variables: {[key: string]: string} };
     readonly functionName: string;
     /**
      * The function entrypoint in your code.
@@ -135,7 +133,7 @@ export interface GetFunctionResult {
     /**
      * Tracing settings of the function.
      */
-    readonly tracingConfig: outputs.lambda.GetFunctionTracingConfig;
+    readonly tracingConfig: { mode: string };
     /**
      * The version of the Lambda function.
      */
@@ -143,7 +141,7 @@ export interface GetFunctionResult {
     /**
      * VPC configuration associated with your Lambda function.
      */
-    readonly vpcConfig: outputs.lambda.GetFunctionVpcConfig;
+    readonly vpcConfig: { securityGroupIds: string[], subnetIds: string[], vpcId: string };
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

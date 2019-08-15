@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -108,11 +106,11 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`.
      */
-    public readonly placementConstraints!: pulumi.Output<outputs.ecs.TaskDefinitionPlacementConstraint[] | undefined>;
+    public readonly placementConstraints!: pulumi.Output<{ expression?: string, type: string }[] | undefined>;
     /**
      * The proxy configuration details for the App Mesh proxy.
      */
-    public readonly proxyConfiguration!: pulumi.Output<outputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
+    public readonly proxyConfiguration!: pulumi.Output<{ containerName: string, properties?: {[key: string]: string}, type?: string } | undefined>;
     /**
      * A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
@@ -132,7 +130,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * A set of volume blocks that containers in your task may use.
      */
-    public readonly volumes!: pulumi.Output<outputs.ecs.TaskDefinitionVolume[] | undefined>;
+    public readonly volumes!: pulumi.Output<{ dockerVolumeConfiguration?: { autoprovision?: boolean, driver?: string, driverOpts?: {[key: string]: string}, labels?: {[key: string]: string}, scope: string }, hostPath?: string, name: string }[] | undefined>;
 
     /**
      * Create a TaskDefinition resource with the given unique name, arguments, and options.
@@ -246,11 +244,11 @@ export interface TaskDefinitionState {
     /**
      * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`.
      */
-    readonly placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraint>[]>;
+    readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The proxy configuration details for the App Mesh proxy.
      */
-    readonly proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
+    readonly proxyConfiguration?: pulumi.Input<{ containerName: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, type?: pulumi.Input<string> }>;
     /**
      * A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
@@ -270,7 +268,7 @@ export interface TaskDefinitionState {
     /**
      * A set of volume blocks that containers in your task may use.
      */
-    readonly volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
+    readonly volumes?: pulumi.Input<pulumi.Input<{ dockerVolumeConfiguration?: pulumi.Input<{ autoprovision?: pulumi.Input<boolean>, driver?: pulumi.Input<string>, driverOpts?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, scope?: pulumi.Input<string> }>, hostPath?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -317,11 +315,11 @@ export interface TaskDefinitionArgs {
     /**
      * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`.
      */
-    readonly placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraint>[]>;
+    readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The proxy configuration details for the App Mesh proxy.
      */
-    readonly proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
+    readonly proxyConfiguration?: pulumi.Input<{ containerName: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, type?: pulumi.Input<string> }>;
     /**
      * A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
@@ -337,5 +335,5 @@ export interface TaskDefinitionArgs {
     /**
      * A set of volume blocks that containers in your task may use.
      */
-    readonly volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
+    readonly volumes?: pulumi.Input<pulumi.Input<{ dockerVolumeConfiguration?: pulumi.Input<{ autoprovision?: pulumi.Input<boolean>, driver?: pulumi.Input<string>, driverOpts?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, scope?: pulumi.Input<string> }>, hostPath?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
 }

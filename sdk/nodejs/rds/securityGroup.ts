@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +63,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * A list of ingress rules.
      */
-    public readonly ingress!: pulumi.Output<outputs.rds.SecurityGroupIngress[]>;
+    public readonly ingress!: pulumi.Output<{ cidr?: string, securityGroupId: string, securityGroupName: string, securityGroupOwnerId: string }[]>;
     /**
      * The name of the DB security group.
      */
@@ -129,7 +127,7 @@ export interface SecurityGroupState {
     /**
      * A list of ingress rules.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<inputs.rds.SecurityGroupIngress>[]>;
+    readonly ingress?: pulumi.Input<pulumi.Input<{ cidr?: pulumi.Input<string>, securityGroupId?: pulumi.Input<string>, securityGroupName?: pulumi.Input<string>, securityGroupOwnerId?: pulumi.Input<string> }>[]>;
     /**
      * The name of the DB security group.
      */
@@ -151,7 +149,7 @@ export interface SecurityGroupArgs {
     /**
      * A list of ingress rules.
      */
-    readonly ingress: pulumi.Input<pulumi.Input<inputs.rds.SecurityGroupIngress>[]>;
+    readonly ingress: pulumi.Input<pulumi.Input<{ cidr?: pulumi.Input<string>, securityGroupId?: pulumi.Input<string>, securityGroupName?: pulumi.Input<string>, securityGroupOwnerId?: pulumi.Input<string> }>[]>;
     /**
      * The name of the DB security group.
      */

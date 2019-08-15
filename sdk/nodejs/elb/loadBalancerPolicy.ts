@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -127,7 +125,7 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
     /**
      * Policy attribute to apply to the policy.
      */
-    public readonly policyAttributes!: pulumi.Output<outputs.elb.LoadBalancerPolicyPolicyAttribute[] | undefined>;
+    public readonly policyAttributes!: pulumi.Output<{ name?: string, value?: string }[] | undefined>;
     /**
      * The name of the load balancer policy.
      */
@@ -193,7 +191,7 @@ export interface LoadBalancerPolicyState {
     /**
      * Policy attribute to apply to the policy.
      */
-    readonly policyAttributes?: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerPolicyPolicyAttribute>[]>;
+    readonly policyAttributes?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     /**
      * The name of the load balancer policy.
      */
@@ -215,7 +213,7 @@ export interface LoadBalancerPolicyArgs {
     /**
      * Policy attribute to apply to the policy.
      */
-    readonly policyAttributes?: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerPolicyPolicyAttribute>[]>;
+    readonly policyAttributes?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     /**
      * The name of the load balancer policy.
      */

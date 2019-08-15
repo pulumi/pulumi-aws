@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -114,19 +112,19 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * DynamoDB settings. See below
      */
-    public readonly dynamodbConfig!: pulumi.Output<outputs.appsync.DataSourceDynamodbConfig | undefined>;
+    public readonly dynamodbConfig!: pulumi.Output<{ region: string, tableName: string, useCallerCredentials?: boolean } | undefined>;
     /**
      * Amazon Elasticsearch settings. See below
      */
-    public readonly elasticsearchConfig!: pulumi.Output<outputs.appsync.DataSourceElasticsearchConfig | undefined>;
+    public readonly elasticsearchConfig!: pulumi.Output<{ endpoint: string, region: string } | undefined>;
     /**
      * HTTP settings. See below
      */
-    public readonly httpConfig!: pulumi.Output<outputs.appsync.DataSourceHttpConfig | undefined>;
+    public readonly httpConfig!: pulumi.Output<{ endpoint: string } | undefined>;
     /**
      * AWS Lambda settings. See below
      */
-    public readonly lambdaConfig!: pulumi.Output<outputs.appsync.DataSourceLambdaConfig | undefined>;
+    public readonly lambdaConfig!: pulumi.Output<{ functionArn: string } | undefined>;
     /**
      * A user-supplied name for the DataSource.
      */
@@ -211,19 +209,19 @@ export interface DataSourceState {
     /**
      * DynamoDB settings. See below
      */
-    readonly dynamodbConfig?: pulumi.Input<inputs.appsync.DataSourceDynamodbConfig>;
+    readonly dynamodbConfig?: pulumi.Input<{ region?: pulumi.Input<string>, tableName: pulumi.Input<string>, useCallerCredentials?: pulumi.Input<boolean> }>;
     /**
      * Amazon Elasticsearch settings. See below
      */
-    readonly elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfig>;
+    readonly elasticsearchConfig?: pulumi.Input<{ endpoint: pulumi.Input<string>, region?: pulumi.Input<string> }>;
     /**
      * HTTP settings. See below
      */
-    readonly httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfig>;
+    readonly httpConfig?: pulumi.Input<{ endpoint: pulumi.Input<string> }>;
     /**
      * AWS Lambda settings. See below
      */
-    readonly lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfig>;
+    readonly lambdaConfig?: pulumi.Input<{ functionArn: pulumi.Input<string> }>;
     /**
      * A user-supplied name for the DataSource.
      */
@@ -253,19 +251,19 @@ export interface DataSourceArgs {
     /**
      * DynamoDB settings. See below
      */
-    readonly dynamodbConfig?: pulumi.Input<inputs.appsync.DataSourceDynamodbConfig>;
+    readonly dynamodbConfig?: pulumi.Input<{ region?: pulumi.Input<string>, tableName: pulumi.Input<string>, useCallerCredentials?: pulumi.Input<boolean> }>;
     /**
      * Amazon Elasticsearch settings. See below
      */
-    readonly elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfig>;
+    readonly elasticsearchConfig?: pulumi.Input<{ endpoint: pulumi.Input<string>, region?: pulumi.Input<string> }>;
     /**
      * HTTP settings. See below
      */
-    readonly httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfig>;
+    readonly httpConfig?: pulumi.Input<{ endpoint: pulumi.Input<string> }>;
     /**
      * AWS Lambda settings. See below
      */
-    readonly lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfig>;
+    readonly lambdaConfig?: pulumi.Input<{ functionArn: pulumi.Input<string> }>;
     /**
      * A user-supplied name for the DataSource.
      */

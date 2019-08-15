@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +84,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     /**
      * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
      */
-    public readonly parameters!: pulumi.Output<outputs.rds.ClusterParameterGroupParameter[] | undefined>;
+    public readonly parameters!: pulumi.Output<{ applyMethod?: string, name: string, value: string }[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -162,7 +160,7 @@ export interface ClusterParameterGroupState {
     /**
      * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.rds.ClusterParameterGroupParameter>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<{ applyMethod?: pulumi.Input<string>, name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -192,7 +190,7 @@ export interface ClusterParameterGroupArgs {
     /**
      * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.rds.ClusterParameterGroupParameter>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<{ applyMethod?: pulumi.Input<string>, name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

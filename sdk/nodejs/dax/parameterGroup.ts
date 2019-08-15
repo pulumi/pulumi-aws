@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -76,7 +74,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * The parameters of the parameter group.
      */
-    public readonly parameters!: pulumi.Output<outputs.dax.ParameterGroupParameter[]>;
+    public readonly parameters!: pulumi.Output<{ name: string, value: string }[]>;
 
     /**
      * Create a ParameterGroup resource with the given unique name, arguments, and options.
@@ -125,7 +123,7 @@ export interface ParameterGroupState {
     /**
      * The parameters of the parameter group.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.dax.ParameterGroupParameter>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -143,5 +141,5 @@ export interface ParameterGroupArgs {
     /**
      * The parameters of the parameter group.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.dax.ParameterGroupParameter>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
 }

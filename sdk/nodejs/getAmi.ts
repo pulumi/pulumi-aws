@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -16,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.getAmi({
+ * const example = pulumi.output(aws.getAmi({
  *     executableUsers: ["self"],
  *     filters: [
  *         {
@@ -35,7 +33,7 @@ import * as utilities from "./utilities";
  *     mostRecent: true,
  *     nameRegex: "^myami-\\d{3}",
  *     owners: ["self"],
- * });
+ * }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
@@ -74,7 +72,7 @@ export interface GetAmiArgs {
      * several valid keys, for a full reference, check out
      * [describe-images in the AWS CLI reference][1].
      */
-    readonly filters?: inputs.GetAmiFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * If more than one result is returned, use the most
      * recent AMI.
@@ -120,7 +118,7 @@ export interface GetAmiResult {
      * * `block_device_mappings.#.virtual_name` - The virtual device name (for
      * instance stores).
      */
-    readonly blockDeviceMappings: outputs.GetAmiBlockDeviceMapping[];
+    readonly blockDeviceMappings: { deviceName: string, ebs: {[key: string]: any}, noDevice: string, virtualName: string }[];
     /**
      * The date and time the image was created.
      */
@@ -131,7 +129,7 @@ export interface GetAmiResult {
      */
     readonly description: string;
     readonly executableUsers?: string[];
-    readonly filters?: outputs.GetAmiFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * The hypervisor type of the image.
      */
@@ -178,7 +176,7 @@ export interface GetAmiResult {
      * * `product_codes.#.product_code_id` - The product code.
      * * `product_codes.#.product_code_type` - The type of product code.
      */
-    readonly productCodes: outputs.GetAmiProductCode[];
+    readonly productCodes: { productCodeId: string, productCodeType: string }[];
     /**
      * `true` if the image has public launch permissions.
      */

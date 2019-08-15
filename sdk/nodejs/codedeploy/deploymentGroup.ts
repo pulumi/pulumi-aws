@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -193,7 +191,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * Configuration block of alarms associated with the deployment group (documented below).
      */
-    public readonly alarmConfiguration!: pulumi.Output<outputs.codedeploy.DeploymentGroupAlarmConfiguration | undefined>;
+    public readonly alarmConfiguration!: pulumi.Output<{ alarms?: string[], enabled?: boolean, ignorePollAlarmFailure?: boolean } | undefined>;
     /**
      * The name of the application.
      */
@@ -201,7 +199,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
      */
-    public readonly autoRollbackConfiguration!: pulumi.Output<outputs.codedeploy.DeploymentGroupAutoRollbackConfiguration | undefined>;
+    public readonly autoRollbackConfiguration!: pulumi.Output<{ enabled?: boolean, events?: string[] } | undefined>;
     /**
      * Autoscaling groups associated with the deployment group.
      */
@@ -209,7 +207,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * Configuration block of the blue/green deployment options for a deployment group (documented below).
      */
-    public readonly blueGreenDeploymentConfig!: pulumi.Output<outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfig>;
+    public readonly blueGreenDeploymentConfig!: pulumi.Output<{ deploymentReadyOption?: { actionOnTimeout?: string, waitTimeInMinutes?: number }, greenFleetProvisioningOption: { action?: string }, terminateBlueInstancesOnDeploymentSuccess?: { action?: string, terminationWaitTimeInMinutes?: number } }>;
     /**
      * The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
      */
@@ -221,27 +219,27 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
      */
-    public readonly deploymentStyle!: pulumi.Output<outputs.codedeploy.DeploymentGroupDeploymentStyle>;
+    public readonly deploymentStyle!: pulumi.Output<{ deploymentOption?: string, deploymentType?: string }>;
     /**
      * Tag filters associated with the deployment group. See the AWS docs for details.
      */
-    public readonly ec2TagFilters!: pulumi.Output<outputs.codedeploy.DeploymentGroupEc2TagFilter[] | undefined>;
+    public readonly ec2TagFilters!: pulumi.Output<{ key?: string, type?: string, value?: string }[] | undefined>;
     /**
      * Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
      */
-    public readonly ec2TagSets!: pulumi.Output<outputs.codedeploy.DeploymentGroupEc2TagSet[] | undefined>;
+    public readonly ec2TagSets!: pulumi.Output<{ ec2TagFilters?: { key?: string, type?: string, value?: string }[] }[] | undefined>;
     /**
      * Configuration block(s) of the ECS services for a deployment group (documented below).
      */
-    public readonly ecsService!: pulumi.Output<outputs.codedeploy.DeploymentGroupEcsService | undefined>;
+    public readonly ecsService!: pulumi.Output<{ clusterName: string, serviceName: string } | undefined>;
     /**
      * Single configuration block of the load balancer to use in a blue/green deployment (documented below).
      */
-    public readonly loadBalancerInfo!: pulumi.Output<outputs.codedeploy.DeploymentGroupLoadBalancerInfo>;
+    public readonly loadBalancerInfo!: pulumi.Output<{ elbInfos?: { name?: string }[], targetGroupInfos?: { name?: string }[], targetGroupPairInfo?: { prodTrafficRoute: { listenerArns: string[] }, targetGroups: { name: string }[], testTrafficRoute?: { listenerArns: string[] } } }>;
     /**
      * On premise tag filters associated with the group. See the AWS docs for details.
      */
-    public readonly onPremisesInstanceTagFilters!: pulumi.Output<outputs.codedeploy.DeploymentGroupOnPremisesInstanceTagFilter[] | undefined>;
+    public readonly onPremisesInstanceTagFilters!: pulumi.Output<{ key?: string, type?: string, value?: string }[] | undefined>;
     /**
      * The service role ARN that allows deployments.
      */
@@ -249,7 +247,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */
-    public readonly triggerConfigurations!: pulumi.Output<outputs.codedeploy.DeploymentGroupTriggerConfiguration[] | undefined>;
+    public readonly triggerConfigurations!: pulumi.Output<{ triggerEvents: string[], triggerName: string, triggerTargetArn: string }[] | undefined>;
 
     /**
      * Create a DeploymentGroup resource with the given unique name, arguments, and options.
@@ -323,7 +321,7 @@ export interface DeploymentGroupState {
     /**
      * Configuration block of alarms associated with the deployment group (documented below).
      */
-    readonly alarmConfiguration?: pulumi.Input<inputs.codedeploy.DeploymentGroupAlarmConfiguration>;
+    readonly alarmConfiguration?: pulumi.Input<{ alarms?: pulumi.Input<pulumi.Input<string>[]>, enabled?: pulumi.Input<boolean>, ignorePollAlarmFailure?: pulumi.Input<boolean> }>;
     /**
      * The name of the application.
      */
@@ -331,7 +329,7 @@ export interface DeploymentGroupState {
     /**
      * Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
      */
-    readonly autoRollbackConfiguration?: pulumi.Input<inputs.codedeploy.DeploymentGroupAutoRollbackConfiguration>;
+    readonly autoRollbackConfiguration?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, events?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
      * Autoscaling groups associated with the deployment group.
      */
@@ -339,7 +337,7 @@ export interface DeploymentGroupState {
     /**
      * Configuration block of the blue/green deployment options for a deployment group (documented below).
      */
-    readonly blueGreenDeploymentConfig?: pulumi.Input<inputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfig>;
+    readonly blueGreenDeploymentConfig?: pulumi.Input<{ deploymentReadyOption?: pulumi.Input<{ actionOnTimeout?: pulumi.Input<string>, waitTimeInMinutes?: pulumi.Input<number> }>, greenFleetProvisioningOption?: pulumi.Input<{ action?: pulumi.Input<string> }>, terminateBlueInstancesOnDeploymentSuccess?: pulumi.Input<{ action?: pulumi.Input<string>, terminationWaitTimeInMinutes?: pulumi.Input<number> }> }>;
     /**
      * The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
      */
@@ -351,27 +349,27 @@ export interface DeploymentGroupState {
     /**
      * Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
      */
-    readonly deploymentStyle?: pulumi.Input<inputs.codedeploy.DeploymentGroupDeploymentStyle>;
+    readonly deploymentStyle?: pulumi.Input<{ deploymentOption?: pulumi.Input<string>, deploymentType?: pulumi.Input<string> }>;
     /**
      * Tag filters associated with the deployment group. See the AWS docs for details.
      */
-    readonly ec2TagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupEc2TagFilter>[]>;
+    readonly ec2TagFilters?: pulumi.Input<pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     /**
      * Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
      */
-    readonly ec2TagSets?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupEc2TagSet>[]>;
+    readonly ec2TagSets?: pulumi.Input<pulumi.Input<{ ec2TagFilters?: pulumi.Input<pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]> }>[]>;
     /**
      * Configuration block(s) of the ECS services for a deployment group (documented below).
      */
-    readonly ecsService?: pulumi.Input<inputs.codedeploy.DeploymentGroupEcsService>;
+    readonly ecsService?: pulumi.Input<{ clusterName: pulumi.Input<string>, serviceName: pulumi.Input<string> }>;
     /**
      * Single configuration block of the load balancer to use in a blue/green deployment (documented below).
      */
-    readonly loadBalancerInfo?: pulumi.Input<inputs.codedeploy.DeploymentGroupLoadBalancerInfo>;
+    readonly loadBalancerInfo?: pulumi.Input<{ elbInfos?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string> }>[]>, targetGroupInfos?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string> }>[]>, targetGroupPairInfo?: pulumi.Input<{ prodTrafficRoute: pulumi.Input<{ listenerArns: pulumi.Input<pulumi.Input<string>[]> }>, targetGroups: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string> }>[]>, testTrafficRoute?: pulumi.Input<{ listenerArns: pulumi.Input<pulumi.Input<string>[]> }> }> }>;
     /**
      * On premise tag filters associated with the group. See the AWS docs for details.
      */
-    readonly onPremisesInstanceTagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupOnPremisesInstanceTagFilter>[]>;
+    readonly onPremisesInstanceTagFilters?: pulumi.Input<pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     /**
      * The service role ARN that allows deployments.
      */
@@ -379,7 +377,7 @@ export interface DeploymentGroupState {
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */
-    readonly triggerConfigurations?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTriggerConfiguration>[]>;
+    readonly triggerConfigurations?: pulumi.Input<pulumi.Input<{ triggerEvents: pulumi.Input<pulumi.Input<string>[]>, triggerName: pulumi.Input<string>, triggerTargetArn: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -389,7 +387,7 @@ export interface DeploymentGroupArgs {
     /**
      * Configuration block of alarms associated with the deployment group (documented below).
      */
-    readonly alarmConfiguration?: pulumi.Input<inputs.codedeploy.DeploymentGroupAlarmConfiguration>;
+    readonly alarmConfiguration?: pulumi.Input<{ alarms?: pulumi.Input<pulumi.Input<string>[]>, enabled?: pulumi.Input<boolean>, ignorePollAlarmFailure?: pulumi.Input<boolean> }>;
     /**
      * The name of the application.
      */
@@ -397,7 +395,7 @@ export interface DeploymentGroupArgs {
     /**
      * Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
      */
-    readonly autoRollbackConfiguration?: pulumi.Input<inputs.codedeploy.DeploymentGroupAutoRollbackConfiguration>;
+    readonly autoRollbackConfiguration?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, events?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
      * Autoscaling groups associated with the deployment group.
      */
@@ -405,7 +403,7 @@ export interface DeploymentGroupArgs {
     /**
      * Configuration block of the blue/green deployment options for a deployment group (documented below).
      */
-    readonly blueGreenDeploymentConfig?: pulumi.Input<inputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfig>;
+    readonly blueGreenDeploymentConfig?: pulumi.Input<{ deploymentReadyOption?: pulumi.Input<{ actionOnTimeout?: pulumi.Input<string>, waitTimeInMinutes?: pulumi.Input<number> }>, greenFleetProvisioningOption?: pulumi.Input<{ action?: pulumi.Input<string> }>, terminateBlueInstancesOnDeploymentSuccess?: pulumi.Input<{ action?: pulumi.Input<string>, terminationWaitTimeInMinutes?: pulumi.Input<number> }> }>;
     /**
      * The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
      */
@@ -417,27 +415,27 @@ export interface DeploymentGroupArgs {
     /**
      * Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
      */
-    readonly deploymentStyle?: pulumi.Input<inputs.codedeploy.DeploymentGroupDeploymentStyle>;
+    readonly deploymentStyle?: pulumi.Input<{ deploymentOption?: pulumi.Input<string>, deploymentType?: pulumi.Input<string> }>;
     /**
      * Tag filters associated with the deployment group. See the AWS docs for details.
      */
-    readonly ec2TagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupEc2TagFilter>[]>;
+    readonly ec2TagFilters?: pulumi.Input<pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     /**
      * Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
      */
-    readonly ec2TagSets?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupEc2TagSet>[]>;
+    readonly ec2TagSets?: pulumi.Input<pulumi.Input<{ ec2TagFilters?: pulumi.Input<pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]> }>[]>;
     /**
      * Configuration block(s) of the ECS services for a deployment group (documented below).
      */
-    readonly ecsService?: pulumi.Input<inputs.codedeploy.DeploymentGroupEcsService>;
+    readonly ecsService?: pulumi.Input<{ clusterName: pulumi.Input<string>, serviceName: pulumi.Input<string> }>;
     /**
      * Single configuration block of the load balancer to use in a blue/green deployment (documented below).
      */
-    readonly loadBalancerInfo?: pulumi.Input<inputs.codedeploy.DeploymentGroupLoadBalancerInfo>;
+    readonly loadBalancerInfo?: pulumi.Input<{ elbInfos?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string> }>[]>, targetGroupInfos?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string> }>[]>, targetGroupPairInfo?: pulumi.Input<{ prodTrafficRoute: pulumi.Input<{ listenerArns: pulumi.Input<pulumi.Input<string>[]> }>, targetGroups: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string> }>[]>, testTrafficRoute?: pulumi.Input<{ listenerArns: pulumi.Input<pulumi.Input<string>[]> }> }> }>;
     /**
      * On premise tag filters associated with the group. See the AWS docs for details.
      */
-    readonly onPremisesInstanceTagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupOnPremisesInstanceTagFilter>[]>;
+    readonly onPremisesInstanceTagFilters?: pulumi.Input<pulumi.Input<{ key?: pulumi.Input<string>, type?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     /**
      * The service role ARN that allows deployments.
      */
@@ -445,5 +443,5 @@ export interface DeploymentGroupArgs {
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */
-    readonly triggerConfigurations?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTriggerConfiguration>[]>;
+    readonly triggerConfigurations?: pulumi.Input<pulumi.Input<{ triggerEvents: pulumi.Input<pulumi.Input<string>[]>, triggerName: pulumi.Input<string>, triggerTargetArn: pulumi.Input<string> }>[]>;
 }

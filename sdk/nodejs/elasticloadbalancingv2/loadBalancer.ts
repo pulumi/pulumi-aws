@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -106,7 +104,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * An Access Logs block. Access Logs documented below.
      */
-    public readonly accessLogs!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerAccessLogs | undefined>;
+    public readonly accessLogs!: pulumi.Output<{ bucket: string, enabled?: boolean, prefix?: string } | undefined>;
     /**
      * The ARN of the load balancer (matches `id`).
      */
@@ -166,7 +164,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * A subnet mapping block as documented below.
      */
-    public readonly subnetMappings!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerSubnetMapping[]>;
+    public readonly subnetMappings!: pulumi.Output<{ allocationId?: string, subnetId: string }[]>;
     /**
      * A list of subnet IDs to attach to the LB. Subnets
      * cannot be updated for Load Balancers of type `network`. Changing this value
@@ -254,7 +252,7 @@ export interface LoadBalancerState {
     /**
      * An Access Logs block. Access Logs documented below.
      */
-    readonly accessLogs?: pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerAccessLogs>;
+    readonly accessLogs?: pulumi.Input<{ bucket: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, prefix?: pulumi.Input<string> }>;
     /**
      * The ARN of the load balancer (matches `id`).
      */
@@ -314,7 +312,7 @@ export interface LoadBalancerState {
     /**
      * A subnet mapping block as documented below.
      */
-    readonly subnetMappings?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerSubnetMapping>[]>;
+    readonly subnetMappings?: pulumi.Input<pulumi.Input<{ allocationId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
     /**
      * A list of subnet IDs to attach to the LB. Subnets
      * cannot be updated for Load Balancers of type `network`. Changing this value
@@ -339,7 +337,7 @@ export interface LoadBalancerArgs {
     /**
      * An Access Logs block. Access Logs documented below.
      */
-    readonly accessLogs?: pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerAccessLogs>;
+    readonly accessLogs?: pulumi.Input<{ bucket: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, prefix?: pulumi.Input<string> }>;
     /**
      * If true, cross-zone load balancing of the load balancer will be enabled.
      * This is a `network` load balancer feature. Defaults to `false`.
@@ -387,7 +385,7 @@ export interface LoadBalancerArgs {
     /**
      * A subnet mapping block as documented below.
      */
-    readonly subnetMappings?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerSubnetMapping>[]>;
+    readonly subnetMappings?: pulumi.Input<pulumi.Input<{ allocationId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
     /**
      * A list of subnet IDs to attach to the LB. Subnets
      * cannot be updated for Load Balancers of type `network`. Changing this value

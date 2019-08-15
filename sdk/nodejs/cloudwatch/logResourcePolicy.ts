@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -17,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const elasticsearch_log_publishing_policyPolicyDocument = aws.iam.getPolicyDocument({
+ * const elasticsearch_log_publishing_policyPolicyDocument = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "logs:CreateLogStream",
@@ -30,7 +28,7 @@ import * as utilities from "../utilities";
  *         }],
  *         resources: ["arn:aws:logs:*"],
  *     }],
- * });
+ * }));
  * const elasticsearch_log_publishing_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policy", {
  *     policyDocument: elasticsearch_log_publishing_policyPolicyDocument.json,
  *     policyName: "elasticsearch-log-publishing-policy",
@@ -43,7 +41,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const route53_query_logging_policyPolicyDocument = aws.iam.getPolicyDocument({
+ * const route53_query_logging_policyPolicyDocument = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "logs:CreateLogStream",
@@ -55,7 +53,7 @@ import * as utilities from "../utilities";
  *         }],
  *         resources: ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
  *     }],
- * });
+ * }));
  * const route53_query_logging_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy", {
  *     policyDocument: route53_query_logging_policyPolicyDocument.json,
  *     policyName: "route53-query-logging-policy",

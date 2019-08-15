@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -59,7 +57,7 @@ export class ThingType extends pulumi.CustomResource {
      * The name of the thing type.
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.iot.ThingTypeProperties | undefined>;
+    public readonly properties!: pulumi.Output<{ description?: string, searchableAttributes: string[] } | undefined>;
 
     /**
      * Create a ThingType resource with the given unique name, arguments, and options.
@@ -111,7 +109,7 @@ export interface ThingTypeState {
      * The name of the thing type.
      */
     readonly name?: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
+    readonly properties?: pulumi.Input<{ description?: pulumi.Input<string>, searchableAttributes?: pulumi.Input<pulumi.Input<string>[]> }>;
 }
 
 /**
@@ -126,5 +124,5 @@ export interface ThingTypeArgs {
      * The name of the thing type.
      */
     readonly name?: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
+    readonly properties?: pulumi.Input<{ description?: pulumi.Input<string>, searchableAttributes?: pulumi.Input<pulumi.Input<string>[]> }>;
 }

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -17,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.ec2transitgateway.getTransitGateway({
+ * const example = pulumi.output(aws.ec2transitgateway.getTransitGateway({
  *     filters: [{
  *         name: "options.amazon-side-asn",
  *         values: ["64512"],
  *     }],
- * });
+ * }));
  * ```
  * 
  * ### By Identifier
@@ -31,9 +29,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.ec2transitgateway.getTransitGateway({
+ * const example = pulumi.output(aws.ec2transitgateway.getTransitGateway({
  *     id: "tgw-12345678",
- * });
+ * }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway.html.markdown.
@@ -63,7 +61,7 @@ export interface GetTransitGatewayArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    readonly filters?: inputs.ec2transitgateway.GetTransitGatewayFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * Identifier of the EC2 Transit Gateway.
      */
@@ -107,7 +105,7 @@ export interface GetTransitGatewayResult {
      * Whether DNS support is enabled.
      */
     readonly dnsSupport: string;
-    readonly filters?: outputs.ec2transitgateway.GetTransitGatewayFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * EC2 Transit Gateway identifier
      */

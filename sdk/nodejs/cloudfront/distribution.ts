@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -262,12 +260,12 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * One or more custom error response elements (multiples allowed).
      */
-    public readonly customErrorResponses!: pulumi.Output<outputs.cloudfront.DistributionCustomErrorResponse[] | undefined>;
+    public readonly customErrorResponses!: pulumi.Output<{ errorCachingMinTtl?: number, errorCode: number, responseCode?: number, responsePagePath?: string }[] | undefined>;
     /**
      * The default cache behavior for this distribution (maximum
      * one).
      */
-    public readonly defaultCacheBehavior!: pulumi.Output<outputs.cloudfront.DistributionDefaultCacheBehavior>;
+    public readonly defaultCacheBehavior!: pulumi.Output<{ allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }>;
     /**
      * The object that you want CloudFront to
      * return (for example, index.html) when an end user requests the root URL.
@@ -318,23 +316,23 @@ export class Distribution extends pulumi.CustomResource {
      * configuration that controls how logs are written
      * to your distribution (maximum one).
      */
-    public readonly loggingConfig!: pulumi.Output<outputs.cloudfront.DistributionLoggingConfig | undefined>;
+    public readonly loggingConfig!: pulumi.Output<{ bucket: string, includeCookies?: boolean, prefix?: string } | undefined>;
     /**
      * An ordered list of cache behaviors
      * resource for this distribution. List from top to bottom
      * in order of precedence. The topmost cache behavior will have precedence 0.
      */
-    public readonly orderedCacheBehaviors!: pulumi.Output<outputs.cloudfront.DistributionOrderedCacheBehavior[] | undefined>;
+    public readonly orderedCacheBehaviors!: pulumi.Output<{ allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, pathPattern: string, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[] | undefined>;
     /**
      * One or more origins for this
      * distribution (multiples allowed).
      */
-    public readonly origins!: pulumi.Output<outputs.cloudfront.DistributionOrigin[]>;
+    public readonly origins!: pulumi.Output<{ customHeaders?: { name: string, value: string }[], customOriginConfig?: { httpPort: number, httpsPort: number, originKeepaliveTimeout?: number, originProtocolPolicy: string, originReadTimeout?: number, originSslProtocols: string[] }, domainName: string, originId: string, originPath?: string, s3OriginConfig?: { originAccessIdentity: string } }[]>;
     /**
      * One or more originGroup for this
      * distribution (multiples allowed).
      */
-    public readonly originGroups!: pulumi.Output<outputs.cloudfront.DistributionOriginGroup[] | undefined>;
+    public readonly originGroups!: pulumi.Output<{ failoverCriteria: { statusCodes: number[] }, members: { originId: string }[], originId: string }[] | undefined>;
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
@@ -344,7 +342,7 @@ export class Distribution extends pulumi.CustomResource {
      * The restriction
      * configuration for this distribution (maximum one).
      */
-    public readonly restrictions!: pulumi.Output<outputs.cloudfront.DistributionRestrictions>;
+    public readonly restrictions!: pulumi.Output<{ geoRestriction: { locations?: string[], restrictionType: string } }>;
     /**
      * Disables the distribution instead of
      * deleting it when destroying the resource. If this is set,
@@ -366,7 +364,7 @@ export class Distribution extends pulumi.CustomResource {
      * configuration for this distribution (maximum
      * one).
      */
-    public readonly viewerCertificate!: pulumi.Output<outputs.cloudfront.DistributionViewerCertificate>;
+    public readonly viewerCertificate!: pulumi.Output<{ acmCertificateArn?: string, cloudfrontDefaultCertificate?: boolean, iamCertificateId?: string, minimumProtocolVersion?: string, sslSupportMethod?: string }>;
     /**
      * If enabled, the resource will wait for
      * the distribution status to change from `InProgress` to `Deployed`. Setting
@@ -511,12 +509,12 @@ export interface DistributionState {
     /**
      * One or more custom error response elements (multiples allowed).
      */
-    readonly customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionCustomErrorResponse>[]>;
+    readonly customErrorResponses?: pulumi.Input<pulumi.Input<{ errorCachingMinTtl?: pulumi.Input<number>, errorCode: pulumi.Input<number>, responseCode?: pulumi.Input<number>, responsePagePath?: pulumi.Input<string> }>[]>;
     /**
      * The default cache behavior for this distribution (maximum
      * one).
      */
-    readonly defaultCacheBehavior?: pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehavior>;
+    readonly defaultCacheBehavior?: pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>;
     /**
      * The object that you want CloudFront to
      * return (for example, index.html) when an end user requests the root URL.
@@ -567,23 +565,23 @@ export interface DistributionState {
      * configuration that controls how logs are written
      * to your distribution (maximum one).
      */
-    readonly loggingConfig?: pulumi.Input<inputs.cloudfront.DistributionLoggingConfig>;
+    readonly loggingConfig?: pulumi.Input<{ bucket: pulumi.Input<string>, includeCookies?: pulumi.Input<boolean>, prefix?: pulumi.Input<string> }>;
     /**
      * An ordered list of cache behaviors
      * resource for this distribution. List from top to bottom
      * in order of precedence. The topmost cache behavior will have precedence 0.
      */
-    readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehavior>[]>;
+    readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, pathPattern: pulumi.Input<string>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>[]>;
     /**
      * One or more origins for this
      * distribution (multiples allowed).
      */
-    readonly origins?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[]>;
+    readonly origins?: pulumi.Input<pulumi.Input<{ customHeaders?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, customOriginConfig?: pulumi.Input<{ httpPort: pulumi.Input<number>, httpsPort: pulumi.Input<number>, originKeepaliveTimeout?: pulumi.Input<number>, originProtocolPolicy: pulumi.Input<string>, originReadTimeout?: pulumi.Input<number>, originSslProtocols: pulumi.Input<pulumi.Input<string>[]> }>, domainName: pulumi.Input<string>, originId: pulumi.Input<string>, originPath?: pulumi.Input<string>, s3OriginConfig?: pulumi.Input<{ originAccessIdentity: pulumi.Input<string> }> }>[]>;
     /**
      * One or more originGroup for this
      * distribution (multiples allowed).
      */
-    readonly originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroup>[]>;
+    readonly originGroups?: pulumi.Input<pulumi.Input<{ failoverCriteria: pulumi.Input<{ statusCodes: pulumi.Input<pulumi.Input<number>[]> }>, members: pulumi.Input<pulumi.Input<{ originId: pulumi.Input<string> }>[]>, originId: pulumi.Input<string> }>[]>;
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
@@ -593,7 +591,7 @@ export interface DistributionState {
      * The restriction
      * configuration for this distribution (maximum one).
      */
-    readonly restrictions?: pulumi.Input<inputs.cloudfront.DistributionRestrictions>;
+    readonly restrictions?: pulumi.Input<{ geoRestriction: pulumi.Input<{ locations?: pulumi.Input<pulumi.Input<string>[]>, restrictionType: pulumi.Input<string> }> }>;
     /**
      * Disables the distribution instead of
      * deleting it when destroying the resource. If this is set,
@@ -615,7 +613,7 @@ export interface DistributionState {
      * configuration for this distribution (maximum
      * one).
      */
-    readonly viewerCertificate?: pulumi.Input<inputs.cloudfront.DistributionViewerCertificate>;
+    readonly viewerCertificate?: pulumi.Input<{ acmCertificateArn?: pulumi.Input<string>, cloudfrontDefaultCertificate?: pulumi.Input<boolean>, iamCertificateId?: pulumi.Input<string>, minimumProtocolVersion?: pulumi.Input<string>, sslSupportMethod?: pulumi.Input<string> }>;
     /**
      * If enabled, the resource will wait for
      * the distribution status to change from `InProgress` to `Deployed`. Setting
@@ -649,12 +647,12 @@ export interface DistributionArgs {
     /**
      * One or more custom error response elements (multiples allowed).
      */
-    readonly customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionCustomErrorResponse>[]>;
+    readonly customErrorResponses?: pulumi.Input<pulumi.Input<{ errorCachingMinTtl?: pulumi.Input<number>, errorCode: pulumi.Input<number>, responseCode?: pulumi.Input<number>, responsePagePath?: pulumi.Input<string> }>[]>;
     /**
      * The default cache behavior for this distribution (maximum
      * one).
      */
-    readonly defaultCacheBehavior: pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehavior>;
+    readonly defaultCacheBehavior: pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>;
     /**
      * The object that you want CloudFront to
      * return (for example, index.html) when an end user requests the root URL.
@@ -680,23 +678,23 @@ export interface DistributionArgs {
      * configuration that controls how logs are written
      * to your distribution (maximum one).
      */
-    readonly loggingConfig?: pulumi.Input<inputs.cloudfront.DistributionLoggingConfig>;
+    readonly loggingConfig?: pulumi.Input<{ bucket: pulumi.Input<string>, includeCookies?: pulumi.Input<boolean>, prefix?: pulumi.Input<string> }>;
     /**
      * An ordered list of cache behaviors
      * resource for this distribution. List from top to bottom
      * in order of precedence. The topmost cache behavior will have precedence 0.
      */
-    readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehavior>[]>;
+    readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, pathPattern: pulumi.Input<string>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>[]>;
     /**
      * One or more origins for this
      * distribution (multiples allowed).
      */
-    readonly origins: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[]>;
+    readonly origins: pulumi.Input<pulumi.Input<{ customHeaders?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, customOriginConfig?: pulumi.Input<{ httpPort: pulumi.Input<number>, httpsPort: pulumi.Input<number>, originKeepaliveTimeout?: pulumi.Input<number>, originProtocolPolicy: pulumi.Input<string>, originReadTimeout?: pulumi.Input<number>, originSslProtocols: pulumi.Input<pulumi.Input<string>[]> }>, domainName: pulumi.Input<string>, originId: pulumi.Input<string>, originPath?: pulumi.Input<string>, s3OriginConfig?: pulumi.Input<{ originAccessIdentity: pulumi.Input<string> }> }>[]>;
     /**
      * One or more originGroup for this
      * distribution (multiples allowed).
      */
-    readonly originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroup>[]>;
+    readonly originGroups?: pulumi.Input<pulumi.Input<{ failoverCriteria: pulumi.Input<{ statusCodes: pulumi.Input<pulumi.Input<number>[]> }>, members: pulumi.Input<pulumi.Input<{ originId: pulumi.Input<string> }>[]>, originId: pulumi.Input<string> }>[]>;
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
@@ -706,7 +704,7 @@ export interface DistributionArgs {
      * The restriction
      * configuration for this distribution (maximum one).
      */
-    readonly restrictions: pulumi.Input<inputs.cloudfront.DistributionRestrictions>;
+    readonly restrictions: pulumi.Input<{ geoRestriction: pulumi.Input<{ locations?: pulumi.Input<pulumi.Input<string>[]>, restrictionType: pulumi.Input<string> }> }>;
     /**
      * Disables the distribution instead of
      * deleting it when destroying the resource. If this is set,
@@ -722,7 +720,7 @@ export interface DistributionArgs {
      * configuration for this distribution (maximum
      * one).
      */
-    readonly viewerCertificate: pulumi.Input<inputs.cloudfront.DistributionViewerCertificate>;
+    readonly viewerCertificate: pulumi.Input<{ acmCertificateArn?: pulumi.Input<string>, cloudfrontDefaultCertificate?: pulumi.Input<boolean>, iamCertificateId?: pulumi.Input<string>, minimumProtocolVersion?: pulumi.Input<string>, sslSupportMethod?: pulumi.Input<string> }>;
     /**
      * If enabled, the resource will wait for
      * the distribution status to change from `InProgress` to `Deployed`. Setting

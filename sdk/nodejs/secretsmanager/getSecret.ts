@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -17,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byArn = aws.secretsmanager.getSecret({
+ * const byArn = pulumi.output(aws.secretsmanager.getSecret({
  *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
- * });
+ * }));
  * ```
  * 
  * ### Name
@@ -28,9 +26,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byName = aws.secretsmanager.getSecret({
+ * const byName = pulumi.output(aws.secretsmanager.getSecret({
  *     name: "example",
- * });
+ * }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret.html.markdown.
@@ -98,7 +96,7 @@ export interface GetSecretResult {
     /**
      * Rotation rules if rotation is enabled.
      */
-    readonly rotationRules: outputs.secretsmanager.GetSecretRotationRule[];
+    readonly rotationRules: { automaticallyAfterDays: number }[];
     /**
      * Tags of the secret.
      */

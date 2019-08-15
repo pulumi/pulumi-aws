@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -15,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ubuntu = aws.ec2.getLaunchConfiguration({
+ * const ubuntu = pulumi.output(aws.ec2.getLaunchConfiguration({
  *     name: "test-launch-config",
- * });
+ * }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_configuration.html.markdown.
@@ -58,7 +56,7 @@ export interface GetLaunchConfigurationResult {
     /**
      * The EBS Block Devices attached to the instance.
      */
-    readonly ebsBlockDevices: outputs.ec2.GetLaunchConfigurationEbsBlockDevice[];
+    readonly ebsBlockDevices: { deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[];
     /**
      * Whether the launched EC2 instance will be EBS-optimized.
      */
@@ -70,7 +68,7 @@ export interface GetLaunchConfigurationResult {
     /**
      * The Ephemeral volumes on the instance.
      */
-    readonly ephemeralBlockDevices: outputs.ec2.GetLaunchConfigurationEphemeralBlockDevice[];
+    readonly ephemeralBlockDevices: { deviceName: string, virtualName: string }[];
     /**
      * The IAM Instance Profile to associate with launched instances.
      */
@@ -98,7 +96,7 @@ export interface GetLaunchConfigurationResult {
     /**
      * The Root Block Device of the instance.
      */
-    readonly rootBlockDevices: outputs.ec2.GetLaunchConfigurationRootBlockDevice[];
+    readonly rootBlockDevices: { deleteOnTermination: boolean, encrypted: boolean, iops: number, volumeSize: number, volumeType: string }[];
     /**
      * A list of associated Security Group IDS.
      */

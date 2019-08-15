@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +59,7 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */
-    public readonly sqlInjectionMatchTuples!: pulumi.Output<outputs.waf.SqlInjectionMatchSetSqlInjectionMatchTuple[] | undefined>;
+    public readonly sqlInjectionMatchTuples!: pulumi.Output<{ fieldToMatch: { data?: string, type: string }, textTransformation: string }[] | undefined>;
 
     /**
      * Create a SqlInjectionMatchSet resource with the given unique name, arguments, and options.
@@ -104,7 +102,7 @@ export interface SqlInjectionMatchSetState {
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */
-    readonly sqlInjectionMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.SqlInjectionMatchSetSqlInjectionMatchTuple>[]>;
+    readonly sqlInjectionMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -118,5 +116,5 @@ export interface SqlInjectionMatchSetArgs {
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */
-    readonly sqlInjectionMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.SqlInjectionMatchSetSqlInjectionMatchTuple>[]>;
+    readonly sqlInjectionMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }>[]>;
 }

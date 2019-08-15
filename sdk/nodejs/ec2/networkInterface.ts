@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +56,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * Block to define the attachment of the ENI. Documented below.
      */
-    public readonly attachments!: pulumi.Output<outputs.ec2.NetworkInterfaceAttachment[]>;
+    public readonly attachments!: pulumi.Output<{ attachmentId: string, deviceIndex: number, instance: string }[]>;
     /**
      * A description for the network interface.
      */
@@ -146,7 +144,7 @@ export interface NetworkInterfaceState {
     /**
      * Block to define the attachment of the ENI. Documented below.
      */
-    readonly attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
+    readonly attachments?: pulumi.Input<pulumi.Input<{ attachmentId?: pulumi.Input<string>, deviceIndex: pulumi.Input<number>, instance: pulumi.Input<string> }>[]>;
     /**
      * A description for the network interface.
      */
@@ -186,7 +184,7 @@ export interface NetworkInterfaceArgs {
     /**
      * Block to define the attachment of the ENI. Documented below.
      */
-    readonly attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
+    readonly attachments?: pulumi.Input<pulumi.Input<{ attachmentId?: pulumi.Input<string>, deviceIndex: pulumi.Input<number>, instance: pulumi.Input<string> }>[]>;
     /**
      * A description for the network interface.
      */

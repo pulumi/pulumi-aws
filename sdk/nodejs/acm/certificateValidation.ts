@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -29,10 +27,10 @@ import * as utilities from "../utilities";
  *     domainName: "example.com",
  *     validationMethod: "DNS",
  * });
- * const zone = aws.route53.getZone({
+ * const zone = pulumi.output(aws.route53.getZone({
  *     name: "example.com.",
  *     privateZone: false,
- * });
+ * }));
  * const certValidation = new aws.route53.Record("certValidation", {
  *     records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
  *     ttl: 60,
@@ -63,14 +61,14 @@ import * as utilities from "../utilities";
  *     ],
  *     validationMethod: "DNS",
  * });
- * const zone = aws.route53.getZone({
+ * const zone = pulumi.output(aws.route53.getZone({
  *     name: "example.com.",
  *     privateZone: false,
- * });
- * const zoneAlt = aws.route53.getZone({
+ * }));
+ * const zoneAlt = pulumi.output(aws.route53.getZone({
  *     name: "example.org.",
  *     privateZone: false,
- * });
+ * }));
  * const certValidation = new aws.route53.Record("certValidation", {
  *     records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
  *     ttl: 60,

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -73,7 +71,7 @@ export class RateBasedRule extends pulumi.CustomResource {
     /**
      * The objects to include in a rule (documented below).
      */
-    public readonly predicates!: pulumi.Output<outputs.wafregional.RateBasedRulePredicate[] | undefined>;
+    public readonly predicates!: pulumi.Output<{ dataId: string, negated: boolean, type: string }[] | undefined>;
     /**
      * Valid value is IP.
      */
@@ -143,7 +141,7 @@ export interface RateBasedRuleState {
     /**
      * The objects to include in a rule (documented below).
      */
-    readonly predicates?: pulumi.Input<pulumi.Input<inputs.wafregional.RateBasedRulePredicate>[]>;
+    readonly predicates?: pulumi.Input<pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }>[]>;
     /**
      * Valid value is IP.
      */
@@ -169,7 +167,7 @@ export interface RateBasedRuleArgs {
     /**
      * The objects to include in a rule (documented below).
      */
-    readonly predicates?: pulumi.Input<pulumi.Input<inputs.wafregional.RateBasedRulePredicate>[]>;
+    readonly predicates?: pulumi.Input<pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }>[]>;
     /**
      * Valid value is IP.
      */

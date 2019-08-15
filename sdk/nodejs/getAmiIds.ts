@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -15,13 +13,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ubuntu = aws.getAmiIds({
+ * const ubuntu = pulumi.output(aws.getAmiIds({
  *     filters: [{
  *         name: "name",
  *         values: ["ubuntu/images/ubuntu-*-*-amd64-server-*"],
  *     }],
  *     owners: ["099720109477"],
- * });
+ * }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami_ids.html.markdown.
@@ -59,7 +57,7 @@ export interface GetAmiIdsArgs {
      * are several valid keys, for a full reference, check out
      * [describe-images in the AWS CLI reference][1].
      */
-    readonly filters?: inputs.GetAmiIdsFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * A regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API.
@@ -83,7 +81,7 @@ export interface GetAmiIdsArgs {
  */
 export interface GetAmiIdsResult {
     readonly executableUsers?: string[];
-    readonly filters?: outputs.GetAmiIdsFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     readonly ids: string[];
     readonly nameRegex?: string;
     readonly owners: string[];

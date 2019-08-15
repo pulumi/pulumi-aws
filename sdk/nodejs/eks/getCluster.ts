@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -15,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.eks.getCluster({
+ * const example = pulumi.output(aws.eks.getCluster({
  *     name: "example",
- * });
+ * }));
  * 
  * export const endpoint = example.endpoint;
  * export const kubeconfigCertificateAuthorityData = example.certificateAuthority.data;
@@ -61,7 +59,7 @@ export interface GetClusterResult {
     /**
      * Nested attribute containing `certificate-authority-data` for your cluster.
      */
-    readonly certificateAuthority: outputs.eks.GetClusterCertificateAuthority;
+    readonly certificateAuthority: { data: string };
     /**
      * The Unix epoch time stamp in seconds for when the cluster was created.
      */
@@ -94,7 +92,7 @@ export interface GetClusterResult {
     /**
      * Nested attribute containing VPC configuration for the cluster.
      */
-    readonly vpcConfig: outputs.eks.GetClusterVpcConfig;
+    readonly vpcConfig: { endpointPrivateAccess: boolean, endpointPublicAccess: boolean, securityGroupIds: string[], subnetIds: string[], vpcId: string };
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

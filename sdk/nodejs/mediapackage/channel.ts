@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +63,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * A single item list of HLS ingest information
      */
-    public /*out*/ readonly hlsIngests!: pulumi.Output<outputs.mediapackage.ChannelHlsIngest[]>;
+    public /*out*/ readonly hlsIngests!: pulumi.Output<{ ingestEndpoints: { password: string, url: string, username: string }[] }[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -129,7 +127,7 @@ export interface ChannelState {
     /**
      * A single item list of HLS ingest information
      */
-    readonly hlsIngests?: pulumi.Input<pulumi.Input<inputs.mediapackage.ChannelHlsIngest>[]>;
+    readonly hlsIngests?: pulumi.Input<pulumi.Input<{ ingestEndpoints?: pulumi.Input<pulumi.Input<{ password?: pulumi.Input<string>, url?: pulumi.Input<string>, username?: pulumi.Input<string> }>[]> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

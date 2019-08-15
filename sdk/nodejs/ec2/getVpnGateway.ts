@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -16,12 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const selected = aws.ec2.getVpnGateway({
+ * const selected = pulumi.output(aws.ec2.getVpnGateway({
  *     filters: [{
  *         name: "tag:Name",
  *         values: ["vpn-gw"],
  *     }],
- * });
+ * }));
  * 
  * export const vpnGatewayId = selected.id;
  * ```
@@ -69,7 +67,7 @@ export interface GetVpnGatewayArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetVpnGatewayFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * The ID of the specific VPN Gateway to retrieve.
      */
@@ -92,7 +90,7 @@ export interface GetVpnGatewayResult {
     readonly amazonSideAsn: string;
     readonly attachedVpcId: string;
     readonly availabilityZone: string;
-    readonly filters?: outputs.ec2.GetVpnGatewayFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     readonly id: string;
     readonly state: string;
     readonly tags: {[key: string]: any};

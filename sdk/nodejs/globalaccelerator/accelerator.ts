@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +56,7 @@ export class Accelerator extends pulumi.CustomResource {
     /**
      * The attributes of the accelerator. Fields documented below.
      */
-    public readonly attributes!: pulumi.Output<outputs.globalaccelerator.AcceleratorAttributes | undefined>;
+    public readonly attributes!: pulumi.Output<{ flowLogsEnabled?: boolean, flowLogsS3Bucket?: string, flowLogsS3Prefix?: string } | undefined>;
     /**
      * Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
      */
@@ -70,7 +68,7 @@ export class Accelerator extends pulumi.CustomResource {
     /**
      * IP address set associated with the accelerator.
      */
-    public /*out*/ readonly ipSets!: pulumi.Output<outputs.globalaccelerator.AcceleratorIpSet[]>;
+    public /*out*/ readonly ipSets!: pulumi.Output<{ ipAddresses: string[], ipFamily: string }[]>;
     /**
      * The name of the accelerator.
      */
@@ -119,7 +117,7 @@ export interface AcceleratorState {
     /**
      * The attributes of the accelerator. Fields documented below.
      */
-    readonly attributes?: pulumi.Input<inputs.globalaccelerator.AcceleratorAttributes>;
+    readonly attributes?: pulumi.Input<{ flowLogsEnabled?: pulumi.Input<boolean>, flowLogsS3Bucket?: pulumi.Input<string>, flowLogsS3Prefix?: pulumi.Input<string> }>;
     /**
      * Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
      */
@@ -131,7 +129,7 @@ export interface AcceleratorState {
     /**
      * IP address set associated with the accelerator.
      */
-    readonly ipSets?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.AcceleratorIpSet>[]>;
+    readonly ipSets?: pulumi.Input<pulumi.Input<{ ipAddresses?: pulumi.Input<pulumi.Input<string>[]>, ipFamily?: pulumi.Input<string> }>[]>;
     /**
      * The name of the accelerator.
      */
@@ -145,7 +143,7 @@ export interface AcceleratorArgs {
     /**
      * The attributes of the accelerator. Fields documented below.
      */
-    readonly attributes?: pulumi.Input<inputs.globalaccelerator.AcceleratorAttributes>;
+    readonly attributes?: pulumi.Input<{ flowLogsEnabled?: pulumi.Input<boolean>, flowLogsS3Bucket?: pulumi.Input<string>, flowLogsS3Prefix?: pulumi.Input<string> }>;
     /**
      * Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
      */

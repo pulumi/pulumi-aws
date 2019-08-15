@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -83,7 +81,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The objects to include in a rule (documented below).
      */
-    public readonly predicates!: pulumi.Output<outputs.wafregional.RulePredicate[] | undefined>;
+    public readonly predicates!: pulumi.Output<{ dataId: string, negated: boolean, type: string }[] | undefined>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -135,7 +133,7 @@ export interface RuleState {
     /**
      * The objects to include in a rule (documented below).
      */
-    readonly predicates?: pulumi.Input<pulumi.Input<inputs.wafregional.RulePredicate>[]>;
+    readonly predicates?: pulumi.Input<pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -153,5 +151,5 @@ export interface RuleArgs {
     /**
      * The objects to include in a rule (documented below).
      */
-    readonly predicates?: pulumi.Input<pulumi.Input<inputs.wafregional.RulePredicate>[]>;
+    readonly predicates?: pulumi.Input<pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }>[]>;
 }

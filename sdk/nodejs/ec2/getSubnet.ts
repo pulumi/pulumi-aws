@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -26,9 +24,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const subnetId = config.require("subnetId");
  * 
- * const selected = aws.ec2.getSubnet({
+ * const selected = pulumi.output(aws.ec2.getSubnet({
  *     id: subnetId,
- * });
+ * }));
  * const subnet = new aws.ec2.SecurityGroup("subnet", {
  *     ingress: [{
  *         cidrBlocks: [selected.cidrBlock],
@@ -92,7 +90,7 @@ export interface GetSubnetArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetSubnetFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * The id of the specific subnet to retrieve.
      */
@@ -129,7 +127,7 @@ export interface GetSubnetResult {
     readonly availabilityZoneId: string;
     readonly cidrBlock: string;
     readonly defaultForAz: boolean;
-    readonly filters?: outputs.ec2.GetSubnetFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     readonly id: string;
     readonly ipv6CidrBlock: string;
     readonly ipv6CidrBlockAssociationId: string;

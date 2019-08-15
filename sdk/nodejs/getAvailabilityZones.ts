@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -21,14 +19,14 @@ import * as utilities from "./utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * // Declare the data source
- * const available = aws.getAvailabilityZones({
+ * const available = pulumi.output(aws.getAvailabilityZones({
  *     state: "available",
- * });
+ * }));
  * const primary = new aws.ec2.Subnet("primary", {
- *     availabilityZone: available.names[0],
+ *     availabilityZone: available.apply(available => available.names[0]),
  * });
  * const secondary = new aws.ec2.Subnet("secondary", {
- *     availabilityZone: available.names[1],
+ *     availabilityZone: available.apply(available => available.names[1]),
  * });
  * ```
  *

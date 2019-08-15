@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -17,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.ec2.getVpcDhcpOptions({
+ * const example = pulumi.output(aws.ec2.getVpcDhcpOptions({
  *     dhcpOptionsId: "dopts-12345678",
- * });
+ * }));
  * ```
  * 
  * ### Lookup by Filter
@@ -28,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.ec2.getVpcDhcpOptions({
+ * const example = pulumi.output(aws.ec2.getVpcDhcpOptions({
  *     filters: [
  *         {
  *             name: "key",
@@ -39,7 +37,7 @@ import * as utilities from "../utilities";
  *             values: ["example.com"],
  *         },
  *     ],
- * });
+ * }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
@@ -73,7 +71,7 @@ export interface GetVpcDhcpOptionsArgs {
     /**
      * List of custom filters as described below.
      */
-    readonly filters?: inputs.ec2.GetVpcDhcpOptionsFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     readonly tags?: {[key: string]: any};
 }
 
@@ -93,7 +91,7 @@ export interface GetVpcDhcpOptionsResult {
      * List of name servers.
      */
     readonly domainNameServers: string[];
-    readonly filters?: outputs.ec2.GetVpcDhcpOptionsFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * List of NETBIOS name servers.
      */

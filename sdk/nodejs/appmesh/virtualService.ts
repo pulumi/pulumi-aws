@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -99,7 +97,7 @@ export class VirtualService extends pulumi.CustomResource {
     /**
      * The virtual service specification to apply.
      */
-    public readonly spec!: pulumi.Output<outputs.appmesh.VirtualServiceSpec>;
+    public readonly spec!: pulumi.Output<{ provider?: { virtualNode?: { virtualNodeName: string }, virtualRouter?: { virtualRouterName: string } } }>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -178,7 +176,7 @@ export interface VirtualServiceState {
     /**
      * The virtual service specification to apply.
      */
-    readonly spec?: pulumi.Input<inputs.appmesh.VirtualServiceSpec>;
+    readonly spec?: pulumi.Input<{ provider?: pulumi.Input<{ virtualNode?: pulumi.Input<{ virtualNodeName: pulumi.Input<string> }>, virtualRouter?: pulumi.Input<{ virtualRouterName: pulumi.Input<string> }> }> }>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -200,7 +198,7 @@ export interface VirtualServiceArgs {
     /**
      * The virtual service specification to apply.
      */
-    readonly spec: pulumi.Input<inputs.appmesh.VirtualServiceSpec>;
+    readonly spec: pulumi.Input<{ provider?: pulumi.Input<{ virtualNode?: pulumi.Input<{ virtualNodeName: pulumi.Input<string> }>, virtualRouter?: pulumi.Input<{ virtualRouterName: pulumi.Input<string> }> }> }>;
     /**
      * A mapping of tags to assign to the resource.
      */

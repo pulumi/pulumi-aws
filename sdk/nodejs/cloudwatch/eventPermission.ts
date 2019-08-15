@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -76,7 +74,7 @@ export class EventPermission extends pulumi.CustomResource {
     /**
      * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
      */
-    public readonly condition!: pulumi.Output<outputs.cloudwatch.EventPermissionCondition | undefined>;
+    public readonly condition!: pulumi.Output<{ key: string, type: string, value: string } | undefined>;
     /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
@@ -137,7 +135,7 @@ export interface EventPermissionState {
     /**
      * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
      */
-    readonly condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
+    readonly condition?: pulumi.Input<{ key: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>;
     /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
@@ -159,7 +157,7 @@ export interface EventPermissionArgs {
     /**
      * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
      */
-    readonly condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
+    readonly condition?: pulumi.Input<{ key: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>;
     /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */

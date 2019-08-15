@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -19,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const fooVpcs = aws.ec2.getVpcs({
+ * const fooVpcs = pulumi.output(aws.ec2.getVpcs({
  *     tags: {
  *         service: "production",
  *     },
- * });
+ * }));
  * 
  * export const foo = fooVpcs.ids;
  * ```
@@ -34,12 +32,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const fooVpcs = aws.ec2.getVpcs({});
+ * const fooVpcs = pulumi.output(aws.ec2.getVpcs({}));
  * const testFlowLog: aws.ec2.FlowLog[] = [];
- * for (let i = 0; i < fooVpcs.ids.length; i++) {
+ * for (let i = 0; i < fooVpcs.apply(fooVpcs => fooVpcs.ids.length); i++) {
  *     testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${i}`, {
- *         // ...
- *         vpcId: fooVpcs.ids[i],
+ *         vpcId: fooVpcs.apply(fooVpcs => fooVpcs.ids[i]),
  *     }));
  * }
  * 
@@ -72,7 +69,7 @@ export interface GetVpcsArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetVpcsFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired vpcs.
@@ -84,7 +81,7 @@ export interface GetVpcsArgs {
  * A collection of values returned by getVpcs.
  */
 export interface GetVpcsResult {
-    readonly filters?: outputs.ec2.GetVpcsFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * A list of all the VPC Ids found. This data source will fail if none are found.
      */

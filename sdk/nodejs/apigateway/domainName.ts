@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -217,7 +215,7 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * Configuration block defining API endpoint information including type. Defined below.
      */
-    public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration>;
+    public readonly endpointConfiguration!: pulumi.Output<{ types: string }>;
     /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      */
@@ -352,7 +350,7 @@ export interface DomainNameState {
     /**
      * Configuration block defining API endpoint information including type. Defined below.
      */
-    readonly endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
+    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<string> }>;
     /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      */
@@ -415,7 +413,7 @@ export interface DomainNameArgs {
     /**
      * Configuration block defining API endpoint information including type. Defined below.
      */
-    readonly endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
+    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<string> }>;
     /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      */

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -153,7 +151,7 @@ export class GraphQLApi extends pulumi.CustomResource {
     /**
      * Nested argument containing logging configuration. Defined below.
      */
-    public readonly logConfig!: pulumi.Output<outputs.appsync.GraphQLApiLogConfig | undefined>;
+    public readonly logConfig!: pulumi.Output<{ cloudwatchLogsRoleArn: string, fieldLogLevel: string } | undefined>;
     /**
      * A user-supplied name for the GraphqlApi.
      */
@@ -161,7 +159,7 @@ export class GraphQLApi extends pulumi.CustomResource {
     /**
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
-    public readonly openidConnectConfig!: pulumi.Output<outputs.appsync.GraphQLApiOpenidConnectConfig | undefined>;
+    public readonly openidConnectConfig!: pulumi.Output<{ authTtl?: number, clientId?: string, iatTtl?: number, issuer: string } | undefined>;
     /**
      * The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      */
@@ -177,7 +175,7 @@ export class GraphQLApi extends pulumi.CustomResource {
     /**
      * The Amazon Cognito User Pool configuration. Defined below.
      */
-    public readonly userPoolConfig!: pulumi.Output<outputs.appsync.GraphQLApiUserPoolConfig | undefined>;
+    public readonly userPoolConfig!: pulumi.Output<{ appIdClientRegex?: string, awsRegion: string, defaultAction: string, userPoolId: string } | undefined>;
 
     /**
      * Create a GraphQLApi resource with the given unique name, arguments, and options.
@@ -241,7 +239,7 @@ export interface GraphQLApiState {
     /**
      * Nested argument containing logging configuration. Defined below.
      */
-    readonly logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
+    readonly logConfig?: pulumi.Input<{ cloudwatchLogsRoleArn: pulumi.Input<string>, fieldLogLevel: pulumi.Input<string> }>;
     /**
      * A user-supplied name for the GraphqlApi.
      */
@@ -249,7 +247,7 @@ export interface GraphQLApiState {
     /**
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
-    readonly openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
+    readonly openidConnectConfig?: pulumi.Input<{ authTtl?: pulumi.Input<number>, clientId?: pulumi.Input<string>, iatTtl?: pulumi.Input<number>, issuer: pulumi.Input<string> }>;
     /**
      * The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      */
@@ -265,7 +263,7 @@ export interface GraphQLApiState {
     /**
      * The Amazon Cognito User Pool configuration. Defined below.
      */
-    readonly userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
+    readonly userPoolConfig?: pulumi.Input<{ appIdClientRegex?: pulumi.Input<string>, awsRegion?: pulumi.Input<string>, defaultAction: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
 }
 
 /**
@@ -279,7 +277,7 @@ export interface GraphQLApiArgs {
     /**
      * Nested argument containing logging configuration. Defined below.
      */
-    readonly logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
+    readonly logConfig?: pulumi.Input<{ cloudwatchLogsRoleArn: pulumi.Input<string>, fieldLogLevel: pulumi.Input<string> }>;
     /**
      * A user-supplied name for the GraphqlApi.
      */
@@ -287,7 +285,7 @@ export interface GraphQLApiArgs {
     /**
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
-    readonly openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
+    readonly openidConnectConfig?: pulumi.Input<{ authTtl?: pulumi.Input<number>, clientId?: pulumi.Input<string>, iatTtl?: pulumi.Input<number>, issuer: pulumi.Input<string> }>;
     /**
      * The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      */
@@ -299,5 +297,5 @@ export interface GraphQLApiArgs {
     /**
      * The Amazon Cognito User Pool configuration. Defined below.
      */
-    readonly userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
+    readonly userPoolConfig?: pulumi.Input<{ appIdClientRegex?: pulumi.Input<string>, awsRegion?: pulumi.Input<string>, defaultAction: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
 }

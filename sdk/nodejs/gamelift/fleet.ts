@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +69,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    public readonly ec2InboundPermissions!: pulumi.Output<outputs.gamelift.FleetEc2InboundPermission[] | undefined>;
+    public readonly ec2InboundPermissions!: pulumi.Output<{ fromPort: number, ipRange: string, protocol: string, toPort: number }[] | undefined>;
     /**
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
@@ -96,11 +94,11 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
-    public readonly resourceCreationLimitPolicy!: pulumi.Output<outputs.gamelift.FleetResourceCreationLimitPolicy | undefined>;
+    public readonly resourceCreationLimitPolicy!: pulumi.Output<{ newGameSessionsPerCreator?: number, policyPeriodInMinutes?: number } | undefined>;
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    public readonly runtimeConfiguration!: pulumi.Output<outputs.gamelift.FleetRuntimeConfiguration | undefined>;
+    public readonly runtimeConfiguration!: pulumi.Output<{ gameSessionActivationTimeoutSeconds?: number, maxConcurrentGameSessionActivations?: number, serverProcesses?: { concurrentExecutions: number, launchPath: string, parameters?: string }[] } | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -177,7 +175,7 @@ export interface FleetState {
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    readonly ec2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetEc2InboundPermission>[]>;
+    readonly ec2InboundPermissions?: pulumi.Input<pulumi.Input<{ fromPort: pulumi.Input<number>, ipRange: pulumi.Input<string>, protocol: pulumi.Input<string>, toPort: pulumi.Input<number> }>[]>;
     /**
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
@@ -202,11 +200,11 @@ export interface FleetState {
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
-    readonly resourceCreationLimitPolicy?: pulumi.Input<inputs.gamelift.FleetResourceCreationLimitPolicy>;
+    readonly resourceCreationLimitPolicy?: pulumi.Input<{ newGameSessionsPerCreator?: pulumi.Input<number>, policyPeriodInMinutes?: pulumi.Input<number> }>;
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    readonly runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
+    readonly runtimeConfiguration?: pulumi.Input<{ gameSessionActivationTimeoutSeconds?: pulumi.Input<number>, maxConcurrentGameSessionActivations?: pulumi.Input<number>, serverProcesses?: pulumi.Input<pulumi.Input<{ concurrentExecutions: pulumi.Input<number>, launchPath: pulumi.Input<string>, parameters?: pulumi.Input<string> }>[]> }>;
 }
 
 /**
@@ -224,7 +222,7 @@ export interface FleetArgs {
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    readonly ec2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetEc2InboundPermission>[]>;
+    readonly ec2InboundPermissions?: pulumi.Input<pulumi.Input<{ fromPort: pulumi.Input<number>, ipRange: pulumi.Input<string>, protocol: pulumi.Input<string>, toPort: pulumi.Input<number> }>[]>;
     /**
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
@@ -244,9 +242,9 @@ export interface FleetArgs {
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
-    readonly resourceCreationLimitPolicy?: pulumi.Input<inputs.gamelift.FleetResourceCreationLimitPolicy>;
+    readonly resourceCreationLimitPolicy?: pulumi.Input<{ newGameSessionsPerCreator?: pulumi.Input<number>, policyPeriodInMinutes?: pulumi.Input<number> }>;
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    readonly runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
+    readonly runtimeConfiguration?: pulumi.Input<{ gameSessionActivationTimeoutSeconds?: pulumi.Input<number>, maxConcurrentGameSessionActivations?: pulumi.Input<number>, serverProcesses?: pulumi.Input<pulumi.Input<{ concurrentExecutions: pulumi.Input<number>, launchPath: pulumi.Input<string>, parameters?: pulumi.Input<string> }>[]> }>;
 }

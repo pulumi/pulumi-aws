@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -210,7 +208,7 @@ export class VirtualNode extends pulumi.CustomResource {
     /**
      * The virtual node specification to apply.
      */
-    public readonly spec!: pulumi.Output<outputs.appmesh.VirtualNodeSpec>;
+    public readonly spec!: pulumi.Output<{ backends?: { virtualService?: { virtualServiceName: string } }[], listener?: { healthCheck?: { healthyThreshold: number, intervalMillis: number, path?: string, port: number, protocol: string, timeoutMillis: number, unhealthyThreshold: number }, portMapping: { port: number, protocol: string } }, logging?: { accessLog?: { file?: { path: string } } }, serviceDiscovery?: { awsCloudMap?: { attributes?: {[key: string]: string}, namespaceName: string, serviceName: string }, dns?: { hostname: string } } }>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -289,7 +287,7 @@ export interface VirtualNodeState {
     /**
      * The virtual node specification to apply.
      */
-    readonly spec?: pulumi.Input<inputs.appmesh.VirtualNodeSpec>;
+    readonly spec?: pulumi.Input<{ backends?: pulumi.Input<pulumi.Input<{ virtualService?: pulumi.Input<{ virtualServiceName: pulumi.Input<string> }> }>[]>, listener?: pulumi.Input<{ healthCheck?: pulumi.Input<{ healthyThreshold: pulumi.Input<number>, intervalMillis: pulumi.Input<number>, path?: pulumi.Input<string>, port?: pulumi.Input<number>, protocol: pulumi.Input<string>, timeoutMillis: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>, portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }>, logging?: pulumi.Input<{ accessLog?: pulumi.Input<{ file?: pulumi.Input<{ path: pulumi.Input<string> }> }> }>, serviceDiscovery?: pulumi.Input<{ awsCloudMap?: pulumi.Input<{ attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, namespaceName: pulumi.Input<string>, serviceName: pulumi.Input<string> }>, dns?: pulumi.Input<{ hostname: pulumi.Input<string> }> }> }>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -311,7 +309,7 @@ export interface VirtualNodeArgs {
     /**
      * The virtual node specification to apply.
      */
-    readonly spec: pulumi.Input<inputs.appmesh.VirtualNodeSpec>;
+    readonly spec: pulumi.Input<{ backends?: pulumi.Input<pulumi.Input<{ virtualService?: pulumi.Input<{ virtualServiceName: pulumi.Input<string> }> }>[]>, listener?: pulumi.Input<{ healthCheck?: pulumi.Input<{ healthyThreshold: pulumi.Input<number>, intervalMillis: pulumi.Input<number>, path?: pulumi.Input<string>, port?: pulumi.Input<number>, protocol: pulumi.Input<string>, timeoutMillis: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>, portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }>, logging?: pulumi.Input<{ accessLog?: pulumi.Input<{ file?: pulumi.Input<{ path: pulumi.Input<string> }> }> }>, serviceDiscovery?: pulumi.Input<{ awsCloudMap?: pulumi.Input<{ attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, namespaceName: pulumi.Input<string>, serviceName: pulumi.Input<string> }>, dns?: pulumi.Input<{ hostname: pulumi.Input<string> }> }> }>;
     /**
      * A mapping of tags to assign to the resource.
      */

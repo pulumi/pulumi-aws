@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -135,12 +133,12 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
      * Can be specified multiple times for each
      * egress rule. Each egress block supports fields documented below.
      */
-    public readonly egress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupEgress[] | undefined>;
+    public readonly egress!: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[] | undefined>;
     /**
      * Can be specified multiple times for each
      * ingress rule. Each ingress block supports fields documented below.
      */
-    public readonly ingress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupIngress[] | undefined>;
+    public readonly ingress!: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[] | undefined>;
     /**
      * The name of the security group
      */
@@ -212,12 +210,12 @@ export interface DefaultSecurityGroupState {
      * Can be specified multiple times for each
      * egress rule. Each egress block supports fields documented below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupEgress>[]>;
+    readonly egress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
     /**
      * Can be specified multiple times for each
      * ingress rule. Each ingress block supports fields documented below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
+    readonly ingress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
     /**
      * The name of the security group
      */
@@ -247,12 +245,12 @@ export interface DefaultSecurityGroupArgs {
      * Can be specified multiple times for each
      * egress rule. Each egress block supports fields documented below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupEgress>[]>;
+    readonly egress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
     /**
      * Can be specified multiple times for each
      * ingress rule. Each ingress block supports fields documented below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
+    readonly ingress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
     readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.

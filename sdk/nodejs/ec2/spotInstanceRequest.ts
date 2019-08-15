@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -109,7 +107,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * Customize the credit specification of the instance. See Credit Specification below for more details.
      */
-    public readonly creditSpecification!: pulumi.Output<outputs.ec2.SpotInstanceRequestCreditSpecification | undefined>;
+    public readonly creditSpecification!: pulumi.Output<{ cpuCredits?: string } | undefined>;
     /**
      * If true, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
@@ -119,7 +117,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * Additional EBS block devices to attach to the
      * instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.SpotInstanceRequestEbsBlockDevice[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, kmsKeyId: string, snapshotId: string, volumeId: string, volumeSize: number, volumeType: string }[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      * Note that if this is not set on an instance type that is optimized by default then
@@ -132,7 +130,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.SpotInstanceRequestEphemeralBlockDevice[]>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<{ deviceName: string, noDevice?: boolean, virtualName?: string }[]>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
@@ -184,7 +182,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
-    public readonly networkInterfaces!: pulumi.Output<outputs.ec2.SpotInstanceRequestNetworkInterface[]>;
+    public readonly networkInterfaces!: pulumi.Output<{ deleteOnTermination?: boolean, deviceIndex: number, networkInterfaceId: string }[]>;
     public /*out*/ readonly passwordData!: pulumi.Output<string>;
     /**
      * The Placement Group to start the instance in.
@@ -215,7 +213,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.SpotInstanceRequestRootBlockDevice>;
+    public readonly rootBlockDevice!: pulumi.Output<{ deleteOnTermination?: boolean, encrypted: boolean, iops: number, kmsKeyId: string, volumeId: string, volumeSize: number, volumeType: string }>;
     /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */
@@ -460,7 +458,7 @@ export interface SpotInstanceRequestState {
     /**
      * Customize the credit specification of the instance. See Credit Specification below for more details.
      */
-    readonly creditSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCreditSpecification>;
+    readonly creditSpecification?: pulumi.Input<{ cpuCredits?: pulumi.Input<string> }>;
     /**
      * If true, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
@@ -470,7 +468,7 @@ export interface SpotInstanceRequestState {
      * Additional EBS block devices to attach to the
      * instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEbsBlockDevice>[]>;
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      * Note that if this is not set on an instance type that is optimized by default then
@@ -483,7 +481,7 @@ export interface SpotInstanceRequestState {
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEphemeralBlockDevice>[]>;
+    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, noDevice?: pulumi.Input<boolean>, virtualName?: pulumi.Input<string> }>[]>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
@@ -535,7 +533,7 @@ export interface SpotInstanceRequestState {
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
-    readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestNetworkInterface>[]>;
+    readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceIndex: pulumi.Input<number>, networkInterfaceId: pulumi.Input<string> }>[]>;
     readonly passwordData?: pulumi.Input<string>;
     /**
      * The Placement Group to start the instance in.
@@ -566,7 +564,7 @@ export interface SpotInstanceRequestState {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice>;
+    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */
@@ -679,7 +677,7 @@ export interface SpotInstanceRequestArgs {
     /**
      * Customize the credit specification of the instance. See Credit Specification below for more details.
      */
-    readonly creditSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCreditSpecification>;
+    readonly creditSpecification?: pulumi.Input<{ cpuCredits?: pulumi.Input<string> }>;
     /**
      * If true, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
@@ -689,7 +687,7 @@ export interface SpotInstanceRequestArgs {
      * Additional EBS block devices to attach to the
      * instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEbsBlockDevice>[]>;
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      * Note that if this is not set on an instance type that is optimized by default then
@@ -702,7 +700,7 @@ export interface SpotInstanceRequestArgs {
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEphemeralBlockDevice>[]>;
+    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, noDevice?: pulumi.Input<boolean>, virtualName?: pulumi.Input<string> }>[]>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
@@ -753,7 +751,7 @@ export interface SpotInstanceRequestArgs {
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
-    readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestNetworkInterface>[]>;
+    readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceIndex: pulumi.Input<number>, networkInterfaceId: pulumi.Input<string> }>[]>;
     /**
      * The Placement Group to start the instance in.
      */
@@ -767,7 +765,7 @@ export interface SpotInstanceRequestArgs {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice>;
+    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */

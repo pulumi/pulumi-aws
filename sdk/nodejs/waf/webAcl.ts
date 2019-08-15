@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -105,11 +103,11 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
      */
-    public readonly defaultAction!: pulumi.Output<outputs.waf.WebAclDefaultAction>;
+    public readonly defaultAction!: pulumi.Output<{ type: string }>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.waf.WebAclLoggingConfiguration | undefined>;
+    public readonly loggingConfiguration!: pulumi.Output<{ logDestination: string, redactedFields?: { fieldToMatches: { data?: string, type: string }[] } } | undefined>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
@@ -121,7 +119,7 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
      */
-    public readonly rules!: pulumi.Output<outputs.waf.WebAclRule[] | undefined>;
+    public readonly rules!: pulumi.Output<{ action?: { type: string }, overrideAction?: { type: string }, priority: number, ruleId: string, type?: string }[] | undefined>;
 
     /**
      * Create a WebAcl resource with the given unique name, arguments, and options.
@@ -175,11 +173,11 @@ export interface WebAclState {
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
      */
-    readonly defaultAction?: pulumi.Input<inputs.waf.WebAclDefaultAction>;
+    readonly defaultAction?: pulumi.Input<{ type: pulumi.Input<string> }>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    readonly loggingConfiguration?: pulumi.Input<inputs.waf.WebAclLoggingConfiguration>;
+    readonly loggingConfiguration?: pulumi.Input<{ logDestination: pulumi.Input<string>, redactedFields?: pulumi.Input<{ fieldToMatches: pulumi.Input<pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>[]> }> }>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
@@ -191,7 +189,7 @@ export interface WebAclState {
     /**
      * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.waf.WebAclRule>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<{ action?: pulumi.Input<{ type: pulumi.Input<string> }>, overrideAction?: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -201,11 +199,11 @@ export interface WebAclArgs {
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
      */
-    readonly defaultAction: pulumi.Input<inputs.waf.WebAclDefaultAction>;
+    readonly defaultAction: pulumi.Input<{ type: pulumi.Input<string> }>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    readonly loggingConfiguration?: pulumi.Input<inputs.waf.WebAclLoggingConfiguration>;
+    readonly loggingConfiguration?: pulumi.Input<{ logDestination: pulumi.Input<string>, redactedFields?: pulumi.Input<{ fieldToMatches: pulumi.Input<pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>[]> }> }>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
@@ -217,5 +215,5 @@ export interface WebAclArgs {
     /**
      * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.waf.WebAclRule>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<{ action?: pulumi.Input<{ type: pulumi.Input<string> }>, overrideAction?: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
 }

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 import {EngineMode} from "./engineMode";
@@ -263,11 +261,11 @@ export class Cluster extends pulumi.CustomResource {
      * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
      */
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
-    public readonly s3Import!: pulumi.Output<outputs.rds.ClusterS3Import | undefined>;
+    public readonly s3Import!: pulumi.Output<{ bucketName: string, bucketPrefix?: string, ingestionRole: string, sourceEngine: string, sourceEngineVersion: string } | undefined>;
     /**
      * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
      */
-    public readonly scalingConfiguration!: pulumi.Output<outputs.rds.ClusterScalingConfiguration | undefined>;
+    public readonly scalingConfiguration!: pulumi.Output<{ autoPause?: boolean, maxCapacity?: number, minCapacity?: number, secondsUntilAutoPause?: number, timeoutAction?: string } | undefined>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
@@ -540,11 +538,11 @@ export interface ClusterState {
      * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
-    readonly s3Import?: pulumi.Input<inputs.rds.ClusterS3Import>;
+    readonly s3Import?: pulumi.Input<{ bucketName: pulumi.Input<string>, bucketPrefix?: pulumi.Input<string>, ingestionRole: pulumi.Input<string>, sourceEngine: pulumi.Input<string>, sourceEngineVersion: pulumi.Input<string> }>;
     /**
      * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
      */
-    readonly scalingConfiguration?: pulumi.Input<inputs.rds.ClusterScalingConfiguration>;
+    readonly scalingConfiguration?: pulumi.Input<{ autoPause?: pulumi.Input<boolean>, maxCapacity?: pulumi.Input<number>, minCapacity?: pulumi.Input<number>, secondsUntilAutoPause?: pulumi.Input<number>, timeoutAction?: pulumi.Input<string> }>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
@@ -691,11 +689,11 @@ export interface ClusterArgs {
      * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
-    readonly s3Import?: pulumi.Input<inputs.rds.ClusterS3Import>;
+    readonly s3Import?: pulumi.Input<{ bucketName: pulumi.Input<string>, bucketPrefix?: pulumi.Input<string>, ingestionRole: pulumi.Input<string>, sourceEngine: pulumi.Input<string>, sourceEngineVersion: pulumi.Input<string> }>;
     /**
      * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
      */
-    readonly scalingConfiguration?: pulumi.Input<inputs.rds.ClusterScalingConfiguration>;
+    readonly scalingConfiguration?: pulumi.Input<{ autoPause?: pulumi.Input<boolean>, maxCapacity?: pulumi.Input<number>, minCapacity?: pulumi.Input<number>, secondsUntilAutoPause?: pulumi.Input<number>, timeoutAction?: pulumi.Input<string> }>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */

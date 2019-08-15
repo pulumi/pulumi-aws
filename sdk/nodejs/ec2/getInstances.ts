@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +34,7 @@ export interface GetInstancesArgs {
      * several valid keys, for a full reference, check out
      * [describe-instances in the AWS CLI reference][1].
      */
-    readonly filters?: inputs.ec2.GetInstancesFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
      */
@@ -52,7 +50,7 @@ export interface GetInstancesArgs {
  * A collection of values returned by getInstances.
  */
 export interface GetInstancesResult {
-    readonly filters?: outputs.ec2.GetInstancesFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * IDs of instances found through the filter
      */

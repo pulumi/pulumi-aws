@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -17,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.ec2transitgateway.getRouteTable({
+ * const example = pulumi.output(aws.ec2transitgateway.getRouteTable({
  *     filters: [
  *         {
  *             name: "default-association-route-table",
@@ -28,7 +26,7 @@ import * as utilities from "../utilities";
  *             values: ["tgw-12345678"],
  *         },
  *     ],
- * });
+ * }));
  * ```
  * 
  * ### By Identifier
@@ -37,9 +35,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.ec2transitgateway.getRouteTable({
+ * const example = pulumi.output(aws.ec2transitgateway.getRouteTable({
  *     id: "tgw-rtb-12345678",
- * });
+ * }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_route_table.html.markdown.
@@ -69,7 +67,7 @@ export interface GetRouteTableArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    readonly filters?: inputs.ec2transitgateway.GetRouteTableFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * Identifier of the EC2 Transit Gateway Route Table.
      */
@@ -89,7 +87,7 @@ export interface GetRouteTableResult {
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway
      */
     readonly defaultPropagationRouteTable: boolean;
-    readonly filters?: outputs.ec2transitgateway.GetRouteTableFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * EC2 Transit Gateway Route Table identifier
      */

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -74,11 +72,11 @@ import * as utilities from "../utilities";
  *     vpcEndpointType: "Interface",
  *     vpcId: var_vpc_id,
  * });
- * const internal = aws.route53.getZone({
+ * const internal = pulumi.output(aws.route53.getZone({
  *     name: "vpc.internal.",
  *     privateZone: true,
  *     vpcId: var_vpc_id,
- * });
+ * }));
  * const ptfeServiceRecord = new aws.route53.Record("ptfeService", {
  *     records: [ptfeServiceVpcEndpoint.dnsEntries.apply(dnsEntries => (<any>dnsEntries[0])["dnsName"])],
  *     ttl: 300,
@@ -129,7 +127,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
     /**
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
-    public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.ec2.VpcEndpointDnsEntry[]>;
+    public /*out*/ readonly dnsEntries!: pulumi.Output<{ dnsName: string, hostedZoneId: string }[]>;
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      */
@@ -269,7 +267,7 @@ export interface VpcEndpointState {
     /**
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
-    readonly dnsEntries?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointDnsEntry>[]>;
+    readonly dnsEntries?: pulumi.Input<pulumi.Input<{ dnsName?: pulumi.Input<string>, hostedZoneId?: pulumi.Input<string> }>[]>;
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      */

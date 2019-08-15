@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -46,16 +44,16 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
      */
-    public readonly blockDeviceMappings!: pulumi.Output<outputs.ec2.LaunchTemplateBlockDeviceMapping[] | undefined>;
+    public readonly blockDeviceMappings!: pulumi.Output<{ deviceName?: string, ebs?: { deleteOnTermination?: string, encrypted?: string, iops: number, kmsKeyId?: string, snapshotId?: string, volumeSize: number, volumeType: string }, noDevice?: string, virtualName?: string }[] | undefined>;
     /**
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      */
-    public readonly capacityReservationSpecification!: pulumi.Output<outputs.ec2.LaunchTemplateCapacityReservationSpecification | undefined>;
+    public readonly capacityReservationSpecification!: pulumi.Output<{ capacityReservationPreference?: string, capacityReservationTarget?: { capacityReservationId?: string } } | undefined>;
     /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
-    public readonly creditSpecification!: pulumi.Output<outputs.ec2.LaunchTemplateCreditSpecification | undefined>;
+    public readonly creditSpecification!: pulumi.Output<{ cpuCredits?: string } | undefined>;
     /**
      * The default version of the launch template.
      */
@@ -77,16 +75,16 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
      */
-    public readonly elasticGpuSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateElasticGpuSpecification[] | undefined>;
+    public readonly elasticGpuSpecifications!: pulumi.Output<{ type: string }[] | undefined>;
     /**
      * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
      */
-    public readonly elasticInferenceAccelerator!: pulumi.Output<outputs.ec2.LaunchTemplateElasticInferenceAccelerator | undefined>;
+    public readonly elasticInferenceAccelerator!: pulumi.Output<{ type: string } | undefined>;
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      */
-    public readonly iamInstanceProfile!: pulumi.Output<outputs.ec2.LaunchTemplateIamInstanceProfile | undefined>;
+    public readonly iamInstanceProfile!: pulumi.Output<{ arn?: string, name?: string } | undefined>;
     /**
      * The AMI from which to launch the instance.
      */
@@ -100,7 +98,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * The market (purchasing) option for the instance. See Market Options
      * below for details.
      */
-    public readonly instanceMarketOptions!: pulumi.Output<outputs.ec2.LaunchTemplateInstanceMarketOptions | undefined>;
+    public readonly instanceMarketOptions!: pulumi.Output<{ marketType?: string, spotOptions?: { blockDurationMinutes?: number, instanceInterruptionBehavior?: string, maxPrice?: string, spotInstanceType?: string, validUntil: string } } | undefined>;
     /**
      * The type of the instance.
      */
@@ -120,11 +118,11 @@ export class LaunchTemplate extends pulumi.CustomResource {
     /**
      * A list of license specifications to associate with. See License Specification below for more details.
      */
-    public readonly licenseSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateLicenseSpecification[] | undefined>;
+    public readonly licenseSpecifications!: pulumi.Output<{ licenseConfigurationArn: string }[] | undefined>;
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
-    public readonly monitoring!: pulumi.Output<outputs.ec2.LaunchTemplateMonitoring | undefined>;
+    public readonly monitoring!: pulumi.Output<{ enabled?: boolean } | undefined>;
     /**
      * The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
      */
@@ -137,11 +135,11 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      */
-    public readonly networkInterfaces!: pulumi.Output<outputs.ec2.LaunchTemplateNetworkInterface[] | undefined>;
+    public readonly networkInterfaces!: pulumi.Output<{ associatePublicIpAddress?: boolean, deleteOnTermination?: boolean, description?: string, deviceIndex?: number, ipv4AddressCount?: number, ipv4Addresses?: string[], ipv6AddressCount?: number, ipv6Addresses?: string[], networkInterfaceId?: string, privateIpAddress?: string, securityGroups?: string[], subnetId?: string }[] | undefined>;
     /**
      * The placement of the instance. See Placement below for more details.
      */
-    public readonly placement!: pulumi.Output<outputs.ec2.LaunchTemplatePlacement | undefined>;
+    public readonly placement!: pulumi.Output<{ affinity?: string, availabilityZone?: string, groupName?: string, hostId?: string, spreadDomain?: string, tenancy?: string } | undefined>;
     /**
      * The ID of the RAM disk.
      */
@@ -154,7 +152,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
     /**
      * The tags to apply to the resources during launch. See Tag Specifications below for more details.
      */
-    public readonly tagSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateTagSpecification[] | undefined>;
+    public readonly tagSpecifications!: pulumi.Output<{ resourceType?: string, tags?: {[key: string]: any} }[] | undefined>;
     /**
      * A mapping of tags to assign to the launch template.
      */
@@ -266,16 +264,16 @@ export interface LaunchTemplateState {
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
      */
-    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateBlockDeviceMapping>[]>;
+    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<string>, encrypted?: pulumi.Input<string>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
     /**
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      */
-    readonly capacityReservationSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCapacityReservationSpecification>;
+    readonly capacityReservationSpecification?: pulumi.Input<{ capacityReservationPreference?: pulumi.Input<string>, capacityReservationTarget?: pulumi.Input<{ capacityReservationId?: pulumi.Input<string> }> }>;
     /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
-    readonly creditSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCreditSpecification>;
+    readonly creditSpecification?: pulumi.Input<{ cpuCredits?: pulumi.Input<string> }>;
     /**
      * The default version of the launch template.
      */
@@ -297,16 +295,16 @@ export interface LaunchTemplateState {
      * The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
      */
-    readonly elasticGpuSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateElasticGpuSpecification>[]>;
+    readonly elasticGpuSpecifications?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string> }>[]>;
     /**
      * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
      */
-    readonly elasticInferenceAccelerator?: pulumi.Input<inputs.ec2.LaunchTemplateElasticInferenceAccelerator>;
+    readonly elasticInferenceAccelerator?: pulumi.Input<{ type: pulumi.Input<string> }>;
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      */
-    readonly iamInstanceProfile?: pulumi.Input<inputs.ec2.LaunchTemplateIamInstanceProfile>;
+    readonly iamInstanceProfile?: pulumi.Input<{ arn?: pulumi.Input<string>, name?: pulumi.Input<string> }>;
     /**
      * The AMI from which to launch the instance.
      */
@@ -320,7 +318,7 @@ export interface LaunchTemplateState {
      * The market (purchasing) option for the instance. See Market Options
      * below for details.
      */
-    readonly instanceMarketOptions?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceMarketOptions>;
+    readonly instanceMarketOptions?: pulumi.Input<{ marketType?: pulumi.Input<string>, spotOptions?: pulumi.Input<{ blockDurationMinutes?: pulumi.Input<number>, instanceInterruptionBehavior?: pulumi.Input<string>, maxPrice?: pulumi.Input<string>, spotInstanceType?: pulumi.Input<string>, validUntil?: pulumi.Input<string> }> }>;
     /**
      * The type of the instance.
      */
@@ -340,11 +338,11 @@ export interface LaunchTemplateState {
     /**
      * A list of license specifications to associate with. See License Specification below for more details.
      */
-    readonly licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecification>[]>;
+    readonly licenseSpecifications?: pulumi.Input<pulumi.Input<{ licenseConfigurationArn: pulumi.Input<string> }>[]>;
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
-    readonly monitoring?: pulumi.Input<inputs.ec2.LaunchTemplateMonitoring>;
+    readonly monitoring?: pulumi.Input<{ enabled?: pulumi.Input<boolean> }>;
     /**
      * The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
      */
@@ -357,11 +355,11 @@ export interface LaunchTemplateState {
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      */
-    readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateNetworkInterface>[]>;
+    readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ associatePublicIpAddress?: pulumi.Input<boolean>, deleteOnTermination?: pulumi.Input<boolean>, description?: pulumi.Input<string>, deviceIndex?: pulumi.Input<number>, ipv4AddressCount?: pulumi.Input<number>, ipv4Addresses?: pulumi.Input<pulumi.Input<string>[]>, ipv6AddressCount?: pulumi.Input<number>, ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>, networkInterfaceId?: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }>[]>;
     /**
      * The placement of the instance. See Placement below for more details.
      */
-    readonly placement?: pulumi.Input<inputs.ec2.LaunchTemplatePlacement>;
+    readonly placement?: pulumi.Input<{ affinity?: pulumi.Input<string>, availabilityZone?: pulumi.Input<string>, groupName?: pulumi.Input<string>, hostId?: pulumi.Input<string>, spreadDomain?: pulumi.Input<string>, tenancy?: pulumi.Input<string> }>;
     /**
      * The ID of the RAM disk.
      */
@@ -374,7 +372,7 @@ export interface LaunchTemplateState {
     /**
      * The tags to apply to the resources during launch. See Tag Specifications below for more details.
      */
-    readonly tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[]>;
+    readonly tagSpecifications?: pulumi.Input<pulumi.Input<{ resourceType?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>[]>;
     /**
      * A mapping of tags to assign to the launch template.
      */
@@ -397,16 +395,16 @@ export interface LaunchTemplateArgs {
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
      */
-    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateBlockDeviceMapping>[]>;
+    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<string>, encrypted?: pulumi.Input<string>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
     /**
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      */
-    readonly capacityReservationSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCapacityReservationSpecification>;
+    readonly capacityReservationSpecification?: pulumi.Input<{ capacityReservationPreference?: pulumi.Input<string>, capacityReservationTarget?: pulumi.Input<{ capacityReservationId?: pulumi.Input<string> }> }>;
     /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
-    readonly creditSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCreditSpecification>;
+    readonly creditSpecification?: pulumi.Input<{ cpuCredits?: pulumi.Input<string> }>;
     /**
      * Description of the launch template.
      */
@@ -424,16 +422,16 @@ export interface LaunchTemplateArgs {
      * The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
      */
-    readonly elasticGpuSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateElasticGpuSpecification>[]>;
+    readonly elasticGpuSpecifications?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string> }>[]>;
     /**
      * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
      */
-    readonly elasticInferenceAccelerator?: pulumi.Input<inputs.ec2.LaunchTemplateElasticInferenceAccelerator>;
+    readonly elasticInferenceAccelerator?: pulumi.Input<{ type: pulumi.Input<string> }>;
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      */
-    readonly iamInstanceProfile?: pulumi.Input<inputs.ec2.LaunchTemplateIamInstanceProfile>;
+    readonly iamInstanceProfile?: pulumi.Input<{ arn?: pulumi.Input<string>, name?: pulumi.Input<string> }>;
     /**
      * The AMI from which to launch the instance.
      */
@@ -447,7 +445,7 @@ export interface LaunchTemplateArgs {
      * The market (purchasing) option for the instance. See Market Options
      * below for details.
      */
-    readonly instanceMarketOptions?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceMarketOptions>;
+    readonly instanceMarketOptions?: pulumi.Input<{ marketType?: pulumi.Input<string>, spotOptions?: pulumi.Input<{ blockDurationMinutes?: pulumi.Input<number>, instanceInterruptionBehavior?: pulumi.Input<string>, maxPrice?: pulumi.Input<string>, spotInstanceType?: pulumi.Input<string>, validUntil?: pulumi.Input<string> }> }>;
     /**
      * The type of the instance.
      */
@@ -463,11 +461,11 @@ export interface LaunchTemplateArgs {
     /**
      * A list of license specifications to associate with. See License Specification below for more details.
      */
-    readonly licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecification>[]>;
+    readonly licenseSpecifications?: pulumi.Input<pulumi.Input<{ licenseConfigurationArn: pulumi.Input<string> }>[]>;
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
-    readonly monitoring?: pulumi.Input<inputs.ec2.LaunchTemplateMonitoring>;
+    readonly monitoring?: pulumi.Input<{ enabled?: pulumi.Input<boolean> }>;
     /**
      * The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
      */
@@ -480,11 +478,11 @@ export interface LaunchTemplateArgs {
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      */
-    readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateNetworkInterface>[]>;
+    readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ associatePublicIpAddress?: pulumi.Input<boolean>, deleteOnTermination?: pulumi.Input<boolean>, description?: pulumi.Input<string>, deviceIndex?: pulumi.Input<number>, ipv4AddressCount?: pulumi.Input<number>, ipv4Addresses?: pulumi.Input<pulumi.Input<string>[]>, ipv6AddressCount?: pulumi.Input<number>, ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>, networkInterfaceId?: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }>[]>;
     /**
      * The placement of the instance. See Placement below for more details.
      */
-    readonly placement?: pulumi.Input<inputs.ec2.LaunchTemplatePlacement>;
+    readonly placement?: pulumi.Input<{ affinity?: pulumi.Input<string>, availabilityZone?: pulumi.Input<string>, groupName?: pulumi.Input<string>, hostId?: pulumi.Input<string>, spreadDomain?: pulumi.Input<string>, tenancy?: pulumi.Input<string> }>;
     /**
      * The ID of the RAM disk.
      */
@@ -497,7 +495,7 @@ export interface LaunchTemplateArgs {
     /**
      * The tags to apply to the resources during launch. See Tag Specifications below for more details.
      */
-    readonly tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[]>;
+    readonly tagSpecifications?: pulumi.Input<pulumi.Input<{ resourceType?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>[]>;
     /**
      * A mapping of tags to assign to the launch template.
      */

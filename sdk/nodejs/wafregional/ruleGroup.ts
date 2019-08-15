@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +60,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * A list of activated rules, see below
      */
-    public readonly activatedRules!: pulumi.Output<outputs.wafregional.RuleGroupActivatedRule[] | undefined>;
+    public readonly activatedRules!: pulumi.Output<{ action: { type: string }, priority: number, ruleId: string, type?: string }[] | undefined>;
     /**
      * A friendly name for the metrics from the rule group
      */
@@ -114,7 +112,7 @@ export interface RuleGroupState {
     /**
      * A list of activated rules, see below
      */
-    readonly activatedRules?: pulumi.Input<pulumi.Input<inputs.wafregional.RuleGroupActivatedRule>[]>;
+    readonly activatedRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**
      * A friendly name for the metrics from the rule group
      */
@@ -132,7 +130,7 @@ export interface RuleGroupArgs {
     /**
      * A list of activated rules, see below
      */
-    readonly activatedRules?: pulumi.Input<pulumi.Input<inputs.wafregional.RuleGroupActivatedRule>[]>;
+    readonly activatedRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**
      * A friendly name for the metrics from the rule group
      */

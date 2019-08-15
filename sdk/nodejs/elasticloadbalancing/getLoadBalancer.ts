@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -24,9 +22,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const lbName = config.get("lbName") || "";
  * 
- * const test = aws.elb.getLoadBalancer({
+ * const test = pulumi.output(aws.elb.getLoadBalancer({
  *     name: lbName,
- * });
+ * }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_legacy.html.markdown.
@@ -62,17 +60,17 @@ export interface GetLoadBalancerArgs {
  * A collection of values returned by getLoadBalancer.
  */
 export interface GetLoadBalancerResult {
-    readonly accessLogs: outputs.elasticloadbalancing.GetLoadBalancerAccessLogs;
+    readonly accessLogs: { bucket: string, bucketPrefix: string, enabled: boolean, interval: number };
     readonly availabilityZones: string[];
     readonly connectionDraining: boolean;
     readonly connectionDrainingTimeout: number;
     readonly crossZoneLoadBalancing: boolean;
     readonly dnsName: string;
-    readonly healthCheck: outputs.elasticloadbalancing.GetLoadBalancerHealthCheck;
+    readonly healthCheck: { healthyThreshold: number, interval: number, target: string, timeout: number, unhealthyThreshold: number };
     readonly idleTimeout: number;
     readonly instances: string[];
     readonly internal: boolean;
-    readonly listeners: outputs.elasticloadbalancing.GetLoadBalancerListener[];
+    readonly listeners: { instancePort: number, instanceProtocol: string, lbPort: number, lbProtocol: string, sslCertificateId: string }[];
     readonly name: string;
     readonly securityGroups: string[];
     readonly sourceSecurityGroup: string;

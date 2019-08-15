@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -15,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.elasticbeanstalk.getApplication({
+ * const example = pulumi.output(aws.elasticbeanstalk.getApplication({
  *     name: "example",
- * });
+ * }));
  * 
  * export const arn = example.arn;
  * export const description = example.description;
@@ -54,7 +52,7 @@ export interface GetApplicationArgs {
  * A collection of values returned by getApplication.
  */
 export interface GetApplicationResult {
-    readonly appversionLifecycle: outputs.elasticbeanstalk.GetApplicationAppversionLifecycle;
+    readonly appversionLifecycle: { deleteSourceFromS3: boolean, maxAgeInDays: number, maxCount: number, serviceRole: string };
     /**
      * The Amazon Resource Name (ARN) of the application.
      */

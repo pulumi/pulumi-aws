@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -67,7 +65,7 @@ export interface GetNatGatewayArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetNatGatewayFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * The id of the specific Nat Gateway to retrieve.
      */
@@ -99,7 +97,7 @@ export interface GetNatGatewayResult {
      * The Id of the EIP allocated to the selected Nat Gateway.
      */
     readonly allocationId: string;
-    readonly filters?: outputs.ec2.GetNatGatewayFilter[];
+    readonly filters?: { name: string, values: string[] }[];
     readonly id: string;
     /**
      * The Id of the ENI allocated to the selected Nat Gateway.
