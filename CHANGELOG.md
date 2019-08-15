@@ -5,6 +5,7 @@ CHANGELOG
 * Add support for `t3a` instance types
 * Allow IAM Policy Document `Condition`s to be arrays as well as scalars
 * Upgrade to pulumi-terraform@14e049b09d
+* Update to v2.24.0 of the AWS Terraform provider
 
 ---
 
@@ -111,8 +112,6 @@ compiler complains.
 * Add the ability to pass a `PolicyDocument` to the `policy` field in `aws.s3.Bucket`
 * Subscription resources will now be parented by default by the resource they were created off of.
   This has been implemented using 'aliases' so this will not have any effect on existing stacks.
-
----
 
 ## 0.18.8 (2019-06-06)
 * Add TypeScript type guards for each resource class ([7ace3e9b5f](https://github.com/pulumi/pulumi-terraform/commit/7ace3e9b5f2dcd4692b029ba4b80360582d7949a))
