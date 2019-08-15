@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * const brokerId = config.get("brokerId") || "";
  * const brokerName = config.get("brokerName") || "";
  * 
- * const byId = pulumi.output(aws.mq.getBroker({
+ * const byId = aws.mq.getBroker({
  *     brokerId: brokerId,
- * }));
- * const byName = pulumi.output(aws.mq.getBroker({
+ * });
+ * const byName = aws.mq.getBroker({
  *     brokerName: brokerName,
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/mq_broker.html.markdown.

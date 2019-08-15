@@ -42,10 +42,10 @@ import {PolicyDocument} from "../iam/documents";
  * const config = new pulumi.Config();
  * const domain = config.get("domain") || "tf-test";
  * 
- * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({}));
- * const currentRegion = pulumi.output(aws.getRegion({}));
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentRegion = aws.getRegion({});
  * const example = new aws.elasticsearch.Domain("example", {
- *     accessPolicies: pulumi.interpolate`{
+ *     accessPolicies: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -111,21 +111,21 @@ import {PolicyDocument} from "../iam/documents";
  * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("es", {
  *     awsServiceName: "es.amazonaws.com",
  * });
- * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({}));
- * const currentRegion = pulumi.output(aws.getRegion({}));
- * const selectedVpc = pulumi.output(aws.ec2.getVpc({
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentRegion = aws.getRegion({});
+ * const selectedVpc = aws.ec2.getVpc({
  *     tags: {
  *         Name: vpc,
  *     },
- * }));
- * const selectedSubnetIds = selectedVpc.apply(selectedVpc => aws.ec2.getSubnetIds({
+ * });
+ * const selectedSubnetIds = aws.ec2.getSubnetIds({
  *     tags: {
  *         Tier: "private",
  *     },
  *     vpcId: selectedVpc.id,
- * }));
+ * });
  * const esDomain = new aws.elasticsearch.Domain("es", {
- *     accessPolicies: pulumi.interpolate`{
+ *     accessPolicies: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -153,8 +153,8 @@ import {PolicyDocument} from "../iam/documents";
  *     vpcOptions: {
  *         securityGroupIds: [aws_security_group_elasticsearch.id],
  *         subnetIds: [
- *             selectedSubnetIds.apply(selectedSubnetIds => selectedSubnetIds.ids[0]),
- *             selectedSubnetIds.apply(selectedSubnetIds => selectedSubnetIds.ids[1]),
+ *             selectedSubnetIds.ids[0],
+ *             selectedSubnetIds.ids[1],
  *         ],
  *     },
  * }, {dependsOn: [esServiceLinkedRole]});

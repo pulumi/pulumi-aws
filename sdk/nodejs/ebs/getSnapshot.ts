@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ebsVolume = pulumi.output(aws.ebs.getSnapshot({
+ * const ebsVolume = aws.ebs.getSnapshot({
  *     filters: [
  *         {
  *             name: "volume-size",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     ],
  *     mostRecent: true,
  *     owners: ["self"],
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.

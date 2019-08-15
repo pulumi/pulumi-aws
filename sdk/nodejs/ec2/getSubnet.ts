@@ -24,9 +24,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const subnetId = config.require("subnetId");
  * 
- * const selected = pulumi.output(aws.ec2.getSubnet({
+ * const selected = aws.ec2.getSubnet({
  *     id: subnetId,
- * }));
+ * });
  * const subnet = new aws.ec2.SecurityGroup("subnet", {
  *     ingress: [{
  *         cidrBlocks: [selected.cidrBlock],

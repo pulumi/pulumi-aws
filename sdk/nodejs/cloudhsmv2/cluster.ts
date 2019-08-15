@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *         Name: "example-aws_cloudhsm_v2_cluster",
  *     },
  * });
- * const available = pulumi.output(aws.getAvailabilityZones({}));
+ * const available = aws.getAvailabilityZones({});
  * const cloudhsm2Subnets: aws.ec2.Subnet[] = [];
  * for (let i = 0; i < 2; i++) {
  *     cloudhsm2Subnets.push(new aws.ec2.Subnet(`cloudhsm2_subnets-${i}`, {
- *         availabilityZone: available.apply(available => available.names[i]),
+ *         availabilityZone: available.names[i],
  *         cidrBlock: var_subnets[i],
  *         mapPublicIpOnLaunch: false,
  *         tags: {

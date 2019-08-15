@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const groups = pulumi.output(aws.getAutoscalingGroups({
+ * const groups = aws.getAutoscalingGroups({
  *     filters: [
  *         {
  *             name: "key",
@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  *             values: ["Pets"],
  *         },
  *     ],
- * }));
+ * });
  * const slackNotifications = new aws.autoscaling.Notification("slackNotifications", {
  *     groupNames: groups.names,
  *     notifications: [

@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  *     amazonSideAsn: "7224",
  *     vpcId: aws_vpc_main.id,
  * });
- * const foo = pulumi.output(aws.ec2.getCustomerGateway({
+ * const foo = aws.ec2.getCustomerGateway({
  *     filters: [{
  *         name: "tag:Name",
  *         values: ["foo-prod"],
  *     }],
- * }));
+ * });
  * const transit = new aws.ec2.VpnConnection("transit", {
  *     customerGatewayId: foo.id,
  *     staticRoutesOnly: false,

@@ -13,13 +13,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const europeanEc2 = pulumi.output(aws.getIpRanges({
+ * const europeanEc2 = aws.getIpRanges({
  *     regions: [
  *         "eu-west-1",
  *         "eu-central-1",
  *     ],
  *     services: ["ec2"],
- * }));
+ * });
  * const fromEurope = new aws.ec2.SecurityGroup("fromEurope", {
  *     ingress: [{
  *         cidrBlocks: europeanEc2.cidrBlocks,

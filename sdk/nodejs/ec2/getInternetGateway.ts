@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const vpcId = config.require("vpcId");
  * 
- * const defaultInternetGateway = pulumi.output(aws.ec2.getInternetGateway({
+ * const defaultInternetGateway = aws.ec2.getInternetGateway({
  *     filters: [{
  *         name: "attachment.vpc-id",
  *         values: [vpcId],
  *     }],
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.

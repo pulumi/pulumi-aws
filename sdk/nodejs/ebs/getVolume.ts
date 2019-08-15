@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ebsVolume = pulumi.output(aws.ebs.getVolume({
+ * const ebsVolume = aws.ebs.getVolume({
  *     filters: [
  *         {
  *             name: "volume-type",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     mostRecent: true,
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.

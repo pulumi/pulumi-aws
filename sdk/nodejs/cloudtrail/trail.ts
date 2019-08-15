@@ -22,10 +22,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const current = pulumi.output(aws.getCallerIdentity({}));
+ * const current = aws.getCallerIdentity({});
  * const foo = new aws.s3.Bucket("foo", {
  *     forceDestroy: true,
- *     policy: pulumi.interpolate`{
+ *     policy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
  *         {
@@ -108,16 +108,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const importantBucket = pulumi.output(aws.s3.getBucket({
+ * const importantBucket = aws.s3.getBucket({
  *     bucket: "important-bucket",
- * }));
+ * });
  * const example = new aws.cloudtrail.Trail("example", {
  *     eventSelectors: [{
  *         dataResources: [{
  *             type: "AWS::S3::Object",
  *             // Make sure to append a trailing '/' to your ARN if you want
  *             // to monitor all objects in a bucket.
- *             values: [pulumi.interpolate`${important_bucket.arn}/`],
+ *             values: [`${important_bucket.arn}/`],
  *         }],
  *         includeManagementEvents: true,
  *         readWriteType: "All",

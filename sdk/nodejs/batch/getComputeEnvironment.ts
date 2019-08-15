@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const batchMongo = pulumi.output(aws.batch.getComputeEnvironment({
+ * const batchMongo = aws.batch.getComputeEnvironment({
  *     computeEnvironmentName: "batch-mongo-production",
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.

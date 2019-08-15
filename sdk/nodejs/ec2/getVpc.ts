@@ -24,15 +24,15 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const vpcId = config.require("vpcId");
  * 
- * const selected = pulumi.output(aws.ec2.getVpc({
+ * const selected = aws.ec2.getVpc({
  *     id: vpcId,
- * }));
+ * });
  * const example = new aws.ec2.Subnet("example", {
  *     availabilityZone: "us-west-2a",
- *     cidrBlock: selected.apply(selected => (() => {
+ *     cidrBlock: (() => {
  *         throw "tf2pulumi error: NYI: call to cidrsubnet";
  *         return (() => { throw "NYI: call to cidrsubnet"; })();
- *     })()),
+ *     })(),
  *     vpcId: selected.id,
  * });
  * ```

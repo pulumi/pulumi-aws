@@ -23,9 +23,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const securityGroupId = config.require("securityGroupId");
  * 
- * const selected = pulumi.output(aws.ec2.getSecurityGroup({
+ * const selected = aws.ec2.getSecurityGroup({
  *     id: securityGroupId,
- * }));
+ * });
  * const subnet = new aws.ec2.Subnet("subnet", {
  *     cidrBlock: "10.0.1.0/24",
  *     vpcId: selected.vpcId,

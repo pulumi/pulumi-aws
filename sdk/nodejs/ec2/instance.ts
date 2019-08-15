@@ -17,7 +17,7 @@ import {InstanceType} from "./instanceType";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ubuntu = pulumi.output(aws.getAmi({
+ * const ubuntu = aws.getAmi({
  *     filters: [
  *         {
  *             name: "name",
@@ -30,7 +30,7 @@ import {InstanceType} from "./instanceType";
  *     ],
  *     mostRecent: true,
  *     owners: ["099720109477"], // Canonical
- * }));
+ * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: ubuntu.id,
  *     instanceType: "t2.micro",

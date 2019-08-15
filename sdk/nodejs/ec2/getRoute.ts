@@ -30,9 +30,9 @@ import * as utilities from "../utilities";
  * const interfaceNetworkInterface = route.apply(route => aws.ec2.getNetworkInterface({
  *     networkInterfaceId: route.networkInterfaceId,
  * }));
- * const selected = pulumi.output(aws.ec2.getRouteTable({
+ * const selected = aws.ec2.getRouteTable({
  *     subnetId: subnetId,
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.

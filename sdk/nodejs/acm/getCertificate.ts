@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * // Find a RSA 4096 bit certificate
- * const example = pulumi.output(aws.acm.getCertificate({
+ * const example = aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     keyTypes: ["RSA_4096"],
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acm_certificate.html.markdown.
