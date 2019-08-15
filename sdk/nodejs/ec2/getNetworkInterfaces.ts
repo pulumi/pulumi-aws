@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleNetworkInterfaces = pulumi.output(aws.ec2.getNetworkInterfaces({}));
+ * const exampleNetworkInterfaces = aws.ec2.getNetworkInterfaces({});
  * 
  * export const example = exampleNetworkInterfaces.ids;
  * ```
@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = pulumi.output(aws.ec2.getNetworkInterfaces({
+ * const example = aws.ec2.getNetworkInterfaces({
  *     tags: {
  *         Name: "test",
  *     },
- * }));
+ * });
  * 
  * export const example1 = example.ids;
  * ```

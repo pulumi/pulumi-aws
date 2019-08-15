@@ -17,7 +17,7 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ubuntu = pulumi.output(aws.getAmi({
+ * const ubuntu = aws.getAmi({
  *     filters: [
  *         {
  *             name: "name",
@@ -30,7 +30,7 @@ import {InstanceProfile} from "../iam";
  *     ],
  *     mostRecent: true,
  *     owners: ["099720109477"], // Canonical
- * }));
+ * });
  * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
  *     imageId: ubuntu.id,
  *     instanceType: "t2.micro",
@@ -51,7 +51,7 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ubuntu = pulumi.output(aws.getAmi({
+ * const ubuntu = aws.getAmi({
  *     filters: [
  *         {
  *             name: "name",
@@ -64,7 +64,7 @@ import {InstanceProfile} from "../iam";
  *     ],
  *     mostRecent: true,
  *     owners: ["099720109477"], // Canonical
- * }));
+ * });
  * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
  *     imageId: ubuntu.id,
  *     instanceType: "t2.micro",
@@ -94,7 +94,7 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ubuntu = pulumi.output(aws.getAmi({
+ * const ubuntu = aws.getAmi({
  *     filters: [
  *         {
  *             name: "name",
@@ -107,7 +107,7 @@ import {InstanceProfile} from "../iam";
  *     ],
  *     mostRecent: true,
  *     owners: ["099720109477"], // Canonical
- * }));
+ * });
  * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
  *     imageId: ubuntu.id,
  *     instanceType: "m4.large",

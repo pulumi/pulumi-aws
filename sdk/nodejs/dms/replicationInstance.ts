@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     },
  *     vpcSecurityGroupIds: ["sg-12345678"],
  * });
- * const dmsAssumeRole = pulumi.output(aws.iam.getPolicyDocument({
+ * const dmsAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *             type: "Service",
  *         }],
  *     }],
- * }));
+ * });
  * const dmsAccessForEndpoint = new aws.iam.Role("dms-access-for-endpoint", {
  *     assumeRolePolicy: dmsAssumeRole.json,
  * });

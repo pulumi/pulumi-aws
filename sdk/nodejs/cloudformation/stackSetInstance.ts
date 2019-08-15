@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * 
  * // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
  * // Additional IAM permissions necessary depend on the resources defined in the Stack Set template
- * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = pulumi.output(aws.iam.getPolicyDocument({
+ * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "cloudformation:*",
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *         effect: "Allow",
  *         resources: ["*"],
  *     }],
- * }));
+ * });
  * const aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = aws_iam_role_AWSCloudFormationStackSetAdministrationRole.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
