@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -43,7 +45,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The command of the job. Defined below.
      */
-    public readonly command!: pulumi.Output<{ name?: string, scriptLocation: string }>;
+    public readonly command!: pulumi.Output<outputApi.glue.JobCommand>;
     /**
      * The list of connections used for this job.
      */
@@ -59,7 +61,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Execution property of the job. Defined below.
      */
-    public readonly executionProperty!: pulumi.Output<{ maxConcurrentRuns?: number }>;
+    public readonly executionProperty!: pulumi.Output<outputApi.glue.JobExecutionProperty>;
     /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
      */
@@ -152,7 +154,7 @@ export interface JobState {
     /**
      * The command of the job. Defined below.
      */
-    readonly command?: pulumi.Input<{ name?: pulumi.Input<string>, scriptLocation: pulumi.Input<string> }>;
+    readonly command?: pulumi.Input<inputApi.glue.JobCommand>;
     /**
      * The list of connections used for this job.
      */
@@ -168,7 +170,7 @@ export interface JobState {
     /**
      * Execution property of the job. Defined below.
      */
-    readonly executionProperty?: pulumi.Input<{ maxConcurrentRuns?: pulumi.Input<number> }>;
+    readonly executionProperty?: pulumi.Input<inputApi.glue.JobExecutionProperty>;
     /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
      */
@@ -206,7 +208,7 @@ export interface JobArgs {
     /**
      * The command of the job. Defined below.
      */
-    readonly command: pulumi.Input<{ name?: pulumi.Input<string>, scriptLocation: pulumi.Input<string> }>;
+    readonly command: pulumi.Input<inputApi.glue.JobCommand>;
     /**
      * The list of connections used for this job.
      */
@@ -222,7 +224,7 @@ export interface JobArgs {
     /**
      * Execution property of the job. Defined below.
      */
-    readonly executionProperty?: pulumi.Input<{ maxConcurrentRuns?: pulumi.Input<number> }>;
+    readonly executionProperty?: pulumi.Input<inputApi.glue.JobExecutionProperty>;
     /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
      */

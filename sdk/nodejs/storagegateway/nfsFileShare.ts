@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -75,7 +77,7 @@ export class NfsFileShare extends pulumi.CustomResource {
     /**
      * Nested argument with file share default values. More information below.
      */
-    public readonly nfsFileShareDefaults!: pulumi.Output<{ directoryMode?: string, fileMode?: string, groupId?: number, ownerId?: number } | undefined>;
+    public readonly nfsFileShareDefaults!: pulumi.Output<outputApi.storagegateway.NfsFileShareNfsFileShareDefaults | undefined>;
     /**
      * Access Control List permission for S3 bucket objects. Defaults to `private`.
      */
@@ -208,7 +210,7 @@ export interface NfsFileShareState {
     /**
      * Nested argument with file share default values. More information below.
      */
-    readonly nfsFileShareDefaults?: pulumi.Input<{ directoryMode?: pulumi.Input<string>, fileMode?: pulumi.Input<string>, groupId?: pulumi.Input<number>, ownerId?: pulumi.Input<number> }>;
+    readonly nfsFileShareDefaults?: pulumi.Input<inputApi.storagegateway.NfsFileShareNfsFileShareDefaults>;
     /**
      * Access Control List permission for S3 bucket objects. Defaults to `private`.
      */
@@ -266,7 +268,7 @@ export interface NfsFileShareArgs {
     /**
      * Nested argument with file share default values. More information below.
      */
-    readonly nfsFileShareDefaults?: pulumi.Input<{ directoryMode?: pulumi.Input<string>, fileMode?: pulumi.Input<string>, groupId?: pulumi.Input<number>, ownerId?: pulumi.Input<number> }>;
+    readonly nfsFileShareDefaults?: pulumi.Input<inputApi.storagegateway.NfsFileShareNfsFileShareDefaults>;
     /**
      * Access Control List permission for S3 bucket objects. Defaults to `private`.
      */

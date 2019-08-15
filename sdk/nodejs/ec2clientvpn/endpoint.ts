@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -40,7 +42,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    public readonly authenticationOptions!: pulumi.Output<{ activeDirectoryId?: string, rootCertificateChainArn?: string, type: string }>;
+    public readonly authenticationOptions!: pulumi.Output<outputApi.ec2clientvpn.EndpointAuthenticationOptions>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
@@ -48,7 +50,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Information about the client connection logging options.
      */
-    public readonly connectionLogOptions!: pulumi.Output<{ cloudwatchLogGroup?: string, cloudwatchLogStream?: string, enabled: boolean }>;
+    public readonly connectionLogOptions!: pulumi.Output<outputApi.ec2clientvpn.EndpointConnectionLogOptions>;
     /**
      * Name of the repository.
      */
@@ -149,7 +151,7 @@ export interface EndpointState {
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    readonly authenticationOptions?: pulumi.Input<{ activeDirectoryId?: pulumi.Input<string>, rootCertificateChainArn?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly authenticationOptions?: pulumi.Input<inputApi.ec2clientvpn.EndpointAuthenticationOptions>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
@@ -157,7 +159,7 @@ export interface EndpointState {
     /**
      * Information about the client connection logging options.
      */
-    readonly connectionLogOptions?: pulumi.Input<{ cloudwatchLogGroup?: pulumi.Input<string>, cloudwatchLogStream?: pulumi.Input<string>, enabled: pulumi.Input<boolean> }>;
+    readonly connectionLogOptions?: pulumi.Input<inputApi.ec2clientvpn.EndpointConnectionLogOptions>;
     /**
      * Name of the repository.
      */
@@ -199,7 +201,7 @@ export interface EndpointArgs {
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    readonly authenticationOptions: pulumi.Input<{ activeDirectoryId?: pulumi.Input<string>, rootCertificateChainArn?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly authenticationOptions: pulumi.Input<inputApi.ec2clientvpn.EndpointAuthenticationOptions>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
@@ -207,7 +209,7 @@ export interface EndpointArgs {
     /**
      * Information about the client connection logging options.
      */
-    readonly connectionLogOptions: pulumi.Input<{ cloudwatchLogGroup?: pulumi.Input<string>, cloudwatchLogStream?: pulumi.Input<string>, enabled: pulumi.Input<boolean> }>;
+    readonly connectionLogOptions: pulumi.Input<inputApi.ec2clientvpn.EndpointConnectionLogOptions>;
     /**
      * Name of the repository.
      */

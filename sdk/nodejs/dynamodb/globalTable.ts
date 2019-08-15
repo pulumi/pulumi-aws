@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +51,7 @@ export class GlobalTable extends pulumi.CustomResource {
     /**
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      */
-    public readonly replicas!: pulumi.Output<{ regionName: string }[]>;
+    public readonly replicas!: pulumi.Output<outputApi.dynamodb.GlobalTableReplica[]>;
 
     /**
      * Create a GlobalTable resource with the given unique name, arguments, and options.
@@ -101,7 +103,7 @@ export interface GlobalTableState {
     /**
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      */
-    readonly replicas?: pulumi.Input<pulumi.Input<{ regionName: pulumi.Input<string> }>[]>;
+    readonly replicas?: pulumi.Input<pulumi.Input<inputApi.dynamodb.GlobalTableReplica>[]>;
 }
 
 /**
@@ -115,5 +117,5 @@ export interface GlobalTableArgs {
     /**
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      */
-    readonly replicas: pulumi.Input<pulumi.Input<{ regionName: pulumi.Input<string> }>[]>;
+    readonly replicas: pulumi.Input<pulumi.Input<inputApi.dynamodb.GlobalTableReplica>[]>;
 }

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -43,7 +45,7 @@ export class Model extends pulumi.CustomResource {
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      */
-    public readonly containers!: pulumi.Output<{ containerHostname?: string, environment?: {[key: string]: any}, image: string, modelDataUrl?: string }[] | undefined>;
+    public readonly containers!: pulumi.Output<outputApi.sagemaker.ModelContainer[] | undefined>;
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      */
@@ -59,7 +61,7 @@ export class Model extends pulumi.CustomResource {
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
-    public readonly primaryContainer!: pulumi.Output<{ containerHostname?: string, environment?: {[key: string]: any}, image: string, modelDataUrl?: string } | undefined>;
+    public readonly primaryContainer!: pulumi.Output<outputApi.sagemaker.ModelPrimaryContainer | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -67,7 +69,7 @@ export class Model extends pulumi.CustomResource {
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
-    public readonly vpcConfig!: pulumi.Output<{ securityGroupIds: string[], subnets: string[] } | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputApi.sagemaker.ModelVpcConfig | undefined>;
 
     /**
      * Create a Model resource with the given unique name, arguments, and options.
@@ -125,7 +127,7 @@ export interface ModelState {
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      */
-    readonly containers?: pulumi.Input<pulumi.Input<{ containerHostname?: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, modelDataUrl?: pulumi.Input<string> }>[]>;
+    readonly containers?: pulumi.Input<pulumi.Input<inputApi.sagemaker.ModelContainer>[]>;
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      */
@@ -141,7 +143,7 @@ export interface ModelState {
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
-    readonly primaryContainer?: pulumi.Input<{ containerHostname?: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, modelDataUrl?: pulumi.Input<string> }>;
+    readonly primaryContainer?: pulumi.Input<inputApi.sagemaker.ModelPrimaryContainer>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -149,7 +151,7 @@ export interface ModelState {
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
-    readonly vpcConfig?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly vpcConfig?: pulumi.Input<inputApi.sagemaker.ModelVpcConfig>;
 }
 
 /**
@@ -159,7 +161,7 @@ export interface ModelArgs {
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      */
-    readonly containers?: pulumi.Input<pulumi.Input<{ containerHostname?: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, modelDataUrl?: pulumi.Input<string> }>[]>;
+    readonly containers?: pulumi.Input<pulumi.Input<inputApi.sagemaker.ModelContainer>[]>;
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      */
@@ -175,7 +177,7 @@ export interface ModelArgs {
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
-    readonly primaryContainer?: pulumi.Input<{ containerHostname?: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, modelDataUrl?: pulumi.Input<string> }>;
+    readonly primaryContainer?: pulumi.Input<inputApi.sagemaker.ModelPrimaryContainer>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -183,5 +185,5 @@ export interface ModelArgs {
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
-    readonly vpcConfig?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly vpcConfig?: pulumi.Input<inputApi.sagemaker.ModelVpcConfig>;
 }

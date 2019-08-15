@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -43,7 +45,7 @@ export class PatchBaseline extends pulumi.CustomResource {
     /**
      * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
      */
-    public readonly approvalRules!: pulumi.Output<{ approveAfterDays: number, complianceLevel?: string, enableNonSecurity?: boolean, patchFilters: { key: string, values: string[] }[] }[] | undefined>;
+    public readonly approvalRules!: pulumi.Output<outputApi.ssm.PatchBaselineApprovalRule[] | undefined>;
     /**
      * A list of explicitly approved patches for the baseline.
      */
@@ -59,7 +61,7 @@ export class PatchBaseline extends pulumi.CustomResource {
     /**
      * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
      */
-    public readonly globalFilters!: pulumi.Output<{ key: string, values: string[] }[] | undefined>;
+    public readonly globalFilters!: pulumi.Output<outputApi.ssm.PatchBaselineGlobalFilter[] | undefined>;
     /**
      * The name of the patch baseline.
      */
@@ -125,7 +127,7 @@ export interface PatchBaselineState {
     /**
      * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
      */
-    readonly approvalRules?: pulumi.Input<pulumi.Input<{ approveAfterDays: pulumi.Input<number>, complianceLevel?: pulumi.Input<string>, enableNonSecurity?: pulumi.Input<boolean>, patchFilters: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]> }>[]>;
+    readonly approvalRules?: pulumi.Input<pulumi.Input<inputApi.ssm.PatchBaselineApprovalRule>[]>;
     /**
      * A list of explicitly approved patches for the baseline.
      */
@@ -141,7 +143,7 @@ export interface PatchBaselineState {
     /**
      * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
      */
-    readonly globalFilters?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly globalFilters?: pulumi.Input<pulumi.Input<inputApi.ssm.PatchBaselineGlobalFilter>[]>;
     /**
      * The name of the patch baseline.
      */
@@ -164,7 +166,7 @@ export interface PatchBaselineArgs {
     /**
      * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
      */
-    readonly approvalRules?: pulumi.Input<pulumi.Input<{ approveAfterDays: pulumi.Input<number>, complianceLevel?: pulumi.Input<string>, enableNonSecurity?: pulumi.Input<boolean>, patchFilters: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]> }>[]>;
+    readonly approvalRules?: pulumi.Input<pulumi.Input<inputApi.ssm.PatchBaselineApprovalRule>[]>;
     /**
      * A list of explicitly approved patches for the baseline.
      */
@@ -180,7 +182,7 @@ export interface PatchBaselineArgs {
     /**
      * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
      */
-    readonly globalFilters?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly globalFilters?: pulumi.Input<pulumi.Input<inputApi.ssm.PatchBaselineGlobalFilter>[]>;
     /**
      * The name of the patch baseline.
      */

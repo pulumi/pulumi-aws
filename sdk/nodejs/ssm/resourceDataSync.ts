@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -53,7 +55,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
     /**
      * Amazon S3 configuration details for the sync.
      */
-    public readonly s3Destination!: pulumi.Output<{ bucketName: string, kmsKeyArn?: string, prefix?: string, region: string, syncFormat?: string }>;
+    public readonly s3Destination!: pulumi.Output<outputApi.ssm.ResourceDataSyncS3Destination>;
 
     /**
      * Create a ResourceDataSync resource with the given unique name, arguments, and options.
@@ -99,7 +101,7 @@ export interface ResourceDataSyncState {
     /**
      * Amazon S3 configuration details for the sync.
      */
-    readonly s3Destination?: pulumi.Input<{ bucketName: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, prefix?: pulumi.Input<string>, region: pulumi.Input<string>, syncFormat?: pulumi.Input<string> }>;
+    readonly s3Destination?: pulumi.Input<inputApi.ssm.ResourceDataSyncS3Destination>;
 }
 
 /**
@@ -113,5 +115,5 @@ export interface ResourceDataSyncArgs {
     /**
      * Amazon S3 configuration details for the sync.
      */
-    readonly s3Destination: pulumi.Input<{ bucketName: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, prefix?: pulumi.Input<string>, region: pulumi.Input<string>, syncFormat?: pulumi.Input<string> }>;
+    readonly s3Destination: pulumi.Input<inputApi.ssm.ResourceDataSyncS3Destination>;
 }

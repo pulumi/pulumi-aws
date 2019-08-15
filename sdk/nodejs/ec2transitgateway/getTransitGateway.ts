@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -34,7 +36,7 @@ export interface GetTransitGatewayArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2transitgateway.GetTransitGatewayFilter[];
     /**
      * Identifier of the EC2 Transit Gateway.
      */
@@ -78,7 +80,7 @@ export interface GetTransitGatewayResult {
      * Whether DNS support is enabled.
      */
     readonly dnsSupport: string;
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ec2transitgateway.GetTransitGatewayFilter[];
     /**
      * EC2 Transit Gateway identifier
      */

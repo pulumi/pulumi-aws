@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -51,7 +53,7 @@ export class Alias extends pulumi.CustomResource {
     /**
      * Specifies the fleet and/or routing type to use for the alias.
      */
-    public readonly routingStrategy!: pulumi.Output<{ fleetId?: string, message?: string, type: string }>;
+    public readonly routingStrategy!: pulumi.Output<outputApi.gamelift.AliasRoutingStrategy>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -109,7 +111,7 @@ export interface AliasState {
     /**
      * Specifies the fleet and/or routing type to use for the alias.
      */
-    readonly routingStrategy?: pulumi.Input<{ fleetId?: pulumi.Input<string>, message?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly routingStrategy?: pulumi.Input<inputApi.gamelift.AliasRoutingStrategy>;
 }
 
 /**
@@ -127,5 +129,5 @@ export interface AliasArgs {
     /**
      * Specifies the fleet and/or routing type to use for the alias.
      */
-    readonly routingStrategy: pulumi.Input<{ fleetId?: pulumi.Input<string>, message?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly routingStrategy: pulumi.Input<inputApi.gamelift.AliasRoutingStrategy>;
 }

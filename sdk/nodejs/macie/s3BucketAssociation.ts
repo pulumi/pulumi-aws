@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -45,7 +47,7 @@ export class S3BucketAssociation extends pulumi.CustomResource {
     /**
      * The configuration of how Amazon Macie classifies the S3 objects.
      */
-    public readonly classificationType!: pulumi.Output<{ continuous?: string, oneTime?: string }>;
+    public readonly classificationType!: pulumi.Output<outputApi.macie.S3BucketAssociationClassificationType>;
     /**
      * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
      */
@@ -103,7 +105,7 @@ export interface S3BucketAssociationState {
     /**
      * The configuration of how Amazon Macie classifies the S3 objects.
      */
-    readonly classificationType?: pulumi.Input<{ continuous?: pulumi.Input<string>, oneTime?: pulumi.Input<string> }>;
+    readonly classificationType?: pulumi.Input<inputApi.macie.S3BucketAssociationClassificationType>;
     /**
      * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
      */
@@ -125,7 +127,7 @@ export interface S3BucketAssociationArgs {
     /**
      * The configuration of how Amazon Macie classifies the S3 objects.
      */
-    readonly classificationType?: pulumi.Input<{ continuous?: pulumi.Input<string>, oneTime?: pulumi.Input<string> }>;
+    readonly classificationType?: pulumi.Input<inputApi.macie.S3BucketAssociationClassificationType>;
     /**
      * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
      */

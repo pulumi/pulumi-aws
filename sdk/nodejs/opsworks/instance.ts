@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -118,7 +120,7 @@ export class Instance extends pulumi.CustomResource {
      * Additional EBS block devices to attach to the
      * instance.  See Block Devices below for details.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputApi.opsworks.InstanceEbsBlockDevice[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
@@ -133,7 +135,7 @@ export class Instance extends pulumi.CustomResource {
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<{ deviceName: string, virtualName: string }[]>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<outputApi.opsworks.InstanceEphemeralBlockDevice[]>;
     /**
      * The instance's host name.
      */
@@ -186,7 +188,7 @@ export class Instance extends pulumi.CustomResource {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    public readonly rootBlockDevices!: pulumi.Output<{ deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[]>;
+    public readonly rootBlockDevices!: pulumi.Output<outputApi.opsworks.InstanceRootBlockDevice[]>;
     /**
      * Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
      */
@@ -379,7 +381,7 @@ export interface InstanceState {
      * Additional EBS block devices to attach to the
      * instance.  See Block Devices below for details.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputApi.opsworks.InstanceEbsBlockDevice>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
@@ -394,7 +396,7 @@ export interface InstanceState {
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, virtualName: pulumi.Input<string> }>[]>;
+    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputApi.opsworks.InstanceEphemeralBlockDevice>[]>;
     /**
      * The instance's host name.
      */
@@ -447,7 +449,7 @@ export interface InstanceState {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly rootBlockDevices?: pulumi.Input<pulumi.Input<inputApi.opsworks.InstanceRootBlockDevice>[]>;
     /**
      * Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
      */
@@ -519,7 +521,7 @@ export interface InstanceArgs {
      * Additional EBS block devices to attach to the
      * instance.  See Block Devices below for details.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputApi.opsworks.InstanceEbsBlockDevice>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
@@ -530,7 +532,7 @@ export interface InstanceArgs {
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, virtualName: pulumi.Input<string> }>[]>;
+    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputApi.opsworks.InstanceEphemeralBlockDevice>[]>;
     /**
      * The instance's host name.
      */
@@ -583,7 +585,7 @@ export interface InstanceArgs {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly rootBlockDevices?: pulumi.Input<pulumi.Input<inputApi.opsworks.InstanceRootBlockDevice>[]>;
     /**
      * Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
      */

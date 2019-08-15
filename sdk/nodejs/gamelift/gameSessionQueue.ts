@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -51,7 +53,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    public readonly playerLatencyPolicies!: pulumi.Output<{ maximumIndividualPlayerLatencyMilliseconds: number, policyDurationSeconds?: number }[] | undefined>;
+    public readonly playerLatencyPolicies!: pulumi.Output<outputApi.gamelift.GameSessionQueuePlayerLatencyPolicy[] | undefined>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
@@ -112,7 +114,7 @@ export interface GameSessionQueueState {
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    readonly playerLatencyPolicies?: pulumi.Input<pulumi.Input<{ maximumIndividualPlayerLatencyMilliseconds: pulumi.Input<number>, policyDurationSeconds?: pulumi.Input<number> }>[]>;
+    readonly playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputApi.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
@@ -134,7 +136,7 @@ export interface GameSessionQueueArgs {
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    readonly playerLatencyPolicies?: pulumi.Input<pulumi.Input<{ maximumIndividualPlayerLatencyMilliseconds: pulumi.Input<number>, policyDurationSeconds?: pulumi.Input<number> }>[]>;
+    readonly playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputApi.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
     /**
      * Maximum time a game session request can remain in the queue.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 import {InstanceProfile} from "../iam";
@@ -102,7 +104,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      * Additional EBS block devices to attach to the
      * instance.  See Block Devices below for details.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, noDevice?: boolean, snapshotId: string, volumeSize: number, volumeType: string }[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputApi.ec2.LaunchConfigurationEbsBlockDevice[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
@@ -115,7 +117,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<{ deviceName: string, virtualName: string }[] | undefined>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<outputApi.ec2.LaunchConfigurationEphemeralBlockDevice[] | undefined>;
     /**
      * The name attribute of the IAM instance profile to associate
      * with launched instances.
@@ -153,7 +155,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    public readonly rootBlockDevice!: pulumi.Output<{ deleteOnTermination?: boolean, encrypted: boolean, iops: number, volumeSize: number, volumeType: string }>;
+    public readonly rootBlockDevice!: pulumi.Output<outputApi.ec2.LaunchConfigurationRootBlockDevice>;
     /**
      * A list of associated security group IDS.
      */
@@ -261,7 +263,7 @@ export interface LaunchConfigurationState {
      * Additional EBS block devices to attach to the
      * instance.  See Block Devices below for details.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, noDevice?: pulumi.Input<boolean>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputApi.ec2.LaunchConfigurationEbsBlockDevice>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
@@ -274,7 +276,7 @@ export interface LaunchConfigurationState {
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, virtualName: pulumi.Input<string> }>[]>;
+    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputApi.ec2.LaunchConfigurationEphemeralBlockDevice>[]>;
     /**
      * The name attribute of the IAM instance profile to associate
      * with launched instances.
@@ -312,7 +314,7 @@ export interface LaunchConfigurationState {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
+    readonly rootBlockDevice?: pulumi.Input<inputApi.ec2.LaunchConfigurationRootBlockDevice>;
     /**
      * A list of associated security group IDS.
      */
@@ -351,7 +353,7 @@ export interface LaunchConfigurationArgs {
      * Additional EBS block devices to attach to the
      * instance.  See Block Devices below for details.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, noDevice?: pulumi.Input<boolean>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputApi.ec2.LaunchConfigurationEbsBlockDevice>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
@@ -364,7 +366,7 @@ export interface LaunchConfigurationArgs {
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, virtualName: pulumi.Input<string> }>[]>;
+    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputApi.ec2.LaunchConfigurationEphemeralBlockDevice>[]>;
     /**
      * The name attribute of the IAM instance profile to associate
      * with launched instances.
@@ -402,7 +404,7 @@ export interface LaunchConfigurationArgs {
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
+    readonly rootBlockDevice?: pulumi.Input<inputApi.ec2.LaunchConfigurationRootBlockDevice>;
     /**
      * A list of associated security group IDS.
      */

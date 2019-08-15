@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -63,7 +65,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
-    public readonly accepter!: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
+    public readonly accepter!: pulumi.Output<outputApi.ec2.VpcPeeringConnectionAccepter>;
     /**
      * Accept the peering (both VPCs need to be in the same AWS account).
      */
@@ -87,7 +89,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
-    public readonly requester!: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
+    public readonly requester!: pulumi.Output<outputApi.ec2.VpcPeeringConnectionRequester>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -160,7 +162,7 @@ export interface VpcPeeringConnectionState {
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
-    readonly accepter?: pulumi.Input<{ allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>, allowRemoteVpcDnsResolution?: pulumi.Input<boolean>, allowVpcToRemoteClassicLink?: pulumi.Input<boolean> }>;
+    readonly accepter?: pulumi.Input<inputApi.ec2.VpcPeeringConnectionAccepter>;
     /**
      * Accept the peering (both VPCs need to be in the same AWS account).
      */
@@ -184,7 +186,7 @@ export interface VpcPeeringConnectionState {
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
-    readonly requester?: pulumi.Input<{ allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>, allowRemoteVpcDnsResolution?: pulumi.Input<boolean>, allowVpcToRemoteClassicLink?: pulumi.Input<boolean> }>;
+    readonly requester?: pulumi.Input<inputApi.ec2.VpcPeeringConnectionRequester>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -204,7 +206,7 @@ export interface VpcPeeringConnectionArgs {
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
-    readonly accepter?: pulumi.Input<{ allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>, allowRemoteVpcDnsResolution?: pulumi.Input<boolean>, allowVpcToRemoteClassicLink?: pulumi.Input<boolean> }>;
+    readonly accepter?: pulumi.Input<inputApi.ec2.VpcPeeringConnectionAccepter>;
     /**
      * Accept the peering (both VPCs need to be in the same AWS account).
      */
@@ -228,7 +230,7 @@ export interface VpcPeeringConnectionArgs {
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
-    readonly requester?: pulumi.Input<{ allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>, allowRemoteVpcDnsResolution?: pulumi.Input<boolean>, allowVpcToRemoteClassicLink?: pulumi.Input<boolean> }>;
+    readonly requester?: pulumi.Input<inputApi.ec2.VpcPeeringConnectionRequester>;
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -45,7 +47,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
      */
-    public readonly attributes!: pulumi.Output<{ name: string, type: string }[]>;
+    public readonly attributes!: pulumi.Output<outputApi.dynamodb.TableAttribute[]>;
     /**
      * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
      */
@@ -55,7 +57,7 @@ export class Table extends pulumi.CustomResource {
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
      */
-    public readonly globalSecondaryIndexes!: pulumi.Output<{ hashKey: string, name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey?: string, readCapacity?: number, writeCapacity?: number }[] | undefined>;
+    public readonly globalSecondaryIndexes!: pulumi.Output<outputApi.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
     /**
      * The name of the hash key in the index; must be
      * defined as an attribute in the resource.
@@ -66,7 +68,7 @@ export class Table extends pulumi.CustomResource {
      * these can only be allocated *at creation* so you cannot change this
      * definition after you have created the resource.
      */
-    public readonly localSecondaryIndexes!: pulumi.Output<{ name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey: string }[] | undefined>;
+    public readonly localSecondaryIndexes!: pulumi.Output<outputApi.dynamodb.TableLocalSecondaryIndex[] | undefined>;
     /**
      * The name of the index
      */
@@ -74,7 +76,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Point-in-time recovery options.
      */
-    public readonly pointInTimeRecovery!: pulumi.Output<{ enabled: boolean }>;
+    public readonly pointInTimeRecovery!: pulumi.Output<outputApi.dynamodb.TablePointInTimeRecovery>;
     /**
      * The name of the range key; must be defined
      */
@@ -86,7 +88,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
-    public readonly serverSideEncryption!: pulumi.Output<{ enabled: boolean }>;
+    public readonly serverSideEncryption!: pulumi.Output<outputApi.dynamodb.TableServerSideEncryption>;
     /**
      * The ARN of the Table Stream. Only available when `streamEnabled = true`
      */
@@ -113,7 +115,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
-    public readonly ttl!: pulumi.Output<{ attributeName: string, enabled?: boolean } | undefined>;
+    public readonly ttl!: pulumi.Output<outputApi.dynamodb.TableTtl | undefined>;
     /**
      * The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      */
@@ -198,7 +200,7 @@ export interface TableState {
     /**
      * List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
      */
-    readonly attributes?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly attributes?: pulumi.Input<pulumi.Input<inputApi.dynamodb.TableAttribute>[]>;
     /**
      * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
      */
@@ -208,7 +210,7 @@ export interface TableState {
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
      */
-    readonly globalSecondaryIndexes?: pulumi.Input<pulumi.Input<{ hashKey: pulumi.Input<string>, name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey?: pulumi.Input<string>, readCapacity?: pulumi.Input<number>, writeCapacity?: pulumi.Input<number> }>[]>;
+    readonly globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputApi.dynamodb.TableGlobalSecondaryIndex>[]>;
     /**
      * The name of the hash key in the index; must be
      * defined as an attribute in the resource.
@@ -219,7 +221,7 @@ export interface TableState {
      * these can only be allocated *at creation* so you cannot change this
      * definition after you have created the resource.
      */
-    readonly localSecondaryIndexes?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey: pulumi.Input<string> }>[]>;
+    readonly localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputApi.dynamodb.TableLocalSecondaryIndex>[]>;
     /**
      * The name of the index
      */
@@ -227,7 +229,7 @@ export interface TableState {
     /**
      * Point-in-time recovery options.
      */
-    readonly pointInTimeRecovery?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
+    readonly pointInTimeRecovery?: pulumi.Input<inputApi.dynamodb.TablePointInTimeRecovery>;
     /**
      * The name of the range key; must be defined
      */
@@ -239,7 +241,7 @@ export interface TableState {
     /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
-    readonly serverSideEncryption?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
+    readonly serverSideEncryption?: pulumi.Input<inputApi.dynamodb.TableServerSideEncryption>;
     /**
      * The ARN of the Table Stream. Only available when `streamEnabled = true`
      */
@@ -266,7 +268,7 @@ export interface TableState {
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
-    readonly ttl?: pulumi.Input<{ attributeName: pulumi.Input<string>, enabled?: pulumi.Input<boolean> }>;
+    readonly ttl?: pulumi.Input<inputApi.dynamodb.TableTtl>;
     /**
      * The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      */
@@ -280,7 +282,7 @@ export interface TableArgs {
     /**
      * List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
      */
-    readonly attributes: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly attributes: pulumi.Input<pulumi.Input<inputApi.dynamodb.TableAttribute>[]>;
     /**
      * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
      */
@@ -290,7 +292,7 @@ export interface TableArgs {
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
      */
-    readonly globalSecondaryIndexes?: pulumi.Input<pulumi.Input<{ hashKey: pulumi.Input<string>, name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey?: pulumi.Input<string>, readCapacity?: pulumi.Input<number>, writeCapacity?: pulumi.Input<number> }>[]>;
+    readonly globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputApi.dynamodb.TableGlobalSecondaryIndex>[]>;
     /**
      * The name of the hash key in the index; must be
      * defined as an attribute in the resource.
@@ -301,7 +303,7 @@ export interface TableArgs {
      * these can only be allocated *at creation* so you cannot change this
      * definition after you have created the resource.
      */
-    readonly localSecondaryIndexes?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>, projectionType: pulumi.Input<string>, rangeKey: pulumi.Input<string> }>[]>;
+    readonly localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputApi.dynamodb.TableLocalSecondaryIndex>[]>;
     /**
      * The name of the index
      */
@@ -309,7 +311,7 @@ export interface TableArgs {
     /**
      * Point-in-time recovery options.
      */
-    readonly pointInTimeRecovery?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
+    readonly pointInTimeRecovery?: pulumi.Input<inputApi.dynamodb.TablePointInTimeRecovery>;
     /**
      * The name of the range key; must be defined
      */
@@ -321,7 +323,7 @@ export interface TableArgs {
     /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
-    readonly serverSideEncryption?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
+    readonly serverSideEncryption?: pulumi.Input<inputApi.dynamodb.TableServerSideEncryption>;
     /**
      * Indicates whether Streams are to be enabled (true) or disabled (false).
      */
@@ -337,7 +339,7 @@ export interface TableArgs {
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
-    readonly ttl?: pulumi.Input<{ attributeName: pulumi.Input<string>, enabled?: pulumi.Input<boolean> }>;
+    readonly ttl?: pulumi.Input<inputApi.dynamodb.TableTtl>;
     /**
      * The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      */

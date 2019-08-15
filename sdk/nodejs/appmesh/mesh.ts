@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +57,7 @@ export class Mesh extends pulumi.CustomResource {
     /**
      * The service mesh specification to apply.
      */
-    public readonly spec!: pulumi.Output<{ egressFilter?: { type?: string } } | undefined>;
+    public readonly spec!: pulumi.Output<outputApi.appmesh.MeshSpec | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -122,7 +124,7 @@ export interface MeshState {
     /**
      * The service mesh specification to apply.
      */
-    readonly spec?: pulumi.Input<{ egressFilter?: pulumi.Input<{ type?: pulumi.Input<string> }> }>;
+    readonly spec?: pulumi.Input<inputApi.appmesh.MeshSpec>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -140,7 +142,7 @@ export interface MeshArgs {
     /**
      * The service mesh specification to apply.
      */
-    readonly spec?: pulumi.Input<{ egressFilter?: pulumi.Input<{ type?: pulumi.Input<string> }> }>;
+    readonly spec?: pulumi.Input<inputApi.appmesh.MeshSpec>;
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -51,7 +53,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * A `resourceQuery` block. Resource queries are documented below.
      */
-    public readonly resourceQuery!: pulumi.Output<{ query: string, type?: string }>;
+    public readonly resourceQuery!: pulumi.Output<outputApi.resourcegroups.GroupResourceQuery>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -109,7 +111,7 @@ export interface GroupState {
     /**
      * A `resourceQuery` block. Resource queries are documented below.
      */
-    readonly resourceQuery?: pulumi.Input<{ query: pulumi.Input<string>, type?: pulumi.Input<string> }>;
+    readonly resourceQuery?: pulumi.Input<inputApi.resourcegroups.GroupResourceQuery>;
 }
 
 /**
@@ -127,5 +129,5 @@ export interface GroupArgs {
     /**
      * A `resourceQuery` block. Resource queries are documented below.
      */
-    readonly resourceQuery: pulumi.Input<{ query: pulumi.Input<string>, type?: pulumi.Input<string> }>;
+    readonly resourceQuery: pulumi.Input<inputApi.resourcegroups.GroupResourceQuery>;
 }

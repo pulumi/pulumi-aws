@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -52,7 +54,7 @@ export interface GetFunctionResult {
     /**
      * Configure the function's *dead letter queue*.
      */
-    readonly deadLetterConfig: { targetArn: string };
+    readonly deadLetterConfig: outputApi.lambda.GetFunctionDeadLetterConfig;
     /**
      * Description of what your Lambda Function does.
      */
@@ -60,7 +62,7 @@ export interface GetFunctionResult {
     /**
      * The Lambda environment's configuration settings.
      */
-    readonly environment: { variables: {[key: string]: string} };
+    readonly environment: outputApi.lambda.GetFunctionEnvironment;
     readonly functionName: string;
     /**
      * The function entrypoint in your code.
@@ -119,7 +121,7 @@ export interface GetFunctionResult {
     /**
      * Tracing settings of the function.
      */
-    readonly tracingConfig: { mode: string };
+    readonly tracingConfig: outputApi.lambda.GetFunctionTracingConfig;
     /**
      * The version of the Lambda function.
      */
@@ -127,7 +129,7 @@ export interface GetFunctionResult {
     /**
      * VPC configuration associated with your Lambda function.
      */
-    readonly vpcConfig: { securityGroupIds: string[], subnetIds: string[], vpcId: string };
+    readonly vpcConfig: outputApi.lambda.GetFunctionVpcConfig;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

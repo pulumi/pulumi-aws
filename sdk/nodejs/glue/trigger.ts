@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -39,7 +41,7 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * List of actions initiated by this trigger when it fires. Defined below.
      */
-    public readonly actions!: pulumi.Output<{ arguments?: {[key: string]: any}, jobName: string, timeout?: number }[]>;
+    public readonly actions!: pulumi.Output<outputApi.glue.TriggerAction[]>;
     /**
      * A description of the new trigger.
      */
@@ -55,7 +57,7 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
      */
-    public readonly predicate!: pulumi.Output<{ conditions: { jobName: string, logicalOperator?: string, state: string }[], logical?: string } | undefined>;
+    public readonly predicate!: pulumi.Output<outputApi.glue.TriggerPredicate | undefined>;
     /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */
@@ -118,7 +120,7 @@ export interface TriggerState {
     /**
      * List of actions initiated by this trigger when it fires. Defined below.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<{ arguments?: pulumi.Input<{[key: string]: any}>, jobName: pulumi.Input<string>, timeout?: pulumi.Input<number> }>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputApi.glue.TriggerAction>[]>;
     /**
      * A description of the new trigger.
      */
@@ -134,7 +136,7 @@ export interface TriggerState {
     /**
      * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
      */
-    readonly predicate?: pulumi.Input<{ conditions: pulumi.Input<pulumi.Input<{ jobName: pulumi.Input<string>, logicalOperator?: pulumi.Input<string>, state: pulumi.Input<string> }>[]>, logical?: pulumi.Input<string> }>;
+    readonly predicate?: pulumi.Input<inputApi.glue.TriggerPredicate>;
     /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */
@@ -152,7 +154,7 @@ export interface TriggerArgs {
     /**
      * List of actions initiated by this trigger when it fires. Defined below.
      */
-    readonly actions: pulumi.Input<pulumi.Input<{ arguments?: pulumi.Input<{[key: string]: any}>, jobName: pulumi.Input<string>, timeout?: pulumi.Input<number> }>[]>;
+    readonly actions: pulumi.Input<pulumi.Input<inputApi.glue.TriggerAction>[]>;
     /**
      * A description of the new trigger.
      */
@@ -168,7 +170,7 @@ export interface TriggerArgs {
     /**
      * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
      */
-    readonly predicate?: pulumi.Input<{ conditions: pulumi.Input<pulumi.Input<{ jobName: pulumi.Input<string>, logicalOperator?: pulumi.Input<string>, state: pulumi.Input<string> }>[]>, logical?: pulumi.Input<string> }>;
+    readonly predicate?: pulumi.Input<inputApi.glue.TriggerPredicate>;
     /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +57,7 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
     /**
      * The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
      */
-    public readonly targets!: pulumi.Output<{ key: string, values: string[] }[]>;
+    public readonly targets!: pulumi.Output<outputApi.ssm.MaintenanceWindowTargetTarget[]>;
     /**
      * The Id of the maintenance window to register the target with.
      */
@@ -131,7 +133,7 @@ export interface MaintenanceWindowTargetState {
     /**
      * The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
      */
-    readonly targets?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly targets?: pulumi.Input<pulumi.Input<inputApi.ssm.MaintenanceWindowTargetTarget>[]>;
     /**
      * The Id of the maintenance window to register the target with.
      */
@@ -161,7 +163,7 @@ export interface MaintenanceWindowTargetArgs {
     /**
      * The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
      */
-    readonly targets: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly targets: pulumi.Input<pulumi.Input<inputApi.ssm.MaintenanceWindowTargetTarget>[]>;
     /**
      * The Id of the maintenance window to register the target with.
      */
