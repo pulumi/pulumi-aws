@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +73,7 @@ export interface GetVpcDhcpOptionsArgs {
     /**
      * List of custom filters as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2.GetVpcDhcpOptionsFilter[];
     readonly tags?: {[key: string]: any};
 }
 
@@ -91,7 +93,7 @@ export interface GetVpcDhcpOptionsResult {
      * List of name servers.
      */
     readonly domainNameServers: string[];
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ec2.GetVpcDhcpOptionsFilter[];
     /**
      * List of NETBIOS name servers.
      */

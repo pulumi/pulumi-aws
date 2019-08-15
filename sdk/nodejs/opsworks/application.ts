@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -76,7 +78,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * SCM configuration of the app as described below.
      */
-    public readonly appSources!: pulumi.Output<{ password?: string, revision?: string, sshKey?: string, type: string, url?: string, username?: string }[]>;
+    public readonly appSources!: pulumi.Output<outputApi.opsworks.ApplicationAppSource[]>;
     /**
      * Run bundle install when deploying for application of type `rails`.
      */
@@ -116,7 +118,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * Object to define environment variables.  Object is described below.
      */
-    public readonly environments!: pulumi.Output<{ key: string, secure?: boolean, value: string }[] | undefined>;
+    public readonly environments!: pulumi.Output<outputApi.opsworks.ApplicationEnvironment[] | undefined>;
     /**
      * A human-readable name for the application.
      */
@@ -132,7 +134,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The SSL configuration of the app. Object is described below.
      */
-    public readonly sslConfigurations!: pulumi.Output<{ certificate: string, chain?: string, privateKey: string }[] | undefined>;
+    public readonly sslConfigurations!: pulumi.Output<outputApi.opsworks.ApplicationSslConfiguration[] | undefined>;
     /**
      * The id of the stack the application will belong to.
      */
@@ -215,7 +217,7 @@ export interface ApplicationState {
     /**
      * SCM configuration of the app as described below.
      */
-    readonly appSources?: pulumi.Input<pulumi.Input<{ password?: pulumi.Input<string>, revision?: pulumi.Input<string>, sshKey?: pulumi.Input<string>, type: pulumi.Input<string>, url?: pulumi.Input<string>, username?: pulumi.Input<string> }>[]>;
+    readonly appSources?: pulumi.Input<pulumi.Input<inputApi.opsworks.ApplicationAppSource>[]>;
     /**
      * Run bundle install when deploying for application of type `rails`.
      */
@@ -255,7 +257,7 @@ export interface ApplicationState {
     /**
      * Object to define environment variables.  Object is described below.
      */
-    readonly environments?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, secure?: pulumi.Input<boolean>, value: pulumi.Input<string> }>[]>;
+    readonly environments?: pulumi.Input<pulumi.Input<inputApi.opsworks.ApplicationEnvironment>[]>;
     /**
      * A human-readable name for the application.
      */
@@ -271,7 +273,7 @@ export interface ApplicationState {
     /**
      * The SSL configuration of the app. Object is described below.
      */
-    readonly sslConfigurations?: pulumi.Input<pulumi.Input<{ certificate: pulumi.Input<string>, chain?: pulumi.Input<string>, privateKey: pulumi.Input<string> }>[]>;
+    readonly sslConfigurations?: pulumi.Input<pulumi.Input<inputApi.opsworks.ApplicationSslConfiguration>[]>;
     /**
      * The id of the stack the application will belong to.
      */
@@ -289,7 +291,7 @@ export interface ApplicationArgs {
     /**
      * SCM configuration of the app as described below.
      */
-    readonly appSources?: pulumi.Input<pulumi.Input<{ password?: pulumi.Input<string>, revision?: pulumi.Input<string>, sshKey?: pulumi.Input<string>, type: pulumi.Input<string>, url?: pulumi.Input<string>, username?: pulumi.Input<string> }>[]>;
+    readonly appSources?: pulumi.Input<pulumi.Input<inputApi.opsworks.ApplicationAppSource>[]>;
     /**
      * Run bundle install when deploying for application of type `rails`.
      */
@@ -329,7 +331,7 @@ export interface ApplicationArgs {
     /**
      * Object to define environment variables.  Object is described below.
      */
-    readonly environments?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, secure?: pulumi.Input<boolean>, value: pulumi.Input<string> }>[]>;
+    readonly environments?: pulumi.Input<pulumi.Input<inputApi.opsworks.ApplicationEnvironment>[]>;
     /**
      * A human-readable name for the application.
      */
@@ -345,7 +347,7 @@ export interface ApplicationArgs {
     /**
      * The SSL configuration of the app. Object is described below.
      */
-    readonly sslConfigurations?: pulumi.Input<pulumi.Input<{ certificate: pulumi.Input<string>, chain?: pulumi.Input<string>, privateKey: pulumi.Input<string> }>[]>;
+    readonly sslConfigurations?: pulumi.Input<pulumi.Input<inputApi.opsworks.ApplicationSslConfiguration>[]>;
     /**
      * The id of the stack the application will belong to.
      */

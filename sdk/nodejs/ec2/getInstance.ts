@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +63,7 @@ export interface GetInstanceArgs {
      * several valid keys, for a full reference, check out
      * [describe-instances in the AWS CLI reference][1].
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2.GetInstanceFilter[];
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
@@ -105,12 +107,12 @@ export interface GetInstanceResult {
     /**
      * The credit specification of the Instance.
      */
-    readonly creditSpecifications: { cpuCredits: string }[];
+    readonly creditSpecifications: outputApi.ec2.GetInstanceCreditSpecification[];
     readonly disableApiTermination: boolean;
     /**
      * The EBS block device mappings of the Instance.
      */
-    readonly ebsBlockDevices: { deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, kmsKeyId: string, snapshotId: string, volumeId: string, volumeSize: number, volumeType: string }[];
+    readonly ebsBlockDevices: outputApi.ec2.GetInstanceEbsBlockDevice[];
     /**
      * Whether the Instance is EBS optimized or not (Boolean).
      */
@@ -118,8 +120,8 @@ export interface GetInstanceResult {
     /**
      * The ephemeral block device mappings of the Instance.
      */
-    readonly ephemeralBlockDevices: { deviceName: string, noDevice?: boolean, virtualName?: string }[];
-    readonly filters?: { name: string, values: string[] }[];
+    readonly ephemeralBlockDevices: outputApi.ec2.GetInstanceEphemeralBlockDevice[];
+    readonly filters?: outputApi.ec2.GetInstanceFilter[];
     readonly getPasswordData?: boolean;
     readonly getUserData?: boolean;
     /**
@@ -185,7 +187,7 @@ export interface GetInstanceResult {
     /**
      * The root block device mappings of the Instance
      */
-    readonly rootBlockDevices: { deleteOnTermination: boolean, encrypted: boolean, iops: number, kmsKeyId: string, volumeId: string, volumeSize: number, volumeType: string }[];
+    readonly rootBlockDevices: outputApi.ec2.GetInstanceRootBlockDevice[];
     /**
      * The associated security groups.
      */

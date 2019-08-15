@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +63,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block containing encryption configuration. Detailed below.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<{ cloudwatchEncryption: { cloudwatchEncryptionMode?: string, kmsKeyArn?: string }, jobBookmarksEncryption: { jobBookmarksEncryptionMode?: string, kmsKeyArn?: string }, s3Encryption: { kmsKeyArn?: string, s3EncryptionMode?: string } }>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputApi.glue.SecurityConfigurationEncryptionConfiguration>;
     /**
      * Name of the security configuration.
      */
@@ -107,7 +109,7 @@ export interface SecurityConfigurationState {
     /**
      * Configuration block containing encryption configuration. Detailed below.
      */
-    readonly encryptionConfiguration?: pulumi.Input<{ cloudwatchEncryption: pulumi.Input<{ cloudwatchEncryptionMode?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string> }>, jobBookmarksEncryption: pulumi.Input<{ jobBookmarksEncryptionMode?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string> }>, s3Encryption: pulumi.Input<{ kmsKeyArn?: pulumi.Input<string>, s3EncryptionMode?: pulumi.Input<string> }> }>;
+    readonly encryptionConfiguration?: pulumi.Input<inputApi.glue.SecurityConfigurationEncryptionConfiguration>;
     /**
      * Name of the security configuration.
      */
@@ -121,7 +123,7 @@ export interface SecurityConfigurationArgs {
     /**
      * Configuration block containing encryption configuration. Detailed below.
      */
-    readonly encryptionConfiguration: pulumi.Input<{ cloudwatchEncryption: pulumi.Input<{ cloudwatchEncryptionMode?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string> }>, jobBookmarksEncryption: pulumi.Input<{ jobBookmarksEncryptionMode?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string> }>, s3Encryption: pulumi.Input<{ kmsKeyArn?: pulumi.Input<string>, s3EncryptionMode?: pulumi.Input<string> }> }>;
+    readonly encryptionConfiguration: pulumi.Input<inputApi.glue.SecurityConfigurationEncryptionConfiguration>;
     /**
      * Name of the security configuration.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -225,11 +227,11 @@ export interface GetScriptArgs {
     /**
      * A list of the edges in the DAG. Defined below.
      */
-    readonly dagEdges: { source: string, target: string, targetParameter?: string }[];
+    readonly dagEdges: inputApi.glue.GetScriptDagEdge[];
     /**
      * A list of the nodes in the DAG. Defined below.
      */
-    readonly dagNodes: { args: { name: string, param?: boolean, value: string }[], id: string, lineNumber?: number, nodeType: string }[];
+    readonly dagNodes: inputApi.glue.GetScriptDagNode[];
     /**
      * The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
      */
@@ -240,8 +242,8 @@ export interface GetScriptArgs {
  * A collection of values returned by getScript.
  */
 export interface GetScriptResult {
-    readonly dagEdges: { source: string, target: string, targetParameter?: string }[];
-    readonly dagNodes: { args: { name: string, param?: boolean, value: string }[], id: string, lineNumber?: number, nodeType: string }[];
+    readonly dagEdges: outputApi.glue.GetScriptDagEdge[];
+    readonly dagNodes: outputApi.glue.GetScriptDagNode[];
     readonly language?: string;
     /**
      * The Python script generated from the DAG when the `language` argument is set to `PYTHON`.

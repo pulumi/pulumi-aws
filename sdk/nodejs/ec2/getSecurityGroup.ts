@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +63,7 @@ export interface GetSecurityGroupArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2.GetSecurityGroupFilter[];
     /**
      * The id of the specific security group to retrieve.
      */
@@ -94,7 +96,7 @@ export interface GetSecurityGroupResult {
      * The description of the security group.
      */
     readonly description: string;
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ec2.GetSecurityGroupFilter[];
     readonly id: string;
     readonly name: string;
     readonly tags: {[key: string]: any};

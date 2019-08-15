@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +63,7 @@ export interface GetRouteTablesArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2.GetRouteTablesFilter[];
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired route tables.
@@ -77,7 +79,7 @@ export interface GetRouteTablesArgs {
  * A collection of values returned by getRouteTables.
  */
 export interface GetRouteTablesResult {
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ec2.GetRouteTablesFilter[];
     /**
      * A list of all the route table ids found. This data source will fail if none are found.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -59,7 +61,7 @@ export interface GetClusterResult {
     /**
      * Nested attribute containing `certificate-authority-data` for your cluster.
      */
-    readonly certificateAuthority: { data: string };
+    readonly certificateAuthority: outputApi.eks.GetClusterCertificateAuthority;
     /**
      * The Unix epoch time stamp in seconds for when the cluster was created.
      */
@@ -92,7 +94,7 @@ export interface GetClusterResult {
     /**
      * Nested attribute containing VPC configuration for the cluster.
      */
-    readonly vpcConfig: { endpointPrivateAccess: boolean, endpointPublicAccess: boolean, securityGroupIds: string[], subnetIds: string[], vpcId: string };
+    readonly vpcConfig: outputApi.eks.GetClusterVpcConfig;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -63,11 +65,11 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */
-    public readonly launchTemplateConfig!: pulumi.Output<{ launchTemplateSpecification: { launchTemplateId?: string, launchTemplateName?: string, version: string }, overrides?: { availabilityZone?: string, instanceType?: string, maxPrice?: string, priority?: number, subnetId?: string, weightedCapacity?: number }[] }>;
+    public readonly launchTemplateConfig!: pulumi.Output<outputApi.ec2.FleetLaunchTemplateConfig>;
     /**
      * Nested argument containing On-Demand configurations. Defined below.
      */
-    public readonly onDemandOptions!: pulumi.Output<{ allocationStrategy?: string } | undefined>;
+    public readonly onDemandOptions!: pulumi.Output<outputApi.ec2.FleetOnDemandOptions | undefined>;
     /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
      */
@@ -75,7 +77,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Nested argument containing Spot configurations. Defined below.
      */
-    public readonly spotOptions!: pulumi.Output<{ allocationStrategy?: string, instanceInterruptionBehavior?: string, instancePoolsToUseCount?: number } | undefined>;
+    public readonly spotOptions!: pulumi.Output<outputApi.ec2.FleetSpotOptions | undefined>;
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
@@ -83,7 +85,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
-    public readonly targetCapacitySpecification!: pulumi.Output<{ defaultTargetCapacityType: string, onDemandTargetCapacity?: number, spotTargetCapacity?: number, totalTargetCapacity: number }>;
+    public readonly targetCapacitySpecification!: pulumi.Output<outputApi.ec2.FleetTargetCapacitySpecification>;
     /**
      * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
      */
@@ -160,11 +162,11 @@ export interface FleetState {
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */
-    readonly launchTemplateConfig?: pulumi.Input<{ launchTemplateSpecification: pulumi.Input<{ launchTemplateId?: pulumi.Input<string>, launchTemplateName?: pulumi.Input<string>, version: pulumi.Input<string> }>, overrides?: pulumi.Input<pulumi.Input<{ availabilityZone?: pulumi.Input<string>, instanceType?: pulumi.Input<string>, maxPrice?: pulumi.Input<string>, priority?: pulumi.Input<number>, subnetId?: pulumi.Input<string>, weightedCapacity?: pulumi.Input<number> }>[]> }>;
+    readonly launchTemplateConfig?: pulumi.Input<inputApi.ec2.FleetLaunchTemplateConfig>;
     /**
      * Nested argument containing On-Demand configurations. Defined below.
      */
-    readonly onDemandOptions?: pulumi.Input<{ allocationStrategy?: pulumi.Input<string> }>;
+    readonly onDemandOptions?: pulumi.Input<inputApi.ec2.FleetOnDemandOptions>;
     /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
      */
@@ -172,7 +174,7 @@ export interface FleetState {
     /**
      * Nested argument containing Spot configurations. Defined below.
      */
-    readonly spotOptions?: pulumi.Input<{ allocationStrategy?: pulumi.Input<string>, instanceInterruptionBehavior?: pulumi.Input<string>, instancePoolsToUseCount?: pulumi.Input<number> }>;
+    readonly spotOptions?: pulumi.Input<inputApi.ec2.FleetSpotOptions>;
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
@@ -180,7 +182,7 @@ export interface FleetState {
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
-    readonly targetCapacitySpecification?: pulumi.Input<{ defaultTargetCapacityType: pulumi.Input<string>, onDemandTargetCapacity?: pulumi.Input<number>, spotTargetCapacity?: pulumi.Input<number>, totalTargetCapacity: pulumi.Input<number> }>;
+    readonly targetCapacitySpecification?: pulumi.Input<inputApi.ec2.FleetTargetCapacitySpecification>;
     /**
      * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
      */
@@ -206,11 +208,11 @@ export interface FleetArgs {
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */
-    readonly launchTemplateConfig: pulumi.Input<{ launchTemplateSpecification: pulumi.Input<{ launchTemplateId?: pulumi.Input<string>, launchTemplateName?: pulumi.Input<string>, version: pulumi.Input<string> }>, overrides?: pulumi.Input<pulumi.Input<{ availabilityZone?: pulumi.Input<string>, instanceType?: pulumi.Input<string>, maxPrice?: pulumi.Input<string>, priority?: pulumi.Input<number>, subnetId?: pulumi.Input<string>, weightedCapacity?: pulumi.Input<number> }>[]> }>;
+    readonly launchTemplateConfig: pulumi.Input<inputApi.ec2.FleetLaunchTemplateConfig>;
     /**
      * Nested argument containing On-Demand configurations. Defined below.
      */
-    readonly onDemandOptions?: pulumi.Input<{ allocationStrategy?: pulumi.Input<string> }>;
+    readonly onDemandOptions?: pulumi.Input<inputApi.ec2.FleetOnDemandOptions>;
     /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
      */
@@ -218,7 +220,7 @@ export interface FleetArgs {
     /**
      * Nested argument containing Spot configurations. Defined below.
      */
-    readonly spotOptions?: pulumi.Input<{ allocationStrategy?: pulumi.Input<string>, instanceInterruptionBehavior?: pulumi.Input<string>, instancePoolsToUseCount?: pulumi.Input<number> }>;
+    readonly spotOptions?: pulumi.Input<inputApi.ec2.FleetSpotOptions>;
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
@@ -226,7 +228,7 @@ export interface FleetArgs {
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
-    readonly targetCapacitySpecification: pulumi.Input<{ defaultTargetCapacityType: pulumi.Input<string>, onDemandTargetCapacity?: pulumi.Input<number>, spotTargetCapacity?: pulumi.Input<number>, totalTargetCapacity: pulumi.Input<number> }>;
+    readonly targetCapacitySpecification: pulumi.Input<inputApi.ec2.FleetTargetCapacitySpecification>;
     /**
      * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
      */

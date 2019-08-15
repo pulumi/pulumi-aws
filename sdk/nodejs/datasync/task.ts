@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 import {ARN} from "../index";
@@ -72,7 +74,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    public readonly options!: pulumi.Output<{ atime?: string, bytesPerSecond?: number, gid?: string, mtime?: string, posixPermissions?: string, preserveDeletedFiles?: string, preserveDevices?: string, uid?: string, verifyMode?: string } | undefined>;
+    public readonly options!: pulumi.Output<outputApi.datasync.TaskOptions | undefined>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
@@ -151,7 +153,7 @@ export interface TaskState {
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    readonly options?: pulumi.Input<{ atime?: pulumi.Input<string>, bytesPerSecond?: pulumi.Input<number>, gid?: pulumi.Input<string>, mtime?: pulumi.Input<string>, posixPermissions?: pulumi.Input<string>, preserveDeletedFiles?: pulumi.Input<string>, preserveDevices?: pulumi.Input<string>, uid?: pulumi.Input<string>, verifyMode?: pulumi.Input<string> }>;
+    readonly options?: pulumi.Input<inputApi.datasync.TaskOptions>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
@@ -181,7 +183,7 @@ export interface TaskArgs {
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    readonly options?: pulumi.Input<{ atime?: pulumi.Input<string>, bytesPerSecond?: pulumi.Input<number>, gid?: pulumi.Input<string>, mtime?: pulumi.Input<string>, posixPermissions?: pulumi.Input<string>, preserveDeletedFiles?: pulumi.Input<string>, preserveDevices?: pulumi.Input<string>, uid?: pulumi.Input<string>, verifyMode?: pulumi.Input<string> }>;
+    readonly options?: pulumi.Input<inputApi.datasync.TaskOptions>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +76,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * A list of ElastiCache parameters to apply.
      */
-    public readonly parameters!: pulumi.Output<{ name: string, value: string }[] | undefined>;
+    public readonly parameters!: pulumi.Output<outputApi.elasticache.ParameterGroupParameter[] | undefined>;
 
     /**
      * Create a ParameterGroup resource with the given unique name, arguments, and options.
@@ -132,7 +134,7 @@ export interface ParameterGroupState {
     /**
      * A list of ElastiCache parameters to apply.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<inputApi.elasticache.ParameterGroupParameter>[]>;
 }
 
 /**
@@ -154,5 +156,5 @@ export interface ParameterGroupArgs {
     /**
      * A list of ElastiCache parameters to apply.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<inputApi.elasticache.ParameterGroupParameter>[]>;
 }

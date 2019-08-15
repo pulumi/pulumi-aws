@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -79,7 +81,7 @@ export class UsagePlan extends pulumi.CustomResource {
     /**
      * The associated API stages of the usage plan.
      */
-    public readonly apiStages!: pulumi.Output<{ apiId: string, stage: string }[] | undefined>;
+    public readonly apiStages!: pulumi.Output<outputApi.apigateway.UsagePlanApiStage[] | undefined>;
     /**
      * The description of a usage plan.
      */
@@ -95,11 +97,11 @@ export class UsagePlan extends pulumi.CustomResource {
     /**
      * The quota settings of the usage plan.
      */
-    public readonly quotaSettings!: pulumi.Output<{ limit: number, offset?: number, period: string } | undefined>;
+    public readonly quotaSettings!: pulumi.Output<outputApi.apigateway.UsagePlanQuotaSettings | undefined>;
     /**
      * The throttling limits of the usage plan.
      */
-    public readonly throttleSettings!: pulumi.Output<{ burstLimit?: number, rateLimit?: number } | undefined>;
+    public readonly throttleSettings!: pulumi.Output<outputApi.apigateway.UsagePlanThrottleSettings | undefined>;
 
     /**
      * Create a UsagePlan resource with the given unique name, arguments, and options.
@@ -146,7 +148,7 @@ export interface UsagePlanState {
     /**
      * The associated API stages of the usage plan.
      */
-    readonly apiStages?: pulumi.Input<pulumi.Input<{ apiId: pulumi.Input<string>, stage: pulumi.Input<string> }>[]>;
+    readonly apiStages?: pulumi.Input<pulumi.Input<inputApi.apigateway.UsagePlanApiStage>[]>;
     /**
      * The description of a usage plan.
      */
@@ -162,11 +164,11 @@ export interface UsagePlanState {
     /**
      * The quota settings of the usage plan.
      */
-    readonly quotaSettings?: pulumi.Input<{ limit: pulumi.Input<number>, offset?: pulumi.Input<number>, period: pulumi.Input<string> }>;
+    readonly quotaSettings?: pulumi.Input<inputApi.apigateway.UsagePlanQuotaSettings>;
     /**
      * The throttling limits of the usage plan.
      */
-    readonly throttleSettings?: pulumi.Input<{ burstLimit?: pulumi.Input<number>, rateLimit?: pulumi.Input<number> }>;
+    readonly throttleSettings?: pulumi.Input<inputApi.apigateway.UsagePlanThrottleSettings>;
 }
 
 /**
@@ -176,7 +178,7 @@ export interface UsagePlanArgs {
     /**
      * The associated API stages of the usage plan.
      */
-    readonly apiStages?: pulumi.Input<pulumi.Input<{ apiId: pulumi.Input<string>, stage: pulumi.Input<string> }>[]>;
+    readonly apiStages?: pulumi.Input<pulumi.Input<inputApi.apigateway.UsagePlanApiStage>[]>;
     /**
      * The description of a usage plan.
      */
@@ -192,9 +194,9 @@ export interface UsagePlanArgs {
     /**
      * The quota settings of the usage plan.
      */
-    readonly quotaSettings?: pulumi.Input<{ limit: pulumi.Input<number>, offset?: pulumi.Input<number>, period: pulumi.Input<string> }>;
+    readonly quotaSettings?: pulumi.Input<inputApi.apigateway.UsagePlanQuotaSettings>;
     /**
      * The throttling limits of the usage plan.
      */
-    readonly throttleSettings?: pulumi.Input<{ burstLimit?: pulumi.Input<number>, rateLimit?: pulumi.Input<number> }>;
+    readonly throttleSettings?: pulumi.Input<inputApi.apigateway.UsagePlanThrottleSettings>;
 }

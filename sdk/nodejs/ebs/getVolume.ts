@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +60,7 @@ export interface GetVolumeArgs {
      * several valid keys, for a full reference, check out
      * [describe-volumes in the AWS CLI reference][1].
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ebs.GetVolumeFilter[];
     /**
      * If more than one result is returned, use the most
      * recent Volume.
@@ -83,7 +85,7 @@ export interface GetVolumeResult {
      * Whether the disk is encrypted.
      */
     readonly encrypted: boolean;
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ebs.GetVolumeFilter[];
     /**
      * The amount of IOPS for the disk.
      */

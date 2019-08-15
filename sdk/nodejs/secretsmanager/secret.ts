@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -106,7 +108,7 @@ export class Secret extends pulumi.CustomResource {
     /**
      * A structure that defines the rotation configuration for this secret. Defined below.
      */
-    public readonly rotationRules!: pulumi.Output<{ automaticallyAfterDays: number } | undefined>;
+    public readonly rotationRules!: pulumi.Output<outputApi.secretsmanager.SecretRotationRules | undefined>;
     /**
      * Specifies a key-value map of user-defined tags that are attached to the secret.
      */
@@ -203,7 +205,7 @@ export interface SecretState {
     /**
      * A structure that defines the rotation configuration for this secret. Defined below.
      */
-    readonly rotationRules?: pulumi.Input<{ automaticallyAfterDays: pulumi.Input<number> }>;
+    readonly rotationRules?: pulumi.Input<inputApi.secretsmanager.SecretRotationRules>;
     /**
      * Specifies a key-value map of user-defined tags that are attached to the secret.
      */
@@ -245,7 +247,7 @@ export interface SecretArgs {
     /**
      * A structure that defines the rotation configuration for this secret. Defined below.
      */
-    readonly rotationRules?: pulumi.Input<{ automaticallyAfterDays: pulumi.Input<number> }>;
+    readonly rotationRules?: pulumi.Input<inputApi.secretsmanager.SecretRotationRules>;
     /**
      * Specifies a key-value map of user-defined tags that are attached to the secret.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -152,7 +154,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      * spot-fleet request. Can be specified multiple times to define different bids
      * across different markets and instance types.
      */
-    public readonly launchSpecifications!: pulumi.Output<{ ami: string, associatePublicIpAddress?: boolean, availabilityZone: string, ebsBlockDevices: { deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, kmsKeyId: string, snapshotId: string, volumeSize: number, volumeType: string }[], ebsOptimized?: boolean, ephemeralBlockDevices: { deviceName: string, virtualName: string }[], iamInstanceProfile?: string, iamInstanceProfileArn?: string, instanceType: string, keyName: string, monitoring?: boolean, placementGroup: string, placementTenancy?: string, rootBlockDevices: { deleteOnTermination?: boolean, encrypted: boolean, iops: number, kmsKeyId: string, volumeSize: number, volumeType: string }[], spotPrice?: string, subnetId: string, tags?: {[key: string]: any}, userData?: string, vpcSecurityGroupIds: string[], weightedCapacity?: string }[]>;
+    public readonly launchSpecifications!: pulumi.Output<outputApi.ec2.SpotFleetRequestLaunchSpecification[]>;
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */
@@ -318,7 +320,7 @@ export interface SpotFleetRequestState {
      * spot-fleet request. Can be specified multiple times to define different bids
      * across different markets and instance types.
      */
-    readonly launchSpecifications?: pulumi.Input<pulumi.Input<{ ami: pulumi.Input<string>, associatePublicIpAddress?: pulumi.Input<boolean>, availabilityZone?: pulumi.Input<string>, ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>, ebsOptimized?: pulumi.Input<boolean>, ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, virtualName: pulumi.Input<string> }>[]>, iamInstanceProfile?: pulumi.Input<string>, iamInstanceProfileArn?: pulumi.Input<string>, instanceType: pulumi.Input<string>, keyName?: pulumi.Input<string>, monitoring?: pulumi.Input<boolean>, placementGroup?: pulumi.Input<string>, placementTenancy?: pulumi.Input<string>, rootBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>, spotPrice?: pulumi.Input<string>, subnetId?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}>, userData?: pulumi.Input<string>, vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, weightedCapacity?: pulumi.Input<string> }>[]>;
+    readonly launchSpecifications?: pulumi.Input<pulumi.Input<inputApi.ec2.SpotFleetRequestLaunchSpecification>[]>;
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */
@@ -413,7 +415,7 @@ export interface SpotFleetRequestArgs {
      * spot-fleet request. Can be specified multiple times to define different bids
      * across different markets and instance types.
      */
-    readonly launchSpecifications: pulumi.Input<pulumi.Input<{ ami: pulumi.Input<string>, associatePublicIpAddress?: pulumi.Input<boolean>, availabilityZone?: pulumi.Input<string>, ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>, ebsOptimized?: pulumi.Input<boolean>, ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, virtualName: pulumi.Input<string> }>[]>, iamInstanceProfile?: pulumi.Input<string>, iamInstanceProfileArn?: pulumi.Input<string>, instanceType: pulumi.Input<string>, keyName?: pulumi.Input<string>, monitoring?: pulumi.Input<boolean>, placementGroup?: pulumi.Input<string>, placementTenancy?: pulumi.Input<string>, rootBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>, spotPrice?: pulumi.Input<string>, subnetId?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}>, userData?: pulumi.Input<string>, vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, weightedCapacity?: pulumi.Input<string> }>[]>;
+    readonly launchSpecifications: pulumi.Input<pulumi.Input<inputApi.ec2.SpotFleetRequestLaunchSpecification>[]>;
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +64,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
-    public readonly rules!: pulumi.Output<{ completionWindow?: number, lifecycle?: { coldStorageAfter?: number, deleteAfter?: number }, recoveryPointTags?: {[key: string]: string}, ruleName: string, schedule?: string, startWindow?: number, targetVaultName: string }[]>;
+    public readonly rules!: pulumi.Output<outputApi.backup.PlanRule[]>;
     /**
      * Metadata that you can assign to help organize the plans you create.
      */
@@ -126,7 +128,7 @@ export interface PlanState {
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<{ completionWindow?: pulumi.Input<number>, lifecycle?: pulumi.Input<{ coldStorageAfter?: pulumi.Input<number>, deleteAfter?: pulumi.Input<number> }>, recoveryPointTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, ruleName: pulumi.Input<string>, schedule?: pulumi.Input<string>, startWindow?: pulumi.Input<number>, targetVaultName: pulumi.Input<string> }>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<inputApi.backup.PlanRule>[]>;
     /**
      * Metadata that you can assign to help organize the plans you create.
      */
@@ -148,7 +150,7 @@ export interface PlanArgs {
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
-    readonly rules: pulumi.Input<pulumi.Input<{ completionWindow?: pulumi.Input<number>, lifecycle?: pulumi.Input<{ coldStorageAfter?: pulumi.Input<number>, deleteAfter?: pulumi.Input<number> }>, recoveryPointTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, ruleName: pulumi.Input<string>, schedule?: pulumi.Input<string>, startWindow?: pulumi.Input<number>, targetVaultName: pulumi.Input<string> }>[]>;
+    readonly rules: pulumi.Input<pulumi.Input<inputApi.backup.PlanRule>[]>;
     /**
      * Metadata that you can assign to help organize the plans you create.
      */

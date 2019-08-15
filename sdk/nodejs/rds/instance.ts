@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 import {InstanceType} from "./instanceType";
@@ -343,7 +345,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
-    public readonly s3Import!: pulumi.Output<{ bucketName: string, bucketPrefix?: string, ingestionRole: string, sourceEngine: string, sourceEngineVersion: string } | undefined>;
+    public readonly s3Import!: pulumi.Output<outputApi.rds.InstanceS3Import | undefined>;
     /**
      * List of DB Security Groups to
      * associate. Only used for [DB Instances on the _EC2-Classic_
@@ -795,7 +797,7 @@ export interface InstanceState {
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
-    readonly s3Import?: pulumi.Input<{ bucketName: pulumi.Input<string>, bucketPrefix?: pulumi.Input<string>, ingestionRole: pulumi.Input<string>, sourceEngine: pulumi.Input<string>, sourceEngineVersion: pulumi.Input<string> }>;
+    readonly s3Import?: pulumi.Input<inputApi.rds.InstanceS3Import>;
     /**
      * List of DB Security Groups to
      * associate. Only used for [DB Instances on the _EC2-Classic_
@@ -1078,7 +1080,7 @@ export interface InstanceArgs {
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
-    readonly s3Import?: pulumi.Input<{ bucketName: pulumi.Input<string>, bucketPrefix?: pulumi.Input<string>, ingestionRole: pulumi.Input<string>, sourceEngine: pulumi.Input<string>, sourceEngineVersion: pulumi.Input<string> }>;
+    readonly s3Import?: pulumi.Input<inputApi.rds.InstanceS3Import>;
     /**
      * List of DB Security Groups to
      * associate. Only used for [DB Instances on the _EC2-Classic_

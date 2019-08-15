@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +67,7 @@ export interface GetOrganizationResult {
     /**
      * List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
      */
-    readonly accounts: { arn: string, email: string, id: string, name: string }[];
+    readonly accounts: outputApi.organizations.GetOrganizationAccount[];
     /**
      * ARN of the root
      */
@@ -97,11 +99,11 @@ export interface GetOrganizationResult {
     /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      */
-    readonly nonMasterAccounts: { arn: string, email: string, id: string, name: string }[];
+    readonly nonMasterAccounts: outputApi.organizations.GetOrganizationNonMasterAccount[];
     /**
      * List of organization roots. All elements have these attributes:
      */
-    readonly roots: { arn: string, id: string, name: string, policyTypes: { status: string, type: string }[] }[];
+    readonly roots: outputApi.organizations.GetOrganizationRoot[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -68,7 +70,7 @@ export interface GetSecurityGroupsArgs {
      * several valid keys, for a full reference, check out
      * [describe-security-groups in the AWS CLI reference][1].
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2.GetSecurityGroupsFilter[];
     /**
      * A mapping of tags, each pair of which must exactly match for
      * desired security groups.
@@ -80,7 +82,7 @@ export interface GetSecurityGroupsArgs {
  * A collection of values returned by getSecurityGroups.
  */
 export interface GetSecurityGroupsResult {
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ec2.GetSecurityGroupsFilter[];
     /**
      * IDs of the matches security groups.
      */

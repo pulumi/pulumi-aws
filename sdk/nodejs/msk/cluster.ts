@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -111,11 +113,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block for the broker nodes of the Kafka cluster.
      */
-    public readonly brokerNodeGroupInfo!: pulumi.Output<{ azDistribution?: string, clientSubnets: string[], ebsVolumeSize: number, instanceType: string, securityGroups: string[] }>;
+    public readonly brokerNodeGroupInfo!: pulumi.Output<outputApi.msk.ClusterBrokerNodeGroupInfo>;
     /**
      * Configuration block for specifying a client authentication. See below.
      */
-    public readonly clientAuthentication!: pulumi.Output<{ tls?: { certificateAuthorityArns?: string[] } } | undefined>;
+    public readonly clientAuthentication!: pulumi.Output<outputApi.msk.ClusterClientAuthentication | undefined>;
     /**
      * Name of the MSK cluster.
      */
@@ -123,7 +125,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
-    public readonly configurationInfo!: pulumi.Output<{ arn: string, revision: number } | undefined>;
+    public readonly configurationInfo!: pulumi.Output<outputApi.msk.ClusterConfigurationInfo | undefined>;
     /**
      * Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
      * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
@@ -132,7 +134,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block for specifying encryption. See below.
      */
-    public readonly encryptionInfo!: pulumi.Output<{ encryptionAtRestKmsKeyArn: string, encryptionInTransit?: { clientBroker?: string, inCluster?: boolean } } | undefined>;
+    public readonly encryptionInfo!: pulumi.Output<outputApi.msk.ClusterEncryptionInfo | undefined>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */
@@ -239,11 +241,11 @@ export interface ClusterState {
     /**
      * Configuration block for the broker nodes of the Kafka cluster.
      */
-    readonly brokerNodeGroupInfo?: pulumi.Input<{ azDistribution?: pulumi.Input<string>, clientSubnets: pulumi.Input<pulumi.Input<string>[]>, ebsVolumeSize: pulumi.Input<number>, instanceType: pulumi.Input<string>, securityGroups: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly brokerNodeGroupInfo?: pulumi.Input<inputApi.msk.ClusterBrokerNodeGroupInfo>;
     /**
      * Configuration block for specifying a client authentication. See below.
      */
-    readonly clientAuthentication?: pulumi.Input<{ tls?: pulumi.Input<{ certificateAuthorityArns?: pulumi.Input<pulumi.Input<string>[]> }> }>;
+    readonly clientAuthentication?: pulumi.Input<inputApi.msk.ClusterClientAuthentication>;
     /**
      * Name of the MSK cluster.
      */
@@ -251,7 +253,7 @@ export interface ClusterState {
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
-    readonly configurationInfo?: pulumi.Input<{ arn: pulumi.Input<string>, revision: pulumi.Input<number> }>;
+    readonly configurationInfo?: pulumi.Input<inputApi.msk.ClusterConfigurationInfo>;
     /**
      * Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
      * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
@@ -260,7 +262,7 @@ export interface ClusterState {
     /**
      * Configuration block for specifying encryption. See below.
      */
-    readonly encryptionInfo?: pulumi.Input<{ encryptionAtRestKmsKeyArn?: pulumi.Input<string>, encryptionInTransit?: pulumi.Input<{ clientBroker?: pulumi.Input<string>, inCluster?: pulumi.Input<boolean> }> }>;
+    readonly encryptionInfo?: pulumi.Input<inputApi.msk.ClusterEncryptionInfo>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */
@@ -290,11 +292,11 @@ export interface ClusterArgs {
     /**
      * Configuration block for the broker nodes of the Kafka cluster.
      */
-    readonly brokerNodeGroupInfo: pulumi.Input<{ azDistribution?: pulumi.Input<string>, clientSubnets: pulumi.Input<pulumi.Input<string>[]>, ebsVolumeSize: pulumi.Input<number>, instanceType: pulumi.Input<string>, securityGroups: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly brokerNodeGroupInfo: pulumi.Input<inputApi.msk.ClusterBrokerNodeGroupInfo>;
     /**
      * Configuration block for specifying a client authentication. See below.
      */
-    readonly clientAuthentication?: pulumi.Input<{ tls?: pulumi.Input<{ certificateAuthorityArns?: pulumi.Input<pulumi.Input<string>[]> }> }>;
+    readonly clientAuthentication?: pulumi.Input<inputApi.msk.ClusterClientAuthentication>;
     /**
      * Name of the MSK cluster.
      */
@@ -302,11 +304,11 @@ export interface ClusterArgs {
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
-    readonly configurationInfo?: pulumi.Input<{ arn: pulumi.Input<string>, revision: pulumi.Input<number> }>;
+    readonly configurationInfo?: pulumi.Input<inputApi.msk.ClusterConfigurationInfo>;
     /**
      * Configuration block for specifying encryption. See below.
      */
-    readonly encryptionInfo?: pulumi.Input<{ encryptionAtRestKmsKeyArn?: pulumi.Input<string>, encryptionInTransit?: pulumi.Input<{ clientBroker?: pulumi.Input<string>, inCluster?: pulumi.Input<boolean> }> }>;
+    readonly encryptionInfo?: pulumi.Input<inputApi.msk.ClusterEncryptionInfo>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */

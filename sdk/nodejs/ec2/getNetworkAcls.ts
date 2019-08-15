@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +80,7 @@ export interface GetNetworkAclsArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2.GetNetworkAclsFilter[];
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired network ACLs.
@@ -94,7 +96,7 @@ export interface GetNetworkAclsArgs {
  * A collection of values returned by getNetworkAcls.
  */
 export interface GetNetworkAclsResult {
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ec2.GetNetworkAclsFilter[];
     /**
      * A list of all the network ACL ids found. This data source will fail if none are found.
      */

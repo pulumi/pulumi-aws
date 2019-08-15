@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -118,11 +120,11 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     /**
      * A List of Role Mapping.
      */
-    public readonly roleMappings!: pulumi.Output<{ ambiguousRoleResolution?: string, identityProvider: string, mappingRules?: { claim: string, matchType: string, roleArn: string, value: string }[], type: string }[] | undefined>;
+    public readonly roleMappings!: pulumi.Output<outputApi.cognito.IdentityPoolRoleAttachmentRoleMapping[] | undefined>;
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    public readonly roles!: pulumi.Output<{ authenticated?: string, unauthenticated?: string }>;
+    public readonly roles!: pulumi.Output<outputApi.cognito.IdentityPoolRoleAttachmentRoles>;
 
     /**
      * Create a IdentityPoolRoleAttachment resource with the given unique name, arguments, and options.
@@ -173,11 +175,11 @@ export interface IdentityPoolRoleAttachmentState {
     /**
      * A List of Role Mapping.
      */
-    readonly roleMappings?: pulumi.Input<pulumi.Input<{ ambiguousRoleResolution?: pulumi.Input<string>, identityProvider: pulumi.Input<string>, mappingRules?: pulumi.Input<pulumi.Input<{ claim: pulumi.Input<string>, matchType: pulumi.Input<string>, roleArn: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, type: pulumi.Input<string> }>[]>;
+    readonly roleMappings?: pulumi.Input<pulumi.Input<inputApi.cognito.IdentityPoolRoleAttachmentRoleMapping>[]>;
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    readonly roles?: pulumi.Input<{ authenticated?: pulumi.Input<string>, unauthenticated?: pulumi.Input<string> }>;
+    readonly roles?: pulumi.Input<inputApi.cognito.IdentityPoolRoleAttachmentRoles>;
 }
 
 /**
@@ -191,9 +193,9 @@ export interface IdentityPoolRoleAttachmentArgs {
     /**
      * A List of Role Mapping.
      */
-    readonly roleMappings?: pulumi.Input<pulumi.Input<{ ambiguousRoleResolution?: pulumi.Input<string>, identityProvider: pulumi.Input<string>, mappingRules?: pulumi.Input<pulumi.Input<{ claim: pulumi.Input<string>, matchType: pulumi.Input<string>, roleArn: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, type: pulumi.Input<string> }>[]>;
+    readonly roleMappings?: pulumi.Input<pulumi.Input<inputApi.cognito.IdentityPoolRoleAttachmentRoleMapping>[]>;
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    readonly roles: pulumi.Input<{ authenticated?: pulumi.Input<string>, unauthenticated?: pulumi.Input<string> }>;
+    readonly roles: pulumi.Input<inputApi.cognito.IdentityPoolRoleAttachmentRoles>;
 }

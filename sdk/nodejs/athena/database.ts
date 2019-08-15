@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -56,7 +58,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<{ encryptionOption: string, kmsKey?: string } | undefined>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputApi.athena.DatabaseEncryptionConfiguration | undefined>;
     /**
      * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */
@@ -114,7 +116,7 @@ export interface DatabaseState {
     /**
      * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
      */
-    readonly encryptionConfiguration?: pulumi.Input<{ encryptionOption: pulumi.Input<string>, kmsKey?: pulumi.Input<string> }>;
+    readonly encryptionConfiguration?: pulumi.Input<inputApi.athena.DatabaseEncryptionConfiguration>;
     /**
      * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */
@@ -136,7 +138,7 @@ export interface DatabaseArgs {
     /**
      * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
      */
-    readonly encryptionConfiguration?: pulumi.Input<{ encryptionOption: pulumi.Input<string>, kmsKey?: pulumi.Input<string> }>;
+    readonly encryptionConfiguration?: pulumi.Input<inputApi.athena.DatabaseEncryptionConfiguration>;
     /**
      * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */

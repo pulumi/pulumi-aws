@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -67,7 +69,7 @@ export interface GetVpnGatewayArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2.GetVpnGatewayFilter[];
     /**
      * The ID of the specific VPN Gateway to retrieve.
      */
@@ -90,7 +92,7 @@ export interface GetVpnGatewayResult {
     readonly amazonSideAsn: string;
     readonly attachedVpcId: string;
     readonly availabilityZone: string;
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ec2.GetVpnGatewayFilter[];
     readonly id: string;
     readonly state: string;
     readonly tags: {[key: string]: any};

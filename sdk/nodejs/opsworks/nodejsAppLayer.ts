@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -83,7 +85,7 @@ export class NodejsAppLayer extends pulumi.CustomResource {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    public readonly ebsVolumes!: pulumi.Output<{ iops?: number, mountPoint: string, numberOfDisks: number, raidLevel?: string, size: number, type?: string }[] | undefined>;
+    public readonly ebsVolumes!: pulumi.Output<outputApi.opsworks.NodejsAppLayerEbsVolume[] | undefined>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -228,7 +230,7 @@ export interface NodejsAppLayerState {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    readonly ebsVolumes?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, mountPoint: pulumi.Input<string>, numberOfDisks: pulumi.Input<number>, raidLevel?: pulumi.Input<string>, size: pulumi.Input<number>, type?: pulumi.Input<string> }>[]>;
+    readonly ebsVolumes?: pulumi.Input<pulumi.Input<inputApi.opsworks.NodejsAppLayerEbsVolume>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -303,7 +305,7 @@ export interface NodejsAppLayerArgs {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    readonly ebsVolumes?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, mountPoint: pulumi.Input<string>, numberOfDisks: pulumi.Input<number>, raidLevel?: pulumi.Input<string>, size: pulumi.Input<number>, type?: pulumi.Input<string> }>[]>;
+    readonly ebsVolumes?: pulumi.Input<pulumi.Input<inputApi.opsworks.NodejsAppLayerEbsVolume>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */

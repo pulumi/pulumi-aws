@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "./types/input";
+import * as outputApi from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -63,7 +65,7 @@ export interface GetAutoscalingGroupsArgs {
     /**
      * A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.GetAutoscalingGroupsFilter[];
 }
 
 /**
@@ -74,7 +76,7 @@ export interface GetAutoscalingGroupsResult {
      * A list of the Autoscaling Groups Arns in the current region.
      */
     readonly arns: string[];
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.GetAutoscalingGroupsFilter[];
     /**
      * A list of the Autoscaling Groups in the current region.
      */

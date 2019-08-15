@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -254,7 +256,7 @@ export interface GetPolicyDocumentArgs {
      * A nested configuration block (described below)
      * configuring one *statement* to be included in the policy document.
      */
-    readonly statements?: { actions?: string[], conditions?: { test: string, values: string[], variable: string }[], effect?: string, notActions?: string[], notPrincipals?: { identifiers: string[], type: string }[], notResources?: string[], principals?: { identifiers: string[], type: string }[], resources?: string[], sid?: string }[];
+    readonly statements?: inputApi.iam.GetPolicyDocumentStatement[];
     /**
      * IAM policy document version. Valid values: `2008-10-17`, `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
      */
@@ -272,7 +274,7 @@ export interface GetPolicyDocumentResult {
     readonly overrideJson?: string;
     readonly policyId?: string;
     readonly sourceJson?: string;
-    readonly statements?: { actions?: string[], conditions?: { test: string, values: string[], variable: string }[], effect?: string, notActions?: string[], notPrincipals?: { identifiers: string[], type: string }[], notResources?: string[], principals?: { identifiers: string[], type: string }[], resources?: string[], sid?: string }[];
+    readonly statements?: outputApi.iam.GetPolicyDocumentStatement[];
     readonly version?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

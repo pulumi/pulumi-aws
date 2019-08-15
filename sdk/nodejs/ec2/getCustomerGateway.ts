@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +60,7 @@ export interface GetCustomerGatewayArgs {
     /**
      * One or more [name-value pairs][dcg-filters] to filter by.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2.GetCustomerGatewayFilter[];
     /**
      * The ID of the gateway.
      */
@@ -74,7 +76,7 @@ export interface GetCustomerGatewayResult {
      * (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
     readonly bgpAsn: number;
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ec2.GetCustomerGatewayFilter[];
     readonly id?: string;
     /**
      * (Optional) The IP address of the gateway's Internet-routable external interface.

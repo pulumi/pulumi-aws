@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 import {RestApi} from "./restApi";
@@ -101,7 +103,7 @@ export class MethodSettings extends pulumi.CustomResource {
     /**
      * The settings block, see below.
      */
-    public readonly settings!: pulumi.Output<{ cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string }>;
+    public readonly settings!: pulumi.Output<outputApi.apigateway.MethodSettingsSettings>;
     /**
      * The name of the stage
      */
@@ -168,7 +170,7 @@ export interface MethodSettingsState {
     /**
      * The settings block, see below.
      */
-    readonly settings?: pulumi.Input<{ cacheDataEncrypted?: pulumi.Input<boolean>, cacheTtlInSeconds?: pulumi.Input<number>, cachingEnabled?: pulumi.Input<boolean>, dataTraceEnabled?: pulumi.Input<boolean>, loggingLevel?: pulumi.Input<string>, metricsEnabled?: pulumi.Input<boolean>, requireAuthorizationForCacheControl?: pulumi.Input<boolean>, throttlingBurstLimit?: pulumi.Input<number>, throttlingRateLimit?: pulumi.Input<number>, unauthorizedCacheControlHeaderStrategy?: pulumi.Input<string> }>;
+    readonly settings?: pulumi.Input<inputApi.apigateway.MethodSettingsSettings>;
     /**
      * The name of the stage
      */
@@ -190,7 +192,7 @@ export interface MethodSettingsArgs {
     /**
      * The settings block, see below.
      */
-    readonly settings: pulumi.Input<{ cacheDataEncrypted?: pulumi.Input<boolean>, cacheTtlInSeconds?: pulumi.Input<number>, cachingEnabled?: pulumi.Input<boolean>, dataTraceEnabled?: pulumi.Input<boolean>, loggingLevel?: pulumi.Input<string>, metricsEnabled?: pulumi.Input<boolean>, requireAuthorizationForCacheControl?: pulumi.Input<boolean>, throttlingBurstLimit?: pulumi.Input<number>, throttlingRateLimit?: pulumi.Input<number>, unauthorizedCacheControlHeaderStrategy?: pulumi.Input<string> }>;
+    readonly settings: pulumi.Input<inputApi.apigateway.MethodSettingsSettings>;
     /**
      * The name of the stage
      */

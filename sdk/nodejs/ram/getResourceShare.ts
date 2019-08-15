@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +63,7 @@ export interface GetResourceShareArgs {
     /**
      * A filter used to scope the list e.g. by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ram.GetResourceShareFilter[];
     /**
      * The name of the tag key to filter on.
      */
@@ -80,7 +82,7 @@ export interface GetResourceShareResult {
      * The Amazon Resource Name (ARN) of the resource share.
      */
     readonly arn: string;
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ram.GetResourceShareFilter[];
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */

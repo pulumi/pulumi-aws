@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -45,7 +47,7 @@ export interface GetNetworkInterfaceArgs {
     /**
      * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2.GetNetworkInterfaceFilter[];
     /**
      * The identifier for the network interface.
      */
@@ -60,8 +62,8 @@ export interface GetNetworkInterfaceResult {
     /**
      * The association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
      */
-    readonly associations: { allocationId: string, associationId: string, ipOwnerId: string, publicDnsName: string, publicIp: string }[];
-    readonly attachments: { attachmentId: string, deviceIndex: number, instanceId: string, instanceOwnerId: string }[];
+    readonly associations: outputApi.ec2.GetNetworkInterfaceAssociation[];
+    readonly attachments: outputApi.ec2.GetNetworkInterfaceAttachment[];
     /**
      * The Availability Zone.
      */
@@ -70,7 +72,7 @@ export interface GetNetworkInterfaceResult {
      * Description of the network interface.
      */
     readonly description: string;
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ec2.GetNetworkInterfaceFilter[];
     readonly id: string;
     /**
      * The type of interface.

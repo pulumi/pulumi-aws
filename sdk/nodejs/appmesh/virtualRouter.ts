@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -90,7 +92,7 @@ export class VirtualRouter extends pulumi.CustomResource {
     /**
      * The virtual router specification to apply.
      */
-    public readonly spec!: pulumi.Output<{ listener: { portMapping: { port: number, protocol: string } } }>;
+    public readonly spec!: pulumi.Output<outputApi.appmesh.VirtualRouterSpec>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -169,7 +171,7 @@ export interface VirtualRouterState {
     /**
      * The virtual router specification to apply.
      */
-    readonly spec?: pulumi.Input<{ listener: pulumi.Input<{ portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }> }>;
+    readonly spec?: pulumi.Input<inputApi.appmesh.VirtualRouterSpec>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -191,7 +193,7 @@ export interface VirtualRouterArgs {
     /**
      * The virtual router specification to apply.
      */
-    readonly spec: pulumi.Input<{ listener: pulumi.Input<{ portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }> }>;
+    readonly spec: pulumi.Input<inputApi.appmesh.VirtualRouterSpec>;
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -50,7 +52,7 @@ export class OrganizationalUnit extends pulumi.CustomResource {
     /**
      * List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
      */
-    public /*out*/ readonly accounts!: pulumi.Output<{ arn: string, email: string, id: string, name: string }[]>;
+    public /*out*/ readonly accounts!: pulumi.Output<outputApi.organizations.OrganizationalUnitAccount[]>;
     /**
      * ARN of the organizational unit
      */
@@ -108,7 +110,7 @@ export interface OrganizationalUnitState {
     /**
      * List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
      */
-    readonly accounts?: pulumi.Input<pulumi.Input<{ arn?: pulumi.Input<string>, email?: pulumi.Input<string>, id?: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
+    readonly accounts?: pulumi.Input<pulumi.Input<inputApi.organizations.OrganizationalUnitAccount>[]>;
     /**
      * ARN of the organizational unit
      */

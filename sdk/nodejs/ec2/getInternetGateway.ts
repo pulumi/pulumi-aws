@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -51,7 +53,7 @@ export interface GetInternetGatewayArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2.GetInternetGatewayFilter[];
     /**
      * The id of the specific Internet Gateway to retrieve.
      */
@@ -67,8 +69,8 @@ export interface GetInternetGatewayArgs {
  * A collection of values returned by getInternetGateway.
  */
 export interface GetInternetGatewayResult {
-    readonly attachments: { state: string, vpcId: string }[];
-    readonly filters?: { name: string, values: string[] }[];
+    readonly attachments: outputApi.ec2.GetInternetGatewayAttachment[];
+    readonly filters?: outputApi.ec2.GetInternetGatewayFilter[];
     readonly internetGatewayId: string;
     /**
      * The ID of the AWS account that owns the internet gateway.

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -63,7 +65,7 @@ export class IpSet extends pulumi.CustomResource {
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
      */
-    public readonly ipSetDescriptors!: pulumi.Output<{ type: string, value: string }[] | undefined>;
+    public readonly ipSetDescriptors!: pulumi.Output<outputApi.waf.IpSetIpSetDescriptor[] | undefined>;
     /**
      * The name or description of the IPSet.
      */
@@ -112,7 +114,7 @@ export interface IpSetState {
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
      */
-    readonly ipSetDescriptors?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly ipSetDescriptors?: pulumi.Input<pulumi.Input<inputApi.waf.IpSetIpSetDescriptor>[]>;
     /**
      * The name or description of the IPSet.
      */
@@ -126,7 +128,7 @@ export interface IpSetArgs {
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
      */
-    readonly ipSetDescriptors?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly ipSetDescriptors?: pulumi.Input<pulumi.Input<inputApi.waf.IpSetIpSetDescriptor>[]>;
     /**
      * The name or description of the IPSet.
      */

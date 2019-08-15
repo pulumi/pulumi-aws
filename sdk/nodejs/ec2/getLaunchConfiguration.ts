@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -56,7 +58,7 @@ export interface GetLaunchConfigurationResult {
     /**
      * The EBS Block Devices attached to the instance.
      */
-    readonly ebsBlockDevices: { deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[];
+    readonly ebsBlockDevices: outputApi.ec2.GetLaunchConfigurationEbsBlockDevice[];
     /**
      * Whether the launched EC2 instance will be EBS-optimized.
      */
@@ -68,7 +70,7 @@ export interface GetLaunchConfigurationResult {
     /**
      * The Ephemeral volumes on the instance.
      */
-    readonly ephemeralBlockDevices: { deviceName: string, virtualName: string }[];
+    readonly ephemeralBlockDevices: outputApi.ec2.GetLaunchConfigurationEphemeralBlockDevice[];
     /**
      * The IAM Instance Profile to associate with launched instances.
      */
@@ -96,7 +98,7 @@ export interface GetLaunchConfigurationResult {
     /**
      * The Root Block Device of the instance.
      */
-    readonly rootBlockDevices: { deleteOnTermination: boolean, encrypted: boolean, iops: number, volumeSize: number, volumeType: string }[];
+    readonly rootBlockDevices: outputApi.ec2.GetLaunchConfigurationRootBlockDevice[];
     /**
      * A list of associated Security Group IDS.
      */

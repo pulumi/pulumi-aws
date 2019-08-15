@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +60,7 @@ export interface GetBrokerArgs {
      * The unique name of the mq broker.
      */
     readonly brokerName?: string;
-    readonly logs?: { audit?: boolean, general?: boolean };
+    readonly logs?: inputApi.mq.GetBrokerLogs;
     readonly tags?: {[key: string]: any};
 }
 
@@ -70,19 +72,19 @@ export interface GetBrokerResult {
     readonly autoMinorVersionUpgrade: boolean;
     readonly brokerId: string;
     readonly brokerName: string;
-    readonly configuration: { id: string, revision: number };
+    readonly configuration: outputApi.mq.GetBrokerConfiguration;
     readonly deploymentMode: string;
     readonly engineType: string;
     readonly engineVersion: string;
     readonly hostInstanceType: string;
-    readonly instances: { consoleUrl: string, endpoints: string[], ipAddress: string }[];
-    readonly logs?: { audit: boolean, general: boolean };
-    readonly maintenanceWindowStartTime: { dayOfWeek: string, timeOfDay: string, timeZone: string };
+    readonly instances: outputApi.mq.GetBrokerInstance[];
+    readonly logs?: outputApi.mq.GetBrokerLogs;
+    readonly maintenanceWindowStartTime: outputApi.mq.GetBrokerMaintenanceWindowStartTime;
     readonly publiclyAccessible: boolean;
     readonly securityGroups: string[];
     readonly subnetIds: string[];
     readonly tags: {[key: string]: any};
-    readonly users: { consoleAccess: boolean, groups: string[], username: string }[];
+    readonly users: outputApi.mq.GetBrokerUser[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

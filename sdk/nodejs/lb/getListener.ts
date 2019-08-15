@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +80,7 @@ export interface GetListenerArgs {
 export interface GetListenerResult {
     readonly arn: string;
     readonly certificateArn: string;
-    readonly defaultActions: { authenticateCognitos: { authenticationRequestExtraParams: {[key: string]: any}, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, userPoolArn: string, userPoolClientId: string, userPoolDomain: string }[], authenticateOidcs: { authenticationRequestExtraParams: {[key: string]: any}, authorizationEndpoint: string, clientId: string, clientSecret: string, issuer: string, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, tokenEndpoint: string, userInfoEndpoint: string }[], fixedResponses: { contentType: string, messageBody: string, statusCode: string }[], order: number, redirects: { host: string, path: string, port: string, protocol: string, query: string, statusCode: string }[], targetGroupArn: string, type: string }[];
+    readonly defaultActions: outputApi.lb.GetListenerDefaultAction[];
     readonly loadBalancerArn: string;
     readonly port: number;
     readonly protocol: string;

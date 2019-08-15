@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,14 +73,14 @@ export interface GetTargetGroupResult {
     readonly arn: string;
     readonly arnSuffix: string;
     readonly deregistrationDelay: number;
-    readonly healthCheck: { enabled: boolean, healthyThreshold: number, interval: number, matcher: string, path: string, port: string, protocol: string, timeout: number, unhealthyThreshold: number };
+    readonly healthCheck: outputApi.lb.GetTargetGroupHealthCheck;
     readonly lambdaMultiValueHeadersEnabled: boolean;
     readonly name: string;
     readonly port: number;
     readonly protocol: string;
     readonly proxyProtocolV2: boolean;
     readonly slowStart: number;
-    readonly stickiness: { cookieDuration: number, enabled: boolean, type: string };
+    readonly stickiness: outputApi.lb.GetTargetGroupStickiness;
     readonly tags: {[key: string]: any};
     readonly targetType: string;
     readonly vpcId: string;

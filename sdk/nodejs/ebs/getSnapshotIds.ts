@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +60,7 @@ export interface GetSnapshotIdsArgs {
      * several valid keys, for a full reference, check out
      * [describe-volumes in the AWS CLI reference][1].
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ebs.GetSnapshotIdsFilter[];
     /**
      * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
      */
@@ -73,7 +75,7 @@ export interface GetSnapshotIdsArgs {
  * A collection of values returned by getSnapshotIds.
  */
 export interface GetSnapshotIdsResult {
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ebs.GetSnapshotIdsFilter[];
     readonly ids: string[];
     readonly owners?: string[];
     readonly restorableByUserIds?: string[];

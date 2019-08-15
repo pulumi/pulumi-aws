@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -94,7 +96,7 @@ export class Broker extends pulumi.CustomResource {
     /**
      * Configuration of the broker. See below.
      */
-    public readonly configuration!: pulumi.Output<{ id: string, revision: number }>;
+    public readonly configuration!: pulumi.Output<outputApi.mq.BrokerConfiguration>;
     /**
      * The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
      */
@@ -122,15 +124,15 @@ export class Broker extends pulumi.CustomResource {
      * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
      * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
      */
-    public /*out*/ readonly instances!: pulumi.Output<{ consoleUrl: string, endpoints: string[], ipAddress: string }[]>;
+    public /*out*/ readonly instances!: pulumi.Output<outputApi.mq.BrokerInstance[]>;
     /**
      * Logging configuration of the broker. See below.
      */
-    public readonly logs!: pulumi.Output<{ audit?: boolean, general?: boolean } | undefined>;
+    public readonly logs!: pulumi.Output<outputApi.mq.BrokerLogs | undefined>;
     /**
      * Maintenance window start time. See below.
      */
-    public readonly maintenanceWindowStartTime!: pulumi.Output<{ dayOfWeek: string, timeOfDay: string, timeZone: string }>;
+    public readonly maintenanceWindowStartTime!: pulumi.Output<outputApi.mq.BrokerMaintenanceWindowStartTime>;
     /**
      * Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
      */
@@ -150,7 +152,7 @@ export class Broker extends pulumi.CustomResource {
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */
-    public readonly users!: pulumi.Output<{ consoleAccess?: boolean, groups?: string[], password: string, username: string }[]>;
+    public readonly users!: pulumi.Output<outputApi.mq.BrokerUser[]>;
 
     /**
      * Create a Broker resource with the given unique name, arguments, and options.
@@ -254,7 +256,7 @@ export interface BrokerState {
     /**
      * Configuration of the broker. See below.
      */
-    readonly configuration?: pulumi.Input<{ id?: pulumi.Input<string>, revision?: pulumi.Input<number> }>;
+    readonly configuration?: pulumi.Input<inputApi.mq.BrokerConfiguration>;
     /**
      * The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
      */
@@ -282,15 +284,15 @@ export interface BrokerState {
      * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
      * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
      */
-    readonly instances?: pulumi.Input<pulumi.Input<{ consoleUrl?: pulumi.Input<string>, endpoints?: pulumi.Input<pulumi.Input<string>[]>, ipAddress?: pulumi.Input<string> }>[]>;
+    readonly instances?: pulumi.Input<pulumi.Input<inputApi.mq.BrokerInstance>[]>;
     /**
      * Logging configuration of the broker. See below.
      */
-    readonly logs?: pulumi.Input<{ audit?: pulumi.Input<boolean>, general?: pulumi.Input<boolean> }>;
+    readonly logs?: pulumi.Input<inputApi.mq.BrokerLogs>;
     /**
      * Maintenance window start time. See below.
      */
-    readonly maintenanceWindowStartTime?: pulumi.Input<{ dayOfWeek: pulumi.Input<string>, timeOfDay: pulumi.Input<string>, timeZone: pulumi.Input<string> }>;
+    readonly maintenanceWindowStartTime?: pulumi.Input<inputApi.mq.BrokerMaintenanceWindowStartTime>;
     /**
      * Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
      */
@@ -310,7 +312,7 @@ export interface BrokerState {
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */
-    readonly users?: pulumi.Input<pulumi.Input<{ consoleAccess?: pulumi.Input<boolean>, groups?: pulumi.Input<pulumi.Input<string>[]>, password: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
+    readonly users?: pulumi.Input<pulumi.Input<inputApi.mq.BrokerUser>[]>;
 }
 
 /**
@@ -333,7 +335,7 @@ export interface BrokerArgs {
     /**
      * Configuration of the broker. See below.
      */
-    readonly configuration?: pulumi.Input<{ id?: pulumi.Input<string>, revision?: pulumi.Input<number> }>;
+    readonly configuration?: pulumi.Input<inputApi.mq.BrokerConfiguration>;
     /**
      * The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
      */
@@ -353,11 +355,11 @@ export interface BrokerArgs {
     /**
      * Logging configuration of the broker. See below.
      */
-    readonly logs?: pulumi.Input<{ audit?: pulumi.Input<boolean>, general?: pulumi.Input<boolean> }>;
+    readonly logs?: pulumi.Input<inputApi.mq.BrokerLogs>;
     /**
      * Maintenance window start time. See below.
      */
-    readonly maintenanceWindowStartTime?: pulumi.Input<{ dayOfWeek: pulumi.Input<string>, timeOfDay: pulumi.Input<string>, timeZone: pulumi.Input<string> }>;
+    readonly maintenanceWindowStartTime?: pulumi.Input<inputApi.mq.BrokerMaintenanceWindowStartTime>;
     /**
      * Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
      */
@@ -377,5 +379,5 @@ export interface BrokerArgs {
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */
-    readonly users: pulumi.Input<pulumi.Input<{ consoleAccess?: pulumi.Input<boolean>, groups?: pulumi.Input<pulumi.Input<string>[]>, password: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
+    readonly users: pulumi.Input<pulumi.Input<inputApi.mq.BrokerUser>[]>;
 }

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -68,7 +70,7 @@ export interface GetLoadBalancerArgs {
  * A collection of values returned by getLoadBalancer.
  */
 export interface GetLoadBalancerResult {
-    readonly accessLogs: { bucket: string, enabled: boolean, prefix: string };
+    readonly accessLogs: outputApi.alb.GetLoadBalancerAccessLogs;
     readonly arn: string;
     readonly arnSuffix: string;
     readonly dnsName: string;
@@ -78,7 +80,7 @@ export interface GetLoadBalancerResult {
     readonly loadBalancerType: string;
     readonly name: string;
     readonly securityGroups: string[];
-    readonly subnetMappings: { allocationId?: string, subnetId: string }[];
+    readonly subnetMappings: outputApi.alb.GetLoadBalancerSubnetMapping[];
     readonly subnets: string[];
     readonly tags: {[key: string]: any};
     readonly vpcId: string;

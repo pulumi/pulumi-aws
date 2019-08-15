@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -53,7 +55,7 @@ export interface GetBundleResult {
     /**
      * The compute type. See supported fields below.
      */
-    readonly computeTypes: { name: string }[];
+    readonly computeTypes: outputApi.workspaces.GetBundleComputeType[];
     /**
      * The description of the bundle.
      */
@@ -69,11 +71,11 @@ export interface GetBundleResult {
     /**
      * The root volume. See supported fields below.
      */
-    readonly rootStorages: { capacity: string }[];
+    readonly rootStorages: outputApi.workspaces.GetBundleRootStorage[];
     /**
      * The user storage. See supported fields below.
      */
-    readonly userStorages: { capacity: string }[];
+    readonly userStorages: outputApi.workspaces.GetBundleUserStorage[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

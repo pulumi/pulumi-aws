@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -58,12 +60,12 @@ export interface GetLaunchTemplateResult {
     /**
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      */
-    readonly blockDeviceMappings: { deviceName: string, ebs: { deleteOnTermination: string, encrypted: string, iops: number, kmsKeyId: string, snapshotId: string, volumeSize: number, volumeType: string }[], noDevice: string, virtualName: string }[];
+    readonly blockDeviceMappings: outputApi.ec2.GetLaunchTemplateBlockDeviceMapping[];
     /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
-    readonly creditSpecifications: { cpuCredits: string }[];
+    readonly creditSpecifications: outputApi.ec2.GetLaunchTemplateCreditSpecification[];
     /**
      * The default version of the launch template.
      */
@@ -85,12 +87,12 @@ export interface GetLaunchTemplateResult {
      * The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
      */
-    readonly elasticGpuSpecifications: { type: string }[];
+    readonly elasticGpuSpecifications: outputApi.ec2.GetLaunchTemplateElasticGpuSpecification[];
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      */
-    readonly iamInstanceProfiles: { arn: string, name: string }[];
+    readonly iamInstanceProfiles: outputApi.ec2.GetLaunchTemplateIamInstanceProfile[];
     /**
      * The AMI from which to launch the instance.
      */
@@ -104,7 +106,7 @@ export interface GetLaunchTemplateResult {
      * The market (purchasing) option for the instance.
      * below for details.
      */
-    readonly instanceMarketOptions: { marketType: string, spotOptions: { blockDurationMinutes: number, instanceInterruptionBehavior: string, maxPrice: string, spotInstanceType: string, validUntil: string }[] }[];
+    readonly instanceMarketOptions: outputApi.ec2.GetLaunchTemplateInstanceMarketOption[];
     /**
      * The type of the instance.
      */
@@ -124,17 +126,17 @@ export interface GetLaunchTemplateResult {
     /**
      * The monitoring option for the instance.
      */
-    readonly monitorings: { enabled: boolean }[];
+    readonly monitorings: outputApi.ec2.GetLaunchTemplateMonitoring[];
     readonly name: string;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      */
-    readonly networkInterfaces: { associatePublicIpAddress: boolean, deleteOnTermination: boolean, description: string, deviceIndex: number, ipv4AddressCount: number, ipv4Addresses: string[], ipv6AddressCount: number, ipv6Addresses: string[], networkInterfaceId: string, privateIpAddress: string, securityGroups: string[], subnetId: string }[];
+    readonly networkInterfaces: outputApi.ec2.GetLaunchTemplateNetworkInterface[];
     /**
      * The placement of the instance.
      */
-    readonly placements: { affinity: string, availabilityZone: string, groupName: string, hostId: string, spreadDomain: string, tenancy: string }[];
+    readonly placements: outputApi.ec2.GetLaunchTemplatePlacement[];
     /**
      * The ID of the RAM disk.
      */
@@ -147,7 +149,7 @@ export interface GetLaunchTemplateResult {
     /**
      * The tags to apply to the resources during launch.
      */
-    readonly tagSpecifications: { resourceType: string, tags: {[key: string]: any} }[];
+    readonly tagSpecifications: outputApi.ec2.GetLaunchTemplateTagSpecification[];
     /**
      * (Optional) A mapping of tags to assign to the launch template.
      */

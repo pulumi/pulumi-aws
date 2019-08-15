@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +82,7 @@ export interface GetSubnetIdsArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2.GetSubnetIdsFilter[];
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired subnets.
@@ -96,7 +98,7 @@ export interface GetSubnetIdsArgs {
  * A collection of values returned by getSubnetIds.
  */
 export interface GetSubnetIdsResult {
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ec2.GetSubnetIdsFilter[];
     /**
      * A list of all the subnet ids found. This data source will fail if none are found.
      */

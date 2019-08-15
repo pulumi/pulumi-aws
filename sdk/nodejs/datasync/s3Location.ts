@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 import {ARN} from "../index";
@@ -64,7 +66,7 @@ export class S3Location extends pulumi.CustomResource {
     /**
      * Configuration block containing information for connecting to S3.
      */
-    public readonly s3Config!: pulumi.Output<{ bucketAccessRoleArn: string }>;
+    public readonly s3Config!: pulumi.Output<outputApi.datasync.S3LocationS3Config>;
     /**
      * Prefix to perform actions as source or destination.
      */
@@ -137,7 +139,7 @@ export interface S3LocationState {
     /**
      * Configuration block containing information for connecting to S3.
      */
-    readonly s3Config?: pulumi.Input<{ bucketAccessRoleArn: pulumi.Input<string> }>;
+    readonly s3Config?: pulumi.Input<inputApi.datasync.S3LocationS3Config>;
     /**
      * Prefix to perform actions as source or destination.
      */
@@ -160,7 +162,7 @@ export interface S3LocationArgs {
     /**
      * Configuration block containing information for connecting to S3.
      */
-    readonly s3Config: pulumi.Input<{ bucketAccessRoleArn: pulumi.Input<string> }>;
+    readonly s3Config: pulumi.Input<inputApi.datasync.S3LocationS3Config>;
     /**
      * Prefix to perform actions as source or destination.
      */

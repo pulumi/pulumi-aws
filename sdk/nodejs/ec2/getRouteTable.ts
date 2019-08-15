@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +64,7 @@ export interface GetRouteTableArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2.GetRouteTableFilter[];
     /**
      * The id of the specific Route Table to retrieve.
      */
@@ -86,8 +88,8 @@ export interface GetRouteTableArgs {
  * A collection of values returned by getRouteTable.
  */
 export interface GetRouteTableResult {
-    readonly associations: { main: boolean, routeTableAssociationId: string, routeTableId: string, subnetId: string }[];
-    readonly filters?: { name: string, values: string[] }[];
+    readonly associations: outputApi.ec2.GetRouteTableAssociation[];
+    readonly filters?: outputApi.ec2.GetRouteTableFilter[];
     /**
      * The ID of the AWS account that owns the route table
      */
@@ -96,7 +98,7 @@ export interface GetRouteTableResult {
      * The Route Table ID.
      */
     readonly routeTableId: string;
-    readonly routes: { cidrBlock: string, egressOnlyGatewayId: string, gatewayId: string, instanceId: string, ipv6CidrBlock: string, natGatewayId: string, networkInterfaceId: string, transitGatewayId: string, vpcPeeringConnectionId: string }[];
+    readonly routes: outputApi.ec2.GetRouteTableRoute[];
     /**
      * The Subnet ID.
      */

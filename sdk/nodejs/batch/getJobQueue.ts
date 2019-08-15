@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +62,7 @@ export interface GetJobQueueResult {
      * * `compute_environment_order.#.order` - The order of the compute environment.
      * * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
      */
-    readonly computeEnvironmentOrders: { computeEnvironment: string, order: number }[];
+    readonly computeEnvironmentOrders: outputApi.batch.GetJobQueueComputeEnvironmentOrder[];
     readonly name: string;
     /**
      * The priority of the job queue. Job queues with a higher priority are evaluated first when

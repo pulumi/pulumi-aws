@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -90,7 +92,7 @@ export interface GetSubnetArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.ec2.GetSubnetFilter[];
     /**
      * The id of the specific subnet to retrieve.
      */
@@ -127,7 +129,7 @@ export interface GetSubnetResult {
     readonly availabilityZoneId: string;
     readonly cidrBlock: string;
     readonly defaultForAz: boolean;
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.ec2.GetSubnetFilter[];
     readonly id: string;
     readonly ipv6CidrBlock: string;
     readonly ipv6CidrBlockAssociationId: string;

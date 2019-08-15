@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 import {ARN} from "../index";
@@ -112,7 +114,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * Nested block to configure the function's *dead letter queue*. See details below.
      */
-    public readonly deadLetterConfig!: pulumi.Output<{ targetArn: string } | undefined>;
+    public readonly deadLetterConfig!: pulumi.Output<outputApi.lambda.FunctionDeadLetterConfig | undefined>;
     /**
      * Description of what your Lambda Function does.
      */
@@ -120,7 +122,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * The Lambda environment's configuration settings. Fields documented below.
      */
-    public readonly environment!: pulumi.Output<{ variables?: {[key: string]: string} } | undefined>;
+    public readonly environment!: pulumi.Output<outputApi.lambda.FunctionEnvironment | undefined>;
     /**
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
@@ -202,7 +204,7 @@ export class Function extends pulumi.CustomResource {
      * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
      */
     public readonly timeout!: pulumi.Output<number | undefined>;
-    public readonly tracingConfig!: pulumi.Output<{ mode: string }>;
+    public readonly tracingConfig!: pulumi.Output<outputApi.lambda.FunctionTracingConfig>;
     /**
      * Latest published version of your Lambda Function.
      */
@@ -210,7 +212,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
      */
-    public readonly vpcConfig!: pulumi.Output<{ securityGroupIds: string[], subnetIds: string[], vpcId: string } | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputApi.lambda.FunctionVpcConfig | undefined>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -312,7 +314,7 @@ export interface FunctionState {
     /**
      * Nested block to configure the function's *dead letter queue*. See details below.
      */
-    readonly deadLetterConfig?: pulumi.Input<{ targetArn: pulumi.Input<string> }>;
+    readonly deadLetterConfig?: pulumi.Input<inputApi.lambda.FunctionDeadLetterConfig>;
     /**
      * Description of what your Lambda Function does.
      */
@@ -320,7 +322,7 @@ export interface FunctionState {
     /**
      * The Lambda environment's configuration settings. Fields documented below.
      */
-    readonly environment?: pulumi.Input<{ variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}> }>;
+    readonly environment?: pulumi.Input<inputApi.lambda.FunctionEnvironment>;
     /**
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
@@ -402,7 +404,7 @@ export interface FunctionState {
      * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
      */
     readonly timeout?: pulumi.Input<number>;
-    readonly tracingConfig?: pulumi.Input<{ mode: pulumi.Input<string> }>;
+    readonly tracingConfig?: pulumi.Input<inputApi.lambda.FunctionTracingConfig>;
     /**
      * Latest published version of your Lambda Function.
      */
@@ -410,7 +412,7 @@ export interface FunctionState {
     /**
      * Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
      */
-    readonly vpcConfig?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
+    readonly vpcConfig?: pulumi.Input<inputApi.lambda.FunctionVpcConfig>;
 }
 
 /**
@@ -420,7 +422,7 @@ export interface FunctionArgs {
     /**
      * Nested block to configure the function's *dead letter queue*. See details below.
      */
-    readonly deadLetterConfig?: pulumi.Input<{ targetArn: pulumi.Input<string> }>;
+    readonly deadLetterConfig?: pulumi.Input<inputApi.lambda.FunctionDeadLetterConfig>;
     /**
      * Description of what your Lambda Function does.
      */
@@ -428,7 +430,7 @@ export interface FunctionArgs {
     /**
      * The Lambda environment's configuration settings. Fields documented below.
      */
-    readonly environment?: pulumi.Input<{ variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}> }>;
+    readonly environment?: pulumi.Input<inputApi.lambda.FunctionEnvironment>;
     /**
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
@@ -493,9 +495,9 @@ export interface FunctionArgs {
      * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
      */
     readonly timeout?: pulumi.Input<number>;
-    readonly tracingConfig?: pulumi.Input<{ mode: pulumi.Input<string> }>;
+    readonly tracingConfig?: pulumi.Input<inputApi.lambda.FunctionTracingConfig>;
     /**
      * Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
      */
-    readonly vpcConfig?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
+    readonly vpcConfig?: pulumi.Input<inputApi.lambda.FunctionVpcConfig>;
 }

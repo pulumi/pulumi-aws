@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -221,7 +223,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information about the project's build output artifacts. Artifact blocks are documented below.
      */
-    public readonly artifacts!: pulumi.Output<{ encryptionDisabled?: boolean, location?: string, name?: string, namespaceType?: string, overrideArtifactName?: boolean, packaging?: string, path?: string, type: string }>;
+    public readonly artifacts!: pulumi.Output<outputApi.codebuild.ProjectArtifacts>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
      */
@@ -237,7 +239,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information about the cache storage for the project. Cache blocks are documented below.
      */
-    public readonly cache!: pulumi.Output<{ location?: string, modes?: string[], type?: string } | undefined>;
+    public readonly cache!: pulumi.Output<outputApi.codebuild.ProjectCache | undefined>;
     /**
      * A short description of the project.
      */
@@ -249,11 +251,11 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information about the project's build environment. Environment blocks are documented below.
      */
-    public readonly environment!: pulumi.Output<{ certificate?: string, computeType: string, environmentVariables: { name: string, type?: string, value: string }[], image: string, imagePullCredentialsType?: string, privilegedMode?: boolean, registryCredential?: { credential: string, credentialProvider: string }, type: string }>;
+    public readonly environment!: pulumi.Output<outputApi.codebuild.ProjectEnvironment>;
     /**
      * Configuration for the builds to store log data to CloudWatch or S3.
      */
-    public readonly logsConfig!: pulumi.Output<{ cloudwatchLogs?: { groupName?: string, status?: string, streamName?: string }, s3Logs?: { encryptionDisabled?: boolean, location?: string, status?: string } } | undefined>;
+    public readonly logsConfig!: pulumi.Output<outputApi.codebuild.ProjectLogsConfig | undefined>;
     /**
      * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */
@@ -261,11 +263,11 @@ export class Project extends pulumi.CustomResource {
     /**
      * A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
      */
-    public readonly secondaryArtifacts!: pulumi.Output<{ artifactIdentifier: string, encryptionDisabled?: boolean, location?: string, name?: string, namespaceType?: string, overrideArtifactName?: boolean, packaging?: string, path?: string, type: string }[] | undefined>;
+    public readonly secondaryArtifacts!: pulumi.Output<outputApi.codebuild.ProjectSecondaryArtifact[] | undefined>;
     /**
      * A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
      */
-    public readonly secondarySources!: pulumi.Output<{ auths?: { resource?: string, type: string }[], buildspec?: string, gitCloneDepth?: number, insecureSsl?: boolean, location?: string, reportBuildStatus?: boolean, sourceIdentifier: string, type: string }[] | undefined>;
+    public readonly secondarySources!: pulumi.Output<outputApi.codebuild.ProjectSecondarySource[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
@@ -273,7 +275,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information about the project's input source code. Source blocks are documented below.
      */
-    public readonly source!: pulumi.Output<{ auths?: { resource?: string, type: string }[], buildspec?: string, gitCloneDepth?: number, insecureSsl?: boolean, location?: string, reportBuildStatus?: boolean, type: string }>;
+    public readonly source!: pulumi.Output<outputApi.codebuild.ProjectSource>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -281,7 +283,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
      */
-    public readonly vpcConfig!: pulumi.Output<{ securityGroupIds: string[], subnets: string[], vpcId: string } | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputApi.codebuild.ProjectVpcConfig | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -366,7 +368,7 @@ export interface ProjectState {
     /**
      * Information about the project's build output artifacts. Artifact blocks are documented below.
      */
-    readonly artifacts?: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, overrideArtifactName?: pulumi.Input<boolean>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly artifacts?: pulumi.Input<inputApi.codebuild.ProjectArtifacts>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
      */
@@ -382,7 +384,7 @@ export interface ProjectState {
     /**
      * Information about the cache storage for the project. Cache blocks are documented below.
      */
-    readonly cache?: pulumi.Input<{ location?: pulumi.Input<string>, modes?: pulumi.Input<pulumi.Input<string>[]>, type?: pulumi.Input<string> }>;
+    readonly cache?: pulumi.Input<inputApi.codebuild.ProjectCache>;
     /**
      * A short description of the project.
      */
@@ -394,11 +396,11 @@ export interface ProjectState {
     /**
      * Information about the project's build environment. Environment blocks are documented below.
      */
-    readonly environment?: pulumi.Input<{ certificate?: pulumi.Input<string>, computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, imagePullCredentialsType?: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, registryCredential?: pulumi.Input<{ credential: pulumi.Input<string>, credentialProvider: pulumi.Input<string> }>, type: pulumi.Input<string> }>;
+    readonly environment?: pulumi.Input<inputApi.codebuild.ProjectEnvironment>;
     /**
      * Configuration for the builds to store log data to CloudWatch or S3.
      */
-    readonly logsConfig?: pulumi.Input<{ cloudwatchLogs?: pulumi.Input<{ groupName?: pulumi.Input<string>, status?: pulumi.Input<string>, streamName?: pulumi.Input<string> }>, s3Logs?: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, status?: pulumi.Input<string> }> }>;
+    readonly logsConfig?: pulumi.Input<inputApi.codebuild.ProjectLogsConfig>;
     /**
      * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */
@@ -406,11 +408,11 @@ export interface ProjectState {
     /**
      * A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
      */
-    readonly secondaryArtifacts?: pulumi.Input<pulumi.Input<{ artifactIdentifier: pulumi.Input<string>, encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, overrideArtifactName?: pulumi.Input<boolean>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly secondaryArtifacts?: pulumi.Input<pulumi.Input<inputApi.codebuild.ProjectSecondaryArtifact>[]>;
     /**
      * A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
      */
-    readonly secondarySources?: pulumi.Input<pulumi.Input<{ auths?: pulumi.Input<pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, reportBuildStatus?: pulumi.Input<boolean>, sourceIdentifier: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly secondarySources?: pulumi.Input<pulumi.Input<inputApi.codebuild.ProjectSecondarySource>[]>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
@@ -418,7 +420,7 @@ export interface ProjectState {
     /**
      * Information about the project's input source code. Source blocks are documented below.
      */
-    readonly source?: pulumi.Input<{ auths?: pulumi.Input<pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, reportBuildStatus?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
+    readonly source?: pulumi.Input<inputApi.codebuild.ProjectSource>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -426,7 +428,7 @@ export interface ProjectState {
     /**
      * Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
      */
-    readonly vpcConfig?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly vpcConfig?: pulumi.Input<inputApi.codebuild.ProjectVpcConfig>;
 }
 
 /**
@@ -436,7 +438,7 @@ export interface ProjectArgs {
     /**
      * Information about the project's build output artifacts. Artifact blocks are documented below.
      */
-    readonly artifacts: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, overrideArtifactName?: pulumi.Input<boolean>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly artifacts: pulumi.Input<inputApi.codebuild.ProjectArtifacts>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
      */
@@ -448,7 +450,7 @@ export interface ProjectArgs {
     /**
      * Information about the cache storage for the project. Cache blocks are documented below.
      */
-    readonly cache?: pulumi.Input<{ location?: pulumi.Input<string>, modes?: pulumi.Input<pulumi.Input<string>[]>, type?: pulumi.Input<string> }>;
+    readonly cache?: pulumi.Input<inputApi.codebuild.ProjectCache>;
     /**
      * A short description of the project.
      */
@@ -460,11 +462,11 @@ export interface ProjectArgs {
     /**
      * Information about the project's build environment. Environment blocks are documented below.
      */
-    readonly environment: pulumi.Input<{ certificate?: pulumi.Input<string>, computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, imagePullCredentialsType?: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, registryCredential?: pulumi.Input<{ credential: pulumi.Input<string>, credentialProvider: pulumi.Input<string> }>, type: pulumi.Input<string> }>;
+    readonly environment: pulumi.Input<inputApi.codebuild.ProjectEnvironment>;
     /**
      * Configuration for the builds to store log data to CloudWatch or S3.
      */
-    readonly logsConfig?: pulumi.Input<{ cloudwatchLogs?: pulumi.Input<{ groupName?: pulumi.Input<string>, status?: pulumi.Input<string>, streamName?: pulumi.Input<string> }>, s3Logs?: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, status?: pulumi.Input<string> }> }>;
+    readonly logsConfig?: pulumi.Input<inputApi.codebuild.ProjectLogsConfig>;
     /**
      * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */
@@ -472,11 +474,11 @@ export interface ProjectArgs {
     /**
      * A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
      */
-    readonly secondaryArtifacts?: pulumi.Input<pulumi.Input<{ artifactIdentifier: pulumi.Input<string>, encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, overrideArtifactName?: pulumi.Input<boolean>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly secondaryArtifacts?: pulumi.Input<pulumi.Input<inputApi.codebuild.ProjectSecondaryArtifact>[]>;
     /**
      * A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
      */
-    readonly secondarySources?: pulumi.Input<pulumi.Input<{ auths?: pulumi.Input<pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, reportBuildStatus?: pulumi.Input<boolean>, sourceIdentifier: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly secondarySources?: pulumi.Input<pulumi.Input<inputApi.codebuild.ProjectSecondarySource>[]>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
@@ -484,7 +486,7 @@ export interface ProjectArgs {
     /**
      * Information about the project's input source code. Source blocks are documented below.
      */
-    readonly source: pulumi.Input<{ auths?: pulumi.Input<pulumi.Input<{ resource?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>, buildspec?: pulumi.Input<string>, gitCloneDepth?: pulumi.Input<number>, insecureSsl?: pulumi.Input<boolean>, location?: pulumi.Input<string>, reportBuildStatus?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
+    readonly source: pulumi.Input<inputApi.codebuild.ProjectSource>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -492,5 +494,5 @@ export interface ProjectArgs {
     /**
      * Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
      */
-    readonly vpcConfig?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly vpcConfig?: pulumi.Input<inputApi.codebuild.ProjectVpcConfig>;
 }

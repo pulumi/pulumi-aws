@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -129,8 +131,8 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
      */
-    public /*out*/ readonly domainValidationOptions!: pulumi.Output<{ domainName: string, resourceRecordName: string, resourceRecordType: string, resourceRecordValue: string }[]>;
-    public readonly options!: pulumi.Output<{ certificateTransparencyLoggingPreference?: string } | undefined>;
+    public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputApi.acm.CertificateDomainValidationOption[]>;
+    public readonly options!: pulumi.Output<outputApi.acm.CertificateOptions | undefined>;
     /**
      * The certificate's PEM-formatted private key
      */
@@ -231,8 +233,8 @@ export interface CertificateState {
     /**
      * A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
      */
-    readonly domainValidationOptions?: pulumi.Input<pulumi.Input<{ domainName?: pulumi.Input<string>, resourceRecordName?: pulumi.Input<string>, resourceRecordType?: pulumi.Input<string>, resourceRecordValue?: pulumi.Input<string> }>[]>;
-    readonly options?: pulumi.Input<{ certificateTransparencyLoggingPreference?: pulumi.Input<string> }>;
+    readonly domainValidationOptions?: pulumi.Input<pulumi.Input<inputApi.acm.CertificateDomainValidationOption>[]>;
+    readonly options?: pulumi.Input<inputApi.acm.CertificateOptions>;
     /**
      * The certificate's PEM-formatted private key
      */
@@ -277,7 +279,7 @@ export interface CertificateArgs {
      * A domain name for which the certificate should be issued
      */
     readonly domainName?: pulumi.Input<string>;
-    readonly options?: pulumi.Input<{ certificateTransparencyLoggingPreference?: pulumi.Input<string> }>;
+    readonly options?: pulumi.Input<inputApi.acm.CertificateOptions>;
     /**
      * The certificate's PEM-formatted private key
      */

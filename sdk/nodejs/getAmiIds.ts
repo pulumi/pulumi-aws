@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "./types/input";
+import * as outputApi from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -57,7 +59,7 @@ export interface GetAmiIdsArgs {
      * are several valid keys, for a full reference, check out
      * [describe-images in the AWS CLI reference][1].
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.GetAmiIdsFilter[];
     /**
      * A regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API.
@@ -81,7 +83,7 @@ export interface GetAmiIdsArgs {
  */
 export interface GetAmiIdsResult {
     readonly executableUsers?: string[];
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.GetAmiIdsFilter[];
     readonly ids: string[];
     readonly nameRegex?: string;
     readonly owners: string[];

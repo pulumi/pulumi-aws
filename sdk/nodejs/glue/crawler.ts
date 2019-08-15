@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -115,7 +117,7 @@ export class Crawler extends pulumi.CustomResource {
      * The ARN of the crawler 
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly catalogTargets!: pulumi.Output<{ databaseName: string, tables: string[] }[] | undefined>;
+    public readonly catalogTargets!: pulumi.Output<outputApi.glue.CrawlerCatalogTarget[] | undefined>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
@@ -135,11 +137,11 @@ export class Crawler extends pulumi.CustomResource {
     /**
      * List of nested DynamoDB target arguments. See below.
      */
-    public readonly dynamodbTargets!: pulumi.Output<{ path: string }[] | undefined>;
+    public readonly dynamodbTargets!: pulumi.Output<outputApi.glue.CrawlerDynamodbTarget[] | undefined>;
     /**
      * List of nested JBDC target arguments. See below.
      */
-    public readonly jdbcTargets!: pulumi.Output<{ connectionName: string, exclusions?: string[], path: string }[] | undefined>;
+    public readonly jdbcTargets!: pulumi.Output<outputApi.glue.CrawlerJdbcTarget[] | undefined>;
     /**
      * Name of the crawler.
      */
@@ -151,7 +153,7 @@ export class Crawler extends pulumi.CustomResource {
     /**
      * List nested Amazon S3 target arguments. See below.
      */
-    public readonly s3Targets!: pulumi.Output<{ exclusions?: string[], path: string }[] | undefined>;
+    public readonly s3Targets!: pulumi.Output<outputApi.glue.CrawlerS3Target[] | undefined>;
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */
@@ -159,7 +161,7 @@ export class Crawler extends pulumi.CustomResource {
     /**
      * Policy for the crawler's update and deletion behavior.
      */
-    public readonly schemaChangePolicy!: pulumi.Output<{ deleteBehavior?: string, updateBehavior?: string } | undefined>;
+    public readonly schemaChangePolicy!: pulumi.Output<outputApi.glue.CrawlerSchemaChangePolicy | undefined>;
     /**
      * The name of Security Configuration to be used by the crawler
      */
@@ -239,7 +241,7 @@ export interface CrawlerState {
      * The ARN of the crawler 
      */
     readonly arn?: pulumi.Input<string>;
-    readonly catalogTargets?: pulumi.Input<pulumi.Input<{ databaseName: pulumi.Input<string>, tables: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly catalogTargets?: pulumi.Input<pulumi.Input<inputApi.glue.CrawlerCatalogTarget>[]>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
@@ -259,11 +261,11 @@ export interface CrawlerState {
     /**
      * List of nested DynamoDB target arguments. See below.
      */
-    readonly dynamodbTargets?: pulumi.Input<pulumi.Input<{ path: pulumi.Input<string> }>[]>;
+    readonly dynamodbTargets?: pulumi.Input<pulumi.Input<inputApi.glue.CrawlerDynamodbTarget>[]>;
     /**
      * List of nested JBDC target arguments. See below.
      */
-    readonly jdbcTargets?: pulumi.Input<pulumi.Input<{ connectionName: pulumi.Input<string>, exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }>[]>;
+    readonly jdbcTargets?: pulumi.Input<pulumi.Input<inputApi.glue.CrawlerJdbcTarget>[]>;
     /**
      * Name of the crawler.
      */
@@ -275,7 +277,7 @@ export interface CrawlerState {
     /**
      * List nested Amazon S3 target arguments. See below.
      */
-    readonly s3Targets?: pulumi.Input<pulumi.Input<{ exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }>[]>;
+    readonly s3Targets?: pulumi.Input<pulumi.Input<inputApi.glue.CrawlerS3Target>[]>;
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */
@@ -283,7 +285,7 @@ export interface CrawlerState {
     /**
      * Policy for the crawler's update and deletion behavior.
      */
-    readonly schemaChangePolicy?: pulumi.Input<{ deleteBehavior?: pulumi.Input<string>, updateBehavior?: pulumi.Input<string> }>;
+    readonly schemaChangePolicy?: pulumi.Input<inputApi.glue.CrawlerSchemaChangePolicy>;
     /**
      * The name of Security Configuration to be used by the crawler
      */
@@ -298,7 +300,7 @@ export interface CrawlerState {
  * The set of arguments for constructing a Crawler resource.
  */
 export interface CrawlerArgs {
-    readonly catalogTargets?: pulumi.Input<pulumi.Input<{ databaseName: pulumi.Input<string>, tables: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly catalogTargets?: pulumi.Input<pulumi.Input<inputApi.glue.CrawlerCatalogTarget>[]>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
@@ -318,11 +320,11 @@ export interface CrawlerArgs {
     /**
      * List of nested DynamoDB target arguments. See below.
      */
-    readonly dynamodbTargets?: pulumi.Input<pulumi.Input<{ path: pulumi.Input<string> }>[]>;
+    readonly dynamodbTargets?: pulumi.Input<pulumi.Input<inputApi.glue.CrawlerDynamodbTarget>[]>;
     /**
      * List of nested JBDC target arguments. See below.
      */
-    readonly jdbcTargets?: pulumi.Input<pulumi.Input<{ connectionName: pulumi.Input<string>, exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }>[]>;
+    readonly jdbcTargets?: pulumi.Input<pulumi.Input<inputApi.glue.CrawlerJdbcTarget>[]>;
     /**
      * Name of the crawler.
      */
@@ -334,7 +336,7 @@ export interface CrawlerArgs {
     /**
      * List nested Amazon S3 target arguments. See below.
      */
-    readonly s3Targets?: pulumi.Input<pulumi.Input<{ exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }>[]>;
+    readonly s3Targets?: pulumi.Input<pulumi.Input<inputApi.glue.CrawlerS3Target>[]>;
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */
@@ -342,7 +344,7 @@ export interface CrawlerArgs {
     /**
      * Policy for the crawler's update and deletion behavior.
      */
-    readonly schemaChangePolicy?: pulumi.Input<{ deleteBehavior?: pulumi.Input<string>, updateBehavior?: pulumi.Input<string> }>;
+    readonly schemaChangePolicy?: pulumi.Input<inputApi.glue.CrawlerSchemaChangePolicy>;
     /**
      * The name of Security Configuration to be used by the crawler
      */

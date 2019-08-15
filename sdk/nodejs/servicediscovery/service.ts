@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -100,15 +102,15 @@ export class Service extends pulumi.CustomResource {
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    public readonly dnsConfig!: pulumi.Output<{ dnsRecords: { ttl: number, type: string }[], namespaceId: string, routingPolicy?: string } | undefined>;
+    public readonly dnsConfig!: pulumi.Output<outputApi.servicediscovery.ServiceDnsConfig | undefined>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
-    public readonly healthCheckConfig!: pulumi.Output<{ failureThreshold?: number, resourcePath?: string, type?: string } | undefined>;
+    public readonly healthCheckConfig!: pulumi.Output<outputApi.servicediscovery.ServiceHealthCheckConfig | undefined>;
     /**
      * A complex type that contains settings for ECS managed health checks.
      */
-    public readonly healthCheckCustomConfig!: pulumi.Output<{ failureThreshold?: number } | undefined>;
+    public readonly healthCheckCustomConfig!: pulumi.Output<outputApi.servicediscovery.ServiceHealthCheckCustomConfig | undefined>;
     /**
      * The name of the service.
      */
@@ -173,15 +175,15 @@ export interface ServiceState {
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    readonly dnsConfig?: pulumi.Input<{ dnsRecords: pulumi.Input<pulumi.Input<{ ttl: pulumi.Input<number>, type: pulumi.Input<string> }>[]>, namespaceId: pulumi.Input<string>, routingPolicy?: pulumi.Input<string> }>;
+    readonly dnsConfig?: pulumi.Input<inputApi.servicediscovery.ServiceDnsConfig>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
-    readonly healthCheckConfig?: pulumi.Input<{ failureThreshold?: pulumi.Input<number>, resourcePath?: pulumi.Input<string>, type?: pulumi.Input<string> }>;
+    readonly healthCheckConfig?: pulumi.Input<inputApi.servicediscovery.ServiceHealthCheckConfig>;
     /**
      * A complex type that contains settings for ECS managed health checks.
      */
-    readonly healthCheckCustomConfig?: pulumi.Input<{ failureThreshold?: pulumi.Input<number> }>;
+    readonly healthCheckCustomConfig?: pulumi.Input<inputApi.servicediscovery.ServiceHealthCheckCustomConfig>;
     /**
      * The name of the service.
      */
@@ -203,15 +205,15 @@ export interface ServiceArgs {
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    readonly dnsConfig?: pulumi.Input<{ dnsRecords: pulumi.Input<pulumi.Input<{ ttl: pulumi.Input<number>, type: pulumi.Input<string> }>[]>, namespaceId: pulumi.Input<string>, routingPolicy?: pulumi.Input<string> }>;
+    readonly dnsConfig?: pulumi.Input<inputApi.servicediscovery.ServiceDnsConfig>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
-    readonly healthCheckConfig?: pulumi.Input<{ failureThreshold?: pulumi.Input<number>, resourcePath?: pulumi.Input<string>, type?: pulumi.Input<string> }>;
+    readonly healthCheckConfig?: pulumi.Input<inputApi.servicediscovery.ServiceHealthCheckConfig>;
     /**
      * A complex type that contains settings for ECS managed health checks.
      */
-    readonly healthCheckCustomConfig?: pulumi.Input<{ failureThreshold?: pulumi.Input<number> }>;
+    readonly healthCheckCustomConfig?: pulumi.Input<inputApi.servicediscovery.ServiceHealthCheckCustomConfig>;
     /**
      * The name of the service.
      */

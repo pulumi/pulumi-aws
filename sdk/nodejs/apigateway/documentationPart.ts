@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -57,7 +59,7 @@ export class DocumentationPart extends pulumi.CustomResource {
     /**
      * The location of the targeted API entity of the to-be-created documentation part. See below.
      */
-    public readonly location!: pulumi.Output<{ method?: string, name?: string, path?: string, statusCode?: string, type: string }>;
+    public readonly location!: pulumi.Output<outputApi.apigateway.DocumentationPartLocation>;
     /**
      * A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
      */
@@ -115,7 +117,7 @@ export interface DocumentationPartState {
     /**
      * The location of the targeted API entity of the to-be-created documentation part. See below.
      */
-    readonly location?: pulumi.Input<{ method?: pulumi.Input<string>, name?: pulumi.Input<string>, path?: pulumi.Input<string>, statusCode?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly location?: pulumi.Input<inputApi.apigateway.DocumentationPartLocation>;
     /**
      * A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
      */
@@ -133,7 +135,7 @@ export interface DocumentationPartArgs {
     /**
      * The location of the targeted API entity of the to-be-created documentation part. See below.
      */
-    readonly location: pulumi.Input<{ method?: pulumi.Input<string>, name?: pulumi.Input<string>, path?: pulumi.Input<string>, statusCode?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly location: pulumi.Input<inputApi.apigateway.DocumentationPartLocation>;
     /**
      * A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
      */

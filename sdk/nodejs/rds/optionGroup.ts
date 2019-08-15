@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -97,7 +99,7 @@ export class OptionGroup extends pulumi.CustomResource {
     /**
      * A list of Options to apply.
      */
-    public readonly options!: pulumi.Output<{ dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, version?: string, vpcSecurityGroupMemberships?: string[] }[] | undefined>;
+    public readonly options!: pulumi.Output<outputApi.rds.OptionGroupOption[] | undefined>;
     /**
      * The description of the option group. Defaults to "Managed by Pulumi".
      */
@@ -182,7 +184,7 @@ export interface OptionGroupState {
     /**
      * A list of Options to apply.
      */
-    readonly options?: pulumi.Input<pulumi.Input<{ dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>, optionName: pulumi.Input<string>, optionSettings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, port?: pulumi.Input<number>, version?: pulumi.Input<string>, vpcSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly options?: pulumi.Input<pulumi.Input<inputApi.rds.OptionGroupOption>[]>;
     /**
      * The description of the option group. Defaults to "Managed by Pulumi".
      */
@@ -216,7 +218,7 @@ export interface OptionGroupArgs {
     /**
      * A list of Options to apply.
      */
-    readonly options?: pulumi.Input<pulumi.Input<{ dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>, optionName: pulumi.Input<string>, optionSettings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, port?: pulumi.Input<number>, version?: pulumi.Input<string>, vpcSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly options?: pulumi.Input<pulumi.Input<inputApi.rds.OptionGroupOption>[]>;
     /**
      * The description of the option group. Defaults to "Managed by Pulumi".
      */

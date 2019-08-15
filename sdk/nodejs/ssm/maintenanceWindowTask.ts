@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -167,7 +169,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**
      * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
      */
-    public readonly loggingInfo!: pulumi.Output<{ s3BucketName: string, s3BucketPrefix?: string, s3Region: string } | undefined>;
+    public readonly loggingInfo!: pulumi.Output<outputApi.ssm.MaintenanceWindowTaskLoggingInfo | undefined>;
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
@@ -191,7 +193,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    public readonly targets!: pulumi.Output<{ key: string, values: string[] }[]>;
+    public readonly targets!: pulumi.Output<outputApi.ssm.MaintenanceWindowTaskTarget[]>;
     /**
      * The ARN of the task to execute.
      */
@@ -199,11 +201,11 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**
      * The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
      */
-    public readonly taskInvocationParameters!: pulumi.Output<{ automationParameters?: { documentVersion?: string, parameters?: { name: string, values: string[] }[] }, lambdaParameters?: { clientContext?: string, payload?: string, qualifier?: string }, runCommandParameters?: { comment?: string, documentHash?: string, documentHashType?: string, notificationConfig?: { notificationArn?: string, notificationEvents?: string[], notificationType?: string }, outputS3Bucket?: string, outputS3KeyPrefix?: string, parameters?: { name: string, values: string[] }[], serviceRoleArn?: string, timeoutSeconds?: number }, stepFunctionsParameters?: { input?: string, name?: string } } | undefined>;
+    public readonly taskInvocationParameters!: pulumi.Output<outputApi.ssm.MaintenanceWindowTaskTaskInvocationParameters | undefined>;
     /**
      * A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
      */
-    public readonly taskParameters!: pulumi.Output<{ name: string, values: string[] }[] | undefined>;
+    public readonly taskParameters!: pulumi.Output<outputApi.ssm.MaintenanceWindowTaskTaskParameter[] | undefined>;
     /**
      * The type of task being registered. The only allowed value is `RUN_COMMAND`.
      */
@@ -297,7 +299,7 @@ export interface MaintenanceWindowTaskState {
     /**
      * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
      */
-    readonly loggingInfo?: pulumi.Input<{ s3BucketName: pulumi.Input<string>, s3BucketPrefix?: pulumi.Input<string>, s3Region: pulumi.Input<string> }>;
+    readonly loggingInfo?: pulumi.Input<inputApi.ssm.MaintenanceWindowTaskLoggingInfo>;
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
@@ -321,7 +323,7 @@ export interface MaintenanceWindowTaskState {
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    readonly targets?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly targets?: pulumi.Input<pulumi.Input<inputApi.ssm.MaintenanceWindowTaskTarget>[]>;
     /**
      * The ARN of the task to execute.
      */
@@ -329,11 +331,11 @@ export interface MaintenanceWindowTaskState {
     /**
      * The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
      */
-    readonly taskInvocationParameters?: pulumi.Input<{ automationParameters?: pulumi.Input<{ documentVersion?: pulumi.Input<string>, parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]> }>, lambdaParameters?: pulumi.Input<{ clientContext?: pulumi.Input<string>, payload?: pulumi.Input<string>, qualifier?: pulumi.Input<string> }>, runCommandParameters?: pulumi.Input<{ comment?: pulumi.Input<string>, documentHash?: pulumi.Input<string>, documentHashType?: pulumi.Input<string>, notificationConfig?: pulumi.Input<{ notificationArn?: pulumi.Input<string>, notificationEvents?: pulumi.Input<pulumi.Input<string>[]>, notificationType?: pulumi.Input<string> }>, outputS3Bucket?: pulumi.Input<string>, outputS3KeyPrefix?: pulumi.Input<string>, parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>, serviceRoleArn?: pulumi.Input<string>, timeoutSeconds?: pulumi.Input<number> }>, stepFunctionsParameters?: pulumi.Input<{ input?: pulumi.Input<string>, name?: pulumi.Input<string> }> }>;
+    readonly taskInvocationParameters?: pulumi.Input<inputApi.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
     /**
      * A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
      */
-    readonly taskParameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly taskParameters?: pulumi.Input<pulumi.Input<inputApi.ssm.MaintenanceWindowTaskTaskParameter>[]>;
     /**
      * The type of task being registered. The only allowed value is `RUN_COMMAND`.
      */
@@ -355,7 +357,7 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
      */
-    readonly loggingInfo?: pulumi.Input<{ s3BucketName: pulumi.Input<string>, s3BucketPrefix?: pulumi.Input<string>, s3Region: pulumi.Input<string> }>;
+    readonly loggingInfo?: pulumi.Input<inputApi.ssm.MaintenanceWindowTaskLoggingInfo>;
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
@@ -379,7 +381,7 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    readonly targets: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly targets: pulumi.Input<pulumi.Input<inputApi.ssm.MaintenanceWindowTaskTarget>[]>;
     /**
      * The ARN of the task to execute.
      */
@@ -387,11 +389,11 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
      */
-    readonly taskInvocationParameters?: pulumi.Input<{ automationParameters?: pulumi.Input<{ documentVersion?: pulumi.Input<string>, parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]> }>, lambdaParameters?: pulumi.Input<{ clientContext?: pulumi.Input<string>, payload?: pulumi.Input<string>, qualifier?: pulumi.Input<string> }>, runCommandParameters?: pulumi.Input<{ comment?: pulumi.Input<string>, documentHash?: pulumi.Input<string>, documentHashType?: pulumi.Input<string>, notificationConfig?: pulumi.Input<{ notificationArn?: pulumi.Input<string>, notificationEvents?: pulumi.Input<pulumi.Input<string>[]>, notificationType?: pulumi.Input<string> }>, outputS3Bucket?: pulumi.Input<string>, outputS3KeyPrefix?: pulumi.Input<string>, parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>, serviceRoleArn?: pulumi.Input<string>, timeoutSeconds?: pulumi.Input<number> }>, stepFunctionsParameters?: pulumi.Input<{ input?: pulumi.Input<string>, name?: pulumi.Input<string> }> }>;
+    readonly taskInvocationParameters?: pulumi.Input<inputApi.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
     /**
      * A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
      */
-    readonly taskParameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly taskParameters?: pulumi.Input<pulumi.Input<inputApi.ssm.MaintenanceWindowTaskTaskParameter>[]>;
     /**
      * The type of task being registered. The only allowed value is `RUN_COMMAND`.
      */

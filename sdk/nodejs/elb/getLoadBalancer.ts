@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,17 +62,17 @@ export interface GetLoadBalancerArgs {
  * A collection of values returned by getLoadBalancer.
  */
 export interface GetLoadBalancerResult {
-    readonly accessLogs: { bucket: string, bucketPrefix: string, enabled: boolean, interval: number };
+    readonly accessLogs: outputApi.elb.GetLoadBalancerAccessLogs;
     readonly availabilityZones: string[];
     readonly connectionDraining: boolean;
     readonly connectionDrainingTimeout: number;
     readonly crossZoneLoadBalancing: boolean;
     readonly dnsName: string;
-    readonly healthCheck: { healthyThreshold: number, interval: number, target: string, timeout: number, unhealthyThreshold: number };
+    readonly healthCheck: outputApi.elb.GetLoadBalancerHealthCheck;
     readonly idleTimeout: number;
     readonly instances: string[];
     readonly internal: boolean;
-    readonly listeners: { instancePort: number, instanceProtocol: string, lbPort: number, lbProtocol: string, sslCertificateId: string }[];
+    readonly listeners: outputApi.elb.GetLoadBalancerListener[];
     readonly name: string;
     readonly securityGroups: string[];
     readonly sourceSecurityGroup: string;

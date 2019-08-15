@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -101,7 +103,7 @@ export class EventDestination extends pulumi.CustomResource {
     /**
      * CloudWatch destination for the events
      */
-    public readonly cloudwatchDestinations!: pulumi.Output<{ defaultValue: string, dimensionName: string, valueSource: string }[] | undefined>;
+    public readonly cloudwatchDestinations!: pulumi.Output<outputApi.ses.EventDestinationCloudwatchDestination[] | undefined>;
     /**
      * The name of the configuration set
      */
@@ -113,7 +115,7 @@ export class EventDestination extends pulumi.CustomResource {
     /**
      * Send the events to a kinesis firehose destination
      */
-    public readonly kinesisDestination!: pulumi.Output<{ roleArn: string, streamArn: string } | undefined>;
+    public readonly kinesisDestination!: pulumi.Output<outputApi.ses.EventDestinationKinesisDestination | undefined>;
     /**
      * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
@@ -125,7 +127,7 @@ export class EventDestination extends pulumi.CustomResource {
     /**
      * Send the events to an SNS Topic destination
      */
-    public readonly snsDestination!: pulumi.Output<{ topicArn: string } | undefined>;
+    public readonly snsDestination!: pulumi.Output<outputApi.ses.EventDestinationSnsDestination | undefined>;
 
     /**
      * Create a EventDestination resource with the given unique name, arguments, and options.
@@ -180,7 +182,7 @@ export interface EventDestinationState {
     /**
      * CloudWatch destination for the events
      */
-    readonly cloudwatchDestinations?: pulumi.Input<pulumi.Input<{ defaultValue: pulumi.Input<string>, dimensionName: pulumi.Input<string>, valueSource: pulumi.Input<string> }>[]>;
+    readonly cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputApi.ses.EventDestinationCloudwatchDestination>[]>;
     /**
      * The name of the configuration set
      */
@@ -192,7 +194,7 @@ export interface EventDestinationState {
     /**
      * Send the events to a kinesis firehose destination
      */
-    readonly kinesisDestination?: pulumi.Input<{ roleArn: pulumi.Input<string>, streamArn: pulumi.Input<string> }>;
+    readonly kinesisDestination?: pulumi.Input<inputApi.ses.EventDestinationKinesisDestination>;
     /**
      * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
@@ -204,7 +206,7 @@ export interface EventDestinationState {
     /**
      * Send the events to an SNS Topic destination
      */
-    readonly snsDestination?: pulumi.Input<{ topicArn: pulumi.Input<string> }>;
+    readonly snsDestination?: pulumi.Input<inputApi.ses.EventDestinationSnsDestination>;
 }
 
 /**
@@ -214,7 +216,7 @@ export interface EventDestinationArgs {
     /**
      * CloudWatch destination for the events
      */
-    readonly cloudwatchDestinations?: pulumi.Input<pulumi.Input<{ defaultValue: pulumi.Input<string>, dimensionName: pulumi.Input<string>, valueSource: pulumi.Input<string> }>[]>;
+    readonly cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputApi.ses.EventDestinationCloudwatchDestination>[]>;
     /**
      * The name of the configuration set
      */
@@ -226,7 +228,7 @@ export interface EventDestinationArgs {
     /**
      * Send the events to a kinesis firehose destination
      */
-    readonly kinesisDestination?: pulumi.Input<{ roleArn: pulumi.Input<string>, streamArn: pulumi.Input<string> }>;
+    readonly kinesisDestination?: pulumi.Input<inputApi.ses.EventDestinationKinesisDestination>;
     /**
      * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
@@ -238,5 +240,5 @@ export interface EventDestinationArgs {
     /**
      * Send the events to an SNS Topic destination
      */
-    readonly snsDestination?: pulumi.Input<{ topicArn: pulumi.Input<string> }>;
+    readonly snsDestination?: pulumi.Input<inputApi.ses.EventDestinationSnsDestination>;
 }

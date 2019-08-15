@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "./types/input";
+import * as outputApi from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -86,7 +88,7 @@ export interface GetElasticIpArgs {
     /**
      * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputApi.GetElasticIpFilter[];
     /**
      * The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
      */
@@ -113,7 +115,7 @@ export interface GetElasticIpResult {
      * Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
      */
     readonly domain: string;
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputApi.GetElasticIpFilter[];
     /**
      * If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
      */

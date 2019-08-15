@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -47,7 +49,7 @@ export class Build extends pulumi.CustomResource {
     /**
      * Information indicating where your game build files are stored. See below.
      */
-    public readonly storageLocation!: pulumi.Output<{ bucket: string, key: string, roleArn: string }>;
+    public readonly storageLocation!: pulumi.Output<outputApi.gamelift.BuildStorageLocation>;
     /**
      * Version that is associated with this build.
      */
@@ -108,7 +110,7 @@ export interface BuildState {
     /**
      * Information indicating where your game build files are stored. See below.
      */
-    readonly storageLocation?: pulumi.Input<{ bucket: pulumi.Input<string>, key: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;
+    readonly storageLocation?: pulumi.Input<inputApi.gamelift.BuildStorageLocation>;
     /**
      * Version that is associated with this build.
      */
@@ -130,7 +132,7 @@ export interface BuildArgs {
     /**
      * Information indicating where your game build files are stored. See below.
      */
-    readonly storageLocation: pulumi.Input<{ bucket: pulumi.Input<string>, key: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;
+    readonly storageLocation: pulumi.Input<inputApi.gamelift.BuildStorageLocation>;
     /**
      * Version that is associated with this build.
      */

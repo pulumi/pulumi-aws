@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -56,7 +58,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * A list of ingress rules.
      */
-    public readonly ingress!: pulumi.Output<{ cidr?: string, securityGroupName: string, securityGroupOwnerId: string }[]>;
+    public readonly ingress!: pulumi.Output<outputApi.redshift.SecurityGroupIngress[]>;
     /**
      * The name of the Redshift security group.
      */
@@ -108,7 +110,7 @@ export interface SecurityGroupState {
     /**
      * A list of ingress rules.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<{ cidr?: pulumi.Input<string>, securityGroupName?: pulumi.Input<string>, securityGroupOwnerId?: pulumi.Input<string> }>[]>;
+    readonly ingress?: pulumi.Input<pulumi.Input<inputApi.redshift.SecurityGroupIngress>[]>;
     /**
      * The name of the Redshift security group.
      */
@@ -126,7 +128,7 @@ export interface SecurityGroupArgs {
     /**
      * A list of ingress rules.
      */
-    readonly ingress: pulumi.Input<pulumi.Input<{ cidr?: pulumi.Input<string>, securityGroupName?: pulumi.Input<string>, securityGroupOwnerId?: pulumi.Input<string> }>[]>;
+    readonly ingress: pulumi.Input<pulumi.Input<inputApi.redshift.SecurityGroupIngress>[]>;
     /**
      * The name of the Redshift security group.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +83,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
      * The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
      */
-    public readonly ipAddresses!: pulumi.Output<{ ip: string, ipId: string, subnetId: string }[]>;
+    public readonly ipAddresses!: pulumi.Output<outputApi.route53.ResolverEndpointIpAddress[]>;
     /**
      * The friendly name of the Route 53 Resolver endpoint.
      */
@@ -166,7 +168,7 @@ export interface ResolverEndpointState {
      * The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
      */
-    readonly ipAddresses?: pulumi.Input<pulumi.Input<{ ip?: pulumi.Input<string>, ipId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
+    readonly ipAddresses?: pulumi.Input<pulumi.Input<inputApi.route53.ResolverEndpointIpAddress>[]>;
     /**
      * The friendly name of the Route 53 Resolver endpoint.
      */
@@ -195,7 +197,7 @@ export interface ResolverEndpointArgs {
      * The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
      */
-    readonly ipAddresses: pulumi.Input<pulumi.Input<{ ip?: pulumi.Input<string>, ipId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
+    readonly ipAddresses: pulumi.Input<pulumi.Input<inputApi.route53.ResolverEndpointIpAddress>[]>;
     /**
      * The friendly name of the Route 53 Resolver endpoint.
      */

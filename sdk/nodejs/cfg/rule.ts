@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -141,12 +143,12 @@ export class Rule extends pulumi.CustomResource {
     /**
      * Scope defines which resources can trigger an evaluation for the rule as documented below.
      */
-    public readonly scope!: pulumi.Output<{ complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string } | undefined>;
+    public readonly scope!: pulumi.Output<outputApi.cfg.RuleScope | undefined>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause
      * the function to evaluate your AWS resources as documented below.
      */
-    public readonly source!: pulumi.Output<{ owner: string, sourceDetails?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string }>;
+    public readonly source!: pulumi.Output<outputApi.cfg.RuleSource>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -231,12 +233,12 @@ export interface RuleState {
     /**
      * Scope defines which resources can trigger an evaluation for the rule as documented below.
      */
-    readonly scope?: pulumi.Input<{ complianceResourceId?: pulumi.Input<string>, complianceResourceTypes?: pulumi.Input<pulumi.Input<string>[]>, tagKey?: pulumi.Input<string>, tagValue?: pulumi.Input<string> }>;
+    readonly scope?: pulumi.Input<inputApi.cfg.RuleScope>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause
      * the function to evaluate your AWS resources as documented below.
      */
-    readonly source?: pulumi.Input<{ owner: pulumi.Input<string>, sourceDetails?: pulumi.Input<pulumi.Input<{ eventSource?: pulumi.Input<string>, maximumExecutionFrequency?: pulumi.Input<string>, messageType?: pulumi.Input<string> }>[]>, sourceIdentifier: pulumi.Input<string> }>;
+    readonly source?: pulumi.Input<inputApi.cfg.RuleSource>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -267,12 +269,12 @@ export interface RuleArgs {
     /**
      * Scope defines which resources can trigger an evaluation for the rule as documented below.
      */
-    readonly scope?: pulumi.Input<{ complianceResourceId?: pulumi.Input<string>, complianceResourceTypes?: pulumi.Input<pulumi.Input<string>[]>, tagKey?: pulumi.Input<string>, tagValue?: pulumi.Input<string> }>;
+    readonly scope?: pulumi.Input<inputApi.cfg.RuleScope>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause
      * the function to evaluate your AWS resources as documented below.
      */
-    readonly source: pulumi.Input<{ owner: pulumi.Input<string>, sourceDetails?: pulumi.Input<pulumi.Input<{ eventSource?: pulumi.Input<string>, maximumExecutionFrequency?: pulumi.Input<string>, messageType?: pulumi.Input<string> }>[]>, sourceIdentifier: pulumi.Input<string> }>;
+    readonly source: pulumi.Input<inputApi.cfg.RuleSource>;
     /**
      * A mapping of tags to assign to the resource.
      */

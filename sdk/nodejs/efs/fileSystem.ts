@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -90,7 +92,7 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
      */
-    public readonly lifecyclePolicy!: pulumi.Output<{ transitionToIa?: string } | undefined>;
+    public readonly lifecyclePolicy!: pulumi.Output<outputApi.efs.FileSystemLifecyclePolicy | undefined>;
     /**
      * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
@@ -184,7 +186,7 @@ export interface FileSystemState {
     /**
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
      */
-    readonly lifecyclePolicy?: pulumi.Input<{ transitionToIa?: pulumi.Input<string> }>;
+    readonly lifecyclePolicy?: pulumi.Input<inputApi.efs.FileSystemLifecyclePolicy>;
     /**
      * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
@@ -225,7 +227,7 @@ export interface FileSystemArgs {
     /**
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
      */
-    readonly lifecyclePolicy?: pulumi.Input<{ transitionToIa?: pulumi.Input<string> }>;
+    readonly lifecyclePolicy?: pulumi.Input<inputApi.efs.FileSystemLifecyclePolicy>;
     /**
      * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */

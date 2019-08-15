@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -121,7 +123,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`aws.route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
      */
-    public readonly vpcs!: pulumi.Output<{ vpcId: string, vpcRegion: string }[] | undefined>;
+    public readonly vpcs!: pulumi.Output<outputApi.route53.ZoneVpc[] | undefined>;
     /**
      * The Hosted Zone ID. This can be referenced by zone records.
      */
@@ -201,7 +203,7 @@ export interface ZoneState {
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`aws.route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
      */
-    readonly vpcs?: pulumi.Input<pulumi.Input<{ vpcId: pulumi.Input<string>, vpcRegion?: pulumi.Input<string> }>[]>;
+    readonly vpcs?: pulumi.Input<pulumi.Input<inputApi.route53.ZoneVpc>[]>;
     /**
      * The Hosted Zone ID. This can be referenced by zone records.
      */
@@ -235,5 +237,5 @@ export interface ZoneArgs {
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`aws.route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
      */
-    readonly vpcs?: pulumi.Input<pulumi.Input<{ vpcId: pulumi.Input<string>, vpcRegion?: pulumi.Input<string> }>[]>;
+    readonly vpcs?: pulumi.Input<pulumi.Input<inputApi.route53.ZoneVpc>[]>;
 }

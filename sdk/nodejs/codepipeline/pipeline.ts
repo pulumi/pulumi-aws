@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -167,7 +169,7 @@ export class Pipeline extends pulumi.CustomResource {
      * An artifactStore block. Artifact stores are documented below.
      * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
-    public readonly artifactStore!: pulumi.Output<{ encryptionKey?: { id: string, type: string }, location: string, type: string }>;
+    public readonly artifactStore!: pulumi.Output<outputApi.codepipeline.PipelineArtifactStore>;
     /**
      * The name of the pipeline.
      */
@@ -176,7 +178,7 @@ export class Pipeline extends pulumi.CustomResource {
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
-    public readonly stages!: pulumi.Output<{ actions: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[]>;
+    public readonly stages!: pulumi.Output<outputApi.codepipeline.PipelineStage[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -241,7 +243,7 @@ export interface PipelineState {
      * An artifactStore block. Artifact stores are documented below.
      * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
-    readonly artifactStore?: pulumi.Input<{ encryptionKey?: pulumi.Input<{ id: pulumi.Input<string>, type: pulumi.Input<string> }>, location: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly artifactStore?: pulumi.Input<inputApi.codepipeline.PipelineArtifactStore>;
     /**
      * The name of the pipeline.
      */
@@ -250,7 +252,7 @@ export interface PipelineState {
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     readonly roleArn?: pulumi.Input<string>;
-    readonly stages?: pulumi.Input<pulumi.Input<{ actions: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, configuration?: pulumi.Input<{[key: string]: any}>, inputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, owner: pulumi.Input<string>, provider: pulumi.Input<string>, roleArn?: pulumi.Input<string>, runOrder?: pulumi.Input<number>, version: pulumi.Input<string> }>[]>, name: pulumi.Input<string> }>[]>;
+    readonly stages?: pulumi.Input<pulumi.Input<inputApi.codepipeline.PipelineStage>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -265,7 +267,7 @@ export interface PipelineArgs {
      * An artifactStore block. Artifact stores are documented below.
      * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
-    readonly artifactStore: pulumi.Input<{ encryptionKey?: pulumi.Input<{ id: pulumi.Input<string>, type: pulumi.Input<string> }>, location: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly artifactStore: pulumi.Input<inputApi.codepipeline.PipelineArtifactStore>;
     /**
      * The name of the pipeline.
      */
@@ -274,7 +276,7 @@ export interface PipelineArgs {
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     readonly roleArn: pulumi.Input<string>;
-    readonly stages: pulumi.Input<pulumi.Input<{ actions: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, configuration?: pulumi.Input<{[key: string]: any}>, inputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, owner: pulumi.Input<string>, provider: pulumi.Input<string>, roleArn?: pulumi.Input<string>, runOrder?: pulumi.Input<number>, version: pulumi.Input<string> }>[]>, name: pulumi.Input<string> }>[]>;
+    readonly stages: pulumi.Input<pulumi.Input<inputApi.codepipeline.PipelineStage>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

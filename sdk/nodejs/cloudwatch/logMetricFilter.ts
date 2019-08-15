@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +64,7 @@ export class LogMetricFilter extends pulumi.CustomResource {
      * A block defining collection of information
      * needed to define how metric data gets emitted. See below.
      */
-    public readonly metricTransformation!: pulumi.Output<{ defaultValue?: string, name: string, namespace: string, value: string }>;
+    public readonly metricTransformation!: pulumi.Output<outputApi.cloudwatch.LogMetricFilterMetricTransformation>;
     /**
      * A name for the metric filter.
      */
@@ -128,7 +130,7 @@ export interface LogMetricFilterState {
      * A block defining collection of information
      * needed to define how metric data gets emitted. See below.
      */
-    readonly metricTransformation?: pulumi.Input<{ defaultValue?: pulumi.Input<string>, name: pulumi.Input<string>, namespace: pulumi.Input<string>, value: pulumi.Input<string> }>;
+    readonly metricTransformation?: pulumi.Input<inputApi.cloudwatch.LogMetricFilterMetricTransformation>;
     /**
      * A name for the metric filter.
      */
@@ -152,7 +154,7 @@ export interface LogMetricFilterArgs {
      * A block defining collection of information
      * needed to define how metric data gets emitted. See below.
      */
-    readonly metricTransformation: pulumi.Input<{ defaultValue?: pulumi.Input<string>, name: pulumi.Input<string>, namespace: pulumi.Input<string>, value: pulumi.Input<string> }>;
+    readonly metricTransformation: pulumi.Input<inputApi.cloudwatch.LogMetricFilterMetricTransformation>;
     /**
      * A name for the metric filter.
      */

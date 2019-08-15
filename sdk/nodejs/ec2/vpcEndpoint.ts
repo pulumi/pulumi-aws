@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -127,7 +129,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
     /**
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
-    public /*out*/ readonly dnsEntries!: pulumi.Output<{ dnsName: string, hostedZoneId: string }[]>;
+    public /*out*/ readonly dnsEntries!: pulumi.Output<outputApi.ec2.VpcEndpointDnsEntry[]>;
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      */
@@ -267,7 +269,7 @@ export interface VpcEndpointState {
     /**
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
-    readonly dnsEntries?: pulumi.Input<pulumi.Input<{ dnsName?: pulumi.Input<string>, hostedZoneId?: pulumi.Input<string> }>[]>;
+    readonly dnsEntries?: pulumi.Input<pulumi.Input<inputApi.ec2.VpcEndpointDnsEntry>[]>;
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      */

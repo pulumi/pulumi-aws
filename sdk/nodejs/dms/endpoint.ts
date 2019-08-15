@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -100,7 +102,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
      */
-    public readonly mongodbSettings!: pulumi.Output<{ authMechanism?: string, authSource?: string, authType?: string, docsToInvestigate?: string, extractDocId?: string, nestingLevel?: string } | undefined>;
+    public readonly mongodbSettings!: pulumi.Output<outputApi.dms.EndpointMongodbSettings | undefined>;
     /**
      * The password to be used to login to the endpoint database.
      */
@@ -112,7 +114,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
      */
-    public readonly s3Settings!: pulumi.Output<{ bucketFolder?: string, bucketName?: string, compressionType?: string, csvDelimiter?: string, csvRowDelimiter?: string, externalTableDefinition?: string, serviceAccessRoleArn?: string } | undefined>;
+    public readonly s3Settings!: pulumi.Output<outputApi.dms.EndpointS3Settings | undefined>;
     /**
      * The host name of the server.
      */
@@ -242,7 +244,7 @@ export interface EndpointState {
     /**
      * Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
      */
-    readonly mongodbSettings?: pulumi.Input<{ authMechanism?: pulumi.Input<string>, authSource?: pulumi.Input<string>, authType?: pulumi.Input<string>, docsToInvestigate?: pulumi.Input<string>, extractDocId?: pulumi.Input<string>, nestingLevel?: pulumi.Input<string> }>;
+    readonly mongodbSettings?: pulumi.Input<inputApi.dms.EndpointMongodbSettings>;
     /**
      * The password to be used to login to the endpoint database.
      */
@@ -254,7 +256,7 @@ export interface EndpointState {
     /**
      * Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
      */
-    readonly s3Settings?: pulumi.Input<{ bucketFolder?: pulumi.Input<string>, bucketName?: pulumi.Input<string>, compressionType?: pulumi.Input<string>, csvDelimiter?: pulumi.Input<string>, csvRowDelimiter?: pulumi.Input<string>, externalTableDefinition?: pulumi.Input<string>, serviceAccessRoleArn?: pulumi.Input<string> }>;
+    readonly s3Settings?: pulumi.Input<inputApi.dms.EndpointS3Settings>;
     /**
      * The host name of the server.
      */
@@ -312,7 +314,7 @@ export interface EndpointArgs {
     /**
      * Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
      */
-    readonly mongodbSettings?: pulumi.Input<{ authMechanism?: pulumi.Input<string>, authSource?: pulumi.Input<string>, authType?: pulumi.Input<string>, docsToInvestigate?: pulumi.Input<string>, extractDocId?: pulumi.Input<string>, nestingLevel?: pulumi.Input<string> }>;
+    readonly mongodbSettings?: pulumi.Input<inputApi.dms.EndpointMongodbSettings>;
     /**
      * The password to be used to login to the endpoint database.
      */
@@ -324,7 +326,7 @@ export interface EndpointArgs {
     /**
      * Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
      */
-    readonly s3Settings?: pulumi.Input<{ bucketFolder?: pulumi.Input<string>, bucketName?: pulumi.Input<string>, compressionType?: pulumi.Input<string>, csvDelimiter?: pulumi.Input<string>, csvRowDelimiter?: pulumi.Input<string>, externalTableDefinition?: pulumi.Input<string>, serviceAccessRoleArn?: pulumi.Input<string> }>;
+    readonly s3Settings?: pulumi.Input<inputApi.dms.EndpointS3Settings>;
     /**
      * The host name of the server.
      */
