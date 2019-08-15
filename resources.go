@@ -2099,7 +2099,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=0.17.28,<2.0.0",
+				"pulumi": "1.0.1a1566245956",
 			},
 		},
 	}
