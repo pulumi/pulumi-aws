@@ -14,6 +14,10 @@
 
 import {Input} from "@pulumi/pulumi";
 
+// Implementation note: The definitions of `PolicyDocument` and its associated types below are based
+// on the grammar for IAM Policy Documents defined at
+// https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html.
+
 /**
  * You manage access in AWS by creating policies and attaching them to IAM identities or AWS resources. A policy is an
  * object in AWS that, when associated with an entity or resource, defines their permissions. AWS evaluates these
@@ -112,7 +116,8 @@ export interface Conditions {
 
 export interface ConditionArguments {
     // e.g. { "aws:MultiFactorAuthPresent": "true" }
-    [value: string]: Input<string>;
+    //   or { "aws:SourceIp": [ "203.0.113.0/24", "2001:DB8:1234:5678::/64" ]}
+    [value: string]: Input<string> | Input<Input<string>[]>;
 }
 
 /**

@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Add support for `t3a` instance types
+* Allow IAM Policy Document `Condition`s to be arrays as well as scalars
 
 ---
 
