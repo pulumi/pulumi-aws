@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -67,7 +69,7 @@ export class XssMatchSet extends pulumi.CustomResource {
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    public readonly xssMatchTuples!: pulumi.Output<{ fieldToMatch: { data?: string, type: string }, textTransformation: string }[] | undefined>;
+    public readonly xssMatchTuples!: pulumi.Output<outputs.wafregional.XssMatchSetXssMatchTuple[] | undefined>;
 
     /**
      * Create a XssMatchSet resource with the given unique name, arguments, and options.
@@ -110,7 +112,7 @@ export interface XssMatchSetState {
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    readonly xssMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.XssMatchSetXssMatchTuple>[]>;
 }
 
 /**
@@ -124,5 +126,5 @@ export interface XssMatchSetArgs {
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    readonly xssMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.XssMatchSetXssMatchTuple>[]>;
 }

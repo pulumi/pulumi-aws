@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,19 +16,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const test = pulumi.output(aws.ec2.getSecurityGroups({
+ * const test = aws.ec2.getSecurityGroups({
  *     tags: {
  *         Application: "k8s",
  *         Environment: "dev",
  *     },
- * }));
+ * });
  * ```
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const test = pulumi.output(aws.ec2.getSecurityGroups({
+ * const test = aws.ec2.getSecurityGroups({
  *     filters: [
  *         {
  *             name: "group-name",
@@ -37,7 +39,7 @@ import * as utilities from "../utilities";
  *             values: [varVpcId],
  *         },
  *     ],
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_groups.html.markdown.
@@ -68,7 +70,7 @@ export interface GetSecurityGroupsArgs {
      * several valid keys, for a full reference, check out
      * [describe-security-groups in the AWS CLI reference][1].
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputs.ec2.GetSecurityGroupsFilter[];
     /**
      * A mapping of tags, each pair of which must exactly match for
      * desired security groups.
@@ -80,7 +82,7 @@ export interface GetSecurityGroupsArgs {
  * A collection of values returned by getSecurityGroups.
  */
 export interface GetSecurityGroupsResult {
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputs.ec2.GetSecurityGroupsFilter[];
     /**
      * IDs of the matches security groups.
      */

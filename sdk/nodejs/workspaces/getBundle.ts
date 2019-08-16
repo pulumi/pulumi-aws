@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = pulumi.output(aws.workspaces.getBundle({
+ * const example = aws.workspaces.getBundle({
  *     bundleId: "wsb-b0s22j3d7",
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
@@ -53,7 +54,7 @@ export interface GetBundleResult {
     /**
      * The compute type. See supported fields below.
      */
-    readonly computeTypes: { name: string }[];
+    readonly computeTypes: outputs.workspaces.GetBundleComputeType[];
     /**
      * The description of the bundle.
      */
@@ -69,11 +70,11 @@ export interface GetBundleResult {
     /**
      * The root volume. See supported fields below.
      */
-    readonly rootStorages: { capacity: string }[];
+    readonly rootStorages: outputs.workspaces.GetBundleRootStorage[];
     /**
      * The user storage. See supported fields below.
      */
-    readonly userStorages: { capacity: string }[];
+    readonly userStorages: outputs.workspaces.GetBundleUserStorage[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,7 +74,7 @@ export class Recorder extends pulumi.CustomResource {
     /**
      * Recording group - see below.
      */
-    public readonly recordingGroup!: pulumi.Output<{ allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }>;
+    public readonly recordingGroup!: pulumi.Output<outputs.cfg.RecorderRecordingGroup>;
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      * used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
@@ -126,7 +128,7 @@ export interface RecorderState {
     /**
      * Recording group - see below.
      */
-    readonly recordingGroup?: pulumi.Input<{ allSupported?: pulumi.Input<boolean>, includeGlobalResourceTypes?: pulumi.Input<boolean>, resourceTypes?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly recordingGroup?: pulumi.Input<inputs.cfg.RecorderRecordingGroup>;
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      * used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
@@ -146,7 +148,7 @@ export interface RecorderArgs {
     /**
      * Recording group - see below.
      */
-    readonly recordingGroup?: pulumi.Input<{ allSupported?: pulumi.Input<boolean>, includeGlobalResourceTypes?: pulumi.Input<boolean>, resourceTypes?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly recordingGroup?: pulumi.Input<inputs.cfg.RecorderRecordingGroup>;
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      * used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.

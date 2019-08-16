@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 import {RestApi} from "./restApi";
@@ -41,9 +43,9 @@ import {RestApi} from "./restApi";
  * const cognitoUserPoolName = config.require("cognitoUserPoolName");
  * 
  * const thisRestApi = new aws.apigateway.RestApi("this", {});
- * const thisUserPools = pulumi.output(aws.cognito.getUserPools({
+ * const thisUserPools = aws.cognito.getUserPools({
  *     name: cognitoUserPoolName,
- * }));
+ * });
  * const thisAuthorizer = new aws.apigateway.Authorizer("this", {
  *     providerArns: thisUserPools.arns,
  *     restApi: thisRestApi.id,

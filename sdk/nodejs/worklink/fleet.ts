@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -102,7 +104,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
      */
-    public readonly identityProvider!: pulumi.Output<{ samlMetadata: string, type: string } | undefined>;
+    public readonly identityProvider!: pulumi.Output<outputs.worklink.FleetIdentityProvider | undefined>;
     /**
      * The time that the fleet was last updated.
      */
@@ -114,7 +116,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
      */
-    public readonly network!: pulumi.Output<{ securityGroupIds: string[], subnetIds: string[], vpcId: string } | undefined>;
+    public readonly network!: pulumi.Output<outputs.worklink.FleetNetwork | undefined>;
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
      */
@@ -199,7 +201,7 @@ export interface FleetState {
     /**
      * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
      */
-    readonly identityProvider?: pulumi.Input<{ samlMetadata: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identityProvider?: pulumi.Input<inputs.worklink.FleetIdentityProvider>;
     /**
      * The time that the fleet was last updated.
      */
@@ -211,7 +213,7 @@ export interface FleetState {
     /**
      * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
      */
-    readonly network?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly network?: pulumi.Input<inputs.worklink.FleetNetwork>;
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
      */
@@ -237,7 +239,7 @@ export interface FleetArgs {
     /**
      * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
      */
-    readonly identityProvider?: pulumi.Input<{ samlMetadata: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identityProvider?: pulumi.Input<inputs.worklink.FleetIdentityProvider>;
     /**
      * A region-unique name for the AMI.
      */
@@ -245,7 +247,7 @@ export interface FleetArgs {
     /**
      * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
      */
-    readonly network?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly network?: pulumi.Input<inputs.worklink.FleetNetwork>;
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
      */

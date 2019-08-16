@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -36,14 +38,14 @@ import * as utilities from "../utilities";
  *         type: "test-security-group",
  *     },
  * });
- * const ami = pulumi.output(aws.getAmi({
+ * const ami = aws.getAmi({
  *     filters: [{
  *         name: "name",
  *         values: ["amzn-ami-hvm-*"],
  *     }],
  *     mostRecent: true,
  *     owners: ["amazon"],
- * }));
+ * });
  * const instance = new aws.ec2.Instance("instance", {
  *     ami: ami.id,
  *     instanceType: "t2.micro",
@@ -70,9 +72,9 @@ import * as utilities from "../utilities";
  *         type: "test-security-group",
  *     },
  * });
- * const instance = pulumi.output(aws.ec2.getInstance({
+ * const instance = aws.ec2.getInstance({
  *     instanceId: "i-1234567890abcdef0",
- * }));
+ * });
  * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
  *     networkInterfaceId: instance.networkInterfaceId,
  *     securityGroupId: sg.id,

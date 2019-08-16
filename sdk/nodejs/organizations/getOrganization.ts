@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -16,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const snsTopic = new aws.sns.Topic("snsTopic", {});
- * const example = pulumi.output(aws.organizations.getOrganization({}));
- * const snsTopicPolicyPolicyDocument = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocument({
+ * const example = aws.organizations.getOrganization({});
+ * const snsTopicPolicyPolicyDocument = snsTopic.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "SNS:Subscribe",
@@ -25,7 +27,7 @@ import * as utilities from "../utilities";
  *         ],
  *         conditions: [{
  *             test: "StringEquals",
- *             values: [example.id],
+ *             values: [example],
  *             variable: "aws:PrincipalOrgID",
  *         }],
  *         effect: "Allow",
@@ -65,7 +67,7 @@ export interface GetOrganizationResult {
     /**
      * List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
      */
-    readonly accounts: { arn: string, email: string, id: string, name: string }[];
+    readonly accounts: outputs.organizations.GetOrganizationAccount[];
     /**
      * ARN of the root
      */
@@ -97,11 +99,11 @@ export interface GetOrganizationResult {
     /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      */
-    readonly nonMasterAccounts: { arn: string, email: string, id: string, name: string }[];
+    readonly nonMasterAccounts: outputs.organizations.GetOrganizationNonMasterAccount[];
     /**
      * List of organization roots. All elements have these attributes:
      */
-    readonly roots: { arn: string, id: string, name: string, policyTypes: { status: string, type: string }[] }[];
+    readonly roots: outputs.organizations.GetOrganizationRoot[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

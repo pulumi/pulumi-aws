@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -17,12 +19,12 @@ import * as utilities from "../utilities";
  * const brokerId = config.get("brokerId") || "";
  * const brokerName = config.get("brokerName") || "";
  * 
- * const byId = pulumi.output(aws.mq.getBroker({
+ * const byId = aws.mq.getBroker({
  *     brokerId: brokerId,
- * }));
- * const byName = pulumi.output(aws.mq.getBroker({
+ * });
+ * const byName = aws.mq.getBroker({
  *     brokerName: brokerName,
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/mq_broker.html.markdown.
@@ -58,7 +60,7 @@ export interface GetBrokerArgs {
      * The unique name of the mq broker.
      */
     readonly brokerName?: string;
-    readonly logs?: { audit?: boolean, general?: boolean };
+    readonly logs?: inputs.mq.GetBrokerLogs;
     readonly tags?: {[key: string]: any};
 }
 
@@ -70,19 +72,19 @@ export interface GetBrokerResult {
     readonly autoMinorVersionUpgrade: boolean;
     readonly brokerId: string;
     readonly brokerName: string;
-    readonly configuration: { id: string, revision: number };
+    readonly configuration: outputs.mq.GetBrokerConfiguration;
     readonly deploymentMode: string;
     readonly engineType: string;
     readonly engineVersion: string;
     readonly hostInstanceType: string;
-    readonly instances: { consoleUrl: string, endpoints: string[], ipAddress: string }[];
-    readonly logs?: { audit: boolean, general: boolean };
-    readonly maintenanceWindowStartTime: { dayOfWeek: string, timeOfDay: string, timeZone: string };
+    readonly instances: outputs.mq.GetBrokerInstance[];
+    readonly logs?: outputs.mq.GetBrokerLogs;
+    readonly maintenanceWindowStartTime: outputs.mq.GetBrokerMaintenanceWindowStartTime;
     readonly publiclyAccessible: boolean;
     readonly securityGroups: string[];
     readonly subnetIds: string[];
     readonly tags: {[key: string]: any};
-    readonly users: { consoleAccess: boolean, groups: string[], username: string }[];
+    readonly users: outputs.mq.GetBrokerUser[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

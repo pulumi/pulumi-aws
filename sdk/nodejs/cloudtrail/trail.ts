@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -22,10 +24,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const current = pulumi.output(aws.getCallerIdentity({}));
+ * const current = aws.getCallerIdentity({});
  * const foo = new aws.s3.Bucket("foo", {
  *     forceDestroy: true,
- *     policy: pulumi.interpolate`{
+ *     policy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
  *         {
@@ -108,16 +110,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const importantBucket = pulumi.output(aws.s3.getBucket({
+ * const importantBucket = aws.s3.getBucket({
  *     bucket: "important-bucket",
- * }));
+ * });
  * const example = new aws.cloudtrail.Trail("example", {
  *     eventSelectors: [{
  *         dataResources: [{
  *             type: "AWS::S3::Object",
  *             // Make sure to append a trailing '/' to your ARN if you want
  *             // to monitor all objects in a bucket.
- *             values: [pulumi.interpolate`${important_bucket.arn}/`],
+ *             values: [`${important_bucket.arn}/`],
  *         }],
  *         includeManagementEvents: true,
  *         readWriteType: "All",
@@ -181,7 +183,7 @@ export class Trail extends pulumi.CustomResource {
     /**
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
      */
-    public readonly eventSelectors!: pulumi.Output<{ dataResources?: { type: string, values: string[] }[], includeManagementEvents?: boolean, readWriteType?: string }[] | undefined>;
+    public readonly eventSelectors!: pulumi.Output<outputs.cloudtrail.TrailEventSelector[] | undefined>;
     /**
      * The region in which the trail was created.
      */
@@ -319,7 +321,7 @@ export interface TrailState {
     /**
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
      */
-    readonly eventSelectors?: pulumi.Input<pulumi.Input<{ dataResources?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>, includeManagementEvents?: pulumi.Input<boolean>, readWriteType?: pulumi.Input<string> }>[]>;
+    readonly eventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailEventSelector>[]>;
     /**
      * The region in which the trail was created.
      */
@@ -393,7 +395,7 @@ export interface TrailArgs {
     /**
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
      */
-    readonly eventSelectors?: pulumi.Input<pulumi.Input<{ dataResources?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>, includeManagementEvents?: pulumi.Input<boolean>, readWriteType?: pulumi.Input<string> }>[]>;
+    readonly eventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailEventSelector>[]>;
     /**
      * Specifies whether the trail is publishing events
      * from global services such as IAM to the log files. Defaults to `true`.

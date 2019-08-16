@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -128,11 +130,11 @@ export class Document extends pulumi.CustomResource {
     /**
      * The parameters that are available to this document.
      */
-    public /*out*/ readonly parameters!: pulumi.Output<{ defaultValue?: string, description?: string, name?: string, type?: string }[]>;
+    public /*out*/ readonly parameters!: pulumi.Output<outputs.ssm.DocumentParameter[]>;
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
-    public readonly permissions!: pulumi.Output<{ accountIds: string, type: string } | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.ssm.DocumentPermissions | undefined>;
     /**
      * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
      */
@@ -270,11 +272,11 @@ export interface DocumentState {
     /**
      * The parameters that are available to this document.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name?: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentParameter>[]>;
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
-    readonly permissions?: pulumi.Input<{ accountIds: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly permissions?: pulumi.Input<inputs.ssm.DocumentPermissions>;
     /**
      * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
      */
@@ -316,7 +318,7 @@ export interface DocumentArgs {
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
-    readonly permissions?: pulumi.Input<{ accountIds: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly permissions?: pulumi.Input<inputs.ssm.DocumentPermissions>;
     /**
      * A mapping of tags to assign to the object.
      */

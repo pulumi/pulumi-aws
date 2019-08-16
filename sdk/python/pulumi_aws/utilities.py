@@ -61,7 +61,13 @@ def get_version():
     pep440_version = PEP440Version.parse(pep440_version_string)
     (major, minor, patch) = pep440_version.release
     prerelease = None
-    if pep440_version.dev is not None:
+    if pep440_version.pre_tag == 'a':
+        prerelease = f"alpha.{pep440_version.pre}"
+    elif pep440_version.pre_tag == 'b':
+        prerelease = f"beta.{pep440_version.pre}"
+    elif pep440_version.pre_tag == 'rc':
+        prerelease = f"rc.{pep440_version.pre}"
+    elif pep440_version.dev is not None:
         prerelease = f"dev.{pep440_version.dev}"
 
     # The only significant difference between PEP440 and semver as it pertains to us is that PEP440 has explicit support

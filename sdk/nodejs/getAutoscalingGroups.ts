@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -14,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const groups = pulumi.output(aws.getAutoscalingGroups({
+ * const groups = aws.getAutoscalingGroups({
  *     filters: [
  *         {
  *             name: "key",
@@ -25,7 +27,7 @@ import * as utilities from "./utilities";
  *             values: ["Pets"],
  *         },
  *     ],
- * }));
+ * });
  * const slackNotifications = new aws.autoscaling.Notification("slackNotifications", {
  *     groupNames: groups.names,
  *     notifications: [
@@ -63,7 +65,7 @@ export interface GetAutoscalingGroupsArgs {
     /**
      * A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputs.GetAutoscalingGroupsFilter[];
 }
 
 /**
@@ -74,7 +76,7 @@ export interface GetAutoscalingGroupsResult {
      * A list of the Autoscaling Groups Arns in the current region.
      */
     readonly arns: string[];
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputs.GetAutoscalingGroupsFilter[];
     /**
      * A list of the Autoscaling Groups in the current region.
      */

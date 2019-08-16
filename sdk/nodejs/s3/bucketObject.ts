@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 import {Bucket} from "./bucket";
@@ -10,26 +12,6 @@ import {Bucket} from "./bucket";
  * Provides a S3 bucket object resource.
  * 
  * ## Example Usage
- * 
- * ### Uploading a file to a bucket
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const object = new aws.s3.BucketObject("object", {
- *     bucket: "yourBucketName",
- *     // The filemd5() function is available in this provider 0.11.12 and later
- *     // For this provider 0.11.11 and earlier, use the md5() function and the file() function:
- *     // etag = "${md5(file("path/to/file"))}"
- *     etag: (() => {
- *         throw "tf2pulumi error: NYI: call to filemd5";
- *         return (() => { throw "NYI: call to filemd5"; })();
- *     })(),
- *     key: "newObjectKey",
- *     source: new pulumi.asset.FileAsset("path/to/file"),
- * });
- * ```
  * 
  * ### Encrypting with KMS Key
  * 

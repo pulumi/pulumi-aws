@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +73,7 @@ export interface GetVpcPeeringConnectionArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputs.ec2.GetVpcPeeringConnectionFilter[];
     /**
      * The ID of the specific VPC Peering Connection to retrieve.
      */
@@ -125,7 +127,7 @@ export interface GetVpcPeeringConnectionResult {
      */
     readonly accepter: {[key: string]: boolean};
     readonly cidrBlock: string;
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputs.ec2.GetVpcPeeringConnectionFilter[];
     readonly id: string;
     readonly ownerId: string;
     readonly peerCidrBlock: string;
