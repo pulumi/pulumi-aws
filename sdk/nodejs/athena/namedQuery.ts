@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * });
  * const hogeBucket = new aws.s3.Bucket("hoge", {});
  * const hogeDatabase = new aws.athena.Database("hoge", {
- *     bucket: hogeBucket.id,
+ *     bucket: hogeBucket.bucket,
  *     name: "users",
  * });
  * const testWorkgroup = new aws.athena.Workgroup("test", {

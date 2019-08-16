@@ -46,7 +46,7 @@ type GetSubnetIdsArgs struct {
 // A collection of values returned by getSubnetIds.
 type GetSubnetIdsResult struct {
 	Filters interface{}
-	// A set of all the subnet ids found. This data source will fail if none are found.
+	// A list of all the subnet ids found. This data source will fail if none are found.
 	Ids interface{}
 	Tags interface{}
 	VpcId interface{}

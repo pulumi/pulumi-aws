@@ -97,24 +97,6 @@ import {EngineType} from "./engineType";
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
- * 
- * ### Aurora Multi-Master Cluster
- * 
- * > More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.rds.Cluster("example", {
- *     clusterIdentifier: "example",
- *     dbSubnetGroupName: aws_db_subnet_group_example.name,
- *     engineMode: "multimaster",
- *     masterPassword: "barbarbarbar",
- *     masterUsername: "foo",
- *     skipFinalSnapshot: true,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster.html.markdown.
  */
@@ -217,7 +199,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<EngineType | undefined>;
     /**
-     * The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `global`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     public readonly engineMode!: pulumi.Output<EngineMode | undefined>;
     /**
@@ -494,7 +476,7 @@ export interface ClusterState {
      */
     readonly engine?: pulumi.Input<EngineType>;
     /**
-     * The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `global`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     readonly engineMode?: pulumi.Input<EngineMode>;
     /**
@@ -654,7 +636,7 @@ export interface ClusterArgs {
      */
     readonly engine?: pulumi.Input<EngineType>;
     /**
-     * The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * The database engine mode. Valid values: `global`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     readonly engineMode?: pulumi.Input<EngineMode>;
     /**

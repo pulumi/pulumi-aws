@@ -100,7 +100,7 @@ export interface GetSubnetIdsArgs {
 export interface GetSubnetIdsResult {
     readonly filters?: outputs.ec2.GetSubnetIdsFilter[];
     /**
-     * A set of all the subnet ids found. This data source will fail if none are found.
+     * A list of all the subnet ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};

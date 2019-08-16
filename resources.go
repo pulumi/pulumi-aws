@@ -86,6 +86,7 @@ const (
 	lbMod                = "lb"                // Elastic Load Balancing (V2: Application and Network)
 	emrMod               = "emr"               // Elastic MapReduce
 	fmsMod               = "fms"               // FMS
+	fsxMod               = "fsx"               // FSX
 	gameliftMod          = "gamelift"          // Gamelift
 	glacierMod           = "glacier"           // Glacier
 	globalacceleratorMod = "globalaccelerator" // Global Accelerator
@@ -587,6 +588,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_config_configuration_recorder":        {Tok: awsResource(cfgMod, "Recorder")},
 			"aws_config_configuration_recorder_status": {Tok: awsResource(cfgMod, "RecorderStatus")},
 			"aws_config_delivery_channel":              {Tok: awsResource(cfgMod, "DeliveryChannel")},
+			"aws_config_organization_custom_rule":      {Tok: awsResource(cfgMod, "OrganizationCustomRule")},
+			"aws_config_organization_managed_rule":     {Tok: awsResource(cfgMod, "OrganizationManagedRule")},
 			// Cost and Usage Report
 			"aws_cur_report_definition": {Tok: awsResource(curMod, "ReportDefinition")},
 			// DataSync
@@ -1022,6 +1025,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_emr_cluster":                {Tok: awsResource(emrMod, "Cluster")},
 			"aws_emr_instance_group":         {Tok: awsResource(emrMod, "InstanceGroup")},
 			"aws_emr_security_configuration": {Tok: awsResource(emrMod, "SecurityConfiguration")},
+			// FSX
+			"aws_fsx_lustre_file_system":  {Tok: awsResource(fsxMod, "LustreFileSystem")},
+			"aws_fsx_windows_file_system": {Tok: awsResource(fsxMod, "WindowsFileSystem")},
 			// GameLift
 			"aws_gamelift_alias":              {Tok: awsResource(gameliftMod, "Alias")},
 			"aws_gamelift_build":              {Tok: awsResource(gameliftMod, "Build")},
@@ -1377,9 +1383,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_pinpoint_gcm_channel":               {Tok: awsResource(pinpointMod, "GcmChannel")},
 			"aws_pinpoint_sms_channel":               {Tok: awsResource(pinpointMod, "SmsChannel")},
 			// Resource Access Manager
-			"aws_ram_resource_share":        {Tok: awsResource(ramMod, "ResourceShare")},
-			"aws_ram_principal_association": {Tok: awsResource(ramMod, "PrincipalAssociation")},
-			"aws_ram_resource_association":  {Tok: awsResource(ramMod, "ResourceAssociation")},
+			"aws_ram_resource_share":          {Tok: awsResource(ramMod, "ResourceShare")},
+			"aws_ram_resource_share_accepter": {Tok: awsResource(ramMod, "ResourceShareAccepter")},
+			"aws_ram_principal_association":   {Tok: awsResource(ramMod, "PrincipalAssociation")},
+			"aws_ram_resource_association":    {Tok: awsResource(ramMod, "ResourceAssociation")},
 			// Relational Database Service (RDS)
 			"aws_rds_cluster": {
 				Tok: awsResource(rdsMod, "Cluster"),
