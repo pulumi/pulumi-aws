@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const main = pulumi.output(aws.elb.getServiceAccount({}));
+ * const main = aws.elb.getServiceAccount({});
  * const elbLogs = new aws.s3.Bucket("elbLogs", {
  *     acl: "private",
- *     policy: pulumi.interpolate`{
+ *     policy: `{
  *   "Id": "Policy",
  *   "Version": "2012-10-17",
  *   "Statement": [

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testQueue = pulumi.output(aws.batch.getJobQueue({
+ * const testQueue = aws.batch.getJobQueue({
  *     name: "tf-test-batch-job-queue",
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_job_queue.html.markdown.
@@ -60,7 +62,7 @@ export interface GetJobQueueResult {
      * * `compute_environment_order.#.order` - The order of the compute environment.
      * * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
      */
-    readonly computeEnvironmentOrders: { computeEnvironment: string, order: number }[];
+    readonly computeEnvironmentOrders: outputs.batch.GetJobQueueComputeEnvironmentOrder[];
     readonly name: string;
     /**
      * The priority of the job queue. Job queues with a higher priority are evaluated first when

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -23,9 +25,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const securityGroupId = config.require("securityGroupId");
  * 
- * const selected = pulumi.output(aws.ec2.getSecurityGroup({
+ * const selected = aws.ec2.getSecurityGroup({
  *     id: securityGroupId,
- * }));
+ * });
  * const subnet = new aws.ec2.Subnet("subnet", {
  *     cidrBlock: "10.0.1.0/24",
  *     vpcId: selected.vpcId,
@@ -61,7 +63,7 @@ export interface GetSecurityGroupArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputs.ec2.GetSecurityGroupFilter[];
     /**
      * The id of the specific security group to retrieve.
      */
@@ -94,7 +96,7 @@ export interface GetSecurityGroupResult {
      * The description of the security group.
      */
     readonly description: string;
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputs.ec2.GetSecurityGroupFilter[];
     readonly id: string;
     readonly name: string;
     readonly tags: {[key: string]: any};

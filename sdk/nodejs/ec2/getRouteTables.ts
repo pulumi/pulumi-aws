@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -17,18 +19,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const rts = pulumi.output(aws.ec2.getRouteTables({
+ * const rts = aws.ec2.getRouteTables({
  *     filters: [{
  *         name: "tag:kubernetes.io/kops/role",
  *         values: ["private*"],
  *     }],
  *     vpcId: var_vpc_id,
- * }));
+ * });
  * const route: aws.ec2.Route[] = [];
- * for (let i = 0; i < rts.apply(rts => rts.ids.length); i++) {
+ * for (let i = 0; i < rts.ids.length; i++) {
  *     route.push(new aws.ec2.Route(`r-${i}`, {
  *         destinationCidrBlock: "10.0.1.0/22",
- *         routeTableId: rts.apply(rts => rts.ids[i]),
+ *         routeTableId: rts.ids[i],
  *         vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
  *     }));
  * }
@@ -61,7 +63,7 @@ export interface GetRouteTablesArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputs.ec2.GetRouteTablesFilter[];
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired route tables.
@@ -77,7 +79,7 @@ export interface GetRouteTablesArgs {
  * A collection of values returned by getRouteTables.
  */
 export interface GetRouteTablesResult {
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputs.ec2.GetRouteTablesFilter[];
     /**
      * A list of all the route table ids found. This data source will fail if none are found.
      */

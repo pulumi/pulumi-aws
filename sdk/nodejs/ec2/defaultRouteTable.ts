@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -97,7 +99,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
      * A list of route objects. Their keys are documented below.
      * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
-    public readonly routes!: pulumi.Output<{ cidrBlock?: string, egressOnlyGatewayId?: string, gatewayId?: string, instanceId?: string, ipv6CidrBlock?: string, natGatewayId?: string, networkInterfaceId?: string, transitGatewayId?: string, vpcPeeringConnectionId?: string }[]>;
+    public readonly routes!: pulumi.Output<outputs.ec2.DefaultRouteTableRoute[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -165,7 +167,7 @@ export interface DefaultRouteTableState {
      * A list of route objects. Their keys are documented below.
      * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
-    readonly routes?: pulumi.Input<pulumi.Input<{ cidrBlock?: pulumi.Input<string>, egressOnlyGatewayId?: pulumi.Input<string>, gatewayId?: pulumi.Input<string>, instanceId?: pulumi.Input<string>, ipv6CidrBlock?: pulumi.Input<string>, natGatewayId?: pulumi.Input<string>, networkInterfaceId?: pulumi.Input<string>, transitGatewayId?: pulumi.Input<string>, vpcPeeringConnectionId?: pulumi.Input<string> }>[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultRouteTableRoute>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -189,7 +191,7 @@ export interface DefaultRouteTableArgs {
      * A list of route objects. Their keys are documented below.
      * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
-    readonly routes?: pulumi.Input<pulumi.Input<{ cidrBlock?: pulumi.Input<string>, egressOnlyGatewayId?: pulumi.Input<string>, gatewayId?: pulumi.Input<string>, instanceId?: pulumi.Input<string>, ipv6CidrBlock?: pulumi.Input<string>, natGatewayId?: pulumi.Input<string>, networkInterfaceId?: pulumi.Input<string>, transitGatewayId?: pulumi.Input<string>, vpcPeeringConnectionId?: pulumi.Input<string> }>[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultRouteTableRoute>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

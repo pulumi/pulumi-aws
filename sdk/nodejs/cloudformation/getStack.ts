@@ -14,13 +14,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const network = pulumi.output(aws.cloudformation.getStack({
+ * const network = aws.cloudformation.getStack({
  *     name: "my-network-stack",
- * }));
+ * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-abb07bcb",
  *     instanceType: "t1.micro",
- *     subnetId: network.apply(network => network.outputs["SubnetId"]),
+ *     subnetId: network.outputs["SubnetId"],
  *     tags: {
  *         Name: "HelloWorld",
  *     },

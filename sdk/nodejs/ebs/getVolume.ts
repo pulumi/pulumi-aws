@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ebsVolume = pulumi.output(aws.ebs.getVolume({
+ * const ebsVolume = aws.ebs.getVolume({
  *     filters: [
  *         {
  *             name: "volume-type",
@@ -26,7 +28,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     mostRecent: true,
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
@@ -58,7 +60,7 @@ export interface GetVolumeArgs {
      * several valid keys, for a full reference, check out
      * [describe-volumes in the AWS CLI reference][1].
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputs.ebs.GetVolumeFilter[];
     /**
      * If more than one result is returned, use the most
      * recent Volume.
@@ -83,7 +85,7 @@ export interface GetVolumeResult {
      * Whether the disk is encrypted.
      */
     readonly encrypted: boolean;
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputs.ebs.GetVolumeFilter[];
     /**
      * The amount of IOPS for the disk.
      */

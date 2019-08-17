@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -19,10 +21,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const bootstrapScript = pulumi.output(aws.s3.getBucketObject({
+ * const bootstrapScript = aws.s3.getBucketObject({
  *     bucket: "ourcorp-deploy-config",
  *     key: "ec2-bootstrap-script.sh",
- * }));
+ * });
  * const example = new aws.ec2.Instance("example", {
  *     ami: "ami-2757f631",
  *     instanceType: "t2.micro",
@@ -40,10 +42,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const lambda = pulumi.output(aws.s3.getBucketObject({
+ * const lambda = aws.s3.getBucketObject({
  *     bucket: "ourcorp-lambda-functions",
  *     key: "hello-world.zip",
- * }));
+ * });
  * const testLambda = new aws.lambda.Function("testLambda", {
  *     handler: "exports.test",
  *     role: aws_iam_role_iam_for_lambda.arn, // (not shown)

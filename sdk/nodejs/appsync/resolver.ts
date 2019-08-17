@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -133,7 +135,7 @@ export class Resolver extends pulumi.CustomResource {
     /**
      * The PipelineConfig. A `pipelineConfig` block is documented below.
      */
-    public readonly pipelineConfig!: pulumi.Output<{ functions?: string[] } | undefined>;
+    public readonly pipelineConfig!: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
     /**
      * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
      */
@@ -233,7 +235,7 @@ export interface ResolverState {
     /**
      * The PipelineConfig. A `pipelineConfig` block is documented below.
      */
-    readonly pipelineConfig?: pulumi.Input<{ functions?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
     /**
      * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
      */
@@ -271,7 +273,7 @@ export interface ResolverArgs {
     /**
      * The PipelineConfig. A `pipelineConfig` block is documented below.
      */
-    readonly pipelineConfig?: pulumi.Input<{ functions?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
     /**
      * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const tableName = pulumi.output(aws.dynamodb.getTable({
+ * const tableName = aws.dynamodb.getTable({
  *     name: "tableName",
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
@@ -45,7 +47,7 @@ export interface GetTableArgs {
      * The name of the DynamoDB table.
      */
     readonly name: string;
-    readonly serverSideEncryption?: { enabled?: boolean };
+    readonly serverSideEncryption?: inputs.dynamodb.GetTableServerSideEncryption;
     readonly tags?: {[key: string]: any};
 }
 
@@ -54,22 +56,22 @@ export interface GetTableArgs {
  */
 export interface GetTableResult {
     readonly arn: string;
-    readonly attributes: { name: string, type: string }[];
+    readonly attributes: outputs.dynamodb.GetTableAttribute[];
     readonly billingMode: string;
-    readonly globalSecondaryIndexes: { hashKey: string, name: string, nonKeyAttributes: string[], projectionType: string, rangeKey: string, readCapacity: number, writeCapacity: number }[];
+    readonly globalSecondaryIndexes: outputs.dynamodb.GetTableGlobalSecondaryIndex[];
     readonly hashKey: string;
-    readonly localSecondaryIndexes: { name: string, nonKeyAttributes: string[], projectionType: string, rangeKey: string }[];
+    readonly localSecondaryIndexes: outputs.dynamodb.GetTableLocalSecondaryIndex[];
     readonly name: string;
-    readonly pointInTimeRecovery: { enabled: boolean };
+    readonly pointInTimeRecovery: outputs.dynamodb.GetTablePointInTimeRecovery;
     readonly rangeKey: string;
     readonly readCapacity: number;
-    readonly serverSideEncryption: { enabled: boolean };
+    readonly serverSideEncryption: outputs.dynamodb.GetTableServerSideEncryption;
     readonly streamArn: string;
     readonly streamEnabled: boolean;
     readonly streamLabel: string;
     readonly streamViewType: string;
     readonly tags: {[key: string]: any};
-    readonly ttl: { attributeName: string, enabled: boolean };
+    readonly ttl: outputs.dynamodb.GetTableTtl;
     readonly writeCapacity: number;
     /**
      * id is the provider-assigned unique ID for this managed resource.

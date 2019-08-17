@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleNetworkAcls = pulumi.output(aws.ec2.getNetworkAcls({
+ * const exampleNetworkAcls = aws.ec2.getNetworkAcls({
  *     vpcId: var_vpc_id,
- * }));
+ * });
  * 
  * export const example = exampleNetworkAcls.ids;
  * ```
@@ -27,12 +29,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = pulumi.output(aws.ec2.getNetworkAcls({
+ * const example = aws.ec2.getNetworkAcls({
  *     tags: {
  *         Tier: "Private",
  *     },
  *     vpcId: var_vpc_id,
- * }));
+ * });
  * ```
  * 
  * The following example retrieves a network ACL id in a VPC which associated
@@ -78,7 +80,7 @@ export interface GetNetworkAclsArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputs.ec2.GetNetworkAclsFilter[];
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired network ACLs.
@@ -94,7 +96,7 @@ export interface GetNetworkAclsArgs {
  * A collection of values returned by getNetworkAcls.
  */
 export interface GetNetworkAclsResult {
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputs.ec2.GetNetworkAclsFilter[];
     /**
      * A list of all the network ACL ids found. This data source will fail if none are found.
      */

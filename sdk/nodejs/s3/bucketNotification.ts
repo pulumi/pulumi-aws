@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -265,15 +267,15 @@ export class BucketNotification extends pulumi.CustomResource {
     /**
      * Used to configure notifications to a Lambda Function (documented below).
      */
-    public readonly lambdaFunctions!: pulumi.Output<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, lambdaFunctionArn?: string }[] | undefined>;
+    public readonly lambdaFunctions!: pulumi.Output<outputs.s3.BucketNotificationLambdaFunction[] | undefined>;
     /**
      * The notification configuration to SQS Queue (documented below).
      */
-    public readonly queues!: pulumi.Output<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, queueArn: string }[] | undefined>;
+    public readonly queues!: pulumi.Output<outputs.s3.BucketNotificationQueue[] | undefined>;
     /**
      * The notification configuration to SNS Topic (documented below).
      */
-    public readonly topics!: pulumi.Output<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, topicArn: string }[] | undefined>;
+    public readonly topics!: pulumi.Output<outputs.s3.BucketNotificationTopic[] | undefined>;
 
     /**
      * Create a BucketNotification resource with the given unique name, arguments, and options.
@@ -323,15 +325,15 @@ export interface BucketNotificationState {
     /**
      * Used to configure notifications to a Lambda Function (documented below).
      */
-    readonly lambdaFunctions?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, lambdaFunctionArn?: pulumi.Input<string> }>[]>;
+    readonly lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[]>;
     /**
      * The notification configuration to SQS Queue (documented below).
      */
-    readonly queues?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, queueArn: pulumi.Input<string> }>[]>;
+    readonly queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
     /**
      * The notification configuration to SNS Topic (documented below).
      */
-    readonly topics?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, topicArn: pulumi.Input<string> }>[]>;
+    readonly topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[]>;
 }
 
 /**
@@ -345,13 +347,13 @@ export interface BucketNotificationArgs {
     /**
      * Used to configure notifications to a Lambda Function (documented below).
      */
-    readonly lambdaFunctions?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, lambdaFunctionArn?: pulumi.Input<string> }>[]>;
+    readonly lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[]>;
     /**
      * The notification configuration to SQS Queue (documented below).
      */
-    readonly queues?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, queueArn: pulumi.Input<string> }>[]>;
+    readonly queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
     /**
      * The notification configuration to SNS Topic (documented below).
      */
-    readonly topics?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, topicArn: pulumi.Input<string> }>[]>;
+    readonly topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[]>;
 }

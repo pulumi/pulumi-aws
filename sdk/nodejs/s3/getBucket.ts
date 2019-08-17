@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -18,12 +20,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testZone = pulumi.output(aws.route53.getZone({
+ * const testZone = aws.route53.getZone({
  *     name: "test.com.",
- * }));
- * const selected = pulumi.output(aws.s3.getBucket({
+ * });
+ * const selected = aws.s3.getBucket({
  *     bucket: "bucket.test.com",
- * }));
+ * });
  * const example = new aws.route53.Record("example", {
  *     aliases: [{
  *         name: selected.websiteDomain,
@@ -40,9 +42,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const selected = pulumi.output(aws.s3.getBucket({
+ * const selected = aws.s3.getBucket({
  *     bucket: "a-test-bucket",
- * }));
+ * });
  * const test = new aws.cloudfront.Distribution("test", {
  *     origins: [{
  *         domainName: selected.bucketDomainName,

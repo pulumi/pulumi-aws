@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -23,10 +25,10 @@ import * as utilities from "../utilities";
  * const lbArn = config.get("lbArn") || "";
  * const lbName = config.get("lbName") || "";
  * 
- * const test = pulumi.output(aws.lb.getLoadBalancer({
+ * const test = aws.lb.getLoadBalancer({
  *     arn: lbArn,
  *     name: lbName,
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb.html.markdown.
@@ -68,7 +70,7 @@ export interface GetLoadBalancerArgs {
  * A collection of values returned by getLoadBalancer.
  */
 export interface GetLoadBalancerResult {
-    readonly accessLogs: { bucket: string, enabled: boolean, prefix: string };
+    readonly accessLogs: outputs.lb.GetLoadBalancerAccessLogs;
     readonly arn: string;
     readonly arnSuffix: string;
     readonly dnsName: string;
@@ -78,7 +80,7 @@ export interface GetLoadBalancerResult {
     readonly loadBalancerType: string;
     readonly name: string;
     readonly securityGroups: string[];
-    readonly subnetMappings: { allocationId?: string, subnetId: string }[];
+    readonly subnetMappings: outputs.lb.GetLoadBalancerSubnetMapping[];
     readonly subnets: string[];
     readonly tags: {[key: string]: any};
     readonly vpcId: string;

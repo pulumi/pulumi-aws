@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testCluster = pulumi.output(aws.redshift.getCluster({
+ * const testCluster = aws.redshift.getCluster({
  *     clusterIdentifier: "test-cluster",
- * }));
+ * });
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "redshift",
  *     redshiftConfiguration: {
- *         clusterJdbcurl: pulumi.interpolate`jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,
+ *         clusterJdbcurl: `jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,
  *         copyOptions: "delimiter '|'", // the default delimiter
  *         dataTableColumns: "test-col",
  *         dataTableName: "test-table",

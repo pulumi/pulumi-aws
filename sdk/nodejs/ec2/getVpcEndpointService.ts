@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -21,9 +23,9 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.0.0/16",
  * });
  * // Declare the data source
- * const s3 = pulumi.output(aws.ec2.getVpcEndpointService({
+ * const s3 = aws.ec2.getVpcEndpointService({
  *     service: "s3",
- * }));
+ * });
  * // Create a VPC endpoint
  * const ep = new aws.ec2.VpcEndpoint("ep", {
  *     serviceName: s3.serviceName,
@@ -37,9 +39,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const custome = pulumi.output(aws.ec2.getVpcEndpointService({
+ * const custome = aws.ec2.getVpcEndpointService({
  *     serviceName: "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.

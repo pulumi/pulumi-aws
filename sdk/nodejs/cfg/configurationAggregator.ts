@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,7 +91,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     /**
      * The account(s) to aggregate config data from as documented below.
      */
-    public readonly accountAggregationSource!: pulumi.Output<{ accountIds: string[], allRegions?: boolean, regions?: string[] } | undefined>;
+    public readonly accountAggregationSource!: pulumi.Output<outputs.cfg.ConfigurationAggregatorAccountAggregationSource | undefined>;
     /**
      * The ARN of the aggregator
      */
@@ -101,7 +103,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     /**
      * The organization to aggregate config data from as documented below.
      */
-    public readonly organizationAggregationSource!: pulumi.Output<{ allRegions?: boolean, regions?: string[], roleArn: string } | undefined>;
+    public readonly organizationAggregationSource!: pulumi.Output<outputs.cfg.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -150,7 +152,7 @@ export interface ConfigurationAggregatorState {
     /**
      * The account(s) to aggregate config data from as documented below.
      */
-    readonly accountAggregationSource?: pulumi.Input<{ accountIds: pulumi.Input<pulumi.Input<string>[]>, allRegions?: pulumi.Input<boolean>, regions?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly accountAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorAccountAggregationSource>;
     /**
      * The ARN of the aggregator
      */
@@ -162,7 +164,7 @@ export interface ConfigurationAggregatorState {
     /**
      * The organization to aggregate config data from as documented below.
      */
-    readonly organizationAggregationSource?: pulumi.Input<{ allRegions?: pulumi.Input<boolean>, regions?: pulumi.Input<pulumi.Input<string>[]>, roleArn: pulumi.Input<string> }>;
+    readonly organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -176,7 +178,7 @@ export interface ConfigurationAggregatorArgs {
     /**
      * The account(s) to aggregate config data from as documented below.
      */
-    readonly accountAggregationSource?: pulumi.Input<{ accountIds: pulumi.Input<pulumi.Input<string>[]>, allRegions?: pulumi.Input<boolean>, regions?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly accountAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorAccountAggregationSource>;
     /**
      * The name of the configuration aggregator.
      */
@@ -184,7 +186,7 @@ export interface ConfigurationAggregatorArgs {
     /**
      * The organization to aggregate config data from as documented below.
      */
-    readonly organizationAggregationSource?: pulumi.Input<{ allRegions?: pulumi.Input<boolean>, regions?: pulumi.Input<pulumi.Input<string>[]>, roleArn: pulumi.Input<string> }>;
+    readonly organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
     /**
      * A mapping of tags to assign to the resource.
      */

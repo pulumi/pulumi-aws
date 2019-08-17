@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * // Declare the data source
- * const rules = pulumi.output(aws.inspector.getRulesPackages({}));
+ * const rules = aws.inspector.getRulesPackages({});
  * const assessmentAssessmentTarget = new aws.inspector.AssessmentTarget("assessment", {
  *     resourceGroupArn: group.arn,
  * });

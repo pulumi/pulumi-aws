@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -99,7 +101,7 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * A Health Check block. Health Check blocks are documented below.
      */
-    public readonly healthCheck!: pulumi.Output<{ enabled?: boolean, healthyThreshold?: number, interval?: number, matcher: string, path: string, port?: string, protocol?: string, timeout: number, unhealthyThreshold?: number }>;
+    public readonly healthCheck!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupHealthCheck>;
     /**
      * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
      */
@@ -131,7 +133,7 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
      */
-    public readonly stickiness!: pulumi.Output<{ cookieDuration?: number, enabled?: boolean, type: string }>;
+    public readonly stickiness!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupStickiness>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -225,7 +227,7 @@ export interface TargetGroupState {
     /**
      * A Health Check block. Health Check blocks are documented below.
      */
-    readonly healthCheck?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, healthyThreshold?: pulumi.Input<number>, interval?: pulumi.Input<number>, matcher?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, timeout?: pulumi.Input<number>, unhealthyThreshold?: pulumi.Input<number> }>;
+    readonly healthCheck?: pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupHealthCheck>;
     /**
      * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
      */
@@ -257,7 +259,7 @@ export interface TargetGroupState {
     /**
      * A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
      */
-    readonly stickiness?: pulumi.Input<{ cookieDuration?: pulumi.Input<number>, enabled?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
+    readonly stickiness?: pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupStickiness>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -288,7 +290,7 @@ export interface TargetGroupArgs {
     /**
      * A Health Check block. Health Check blocks are documented below.
      */
-    readonly healthCheck?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, healthyThreshold?: pulumi.Input<number>, interval?: pulumi.Input<number>, matcher?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, timeout?: pulumi.Input<number>, unhealthyThreshold?: pulumi.Input<number> }>;
+    readonly healthCheck?: pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupHealthCheck>;
     /**
      * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
      */
@@ -320,7 +322,7 @@ export interface TargetGroupArgs {
     /**
      * A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
      */
-    readonly stickiness?: pulumi.Input<{ cookieDuration?: pulumi.Input<number>, enabled?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
+    readonly stickiness?: pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupStickiness>;
     /**
      * A mapping of tags to assign to the resource.
      */

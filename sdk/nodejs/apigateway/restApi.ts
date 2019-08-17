@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,7 +87,7 @@ export class RestApi extends pulumi.CustomResource {
     /**
      * Nested argument defining API endpoint configuration including endpoint type. Defined below.
      */
-    public readonly endpointConfiguration!: pulumi.Output<{ types: string }>;
+    public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.RestApiEndpointConfiguration>;
     /**
      * The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
@@ -184,7 +186,7 @@ export interface RestApiState {
     /**
      * Nested argument defining API endpoint configuration including endpoint type. Defined below.
      */
-    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<string> }>;
+    readonly endpointConfiguration?: pulumi.Input<inputs.apigateway.RestApiEndpointConfiguration>;
     /**
      * The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
@@ -232,7 +234,7 @@ export interface RestApiArgs {
     /**
      * Nested argument defining API endpoint configuration including endpoint type. Defined below.
      */
-    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<string> }>;
+    readonly endpointConfiguration?: pulumi.Input<inputs.apigateway.RestApiEndpointConfiguration>;
     /**
      * Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
      */
