@@ -4,6 +4,8 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Add support for `t3a` instance types
 * Add support for RDS T3 instance types
+* Allow IAM Policy Document `Condition`s to be arrays as well as scalars
+* Upgrade to pulumi-terraform@14e049b09d
 
 ---
 

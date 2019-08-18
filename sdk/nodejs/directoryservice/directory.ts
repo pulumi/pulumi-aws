@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -158,7 +160,7 @@ export class Directory extends pulumi.CustomResource {
     /**
      * Connector related information about the directory. Fields documented below.
      */
-    public readonly connectSettings!: pulumi.Output<{ customerDnsIps: string[], customerUsername: string, subnetIds: string[], vpcId: string } | undefined>;
+    public readonly connectSettings!: pulumi.Output<outputs.directoryservice.DirectoryConnectSettings | undefined>;
     /**
      * A textual description for the directory.
      */
@@ -206,7 +208,7 @@ export class Directory extends pulumi.CustomResource {
     /**
      * VPC related information about the directory. Fields documented below.
      */
-    public readonly vpcSettings!: pulumi.Output<{ subnetIds: string[], vpcId: string } | undefined>;
+    public readonly vpcSettings!: pulumi.Output<outputs.directoryservice.DirectoryVpcSettings | undefined>;
 
     /**
      * Create a Directory resource with the given unique name, arguments, and options.
@@ -282,7 +284,7 @@ export interface DirectoryState {
     /**
      * Connector related information about the directory. Fields documented below.
      */
-    readonly connectSettings?: pulumi.Input<{ customerDnsIps: pulumi.Input<pulumi.Input<string>[]>, customerUsername: pulumi.Input<string>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly connectSettings?: pulumi.Input<inputs.directoryservice.DirectoryConnectSettings>;
     /**
      * A textual description for the directory.
      */
@@ -330,7 +332,7 @@ export interface DirectoryState {
     /**
      * VPC related information about the directory. Fields documented below.
      */
-    readonly vpcSettings?: pulumi.Input<{ subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly vpcSettings?: pulumi.Input<inputs.directoryservice.DirectoryVpcSettings>;
 }
 
 /**
@@ -344,7 +346,7 @@ export interface DirectoryArgs {
     /**
      * Connector related information about the directory. Fields documented below.
      */
-    readonly connectSettings?: pulumi.Input<{ customerDnsIps: pulumi.Input<pulumi.Input<string>[]>, customerUsername: pulumi.Input<string>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly connectSettings?: pulumi.Input<inputs.directoryservice.DirectoryConnectSettings>;
     /**
      * A textual description for the directory.
      */
@@ -384,5 +386,5 @@ export interface DirectoryArgs {
     /**
      * VPC related information about the directory. Fields documented below.
      */
-    readonly vpcSettings?: pulumi.Input<{ subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly vpcSettings?: pulumi.Input<inputs.directoryservice.DirectoryVpcSettings>;
 }

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -23,10 +25,10 @@ import * as utilities from "../utilities";
  * const lbTgArn = config.get("lbTgArn") || "";
  * const lbTgName = config.get("lbTgName") || "";
  * 
- * const test = pulumi.output(aws.lb.getTargetGroup({
+ * const test = aws.lb.getTargetGroup({
  *     arn: lbTgArn,
  *     name: lbTgName,
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group_legacy.html.markdown.
@@ -71,14 +73,14 @@ export interface GetTargetGroupResult {
     readonly arn: string;
     readonly arnSuffix: string;
     readonly deregistrationDelay: number;
-    readonly healthCheck: { enabled: boolean, healthyThreshold: number, interval: number, matcher: string, path: string, port: string, protocol: string, timeout: number, unhealthyThreshold: number };
+    readonly healthCheck: outputs.elasticloadbalancingv2.GetTargetGroupHealthCheck;
     readonly lambdaMultiValueHeadersEnabled: boolean;
     readonly name: string;
     readonly port: number;
     readonly protocol: string;
     readonly proxyProtocolV2: boolean;
     readonly slowStart: number;
-    readonly stickiness: { cookieDuration: number, enabled: boolean, type: string };
+    readonly stickiness: outputs.elasticloadbalancingv2.GetTargetGroupStickiness;
     readonly tags: {[key: string]: any};
     readonly targetType: string;
     readonly vpcId: string;

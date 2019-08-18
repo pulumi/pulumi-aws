@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const myDomain = pulumi.output(aws.iam.getServerCertificate({
+ * const myDomain = aws.iam.getServerCertificate({
  *     latest: true,
  *     namePrefix: "my-domain.org",
- * }));
+ * });
  * const elb = new aws.elb.LoadBalancer("elb", {
  *     listeners: [{
  *         instancePort: 8000,

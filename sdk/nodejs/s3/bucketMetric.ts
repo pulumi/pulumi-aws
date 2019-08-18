@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -76,7 +78,7 @@ export class BucketMetric extends pulumi.CustomResource {
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    public readonly filter!: pulumi.Output<{ prefix?: string, tags?: {[key: string]: any} } | undefined>;
+    public readonly filter!: pulumi.Output<outputs.s3.BucketMetricFilter | undefined>;
     /**
      * Unique identifier of the metrics configuration for the bucket.
      */
@@ -128,7 +130,7 @@ export interface BucketMetricState {
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    readonly filter?: pulumi.Input<{ prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>;
+    readonly filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
     /**
      * Unique identifier of the metrics configuration for the bucket.
      */
@@ -146,7 +148,7 @@ export interface BucketMetricArgs {
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    readonly filter?: pulumi.Input<{ prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>;
+    readonly filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
     /**
      * Unique identifier of the metrics configuration for the bucket.
      */

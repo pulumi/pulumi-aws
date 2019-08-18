@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -64,11 +66,11 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
      */
-    public readonly contentConfig!: pulumi.Output<{ bucket: string, storageClass?: string }>;
+    public readonly contentConfig!: pulumi.Output<outputs.elastictranscoder.PipelineContentConfig>;
     /**
      * The permissions for the `contentConfig` object. (documented below)
      */
-    public readonly contentConfigPermissions!: pulumi.Output<{ accesses?: string[], grantee?: string, granteeType?: string }[] | undefined>;
+    public readonly contentConfigPermissions!: pulumi.Output<outputs.elastictranscoder.PipelineContentConfigPermission[] | undefined>;
     /**
      * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
      */
@@ -80,7 +82,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
      */
-    public readonly notifications!: pulumi.Output<{ completed?: string, error?: string, progressing?: string, warning?: string } | undefined>;
+    public readonly notifications!: pulumi.Output<outputs.elastictranscoder.PipelineNotifications | undefined>;
     /**
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      */
@@ -92,11 +94,11 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
      */
-    public readonly thumbnailConfig!: pulumi.Output<{ bucket: string, storageClass?: string }>;
+    public readonly thumbnailConfig!: pulumi.Output<outputs.elastictranscoder.PipelineThumbnailConfig>;
     /**
      * The permissions for the `thumbnailConfig` object. (documented below)
      */
-    public readonly thumbnailConfigPermissions!: pulumi.Output<{ accesses?: string[], grantee?: string, granteeType?: string }[] | undefined>;
+    public readonly thumbnailConfigPermissions!: pulumi.Output<outputs.elastictranscoder.PipelineThumbnailConfigPermission[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -164,11 +166,11 @@ export interface PipelineState {
     /**
      * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
      */
-    readonly contentConfig?: pulumi.Input<{ bucket?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>;
+    readonly contentConfig?: pulumi.Input<inputs.elastictranscoder.PipelineContentConfig>;
     /**
      * The permissions for the `contentConfig` object. (documented below)
      */
-    readonly contentConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
+    readonly contentConfigPermissions?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PipelineContentConfigPermission>[]>;
     /**
      * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
      */
@@ -180,7 +182,7 @@ export interface PipelineState {
     /**
      * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
      */
-    readonly notifications?: pulumi.Input<{ completed?: pulumi.Input<string>, error?: pulumi.Input<string>, progressing?: pulumi.Input<string>, warning?: pulumi.Input<string> }>;
+    readonly notifications?: pulumi.Input<inputs.elastictranscoder.PipelineNotifications>;
     /**
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      */
@@ -192,11 +194,11 @@ export interface PipelineState {
     /**
      * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
      */
-    readonly thumbnailConfig?: pulumi.Input<{ bucket?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>;
+    readonly thumbnailConfig?: pulumi.Input<inputs.elastictranscoder.PipelineThumbnailConfig>;
     /**
      * The permissions for the `thumbnailConfig` object. (documented below)
      */
-    readonly thumbnailConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
+    readonly thumbnailConfigPermissions?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PipelineThumbnailConfigPermission>[]>;
 }
 
 /**
@@ -210,11 +212,11 @@ export interface PipelineArgs {
     /**
      * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
      */
-    readonly contentConfig?: pulumi.Input<{ bucket?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>;
+    readonly contentConfig?: pulumi.Input<inputs.elastictranscoder.PipelineContentConfig>;
     /**
      * The permissions for the `contentConfig` object. (documented below)
      */
-    readonly contentConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
+    readonly contentConfigPermissions?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PipelineContentConfigPermission>[]>;
     /**
      * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
      */
@@ -226,7 +228,7 @@ export interface PipelineArgs {
     /**
      * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
      */
-    readonly notifications?: pulumi.Input<{ completed?: pulumi.Input<string>, error?: pulumi.Input<string>, progressing?: pulumi.Input<string>, warning?: pulumi.Input<string> }>;
+    readonly notifications?: pulumi.Input<inputs.elastictranscoder.PipelineNotifications>;
     /**
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      */
@@ -238,9 +240,9 @@ export interface PipelineArgs {
     /**
      * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
      */
-    readonly thumbnailConfig?: pulumi.Input<{ bucket?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>;
+    readonly thumbnailConfig?: pulumi.Input<inputs.elastictranscoder.PipelineThumbnailConfig>;
     /**
      * The permissions for the `thumbnailConfig` object. (documented below)
      */
-    readonly thumbnailConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
+    readonly thumbnailConfigPermissions?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PipelineThumbnailConfigPermission>[]>;
 }

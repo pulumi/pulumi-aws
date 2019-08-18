@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -102,7 +104,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
      */
-    public readonly physicalConnectionRequirements!: pulumi.Output<{ availabilityZone?: string, securityGroupIdLists?: string[], subnetId?: string } | undefined>;
+    public readonly physicalConnectionRequirements!: pulumi.Output<outputs.glue.ConnectionPhysicalConnectionRequirements | undefined>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -178,7 +180,7 @@ export interface ConnectionState {
     /**
      * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
      */
-    readonly physicalConnectionRequirements?: pulumi.Input<{ availabilityZone?: pulumi.Input<string>, securityGroupIdLists?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }>;
+    readonly physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
 }
 
 /**
@@ -212,5 +214,5 @@ export interface ConnectionArgs {
     /**
      * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
      */
-    readonly physicalConnectionRequirements?: pulumi.Input<{ availabilityZone?: pulumi.Input<string>, securityGroupIdLists?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }>;
+    readonly physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
 }

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -150,7 +152,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
      */
-    public readonly clusterMode!: pulumi.Output<{ numNodeGroups: number, replicasPerNodeGroup: number }>;
+    public readonly clusterMode!: pulumi.Output<outputs.elasticache.ReplicationGroupClusterMode>;
     /**
      * The address of the replication group configuration endpoint when cluster mode is enabled.
      */
@@ -369,7 +371,7 @@ export interface ReplicationGroupState {
     /**
      * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
      */
-    readonly clusterMode?: pulumi.Input<{ numNodeGroups: pulumi.Input<number>, replicasPerNodeGroup: pulumi.Input<number> }>;
+    readonly clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
      * The address of the replication group configuration endpoint when cluster mode is enabled.
      */
@@ -502,7 +504,7 @@ export interface ReplicationGroupArgs {
     /**
      * Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
      */
-    readonly clusterMode?: pulumi.Input<{ numNodeGroups: pulumi.Input<number>, replicasPerNodeGroup: pulumi.Input<number> }>;
+    readonly clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
      * The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
      */

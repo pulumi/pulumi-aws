@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -24,14 +26,14 @@ import * as utilities from "../utilities";
  *         value: "192.0.7.0/24",
  *     }],
  * });
- * const available = pulumi.output(aws.getAvailabilityZones({}));
+ * const available = aws.getAvailabilityZones({});
  * const bar = new aws.ec2.Subnet("bar", {
- *     availabilityZone: available.apply(available => available.names[1]),
+ *     availabilityZone: available.names[1],
  *     cidrBlock: "10.1.2.0/24",
  *     vpcId: fooVpc.id,
  * });
  * const fooSubnet = new aws.ec2.Subnet("foo", {
- *     availabilityZone: available.apply(available => available.names[0]),
+ *     availabilityZone: available.names[0],
  *     cidrBlock: "10.1.1.0/24",
  *     vpcId: fooVpc.id,
  * });

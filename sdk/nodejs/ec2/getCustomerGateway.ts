@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -17,12 +19,12 @@ import * as utilities from "../utilities";
  *     amazonSideAsn: "7224",
  *     vpcId: aws_vpc_main.id,
  * });
- * const foo = pulumi.output(aws.ec2.getCustomerGateway({
+ * const foo = aws.ec2.getCustomerGateway({
  *     filters: [{
  *         name: "tag:Name",
  *         values: ["foo-prod"],
  *     }],
- * }));
+ * });
  * const transit = new aws.ec2.VpnConnection("transit", {
  *     customerGatewayId: foo.id,
  *     staticRoutesOnly: false,
@@ -58,7 +60,7 @@ export interface GetCustomerGatewayArgs {
     /**
      * One or more [name-value pairs][dcg-filters] to filter by.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputs.ec2.GetCustomerGatewayFilter[];
     /**
      * The ID of the gateway.
      */
@@ -74,7 +76,7 @@ export interface GetCustomerGatewayResult {
      * (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
     readonly bgpAsn: number;
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputs.ec2.GetCustomerGatewayFilter[];
     readonly id?: string;
     /**
      * (Optional) The IP address of the gateway's Internet-routable external interface.

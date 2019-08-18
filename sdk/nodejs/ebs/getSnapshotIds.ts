@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ebsVolumes = pulumi.output(aws.ebs.getSnapshotIds({
+ * const ebsVolumes = aws.ebs.getSnapshotIds({
  *     filters: [
  *         {
  *             name: "volume-size",
@@ -26,7 +28,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     owners: ["self"],
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
@@ -58,7 +60,7 @@ export interface GetSnapshotIdsArgs {
      * several valid keys, for a full reference, check out
      * [describe-volumes in the AWS CLI reference][1].
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputs.ebs.GetSnapshotIdsFilter[];
     /**
      * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
      */
@@ -73,7 +75,7 @@ export interface GetSnapshotIdsArgs {
  * A collection of values returned by getSnapshotIds.
  */
 export interface GetSnapshotIdsResult {
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: outputs.ebs.GetSnapshotIdsFilter[];
     readonly ids: string[];
     readonly owners?: string[];
     readonly restorableByUserIds?: string[];

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -104,11 +106,11 @@ export class Policy extends pulumi.CustomResource {
      * up. A negative value scales down.
      */
     public readonly scalingAdjustment!: pulumi.Output<number | undefined>;
-    public readonly stepAdjustments!: pulumi.Output<{ metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] | undefined>;
+    public readonly stepAdjustments!: pulumi.Output<outputs.autoscaling.PolicyStepAdjustment[] | undefined>;
     /**
      * A target tracking policy. These have the following structure:
      */
-    public readonly targetTrackingConfiguration!: pulumi.Output<{ customizedMetricSpecification?: { metricDimensions?: { name: string, value: string }[], metricName: string, namespace: string, statistic: string, unit?: string }, disableScaleIn?: boolean, predefinedMetricSpecification?: { predefinedMetricType: string, resourceLabel?: string }, targetValue: number } | undefined>;
+    public readonly targetTrackingConfiguration!: pulumi.Output<outputs.autoscaling.PolicyTargetTrackingConfiguration | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -206,11 +208,11 @@ export interface PolicyState {
      * up. A negative value scales down.
      */
     readonly scalingAdjustment?: pulumi.Input<number>;
-    readonly stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]>;
+    readonly stepAdjustments?: pulumi.Input<pulumi.Input<inputs.autoscaling.PolicyStepAdjustment>[]>;
     /**
      * A target tracking policy. These have the following structure:
      */
-    readonly targetTrackingConfiguration?: pulumi.Input<{ customizedMetricSpecification?: pulumi.Input<{ metricDimensions?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, metricName: pulumi.Input<string>, namespace: pulumi.Input<string>, statistic: pulumi.Input<string>, unit?: pulumi.Input<string> }>, disableScaleIn?: pulumi.Input<boolean>, predefinedMetricSpecification?: pulumi.Input<{ predefinedMetricType: pulumi.Input<string>, resourceLabel?: pulumi.Input<string> }>, targetValue: pulumi.Input<number> }>;
+    readonly targetTrackingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyTargetTrackingConfiguration>;
 }
 
 /**
@@ -252,9 +254,9 @@ export interface PolicyArgs {
      * up. A negative value scales down.
      */
     readonly scalingAdjustment?: pulumi.Input<number>;
-    readonly stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]>;
+    readonly stepAdjustments?: pulumi.Input<pulumi.Input<inputs.autoscaling.PolicyStepAdjustment>[]>;
     /**
      * A target tracking policy. These have the following structure:
      */
-    readonly targetTrackingConfiguration?: pulumi.Input<{ customizedMetricSpecification?: pulumi.Input<{ metricDimensions?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, metricName: pulumi.Input<string>, namespace: pulumi.Input<string>, statistic: pulumi.Input<string>, unit?: pulumi.Input<string> }>, disableScaleIn?: pulumi.Input<boolean>, predefinedMetricSpecification?: pulumi.Input<{ predefinedMetricType: pulumi.Input<string>, resourceLabel?: pulumi.Input<string> }>, targetValue: pulumi.Input<number> }>;
+    readonly targetTrackingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyTargetTrackingConfiguration>;
 }

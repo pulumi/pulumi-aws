@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -63,7 +65,7 @@ export class ReceiptRule extends pulumi.CustomResource {
     /**
      * A list of Add Header Action blocks. Documented below.
      */
-    public readonly addHeaderActions!: pulumi.Output<{ headerName: string, headerValue: string, position: number }[] | undefined>;
+    public readonly addHeaderActions!: pulumi.Output<outputs.ses.ReceiptRuleAddHeaderAction[] | undefined>;
     /**
      * The name of the rule to place this rule after
      */
@@ -71,7 +73,7 @@ export class ReceiptRule extends pulumi.CustomResource {
     /**
      * A list of Bounce Action blocks. Documented below.
      */
-    public readonly bounceActions!: pulumi.Output<{ message: string, position: number, sender: string, smtpReplyCode: string, statusCode?: string, topicArn?: string }[] | undefined>;
+    public readonly bounceActions!: pulumi.Output<outputs.ses.ReceiptRuleBounceAction[] | undefined>;
     /**
      * If true, the rule will be enabled
      */
@@ -79,7 +81,7 @@ export class ReceiptRule extends pulumi.CustomResource {
     /**
      * A list of Lambda Action blocks. Documented below.
      */
-    public readonly lambdaActions!: pulumi.Output<{ functionArn: string, invocationType: string, position: number, topicArn?: string }[] | undefined>;
+    public readonly lambdaActions!: pulumi.Output<outputs.ses.ReceiptRuleLambdaAction[] | undefined>;
     /**
      * The name of the rule
      */
@@ -95,7 +97,7 @@ export class ReceiptRule extends pulumi.CustomResource {
     /**
      * A list of S3 Action blocks. Documented below.
      */
-    public readonly s3Actions!: pulumi.Output<{ bucketName: string, kmsKeyArn?: string, objectKeyPrefix?: string, position: number, topicArn?: string }[] | undefined>;
+    public readonly s3Actions!: pulumi.Output<outputs.ses.ReceiptRuleS3Action[] | undefined>;
     /**
      * If true, incoming emails will be scanned for spam and viruses
      */
@@ -103,11 +105,11 @@ export class ReceiptRule extends pulumi.CustomResource {
     /**
      * A list of SNS Action blocks. Documented below.
      */
-    public readonly snsActions!: pulumi.Output<{ position: number, topicArn: string }[] | undefined>;
+    public readonly snsActions!: pulumi.Output<outputs.ses.ReceiptRuleSnsAction[] | undefined>;
     /**
      * A list of Stop Action blocks. Documented below.
      */
-    public readonly stopActions!: pulumi.Output<{ position: number, scope: string, topicArn?: string }[] | undefined>;
+    public readonly stopActions!: pulumi.Output<outputs.ses.ReceiptRuleStopAction[] | undefined>;
     /**
      * Require or Optional
      */
@@ -115,7 +117,7 @@ export class ReceiptRule extends pulumi.CustomResource {
     /**
      * A list of WorkMail Action blocks. Documented below.
      */
-    public readonly workmailActions!: pulumi.Output<{ organizationArn: string, position: number, topicArn?: string }[] | undefined>;
+    public readonly workmailActions!: pulumi.Output<outputs.ses.ReceiptRuleWorkmailAction[] | undefined>;
 
     /**
      * Create a ReceiptRule resource with the given unique name, arguments, and options.
@@ -181,7 +183,7 @@ export interface ReceiptRuleState {
     /**
      * A list of Add Header Action blocks. Documented below.
      */
-    readonly addHeaderActions?: pulumi.Input<pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string>, position: pulumi.Input<number> }>[]>;
+    readonly addHeaderActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleAddHeaderAction>[]>;
     /**
      * The name of the rule to place this rule after
      */
@@ -189,7 +191,7 @@ export interface ReceiptRuleState {
     /**
      * A list of Bounce Action blocks. Documented below.
      */
-    readonly bounceActions?: pulumi.Input<pulumi.Input<{ message: pulumi.Input<string>, position: pulumi.Input<number>, sender: pulumi.Input<string>, smtpReplyCode: pulumi.Input<string>, statusCode?: pulumi.Input<string>, topicArn?: pulumi.Input<string> }>[]>;
+    readonly bounceActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleBounceAction>[]>;
     /**
      * If true, the rule will be enabled
      */
@@ -197,7 +199,7 @@ export interface ReceiptRuleState {
     /**
      * A list of Lambda Action blocks. Documented below.
      */
-    readonly lambdaActions?: pulumi.Input<pulumi.Input<{ functionArn: pulumi.Input<string>, invocationType?: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }>[]>;
+    readonly lambdaActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleLambdaAction>[]>;
     /**
      * The name of the rule
      */
@@ -213,7 +215,7 @@ export interface ReceiptRuleState {
     /**
      * A list of S3 Action blocks. Documented below.
      */
-    readonly s3Actions?: pulumi.Input<pulumi.Input<{ bucketName: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, objectKeyPrefix?: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }>[]>;
+    readonly s3Actions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleS3Action>[]>;
     /**
      * If true, incoming emails will be scanned for spam and viruses
      */
@@ -221,11 +223,11 @@ export interface ReceiptRuleState {
     /**
      * A list of SNS Action blocks. Documented below.
      */
-    readonly snsActions?: pulumi.Input<pulumi.Input<{ position: pulumi.Input<number>, topicArn: pulumi.Input<string> }>[]>;
+    readonly snsActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleSnsAction>[]>;
     /**
      * A list of Stop Action blocks. Documented below.
      */
-    readonly stopActions?: pulumi.Input<pulumi.Input<{ position: pulumi.Input<number>, scope: pulumi.Input<string>, topicArn?: pulumi.Input<string> }>[]>;
+    readonly stopActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleStopAction>[]>;
     /**
      * Require or Optional
      */
@@ -233,7 +235,7 @@ export interface ReceiptRuleState {
     /**
      * A list of WorkMail Action blocks. Documented below.
      */
-    readonly workmailActions?: pulumi.Input<pulumi.Input<{ organizationArn: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }>[]>;
+    readonly workmailActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleWorkmailAction>[]>;
 }
 
 /**
@@ -243,7 +245,7 @@ export interface ReceiptRuleArgs {
     /**
      * A list of Add Header Action blocks. Documented below.
      */
-    readonly addHeaderActions?: pulumi.Input<pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string>, position: pulumi.Input<number> }>[]>;
+    readonly addHeaderActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleAddHeaderAction>[]>;
     /**
      * The name of the rule to place this rule after
      */
@@ -251,7 +253,7 @@ export interface ReceiptRuleArgs {
     /**
      * A list of Bounce Action blocks. Documented below.
      */
-    readonly bounceActions?: pulumi.Input<pulumi.Input<{ message: pulumi.Input<string>, position: pulumi.Input<number>, sender: pulumi.Input<string>, smtpReplyCode: pulumi.Input<string>, statusCode?: pulumi.Input<string>, topicArn?: pulumi.Input<string> }>[]>;
+    readonly bounceActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleBounceAction>[]>;
     /**
      * If true, the rule will be enabled
      */
@@ -259,7 +261,7 @@ export interface ReceiptRuleArgs {
     /**
      * A list of Lambda Action blocks. Documented below.
      */
-    readonly lambdaActions?: pulumi.Input<pulumi.Input<{ functionArn: pulumi.Input<string>, invocationType?: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }>[]>;
+    readonly lambdaActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleLambdaAction>[]>;
     /**
      * The name of the rule
      */
@@ -275,7 +277,7 @@ export interface ReceiptRuleArgs {
     /**
      * A list of S3 Action blocks. Documented below.
      */
-    readonly s3Actions?: pulumi.Input<pulumi.Input<{ bucketName: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, objectKeyPrefix?: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }>[]>;
+    readonly s3Actions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleS3Action>[]>;
     /**
      * If true, incoming emails will be scanned for spam and viruses
      */
@@ -283,11 +285,11 @@ export interface ReceiptRuleArgs {
     /**
      * A list of SNS Action blocks. Documented below.
      */
-    readonly snsActions?: pulumi.Input<pulumi.Input<{ position: pulumi.Input<number>, topicArn: pulumi.Input<string> }>[]>;
+    readonly snsActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleSnsAction>[]>;
     /**
      * A list of Stop Action blocks. Documented below.
      */
-    readonly stopActions?: pulumi.Input<pulumi.Input<{ position: pulumi.Input<number>, scope: pulumi.Input<string>, topicArn?: pulumi.Input<string> }>[]>;
+    readonly stopActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleStopAction>[]>;
     /**
      * Require or Optional
      */
@@ -295,5 +297,5 @@ export interface ReceiptRuleArgs {
     /**
      * A list of WorkMail Action blocks. Documented below.
      */
-    readonly workmailActions?: pulumi.Input<pulumi.Input<{ organizationArn: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }>[]>;
+    readonly workmailActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleWorkmailAction>[]>;
 }

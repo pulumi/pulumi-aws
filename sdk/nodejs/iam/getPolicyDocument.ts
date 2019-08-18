@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -15,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const examplePolicyDocument = pulumi.output(aws.iam.getPolicyDocument({
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             actions: [
@@ -46,7 +48,7 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
- * }));
+ * });
  * const examplePolicy = new aws.iam.Policy("example", {
  *     path: "/",
  *     policy: examplePolicyDocument.json,
@@ -83,7 +85,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const eventStreamBucketRoleAssumeRolePolicy = pulumi.output(aws.iam.getPolicyDocument({
+ * const eventStreamBucketRoleAssumeRolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [
@@ -97,7 +99,7 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }],
- * }));
+ * });
  * ```
  * 
  * ## Example with Source and Override
@@ -108,14 +110,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const override = pulumi.output(aws.iam.getPolicyDocument({
+ * const override = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["s3:*"],
  *         resources: ["*"],
  *         sid: "SidToOverwrite",
  *     }],
- * }));
- * const source = pulumi.output(aws.iam.getPolicyDocument({
+ * });
+ * const source = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             actions: ["ec2:*"],
@@ -127,8 +129,8 @@ import * as utilities from "../utilities";
  *             sid: "SidToOverwrite",
  *         },
  *     ],
- * }));
- * const overrideJsonExample = override.apply(override => aws.iam.getPolicyDocument({
+ * });
+ * const overrideJsonExample = aws.iam.getPolicyDocument({
  *     overrideJson: override.json,
  *     statements: [
  *         {
@@ -144,8 +146,8 @@ import * as utilities from "../utilities";
  *             sid: "SidToOverwrite",
  *         },
  *     ],
- * }));
- * const sourceJsonExample = source.apply(source => aws.iam.getPolicyDocument({
+ * });
+ * const sourceJsonExample = aws.iam.getPolicyDocument({
  *     sourceJson: source.json,
  *     statements: [{
  *         actions: ["s3:*"],
@@ -155,7 +157,7 @@ import * as utilities from "../utilities";
  *         ],
  *         sid: "SidToOverwrite",
  *     }],
- * }));
+ * });
  * ```
  * 
  * `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
@@ -180,24 +182,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const override = pulumi.output(aws.iam.getPolicyDocument({
+ * const override = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["s3:GetObject"],
  *         resources: ["*"],
  *         sid: "OverridePlaceholder",
  *     }],
- * }));
- * const source = pulumi.output(aws.iam.getPolicyDocument({
+ * });
+ * const source = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["ec2:DescribeAccountAttributes"],
  *         resources: ["*"],
  *         sid: "OverridePlaceholder",
  *     }],
- * }));
- * const politik = pulumi.all([override, source]).apply(([override, source]) => aws.iam.getPolicyDocument({
+ * });
+ * const politik = aws.iam.getPolicyDocument({
  *     overrideJson: override.json,
  *     sourceJson: source.json,
- * }));
+ * });
  * ```
  * 
  * `data.aws_iam_policy_document.politik.json` will evaluate to:
@@ -254,7 +256,7 @@ export interface GetPolicyDocumentArgs {
      * A nested configuration block (described below)
      * configuring one *statement* to be included in the policy document.
      */
-    readonly statements?: { actions?: string[], conditions?: { test: string, values: string[], variable: string }[], effect?: string, notActions?: string[], notPrincipals?: { identifiers: string[], type: string }[], notResources?: string[], principals?: { identifiers: string[], type: string }[], resources?: string[], sid?: string }[];
+    readonly statements?: inputs.iam.GetPolicyDocumentStatement[];
     /**
      * IAM policy document version. Valid values: `2008-10-17`, `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
      */
@@ -272,7 +274,7 @@ export interface GetPolicyDocumentResult {
     readonly overrideJson?: string;
     readonly policyId?: string;
     readonly sourceJson?: string;
-    readonly statements?: { actions?: string[], conditions?: { test: string, values: string[], variable: string }[], effect?: string, notActions?: string[], notPrincipals?: { identifiers: string[], type: string }[], notResources?: string[], principals?: { identifiers: string[], type: string }[], resources?: string[], sid?: string }[];
+    readonly statements?: outputs.iam.GetPolicyDocumentStatement[];
     readonly version?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

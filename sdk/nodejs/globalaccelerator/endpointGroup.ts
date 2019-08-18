@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +56,7 @@ export class EndpointGroup extends pulumi.CustomResource {
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    public readonly endpointConfigurations!: pulumi.Output<{ endpointId?: string, weight?: number }[] | undefined>;
+    public readonly endpointConfigurations!: pulumi.Output<outputs.globalaccelerator.EndpointGroupEndpointConfiguration[] | undefined>;
     public readonly endpointGroupRegion!: pulumi.Output<string>;
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
@@ -139,7 +141,7 @@ export interface EndpointGroupState {
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    readonly endpointConfigurations?: pulumi.Input<pulumi.Input<{ endpointId?: pulumi.Input<string>, weight?: pulumi.Input<number> }>[]>;
+    readonly endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[]>;
     readonly endpointGroupRegion?: pulumi.Input<string>;
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
@@ -178,7 +180,7 @@ export interface EndpointGroupArgs {
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    readonly endpointConfigurations?: pulumi.Input<pulumi.Input<{ endpointId?: pulumi.Input<string>, weight?: pulumi.Input<number> }>[]>;
+    readonly endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[]>;
     readonly endpointGroupRegion?: pulumi.Input<string>;
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.

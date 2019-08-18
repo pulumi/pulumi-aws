@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -16,12 +18,12 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const vpcId = config.require("vpcId");
  * 
- * const defaultInternetGateway = pulumi.output(aws.ec2.getInternetGateway({
+ * const defaultInternetGateway = aws.ec2.getInternetGateway({
  *     filters: [{
  *         name: "attachment.vpc-id",
  *         values: [vpcId],
  *     }],
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
@@ -51,7 +53,7 @@ export interface GetInternetGatewayArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: { name: string, values: string[] }[];
+    readonly filters?: inputs.ec2.GetInternetGatewayFilter[];
     /**
      * The id of the specific Internet Gateway to retrieve.
      */
@@ -67,8 +69,8 @@ export interface GetInternetGatewayArgs {
  * A collection of values returned by getInternetGateway.
  */
 export interface GetInternetGatewayResult {
-    readonly attachments: { state: string, vpcId: string }[];
-    readonly filters?: { name: string, values: string[] }[];
+    readonly attachments: outputs.ec2.GetInternetGatewayAttachment[];
+    readonly filters?: outputs.ec2.GetInternetGatewayFilter[];
     readonly internetGatewayId: string;
     /**
      * The ID of the AWS account that owns the internet gateway.

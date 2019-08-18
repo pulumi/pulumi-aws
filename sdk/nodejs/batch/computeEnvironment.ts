@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -124,7 +126,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
-    public readonly computeResources!: pulumi.Output<{ bidPercentage?: number, desiredVcpus?: number, ec2KeyPair?: string, imageId?: string, instanceRole: string, instanceTypes: string[], launchTemplate?: { launchTemplateId?: string, launchTemplateName?: string, version?: string }, maxVcpus: number, minVcpus: number, securityGroupIds: string[], spotIamFleetRole?: string, subnets: string[], tags?: {[key: string]: any}, type: string } | undefined>;
+    public readonly computeResources!: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      */
@@ -218,7 +220,7 @@ export interface ComputeEnvironmentState {
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
-    readonly computeResources?: pulumi.Input<{ bidPercentage?: pulumi.Input<number>, desiredVcpus?: pulumi.Input<number>, ec2KeyPair?: pulumi.Input<string>, imageId?: pulumi.Input<string>, instanceRole: pulumi.Input<string>, instanceTypes: pulumi.Input<pulumi.Input<string>[]>, launchTemplate?: pulumi.Input<{ launchTemplateId?: pulumi.Input<string>, launchTemplateName?: pulumi.Input<string>, version?: pulumi.Input<string> }>, maxVcpus: pulumi.Input<number>, minVcpus: pulumi.Input<number>, securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, spotIamFleetRole?: pulumi.Input<string>, subnets: pulumi.Input<pulumi.Input<string>[]>, tags?: pulumi.Input<{[key: string]: any}>, type: pulumi.Input<string> }>;
+    readonly computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResources>;
     /**
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      */
@@ -256,7 +258,7 @@ export interface ComputeEnvironmentArgs {
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
-    readonly computeResources?: pulumi.Input<{ bidPercentage?: pulumi.Input<number>, desiredVcpus?: pulumi.Input<number>, ec2KeyPair?: pulumi.Input<string>, imageId?: pulumi.Input<string>, instanceRole: pulumi.Input<string>, instanceTypes: pulumi.Input<pulumi.Input<string>[]>, launchTemplate?: pulumi.Input<{ launchTemplateId?: pulumi.Input<string>, launchTemplateName?: pulumi.Input<string>, version?: pulumi.Input<string> }>, maxVcpus: pulumi.Input<number>, minVcpus: pulumi.Input<number>, securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, spotIamFleetRole?: pulumi.Input<string>, subnets: pulumi.Input<pulumi.Input<string>[]>, tags?: pulumi.Input<{[key: string]: any}>, type: pulumi.Input<string> }>;
+    readonly computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResources>;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */

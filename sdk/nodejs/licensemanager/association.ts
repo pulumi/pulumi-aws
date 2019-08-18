@@ -18,14 +18,14 @@ import * as utilities from "../utilities";
  * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("example", {
  *     licenseCountingType: "Instance",
  * });
- * const exampleAmi = pulumi.output(aws.getAmi({
+ * const exampleAmi = aws.getAmi({
  *     filters: [{
  *         name: "name",
  *         values: ["amzn-ami-vpc-nat*"],
  *     }],
  *     mostRecent: true,
  *     owners: ["amazon"],
- * }));
+ * });
  * const exampleInstance = new aws.ec2.Instance("example", {
  *     ami: exampleAmi.id,
  *     instanceType: "t2.micro",

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -95,7 +97,7 @@ export class Inventory extends pulumi.CustomResource {
     /**
      * Destination bucket where inventory list files are written (documented below).
      */
-    public readonly destination!: pulumi.Output<{ bucket: { accountId?: string, bucketArn: string, encryption?: { sseKms?: { keyId: string }, sseS3?: {  } }, format: string, prefix?: string } }>;
+    public readonly destination!: pulumi.Output<outputs.s3.InventoryDestination>;
     /**
      * Specifies whether the inventory is enabled or disabled.
      */
@@ -103,7 +105,7 @@ export class Inventory extends pulumi.CustomResource {
     /**
      * Object filtering that accepts a prefix (documented below).
      */
-    public readonly filter!: pulumi.Output<{ prefix?: string } | undefined>;
+    public readonly filter!: pulumi.Output<outputs.s3.InventoryFilter | undefined>;
     /**
      * Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
      */
@@ -119,7 +121,7 @@ export class Inventory extends pulumi.CustomResource {
     /**
      * Contains the frequency for generating inventory results (documented below).
      */
-    public readonly schedule!: pulumi.Output<{ frequency: string }>;
+    public readonly schedule!: pulumi.Output<outputs.s3.InventorySchedule>;
 
     /**
      * Create a Inventory resource with the given unique name, arguments, and options.
@@ -186,7 +188,7 @@ export interface InventoryState {
     /**
      * Destination bucket where inventory list files are written (documented below).
      */
-    readonly destination?: pulumi.Input<{ bucket: pulumi.Input<{ accountId?: pulumi.Input<string>, bucketArn: pulumi.Input<string>, encryption?: pulumi.Input<{ sseKms?: pulumi.Input<{ keyId: pulumi.Input<string> }>, sseS3?: pulumi.Input<{  }> }>, format: pulumi.Input<string>, prefix?: pulumi.Input<string> }> }>;
+    readonly destination?: pulumi.Input<inputs.s3.InventoryDestination>;
     /**
      * Specifies whether the inventory is enabled or disabled.
      */
@@ -194,7 +196,7 @@ export interface InventoryState {
     /**
      * Object filtering that accepts a prefix (documented below).
      */
-    readonly filter?: pulumi.Input<{ prefix?: pulumi.Input<string> }>;
+    readonly filter?: pulumi.Input<inputs.s3.InventoryFilter>;
     /**
      * Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
      */
@@ -210,7 +212,7 @@ export interface InventoryState {
     /**
      * Contains the frequency for generating inventory results (documented below).
      */
-    readonly schedule?: pulumi.Input<{ frequency: pulumi.Input<string> }>;
+    readonly schedule?: pulumi.Input<inputs.s3.InventorySchedule>;
 }
 
 /**
@@ -224,7 +226,7 @@ export interface InventoryArgs {
     /**
      * Destination bucket where inventory list files are written (documented below).
      */
-    readonly destination: pulumi.Input<{ bucket: pulumi.Input<{ accountId?: pulumi.Input<string>, bucketArn: pulumi.Input<string>, encryption?: pulumi.Input<{ sseKms?: pulumi.Input<{ keyId: pulumi.Input<string> }>, sseS3?: pulumi.Input<{  }> }>, format: pulumi.Input<string>, prefix?: pulumi.Input<string> }> }>;
+    readonly destination: pulumi.Input<inputs.s3.InventoryDestination>;
     /**
      * Specifies whether the inventory is enabled or disabled.
      */
@@ -232,7 +234,7 @@ export interface InventoryArgs {
     /**
      * Object filtering that accepts a prefix (documented below).
      */
-    readonly filter?: pulumi.Input<{ prefix?: pulumi.Input<string> }>;
+    readonly filter?: pulumi.Input<inputs.s3.InventoryFilter>;
     /**
      * Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
      */
@@ -248,5 +250,5 @@ export interface InventoryArgs {
     /**
      * Contains the frequency for generating inventory results (documented below).
      */
-    readonly schedule: pulumi.Input<{ frequency: pulumi.Input<string> }>;
+    readonly schedule: pulumi.Input<inputs.s3.InventorySchedule>;
 }

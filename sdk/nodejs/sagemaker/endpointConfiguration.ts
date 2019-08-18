@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -73,7 +75,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
     /**
      * Fields are documented below.
      */
-    public readonly productionVariants!: pulumi.Output<{ acceleratorType?: string, initialInstanceCount: number, initialVariantWeight?: number, instanceType: string, modelName: string, variantName: string }[]>;
+    public readonly productionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigurationProductionVariant[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -137,7 +139,7 @@ export interface EndpointConfigurationState {
     /**
      * Fields are documented below.
      */
-    readonly productionVariants?: pulumi.Input<pulumi.Input<{ acceleratorType?: pulumi.Input<string>, initialInstanceCount: pulumi.Input<number>, initialVariantWeight?: pulumi.Input<number>, instanceType: pulumi.Input<string>, modelName: pulumi.Input<string>, variantName?: pulumi.Input<string> }>[]>;
+    readonly productionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariant>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -159,7 +161,7 @@ export interface EndpointConfigurationArgs {
     /**
      * Fields are documented below.
      */
-    readonly productionVariants: pulumi.Input<pulumi.Input<{ acceleratorType?: pulumi.Input<string>, initialInstanceCount: pulumi.Input<number>, initialVariantWeight?: pulumi.Input<number>, instanceType: pulumi.Input<string>, modelName: pulumi.Input<string>, variantName?: pulumi.Input<string> }>[]>;
+    readonly productionVariants: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariant>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
