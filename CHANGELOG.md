@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Add support for `t3a` instance types
+* Add support for RDS T3 instance types
 * Allow IAM Policy Document `Condition`s to be arrays as well as scalars
 * Upgrade to pulumi-terraform@14e049b09d
 
@@ -17,7 +18,7 @@ CHANGELOG
 
 ## 0.18.26 (2019-08-05)
 * Upgrade to v2.22.0 of the AWS Terraform Provider.
-* Rename `aws.ses.Confguration` to `aws.ses.Configuration`. 
+* Rename `aws.ses.Confguration` to `aws.ses.Configuration`.
   This includes an alias to keep compatibility with existing code
 
 ## 0.18.25 (2019-07-30)
