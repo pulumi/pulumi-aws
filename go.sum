@@ -785,6 +785,8 @@ github.com/pulumi/pulumi v0.17.28 h1:vQd2wucJ3OaTxsro1m1U8Ls8r36nGLgP1YoBvWBXf7o
 github.com/pulumi/pulumi v0.17.28/go.mod h1:XYDUzsS+93fNgeLLMoxfgE5/C5mkIrLJQ7BMC6NlCpI=
 github.com/pulumi/pulumi v1.0.0-beta.2 h1:kcOhAssjssfaKXVv8Yab7tccHlQNxeMIPso8JqgpmKs=
 github.com/pulumi/pulumi v1.0.0-beta.2/go.mod h1:eSrIzt/kTqyrir8kE4KnCPYbxJm1ChSg1DD7lkBw0mA=
+github.com/pulumi/pulumi v1.0.0-beta.2.0.20190820080809-cfd3b8ce09c6 h1:5SOUDKgQZJBbyv+xD+fS6fVzn4BWXRpj+w/22tzedoM=
+github.com/pulumi/pulumi v1.0.0-beta.2.0.20190820080809-cfd3b8ce09c6/go.mod h1:eSrIzt/kTqyrir8kE4KnCPYbxJm1ChSg1DD7lkBw0mA=
 github.com/pulumi/pulumi-terraform v0.18.3 h1:DHpETa+TWnthH9Sw3bHS+HxSgidB1cASkVqtQTW8jxg=
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190809001837-9db2fc93cdf5 h1:k34JNaNxiwGF8ev6F9gAyZPwgMSDNCSqeofS2XMmFsM=
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190809001837-9db2fc93cdf5/go.mod h1:/rpxRQe8RtRHrrmgmCXHA/9bSj7qxL2NvjmHCDfK77U=
