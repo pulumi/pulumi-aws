@@ -6,6 +6,7 @@ CHANGELOG
 * Add support for RDS T3 instance types
 * Allow IAM Policy Document `Condition`s to be arrays as well as scalars
 * Upgrade to pulumi-terraform@14e049b09d
+* Update `aws.ecs.ContainerDefinition` to latest supported JSON schema
 
 ---
 
