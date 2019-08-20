@@ -21,7 +21,7 @@ require (
 	github.com/onsi/gomega v1.5.0 // indirect
 	github.com/openzipkin/zipkin-go v0.1.6 // indirect
 	github.com/pkg/errors v0.8.1
-	github.com/pulumi/pulumi v1.0.0-beta.2
+	github.com/pulumi/pulumi v1.0.0-beta.2.0.20190820080809-cfd3b8ce09c6
 	github.com/pulumi/pulumi-terraform v0.18.4-0.20190816182908-14e049b09dcf
 	github.com/pulumi/terraform-provider-aws v1.38.1-0.20181019132727-72e8bb4fc26f // indirect
 	github.com/sirupsen/logrus v1.4.0 // indirect

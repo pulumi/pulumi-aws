@@ -57,33 +57,74 @@ func TestExamples(t *testing.T) {
 
 	shortTests := []integration.ProgramTestOptions{
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "express")}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "express"),
+			RunUpdateTest: true,
+		}),
 		// TODO[pulumi/pulumi#1900]: This should be the default value, every test we have causes some sort of
 		// change during a `pulumi refresh` for reasons outside our control.
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "alb-legacy")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "bucket")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "cloudwatch")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "logGroup")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "queue")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "stream")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "ssmparameter")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "route53")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "lambda-layer")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "ecr")}),
 		baseJS.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "alb-new"),
+			Dir:           path.Join(cwd, "alb-legacy"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "bucket"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "cloudwatch"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "logGroup"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "queue"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "stream"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "table"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "topic"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "ssmparameter"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "route53"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "lambda-layer"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "ecr"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "alb-new"),
+			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
-					Dir:      "step2",
-					Additive: true,
+					Dir:             "step2",
+					Additive:        true,
 					ExpectNoChanges: true,
 				},
 			},
 		}),
 		baseJS.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "delete_before_create", "mount_target", "step1"),
+			Dir:           path.Join(cwd, "delete_before_create", "mount_target", "step1"),
+			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
 					Dir:      "step2",
@@ -96,7 +137,8 @@ func TestExamples(t *testing.T) {
 			},
 		}),
 		baseJS.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "ignoreChanges"),
+			Dir:           path.Join(cwd, "ignoreChanges"),
+			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
 					Dir:      path.Join(cwd, "ignoreChanges", "step1"),
@@ -110,7 +152,8 @@ func TestExamples(t *testing.T) {
 			},
 		}),
 		baseJS.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "serverless_functions"),
+			Dir:           path.Join(cwd, "serverless_functions"),
+			RunUpdateTest: true,
 			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 				cfg := &aws.Config{
 					Region: aws.String("us-west-2"),
@@ -132,25 +175,37 @@ func TestExamples(t *testing.T) {
 				}
 			},
 		}),
-		// Python tests:
-		basePython.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-py")}),
-		basePython.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "alb-legacy-py")}),
-		basePython.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "alb-new-py"),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "rename-ses-configuration-set"),
+			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
-					Dir:      "step2",
-					Additive: true,
+					Dir:             "step2",
+					Additive:        true,
 					ExpectNoChanges: true,
 				},
 			},
 		}),
-		baseJS.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "rename-ses-configuration-set"),
+		// Python tests:
+		basePython.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "bucket-py"),
+			RunUpdateTest: true,
+		}),
+		basePython.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "webserver-py"),
+			RunUpdateTest: true,
+		}),
+		basePython.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "alb-legacy-py"),
+			RunUpdateTest: true,
+		}),
+		basePython.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "alb-new-py"),
+			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
-					Dir:      "step2",
-					Additive: true,
+					Dir:             "step2",
+					Additive:        true,
 					ExpectNoChanges: true,
 				},
 			},
@@ -172,9 +227,13 @@ func TestExamples(t *testing.T) {
 				createEditDir(path.Join(cwd, "webserver", "variants", "ssh_description")),
 			},
 		}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver", "variants", "zones")}),
 		baseJS.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "webserver-comp"),
+			Dir:           path.Join(cwd, "webserver", "variants", "zones"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "webserver-comp"),
+			RunUpdateTest: true,
 			// Verify that credentials can be passed via explicit configuration
 			Secrets: map[string]string{
 				"aws:accessKey": os.Getenv("AWS_ACCESS_KEY_ID"),
@@ -182,14 +241,21 @@ func TestExamples(t *testing.T) {
 			},
 		}),
 		baseJS.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "serverless-raw"),
+			Dir:           path.Join(cwd, "serverless-raw"),
+			RunUpdateTest: true,
 			// Two changes are known to occur during refresh of the resources in this example:
 			// * `~  aws:apigateway:Method myrestapi-method updated changes: + authorizationScopes,...`
 			// * `~  aws:lambda:Function mylambda-logcollector updated changes: ~ lastModified`
 			ExpectRefreshChanges: true,
 		}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "multiple-regions")}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "serverless"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "multiple-regions"),
+			RunUpdateTest: true,
+		}),
 		// Go tests:
 		integration.ProgramTestOptions{
 			Dir:    path.Join(cwd, "webserver-go"),
