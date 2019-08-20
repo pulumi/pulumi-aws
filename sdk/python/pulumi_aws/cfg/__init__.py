@@ -9,3 +9,5 @@ from .configuration_aggregator import *
 from .recorder import *
 from .recorder_status import *
 from .delivery_channel import *
+from .organization_custom_rule import *
+from .organization_managed_rule import *
