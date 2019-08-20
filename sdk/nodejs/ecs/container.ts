@@ -19,6 +19,7 @@
 export interface ContainerDefinition {
     command?: string[];
     cpu?: number;
+    dependsOn?: string;
     disableNetworking?: boolean;
     dnsSearchDomains?: string[];
     dnsServers?: string[];
@@ -31,6 +32,7 @@ export interface ContainerDefinition {
     healthCheck?: HealthCheck;
     hostname?: string;
     image?: string;
+    interactive?: boolean;
     links?: string[];
     linuxParameters?: LinuxParameters;
     logConfiguration?: LogConfiguration;
@@ -40,12 +42,18 @@ export interface ContainerDefinition {
     name: string;
     portMappings?: PortMapping[];
     privileged?: boolean;
+    pseudoTerminal?: boolean;
     readonlyRootFilesystem?: boolean;
+    repositoryCredentials?: RepositoryCredentials;
+    resourceRequirements?: ResourceRequirements[];
+    secrets?: Secret[];
+    startTimeout?: number;
+    stopTimeout?: number;
+    systemControls?: SystemControl[];
     ulimits?: Ulimit[];
     user?: string;
     volumesFrom?: VolumeFrom[];
     workingDirectory?: string;
-    repositoryCredentials?: RepositoryCredentials;
 }
 
 // https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KeyValuePair.html
@@ -184,4 +192,90 @@ export interface VolumeFrom {
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RepositoryCredentials.html
 export interface RepositoryCredentials {
     credentialsParameter: string;
+}
+
+/**
+ * The type and amount of a resource to assign to a container. The only supported resource is a GPU.
+ * For more information, see [Working with GPUs on Amazon
+ * ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) in the Amazon
+ * Elastic Container Service Developer Guide.
+ * 
+ * See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ResourceRequirement.html.
+ */
+export interface ResourceRequirements {
+    /**
+     * The type of resource to assign to a container. The only supported value is GPU.
+     */
+    type: string;
+    /**
+     * The number of physical GPUs the Amazon ECS container agent will reserve for the container.
+     * The number of GPUs reserved for all containers in a task should not exceed the number of
+     * available GPUs on the container instance the task is launched on.
+     */
+    value: string;
+}
+
+/**
+ * An object representing the secret to expose to your container. Secrets can be exposed to a
+ * container in the following ways:
+ *
+ * * To inject sensitive data into your containers as environment variables, use the secrets
+ *   container definition parameter.
+ *
+ * * To reference sensitive information in the log configuration of a container, use the
+ *   secretOptions container definition parameter.
+ *
+ * For more information, see [Specifying Sensitive
+ * Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html)
+ * in the Amazon Elastic Container Service Developer Guide.
+ * 
+ * See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Secret.html.
+ */
+export interface Secret {
+    /** 
+     * The name of the secret.
+     */
+    name: string;
+
+    /**
+     * The secret to expose to the container. The supported values are either the full ARN of the
+     * AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager
+     * Parameter Store.
+     *
+     * Note: If the AWS Systems Manager Parameter Store parameter exists in the same Region as the
+     * task you are launching, then you can use either the full ARN or name of the parameter. If the
+     * parameter exists in a different Region, then the full ARN must be specified.
+     */
+    valueFrom: string;
+}
+
+/**
+ * A list of namespaced kernel parameters to set in the container. This parameter maps to Sysctls in
+ * the [Create a container](https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
+ * section of the Docker Remote API and the --sysctl option to docker run.
+ *
+ * It is not recommended that you specify network-related systemControls parameters for multiple
+ * containers in a single task that also uses either the awsvpc or host network mode for the
+ * following reasons:
+ *
+ * * For tasks that use the awsvpc network mode, if you set systemControls for any container, it
+ *   applies to all containers in the task. If you set different systemControls for multiple
+ *   containers in a single task, the container that is started last determines which systemControls
+ *   take effect.
+ * * For tasks that use the host network mode, the systemControls parameter applies to the container
+ *   instance's kernel parameter as well as that of all containers of any tasks running on that
+ *   container instance.
+ * 
+ * See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_SystemControl.html.
+ */
+export interface SystemControl {
+    /**
+     * The namespaced kernel parameter for which to set a value.
+     */
+    namespace?: string;
+    
+    /**
+     * The value for the namespaced kernel parameter specified in namespace.
+     */
+    value?: string;
 }
