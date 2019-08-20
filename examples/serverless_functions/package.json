@@ -11,15 +11,13 @@
         "@pulumi/pulumi": "dev",
         "@slack/client": "4.3.1",
         "aws-sdk": "^2.252.1",
-        "express": "^4.16.3"
+        "express": "^4.16.3",
+        "@pulumi/aws": "latest"
     },
     "devDependencies": {
         "@types/express": "^4.16.0",
         "@types/aws-sdk": "^2.7.0",
         "@types/node": "^10.0.0",
         "typescript": "^3.0.0"
-    },
-    "peerDependencies": {
-        "@pulumi/aws": "latest"
     }
 }
