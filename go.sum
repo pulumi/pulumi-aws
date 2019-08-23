@@ -803,6 +803,8 @@ github.com/pulumi/terraform-provider-aws v1.38.1-0.20190820194633-552f39908afb h
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20190820194633-552f39908afb/go.mod h1:X0CYCk8+8mp3JkPFKCW2AVH7qgomVoOTDI1CProJ494=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20190821065507-186fbc55d990 h1:JXJaCBhFbyJPXo71AZUzzeg4gQd1L9EhUW3ELucv3Kk=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20190821065507-186fbc55d990/go.mod h1:X0CYCk8+8mp3JkPFKCW2AVH7qgomVoOTDI1CProJ494=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20190823083846-4605042d58ea h1:TCYhrpk97Fha4tlWgmYjfwteo8FMCZpev7gC9akiyFA=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20190823083846-4605042d58ea/go.mod h1:Yc+SQyXHUSQkxM3hi7lzaOnD5uu21v0xNyVMcOGsj9Y=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/reconquest/loreley v0.0.0-20160708080500-2ab6b7470a54 h1:J2RvHxEMIzMV6XbaZIj9s5G4lG3hhqWxS7Cl1Jii44c=
@@ -901,6 +903,7 @@ github.com/terraform-providers/terraform-provider-template v2.1.2+incompatible h
 github.com/terraform-providers/terraform-provider-template v2.1.2+incompatible/go.mod h1:Y+/1GV1sOgHNxzYdkkGb9Cz/FNk8W4/Gb5+Phf1CNU8=
 github.com/terraform-providers/terraform-provider-tls v2.0.1+incompatible h1:LzJFW5XFadz/4K/lUSTjN2/TrQM5QZtJxrzz50z4yLY=
 github.com/terraform-providers/terraform-provider-tls v2.0.1+incompatible/go.mod h1:L5wzhvGcKGSSnpY/Oq9zKRk8cwgrvurqiJu00Eu50cA=
+github.com/terraform-providers/terraform-provider-tls v2.1.0+incompatible/go.mod h1:kurQaP6D5IY4ig4K7EhQchbY/0Q1jZBeOGi4IrWDdJc=
 github.com/texttheater/golang-levenshtein v0.0.0-20180516184445-d188e65d659e h1:T5PdfK/M1xyrHwynxMIVMWLS7f/qHwfslZphxtGnw7s=
 github.com/texttheater/golang-levenshtein v0.0.0-20180516184445-d188e65d659e/go.mod h1:XDKHRm5ThF8YJjx001LtgelzsoaEcvnA7lVWz9EeX3g=
 github.com/tidwall/pretty v0.0.0-20190325153808-1166b9ac2b65/go.mod h1:XNkn88O1ChpSDQmQeStsy+sBenx6DDtFZJxhVysOjyk=
