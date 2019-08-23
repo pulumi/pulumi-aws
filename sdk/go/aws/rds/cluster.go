@@ -258,7 +258,7 @@ func (r *Cluster) DeletionProtection() *pulumi.BoolOutput {
 }
 
 // List of log types to export to cloudwatch. If omitted, no logs will be exported.
-// The following log types are supported: `audit`, `error`, `general`, `slowquery`.
+// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 func (r *Cluster) EnabledCloudwatchLogsExports() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["enabledCloudwatchLogsExports"])
 }
@@ -426,7 +426,7 @@ type ClusterState struct {
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`, `error`, `general`, `slowquery`.
+	// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports interface{}
 	// The DNS address of the RDS instance
 	Endpoint interface{}
@@ -514,7 +514,7 @@ type ClusterArgs struct {
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`, `error`, `general`, `slowquery`.
+	// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports interface{}
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine interface{}

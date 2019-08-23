@@ -205,7 +205,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
-     * The following log types are supported: `audit`, `error`, `general`, `slowquery`.
+     * The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
      */
     public readonly enabledCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
@@ -482,7 +482,7 @@ export interface ClusterState {
     readonly deletionProtection?: pulumi.Input<boolean>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
-     * The following log types are supported: `audit`, `error`, `general`, `slowquery`.
+     * The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -646,7 +646,7 @@ export interface ClusterArgs {
     readonly deletionProtection?: pulumi.Input<boolean>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
-     * The following log types are supported: `audit`, `error`, `general`, `slowquery`.
+     * The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
