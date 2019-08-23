@@ -2,14 +2,17 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+__NULL__
+
+---
+
+## 1.0.0-beta.2 (2019-08-23)
 * Add support for `t3a` instance types
 * Add support for RDS T3 instance types
 * Allow IAM Policy Document `Condition`s to be arrays as well as scalars
 * Upgrade to pulumi-terraform@14e049b09d
 * Update `aws.ecs.ContainerDefinition` to latest supported JSON schema
 * Upgrade to v2.25.0 of the AWS Terraform Provider
-
----
 
 ## 1.0.0-beta.1 (2019-08)
 * No significant changes
