@@ -7,7 +7,7 @@ CHANGELOG
 * Allow IAM Policy Document `Condition`s to be arrays as well as scalars
 * Upgrade to pulumi-terraform@14e049b09d
 * Update `aws.ecs.ContainerDefinition` to latest supported JSON schema
-* Upgrade to v2.24.0 of the AWS Terraform Provider
+* Upgrade to v2.25.0 of the AWS Terraform Provider
 
 ---
 
