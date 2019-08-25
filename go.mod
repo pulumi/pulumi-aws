@@ -22,7 +22,7 @@ require (
 	github.com/openzipkin/zipkin-go v0.1.6 // indirect
 	github.com/pkg/errors v0.8.1
 	github.com/pulumi/pulumi v1.0.0-beta.2.0.20190820080809-cfd3b8ce09c6
-	github.com/pulumi/pulumi-terraform v0.18.4-0.20190816182908-14e049b09dcf
+	github.com/pulumi/pulumi-terraform v0.0.0
 	github.com/pulumi/terraform-provider-aws v1.38.1-0.20181019132727-72e8bb4fc26f // indirect
 	github.com/sirupsen/logrus v1.4.0 // indirect
 	github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304 // indirect
@@ -38,5 +38,6 @@ replace (
 	github.com/Nvveen/Gotty => github.com/ijc25/Gotty v0.0.0-20170406111628-a8b993ba6abd
 	github.com/golang/glog => github.com/pulumi/glog v0.0.0-20180820174630-7eaa6ffb71e4
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
+	github.com/pulumi/pulumi-terraform => /Users/justin/go/src/github.com/pulumi/pulumi-terraform
 	github.com/terraform-providers/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20190823083846-4605042d58ea
 )
