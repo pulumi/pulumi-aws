@@ -10,19 +10,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const foo = new aws.inspector.AssessmentTemplate("foo", {
- *     duration: 3600,
- *     rulesPackageArns: [
- *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
- *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
- *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
- *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
- *     ],
- *     targetArn: aws_inspector_assessment_target_foo.arn,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_assessment_template.html.markdown.

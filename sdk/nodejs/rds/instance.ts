@@ -42,20 +42,6 @@ import {StorageType} from "./storageType";
  * ### Basic Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultInstance = new aws.rds.Instance("default", {
- *     allocatedStorage: 20,
- *     engine: "mysql",
- *     engineVersion: "5.7",
- *     instanceClass: "db.t2.micro",
- *     name: "mydb",
- *     parameterGroupName: "default.mysql5.7",
- *     password: "foobarbaz",
- *     storageType: "gp2",
- *     username: "foo",
- * });
  * ```
  * 
  * ### Storage Autoscaling
@@ -63,13 +49,6 @@ import {StorageType} from "./storageType";
  * To enable Storage Autoscaling with instances that support the feature, define the `maxAllocatedStorage` argument higher than the `allocatedStorage` argument. This provider will automatically hide differences with the `allocatedStorage` argument value if autoscaling occurs.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.rds.Instance("example", {
- *     allocatedStorage: 50,
- *     maxAllocatedStorage: 100,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.

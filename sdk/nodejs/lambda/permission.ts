@@ -15,102 +15,16 @@ import {Function} from "./function";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const iamForLambda = new aws.iam.Role("iamForLambda", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- * });
- * const testLambda = new aws.lambda.Function("testLambda", {
- *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
- *     handler: "exports.handler",
- *     role: iamForLambda.arn,
- *     runtime: "nodejs8.10",
- * });
- * const testAlias = new aws.lambda.Alias("testAlias", {
- *     description: "a sample description",
- *     functionName: testLambda.functionName,
- *     functionVersion: "$LATEST",
- * });
- * const allowCloudwatch = new aws.lambda.Permission("allowCloudwatch", {
- *     action: "lambda:InvokeFunction",
- *     function: testLambda.functionName,
- *     principal: "events.amazonaws.com",
- *     qualifier: testAlias.name,
- *     sourceArn: "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
- * });
  * ```
  * 
  * ## Usage with SNS
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultRole = new aws.iam.Role("default", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- * });
- * const defaultTopic = new aws.sns.Topic("default", {});
- * const func = new aws.lambda.Function("func", {
- *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
- *     handler: "exports.handler",
- *     role: defaultRole.arn,
- *     runtime: "python2.7",
- * });
- * const withSns = new aws.lambda.Permission("withSns", {
- *     action: "lambda:InvokeFunction",
- *     function: func.functionName,
- *     principal: "sns.amazonaws.com",
- *     sourceArn: defaultTopic.arn,
- * });
- * const lambda = new aws.sns.TopicSubscription("lambda", {
- *     endpoint: func.arn,
- *     protocol: "lambda",
- *     topic: defaultTopic.arn,
- * });
  * ```
  * 
  * ## Specify Lambda permissions for API Gateway REST API
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
- *     description: "This is my API for demonstration purposes",
- * });
- * const lambdaPermission = new aws.lambda.Permission("lambdaPermission", {
- *     action: "lambda:InvokeFunction",
- *     function: "MyDemoFunction",
- *     principal: "apigateway.amazonaws.com",
- *     sourceArn: pulumi.interpolate`${myDemoAPI.executionArn}/*&#47;*&#47;*`,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_permission.html.markdown.

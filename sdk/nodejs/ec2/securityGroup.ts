@@ -23,52 +23,11 @@ import * as utilities from "../utilities";
  * Basic usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const allowTls = new aws.ec2.SecurityGroup("allowTls", {
- *     description: "Allow TLS inbound traffic",
- *     egress: [{
- *         cidrBlocks: ["0.0.0.0/0"],
- *         fromPort: 0,
- *         prefixListIds: ["pl-12c4e678"],
- *         protocol: "-1",
- *         toPort: 0,
- *     }],
- *     ingress: [{
- *         // Please restrict your ingress to only necessary IPs and ports.
- *         // Opening to 0.0.0.0/0 can lead to security vulnerabilities.
- *         cidrBlocks: "", // add a CIDR block here
- *         // TLS (change to whatever ports you need)
- *         fromPort: 443,
- *         protocol: "-1",
- *         toPort: 443,
- *     }],
- *     vpcId: aws_vpc_main.id,
- * });
  * ```
  * 
  * Basic usage with tags:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const allowTls = new aws.ec2.SecurityGroup("allowTls", {
- *     description: "Allow TLS inbound traffic",
- *     ingress: [{
- *         // Please restrict your ingress to only necessary IPs and ports.
- *         // Opening to 0.0.0.0/0 can lead to security vulnerabilities.
- *         cidrBlocks: "", // add your IP address here
- *         // TLS (change to whatever ports you need)
- *         fromPort: 443,
- *         protocol: "tcp",
- *         toPort: 443,
- *     }],
- *     tags: {
- *         Name: "allowAll",
- *     },
- * });
  * ```
  * 
  * ## Usage with prefix list IDs
@@ -78,11 +37,6 @@ import * as utilities from "../utilities";
  * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * // ...
- * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group.html.markdown.

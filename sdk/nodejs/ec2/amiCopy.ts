@@ -22,17 +22,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2.AmiCopy("example", {
- *     description: "A copy of ami-xxxxxxxx",
- *     sourceAmiId: "ami-xxxxxxxx",
- *     sourceAmiRegion: "us-west-1",
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_copy.html.markdown.

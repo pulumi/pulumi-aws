@@ -15,16 +15,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const fooVpc = new aws.ec2.Vpc("foo", {
- *     assignGeneratedIpv6CidrBlock: true,
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const fooEgressOnlyInternetGateway = new aws.ec2.EgressOnlyInternetGateway("foo", {
- *     vpcId: fooVpc.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/egress_only_internet_gateway.html.markdown.

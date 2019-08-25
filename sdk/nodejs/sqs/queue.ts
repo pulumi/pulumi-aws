@@ -8,43 +8,16 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const queue = new aws.sqs.Queue("queue", {
- *     delaySeconds: 90,
- *     maxMessageSize: 2048,
- *     messageRetentionSeconds: 86400,
- *     receiveWaitTimeSeconds: 10,
- *     redrivePolicy: pulumi.interpolate`{"deadLetterTargetArn":"${aws_sqs_queue_queue_deadletter.arn}","maxReceiveCount":4}`,
- *     tags: {
- *         Environment: "production",
- *     },
- * });
  * ```
  * 
  * ## FIFO queue
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const queue = new aws.sqs.Queue("queue", {
- *     contentBasedDeduplication: true,
- *     fifoQueue: true,
- * });
  * ```
  * 
  * ## Server-side encryption (SSE)
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const queue = new aws.sqs.Queue("queue", {
- *     kmsDataKeyReusePeriodSeconds: 300,
- *     kmsMasterKeyId: "alias/aws/sqs",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sqs_queue.html.markdown.

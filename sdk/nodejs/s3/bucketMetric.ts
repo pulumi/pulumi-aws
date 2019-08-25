@@ -14,32 +14,11 @@ import * as utilities from "../utilities";
  * ### Add metrics configuration for entire S3 bucket
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.s3.Bucket("example", {});
- * const exampleEntireBucket = new aws.s3.BucketMetric("example-entire-bucket", {
- *     bucket: example.bucket,
- * });
  * ```
  * 
  * ### Add metrics configuration with S3 bucket object filter
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.s3.Bucket("example", {});
- * const exampleFiltered = new aws.s3.BucketMetric("example-filtered", {
- *     bucket: example.bucket,
- *     filter: {
- *         prefix: "documents/",
- *         tags: {
- *             class: "blue",
- *             priority: "high",
- *         },
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_metric.html.markdown.

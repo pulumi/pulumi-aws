@@ -18,17 +18,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const lbTgArn = config.get("lbTgArn") || "";
- * const lbTgName = config.get("lbTgName") || "";
- * 
- * const test = aws.lb.getTargetGroup({
- *     arn: lbTgArn,
- *     name: lbTgName,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_target_group.html.markdown.

@@ -20,24 +20,15 @@ import * as utilities from "../utilities";
  * > **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucketHook`/`githubRepositoryWebhook` resource is only possible with importing that resource after creation of the `aws.codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `aws.codebuild.Webhook` resource in this scenario.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
+ * ```
  * 
- * const example = new aws.codebuild.Webhook("example", {
- *     filterGroups: [{
- *         filters: [
- *             {
- *                 pattern: "PUSH",
- *                 type: "EVENT",
- *             },
- *             {
- *                 pattern: "master",
- *                 type: "HEAD_REF",
- *             },
- *         ],
- *     }],
- *     projectName: aws_codebuild_project_example.name,
- * });
+ * ### GitHub Enterprise
+ * 
+ * When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g. manually or with the `githubRepositoryWebhook` resource).
+ * 
+ * More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
+ * 
+ * ```typescript
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_webhook.html.markdown.

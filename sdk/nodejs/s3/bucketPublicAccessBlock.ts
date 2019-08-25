@@ -12,15 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleBucket = new aws.s3.Bucket("example", {});
- * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("example", {
- *     blockPublicAcls: true,
- *     blockPublicPolicy: true,
- *     bucket: exampleBucket.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_public_access_block.html.markdown.

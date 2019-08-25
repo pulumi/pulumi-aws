@@ -13,12 +13,6 @@ import * as utilities from "./utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const current = aws.getCanonicalUserId({});
- * 
- * export const canonicalUserId = current.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/canonical_user_id.html.markdown.

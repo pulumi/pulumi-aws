@@ -16,15 +16,6 @@ import {Tenancy} from "./tenancy";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultCapacityReservation = new aws.ec2.CapacityReservation("default", {
- *     availabilityZone: "eu-west-1a",
- *     instanceCount: 1,
- *     instancePlatform: "Linux/UNIX",
- *     instanceType: "t2.micro",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_capacity_reservation.html.markdown.

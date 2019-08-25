@@ -14,14 +14,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const lambdaLayer = new aws.lambda.LayerVersion("lambdaLayer", {
- *     compatibleRuntimes: ["nodejs8.10"],
- *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
- *     layerName: "lambdaLayerName",
- * });
  * ```
  * 
  * ## Specifying the Deployment Package

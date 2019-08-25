@@ -12,20 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const selectedRestApi = aws.apigateway.getRestApi({
- *     name: var_api_gateway_name,
- * });
- * const selectedUserPools = aws.cognito.getUserPools({
- *     name: var_cognito_user_pool_name,
- * });
- * const cognito = new aws.apigateway.Authorizer("cognito", {
- *     providerArns: selectedUserPools.arns,
- *     restApi: selectedRestApi.id,
- *     type: "COGNITO_USER_POOLS",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cognito_user_pools.html.markdown.

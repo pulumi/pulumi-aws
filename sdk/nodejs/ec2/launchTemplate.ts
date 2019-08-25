@@ -8,6 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_template.html.markdown.
  */

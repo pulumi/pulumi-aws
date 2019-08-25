@@ -12,25 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ipset = new aws.waf.IpSet("ipset", {
- *     ipSetDescriptors: [{
- *         type: "IPV4",
- *         value: "192.0.7.0/24",
- *     }],
- * });
- * const wafrule = new aws.waf.RateBasedRule("wafrule", {
- *     metricName: "tfWAFRule",
- *     predicates: [{
- *         dataId: ipset.id,
- *         negated: false,
- *         type: "IPMatch",
- *     }],
- *     rateKey: "IP",
- *     rateLimit: 2000,
- * }, {dependsOn: [ipset]});
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rate_based_rule.html.markdown.

@@ -20,14 +20,6 @@ import * as utilities from "../utilities";
  * Basic usage:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const current = aws.getCallerIdentity({});
- * const allowMeToFoo = new aws.ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo", {
- *     principalArn: current.arn,
- *     vpcEndpointServiceId: aws_vpc_endpoint_service_foo.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_service_allowed_principal.html.markdown.

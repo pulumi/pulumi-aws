@@ -10,25 +10,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.xray.SamplingRule("example", {
- *     attributes: {
- *         Hello: "Tris",
- *     },
- *     fixedRate: 0.05,
- *     host: "*",
- *     httpMethod: "*",
- *     priority: 10000,
- *     reservoirSize: 1,
- *     resourceArn: "*",
- *     ruleName: "example",
- *     serviceName: "*",
- *     serviceType: "*",
- *     urlPath: "*",
- *     version: 1,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/xray_sampling_rule.html.markdown.

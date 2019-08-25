@@ -14,26 +14,10 @@ import * as utilities from "../utilities";
  * ### Create a basic user pool client
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const pool = new aws.cognito.UserPool("pool", {});
- * const client = new aws.cognito.UserPoolClient("client", {
- *     userPoolId: pool.id,
- * });
  * ```
  * 
  * ### Create a user pool client with no SRP authentication
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const pool = new aws.cognito.UserPool("pool", {});
- * const client = new aws.cognito.UserPoolClient("client", {
- *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
- *     generateSecret: true,
- *     userPoolId: pool.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_client.html.markdown.

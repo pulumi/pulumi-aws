@@ -20,33 +20,12 @@ import * as utilities from "../utilities";
  * Basic usage:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const bar = new aws.ec2.Vpc("bar", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const fooVpc = new aws.ec2.Vpc("foo", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("foo", {
- *     autoAccept: true,
- *     peerVpcId: bar.id,
- *     vpcId: fooVpc.id,
- * });
- * const fooPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("foo", {
- *     accepter: {
- *         allowRemoteVpcDnsResolution: true,
- *     },
- *     requester: {
- *         allowClassicLinkToRemoteVpc: true,
- *         allowVpcToRemoteClassicLink: true,
- *     },
- *     vpcPeeringConnectionId: fooVpcPeeringConnection.id,
- * });
  * ```
  * 
  * Basic cross-account usage:
+ * 
+ * ```typescript
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_options.html.markdown.
  */

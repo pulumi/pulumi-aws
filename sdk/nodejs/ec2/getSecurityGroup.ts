@@ -19,19 +19,6 @@ import * as utilities from "../utilities";
  * and use this data source to obtain the data necessary to create a subnet.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const securityGroupId = config.require("securityGroupId");
- * 
- * const selected = aws.ec2.getSecurityGroup({
- *     id: securityGroupId,
- * });
- * const subnet = new aws.ec2.Subnet("subnet", {
- *     cidrBlock: "10.0.1.0/24",
- *     vpcId: selected.vpcId,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_group.html.markdown.

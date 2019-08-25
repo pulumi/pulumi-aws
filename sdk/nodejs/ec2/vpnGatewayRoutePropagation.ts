@@ -16,13 +16,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2.VpnGatewayRoutePropagation("example", {
- *     routeTableId: aws_route_table_example.id,
- *     vpnGatewayId: aws_vpn_gateway_example.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_route_propagation.html.markdown.

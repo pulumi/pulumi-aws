@@ -16,20 +16,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testRepository = new aws.codecommit.Repository("test", {
- *     repositoryName: "test",
- * });
- * const testTrigger = new aws.codecommit.Trigger("test", {
- *     repositoryName: testRepository.repositoryName,
- *     triggers: [{
- *         destinationArn: aws_sns_topic_test.arn,
- *         events: ["all"],
- *         name: "all",
- *     }],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codecommit_trigger.html.markdown.

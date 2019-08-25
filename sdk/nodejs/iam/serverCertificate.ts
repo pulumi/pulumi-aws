@@ -24,32 +24,11 @@ import * as utilities from "../utilities";
  * **Using certs on file:**
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
- * const testCert = new aws.iam.ServerCertificate("testCert", {
- *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
- *     privateKey: fs.readFileSync("test-key.pem", "utf-8"),
- * });
  * ```
  * 
  * **Example with cert in-line:**
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testCertAlt = new aws.iam.ServerCertificate("testCertAlt", {
- *     certificateBody: `-----BEGIN CERTIFICATE-----
- * [......] # cert contents
- * -----END CERTIFICATE-----
- * `,
- *     privateKey: `-----BEGIN RSA PRIVATE KEY-----
- * [......] # cert contents
- * -----END RSA PRIVATE KEY-----
- * `,
- * });
  * ```
  * 
  * **Use in combination with an AWS ELB resource:**
@@ -62,26 +41,6 @@ import * as utilities from "../utilities";
  * dependant resources before attempting to destroy the old version.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
- * const testCert = new aws.iam.ServerCertificate("testCert", {
- *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
- *     namePrefix: "example-cert",
- *     privateKey: fs.readFileSync("test-key.pem", "utf-8"),
- * });
- * const ourapp = new aws.elb.LoadBalancer("ourapp", {
- *     availabilityZones: ["us-west-2a"],
- *     crossZoneLoadBalancing: true,
- *     listeners: [{
- *         instancePort: 8000,
- *         instanceProtocol: "http",
- *         lbPort: 443,
- *         lbProtocol: "https",
- *         sslCertificateId: testCert.arn,
- *     }],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_server_certificate.html.markdown.

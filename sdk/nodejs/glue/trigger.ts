@@ -14,50 +14,16 @@ import * as utilities from "../utilities";
  * ### Conditional Trigger
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.glue.Trigger("example", {
- *     actions: [{
- *         jobName: aws_glue_job_example1.name,
- *     }],
- *     predicate: {
- *         conditions: [{
- *             jobName: aws_glue_job_example2.name,
- *             state: "SUCCEEDED",
- *         }],
- *     },
- *     type: "CONDITIONAL",
- * });
  * ```
  * 
  * ### On-Demand Trigger
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.glue.Trigger("example", {
- *     actions: [{
- *         jobName: aws_glue_job_example.name,
- *     }],
- *     type: "ON_DEMAND",
- * });
  * ```
  * 
  * ### Scheduled Trigger
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.glue.Trigger("example", {
- *     actions: [{
- *         jobName: aws_glue_job_example.name,
- *     }],
- *     schedule: "cron(15 12 * * ? *)",
- *     type: "SCHEDULED",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_trigger.html.markdown.

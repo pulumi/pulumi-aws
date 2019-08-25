@@ -14,21 +14,6 @@ import * as utilities from "../utilities";
  * ### Basic Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.eks.Cluster("example", {
- *     roleArn: aws_iam_role_example.arn,
- *     vpcConfig: {
- *         subnetIds: [
- *             aws_subnet_example1.id,
- *             aws_subnet_example2.id,
- *         ],
- *     },
- * });
- * 
- * export const endpoint = example.endpoint;
- * export const kubeconfigCertificateAuthorityData = example.certificateAuthority.data;
  * ```
  * 
  * ### Enabling Control Plane Logging
@@ -38,21 +23,6 @@ import * as utilities from "../utilities";
  * > The below configuration uses [`dependsOn`](https://www.terraform.io/docs/configuration/resources.html#depends_on-explicit-resource-dependencies) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const clusterName = config.get("clusterName") || "example";
- * 
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
- *     retentionInDays: 7,
- * });
- * const exampleCluster = new aws.eks.Cluster("example", {
- *     enabledClusterLogTypes: [
- *         "api",
- *         "audit",
- *     ],
- * }, {dependsOn: [exampleLogGroup]});
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_cluster.html.markdown.

@@ -18,45 +18,16 @@ import * as utilities from "../utilities";
  * ### Create Empty Cached iSCSI Volume
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.storagegateway.CachesIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache_example.gatewayArn,
- *     networkInterfaceId: aws_instance_example.privateIp,
- *     targetName: "example",
- *     volumeSizeInBytes: 5368709120, // 5 GB
- * });
  * ```
  * 
  * ### Create Cached iSCSI Volume From Snapshot
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.storagegateway.CachesIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache_example.gatewayArn,
- *     networkInterfaceId: aws_instance_example.privateIp,
- *     snapshotId: aws_ebs_snapshot_example.id,
- *     targetName: "example",
- *     volumeSizeInBytes: aws_ebs_snapshot_example.volumeSize.apply(volumeSize => (((volumeSize * 1024) * 1024) * 1024)),
- * });
  * ```
  * 
  * ### Create Cached iSCSI Volume From Source Volume
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.storagegateway.CachesIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache_example.gatewayArn,
- *     networkInterfaceId: aws_instance_example.privateIp,
- *     sourceVolumeArn: aws_storagegateway_cached_iscsi_volume_existing.arn,
- *     targetName: "example",
- *     volumeSizeInBytes: aws_storagegateway_cached_iscsi_volume_existing.volumeSizeInBytes,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_cached_iscsi_volume.html.markdown.

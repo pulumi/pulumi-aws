@@ -12,13 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const routeTableAssociation = new aws.ec2.RouteTableAssociation("a", {
- *     routeTableId: aws_route_table_bar.id,
- *     subnetId: aws_subnet_foo.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table_association.html.markdown.

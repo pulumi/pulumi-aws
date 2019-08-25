@@ -19,15 +19,6 @@ import * as utilities from "../utilities";
  * Basic usage with tags:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultAz1 = new aws.ec2.DefaultSubnet("defaultAz1", {
- *     availabilityZone: "us-west-2a",
- *     tags: {
- *         Name: "Default subnet for us-west-2a",
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_subnet.html.markdown.

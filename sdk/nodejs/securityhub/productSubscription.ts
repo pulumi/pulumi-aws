@@ -12,14 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleAccount = new aws.securityhub.Account("example", {});
- * const current = aws.getRegion({});
- * const exampleProductSubscription = new aws.securityhub.ProductSubscription("example", {
- *     productArn: `arn:aws:securityhub:${current.name}:733251395267:product/alertlogic/althreatmanagement`,
- * }, {dependsOn: [exampleAccount]});
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_product_subscription.html.markdown.

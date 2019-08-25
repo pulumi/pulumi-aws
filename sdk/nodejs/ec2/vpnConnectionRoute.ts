@@ -12,30 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const customerGateway = new aws.ec2.CustomerGateway("customerGateway", {
- *     bgpAsn: 65000,
- *     ipAddress: "172.0.0.1",
- *     type: "ipsec.1",
- * });
- * const vpc = new aws.ec2.Vpc("vpc", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const vpnGateway = new aws.ec2.VpnGateway("vpnGateway", {
- *     vpcId: vpc.id,
- * });
- * const main = new aws.ec2.VpnConnection("main", {
- *     customerGatewayId: customerGateway.id,
- *     staticRoutesOnly: true,
- *     type: "ipsec.1",
- *     vpnGatewayId: vpnGateway.id,
- * });
- * const office = new aws.ec2.VpnConnectionRoute("office", {
- *     destinationCidrBlock: "192.168.10.0/24",
- *     vpnConnectionId: main.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection_route.html.markdown.

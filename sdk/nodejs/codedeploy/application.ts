@@ -12,34 +12,16 @@ import * as utilities from "../utilities";
  * ### ECS Application
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.codedeploy.Application("example", {
- *     computePlatform: "ECS",
- * });
  * ```
  * 
  * ### Lambda Application
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.codedeploy.Application("example", {
- *     computePlatform: "Lambda",
- * });
  * ```
  * 
  * ### Server Application
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.codedeploy.Application("example", {
- *     computePlatform: "Server",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codedeploy_app.html.markdown.

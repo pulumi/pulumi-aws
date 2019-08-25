@@ -14,151 +14,16 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleApplication = new aws.codedeploy.Application("example", {});
- * const exampleRole = new aws.iam.Role("example", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Sid": "",
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "codedeploy.amazonaws.com"
- *       },
- *       "Action": "sts:AssumeRole"
- *     }
- *   ]
- * }
- * `,
- * });
- * const exampleTopic = new aws.sns.Topic("example", {});
- * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
- *     alarmConfiguration: {
- *         alarms: ["my-alarm-name"],
- *         enabled: true,
- *     },
- *     appName: exampleApplication.name,
- *     autoRollbackConfiguration: {
- *         enabled: true,
- *         events: ["DEPLOYMENT_FAILURE"],
- *     },
- *     deploymentGroupName: "example-group",
- *     ec2TagSets: [{
- *         ec2TagFilters: [
- *             {
- *                 key: "filterkey1",
- *                 type: "KEY_AND_VALUE",
- *                 value: "filtervalue",
- *             },
- *             {
- *                 key: "filterkey2",
- *                 type: "KEY_AND_VALUE",
- *                 value: "filtervalue",
- *             },
- *         ],
- *     }],
- *     serviceRoleArn: exampleRole.arn,
- *     triggerConfigurations: [{
- *         triggerEvents: ["DeploymentFailure"],
- *         triggerName: "example-trigger",
- *         triggerTargetArn: exampleTopic.arn,
- *     }],
- * });
- * const aWSCodeDeployRole = new aws.iam.RolePolicyAttachment("AWSCodeDeployRole", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
- *     role: exampleRole.name,
- * });
  * ```
  * 
  * ### Blue Green Deployments with ECS
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleApplication = new aws.codedeploy.Application("example", {
- *     computePlatform: "ECS",
- * });
- * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
- *     appName: exampleApplication.name,
- *     autoRollbackConfiguration: {
- *         enabled: true,
- *         events: ["DEPLOYMENT_FAILURE"],
- *     },
- *     blueGreenDeploymentConfig: {
- *         deploymentReadyOption: {
- *             actionOnTimeout: "CONTINUE_DEPLOYMENT",
- *         },
- *         terminateBlueInstancesOnDeploymentSuccess: {
- *             action: "TERMINATE",
- *             terminationWaitTimeInMinutes: 5,
- *         },
- *     },
- *     deploymentConfigName: "CodeDeployDefault.ECSAllAtOnce",
- *     deploymentGroupName: "example",
- *     deploymentStyle: {
- *         deploymentOption: "WITH_TRAFFIC_CONTROL",
- *         deploymentType: "BLUE_GREEN",
- *     },
- *     ecsService: {
- *         clusterName: aws_ecs_cluster_example.name,
- *         serviceName: aws_ecs_service_example.name,
- *     },
- *     loadBalancerInfo: {
- *         targetGroupPairInfo: {
- *             prodTrafficRoute: {
- *                 listenerArns: [aws_lb_listener_example.arn],
- *             },
- *             targetGroups: [
- *                 {
- *                     name: aws_lb_target_group_blue.name,
- *                 },
- *                 {
- *                     name: aws_lb_target_group_green.name,
- *                 },
- *             ],
- *         },
- *     },
- *     serviceRoleArn: aws_iam_role_example.arn,
- * });
  * ```
  * 
  * ### Blue Green Deployments with Servers and Classic ELB
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleApplication = new aws.codedeploy.Application("example", {});
- * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
- *     appName: exampleApplication.name,
- *     blueGreenDeploymentConfig: {
- *         deploymentReadyOption: {
- *             actionOnTimeout: "STOP_DEPLOYMENT",
- *             waitTimeInMinutes: 60,
- *         },
- *         greenFleetProvisioningOption: {
- *             action: "DISCOVER_EXISTING",
- *         },
- *         terminateBlueInstancesOnDeploymentSuccess: {
- *             action: "KEEP_ALIVE",
- *         },
- *     },
- *     deploymentGroupName: "example-group",
- *     deploymentStyle: {
- *         deploymentOption: "WITH_TRAFFIC_CONTROL",
- *         deploymentType: "BLUE_GREEN",
- *     },
- *     loadBalancerInfo: {
- *         elbInfos: [{
- *             name: aws_elb_example.name,
- *         }],
- *     },
- *     serviceRoleArn: aws_iam_role_example.arn,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codedeploy_deployment_group.html.markdown.

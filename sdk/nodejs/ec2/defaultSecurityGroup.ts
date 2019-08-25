@@ -40,27 +40,6 @@ import * as utilities from "../utilities";
  * any ingress or egress rules added or changed will be detected as drift.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const defaultDefaultSecurityGroup = new aws.ec2.DefaultSecurityGroup("default", {
- *     egress: [{
- *         cidrBlocks: ["0.0.0.0/0"],
- *         fromPort: 0,
- *         protocol: "-1",
- *         toPort: 0,
- *     }],
- *     ingress: [{
- *         fromPort: 0,
- *         protocol: "-1",
- *         self: true,
- *         toPort: 0,
- *     }],
- *     vpcId: mainvpc.id,
- * });
  * ```
  * 
  * ## Example config to deny all Egress traffic, allowing Ingress
@@ -69,21 +48,6 @@ import * as utilities from "../utilities";
  * including the default `ingress` rule to allow all traffic.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const defaultDefaultSecurityGroup = new aws.ec2.DefaultSecurityGroup("default", {
- *     ingress: [{
- *         fromPort: 0,
- *         protocol: "-1",
- *         self: true,
- *         toPort: 0,
- *     }],
- *     vpcId: mainvpc.id,
- * });
  * ```
  * 
  * ## Usage

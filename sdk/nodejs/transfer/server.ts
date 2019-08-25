@@ -11,49 +11,6 @@ import * as utilities from "../utilities";
  * 
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const fooRole = new aws.iam.Role("foo", {
- *     assumeRolePolicy: `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 		"Effect": "Allow",
- * 		"Principal": {
- * 			"Service": "transfer.amazonaws.com"
- * 		},
- * 		"Action": "sts:AssumeRole"
- * 		}
- * 	]
- * }
- * `,
- * });
- * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
- *     policy: `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 		"Sid": "AllowFullAccesstoCloudWatchLogs",
- * 		"Effect": "Allow",
- * 		"Action": [
- * 			"logs:*"
- * 		],
- * 		"Resource": "*"
- * 		}
- * 	]
- * }
- * `,
- *     role: fooRole.id,
- * });
- * const fooServer = new aws.transfer.Server("foo", {
- *     identityProviderType: "SERVICE_MANAGED",
- *     loggingRole: fooRole.arn,
- *     tags: {
- *         ENV: "test",
- *         NAME: "tf-acc-test-transfer-server",
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_server.html.markdown.

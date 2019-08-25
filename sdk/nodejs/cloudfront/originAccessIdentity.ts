@@ -19,12 +19,6 @@ import * as utilities from "../utilities";
  * The following example below creates a CloudFront origin access identity.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const originAccessIdentity = new aws.cloudfront.OriginAccessIdentity("originAccessIdentity", {
- *     comment: "Some comment",
- * });
  * ```
  * 
  * ## Using With CloudFront
@@ -36,7 +30,6 @@ import * as utilities from "../utilities";
  * [`aws.cloudfront.Distribution`][3] resource:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
  * ```
  * 
  * ### Updating your bucket policy
@@ -47,33 +40,6 @@ import * as utilities from "../utilities";
  * you see this behaviour, use the `iamArn` instead:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const s3Policy = pulumi.all([aws_cloudfront_origin_access_identity_origin_access_identity.iamArn, aws_s3_bucket_example.arn, aws_cloudfront_origin_access_identity_origin_access_identity.iamArn, aws_s3_bucket_example.arn]).apply(([aws_cloudfront_origin_access_identity_origin_access_identityIamArn, aws_s3_bucket_exampleArn, aws_cloudfront_origin_access_identity_origin_access_identityIamArn1, aws_s3_bucket_exampleArn1]) => aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             actions: ["s3:GetObject"],
- *             principals: [{
- *                 identifiers: [aws_cloudfront_origin_access_identity_origin_access_identityIamArn],
- *                 type: "AWS",
- *             }],
- *             resources: [`${aws_s3_bucket_exampleArn}/*`],
- *         },
- *         {
- *             actions: ["s3:ListBucket"],
- *             principals: [{
- *                 identifiers: [aws_cloudfront_origin_access_identity_origin_access_identityIamArn1],
- *                 type: "AWS",
- *             }],
- *             resources: [aws_s3_bucket_exampleArn1],
- *         },
- *     ],
- * }));
- * const example = new aws.s3.BucketPolicy("example", {
- *     bucket: aws_s3_bucket_example.id,
- *     policy: s3Policy.json,
- * });
  * ```
  * 
  * [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html

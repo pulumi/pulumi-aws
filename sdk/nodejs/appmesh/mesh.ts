@@ -14,25 +14,11 @@ import * as utilities from "../utilities";
  * ### Basic
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const simple = new aws.appmesh.Mesh("simple", {});
  * ```
  * 
  * ### Egress Filter
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const simple = new aws.appmesh.Mesh("simple", {
- *     spec: {
- *         egressFilter: {
- *             type: "ALLOW_ALL",
- *         },
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_mesh.html.markdown.

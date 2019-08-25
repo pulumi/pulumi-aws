@@ -14,102 +14,21 @@ import * as utilities from "../utilities";
  * ### DynamoDB Table Autoscaling
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodbTableReadTarget", {
- *     maxCapacity: 100,
- *     minCapacity: 5,
- *     resourceId: "table/tableName",
- *     roleArn: aws_iam_role_DynamoDBAutoscaleRole.arn,
- *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
- *     serviceNamespace: "dynamodb",
- * });
- * const dynamodbTableReadPolicy = new aws.appautoscaling.Policy("dynamodbTableReadPolicy", {
- *     policyType: "TargetTrackingScaling",
- *     resourceId: dynamodbTableReadTarget.resourceId,
- *     scalableDimension: dynamodbTableReadTarget.scalableDimension,
- *     serviceNamespace: dynamodbTableReadTarget.serviceNamespace,
- *     targetTrackingScalingPolicyConfiguration: {
- *         predefinedMetricSpecification: {
- *             predefinedMetricType: "DynamoDBReadCapacityUtilization",
- *         },
- *         targetValue: 70,
- *     },
- * });
  * ```
  * 
  * ### ECS Service Autoscaling
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
- *     maxCapacity: 4,
- *     minCapacity: 1,
- *     resourceId: "service/clusterName/serviceName",
- *     roleArn: var_ecs_iam_role,
- *     scalableDimension: "ecs:service:DesiredCount",
- *     serviceNamespace: "ecs",
- * });
- * const ecsPolicy = new aws.appautoscaling.Policy("ecsPolicy", {
- *     policyType: "StepScaling",
- *     resourceId: ecsTarget.resourceId,
- *     scalableDimension: ecsTarget.scalableDimension,
- *     serviceNamespace: ecsTarget.serviceNamespace,
- *     stepScalingPolicyConfiguration: {
- *         adjustmentType: "ChangeInCapacity",
- *         cooldown: 60,
- *         metricAggregationType: "Maximum",
- *         stepAdjustments: [{
- *             metricIntervalUpperBound: "0",
- *             scalingAdjustment: -1,
- *         }],
- *     },
- * });
  * ```
  * 
  * ### Preserve desired count when updating an autoscaled ECS Service
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ecsService = new aws.ecs.Service("ecsService", {
- *     cluster: "clusterName",
- *     desiredCount: 2,
- *     taskDefinition: "taskDefinitionFamily:1",
- * });
  * ```
  * 
  * ### Aurora Read Replica Autoscaling
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const replicasTarget = new aws.appautoscaling.Target("replicas", {
- *     maxCapacity: 15,
- *     minCapacity: 1,
- *     resourceId: pulumi.interpolate`cluster:${aws_rds_cluster_example.id}`,
- *     scalableDimension: "rds:cluster:ReadReplicaCount",
- *     serviceNamespace: "rds",
- * });
- * const replicasPolicy = new aws.appautoscaling.Policy("replicas", {
- *     policyType: "TargetTrackingScaling",
- *     resourceId: replicasTarget.resourceId,
- *     scalableDimension: replicasTarget.scalableDimension,
- *     serviceNamespace: replicasTarget.serviceNamespace,
- *     targetTrackingScalingPolicyConfiguration: {
- *         predefinedMetricSpecification: {
- *             predefinedMetricType: "RDSReaderAverageCPUUtilization",
- *         },
- *         scaleInCooldown: 300,
- *         scaleOutCooldown: 300,
- *         targetValue: 75,
- *     },
- * });
  * ```
  * 
  * ## Nested fields

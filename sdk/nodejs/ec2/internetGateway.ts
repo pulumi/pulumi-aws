@@ -12,15 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const gw = new aws.ec2.InternetGateway("gw", {
- *     tags: {
- *         Name: "main",
- *     },
- *     vpcId: aws_vpc_main.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/internet_gateway.html.markdown.

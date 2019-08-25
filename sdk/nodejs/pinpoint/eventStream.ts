@@ -12,51 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testRole = new aws.iam.Role("testRole", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "pinpoint.us-east-1.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- * });
- * const testStream = new aws.kinesis.Stream("testStream", {
- *     shardCount: 1,
- * });
- * const app = new aws.pinpoint.App("app", {});
- * const testRolePolicy = new aws.iam.RolePolicy("testRolePolicy", {
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": {
- *     "Action": [
- *       "kinesis:PutRecords",
- *       "kinesis:DescribeStream"
- *     ],
- *     "Effect": "Allow",
- *     "Resource": [
- *       "arn:aws:kinesis:us-east-1:*:*&#47;*"
- *     ]
- *   }
- * }
- * `,
- *     role: testRole.id,
- * });
- * const stream = new aws.pinpoint.EventStream("stream", {
- *     applicationId: app.applicationId,
- *     destinationStreamArn: testStream.arn,
- *     roleArn: testRole.arn,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_event_stream.html.markdown.

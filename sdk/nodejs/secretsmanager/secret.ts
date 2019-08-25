@@ -14,10 +14,6 @@ import * as utilities from "../utilities";
  * ### Basic
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.secretsmanager.Secret("example", {});
  * ```
  * 
  * ### Rotation Configuration
@@ -29,15 +25,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** If you cancel a rotation that is in progress (by removing the `rotation` configuration), it can leave the VersionStage labels in an unexpected state. Depending on what step of the rotation was in progress, you might need to remove the staging label AWSPENDING from the partially created version, specified by the SecretVersionId response value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can do by removing all staging labels from the new version's VersionStage field.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const rotationExample = new aws.secretsmanager.Secret("rotation-example", {
- *     rotationLambdaArn: aws_lambda_function_example.arn,
- *     rotationRules: {
- *         automaticallyAfterDays: 7,
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/secretsmanager_secret.html.markdown.

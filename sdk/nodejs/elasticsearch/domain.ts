@@ -16,21 +16,6 @@ import {PolicyDocument} from "../iam/documents";
  * ### Basic Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.elasticsearch.Domain("example", {
- *     clusterConfig: {
- *         instanceType: "r4.large.elasticsearch",
- *     },
- *     elasticsearchVersion: "1.5",
- *     snapshotOptions: {
- *         automatedSnapshotStartHour: 23,
- *     },
- *     tags: {
- *         Domain: "TestDomain",
- *     },
- * });
  * ```
  * 
  * ### Access Policy
@@ -38,138 +23,15 @@ import {PolicyDocument} from "../iam/documents";
  * > See also: [`aws.elasticsearch.DomainPolicy` resource](https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html)
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const domain = config.get("domain") || "tf-test";
- * 
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentRegion = aws.getRegion({});
- * const example = new aws.elasticsearch.Domain("example", {
- *     accessPolicies: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "es:*",
- *       "Principal": "*",
- *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*",
- *       "Condition": {
- *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
- *       }
- *     }
- *   ]
- * }
- * `,
- * });
  * ```
  * 
  * ### Log Publishing to CloudWatch Logs
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
- * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
- *     policyDocument: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "es.amazonaws.com"
- *       },
- *       "Action": [
- *         "logs:PutLogEvents",
- *         "logs:PutLogEventsBatch",
- *         "logs:CreateLogStream"
- *       ],
- *       "Resource": "arn:aws:logs:*"
- *     }
- *   ]
- * }
- * `,
- *     policyName: "example",
- * });
- * const exampleDomain = new aws.elasticsearch.Domain("example", {
- *     logPublishingOptions: [{
- *         cloudwatchLogGroupArn: exampleLogGroup.arn,
- *         logType: "INDEX_SLOW_LOGS",
- *     }],
- * });
  * ```
  * ### VPC based ES
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const domain = config.get("domain") || "tf-test";
- * const vpc = config.require("vpc");
- * 
- * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("es", {
- *     awsServiceName: "es.amazonaws.com",
- * });
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentRegion = aws.getRegion({});
- * const selectedVpc = aws.ec2.getVpc({
- *     tags: {
- *         Name: vpc,
- *     },
- * });
- * const selectedSubnetIds = aws.ec2.getSubnetIds({
- *     tags: {
- *         Tier: "private",
- *     },
- *     vpcId: selectedVpc.id,
- * });
- * const esDomain = new aws.elasticsearch.Domain("es", {
- *     accessPolicies: `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 			"Action": "es:*",
- * 			"Principal": "*",
- * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*"
- * 		}
- * 	]
- * }
- * `,
- *     advancedOptions: {
- *         "rest.action.multi.allow_explicit_index": "true",
- *     },
- *     clusterConfig: {
- *         instanceType: "m4.large.elasticsearch",
- *     },
- *     elasticsearchVersion: "6.3",
- *     snapshotOptions: {
- *         automatedSnapshotStartHour: 23,
- *     },
- *     tags: {
- *         Domain: "TestDomain",
- *     },
- *     vpcOptions: {
- *         securityGroupIds: [aws_security_group_elasticsearch.id],
- *         subnetIds: [
- *             selectedSubnetIds.ids[0],
- *             selectedSubnetIds.ids[1],
- *         ],
- *     },
- * }, {dependsOn: [esServiceLinkedRole]});
- * const esSecurityGroup = new aws.ec2.SecurityGroup("es", {
- *     description: "Managed by Pulumi",
- *     ingress: [{
- *         cidrBlocks: [selectedVpc.cidrBlocks],
- *         fromPort: 443,
- *         protocol: "tcp",
- *         toPort: 443,
- *     }],
- *     vpcId: selectedVpc.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticsearch_domain.html.markdown.

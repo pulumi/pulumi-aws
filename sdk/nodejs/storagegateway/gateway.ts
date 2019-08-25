@@ -16,59 +16,21 @@ import * as utilities from "../utilities";
  * ### File Gateway
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.storagegateway.Gateway("example", {
- *     gatewayIpAddress: "1.2.3.4",
- *     gatewayName: "example",
- *     gatewayTimezone: "GMT",
- *     gatewayType: "FILE_S3",
- * });
  * ```
  * 
  * ### Tape Gateway
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.storagegateway.Gateway("example", {
- *     gatewayIpAddress: "1.2.3.4",
- *     gatewayName: "example",
- *     gatewayTimezone: "GMT",
- *     gatewayType: "VTL",
- *     mediaChangerType: "AWS-Gateway-VTL",
- *     tapeDriveType: "IBM-ULT3580-TD5",
- * });
  * ```
  * 
  * ### Volume Gateway (Cached)
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.storagegateway.Gateway("example", {
- *     gatewayIpAddress: "1.2.3.4",
- *     gatewayName: "example",
- *     gatewayTimezone: "GMT",
- *     gatewayType: "CACHED",
- * });
  * ```
  * 
  * ### Volume Gateway (Stored)
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.storagegateway.Gateway("example", {
- *     gatewayIpAddress: "1.2.3.4",
- *     gatewayName: "example",
- *     gatewayTimezone: "GMT",
- *     gatewayType: "STORED",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_gateway.html.markdown.

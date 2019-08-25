@@ -12,42 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const test = new aws.sns.Topic("test", {});
- * const snsTopicPolicy = test.arn.apply(arn => aws.iam.getPolicyDocument({
- *     policyId: "__default_policy_ID",
- *     statements: [{
- *         actions: [
- *             "SNS:Subscribe",
- *             "SNS:SetTopicAttributes",
- *             "SNS:RemovePermission",
- *             "SNS:Receive",
- *             "SNS:Publish",
- *             "SNS:ListSubscriptionsByTopic",
- *             "SNS:GetTopicAttributes",
- *             "SNS:DeleteTopic",
- *             "SNS:AddPermission",
- *         ],
- *         conditions: [{
- *             test: "StringEquals",
- *             values: [varAccountId],
- *             variable: "AWS:SourceOwner",
- *         }],
- *         effect: "Allow",
- *         principals: [{
- *             identifiers: ["*"],
- *             type: "AWS",
- *         }],
- *         resources: [arn],
- *         sid: "__default_statement_ID",
- *     }],
- * }));
- * const defaultTopicPolicy = new aws.sns.TopicPolicy("default", {
- *     arn: test.arn,
- *     policy: sns_topic_policy.json,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_policy.html.markdown.

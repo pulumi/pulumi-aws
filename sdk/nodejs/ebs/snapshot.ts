@@ -10,22 +10,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ebs.Volume("example", {
- *     availabilityZone: "us-west-2a",
- *     size: 40,
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * const exampleSnapshot = new aws.ebs.Snapshot("exampleSnapshot", {
- *     tags: {
- *         Name: "HelloWorld_snap",
- *     },
- *     volumeId: example.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot.html.markdown.

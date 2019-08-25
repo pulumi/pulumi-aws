@@ -12,55 +12,16 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ec2 = new aws.budgets.Budget("ec2", {
- *     budgetType: "COST",
- *     costFilters: {
- *         Service: "Amazon Elastic Compute Cloud - Compute",
- *     },
- *     limitAmount: "1200",
- *     limitUnit: "USD",
- *     notifications: [{
- *         comparisonOperator: "GREATER_THAN",
- *         notificationType: "FORECASTED",
- *         subscriberEmailAddresses: ["test@example.com"],
- *         threshold: 100,
- *         thresholdType: "PERCENTAGE",
- *     }],
- *     timePeriodEnd: "2087-06-15_00:00",
- *     timePeriodStart: "2017-07-01_00:00",
- *     timeUnit: "MONTHLY",
- * });
  * ```
  * 
  * Create a budget for *$100*.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const cost = new aws.budgets.Budget("cost", {
- *     // ...
- *     budgetType: "COST",
- *     limitAmount: "100",
- *     limitUnit: "USD",
- * });
  * ```
  * 
  * Create a budget for s3 with a limit of *3 GB* of storage.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const s3 = new aws.budgets.Budget("s3", {
- *     // ...
- *     budgetType: "USAGE",
- *     limitAmount: "3",
- *     limitUnit: "GB",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/budgets_budget.html.markdown.

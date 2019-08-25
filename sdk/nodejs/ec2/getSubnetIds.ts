@@ -16,20 +16,6 @@ import * as utilities from "../utilities";
  * The following shows outputing all cidr blocks for every subnet id in a vpc.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleSubnetIds = aws.ec2.getSubnetIds({
- *     vpcId: var_vpc_id,
- * });
- * const exampleSubnet: aws.ec2.GetSubnetResult[] = [];
- * for (let i = 0; i < exampleSubnetIds.ids.length; i++) {
- *     exampleSubnet.push(aws.ec2.getSubnet({
- *         id: exampleSubnetIds.ids[i],
- *     }));
- * }
- * 
- * export const subnetCidrBlocks = exampleSubnet.map(v => v.cidrBlock);
  * ```
  * 
  * The following example retrieves a list of all subnets in a VPC with a custom
@@ -37,23 +23,6 @@ import * as utilities from "../utilities";
  * can loop through the subnets, putting instances across availability zones.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const privateSubnetIds = aws.ec2.getSubnetIds({
- *     tags: {
- *         Tier: "Private",
- *     },
- *     vpcId: var_vpc_id,
- * });
- * const app: aws.ec2.Instance[] = [];
- * for (let i = 0; i < 3; i++) {
- *     app.push(new aws.ec2.Instance(`app-${i}`, {
- *         ami: var_ami,
- *         instanceType: "t2.micro",
- *         subnetId: privateSubnetIds.ids[i],
- *     }));
- * }
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.

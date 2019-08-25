@@ -18,23 +18,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const barNetworkAcl = new aws.ec2.NetworkAcl("bar", {
- *     vpcId: aws_vpc_foo.id,
- * });
- * const barNetworkAclRule = new aws.ec2.NetworkAclRule("bar", {
- *     // Opening to 0.0.0.0/0 can lead to security vulnerabilities.
- *     cidrBlock: "", // add a CIDR block here
- *     egress: false,
- *     fromPort: 22,
- *     networkAclId: barNetworkAcl.id,
- *     protocol: "tcp",
- *     ruleAction: "allow",
- *     ruleNumber: 200,
- *     toPort: 22,
- * });
  * ```
  * 
  * > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.

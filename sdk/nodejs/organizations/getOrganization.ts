@@ -11,37 +11,14 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * ### List all account IDs for the organization
+ * 
+ * ```typescript
+ * ```
+ * 
  * ### SNS topic that can be interacted by the organization only
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const snsTopic = new aws.sns.Topic("snsTopic", {});
- * const example = aws.organizations.getOrganization({});
- * const snsTopicPolicyPolicyDocument = snsTopic.arn.apply(arn => aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: [
- *             "SNS:Subscribe",
- *             "SNS:Publish",
- *         ],
- *         conditions: [{
- *             test: "StringEquals",
- *             values: [example],
- *             variable: "aws:PrincipalOrgID",
- *         }],
- *         effect: "Allow",
- *         principals: [{
- *             identifiers: ["*"],
- *             type: "AWS",
- *         }],
- *         resources: [arn],
- *     }],
- * }));
- * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("snsTopicPolicy", {
- *     arn: snsTopic.arn,
- *     policy: snsTopicPolicyPolicyDocument.json,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organization.html.markdown.

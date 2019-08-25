@@ -18,22 +18,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const listenerArn = config.require("listenerArn");
- * 
- * const selected = aws.lb.getLoadBalancer({
- *     name: "default-public",
- * });
- * const listener = aws.lb.getListener({
- *     arn: listenerArn,
- * });
- * const selected443 = aws.lb.getListener({
- *     loadBalancerArn: selected.arn,
- *     port: 443,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener.html.markdown.

@@ -21,47 +21,6 @@ import * as utilities from "../utilities";
  * For capturing events from services like IAM, `includeGlobalServiceEvents` must be enabled.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const current = aws.getCallerIdentity({});
- * const foo = new aws.s3.Bucket("foo", {
- *     forceDestroy: true,
- *     policy: `{
- *     "Version": "2012-10-17",
- *     "Statement": [
- *         {
- *             "Sid": "AWSCloudTrailAclCheck",
- *             "Effect": "Allow",
- *             "Principal": {
- *               "Service": "cloudtrail.amazonaws.com"
- *             },
- *             "Action": "s3:GetBucketAcl",
- *             "Resource": "arn:aws:s3:::tf-test-trail"
- *         },
- *         {
- *             "Sid": "AWSCloudTrailWrite",
- *             "Effect": "Allow",
- *             "Principal": {
- *               "Service": "cloudtrail.amazonaws.com"
- *             },
- *             "Action": "s3:PutObject",
- *             "Resource": "arn:aws:s3:::tf-test-trail/prefix/AWSLogs/${current.accountId}/*",
- *             "Condition": {
- *                 "StringEquals": {
- *                     "s3:x-amz-acl": "bucket-owner-full-control"
- *                 }
- *             }
- *         }
- *     ]
- * }
- * `,
- * });
- * const foobar = new aws.cloudtrail.Trail("foobar", {
- *     includeGlobalServiceEvents: false,
- *     s3BucketName: foo.id,
- *     s3KeyPrefix: "prefix",
- * });
  * ```
  * 
  * ### Data Event Logging
@@ -71,60 +30,16 @@ import * as utilities from "../utilities";
  * #### Logging All Lambda Function Invocations
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.cloudtrail.Trail("example", {
- *     eventSelectors: [{
- *         dataResources: [{
- *             type: "AWS::Lambda::Function",
- *             values: ["arn:aws:lambda"],
- *         }],
- *         includeManagementEvents: true,
- *         readWriteType: "All",
- *     }],
- * });
  * ```
  * 
  * #### Logging All S3 Bucket Object Events
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.cloudtrail.Trail("example", {
- *     eventSelectors: [{
- *         dataResources: [{
- *             type: "AWS::S3::Object",
- *             values: ["arn:aws:s3:::"],
- *         }],
- *         includeManagementEvents: true,
- *         readWriteType: "All",
- *     }],
- * });
  * ```
  * 
  * #### Logging Individual S3 Bucket Events
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const importantBucket = aws.s3.getBucket({
- *     bucket: "important-bucket",
- * });
- * const example = new aws.cloudtrail.Trail("example", {
- *     eventSelectors: [{
- *         dataResources: [{
- *             type: "AWS::S3::Object",
- *             // Make sure to append a trailing '/' to your ARN if you want
- *             // to monitor all objects in a bucket.
- *             values: [`${important_bucket.arn}/`],
- *         }],
- *         includeManagementEvents: true,
- *         readWriteType: "All",
- *     }],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudtrail.html.markdown.

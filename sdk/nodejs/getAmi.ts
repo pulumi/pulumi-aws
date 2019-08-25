@@ -13,29 +13,6 @@ import * as utilities from "./utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.getAmi({
- *     executableUsers: ["self"],
- *     filters: [
- *         {
- *             name: "name",
- *             values: ["myami-*"],
- *         },
- *         {
- *             name: "root-device-type",
- *             values: ["ebs"],
- *         },
- *         {
- *             name: "virtualization-type",
- *             values: ["hvm"],
- *         },
- *     ],
- *     mostRecent: true,
- *     nameRegex: "^myami-\\d{3}",
- *     owners: ["self"],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.

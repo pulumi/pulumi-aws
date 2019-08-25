@@ -14,10 +14,6 @@ import * as utilities from "../utilities";
  * ### Public Zone
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const primary = new aws.route53.Zone("primary", {});
  * ```
  * 
  * ### Public Subdomain Zone
@@ -27,26 +23,6 @@ import * as utilities from "../utilities";
  * zone.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const dev = new aws.route53.Zone("dev", {
- *     tags: {
- *         Environment: "dev",
- *     },
- * });
- * const main = new aws.route53.Zone("main", {});
- * const devNs = new aws.route53.Record("dev-ns", {
- *     records: [
- *         dev.nameServers[0],
- *         dev.nameServers[1],
- *         dev.nameServers[2],
- *         dev.nameServers[3],
- *     ],
- *     ttl: 30,
- *     type: "NS",
- *     zoneId: main.zoneId,
- * });
  * ```
  * 
  * ### Private Zone
@@ -56,14 +32,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** Private zones require at least one VPC association at all times.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const privateZone = new aws.route53.Zone("private", {
- *     vpcs: [{
- *         vpcId: aws_vpc_example.id,
- *     }],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone.html.markdown.

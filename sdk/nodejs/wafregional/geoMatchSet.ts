@@ -12,21 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const geoMatchSet = new aws.wafregional.GeoMatchSet("geoMatchSet", {
- *     geoMatchConstraints: [
- *         {
- *             type: "Country",
- *             value: "US",
- *         },
- *         {
- *             type: "Country",
- *             value: "CA",
- *         },
- *     ],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_geo_match_set.html.markdown.

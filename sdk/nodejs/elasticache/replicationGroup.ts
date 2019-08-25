@@ -26,21 +26,6 @@ import * as utilities from "../utilities";
  * To create a single shard primary with single read replica:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.elasticache.ReplicationGroup("example", {
- *     automaticFailoverEnabled: true,
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *     ],
- *     nodeType: "cache.m4.large",
- *     numberCacheClusters: 2,
- *     parameterGroupName: "default.redis3.2",
- *     port: 6379,
- *     replicationGroupDescription: "test description",
- * });
  * ```
  * 
  * You have two options for adjusting the number of replicas:
@@ -49,24 +34,6 @@ import * as utilities from "../utilities";
  * * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the [`aws.elasticache.Cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html) and its `replicationGroupId` attribute. In this situation, you will need to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` to prevent perpetual differences with the `numberCacheCluster` attribute.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.elasticache.ReplicationGroup("example", {
- *     automaticFailoverEnabled: true,
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *     ],
- *     nodeType: "cache.m4.large",
- *     numberCacheClusters: 2,
- *     parameterGroupName: "default.redis3.2",
- *     port: 6379,
- *     replicationGroupDescription: "test description",
- * });
- * const replica = new aws.elasticache.Cluster("replica", {
- *     replicationGroupId: example.id,
- * });
  * ```
  * 
  * ### Redis Cluster Mode Enabled
@@ -74,20 +41,6 @@ import * as utilities from "../utilities";
  * To create two shards with a primary and a single read replica each:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const baz = new aws.elasticache.ReplicationGroup("baz", {
- *     automaticFailoverEnabled: true,
- *     clusterMode: {
- *         numNodeGroups: 2,
- *         replicasPerNodeGroup: 1,
- *     },
- *     nodeType: "cache.t2.small",
- *     parameterGroupName: "default.redis3.2.cluster.on",
- *     port: 6379,
- *     replicationGroupDescription: "test description",
- * });
  * ```
  * 
  * > **Note:** We currently do not support passing a `primaryClusterId` in order to create the Replication Group.

@@ -14,32 +14,11 @@ import * as utilities from "../utilities";
  * ### Python Job
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.glue.Job("example", {
- *     command: {
- *         scriptLocation: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}/example.py`,
- *     },
- *     roleArn: aws_iam_role_example.arn,
- * });
  * ```
  * 
  * ### Scala Job
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.glue.Job("example", {
- *     command: {
- *         scriptLocation: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}/example.scala`,
- *     },
- *     defaultArguments: {
- *         "--job-language": "scala",
- *     },
- *     roleArn: aws_iam_role_example.arn,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_job.html.markdown.

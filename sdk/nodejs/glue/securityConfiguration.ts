@@ -12,23 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.glue.SecurityConfiguration("example", {
- *     encryptionConfiguration: {
- *         cloudwatchEncryption: {
- *             cloudwatchEncryptionMode: "DISABLED",
- *         },
- *         jobBookmarksEncryption: {
- *             jobBookmarksEncryptionMode: "DISABLED",
- *         },
- *         s3Encryption: {
- *             kmsKeyArn: aws_kms_key_example.arn,
- *             s3EncryptionMode: "SSE-KMS",
- *         },
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_security_configuration.html.markdown.

@@ -21,18 +21,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const docdb = new aws.docdb.Cluster("docdb", {
- *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "my-docdb-cluster",
- *     engine: "docdb",
- *     masterPassword: "mustbeeightchars",
- *     masterUsername: "foo",
- *     preferredBackupWindow: "07:00-09:00",
- *     skipFinalSnapshot: true,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster.html.markdown.

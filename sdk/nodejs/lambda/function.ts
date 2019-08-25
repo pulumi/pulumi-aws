@@ -18,36 +18,6 @@ import {ARN} from "../index";
  * ### Basic Example
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const iamForLambda = new aws.iam.Role("iamForLambda", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- * });
- * const testLambda = new aws.lambda.Function("testLambda", {
- *     environment: {
- *         variables: {
- *             foo: "bar",
- *         },
- *     },
- *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
- *     handler: "exports.test",
- *     role: iamForLambda.arn,
- *     runtime: "nodejs8.10",
- * });
  * ```
  * 
  * ### Lambda Layers
@@ -55,14 +25,13 @@ import {ARN} from "../index";
  * > **NOTE:** The `aws.lambda.LayerVersion` attribute values for `arn` and `layerArn` were swapped in version 2.0.0 of the this provider AWS Provider. For version 1.x, use `layerArn` references. For version 2.x, use `arn` references.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
+ * ```
  * 
- * const exampleLayerVersion = new aws.lambda.LayerVersion("example", {});
- * const exampleFunction = new aws.lambda.Function("example", {
- *     // ... other configuration ...
- *     layers: [exampleLayerVersion.arn],
- * });
+ * ## CloudWatch Logging and Permissions
+ * 
+ * For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
+ * 
+ * ```typescript
  * ```
  * 
  * ## Specifying the Deployment Package

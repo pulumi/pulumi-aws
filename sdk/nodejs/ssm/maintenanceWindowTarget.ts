@@ -12,23 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const window = new aws.ssm.MaintenanceWindow("window", {
- *     cutoff: 1,
- *     duration: 3,
- *     schedule: "cron(0 16 ? * TUE *)",
- * });
- * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
- *     description: "This is a maintenance window target",
- *     resourceType: "INSTANCE",
- *     targets: [{
- *         key: "tag:Name",
- *         values: ["acceptanceTest"],
- *     }],
- *     windowId: window.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_target.html.markdown.

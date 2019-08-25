@@ -16,33 +16,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const primary = new aws.ec2.Vpc("primary", {
- *     cidrBlock: "10.6.0.0/16",
- *     enableDnsHostnames: true,
- *     enableDnsSupport: true,
- * });
- * const secondaryVpc = new aws.ec2.Vpc("secondary", {
- *     cidrBlock: "10.7.0.0/16",
- *     enableDnsHostnames: true,
- *     enableDnsSupport: true,
- * });
- * const example = new aws.route53.Zone("example", {
- *     // NOTE: The aws.route53.Zone vpc argument accepts multiple configuration
- *     //       blocks. The below usage of the single vpc configuration, the
- *     //       lifecycle configuration, and the aws.route53.ZoneAssociation
- *     //       resource is for illustrative purposes (e.g. for a separate
- *     //       cross-account authorization process, which is not shown here).
- *     vpcs: [{
- *         vpcId: primary.id,
- *     }],
- * });
- * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondary", {
- *     vpcId: secondaryVpc.id,
- *     zoneId: example.zoneId,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone_association.html.markdown.

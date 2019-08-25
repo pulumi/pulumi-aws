@@ -15,25 +15,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const developmentFinalSnapshot = aws.rds.getClusterSnapshot({
- *     dbClusterIdentifier: "developmentCluster",
- *     mostRecent: true,
- * });
- * // Use the last snapshot of the dev database before it was destroyed to create
- * // a new dev database.
- * const auroraCluster = new aws.rds.Cluster("aurora", {
- *     clusterIdentifier: "developmentCluster",
- *     dbSubnetGroupName: "myDbSubnetGroup",
- *     snapshotIdentifier: developmentFinalSnapshot.id,
- * });
- * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
- *     clusterIdentifier: auroraCluster.id,
- *     dbSubnetGroupName: "myDbSubnetGroup",
- *     instanceClass: "db.t2.small",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.

@@ -14,65 +14,11 @@ import * as utilities from "../utilities";
  * ### Basic Table
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws.glue.CatalogTable", {
- *     databaseName: "MyCatalogDatabase",
- * });
  * ```
  * 
  * ### Parquet Table for Athena
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws.glue.CatalogTable", {
- *     databaseName: "MyCatalogDatabase",
- *     parameters: {
- *         EXTERNAL: "TRUE",
- *         "parquet.compression": "SNAPPY",
- *     },
- *     storageDescriptor: {
- *         columns: [
- *             {
- *                 name: "myString",
- *                 type: "string",
- *             },
- *             {
- *                 name: "myDouble",
- *                 type: "double",
- *             },
- *             {
- *                 comment: "",
- *                 name: "myDate",
- *                 type: "date",
- *             },
- *             {
- *                 comment: "",
- *                 name: "myBigint",
- *                 type: "bigint",
- *             },
- *             {
- *                 comment: "",
- *                 name: "myStruct",
- *                 type: "struct<my_nested_string:string>",
- *             },
- *         ],
- *         inputFormat: "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
- *         location: "s3://my-bucket/event-streams/my-stream",
- *         outputFormat: "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
- *         serDeInfo: {
- *             name: "my-stream",
- *             parameters: {
- *                 "serialization.format": 1,
- *             },
- *             serializationLibrary: "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
- *         },
- *     },
- *     tableType: "EXTERNAL_TABLE",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_table.html.markdown.

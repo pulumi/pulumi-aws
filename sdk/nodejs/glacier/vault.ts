@@ -14,38 +14,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const awsSnsTopic = new aws.sns.Topic("aws.sns.Topic", {});
- * const myArchive = new aws.glacier.Vault("myArchive", {
- *     accessPolicy: `{
- *     "Version":"2012-10-17",
- *     "Statement":[
- *        {
- *           "Sid": "add-read-only-perm",
- *           "Principal": "*",
- *           "Effect": "Allow",
- *           "Action": [
- *              "glacier:InitiateJob",
- *              "glacier:GetJobOutput"
- *           ],
- *           "Resource": "arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"
- *        }
- *     ]
- * }
- * `,
- *     notifications: [{
- *         events: [
- *             "ArchiveRetrievalCompleted",
- *             "InventoryRetrievalCompleted",
- *         ],
- *         snsTopic: awsSnsTopic.arn,
- *     }],
- *     tags: {
- *         Test: "MyArchive",
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glacier_vault.html.markdown.

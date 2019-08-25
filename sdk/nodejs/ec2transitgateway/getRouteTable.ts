@@ -14,32 +14,11 @@ import * as utilities from "../utilities";
  * ### By Filter
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ec2transitgateway.getRouteTable({
- *     filters: [
- *         {
- *             name: "default-association-route-table",
- *             values: ["true"],
- *         },
- *         {
- *             name: "transit-gateway-id",
- *             values: ["tgw-12345678"],
- *         },
- *     ],
- * });
  * ```
  * 
  * ### By Identifier
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ec2transitgateway.getRouteTable({
- *     id: "tgw-rtb-12345678",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_route_table.html.markdown.

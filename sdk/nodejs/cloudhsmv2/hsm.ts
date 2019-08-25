@@ -14,16 +14,6 @@ import * as utilities from "../utilities";
  * The following example below creates an HSM module in CloudHSM cluster.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const cluster = aws.cloudhsmv2.getCluster({
- *     clusterId: var_cloudhsm_cluster_id,
- * });
- * const cloudhsmV2Hsm = new aws.cloudhsmv2.Hsm("cloudhsmV2Hsm", {
- *     clusterId: cluster.clusterId,
- *     subnetId: cluster.subnetIds[0],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_hsm.html.markdown.

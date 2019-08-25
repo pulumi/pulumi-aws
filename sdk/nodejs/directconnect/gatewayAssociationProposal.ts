@@ -10,14 +10,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.directconnect.GatewayAssociationProposal("example", {
- *     associatedGatewayId: aws_vpn_gateway_example.id,
- *     dxGatewayId: aws_dx_gateway_example.id,
- *     dxGatewayOwnerAccountId: aws_dx_gateway_example.ownerAccountId,
- * });
  * ```
  * 
  * A full example of how to create a VPN Gateway in one AWS account, create a Direct Connect Gateway in a second AWS account, and associate the VPN Gateway with the Direct Connect Gateway via the `aws.directconnect.GatewayAssociationProposal` and `aws.directconnect.GatewayAssociation` resources can be found in [the `./examples/dx-gateway-cross-account-vgw-association` directory within the Github Repository](https://github.com/providers/provider-aws/tree/master/examples/dx-gateway-cross-account-vgw-association).

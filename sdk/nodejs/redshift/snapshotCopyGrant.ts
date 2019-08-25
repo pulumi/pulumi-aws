@@ -14,19 +14,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testSnapshotCopyGrant = new aws.redshift.SnapshotCopyGrant("test", {
- *     snapshotCopyGrantName: "my-grant",
- * });
- * const testCluster = new aws.redshift.Cluster("test", {
- *     // ... other configuration ...
- *     snapshotCopy: {
- *         destinationRegion: "us-east-2",
- *         grantName: testSnapshotCopyGrant.snapshotCopyGrantName,
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_snapshot_copy_grant.html.markdown.

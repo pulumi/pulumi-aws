@@ -12,18 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.pinpoint.App("example", {
- *     limits: {
- *         maximumDuration: 600,
- *     },
- *     quietTime: {
- *         end: "06:00",
- *         start: "00:00",
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_app.html.markdown.

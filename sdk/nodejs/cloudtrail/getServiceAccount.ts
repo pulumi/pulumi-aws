@@ -13,37 +13,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const main = aws.cloudtrail.getServiceAccount({});
- * const bucket = new aws.s3.Bucket("bucket", {
- *     forceDestroy: true,
- *     policy: `{
- *   "Version": "2008-10-17",
- *   "Statement": [
- *     {
- *       "Sid": "Put bucket policy needed for trails",
- *       "Effect": "Allow",
- *       "Principal": {
- *         "AWS": "${main.arn}"
- *       },
- *       "Action": "s3:PutObject",
- *       "Resource": "arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*"
- *     },
- *     {
- *       "Sid": "Get bucket policy needed for trails",
- *       "Effect": "Allow",
- *       "Principal": {
- *         "AWS": "${main.arn}"
- *       },
- *       "Action": "s3:GetBucketAcl",
- *       "Resource": "arn:aws:s3:::tf-cloudtrail-logging-test-bucket"
- *     }
- *   ]
- * }
- * `,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudtrail_service_account.html.markdown.

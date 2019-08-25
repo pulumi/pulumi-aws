@@ -16,27 +16,6 @@ import {RestApi} from "./restApi";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
- * const exampleDeployment = new aws.apigateway.Deployment("example", {
- *     // See aws.apigateway.RestApi docs for how to create this
- *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
- *     stageName: "live",
- * });
- * const exampleDomainName = new aws.apigateway.DomainName("example", {
- *     certificateBody: fs.readFileSync(`./example.com/example.crt`, "utf-8"),
- *     certificateChain: fs.readFileSync(`./example.com/ca.crt`, "utf-8"),
- *     certificateName: "example-api",
- *     certificatePrivateKey: fs.readFileSync(`./example.com/example.key`, "utf-8"),
- *     domainName: "example.com",
- * });
- * const test = new aws.apigateway.BasePathMapping("test", {
- *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
- *     domainName: exampleDomainName.domainName,
- *     stageName: exampleDeployment.stageName,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_base_path_mapping.html.markdown.

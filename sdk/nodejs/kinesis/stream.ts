@@ -15,20 +15,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testStream = new aws.kinesis.Stream("testStream", {
- *     retentionPeriod: 48,
- *     shardCount: 1,
- *     shardLevelMetrics: [
- *         "IncomingBytes",
- *         "OutgoingBytes",
- *     ],
- *     tags: {
- *         Environment: "test",
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_stream.html.markdown.

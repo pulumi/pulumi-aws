@@ -12,27 +12,11 @@ import * as utilities from "../utilities";
  * ### Standard usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2transitgateway.Route("example", {
- *     destinationCidrBlock: "0.0.0.0/0",
- *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment_example.id,
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway_example.associationDefaultRouteTableId,
- * });
  * ```
  * 
  * ### Blackhole route
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2transitgateway.Route("example", {
- *     blackhole: true,
- *     destinationCidrBlock: "0.0.0.0/0",
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway_example.associationDefaultRouteTableId,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_route.html.markdown.

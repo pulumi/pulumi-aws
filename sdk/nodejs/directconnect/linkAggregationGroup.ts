@@ -12,14 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const hoge = new aws.directconnect.LinkAggregationGroup("hoge", {
- *     connectionsBandwidth: "1Gbps",
- *     forceDestroy: true,
- *     location: "EqDC2",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_lag.html.markdown.

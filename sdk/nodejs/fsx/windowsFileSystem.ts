@@ -18,16 +18,6 @@ import * as utilities from "../utilities";
  * Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.fsx.WindowsFileSystem("example", {
- *     activeDirectoryId: aws_directory_service_directory_example.id,
- *     kmsKeyId: aws_kms_key_example.arn,
- *     storageCapacity: 300,
- *     subnetIds: aws_subnet_example.id,
- *     throughputCapacity: 1024,
- * });
  * ```
  * 
  * ### Using a Self-Managed Microsoft Active Directory
@@ -35,24 +25,6 @@ import * as utilities from "../utilities";
  * Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.fsx.WindowsFileSystem("example", {
- *     kmsKeyId: aws_kms_key_example.arn,
- *     selfManagedActiveDirectory: {
- *         dnsIps: [
- *             "10.0.0.111",
- *             "10.0.0.222",
- *         ],
- *         domainName: "corp.example.com",
- *         password: "avoid-plaintext-passwords",
- *         username: "Admin",
- *     },
- *     storageCapacity: 300,
- *     subnetIds: aws_subnet_example.id,
- *     throughputCapacity: 1024,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/fsx_windows_file_system.html.markdown.

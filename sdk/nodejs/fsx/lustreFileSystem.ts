@@ -10,14 +10,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.fsx.LustreFileSystem("example", {
- *     importPath: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}`,
- *     storageCapacity: 3600,
- *     subnetIds: aws_subnet_example.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/fsx_lustre_file_system.html.markdown.

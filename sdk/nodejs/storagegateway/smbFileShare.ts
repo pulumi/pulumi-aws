@@ -16,15 +16,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creation. e.g. via "SMB Settings" in the AWS Storage Gateway console or `smbActiveDirectorySettings` in the [`aws.storagegateway.Gateway` resource](https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway.html).
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.storagegateway.SmbFileShare("example", {
- *     authentication: "ActiveDirectory",
- *     gatewayArn: aws_storagegateway_gateway_example.arn,
- *     locationArn: aws_s3_bucket_example.arn,
- *     roleArn: aws_iam_role_example.arn,
- * });
  * ```
  * 
  * ### Guest Authentication
@@ -32,15 +23,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creation. e.g. via "SMB Settings" in the AWS Storage Gateway console or `smbGuestPassword` in the [`aws.storagegateway.Gateway` resource](https://www.terraform.io/docs/providers/aws/r/storagegateway_gateway.html).
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.storagegateway.SmbFileShare("example", {
- *     authentication: "GuestAccess",
- *     gatewayArn: aws_storagegateway_gateway_example.arn,
- *     locationArn: aws_s3_bucket_example.arn,
- *     roleArn: aws_iam_role_example.arn,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_smb_file_share.html.markdown.

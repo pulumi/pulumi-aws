@@ -18,40 +18,11 @@ import * as utilities from "../utilities";
  * ### Testing Glacier Vault Lock Policy
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleVault = new aws.glacier.Vault("example", {});
- * const examplePolicyDocument = exampleVault.arn.apply(arn => aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["glacier:DeleteArchive"],
- *         conditions: [{
- *             test: "NumericLessThanEquals",
- *             values: ["365"],
- *             variable: "glacier:ArchiveAgeinDays",
- *         }],
- *         effect: "Deny",
- *         resources: [arn],
- *     }],
- * }));
- * const exampleVaultLock = new aws.glacier.VaultLock("example", {
- *     completeLock: false,
- *     policy: examplePolicyDocument.json,
- *     vaultName: exampleVault.name,
- * });
  * ```
  * 
  * ### Permanently Applying Glacier Vault Lock Policy
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.glacier.VaultLock("example", {
- *     completeLock: true,
- *     policy: aws_iam_policy_document_example.json,
- *     vaultName: aws_glacier_vault_example.name,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glacier_vault_lock.html.markdown.

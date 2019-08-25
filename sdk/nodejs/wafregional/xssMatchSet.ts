@@ -12,25 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const xssMatchSet = new aws.wafregional.XssMatchSet("xssMatchSet", {
- *     xssMatchTuples: [
- *         {
- *             fieldToMatch: {
- *                 type: "URI",
- *             },
- *             textTransformation: "NONE",
- *         },
- *         {
- *             fieldToMatch: {
- *                 type: "QUERY_STRING",
- *             },
- *             textTransformation: "NONE",
- *         },
- *     ],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_xss_match_set.html.markdown.

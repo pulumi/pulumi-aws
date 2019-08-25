@@ -12,22 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleRestApi = new aws.apigateway.RestApi("example", {});
- * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("example", {
- *     location: {
- *         type: "API",
- *     },
- *     properties: "{\"description\":\"Example\"}",
- *     restApiId: exampleRestApi.id,
- * });
- * const exampleDocumentationVersion = new aws.apigateway.DocumentationVersion("example", {
- *     description: "Example description",
- *     restApiId: exampleRestApi.id,
- *     version: "exampleVersion",
- * }, {dependsOn: [exampleDocumentationPart]});
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_documentation_version.html.markdown.

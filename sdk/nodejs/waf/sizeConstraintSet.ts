@@ -12,19 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const sizeConstraintSet = new aws.waf.SizeConstraintSet("sizeConstraintSet", {
- *     sizeConstraints: [{
- *         comparisonOperator: "EQ",
- *         fieldToMatch: {
- *             type: "BODY",
- *         },
- *         size: 4096,
- *         textTransformation: "NONE",
- *     }],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_size_constraint_set.html.markdown.

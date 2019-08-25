@@ -17,47 +17,6 @@ import * as utilities from "../utilities";
  * in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const basicDynamodbTable = new aws.dynamodb.Table("basic-dynamodb-table", {
- *     attributes: [
- *         {
- *             name: "UserId",
- *             type: "S",
- *         },
- *         {
- *             name: "GameTitle",
- *             type: "S",
- *         },
- *         {
- *             name: "TopScore",
- *             type: "N",
- *         },
- *     ],
- *     billingMode: "PROVISIONED",
- *     globalSecondaryIndexes: [{
- *         hashKey: "GameTitle",
- *         name: "GameTitleIndex",
- *         nonKeyAttributes: ["UserId"],
- *         projectionType: "INCLUDE",
- *         rangeKey: "TopScore",
- *         readCapacity: 10,
- *         writeCapacity: 10,
- *     }],
- *     hashKey: "UserId",
- *     rangeKey: "GameTitle",
- *     readCapacity: 20,
- *     tags: {
- *         Environment: "production",
- *         Name: "dynamodb-table-1",
- *     },
- *     ttl: {
- *         attributeName: "TimeToExist",
- *         enabled: false,
- *     },
- *     writeCapacity: 20,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_table.html.markdown.

@@ -20,10 +20,6 @@ import * as utilities from "./utilities";
  * the name of the AWS region configured on the provider.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const current = aws.getRegion({});
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.

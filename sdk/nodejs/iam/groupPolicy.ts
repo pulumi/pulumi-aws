@@ -12,28 +12,6 @@ import {PolicyDocument} from "./documents";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const myDevelopers = new aws.iam.Group("myDevelopers", {
- *     path: "/users/",
- * });
- * const myDeveloperPolicy = new aws.iam.GroupPolicy("myDeveloperPolicy", {
- *     group: myDevelopers.id,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "ec2:Describe*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy.html.markdown.

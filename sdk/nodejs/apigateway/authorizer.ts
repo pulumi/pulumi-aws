@@ -14,67 +14,6 @@ import {RestApi} from "./restApi";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const demoRestApi = new aws.apigateway.RestApi("demo", {});
- * const invocationRole = new aws.iam.Role("invocationRole", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "apigateway.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- *     path: "/",
- * });
- * const lambda = new aws.iam.Role("lambda", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- * });
- * const authorizer = new aws.lambda.Function("authorizer", {
- *     code: new pulumi.asset.FileArchive("lambda-function.zip"),
- *     handler: "exports.example",
- *     role: lambda.arn,
- * });
- * const demoAuthorizer = new aws.apigateway.Authorizer("demo", {
- *     authorizerCredentials: invocationRole.arn,
- *     authorizerUri: authorizer.invokeArn,
- *     restApi: demoRestApi.id,
- * });
- * const invocationPolicy = new aws.iam.RolePolicy("invocationPolicy", {
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "lambda:InvokeFunction",
- *       "Effect": "Allow",
- *       "Resource": "${authorizer.arn}"
- *     }
- *   ]
- * }
- * `,
- *     role: invocationRole.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_authorizer.html.markdown.

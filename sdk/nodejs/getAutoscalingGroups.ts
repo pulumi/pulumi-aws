@@ -13,31 +13,6 @@ import * as utilities from "./utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const groups = aws.getAutoscalingGroups({
- *     filters: [
- *         {
- *             name: "key",
- *             values: ["Team"],
- *         },
- *         {
- *             name: "value",
- *             values: ["Pets"],
- *         },
- *     ],
- * });
- * const slackNotifications = new aws.autoscaling.Notification("slackNotifications", {
- *     groupNames: groups.names,
- *     notifications: [
- *         "autoscaling:EC2_INSTANCE_LAUNCH",
- *         "autoscaling:EC2_INSTANCE_TERMINATE",
- *         "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
- *         "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
- *     ],
- *     topicArn: "TOPIC ARN",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_groups.html.markdown.

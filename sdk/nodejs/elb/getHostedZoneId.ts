@@ -13,19 +13,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const main = aws.elb.getHostedZoneId({});
- * const www = new aws.route53.Record("www", {
- *     aliases: [{
- *         evaluateTargetHealth: true,
- *         name: aws_elb_main.dnsName,
- *         zoneId: main.id,
- *     }],
- *     type: "A",
- *     zoneId: aws_route53_zone_primary.zoneId,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id.html.markdown.

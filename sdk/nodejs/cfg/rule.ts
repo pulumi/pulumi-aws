@@ -18,49 +18,6 @@ import * as utilities from "../utilities";
  * AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const role = new aws.iam.Role("r", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "config.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- * });
- * const foo = new aws.cfg.Recorder("foo", {
- *     roleArn: role.arn,
- * });
- * const rule = new aws.cfg.Rule("r", {
- *     source: {
- *         owner: "AWS",
- *         sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
- *     },
- * }, {dependsOn: [foo]});
- * const rolePolicy = new aws.iam.RolePolicy("p", {
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *   	{
- *   		"Action": "config:Put*",
- *   		"Effect": "Allow",
- *   		"Resource": "*"
- * 
- *   	}
- *   ]
- * }
- * `,
- *     role: role.id,
- * });
  * ```
  * 
  * ### Custom Rules
@@ -68,22 +25,6 @@ import * as utilities from "../utilities";
  * Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g. via the [`aws.lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html). More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleRecorder = new aws.cfg.Recorder("example", {});
- * const exampleFunction = new aws.lambda.Function("example", {});
- * const examplePermission = new aws.lambda.Permission("example", {
- *     action: "lambda:InvokeFunction",
- *     function: exampleFunction.arn,
- *     principal: "config.amazonaws.com",
- * });
- * const exampleRule = new aws.cfg.Rule("example", {
- *     source: {
- *         owner: "CUSTOM_LAMBDA",
- *         sourceIdentifier: exampleFunction.arn,
- *     },
- * }, {dependsOn: [exampleRecorder, examplePermission]});
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_config_rule.html.markdown.

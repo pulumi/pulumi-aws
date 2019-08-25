@@ -17,22 +17,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultParameterGroup = new aws.rds.ParameterGroup("default", {
- *     family: "mysql5.6",
- *     parameters: [
- *         {
- *             name: "characterSetServer",
- *             value: "utf8",
- *         },
- *         {
- *             name: "characterSetClient",
- *             value: "utf8",
- *         },
- *     ],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_parameter_group.html.markdown.

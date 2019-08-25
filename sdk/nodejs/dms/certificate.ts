@@ -13,14 +13,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * // Create a new certificate
- * const test = new aws.dms.Certificate("test", {
- *     certificateId: "test-dms-certificate-tf",
- *     certificatePem: "...",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_certificate.html.markdown.

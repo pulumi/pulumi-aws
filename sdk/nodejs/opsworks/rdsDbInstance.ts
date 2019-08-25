@@ -15,15 +15,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const myInstance = new aws.opsworks.RdsDbInstance("myInstance", {
- *     dbPassword: "somePass",
- *     dbUser: "someUser",
- *     rdsDbInstanceArn: aws_db_instance_my_instance.arn,
- *     stackId: aws_opsworks_stack_my_stack.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_rds_db_instance.html.markdown.

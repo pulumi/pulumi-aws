@@ -12,13 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const multiDocker = aws.elasticbeanstalk.getSolutionStack({
- *     mostRecent: true,
- *     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_solution_stack.html.markdown.

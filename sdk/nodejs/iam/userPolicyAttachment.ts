@@ -15,18 +15,6 @@ import {User} from "./user";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const policy = new aws.iam.Policy("policy", {
- *     description: "A test policy",
- *     policy: "", // insert policy here
- * });
- * const user = new aws.iam.User("user", {});
- * const testAttach = new aws.iam.UserPolicyAttachment("test-attach", {
- *     policyArn: policy.arn,
- *     user: user.name,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_policy_attachment.html.markdown.

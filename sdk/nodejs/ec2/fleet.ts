@@ -12,21 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2.Fleet("example", {
- *     launchTemplateConfig: {
- *         launchTemplateSpecification: {
- *             launchTemplateId: aws_launch_template_example.id,
- *             version: aws_launch_template_example.latestVersion,
- *         },
- *     },
- *     targetCapacitySpecification: {
- *         defaultTargetCapacityType: "spot",
- *         totalTargetCapacity: 5,
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_fleet.html.markdown.

@@ -35,67 +35,16 @@ import {EngineType} from "./engineType";
  * ### Aurora MySQL 2.x (MySQL 5.7)
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultCluster = new aws.rds.Cluster("default", {
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *         "us-west-2c",
- *     ],
- *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "aurora-cluster-demo",
- *     databaseName: "mydb",
- *     engine: "aurora-mysql",
- *     engineVersion: "5.7.mysql_aurora.2.03.2",
- *     masterPassword: "bar",
- *     masterUsername: "foo",
- *     preferredBackupWindow: "07:00-09:00",
- * });
  * ```
  * 
  * ### Aurora MySQL 1.x (MySQL 5.6)
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultCluster = new aws.rds.Cluster("default", {
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *         "us-west-2c",
- *     ],
- *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "aurora-cluster-demo",
- *     databaseName: "mydb",
- *     masterPassword: "bar",
- *     masterUsername: "foo",
- *     preferredBackupWindow: "07:00-09:00",
- * });
  * ```
  * 
  * ### Aurora with PostgreSQL engine
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const postgresql = new aws.rds.Cluster("postgresql", {
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *         "us-west-2c",
- *     ],
- *     backupRetentionPeriod: 5,
- *     clusterIdentifier: "aurora-cluster-demo",
- *     databaseName: "mydb",
- *     engine: "aurora-postgresql",
- *     masterPassword: "bar",
- *     masterUsername: "foo",
- *     preferredBackupWindow: "07:00-09:00",
- * });
  * ```
  * 
  * ### Aurora Multi-Master Cluster
@@ -103,17 +52,6 @@ import {EngineType} from "./engineType";
  * > More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.rds.Cluster("example", {
- *     clusterIdentifier: "example",
- *     dbSubnetGroupName: aws_db_subnet_group_example.name,
- *     engineMode: "multimaster",
- *     masterPassword: "barbarbarbar",
- *     masterUsername: "foo",
- *     skipFinalSnapshot: true,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster.html.markdown.

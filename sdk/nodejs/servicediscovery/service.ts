@@ -12,54 +12,9 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleVpc = new aws.ec2.Vpc("example", {
- *     cidrBlock: "10.0.0.0/16",
- *     enableDnsHostnames: true,
- *     enableDnsSupport: true,
- * });
- * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("example", {
- *     description: "example",
- *     vpc: exampleVpc.id,
- * });
- * const exampleService = new aws.servicediscovery.Service("example", {
- *     dnsConfig: {
- *         dnsRecords: [{
- *             ttl: 10,
- *             type: "A",
- *         }],
- *         namespaceId: examplePrivateDnsNamespace.id,
- *         routingPolicy: "MULTIVALUE",
- *     },
- *     healthCheckCustomConfig: {
- *         failureThreshold: 1,
- *     },
- * });
  * ```
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const examplePublicDnsNamespace = new aws.servicediscovery.PublicDnsNamespace("example", {
- *     description: "example",
- * });
- * const exampleService = new aws.servicediscovery.Service("example", {
- *     dnsConfig: {
- *         dnsRecords: [{
- *             ttl: 10,
- *             type: "A",
- *         }],
- *         namespaceId: examplePublicDnsNamespace.id,
- *     },
- *     healthCheckConfig: {
- *         failureThreshold: 10,
- *         resourcePath: "path",
- *         type: "HTTP",
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_service.html.markdown.

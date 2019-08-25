@@ -16,30 +16,6 @@ import {InstanceType} from "./instanceType";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ubuntu = aws.getAmi({
- *     filters: [
- *         {
- *             name: "name",
- *             values: ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
- *         },
- *         {
- *             name: "virtualization-type",
- *             values: ["hvm"],
- *         },
- *     ],
- *     mostRecent: true,
- *     owners: ["099720109477"], // Canonical
- * });
- * const web = new aws.ec2.Instance("web", {
- *     ami: ubuntu.id,
- *     instanceType: "t2.micro",
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/instance.html.markdown.

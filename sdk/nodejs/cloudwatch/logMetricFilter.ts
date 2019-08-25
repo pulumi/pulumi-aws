@@ -12,19 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const dada = new aws.cloudwatch.LogGroup("dada", {});
- * const yada = new aws.cloudwatch.LogMetricFilter("yada", {
- *     logGroupName: dada.name,
- *     metricTransformation: {
- *         name: "EventCount",
- *         namespace: "YourNamespace",
- *         value: "1",
- *     },
- *     pattern: "",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_metric_filter.html.markdown.

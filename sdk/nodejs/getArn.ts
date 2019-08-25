@@ -12,12 +12,6 @@ import * as utilities from "./utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const dbInstance = aws.getArn({
- *     arn: "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.

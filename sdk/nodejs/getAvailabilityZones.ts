@@ -17,19 +17,6 @@ import * as utilities from "./utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * // Declare the data source
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- * });
- * const primary = new aws.ec2.Subnet("primary", {
- *     availabilityZone: available.names[0],
- * });
- * const secondary = new aws.ec2.Subnet("secondary", {
- *     availabilityZone: available.names[1],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.

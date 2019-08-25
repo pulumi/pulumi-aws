@@ -16,24 +16,6 @@ import * as utilities from "../utilities";
  * connection.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const rts = aws.ec2.getRouteTables({
- *     filters: [{
- *         name: "tag:kubernetes.io/kops/role",
- *         values: ["private*"],
- *     }],
- *     vpcId: var_vpc_id,
- * });
- * const route: aws.ec2.Route[] = [];
- * for (let i = 0; i < rts.ids.length; i++) {
- *     route.push(new aws.ec2.Route(`r-${i}`, {
- *         destinationCidrBlock: "10.0.1.0/22",
- *         routeTableId: rts.ids[i],
- *         vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
- *     }));
- * }
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.

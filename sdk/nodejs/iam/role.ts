@@ -14,49 +14,11 @@ import {PolicyDocument} from "./documents";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testRole = new aws.iam.Role("testRole", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "ec2.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- *     tags: {
- *         "tag-key": "tag-value",
- *     },
- * });
  * ```
  * 
  * ## Example of Using Data Source for Assume Role Policy
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const instanceAssumeRolePolicy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             identifiers: ["ec2.amazonaws.com"],
- *             type: "Service",
- *         }],
- *     }],
- * });
- * const instance = new aws.iam.Role("instance", {
- *     assumeRolePolicy: instance_assume_role_policy.json,
- *     path: "/system/",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role.html.markdown.

@@ -14,6 +14,16 @@ import * as utilities from "../utilities";
  * defined in-line. At this time you cannot use a Route Table with in-line routes
  * in conjunction with any Route resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
+ * 
+ * ## Example usage:
+ * 
+ * ```typescript
+ * ```
+ * 
+ * ##Example IPv6 Usage:
+ * 
+ * ```typescript
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route.html.markdown.
  */

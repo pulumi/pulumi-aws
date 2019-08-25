@@ -20,16 +20,6 @@ import {ApplicationVersion} from "./applicationVersion";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const tftest = new aws.elasticbeanstalk.Application("tftest", {
- *     description: "tf-test-desc",
- * });
- * const tfenvtest = new aws.elasticbeanstalk.Environment("tfenvtest", {
- *     application: tftest.name,
- *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
- * });
  * ```
  * 
  * ## Option Settings
@@ -47,28 +37,6 @@ import {ApplicationVersion} from "./applicationVersion";
  * ### Example With Options
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const tftest = new aws.elasticbeanstalk.Application("tftest", {
- *     description: "tf-test-desc",
- * });
- * const tfenvtest = new aws.elasticbeanstalk.Environment("tfenvtest", {
- *     application: tftest.name,
- *     settings: [
- *         {
- *             name: "VPCId",
- *             namespace: "aws:ec2:vpc",
- *             value: "vpc-xxxxxxxx",
- *         },
- *         {
- *             name: "Subnets",
- *             namespace: "aws:ec2:vpc",
- *             value: "subnet-xxxxxxxx",
- *         },
- *     ],
- *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_environment.html.markdown.

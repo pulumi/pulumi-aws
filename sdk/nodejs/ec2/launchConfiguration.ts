@@ -14,27 +14,6 @@ import {InstanceProfile} from "../iam";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ubuntu = aws.getAmi({
- *     filters: [
- *         {
- *             name: "name",
- *             values: ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
- *         },
- *         {
- *             name: "virtualization-type",
- *             values: ["hvm"],
- *         },
- *     ],
- *     mostRecent: true,
- *     owners: ["099720109477"], // Canonical
- * });
- * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
- *     imageId: ubuntu.id,
- *     instanceType: "t2.micro",
- * });
  * ```
  * 
  * ## Using with AutoScaling Groups
@@ -48,33 +27,6 @@ import {InstanceProfile} from "../iam";
  * with `namePrefix`.  Example:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ubuntu = aws.getAmi({
- *     filters: [
- *         {
- *             name: "name",
- *             values: ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
- *         },
- *         {
- *             name: "virtualization-type",
- *             values: ["hvm"],
- *         },
- *     ],
- *     mostRecent: true,
- *     owners: ["099720109477"], // Canonical
- * });
- * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
- *     imageId: ubuntu.id,
- *     instanceType: "t2.micro",
- *     namePrefix: "lc-example-",
- * });
- * const bar = new aws.autoscaling.Group("bar", {
- *     launchConfiguration: asConf.name,
- *     maxSize: 2,
- *     minSize: 1,
- * });
  * ```
  * 
  * With this setup this provider generates a unique name for your Launch
@@ -91,31 +43,6 @@ import {InstanceProfile} from "../iam";
  * for more information or how to launch [Spot Instances][3] with this provider.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ubuntu = aws.getAmi({
- *     filters: [
- *         {
- *             name: "name",
- *             values: ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
- *         },
- *         {
- *             name: "virtualization-type",
- *             values: ["hvm"],
- *         },
- *     ],
- *     mostRecent: true,
- *     owners: ["099720109477"], // Canonical
- * });
- * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
- *     imageId: ubuntu.id,
- *     instanceType: "m4.large",
- *     spotPrice: "0.001",
- * });
- * const bar = new aws.autoscaling.Group("bar", {
- *     launchConfiguration: asConf.name,
- * });
  * ```
  * 
  * ## Block devices

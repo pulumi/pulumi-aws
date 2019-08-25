@@ -14,22 +14,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultParameterGroup = new aws.elasticache.ParameterGroup("default", {
- *     family: "redis2.8",
- *     parameters: [
- *         {
- *             name: "activerehashing",
- *             value: "yes",
- *         },
- *         {
- *             name: "min-slaves-to-write",
- *             value: "2",
- *         },
- *     ],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_parameter_group.html.markdown.

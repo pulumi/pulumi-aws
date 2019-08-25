@@ -12,40 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const role = new aws.iam.Role("a", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- * });
- * const key = new aws.kms.Key("a", {});
- * const grant = new aws.kms.Grant("a", {
- *     constraints: [{
- *         encryptionContextEquals: {
- *             Department: "Finance",
- *         },
- *     }],
- *     granteePrincipal: role.arn,
- *     keyId: key.keyId,
- *     operations: [
- *         "Encrypt",
- *         "Decrypt",
- *         "GenerateDataKey",
- *     ],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_grant.html.markdown.

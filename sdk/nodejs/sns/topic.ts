@@ -12,49 +12,16 @@ import {ARN} from "../index";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const userUpdates = new aws.sns.Topic("userUpdates", {});
  * ```
  * 
  * ## Example with Delivery Policy
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const userUpdates = new aws.sns.Topic("userUpdates", {
- *     deliveryPolicy: `{
- *   "http": {
- *     "defaultHealthyRetryPolicy": {
- *       "minDelayTarget": 20,
- *       "maxDelayTarget": 20,
- *       "numRetries": 3,
- *       "numMaxDelayRetries": 0,
- *       "numNoDelayRetries": 0,
- *       "numMinDelayRetries": 0,
- *       "backoffFunction": "linear"
- *     },
- *     "disableSubscriptionOverrides": false,
- *     "defaultThrottlePolicy": {
- *       "maxReceivesPerSecond": 1
- *     }
- *   }
- * }
- * `,
- * });
  * ```
  * 
  * ##  Example with Server-side encryption (SSE)
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const userUpdates = new aws.sns.Topic("userUpdates", {
- *     kmsMasterKeyId: "alias/aws/sns",
- * });
  * ```
  * 
  * ## Message Delivery Status Arguments

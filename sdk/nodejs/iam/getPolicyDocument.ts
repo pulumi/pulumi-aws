@@ -14,45 +14,6 @@ import * as utilities from "../utilities";
  * such as the `aws.iam.Policy` resource.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             actions: [
- *                 "s3:ListAllMyBuckets",
- *                 "s3:GetBucketLocation",
- *             ],
- *             resources: ["arn:aws:s3:::*"],
- *             sid: "1",
- *         },
- *         {
- *             actions: ["s3:ListBucket"],
- *             conditions: [{
- *                 test: "StringLike",
- *                 values: [
- *                     "",
- *                     "home/",
- *                     "home/&{aws:username}/",
- *                 ],
- *                 variable: "s3:prefix",
- *             }],
- *             resources: [`arn:aws:s3:::${var_s3_bucket_name}`],
- *         },
- *         {
- *             actions: ["s3:*"],
- *             resources: [
- *                 `arn:aws:s3:::${var_s3_bucket_name}/home/&{aws:username}`,
- *                 `arn:aws:s3:::${var_s3_bucket_name}/home/&{aws:username}/*`,
- *             ],
- *         },
- *     ],
- * });
- * const examplePolicy = new aws.iam.Policy("example", {
- *     path: "/",
- *     policy: examplePolicyDocument.json,
- * });
  * ```
  * 
  * Using this data source to generate policy documents is *optional*. It is also
@@ -82,24 +43,6 @@ import * as utilities from "../utilities";
  * Showing how you can use this as an assume role policy as well as showing how you can specify multiple principal blocks with different types.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const eventStreamBucketRoleAssumeRolePolicy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [
- *             {
- *                 identifiers: ["firehose.amazonaws.com"],
- *                 type: "Service",
- *             },
- *             {
- *                 identifiers: [varTrustedRoleArn],
- *                 type: "AWS",
- *             },
- *         ],
- *     }],
- * });
  * ```
  * 
  * ## Example with Source and Override
@@ -107,69 +50,16 @@ import * as utilities from "../utilities";
  * Showing how you can use `sourceJson` and `overrideJson`
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const override = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["s3:*"],
- *         resources: ["*"],
- *         sid: "SidToOverwrite",
- *     }],
- * });
- * const source = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             actions: ["ec2:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             actions: ["s3:*"],
- *             resources: ["*"],
- *             sid: "SidToOverwrite",
- *         },
- *     ],
- * });
- * const overrideJsonExample = aws.iam.getPolicyDocument({
- *     overrideJson: override.json,
- *     statements: [
- *         {
- *             actions: ["ec2:*"],
- *             resources: ["*"],
- *         },
- *         {
- *             actions: ["s3:*"],
- *             resources: [
- *                 "arn:aws:s3:::somebucket",
- *                 "arn:aws:s3:::somebucket/*",
- *             ],
- *             sid: "SidToOverwrite",
- *         },
- *     ],
- * });
- * const sourceJsonExample = aws.iam.getPolicyDocument({
- *     sourceJson: source.json,
- *     statements: [{
- *         actions: ["s3:*"],
- *         resources: [
- *             "arn:aws:s3:::somebucket",
- *             "arn:aws:s3:::somebucket/*",
- *         ],
- *         sid: "SidToOverwrite",
- *     }],
- * });
  * ```
  * 
  * `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
  * ```
  * 
  * `data.aws_iam_policy_document.override_json_example.json` will evaluate to:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
  * ```
  * 
  * You can also combine `sourceJson` and `overrideJson` in the same document.
@@ -179,33 +69,11 @@ import * as utilities from "../utilities";
  * Use without a `statement`:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const override = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["s3:GetObject"],
- *         resources: ["*"],
- *         sid: "OverridePlaceholder",
- *     }],
- * });
- * const source = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["ec2:DescribeAccountAttributes"],
- *         resources: ["*"],
- *         sid: "OverridePlaceholder",
- *     }],
- * });
- * const politik = aws.iam.getPolicyDocument({
- *     overrideJson: override.json,
- *     sourceJson: source.json,
- * });
  * ```
  * 
  * `data.aws_iam_policy_document.politik.json` will evaluate to:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy_document.html.markdown.

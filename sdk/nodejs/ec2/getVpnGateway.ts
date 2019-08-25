@@ -13,17 +13,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const selected = aws.ec2.getVpnGateway({
- *     filters: [{
- *         name: "tag:Name",
- *         values: ["vpn-gw"],
- *     }],
- * });
- * 
- * export const vpnGatewayId = selected.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.

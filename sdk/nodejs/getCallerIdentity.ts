@@ -13,14 +13,6 @@ import * as utilities from "./utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const current = aws.getCallerIdentity({});
- * 
- * export const accountId = current.accountId;
- * export const callerArn = current.arn;
- * export const callerUser = current.userId;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/caller_identity.html.markdown.

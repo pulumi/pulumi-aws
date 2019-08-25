@@ -17,19 +17,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const group = new aws.iam.Group("group", {});
- * const userOne = new aws.iam.User("userOne", {});
- * const userTwo = new aws.iam.User("userTwo", {});
- * const team = new aws.iam.GroupMembership("team", {
- *     group: group.name,
- *     users: [
- *         userOne.name,
- *         userTwo.name,
- *     ],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_membership.html.markdown.

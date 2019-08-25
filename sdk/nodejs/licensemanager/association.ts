@@ -12,28 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("example", {
- *     licenseCountingType: "Instance",
- * });
- * const exampleAmi = aws.getAmi({
- *     filters: [{
- *         name: "name",
- *         values: ["amzn-ami-vpc-nat*"],
- *     }],
- *     mostRecent: true,
- *     owners: ["amazon"],
- * });
- * const exampleInstance = new aws.ec2.Instance("example", {
- *     ami: exampleAmi.id,
- *     instanceType: "t2.micro",
- * });
- * const exampleAssociation = new aws.licensemanager.Association("example", {
- *     licenseConfigurationArn: exampleLicenseConfiguration.arn,
- *     resourceArn: exampleInstance.arn,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_association.html.markdown.

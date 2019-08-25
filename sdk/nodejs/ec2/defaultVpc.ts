@@ -23,14 +23,6 @@ import * as utilities from "../utilities";
  * Basic usage with tags:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultDefaultVpc = new aws.ec2.DefaultVpc("default", {
- *     tags: {
- *         Name: "Default VPC",
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc.html.markdown.

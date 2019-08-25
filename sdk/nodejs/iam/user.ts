@@ -12,34 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const lbUser = new aws.iam.User("lb", {
- *     path: "/system/",
- *     tags: {
- *         "tag-key": "tag-value",
- *     },
- * });
- * const lbAccessKey = new aws.iam.AccessKey("lb", {
- *     user: lbUser.name,
- * });
- * const lbRo = new aws.iam.UserPolicy("lbRo", {
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "ec2:Describe*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `,
- *     user: lbUser.name,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user.html.markdown.

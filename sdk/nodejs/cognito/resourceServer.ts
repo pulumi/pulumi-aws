@@ -14,31 +14,11 @@ import * as utilities from "../utilities";
  * ### Create a basic resource server
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const pool = new aws.cognito.UserPool("pool", {});
- * const resource = new aws.cognito.ResourceServer("resource", {
- *     identifier: "https://example.com",
- *     userPoolId: pool.id,
- * });
  * ```
  * 
  * ### Create a resource server with sample-scope
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const pool = new aws.cognito.UserPool("pool", {});
- * const resource = new aws.cognito.ResourceServer("resource", {
- *     identifier: "https://example.com",
- *     scopes: [{
- *         scopeDescription: "a Sample Scope Description",
- *         scopeName: "sample-scope",
- *     }],
- *     userPoolId: pool.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_resource_server.html.markdown.

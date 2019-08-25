@@ -12,33 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testKey = new aws.kms.Key("test", {
- *     deletionWindowInDays: 7,
- *     description: "Athena KMS Key",
- * });
- * const hogeBucket = new aws.s3.Bucket("hoge", {});
- * const hogeDatabase = new aws.athena.Database("hoge", {
- *     bucket: hogeBucket.id,
- *     name: "users",
- * });
- * const testWorkgroup = new aws.athena.Workgroup("test", {
- *     configuration: {
- *         resultConfiguration: {
- *             encryptionConfiguration: {
- *                 encryptionOption: "SSE_KMS",
- *                 kmsKeyArn: testKey.arn,
- *             },
- *         },
- *     },
- * });
- * const foo = new aws.athena.NamedQuery("foo", {
- *     database: hogeDatabase.name,
- *     query: pulumi.interpolate`SELECT * FROM ${hogeDatabase.name} limit 10;`,
- *     workgroup: testWorkgroup.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_named_query.html.markdown.

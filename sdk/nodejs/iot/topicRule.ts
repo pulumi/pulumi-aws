@@ -10,52 +10,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const role = new aws.iam.Role("role", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "iot.amazonaws.com"
- *       },
- *       "Action": "sts:AssumeRole"
- *     }
- *   ]
- * }
- * `,
- * });
- * const mytopic = new aws.sns.Topic("mytopic", {});
- * const iamPolicyForLambda = new aws.iam.RolePolicy("iamPolicyForLambda", {
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *         "Effect": "Allow",
- *         "Action": [
- *             "sns:Publish"
- *         ],
- *         "Resource": "${mytopic.arn}"
- *     }
- *   ]
- * }
- * `,
- *     role: role.id,
- * });
- * const rule = new aws.iot.TopicRule("rule", {
- *     description: "Example rule",
- *     enabled: true,
- *     sns: {
- *         messageFormat: "RAW",
- *         roleArn: role.arn,
- *         targetArn: mytopic.arn,
- *     },
- *     sql: "SELECT * FROM 'topic/test'",
- *     sqlVersion: "2015-10-08",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_topic_rule.html.markdown.

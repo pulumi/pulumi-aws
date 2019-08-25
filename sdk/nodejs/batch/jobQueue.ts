@@ -12,17 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testQueue = new aws.batch.JobQueue("testQueue", {
- *     computeEnvironments: [
- *         aws_batch_compute_environment_test_environment_1.arn,
- *         aws_batch_compute_environment_test_environment_2.arn,
- *     ],
- *     priority: 1,
- *     state: "ENABLED",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_job_queue.html.markdown.

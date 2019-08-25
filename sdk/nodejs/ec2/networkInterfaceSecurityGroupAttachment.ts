@@ -30,33 +30,6 @@ import * as utilities from "../utilities";
  * named `sgAttachment`:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const sg = new aws.ec2.SecurityGroup("sg", {
- *     tags: {
- *         type: "test-security-group",
- *     },
- * });
- * const ami = aws.getAmi({
- *     filters: [{
- *         name: "name",
- *         values: ["amzn-ami-hvm-*"],
- *     }],
- *     mostRecent: true,
- *     owners: ["amazon"],
- * });
- * const instance = new aws.ec2.Instance("instance", {
- *     ami: ami.id,
- *     instanceType: "t2.micro",
- *     tags: {
- *         type: "test-instance",
- *     },
- * });
- * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
- *     networkInterfaceId: instance.primaryNetworkInterfaceId,
- *     securityGroupId: sg.id,
- * });
  * ```
  * 
  * In this example, `instance` is provided by the `aws.ec2.Instance` data source,
@@ -64,21 +37,6 @@ import * as utilities from "../utilities";
  * `sgAttachment` then attaches to the output instance's `networkInterfaceId`:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const sg = new aws.ec2.SecurityGroup("sg", {
- *     tags: {
- *         type: "test-security-group",
- *     },
- * });
- * const instance = aws.ec2.getInstance({
- *     instanceId: "i-1234567890abcdef0",
- * });
- * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
- *     networkInterfaceId: instance.networkInterfaceId,
- *     securityGroupId: sg.id,
- * });
  * ```
  * 
  * ## Output Reference

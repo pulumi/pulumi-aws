@@ -14,16 +14,6 @@ import * as utilities from "../utilities";
  * ### Basic Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const main = new aws.ec2.Subnet("main", {
- *     cidrBlock: "10.0.1.0/24",
- *     tags: {
- *         Name: "Main",
- *     },
- *     vpcId: aws_vpc_main.id,
- * });
  * ```
  * 
  * ### Subnets In Secondary VPC CIDR Blocks
@@ -32,17 +22,6 @@ import * as utilities from "../utilities";
  * resource, it is recommended to reference that resource's `vpcId` attribute to ensure correct dependency ordering.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", {
- *     cidrBlock: "172.2.0.0/16",
- *     vpcId: aws_vpc_main.id,
- * });
- * const inSecondaryCidr = new aws.ec2.Subnet("inSecondaryCidr", {
- *     cidrBlock: "172.2.0.0/24",
- *     vpcId: secondaryCidr.vpcId,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/subnet.html.markdown.

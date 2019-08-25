@@ -22,85 +22,11 @@ import * as utilities from "../utilities";
  * ### DNS Validation with Route 53
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const certCertificate = new aws.acm.Certificate("cert", {
- *     domainName: "example.com",
- *     validationMethod: "DNS",
- * });
- * const zone = aws.route53.getZone({
- *     name: "example.com.",
- *     privateZone: false,
- * });
- * const certValidation = new aws.route53.Record("certValidation", {
- *     records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
- *     ttl: 60,
- *     type: certCertificate.domainValidationOptions[0].resourceRecordType,
- *     zoneId: zone.id,
- * });
- * const certCertificateValidation = new aws.acm.CertificateValidation("cert", {
- *     certificateArn: certCertificate.arn,
- *     validationRecordFqdns: [certValidation.fqdn],
- * });
- * const frontEnd = new aws.lb.Listener("frontEnd", {
- *     // [...]
- *     certificateArn: certCertificateValidation.certificateArn,
- * });
  * ```
  * 
  * ### Alternative Domains DNS Validation with Route 53
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const certCertificate = new aws.acm.Certificate("cert", {
- *     domainName: "example.com",
- *     subjectAlternativeNames: [
- *         "www.example.com",
- *         "example.org",
- *     ],
- *     validationMethod: "DNS",
- * });
- * const zone = aws.route53.getZone({
- *     name: "example.com.",
- *     privateZone: false,
- * });
- * const zoneAlt = aws.route53.getZone({
- *     name: "example.org.",
- *     privateZone: false,
- * });
- * const certValidation = new aws.route53.Record("certValidation", {
- *     records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
- *     ttl: 60,
- *     type: certCertificate.domainValidationOptions[0].resourceRecordType,
- *     zoneId: zone.id,
- * });
- * const certValidationAlt1 = new aws.route53.Record("certValidationAlt1", {
- *     records: [certCertificate.domainValidationOptions[1].resourceRecordValue],
- *     ttl: 60,
- *     type: certCertificate.domainValidationOptions[1].resourceRecordType,
- *     zoneId: zone.id,
- * });
- * const certValidationAlt2 = new aws.route53.Record("certValidationAlt2", {
- *     records: [certCertificate.domainValidationOptions[2].resourceRecordValue],
- *     ttl: 60,
- *     type: certCertificate.domainValidationOptions[2].resourceRecordType,
- *     zoneId: zoneAlt.id,
- * });
- * const certCertificateValidation = new aws.acm.CertificateValidation("cert", {
- *     certificateArn: certCertificate.arn,
- *     validationRecordFqdns: [
- *         certValidation.fqdn,
- *         certValidationAlt1.fqdn,
- *         certValidationAlt2.fqdn,
- *     ],
- * });
- * const frontEnd = new aws.lb.Listener("frontEnd", {
- *     // [...]
- *     certificateArn: certCertificateValidation.certificateArn,
- * });
  * ```
  * 
  * ### Email Validation
@@ -108,16 +34,6 @@ import * as utilities from "../utilities";
  * In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const certCertificate = new aws.acm.Certificate("cert", {
- *     domainName: "example.com",
- *     validationMethod: "EMAIL",
- * });
- * const certCertificateValidation = new aws.acm.CertificateValidation("cert", {
- *     certificateArn: certCertificate.arn,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate_validation.html.markdown.

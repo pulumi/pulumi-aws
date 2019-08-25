@@ -19,6 +19,23 @@ import {Topic} from "./topic";
  * > **NOTE:** If SNS topic and SQS queue are in different AWS accounts but the same region it is important for the "aws.sns.TopicSubscription" to use the AWS provider of the account with the SQS queue. If "aws.sns.TopicSubscription" is using a Provider with a different account than the SQS queue, the provider creates the subscriptions but does not keep state and tries to re-create the subscription at every apply.
  * 
  * > **NOTE:** If SNS topic and SQS queue are in different AWS accounts and different AWS regions it is important to recognize that the subscription needs to be initiated from the account with the SQS queue but in the region of the SNS topic.
+ * 
+ * ## Example Usage
+ * 
+ * You can directly supply a topic and ARN by hand in the `topicArn` property along with the queue ARN:
+ * 
+ * ```typescript
+ * ```
+ * 
+ * Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
+ * 
+ * ```typescript
+ * ```
+ * 
+ * You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
+ * 
+ * ```typescript
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_subscription.html.markdown.
  */

@@ -16,13 +16,13 @@ import * as utilities from "../utilities";
  * ### Simple String Value
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
+ * ```
  * 
- * const example = new aws.secretsmanager.SecretVersion("example", {
- *     secretId: aws_secretsmanager_secret_example.id,
- *     secretString: "example-string-to-protect",
- * });
+ * ### Key-Value Pairs
+ * 
+ * Secrets Manager also accepts key-value pairs in JSON.
+ * 
+ * ```typescript
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/secretsmanager_secret_version.html.markdown.

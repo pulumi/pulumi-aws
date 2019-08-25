@@ -12,20 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const byteSet = new aws.waf.ByteMatchSet("byteSet", {
- *     byteMatchTuples: [{
- *         fieldToMatch: {
- *             data: "referer",
- *             type: "HEADER",
- *         },
- *         positionalConstraint: "CONTAINS",
- *         targetString: "badrefer1",
- *         textTransformation: "NONE",
- *     }],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_byte_match_set.html.markdown.

@@ -13,17 +13,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const subnetId = aws.cloudformation.getExport({
- *     name: "mySubnetIdExportName",
- * });
- * const web = new aws.ec2.Instance("web", {
- *     ami: "ami-abb07bcb",
- *     instanceType: "t1.micro",
- *     subnetId: subnetId.value,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_export.html.markdown.

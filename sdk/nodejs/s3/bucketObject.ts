@@ -13,59 +13,24 @@ import {Bucket} from "./bucket";
  * 
  * ## Example Usage
  * 
+ * ### Uploading a file to a bucket
+ * 
+ * ```typescript
+ * ```
+ * 
  * ### Encrypting with KMS Key
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const examplekms = new aws.kms.Key("examplekms", {
- *     deletionWindowInDays: 7,
- *     description: "KMS key 1",
- * });
- * const examplebucket = new aws.s3.Bucket("examplebucket", {
- *     acl: "private",
- * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
- *     bucket: examplebucket.id,
- *     key: "someobject",
- *     kmsKeyId: examplekms.arn,
- *     source: new pulumi.asset.FileAsset("index.html"),
- * });
  * ```
  * 
  * ### Server Side Encryption with S3 Default Master Key
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const examplebucket = new aws.s3.Bucket("examplebucket", {
- *     acl: "private",
- * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
- *     bucket: examplebucket.id,
- *     key: "someobject",
- *     serverSideEncryption: "aws:kms",
- *     source: new pulumi.asset.FileAsset("index.html"),
- * });
  * ```
  * 
  * ### Server Side Encryption with AWS-Managed Key
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const examplebucket = new aws.s3.Bucket("examplebucket", {
- *     acl: "private",
- * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
- *     bucket: examplebucket.id,
- *     key: "someobject",
- *     serverSideEncryption: "AES256",
- *     source: new pulumi.asset.FileAsset("index.html"),
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_object.html.markdown.
@@ -160,7 +125,7 @@ export class BucketObject extends pulumi.CustomResource {
     /**
      * The path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    public readonly source!: pulumi.Output<pulumi.asset.Asset | undefined>;
+    public readonly source!: pulumi.Output<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
@@ -314,7 +279,7 @@ export interface BucketObjectState {
     /**
      * The path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    readonly source?: pulumi.Input<pulumi.asset.Asset>;
+    readonly source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
@@ -402,7 +367,7 @@ export interface BucketObjectArgs {
     /**
      * The path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    readonly source?: pulumi.Input<pulumi.asset.Asset>;
+    readonly source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".

@@ -12,25 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const main = new aws.ec2.VpnGateway("main", {
- *     amazonSideAsn: "7224",
- *     vpcId: aws_vpc_main.id,
- * });
- * const foo = aws.ec2.getCustomerGateway({
- *     filters: [{
- *         name: "tag:Name",
- *         values: ["foo-prod"],
- *     }],
- * });
- * const transit = new aws.ec2.VpnConnection("transit", {
- *     customerGatewayId: foo.id,
- *     staticRoutesOnly: false,
- *     type: foo.type,
- *     vpnGatewayId: main.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.

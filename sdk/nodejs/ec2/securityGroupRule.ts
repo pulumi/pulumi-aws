@@ -26,19 +26,6 @@ import * as utilities from "../utilities";
  * Basic usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const allowAll = new aws.ec2.SecurityGroupRule("allowAll", {
- *     // Opening to 0.0.0.0/0 can lead to security vulnerabilities.
- *     cidrBlocks: "", // add a CIDR block here
- *     fromPort: 0,
- *     prefixListIds: ["pl-12c4e678"],
- *     protocol: "tcp",
- *     securityGroupId: "sg-123456",
- *     toPort: 65535,
- *     type: "ingress",
- * });
  * ```
  * 
  * ## Usage with prefix list IDs
@@ -48,19 +35,6 @@ import * as utilities from "../utilities";
  * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * // ...
- * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
- * const allowAll = new aws.ec2.SecurityGroupRule("allowAll", {
- *     fromPort: 0,
- *     prefixListIds: [myEndpoint.prefixListId],
- *     protocol: "-1",
- *     securityGroupId: "sg-123456",
- *     toPort: 0,
- *     type: "egress",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group_rule.html.markdown.

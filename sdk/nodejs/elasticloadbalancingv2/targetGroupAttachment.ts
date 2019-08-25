@@ -14,38 +14,11 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testInstance = new aws.ec2.Instance("test", {});
- * const testTargetGroup = new aws.lb.TargetGroup("test", {});
- * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
- *     port: 80,
- *     targetGroupArn: testTargetGroup.arn,
- *     targetId: testInstance.id,
- * });
  * ```
  * 
  * ## Usage with lambda
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testFunction = new aws.lambda.Function("test", {});
- * const testTargetGroup = new aws.lb.TargetGroup("test", {
- *     targetType: "lambda",
- * });
- * const withLb = new aws.lambda.Permission("withLb", {
- *     action: "lambda:InvokeFunction",
- *     function: testFunction.arn,
- *     principal: "elasticloadbalancing.amazonaws.com",
- *     sourceArn: testTargetGroup.arn,
- * });
- * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
- *     targetGroupArn: testTargetGroup.arn,
- *     targetId: testFunction.arn,
- * }, {dependsOn: [withLb]});
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group_attachment_legacy.html.markdown.

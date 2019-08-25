@@ -16,12 +16,6 @@ import * as utilities from "../utilities";
  * The following example shows how to get a delegation set from its id.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const dset = aws.route53.getDelegationSet({
- *     id: "MQWGHCBFAKEID",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_delegation_set.html.markdown.

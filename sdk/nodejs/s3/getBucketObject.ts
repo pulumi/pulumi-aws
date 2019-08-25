@@ -18,18 +18,6 @@ import * as utilities from "../utilities";
  * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const bootstrapScript = aws.s3.getBucketObject({
- *     bucket: "ourcorp-deploy-config",
- *     key: "ec2-bootstrap-script.sh",
- * });
- * const example = new aws.ec2.Instance("example", {
- *     ami: "ami-2757f631",
- *     instanceType: "t2.micro",
- *     userData: bootstrapScript.body,
- * });
  * ```
  * 
  * The following, more-complex example retrieves only the metadata for a zip
@@ -39,20 +27,6 @@ import * as utilities from "../utilities";
  * [`aws.lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html).
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const lambda = aws.s3.getBucketObject({
- *     bucket: "ourcorp-lambda-functions",
- *     key: "hello-world.zip",
- * });
- * const testLambda = new aws.lambda.Function("testLambda", {
- *     handler: "exports.test",
- *     role: aws_iam_role_iam_for_lambda.arn, // (not shown)
- *     s3Bucket: lambda.bucket,
- *     s3Key: lambda.key,
- *     s3ObjectVersion: lambda.versionId,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_object.html.markdown.

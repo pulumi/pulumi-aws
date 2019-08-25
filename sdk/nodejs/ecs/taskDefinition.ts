@@ -11,28 +11,20 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * ```typescript
+ * ```
+ * 
+ * The referenced `task-definitions/service.json` file contains a valid JSON document,
+ * which is shown below, and its content is going to be passed directly into the
+ * `containerDefinitions` attribute as a string. Please note that this example
+ * contains only a small subset of the available parameters.
+ * 
+ * ```typescript
+ * ```
+ * 
  * ### With AppMesh Proxy
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- * 
- * const service = new aws.ecs.TaskDefinition("service", {
- *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf-8"),
- *     family: "service",
- *     proxyConfiguration: {
- *         containerName: "applicationContainerName",
- *         properties: {
- *             AppPorts: "8080",
- *             EgressIgnoredIPs: "169.254.170.2,169.254.169.254",
- *             IgnoredUID: "1337",
- *             ProxyEgressPort: 15001,
- *             ProxyIngressPort: 15000,
- *         },
- *         type: "APPMESH",
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_task_definition.html.markdown.

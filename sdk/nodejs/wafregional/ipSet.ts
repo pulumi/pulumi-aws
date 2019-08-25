@@ -12,21 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ipset = new aws.wafregional.IpSet("ipset", {
- *     ipSetDescriptors: [
- *         {
- *             type: "IPV4",
- *             value: "192.0.7.0/24",
- *         },
- *         {
- *             type: "IPV4",
- *             value: "10.16.16.0/16",
- *         },
- *     ],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_ipset.html.markdown.

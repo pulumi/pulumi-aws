@@ -12,61 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const kms = new aws.kms.Key("kms", {
- *     description: "example",
- * });
- * const vpc = new aws.ec2.Vpc("vpc", {
- *     cidrBlock: "192.168.0.0/22",
- * });
- * const azs = aws.getAvailabilityZones({
- *     state: "available",
- * });
- * const sg = new aws.ec2.SecurityGroup("sg", {
- *     vpcId: vpc.id,
- * });
- * const subnetAz1 = new aws.ec2.Subnet("subnetAz1", {
- *     availabilityZone: azs.names[0],
- *     cidrBlock: "192.168.0.0/24",
- *     vpcId: vpc.id,
- * });
- * const subnetAz2 = new aws.ec2.Subnet("subnetAz2", {
- *     availabilityZone: azs.names[1],
- *     cidrBlock: "192.168.1.0/24",
- *     vpcId: vpc.id,
- * });
- * const subnetAz3 = new aws.ec2.Subnet("subnetAz3", {
- *     availabilityZone: azs.names[2],
- *     cidrBlock: "192.168.2.0/24",
- *     vpcId: vpc.id,
- * });
- * const example = new aws.msk.Cluster("example", {
- *     brokerNodeGroupInfo: {
- *         clientSubnets: [
- *             subnetAz1.id,
- *             subnetAz2.id,
- *             subnetAz3.id,
- *         ],
- *         ebsVolumeSize: 1000,
- *         instanceType: "kafka.m5.large",
- *         securityGroups: [sg.id],
- *     },
- *     clusterName: "example",
- *     encryptionInfo: {
- *         encryptionAtRestKmsKeyArn: kms.arn,
- *     },
- *     kafkaVersion: "2.1.0",
- *     numberOfBrokerNodes: 3,
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * 
- * export const bootstrapBrokers = example.bootstrapBrokers;
- * export const bootstrapBrokersTls = example.bootstrapBrokersTls;
- * export const zookeeperConnectString = example.zookeeperConnectString;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_cluster.html.markdown.

@@ -18,65 +18,16 @@ import * as utilities from "../utilities";
  * The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleRole = new aws.iam.Role("example", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": ["sts:AssumeRole"],
- *       "Effect": "allow",
- *       "Principal": {
- *         "Service": ["backup.amazonaws.com"]
- *       }
- *     }
- *   ]
- * }
- * `,
- * });
- * const exampleSelection = new aws.backup.Selection("example", {
- *     iamRoleArn: exampleRole.arn,
- * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
- *     role: exampleRole.name,
- * });
  * ```
  * 
  * ### Selecting Backups By Tag
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: aws_iam_role_example.arn,
- *     planId: aws_backup_plan_example.id,
- *     selectionTags: [{
- *         key: "foo",
- *         type: "STRINGEQUALS",
- *         value: "bar",
- *     }],
- * });
  * ```
  * 
  * ### Selecting Backups By Resource
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: aws_iam_role_example.arn,
- *     planId: aws_backup_plan_example.id,
- *     resources: [
- *         aws_db_instance_example.arn,
- *         aws_ebs_volume_example.arn,
- *         aws_efs_file_system_example.arn,
- *     ],
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_selection.html.markdown.

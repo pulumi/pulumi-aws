@@ -15,31 +15,19 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * ```typescript
+ * ```
+ * 
  * ### Ignoring Changes to Desired Count
  * 
  * You can utilize the generic this provider resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignoreChanges` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ecs.Service("example", {
- *     // Example: Create service with 2 instances to start
- *     desiredCount: 2,
- * });
  * ```
  * 
  * ### Daemon Scheduling Strategy
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const bar = new aws.ecs.Service("bar", {
- *     cluster: aws_ecs_cluster_foo.id,
- *     schedulingStrategy: "DAEMON",
- *     taskDefinition: aws_ecs_task_definition_bar.arn,
- * });
  * ```
  * 
  * ## deploymentController

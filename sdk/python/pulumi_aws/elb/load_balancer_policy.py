@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from .. import utilities, tables
 
 class LoadBalancerPolicy(pulumi.CustomResource):
@@ -66,7 +67,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_type_name'")
             __props__['policy_type_name'] = policy_type_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy")])
-        opts = alias_opts if opts is None else opts.merge(alias_opts)
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadBalancerPolicy, __self__).__init__(
             'aws:elb/loadBalancerPolicy:LoadBalancerPolicy',
             resource_name,
@@ -88,7 +89,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_policy.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["load_balancer_name"] = load_balancer_name

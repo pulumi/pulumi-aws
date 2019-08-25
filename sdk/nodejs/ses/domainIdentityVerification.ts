@@ -16,21 +16,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ses.DomainIdentity("example", {
- *     domain: "example.com",
- * });
- * const exampleAmazonsesVerificationRecord = new aws.route53.Record("exampleAmazonsesVerificationRecord", {
- *     records: [example.verificationToken],
- *     ttl: 600,
- *     type: "TXT",
- *     zoneId: aws_route53_zone_example.zoneId,
- * });
- * const exampleVerification = new aws.ses.DomainIdentityVerification("exampleVerification", {
- *     domain: example.id,
- * }, {dependsOn: [exampleAmazonsesVerificationRecord]});
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity_verification.html.markdown.

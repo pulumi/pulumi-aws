@@ -14,52 +14,11 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.cloudformation.StackSetInstance("example", {
- *     accountId: "123456789012",
- *     region: "us-east-1",
- *     stackSetName: aws_cloudformation_stack_set_example.name,
- * });
  * ```
  * 
  * ### Example IAM Setup in Target Account
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
- * // Additional IAM permissions necessary depend on the resources defined in the Stack Set template
- * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: [
- *             "cloudformation:*",
- *             "s3:*",
- *             "sns:*",
- *         ],
- *         effect: "Allow",
- *         resources: ["*"],
- *     }],
- * });
- * const aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = aws_iam_role_AWSCloudFormationStackSetAdministrationRole.arn.apply(arn => aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         effect: "Allow",
- *         principals: [{
- *             identifiers: [arn],
- *             type: "AWS",
- *         }],
- *     }],
- * }));
- * const aWSCloudFormationStackSetExecutionRole = new aws.iam.Role("AWSCloudFormationStackSetExecutionRole", {
- *     assumeRolePolicy: aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json,
- * });
- * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new aws.iam.RolePolicy("AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy", {
- *     policy: aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.json,
- *     role: aWSCloudFormationStackSetExecutionRole.name,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudformation_stack_set_instance.html.markdown.

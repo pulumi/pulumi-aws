@@ -12,16 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const production = new aws.ssm.PatchBaseline("production", {
- *     approvedPatches: ["KB123456"],
- * });
- * const patchgroup = new aws.ssm.PatchGroup("patchgroup", {
- *     baselineId: production.id,
- *     patchGroup: "patch-group-name",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_group.html.markdown.

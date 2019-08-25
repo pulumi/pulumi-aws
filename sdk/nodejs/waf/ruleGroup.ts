@@ -12,22 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleRule = new aws.waf.Rule("example", {
- *     metricName: "example",
- * });
- * const exampleRuleGroup = new aws.waf.RuleGroup("example", {
- *     activatedRules: [{
- *         action: {
- *             type: "COUNT",
- *         },
- *         priority: 50,
- *         ruleId: exampleRule.id,
- *     }],
- *     metricName: "example",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rule_group.html.markdown.

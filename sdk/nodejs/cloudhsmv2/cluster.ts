@@ -23,35 +23,6 @@ import * as utilities from "../utilities";
  * The following example below creates a CloudHSM cluster.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const cloudhsm2Vpc = new aws.ec2.Vpc("cloudhsm2Vpc", {
- *     cidrBlock: "10.0.0.0/16",
- *     tags: {
- *         Name: "example-aws_cloudhsm_v2_cluster",
- *     },
- * });
- * const available = aws.getAvailabilityZones({});
- * const cloudhsm2Subnets: aws.ec2.Subnet[] = [];
- * for (let i = 0; i < 2; i++) {
- *     cloudhsm2Subnets.push(new aws.ec2.Subnet(`cloudhsm2_subnets-${i}`, {
- *         availabilityZone: available.names[i],
- *         cidrBlock: var_subnets[i],
- *         mapPublicIpOnLaunch: false,
- *         tags: {
- *             Name: "example-aws_cloudhsm_v2_cluster",
- *         },
- *         vpcId: cloudhsm2Vpc.id,
- *     }));
- * }
- * const cloudhsmV2Cluster = new aws.cloudhsmv2.Cluster("cloudhsmV2Cluster", {
- *     hsmType: "hsm1.medium",
- *     subnetIds: cloudhsm2Subnets.map(v => v.id),
- *     tags: {
- *         Name: "example-aws_cloudhsm_v2_cluster",
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_cluster.html.markdown.

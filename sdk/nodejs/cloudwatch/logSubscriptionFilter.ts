@@ -14,16 +14,6 @@ import {LogGroup} from "./logGroup";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const testLambdafunctionLogfilter = new aws.cloudwatch.LogSubscriptionFilter("testLambdafunctionLogfilter", {
- *     destinationArn: aws_kinesis_stream_test_logstream.arn,
- *     distribution: "Random",
- *     filterPattern: "logtype test",
- *     logGroup: "/aws/lambda/example_lambda_name",
- *     roleArn: aws_iam_role_iam_for_lambda.arn,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_subscription_filter.html.markdown.

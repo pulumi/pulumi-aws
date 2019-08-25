@@ -10,18 +10,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const main = new aws.route53.DelegationSet("main", {
- *     referenceName: "DynDNS",
- * });
- * const primary = new aws.route53.Zone("primary", {
- *     delegationSetId: main.id,
- * });
- * const secondary = new aws.route53.Zone("secondary", {
- *     delegationSetId: main.id,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_delegation_set.html.markdown.

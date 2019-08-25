@@ -12,18 +12,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultSubnetGroup = new aws.docdb.SubnetGroup("default", {
- *     subnetIds: [
- *         aws_subnet_frontend.id,
- *         aws_subnet_backend.id,
- *     ],
- *     tags: {
- *         Name: "My docdb subnet group",
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_subnet_group.html.markdown.

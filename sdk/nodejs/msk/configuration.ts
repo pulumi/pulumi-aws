@@ -14,15 +14,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.msk.Configuration("example", {
- *     kafkaVersions: ["2.1.0"],
- *     serverProperties: `auto.create.topics.enable = true
- * delete.topic.enable = true
- * `,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_configuration.html.markdown.

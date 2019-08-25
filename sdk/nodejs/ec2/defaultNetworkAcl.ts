@@ -39,31 +39,6 @@ import * as utilities from "../utilities";
  * any ACL rules added or changed will be detected as drift.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const defaultDefaultNetworkAcl = new aws.ec2.DefaultNetworkAcl("default", {
- *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
- *     egress: [{
- *         action: "allow",
- *         cidrBlock: "0.0.0.0/0",
- *         fromPort: 0,
- *         protocol: "-1",
- *         ruleNo: 100,
- *         toPort: 0,
- *     }],
- *     ingress: [{
- *         action: "allow",
- *         cidrBlock: "", // set a CIDR block here
- *         fromPort: 0,
- *         protocol: "-1",
- *         ruleNo: 100,
- *         toPort: 0,
- *     }],
- * });
  * ```
  * 
  * ## Example config to deny all Egress traffic, allowing Ingress
@@ -72,23 +47,6 @@ import * as utilities from "../utilities";
  * including the default `ingress` rule to allow all traffic.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const defaultDefaultNetworkAcl = new aws.ec2.DefaultNetworkAcl("default", {
- *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
- *     ingress: [{
- *         action: "allow",
- *         cidrBlock: "", // set a CIDR block here
- *         fromPort: 0,
- *         protocol: "-1",
- *         ruleNo: 100,
- *         toPort: 0,
- *     }],
- * });
  * ```
  * 
  * ## Example config to deny all traffic to any Subnet in the Default Network ACL:
@@ -98,15 +56,6 @@ import * as utilities from "../utilities";
  * non-default ACL.
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const defaultDefaultNetworkAcl = new aws.ec2.DefaultNetworkAcl("default", {
- *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_network_acl.html.markdown.

@@ -13,57 +13,9 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.pricing.getProduct({
- *     filters: [
- *         {
- *             field: "instanceType",
- *             value: "c5.xlarge",
- *         },
- *         {
- *             field: "operatingSystem",
- *             value: "Linux",
- *         },
- *         {
- *             field: "location",
- *             value: "US East (N. Virginia)",
- *         },
- *         {
- *             field: "preInstalledSw",
- *             value: "NA",
- *         },
- *         {
- *             field: "licenseModel",
- *             value: "No License required",
- *         },
- *         {
- *             field: "tenancy",
- *             value: "Shared",
- *         },
- *     ],
- *     serviceCode: "AmazonEC2",
- * });
  * ```
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.pricing.getProduct({
- *     filters: [
- *         {
- *             field: "instanceType",
- *             value: "ds1.xlarge",
- *         },
- *         {
- *             field: "location",
- *             value: "US East (N. Virginia)",
- *         },
- *     ],
- *     serviceCode: "AmazonRedshift",
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.

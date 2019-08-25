@@ -10,15 +10,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const current = aws.ebs.getDefaultKmsKey({});
- * const example = new aws.ebs.Volume("example", {
- *     availabilityZone: "us-west-2a",
- *     encrypted: true,
- *     kmsKeyId: current.keyId,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_default_kms_key.html.markdown.

@@ -14,74 +14,22 @@ import * as utilities from "../utilities";
  * ### DynamoDB Target
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database_example.name,
- *     dynamodbTargets: [{
- *         path: "table-name",
- *     }],
- *     role: aws_iam_role_example.arn,
- * });
  * ```
  * 
  * ### JDBC Target
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database_example.name,
- *     jdbcTargets: [{
- *         connectionName: aws_glue_connection_example.name,
- *         path: "database-name/%",
- *     }],
- *     role: aws_iam_role_example.arn,
- * });
  * ```
  * 
  * ### S3 Target
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database_example.name,
- *     role: aws_iam_role_example.arn,
- *     s3Targets: [{
- *         path: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}`,
- *     }],
- * });
  * ```
  * 
  * 
  * ### Catalog Target
  * 
  * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.glue.Crawler("example", {
- *     catalogTargets: [{
- *         databaseName: aws_glue_catalog_database_example.name,
- *         tables: [aws_glue_catalog_table_example.name],
- *     }],
- *     configuration: `{
- *   "Version":1.0,
- *   "Grouping": {
- *     "TableGroupingPolicy": "CombineCompatibleSchemas"
- *   }
- * }
- * `,
- *     databaseName: aws_glue_catalog_database_example.name,
- *     role: aws_iam_role_example.arn,
- *     schemaChangePolicy: {
- *         deleteBehavior: "LOG",
- *     },
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
