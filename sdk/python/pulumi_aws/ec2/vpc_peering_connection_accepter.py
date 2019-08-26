@@ -115,6 +115,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         """
         Get an existing VpcPeeringConnectionAccepter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
