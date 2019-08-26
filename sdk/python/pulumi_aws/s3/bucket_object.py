@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from .. import utilities, tables
 
 class BucketObject(pulumi.CustomResource):
@@ -69,7 +70,7 @@ class BucketObject(pulumi.CustomResource):
     """
     Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
     """
-    source: pulumi.Output[pulumi.Asset]
+    source: pulumi.Output[Union[pulumi.Asset, pulumi.Archive]]
     """
     The path to a file that will be read and uploaded as raw bytes for the object content.
     """
@@ -115,7 +116,7 @@ class BucketObject(pulumi.CustomResource):
                `kms_key_id = "${aws_kms_key.foo.arn}"`
         :param pulumi.Input[dict] metadata: A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         :param pulumi.Input[str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
-        :param pulumi.Input[pulumi.Asset] source: The path to a file that will be read and uploaded as raw bytes for the object content.
+        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: The path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[str] storage_class: Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
                for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
@@ -172,6 +173,7 @@ class BucketObject(pulumi.CustomResource):
         """
         Get an existing BucketObject resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,7 +195,7 @@ class BucketObject(pulumi.CustomResource):
                `kms_key_id = "${aws_kms_key.foo.arn}"`
         :param pulumi.Input[dict] metadata: A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         :param pulumi.Input[str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
-        :param pulumi.Input[pulumi.Asset] source: The path to a file that will be read and uploaded as raw bytes for the object content.
+        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: The path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[str] storage_class: Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
                for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
@@ -203,7 +205,7 @@ class BucketObject(pulumi.CustomResource):
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_object.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["acl"] = acl

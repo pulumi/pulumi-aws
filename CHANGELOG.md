@@ -2,9 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-__NULL__
+_(none)_
 
 ---
+
+## 1.0.0-beta.3 (2019-08-26)
+* Update pulumi-terraform reference to 58c7473d0
+* Use 1.0-beta versions of python dependencies
 
 ## 1.0.0-beta.2 (2019-08-23)
 * Add support for `t3a` instance types
@@ -117,8 +121,6 @@ compiler complains.
 * Add the ability to pass a `PolicyDocument` to the `policy` field in `aws.s3.Bucket`
 * Subscription resources will now be parented by default by the resource they were created off of.
   This has been implemented using 'aliases' so this will not have any effect on existing stacks.
-
----
 
 ## 0.18.8 (2019-06-06)
 * Add TypeScript type guards for each resource class ([7ace3e9b5f](https://github.com/pulumi/pulumi-terraform/commit/7ace3e9b5f2dcd4692b029ba4b80360582d7949a))

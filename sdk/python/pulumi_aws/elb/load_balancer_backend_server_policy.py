@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from .. import utilities, tables
 
 class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
@@ -58,7 +59,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             __props__['load_balancer_name'] = load_balancer_name
             __props__['policy_names'] = policy_names
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy")])
-        opts = alias_opts if opts is None else opts.merge(alias_opts)
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadBalancerBackendServerPolicy, __self__).__init__(
             'aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy',
             resource_name,
@@ -70,6 +71,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         """
         Get an existing LoadBalancerBackendServerPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -79,7 +81,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_backend_server_policy.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["instance_port"] = instance_port
