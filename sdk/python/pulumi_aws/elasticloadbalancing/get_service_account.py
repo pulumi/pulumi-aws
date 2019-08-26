@@ -43,6 +43,9 @@ def get_service_account(region=None,opts=None):
     """
     Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
     in a given region for the purpose of whitelisting in S3 bucket policy.
+    
+    :param str region: Name of the region whose AWS ELB account ID is desired.
+           Defaults to the region from the AWS provider configuration.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_service_account_legacy.html.markdown.
     """

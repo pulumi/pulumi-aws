@@ -47,6 +47,8 @@ def get_cluster_auth(name=None,opts=None):
     [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
     This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
     server configured.
+    
+    :param str name: The name of the cluster
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster_auth.html.markdown.
     """

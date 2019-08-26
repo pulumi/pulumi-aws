@@ -45,6 +45,9 @@ def get_rest_api(name=None,opts=None):
     API Gateway. To fetch the REST API you must provide a name to match against. 
     As there is no unique name constraint on REST APIs this data source will 
     error if there is more than one match.
+    
+    :param str name: The name of the REST API to look up. If no REST API is found with this name, an error will be returned. 
+           If multiple REST APIs are found with this name, an error will be returned.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
     """

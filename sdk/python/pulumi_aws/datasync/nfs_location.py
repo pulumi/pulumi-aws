@@ -17,6 +17,8 @@ class NfsLocation(pulumi.CustomResource):
     on_prem_config: pulumi.Output[dict]
     """
     Configuration block containing information for connecting to the NFS File System.
+    
+      * `agent_arns` (`list`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
     """
     server_hostname: pulumi.Output[str]
     """
@@ -43,6 +45,10 @@ class NfsLocation(pulumi.CustomResource):
         :param pulumi.Input[str] server_hostname: Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Location.
+        
+        The **on_prem_config** object supports the following:
+        
+          * `agent_arns` (`pulumi.Input[list]`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_nfs.html.markdown.
         """
@@ -95,6 +101,10 @@ class NfsLocation(pulumi.CustomResource):
         :param pulumi.Input[str] server_hostname: Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Location.
+        
+        The **on_prem_config** object supports the following:
+        
+          * `agent_arns` (`pulumi.Input[list]`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_nfs.html.markdown.
         """

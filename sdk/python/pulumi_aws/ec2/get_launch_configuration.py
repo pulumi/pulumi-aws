@@ -150,6 +150,8 @@ class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
 def get_launch_configuration(name=None,opts=None):
     """
     Provides information about a Launch Configuration.
+    
+    :param str name: The name of the launch configuration.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_configuration.html.markdown.
     """

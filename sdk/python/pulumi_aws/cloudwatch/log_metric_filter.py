@@ -18,6 +18,11 @@ class LogMetricFilter(pulumi.CustomResource):
     """
     A block defining collection of information
     needed to define how metric data gets emitted. See below.
+    
+      * `default_value` (`str`)
+      * `name` (`str`) - A name for the metric filter.
+      * `namespace` (`str`)
+      * `value` (`str`)
     """
     name: pulumi.Output[str]
     """
@@ -40,6 +45,13 @@ class LogMetricFilter(pulumi.CustomResource):
         :param pulumi.Input[str] name: A name for the metric filter.
         :param pulumi.Input[str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.
+        
+        The **metric_transformation** object supports the following:
+        
+          * `default_value` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - A name for the metric filter.
+          * `namespace` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_metric_filter.html.markdown.
         """
@@ -91,6 +103,13 @@ class LogMetricFilter(pulumi.CustomResource):
         :param pulumi.Input[str] name: A name for the metric filter.
         :param pulumi.Input[str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.
+        
+        The **metric_transformation** object supports the following:
+        
+          * `default_value` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - A name for the metric filter.
+          * `namespace` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_metric_filter.html.markdown.
         """

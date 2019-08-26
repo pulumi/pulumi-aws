@@ -21,6 +21,26 @@ class ComputeEnvironment(pulumi.CustomResource):
     compute_resources: pulumi.Output[dict]
     """
     Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+    
+      * `bid_percentage` (`float`) - Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+      * `desired_vcpus` (`float`) - The desired number of EC2 vCPUS in the compute environment.
+      * `ec2_key_pair` (`str`) - The EC2 key pair that is used for instances launched in the compute environment.
+      * `image_id` (`str`) - The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+      * `instance_role` (`str`) - The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
+      * `instance_types` (`list`) - A list of instance types that may be launched.
+      * `launch_template` (`dict`) - The launch template to use for your compute resources. See details below.
+    
+        * `launch_template_id` (`str`) - ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
+        * `launch_template_name` (`str`) - Name of the launch template.
+        * `version` (`str`) - The version number of the launch template. Default: The default version of the launch template.
+    
+      * `max_vcpus` (`float`) - The maximum number of EC2 vCPUs that an environment can reach.
+      * `min_vcpus` (`float`) - The minimum number of EC2 vCPUs that an environment should maintain.
+      * `security_group_ids` (`list`) - A list of EC2 security group that are associated with instances launched in the compute environment.
+      * `spot_iam_fleet_role` (`str`) - The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
+      * `subnets` (`list`) - A list of VPC subnets into which the compute resources are launched.
+      * `tags` (`dict`) - Key-value pair tags to be applied to resources that are launched in the compute environment.
+      * `type` (`str`) - The type of compute environment. Valid items are `EC2` or `SPOT`.
     """
     ecs_cluster_arn: pulumi.Output[str]
     """
@@ -63,6 +83,28 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2` or `SPOT`.
+        
+        The **compute_resources** object supports the following:
+        
+          * `bid_percentage` (`pulumi.Input[float]`) - Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+          * `desired_vcpus` (`pulumi.Input[float]`) - The desired number of EC2 vCPUS in the compute environment.
+          * `ec2_key_pair` (`pulumi.Input[str]`) - The EC2 key pair that is used for instances launched in the compute environment.
+          * `image_id` (`pulumi.Input[str]`) - The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+          * `instance_role` (`pulumi.Input[str]`) - The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
+          * `instance_types` (`pulumi.Input[list]`) - A list of instance types that may be launched.
+          * `launch_template` (`pulumi.Input[dict]`) - The launch template to use for your compute resources. See details below.
+        
+            * `launch_template_id` (`pulumi.Input[str]`) - ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
+            * `launch_template_name` (`pulumi.Input[str]`) - Name of the launch template.
+            * `version` (`pulumi.Input[str]`) - The version number of the launch template. Default: The default version of the launch template.
+        
+          * `max_vcpus` (`pulumi.Input[float]`) - The maximum number of EC2 vCPUs that an environment can reach.
+          * `min_vcpus` (`pulumi.Input[float]`) - The minimum number of EC2 vCPUs that an environment should maintain.
+          * `security_group_ids` (`pulumi.Input[list]`) - A list of EC2 security group that are associated with instances launched in the compute environment.
+          * `spot_iam_fleet_role` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
+          * `subnets` (`pulumi.Input[list]`) - A list of VPC subnets into which the compute resources are launched.
+          * `tags` (`pulumi.Input[dict]`) - Key-value pair tags to be applied to resources that are launched in the compute environment.
+          * `type` (`pulumi.Input[str]`) - The type of compute environment. Valid items are `EC2` or `SPOT`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_compute_environment.html.markdown.
         """
@@ -122,6 +164,28 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] status: The current status of the compute environment (for example, CREATING or VALID).
         :param pulumi.Input[str] status_reason: A short, human-readable string to provide additional details about the current status of the compute environment.
         :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2` or `SPOT`.
+        
+        The **compute_resources** object supports the following:
+        
+          * `bid_percentage` (`pulumi.Input[float]`) - Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+          * `desired_vcpus` (`pulumi.Input[float]`) - The desired number of EC2 vCPUS in the compute environment.
+          * `ec2_key_pair` (`pulumi.Input[str]`) - The EC2 key pair that is used for instances launched in the compute environment.
+          * `image_id` (`pulumi.Input[str]`) - The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+          * `instance_role` (`pulumi.Input[str]`) - The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
+          * `instance_types` (`pulumi.Input[list]`) - A list of instance types that may be launched.
+          * `launch_template` (`pulumi.Input[dict]`) - The launch template to use for your compute resources. See details below.
+        
+            * `launch_template_id` (`pulumi.Input[str]`) - ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
+            * `launch_template_name` (`pulumi.Input[str]`) - Name of the launch template.
+            * `version` (`pulumi.Input[str]`) - The version number of the launch template. Default: The default version of the launch template.
+        
+          * `max_vcpus` (`pulumi.Input[float]`) - The maximum number of EC2 vCPUs that an environment can reach.
+          * `min_vcpus` (`pulumi.Input[float]`) - The minimum number of EC2 vCPUs that an environment should maintain.
+          * `security_group_ids` (`pulumi.Input[list]`) - A list of EC2 security group that are associated with instances launched in the compute environment.
+          * `spot_iam_fleet_role` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
+          * `subnets` (`pulumi.Input[list]`) - A list of VPC subnets into which the compute resources are launched.
+          * `tags` (`pulumi.Input[dict]`) - Key-value pair tags to be applied to resources that are launched in the compute environment.
+          * `type` (`pulumi.Input[str]`) - The type of compute environment. Valid items are `EC2` or `SPOT`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_compute_environment.html.markdown.
         """

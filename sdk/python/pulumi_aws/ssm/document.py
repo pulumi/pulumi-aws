@@ -58,10 +58,18 @@ class Document(pulumi.CustomResource):
     parameters: pulumi.Output[list]
     """
     The parameters that are available to this document.
+    
+      * `default_value` (`str`)
+      * `description` (`str`) - The description of the document.
+      * `name` (`str`) - The name of the document.
+      * `type` (`str`)
     """
     permissions: pulumi.Output[dict]
     """
     Additional Permissions to attach to the document. See Permissions below for details.
+    
+      * `account_ids` (`str`)
+      * `type` (`str`)
     """
     platform_types: pulumi.Output[list]
     """
@@ -106,6 +114,11 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the document.
         :param pulumi.Input[dict] permissions: Additional Permissions to attach to the document. See Permissions below for details.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
+        
+        The **permissions** object supports the following:
+        
+          * `account_ids` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_document.html.markdown.
         """
@@ -180,6 +193,18 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[str] schema_version: The schema version of the document.
         :param pulumi.Input[str] status: "Creating", "Active" or "Deleting". The current status of the document.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
+        
+        The **parameters** object supports the following:
+        
+          * `default_value` (`pulumi.Input[str]`)
+          * `description` (`pulumi.Input[str]`) - The description of the document.
+          * `name` (`pulumi.Input[str]`) - The name of the document.
+          * `type` (`pulumi.Input[str]`)
+        
+        The **permissions** object supports the following:
+        
+          * `account_ids` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_document.html.markdown.
         """

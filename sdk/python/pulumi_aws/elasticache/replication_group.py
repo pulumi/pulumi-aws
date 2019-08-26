@@ -37,6 +37,9 @@ class ReplicationGroup(pulumi.CustomResource):
     cluster_mode: pulumi.Output[dict]
     """
     Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+    
+      * `num_node_groups` (`float`) - Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+      * `replicas_per_node_group` (`float`) - Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
     """
     configuration_endpoint_address: pulumi.Output[str]
     """
@@ -190,6 +193,11 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
+        
+        The **cluster_mode** object supports the following:
+        
+          * `num_node_groups` (`pulumi.Input[float]`) - Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+          * `replicas_per_node_group` (`pulumi.Input[float]`) - Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_replication_group.html.markdown.
         """
@@ -296,6 +304,11 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
+        
+        The **cluster_mode** object supports the following:
+        
+          * `num_node_groups` (`pulumi.Input[float]`) - Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+          * `replicas_per_node_group` (`pulumi.Input[float]`) - Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_replication_group.html.markdown.
         """

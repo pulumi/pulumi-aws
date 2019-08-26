@@ -50,6 +50,10 @@ class AwaitableGetLocalDiskResult(GetLocalDiskResult):
 def get_local_disk(disk_node=None,disk_path=None,gateway_arn=None,opts=None):
     """
     Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
+    
+    :param str disk_node: The device node of the local disk to retrieve. For example, `/dev/sdb`.
+    :param str disk_path: The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+    :param str gateway_arn: The Amazon Resource Name (ARN) of the gateway.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/storagegateway_local_disk.html.markdown.
     """

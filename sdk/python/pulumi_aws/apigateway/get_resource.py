@@ -54,6 +54,9 @@ def get_resource(path=None,rest_api_id=None,opts=None):
     """
     Use this data source to get the id of a Resource in API Gateway. 
     To fetch the Resource, you must provide the REST API id as well as the full path.  
+    
+    :param str path: The full path of the resource.  If no path is found, an error will be returned.
+    :param str rest_api_id: The REST API id that owns the resource. If no REST API is found, an error will be returned.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.
     """

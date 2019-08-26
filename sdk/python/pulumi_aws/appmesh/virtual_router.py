@@ -33,6 +33,14 @@ class VirtualRouter(pulumi.CustomResource):
     spec: pulumi.Output[dict]
     """
     The virtual router specification to apply.
+    
+      * `listener` (`dict`) - The listeners that the virtual router is expected to receive inbound traffic from.
+        Currently only one listener is supported per virtual router.
+    
+        * `port_mapping` (`dict`) - The port mapping information for the listener.
+    
+          * `port` (`float`) - The port used for the port mapping.
+          * `protocol` (`str`) - The protocol used for the port mapping. Valid values are `http` and `tcp`.
     """
     tags: pulumi.Output[dict]
     """
@@ -60,6 +68,16 @@ class VirtualRouter(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name to use for the virtual router.
         :param pulumi.Input[dict] spec: The virtual router specification to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **spec** object supports the following:
+        
+          * `listener` (`pulumi.Input[dict]`) - The listeners that the virtual router is expected to receive inbound traffic from.
+            Currently only one listener is supported per virtual router.
+        
+            * `port_mapping` (`pulumi.Input[dict]`) - The port mapping information for the listener.
+        
+              * `port` (`pulumi.Input[float]`) - The port used for the port mapping.
+              * `protocol` (`pulumi.Input[str]`) - The protocol used for the port mapping. Valid values are `http` and `tcp`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_router.html.markdown.
         """
@@ -113,6 +131,16 @@ class VirtualRouter(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name to use for the virtual router.
         :param pulumi.Input[dict] spec: The virtual router specification to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **spec** object supports the following:
+        
+          * `listener` (`pulumi.Input[dict]`) - The listeners that the virtual router is expected to receive inbound traffic from.
+            Currently only one listener is supported per virtual router.
+        
+            * `port_mapping` (`pulumi.Input[dict]`) - The port mapping information for the listener.
+        
+              * `port` (`pulumi.Input[float]`) - The port used for the port mapping.
+              * `protocol` (`pulumi.Input[str]`) - The protocol used for the port mapping. Valid values are `http` and `tcp`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_router.html.markdown.
         """

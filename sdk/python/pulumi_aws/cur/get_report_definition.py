@@ -95,6 +95,8 @@ def get_report_definition(report_name=None,opts=None):
     > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
     
     > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
+    
+    :param str report_name: The name of the report definition to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cur_report_definition.html.markdown.
     """

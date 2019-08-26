@@ -58,6 +58,8 @@ def get_alias(name=None,opts=None):
     Use this data source to get the ARN of a KMS key alias.
     By using this data source, you can reference key alias
     without having to hard code the ARN as input.
+    
+    :param str name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
     """

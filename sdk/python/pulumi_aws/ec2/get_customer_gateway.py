@@ -60,6 +60,14 @@ class AwaitableGetCustomerGatewayResult(GetCustomerGatewayResult):
 def get_customer_gateway(filters=None,id=None,tags=None,opts=None):
     """
     Get an existing AWS Customer Gateway.
+    
+    :param list filters: One or more [name-value pairs][dcg-filters] to filter by.
+    :param str id: The ID of the gateway.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`)
+      * `values` (`list`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
     """

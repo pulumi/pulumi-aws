@@ -25,6 +25,12 @@ class Channel(pulumi.CustomResource):
     hls_ingests: pulumi.Output[list]
     """
     A single item list of HLS ingest information
+    
+      * `ingest_endpoints` (`list`) - A list of the ingest endpoints
+    
+        * `password` (`str`) - The password
+        * `url` (`str`) - The URL
+        * `username` (`str`) - The username
     """
     tags: pulumi.Output[dict]
     """
@@ -86,6 +92,14 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the channel
         :param pulumi.Input[list] hls_ingests: A single item list of HLS ingest information
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **hls_ingests** object supports the following:
+        
+          * `ingest_endpoints` (`pulumi.Input[list]`) - A list of the ingest endpoints
+        
+            * `password` (`pulumi.Input[str]`) - The password
+            * `url` (`pulumi.Input[str]`) - The URL
+            * `username` (`pulumi.Input[str]`) - The username
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_package_channel.html.markdown.
         """

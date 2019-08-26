@@ -68,6 +68,11 @@ class AwaitableGetImageResult(GetImageResult):
 def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=None,opts=None):
     """
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
+    
+    :param str image_digest: The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+    :param str image_tag: The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+    :param str registry_id: The ID of the Registry where the repository resides.
+    :param str repository_name: The name of the ECR Repository.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.
     """

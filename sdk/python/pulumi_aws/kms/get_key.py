@@ -90,6 +90,13 @@ def get_key(grant_tokens=None,key_id=None,opts=None):
     the specified KMS Key with flexible key id input. 
     This can be useful to reference key alias 
     without having to hard code the ARN as input.
+    
+    :param list grant_tokens: List of grant tokens
+    :param str key_id: Key identifier which can be one of the following format:
+           * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
+           * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
+           * Alias name. E.g.: `alias/my-key`
+           * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
     """

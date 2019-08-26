@@ -178,6 +178,8 @@ class AwaitableGetClusterResult(GetClusterResult):
 def get_cluster(cluster_id=None,tags=None,opts=None):
     """
     Use this data source to get information about an Elasticache Cluster
+    
+    :param str cluster_id: Group identifier.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_cluster.html.markdown.
     """

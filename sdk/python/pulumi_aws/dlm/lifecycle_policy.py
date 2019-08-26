@@ -21,6 +21,25 @@ class LifecyclePolicy(pulumi.CustomResource):
     policy_details: pulumi.Output[dict]
     """
     See the `policy_details` configuration block. Max of 1.
+    
+      * `resource_types` (`list`) - A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+      * `schedules` (`list`) - See the `schedule` configuration block.
+    
+        * `copy_tags` (`bool`) - Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+        * `create_rule` (`dict`) - See the `create_rule` block. Max of 1 per schedule.
+    
+          * `interval` (`float`) - How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+          * `interval_unit` (`str`) - The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+          * `times` (`str`) - A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+    
+        * `name` (`str`) - A name for the schedule.
+        * `retain_rule` (`dict`) - See the `retain_rule` block. Max of 1 per schedule.
+    
+          * `count` (`float`) - How many snapshots to keep. Must be an integer between 1 and 1000.
+    
+        * `tags_to_add` (`dict`) - A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+    
+      * `target_tags` (`dict`) - A mapping of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
     """
     state: pulumi.Output[str]
     """
@@ -36,6 +55,27 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input[dict] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
+        
+        The **policy_details** object supports the following:
+        
+          * `resource_types` (`pulumi.Input[list]`) - A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+          * `schedules` (`pulumi.Input[list]`) - See the `schedule` configuration block.
+        
+            * `copy_tags` (`pulumi.Input[bool]`) - Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+            * `create_rule` (`pulumi.Input[dict]`) - See the `create_rule` block. Max of 1 per schedule.
+        
+              * `interval` (`pulumi.Input[float]`) - How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+              * `interval_unit` (`pulumi.Input[str]`) - The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+              * `times` (`pulumi.Input[str]`) - A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+        
+            * `name` (`pulumi.Input[str]`) - A name for the schedule.
+            * `retain_rule` (`pulumi.Input[dict]`) - See the `retain_rule` block. Max of 1 per schedule.
+        
+              * `count` (`pulumi.Input[float]`) - How many snapshots to keep. Must be an integer between 1 and 1000.
+        
+            * `tags_to_add` (`pulumi.Input[dict]`) - A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+        
+          * `target_tags` (`pulumi.Input[dict]`) - A mapping of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dlm_lifecycle_policy.html.markdown.
         """
@@ -85,6 +125,27 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input[dict] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
+        
+        The **policy_details** object supports the following:
+        
+          * `resource_types` (`pulumi.Input[list]`) - A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+          * `schedules` (`pulumi.Input[list]`) - See the `schedule` configuration block.
+        
+            * `copy_tags` (`pulumi.Input[bool]`) - Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+            * `create_rule` (`pulumi.Input[dict]`) - See the `create_rule` block. Max of 1 per schedule.
+        
+              * `interval` (`pulumi.Input[float]`) - How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+              * `interval_unit` (`pulumi.Input[str]`) - The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+              * `times` (`pulumi.Input[str]`) - A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+        
+            * `name` (`pulumi.Input[str]`) - A name for the schedule.
+            * `retain_rule` (`pulumi.Input[dict]`) - See the `retain_rule` block. Max of 1 per schedule.
+        
+              * `count` (`pulumi.Input[float]`) - How many snapshots to keep. Must be an integer between 1 and 1000.
+        
+            * `tags_to_add` (`pulumi.Input[dict]`) - A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+        
+          * `target_tags` (`pulumi.Input[dict]`) - A mapping of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dlm_lifecycle_policy.html.markdown.
         """

@@ -18,6 +18,10 @@ class AnalyticsApplication(pulumi.CustomResource):
     """
     The CloudWatch log stream options to monitor application errors.
     See CloudWatch Logging Options below for more details.
+    
+      * `id` (`str`) - The ARN of the Kinesis Analytics Application.
+      * `log_stream_arn` (`str`)
+      * `role_arn` (`str`)
     """
     code: pulumi.Output[str]
     """
@@ -34,6 +38,59 @@ class AnalyticsApplication(pulumi.CustomResource):
     inputs: pulumi.Output[dict]
     """
     Input configuration of the application. See Inputs below for more details.
+    
+      * `id` (`str`) - The ARN of the Kinesis Analytics Application.
+      * `kinesis_firehose` (`dict`)
+    
+        * `resource_arn` (`str`)
+        * `role_arn` (`str`)
+    
+      * `kinesis_stream` (`dict`)
+    
+        * `resource_arn` (`str`)
+        * `role_arn` (`str`)
+    
+      * `name_prefix` (`str`)
+      * `parallelism` (`dict`)
+    
+        * `count` (`float`)
+    
+      * `processing_configuration` (`dict`)
+    
+        * `lambda_` (`dict`)
+    
+          * `resource_arn` (`str`)
+          * `role_arn` (`str`)
+    
+      * `schema` (`dict`)
+    
+        * `record_columns` (`list`)
+    
+          * `mapping` (`str`)
+          * `name` (`str`) - Name of the Kinesis Analytics Application.
+          * `sql_type` (`str`)
+    
+        * `record_encoding` (`str`)
+        * `record_format` (`dict`)
+    
+          * `mapping_parameters` (`dict`)
+    
+            * `csv` (`dict`)
+    
+              * `record_column_delimiter` (`str`)
+              * `record_row_delimiter` (`str`)
+    
+            * `json` (`dict`)
+    
+              * `record_row_path` (`str`)
+    
+          * `record_format_type` (`str`)
+    
+      * `starting_position_configurations` (`list`)
+    
+        * `starting_position` (`str`)
+    
+      * `stream_names` (`list`)
     """
     last_update_timestamp: pulumi.Output[str]
     """
@@ -46,11 +103,65 @@ class AnalyticsApplication(pulumi.CustomResource):
     outputs: pulumi.Output[list]
     """
     Output destination configuration of the application. See Outputs below for more details.
+    
+      * `id` (`str`) - The ARN of the Kinesis Analytics Application.
+      * `kinesis_firehose` (`dict`)
+    
+        * `resource_arn` (`str`)
+        * `role_arn` (`str`)
+    
+      * `kinesis_stream` (`dict`)
+    
+        * `resource_arn` (`str`)
+        * `role_arn` (`str`)
+    
+      * `lambda_` (`dict`)
+    
+        * `resource_arn` (`str`)
+        * `role_arn` (`str`)
+    
+      * `name` (`str`) - Name of the Kinesis Analytics Application.
+      * `schema` (`dict`)
+    
+        * `record_format_type` (`str`)
     """
     reference_data_sources: pulumi.Output[dict]
     """
     An S3 Reference Data Source for the application.
     See Reference Data Sources below for more details.
+    
+      * `id` (`str`) - The ARN of the Kinesis Analytics Application.
+      * `s3` (`dict`)
+    
+        * `bucket_arn` (`str`)
+        * `file_key` (`str`)
+        * `role_arn` (`str`)
+    
+      * `schema` (`dict`)
+    
+        * `record_columns` (`list`)
+    
+          * `mapping` (`str`)
+          * `name` (`str`) - Name of the Kinesis Analytics Application.
+          * `sql_type` (`str`)
+    
+        * `record_encoding` (`str`)
+        * `record_format` (`dict`)
+    
+          * `mapping_parameters` (`dict`)
+    
+            * `csv` (`dict`)
+    
+              * `record_column_delimiter` (`str`)
+              * `record_row_delimiter` (`str`)
+    
+            * `json` (`dict`)
+    
+              * `record_row_path` (`str`)
+    
+          * `record_format_type` (`str`)
+    
+      * `table_name` (`str`)
     """
     status: pulumi.Output[str]
     """
@@ -83,6 +194,125 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[dict] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
         :param pulumi.Input[dict] tags: Key-value mapping of tags for the Kinesis Analytics Application.
+        
+        The **cloudwatch_logging_options** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
+          * `log_stream_arn` (`pulumi.Input[str]`)
+          * `role_arn` (`pulumi.Input[str]`)
+        
+        The **inputs** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
+          * `kinesis_firehose` (`pulumi.Input[dict]`)
+        
+            * `resource_arn` (`pulumi.Input[str]`)
+            * `role_arn` (`pulumi.Input[str]`)
+        
+          * `kinesis_stream` (`pulumi.Input[dict]`)
+        
+            * `resource_arn` (`pulumi.Input[str]`)
+            * `role_arn` (`pulumi.Input[str]`)
+        
+          * `name_prefix` (`pulumi.Input[str]`)
+          * `parallelism` (`pulumi.Input[dict]`)
+        
+            * `count` (`pulumi.Input[float]`)
+        
+          * `processing_configuration` (`pulumi.Input[dict]`)
+        
+            * `lambda_` (`pulumi.Input[dict]`)
+        
+              * `resource_arn` (`pulumi.Input[str]`)
+              * `role_arn` (`pulumi.Input[str]`)
+        
+          * `schema` (`pulumi.Input[dict]`)
+        
+            * `record_columns` (`pulumi.Input[list]`)
+        
+              * `mapping` (`pulumi.Input[str]`)
+              * `name` (`pulumi.Input[str]`) - Name of the Kinesis Analytics Application.
+              * `sql_type` (`pulumi.Input[str]`)
+        
+            * `record_encoding` (`pulumi.Input[str]`)
+            * `record_format` (`pulumi.Input[dict]`)
+        
+              * `mapping_parameters` (`pulumi.Input[dict]`)
+        
+                * `csv` (`pulumi.Input[dict]`)
+        
+                  * `record_column_delimiter` (`pulumi.Input[str]`)
+                  * `record_row_delimiter` (`pulumi.Input[str]`)
+        
+                * `json` (`pulumi.Input[dict]`)
+        
+                  * `record_row_path` (`pulumi.Input[str]`)
+        
+              * `record_format_type` (`pulumi.Input[str]`)
+        
+          * `starting_position_configurations` (`pulumi.Input[list]`)
+        
+            * `starting_position` (`pulumi.Input[str]`)
+        
+          * `stream_names` (`pulumi.Input[list]`)
+        
+        The **outputs** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
+          * `kinesis_firehose` (`pulumi.Input[dict]`)
+        
+            * `resource_arn` (`pulumi.Input[str]`)
+            * `role_arn` (`pulumi.Input[str]`)
+        
+          * `kinesis_stream` (`pulumi.Input[dict]`)
+        
+            * `resource_arn` (`pulumi.Input[str]`)
+            * `role_arn` (`pulumi.Input[str]`)
+        
+          * `lambda_` (`pulumi.Input[dict]`)
+        
+            * `resource_arn` (`pulumi.Input[str]`)
+            * `role_arn` (`pulumi.Input[str]`)
+        
+          * `name` (`pulumi.Input[str]`) - Name of the Kinesis Analytics Application.
+          * `schema` (`pulumi.Input[dict]`)
+        
+            * `record_format_type` (`pulumi.Input[str]`)
+        
+        The **reference_data_sources** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
+          * `s3` (`pulumi.Input[dict]`)
+        
+            * `bucket_arn` (`pulumi.Input[str]`)
+            * `file_key` (`pulumi.Input[str]`)
+            * `role_arn` (`pulumi.Input[str]`)
+        
+          * `schema` (`pulumi.Input[dict]`)
+        
+            * `record_columns` (`pulumi.Input[list]`)
+        
+              * `mapping` (`pulumi.Input[str]`)
+              * `name` (`pulumi.Input[str]`) - Name of the Kinesis Analytics Application.
+              * `sql_type` (`pulumi.Input[str]`)
+        
+            * `record_encoding` (`pulumi.Input[str]`)
+            * `record_format` (`pulumi.Input[dict]`)
+        
+              * `mapping_parameters` (`pulumi.Input[dict]`)
+        
+                * `csv` (`pulumi.Input[dict]`)
+        
+                  * `record_column_delimiter` (`pulumi.Input[str]`)
+                  * `record_row_delimiter` (`pulumi.Input[str]`)
+        
+                * `json` (`pulumi.Input[dict]`)
+        
+                  * `record_row_path` (`pulumi.Input[str]`)
+        
+              * `record_format_type` (`pulumi.Input[str]`)
+        
+          * `table_name` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_analytics_application.html.markdown.
         """
@@ -146,6 +376,125 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[str] status: The Status of the application.
         :param pulumi.Input[dict] tags: Key-value mapping of tags for the Kinesis Analytics Application.
         :param pulumi.Input[float] version: The Version of the application.
+        
+        The **cloudwatch_logging_options** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
+          * `log_stream_arn` (`pulumi.Input[str]`)
+          * `role_arn` (`pulumi.Input[str]`)
+        
+        The **inputs** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
+          * `kinesis_firehose` (`pulumi.Input[dict]`)
+        
+            * `resource_arn` (`pulumi.Input[str]`)
+            * `role_arn` (`pulumi.Input[str]`)
+        
+          * `kinesis_stream` (`pulumi.Input[dict]`)
+        
+            * `resource_arn` (`pulumi.Input[str]`)
+            * `role_arn` (`pulumi.Input[str]`)
+        
+          * `name_prefix` (`pulumi.Input[str]`)
+          * `parallelism` (`pulumi.Input[dict]`)
+        
+            * `count` (`pulumi.Input[float]`)
+        
+          * `processing_configuration` (`pulumi.Input[dict]`)
+        
+            * `lambda_` (`pulumi.Input[dict]`)
+        
+              * `resource_arn` (`pulumi.Input[str]`)
+              * `role_arn` (`pulumi.Input[str]`)
+        
+          * `schema` (`pulumi.Input[dict]`)
+        
+            * `record_columns` (`pulumi.Input[list]`)
+        
+              * `mapping` (`pulumi.Input[str]`)
+              * `name` (`pulumi.Input[str]`) - Name of the Kinesis Analytics Application.
+              * `sql_type` (`pulumi.Input[str]`)
+        
+            * `record_encoding` (`pulumi.Input[str]`)
+            * `record_format` (`pulumi.Input[dict]`)
+        
+              * `mapping_parameters` (`pulumi.Input[dict]`)
+        
+                * `csv` (`pulumi.Input[dict]`)
+        
+                  * `record_column_delimiter` (`pulumi.Input[str]`)
+                  * `record_row_delimiter` (`pulumi.Input[str]`)
+        
+                * `json` (`pulumi.Input[dict]`)
+        
+                  * `record_row_path` (`pulumi.Input[str]`)
+        
+              * `record_format_type` (`pulumi.Input[str]`)
+        
+          * `starting_position_configurations` (`pulumi.Input[list]`)
+        
+            * `starting_position` (`pulumi.Input[str]`)
+        
+          * `stream_names` (`pulumi.Input[list]`)
+        
+        The **outputs** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
+          * `kinesis_firehose` (`pulumi.Input[dict]`)
+        
+            * `resource_arn` (`pulumi.Input[str]`)
+            * `role_arn` (`pulumi.Input[str]`)
+        
+          * `kinesis_stream` (`pulumi.Input[dict]`)
+        
+            * `resource_arn` (`pulumi.Input[str]`)
+            * `role_arn` (`pulumi.Input[str]`)
+        
+          * `lambda_` (`pulumi.Input[dict]`)
+        
+            * `resource_arn` (`pulumi.Input[str]`)
+            * `role_arn` (`pulumi.Input[str]`)
+        
+          * `name` (`pulumi.Input[str]`) - Name of the Kinesis Analytics Application.
+          * `schema` (`pulumi.Input[dict]`)
+        
+            * `record_format_type` (`pulumi.Input[str]`)
+        
+        The **reference_data_sources** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
+          * `s3` (`pulumi.Input[dict]`)
+        
+            * `bucket_arn` (`pulumi.Input[str]`)
+            * `file_key` (`pulumi.Input[str]`)
+            * `role_arn` (`pulumi.Input[str]`)
+        
+          * `schema` (`pulumi.Input[dict]`)
+        
+            * `record_columns` (`pulumi.Input[list]`)
+        
+              * `mapping` (`pulumi.Input[str]`)
+              * `name` (`pulumi.Input[str]`) - Name of the Kinesis Analytics Application.
+              * `sql_type` (`pulumi.Input[str]`)
+        
+            * `record_encoding` (`pulumi.Input[str]`)
+            * `record_format` (`pulumi.Input[dict]`)
+        
+              * `mapping_parameters` (`pulumi.Input[dict]`)
+        
+                * `csv` (`pulumi.Input[dict]`)
+        
+                  * `record_column_delimiter` (`pulumi.Input[str]`)
+                  * `record_row_delimiter` (`pulumi.Input[str]`)
+        
+                * `json` (`pulumi.Input[dict]`)
+        
+                  * `record_row_path` (`pulumi.Input[str]`)
+        
+              * `record_format_type` (`pulumi.Input[str]`)
+        
+          * `table_name` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_analytics_application.html.markdown.
         """

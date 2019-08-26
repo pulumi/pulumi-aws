@@ -45,6 +45,13 @@ class Endpoint(pulumi.CustomResource):
     mongodb_settings: pulumi.Output[dict]
     """
     Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+    
+      * `auth_mechanism` (`str`)
+      * `auth_source` (`str`)
+      * `auth_type` (`str`)
+      * `docs_to_investigate` (`str`)
+      * `extract_doc_id` (`str`)
+      * `nesting_level` (`str`)
     """
     password: pulumi.Output[str]
     """
@@ -57,6 +64,14 @@ class Endpoint(pulumi.CustomResource):
     s3_settings: pulumi.Output[dict]
     """
     Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+    
+      * `bucket_folder` (`str`)
+      * `bucket_name` (`str`)
+      * `compression_type` (`str`)
+      * `csv_delimiter` (`str`)
+      * `csv_row_delimiter` (`str`)
+      * `external_table_definition` (`str`)
+      * `service_access_role_arn` (`str`)
     """
     server_name: pulumi.Output[str]
     """
@@ -103,6 +118,25 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] ssl_mode: The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] username: The user name to be used to login to the endpoint database.
+        
+        The **mongodb_settings** object supports the following:
+        
+          * `auth_mechanism` (`pulumi.Input[str]`)
+          * `auth_source` (`pulumi.Input[str]`)
+          * `auth_type` (`pulumi.Input[str]`)
+          * `docs_to_investigate` (`pulumi.Input[str]`)
+          * `extract_doc_id` (`pulumi.Input[str]`)
+          * `nesting_level` (`pulumi.Input[str]`)
+        
+        The **s3_settings** object supports the following:
+        
+          * `bucket_folder` (`pulumi.Input[str]`)
+          * `bucket_name` (`pulumi.Input[str]`)
+          * `compression_type` (`pulumi.Input[str]`)
+          * `csv_delimiter` (`pulumi.Input[str]`)
+          * `csv_row_delimiter` (`pulumi.Input[str]`)
+          * `external_table_definition` (`pulumi.Input[str]`)
+          * `service_access_role_arn` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_endpoint.html.markdown.
         """
@@ -178,6 +212,25 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] ssl_mode: The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] username: The user name to be used to login to the endpoint database.
+        
+        The **mongodb_settings** object supports the following:
+        
+          * `auth_mechanism` (`pulumi.Input[str]`)
+          * `auth_source` (`pulumi.Input[str]`)
+          * `auth_type` (`pulumi.Input[str]`)
+          * `docs_to_investigate` (`pulumi.Input[str]`)
+          * `extract_doc_id` (`pulumi.Input[str]`)
+          * `nesting_level` (`pulumi.Input[str]`)
+        
+        The **s3_settings** object supports the following:
+        
+          * `bucket_folder` (`pulumi.Input[str]`)
+          * `bucket_name` (`pulumi.Input[str]`)
+          * `compression_type` (`pulumi.Input[str]`)
+          * `csv_delimiter` (`pulumi.Input[str]`)
+          * `csv_row_delimiter` (`pulumi.Input[str]`)
+          * `external_table_definition` (`pulumi.Input[str]`)
+          * `service_access_role_arn` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_endpoint.html.markdown.
         """

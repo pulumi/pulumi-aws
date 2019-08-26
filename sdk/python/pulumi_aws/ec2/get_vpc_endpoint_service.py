@@ -110,6 +110,9 @@ def get_vpc_endpoint_service(service=None,service_name=None,tags=None,opts=None)
     """
     The VPC Endpoint Service data source details about a specific service that
     can be specified when creating a VPC endpoint within the region configured in the provider.
+    
+    :param str service: The common name of an AWS service (e.g. `s3`).
+    :param str service_name: The service name that can be specified when creating a VPC endpoint.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
     """

@@ -33,6 +33,16 @@ class VirtualService(pulumi.CustomResource):
     spec: pulumi.Output[dict]
     """
     The virtual service specification to apply.
+    
+      * `provider` (`dict`)
+    
+        * `virtual_node` (`dict`) - The virtual node associated with a virtual service.
+    
+          * `virtual_node_name` (`str`) - The name of the virtual node that is acting as a service provider.
+    
+        * `virtual_router` (`dict`) - The virtual router associated with a virtual service.
+    
+          * `virtual_router_name` (`str`) - The name of the virtual router that is acting as a service provider.
     """
     tags: pulumi.Output[dict]
     """
@@ -48,6 +58,18 @@ class VirtualService(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name to use for the virtual service.
         :param pulumi.Input[dict] spec: The virtual service specification to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **spec** object supports the following:
+        
+          * `provider` (`pulumi.Input[dict]`)
+        
+            * `virtual_node` (`pulumi.Input[dict]`) - The virtual node associated with a virtual service.
+        
+              * `virtual_node_name` (`pulumi.Input[str]`) - The name of the virtual node that is acting as a service provider.
+        
+            * `virtual_router` (`pulumi.Input[dict]`) - The virtual router associated with a virtual service.
+        
+              * `virtual_router_name` (`pulumi.Input[str]`) - The name of the virtual router that is acting as a service provider.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_service.html.markdown.
         """
@@ -101,6 +123,18 @@ class VirtualService(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name to use for the virtual service.
         :param pulumi.Input[dict] spec: The virtual service specification to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **spec** object supports the following:
+        
+          * `provider` (`pulumi.Input[dict]`)
+        
+            * `virtual_node` (`pulumi.Input[dict]`) - The virtual node associated with a virtual service.
+        
+              * `virtual_node_name` (`pulumi.Input[str]`) - The name of the virtual node that is acting as a service provider.
+        
+            * `virtual_router` (`pulumi.Input[dict]`) - The virtual router associated with a virtual service.
+        
+              * `virtual_router_name` (`pulumi.Input[str]`) - The name of the virtual router that is acting as a service provider.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_service.html.markdown.
         """

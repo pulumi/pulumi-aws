@@ -132,6 +132,11 @@ def get_vpc_endpoint(id=None,service_name=None,state=None,tags=None,vpc_id=None,
     """
     The VPC Endpoint data source provides details about
     a specific VPC endpoint.
+    
+    :param str id: The ID of the specific VPC Endpoint to retrieve.
+    :param str service_name: The AWS service name of the specific VPC Endpoint to retrieve.
+    :param str state: The state of the specific VPC Endpoint to retrieve.
+    :param str vpc_id: The ID of the VPC in which the specific VPC Endpoint is used.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
     """

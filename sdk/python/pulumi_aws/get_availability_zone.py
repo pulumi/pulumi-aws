@@ -79,6 +79,11 @@ def get_availability_zone(name=None,state=None,zone_id=None,opts=None):
     
     This is different from the `.getAvailabilityZones` (plural) data source,
     which provides a list of the available zones.
+    
+    :param str name: The full name of the availability zone to select.
+    :param str state: A specific availability zone state to require. May
+           be any of `"available"`, `"information"` or `"impaired"`.
+    :param str zone_id: The zone ID of the availability zone to select.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
     """

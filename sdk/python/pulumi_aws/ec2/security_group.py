@@ -26,12 +26,38 @@ class SecurityGroup(pulumi.CustomResource):
     Can be specified multiple times for each
     egress rule. Each egress block supports fields documented below.
     This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+    
+      * `cidr_blocks` (`list`)
+      * `description` (`str`) - The security group description. Defaults to
+        "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+        `GroupDescription` attribute, for which there is no Update API. If you'd like
+        to classify your security groups in a way that can be updated, use `tags`.
+      * `from_port` (`float`)
+      * `ipv6_cidr_blocks` (`list`)
+      * `prefix_list_ids` (`list`)
+      * `protocol` (`str`)
+      * `security_groups` (`list`)
+      * `self` (`bool`)
+      * `to_port` (`float`)
     """
     ingress: pulumi.Output[list]
     """
     Can be specified multiple times for each
     ingress rule. Each ingress block supports fields documented below.
     This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+    
+      * `cidr_blocks` (`list`)
+      * `description` (`str`) - The security group description. Defaults to
+        "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+        `GroupDescription` attribute, for which there is no Update API. If you'd like
+        to classify your security groups in a way that can be updated, use `tags`.
+      * `from_port` (`float`)
+      * `ipv6_cidr_blocks` (`list`)
+      * `prefix_list_ids` (`list`)
+      * `protocol` (`str`)
+      * `security_groups` (`list`)
+      * `self` (`bool`)
+      * `to_port` (`float`)
     """
     name: pulumi.Output[str]
     """
@@ -103,6 +129,36 @@ class SecurityGroup(pulumi.CustomResource):
                Default `false`
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
+        
+        The **egress** object supports the following:
+        
+          * `cidr_blocks` (`pulumi.Input[list]`)
+          * `description` (`pulumi.Input[str]`) - The security group description. Defaults to
+            "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+            `GroupDescription` attribute, for which there is no Update API. If you'd like
+            to classify your security groups in a way that can be updated, use `tags`.
+          * `from_port` (`pulumi.Input[float]`)
+          * `ipv6_cidr_blocks` (`pulumi.Input[list]`)
+          * `prefix_list_ids` (`pulumi.Input[list]`)
+          * `protocol` (`pulumi.Input[str]`)
+          * `security_groups` (`pulumi.Input[list]`)
+          * `self` (`pulumi.Input[bool]`)
+          * `to_port` (`pulumi.Input[float]`)
+        
+        The **ingress** object supports the following:
+        
+          * `cidr_blocks` (`pulumi.Input[list]`)
+          * `description` (`pulumi.Input[str]`) - The security group description. Defaults to
+            "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+            `GroupDescription` attribute, for which there is no Update API. If you'd like
+            to classify your security groups in a way that can be updated, use `tags`.
+          * `from_port` (`pulumi.Input[float]`)
+          * `ipv6_cidr_blocks` (`pulumi.Input[list]`)
+          * `prefix_list_ids` (`pulumi.Input[list]`)
+          * `protocol` (`pulumi.Input[str]`)
+          * `security_groups` (`pulumi.Input[list]`)
+          * `self` (`pulumi.Input[bool]`)
+          * `to_port` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group.html.markdown.
         """
@@ -175,6 +231,36 @@ class SecurityGroup(pulumi.CustomResource):
                Default `false`
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
+        
+        The **egress** object supports the following:
+        
+          * `cidr_blocks` (`pulumi.Input[list]`)
+          * `description` (`pulumi.Input[str]`) - The security group description. Defaults to
+            "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+            `GroupDescription` attribute, for which there is no Update API. If you'd like
+            to classify your security groups in a way that can be updated, use `tags`.
+          * `from_port` (`pulumi.Input[float]`)
+          * `ipv6_cidr_blocks` (`pulumi.Input[list]`)
+          * `prefix_list_ids` (`pulumi.Input[list]`)
+          * `protocol` (`pulumi.Input[str]`)
+          * `security_groups` (`pulumi.Input[list]`)
+          * `self` (`pulumi.Input[bool]`)
+          * `to_port` (`pulumi.Input[float]`)
+        
+        The **ingress** object supports the following:
+        
+          * `cidr_blocks` (`pulumi.Input[list]`)
+          * `description` (`pulumi.Input[str]`) - The security group description. Defaults to
+            "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+            `GroupDescription` attribute, for which there is no Update API. If you'd like
+            to classify your security groups in a way that can be updated, use `tags`.
+          * `from_port` (`pulumi.Input[float]`)
+          * `ipv6_cidr_blocks` (`pulumi.Input[list]`)
+          * `prefix_list_ids` (`pulumi.Input[list]`)
+          * `protocol` (`pulumi.Input[str]`)
+          * `security_groups` (`pulumi.Input[list]`)
+          * `self` (`pulumi.Input[bool]`)
+          * `to_port` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group.html.markdown.
         """

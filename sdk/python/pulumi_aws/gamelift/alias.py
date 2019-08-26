@@ -25,6 +25,10 @@ class Alias(pulumi.CustomResource):
     routing_strategy: pulumi.Output[dict]
     """
     Specifies the fleet and/or routing type to use for the alias.
+    
+      * `fleet_id` (`str`) - ID of the Gamelift Fleet to point the alias to.
+      * `message` (`str`) - Message text to be used with the `TERMINAL` routing strategy.
+      * `type` (`str`) - Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
     """
     def __init__(__self__, resource_name, opts=None, description=None, name=None, routing_strategy=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -35,6 +39,12 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name of the alias.
         :param pulumi.Input[dict] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
+        
+        The **routing_strategy** object supports the following:
+        
+          * `fleet_id` (`pulumi.Input[str]`) - ID of the Gamelift Fleet to point the alias to.
+          * `message` (`pulumi.Input[str]`) - Message text to be used with the `TERMINAL` routing strategy.
+          * `type` (`pulumi.Input[str]`) - Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_alias.html.markdown.
         """
@@ -80,6 +90,12 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name of the alias.
         :param pulumi.Input[dict] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
+        
+        The **routing_strategy** object supports the following:
+        
+          * `fleet_id` (`pulumi.Input[str]`) - ID of the Gamelift Fleet to point the alias to.
+          * `message` (`pulumi.Input[str]`) - Message text to be used with the `TERMINAL` routing strategy.
+          * `type` (`pulumi.Input[str]`) - Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_alias.html.markdown.
         """

@@ -93,6 +93,9 @@ def get_target_group(arn=None,name=None,tags=None,opts=None):
     This data source can prove useful when a module accepts an LB Target Group as an
     input variable and needs to know its attributes. It can also be used to get the ARN of
     an LB Target Group for use in other resources, given LB Target Group name.
+    
+    :param str arn: The full ARN of the target group.
+    :param str name: The unique name of the target group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group_legacy.html.markdown.
     """

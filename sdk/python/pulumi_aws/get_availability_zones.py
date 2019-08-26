@@ -62,6 +62,13 @@ def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=None,stat
     
     This is different from the `.getAvailabilityZone` (singular) data source,
     which provides some details about a specific availability zone.
+    
+    :param list blacklisted_names: List of blacklisted Availability Zone names.
+    :param list blacklisted_zone_ids: List of blacklisted Availability Zone IDs.
+    :param str state: Allows to filter list of Availability Zones based on their
+           current state. Can be either `"available"`, `"information"`, `"impaired"` or
+           `"unavailable"`. By default the list includes a complete set of Availability Zones
+           to which the underlying AWS account has access, regardless of their state.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
     """

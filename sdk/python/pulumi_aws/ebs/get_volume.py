@@ -110,6 +110,17 @@ def get_volume(filters=None,most_recent=None,tags=None,opts=None):
     """
     Use this data source to get information about an EBS volume for use in other
     resources.
+    
+    :param list filters: One or more name/value pairs to filter off of. There are
+           several valid keys, for a full reference, check out
+           [describe-volumes in the AWS CLI reference][1].
+    :param bool most_recent: If more than one result is returned, use the most
+           recent Volume.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`)
+      * `values` (`list`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
     """

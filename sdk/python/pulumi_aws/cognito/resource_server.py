@@ -21,6 +21,9 @@ class ResourceServer(pulumi.CustomResource):
     scopes: pulumi.Output[list]
     """
     A list of Authorization Scope.
+    
+      * `scope_description` (`str`) - The scope description.
+      * `scope_name` (`str`) - The scope name.
     """
     scope_identifiers: pulumi.Output[list]
     """
@@ -36,6 +39,11 @@ class ResourceServer(pulumi.CustomResource):
         :param pulumi.Input[str] identifier: An identifier for the resource server.
         :param pulumi.Input[str] name: A name for the resource server.
         :param pulumi.Input[list] scopes: A list of Authorization Scope.
+        
+        The **scopes** object supports the following:
+        
+          * `scope_description` (`pulumi.Input[str]`) - The scope description.
+          * `scope_name` (`pulumi.Input[str]`) - The scope name.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_resource_server.html.markdown.
         """
@@ -84,6 +92,11 @@ class ResourceServer(pulumi.CustomResource):
         :param pulumi.Input[str] name: A name for the resource server.
         :param pulumi.Input[list] scopes: A list of Authorization Scope.
         :param pulumi.Input[list] scope_identifiers: A list of all scopes configured for this resource server in the format identifier/scope_name.
+        
+        The **scopes** object supports the following:
+        
+          * `scope_description` (`pulumi.Input[str]`) - The scope description.
+          * `scope_name` (`pulumi.Input[str]`) - The scope name.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_resource_server.html.markdown.
         """

@@ -21,6 +21,8 @@ class S3Location(pulumi.CustomResource):
     s3_config: pulumi.Output[dict]
     """
     Configuration block containing information for connecting to S3.
+    
+      * `bucket_access_role_arn` (`str`) - Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
     """
     subdirectory: pulumi.Output[str]
     """
@@ -41,6 +43,10 @@ class S3Location(pulumi.CustomResource):
         :param pulumi.Input[dict] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[str] subdirectory: Prefix to perform actions as source or destination.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Location.
+        
+        The **s3_config** object supports the following:
+        
+          * `bucket_access_role_arn` (`pulumi.Input[str]`) - Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_s3.html.markdown.
         """
@@ -93,6 +99,10 @@ class S3Location(pulumi.CustomResource):
         :param pulumi.Input[dict] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[str] subdirectory: Prefix to perform actions as source or destination.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Location.
+        
+        The **s3_config** object supports the following:
+        
+          * `bucket_access_role_arn` (`pulumi.Input[str]`) - Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_s3.html.markdown.
         """

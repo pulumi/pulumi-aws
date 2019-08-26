@@ -13,6 +13,14 @@ class PatchBaseline(pulumi.CustomResource):
     approval_rules: pulumi.Output[list]
     """
     A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
+    
+      * `approve_after_days` (`float`)
+      * `compliance_level` (`str`)
+      * `enable_non_security` (`bool`)
+      * `patch_filters` (`list`)
+    
+        * `key` (`str`)
+        * `values` (`list`)
     """
     approved_patches: pulumi.Output[list]
     """
@@ -29,6 +37,9 @@ class PatchBaseline(pulumi.CustomResource):
     global_filters: pulumi.Output[list]
     """
     A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+    
+      * `key` (`str`)
+      * `values` (`list`)
     """
     name: pulumi.Output[str]
     """
@@ -61,6 +72,21 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input[str] operating_system: Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
         :param pulumi.Input[list] rejected_patches: A list of rejected patches.
+        
+        The **approval_rules** object supports the following:
+        
+          * `approve_after_days` (`pulumi.Input[float]`)
+          * `compliance_level` (`pulumi.Input[str]`)
+          * `enable_non_security` (`pulumi.Input[bool]`)
+          * `patch_filters` (`pulumi.Input[list]`)
+        
+            * `key` (`pulumi.Input[str]`)
+            * `values` (`pulumi.Input[list]`)
+        
+        The **global_filters** object supports the following:
+        
+          * `key` (`pulumi.Input[str]`)
+          * `values` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_baseline.html.markdown.
         """
@@ -113,6 +139,21 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input[str] operating_system: Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
         :param pulumi.Input[list] rejected_patches: A list of rejected patches.
+        
+        The **approval_rules** object supports the following:
+        
+          * `approve_after_days` (`pulumi.Input[float]`)
+          * `compliance_level` (`pulumi.Input[str]`)
+          * `enable_non_security` (`pulumi.Input[bool]`)
+          * `patch_filters` (`pulumi.Input[list]`)
+        
+            * `key` (`pulumi.Input[str]`)
+            * `values` (`pulumi.Input[list]`)
+        
+        The **global_filters** object supports the following:
+        
+          * `key` (`pulumi.Input[str]`)
+          * `values` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_baseline.html.markdown.
         """

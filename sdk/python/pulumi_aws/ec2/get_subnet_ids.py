@@ -52,6 +52,19 @@ def get_subnet_ids(filters=None,tags=None,vpc_id=None,opts=None):
     `ec2.getSubnetIds` provides a list of ids for a vpc_id
     
     This resource can be useful for getting back a list of subnet ids for a vpc.
+    
+    :param list filters: Custom filter block as described below.
+    :param dict tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired subnets.
+    :param str vpc_id: The VPC ID that you want to filter from.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - The name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+        For example, if matching against tag `Name`, use:
+      * `values` (`list`) - Set of values that are accepted for the given field.
+        Subnet IDs will be selected if any one of the given values match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.
     """

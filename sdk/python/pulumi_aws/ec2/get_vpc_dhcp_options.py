@@ -91,6 +91,14 @@ class AwaitableGetVpcDhcpOptionsResult(GetVpcDhcpOptionsResult):
 def get_vpc_dhcp_options(dhcp_options_id=None,filters=None,tags=None,opts=None):
     """
     Retrieve information about an EC2 DHCP Options configuration.
+    
+    :param str dhcp_options_id: The EC2 DHCP Options ID.
+    :param list filters: List of custom filters as described below.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - The name of the field to filter.
+      * `values` (`list`) - Set of values for filtering.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
     """

@@ -21,6 +21,9 @@ class GraphQLApi(pulumi.CustomResource):
     log_config: pulumi.Output[dict]
     """
     Nested argument containing logging configuration. Defined below.
+    
+      * `cloudwatch_logs_role_arn` (`str`) - Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+      * `field_log_level` (`str`) - Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
     """
     name: pulumi.Output[str]
     """
@@ -29,6 +32,11 @@ class GraphQLApi(pulumi.CustomResource):
     openid_connect_config: pulumi.Output[dict]
     """
     Nested argument containing OpenID Connect configuration. Defined below.
+    
+      * `auth_ttl` (`float`) - Number of milliseconds a token is valid after being authenticated.
+      * `client_id` (`str`) - Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+      * `iat_ttl` (`float`) - Number of milliseconds a token is valid after being issued to a user.
+      * `issuer` (`str`) - Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
     """
     schema: pulumi.Output[str]
     """
@@ -45,6 +53,11 @@ class GraphQLApi(pulumi.CustomResource):
     user_pool_config: pulumi.Output[dict]
     """
     The Amazon Cognito User Pool configuration. Defined below.
+    
+      * `app_id_client_regex` (`str`) - A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+      * `aws_region` (`str`) - The AWS region in which the user pool was created.
+      * `default_action` (`str`) - The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+      * `user_pool_id` (`str`) - The user pool ID.
     """
     def __init__(__self__, resource_name, opts=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, schema=None, tags=None, user_pool_config=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -59,6 +72,25 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[str] schema: The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
+        
+        The **log_config** object supports the following:
+        
+          * `cloudwatch_logs_role_arn` (`pulumi.Input[str]`) - Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+          * `field_log_level` (`pulumi.Input[str]`) - Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
+        
+        The **openid_connect_config** object supports the following:
+        
+          * `auth_ttl` (`pulumi.Input[float]`) - Number of milliseconds a token is valid after being authenticated.
+          * `client_id` (`pulumi.Input[str]`) - Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+          * `iat_ttl` (`pulumi.Input[float]`) - Number of milliseconds a token is valid after being issued to a user.
+          * `issuer` (`pulumi.Input[str]`) - Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
+        
+        The **user_pool_config** object supports the following:
+        
+          * `app_id_client_regex` (`pulumi.Input[str]`) - A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+          * `aws_region` (`pulumi.Input[str]`) - The AWS region in which the user pool was created.
+          * `default_action` (`pulumi.Input[str]`) - The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+          * `user_pool_id` (`pulumi.Input[str]`) - The user pool ID.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_graphql_api.html.markdown.
         """
@@ -114,6 +146,25 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] uris: Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         :param pulumi.Input[dict] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
+        
+        The **log_config** object supports the following:
+        
+          * `cloudwatch_logs_role_arn` (`pulumi.Input[str]`) - Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+          * `field_log_level` (`pulumi.Input[str]`) - Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
+        
+        The **openid_connect_config** object supports the following:
+        
+          * `auth_ttl` (`pulumi.Input[float]`) - Number of milliseconds a token is valid after being authenticated.
+          * `client_id` (`pulumi.Input[str]`) - Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+          * `iat_ttl` (`pulumi.Input[float]`) - Number of milliseconds a token is valid after being issued to a user.
+          * `issuer` (`pulumi.Input[str]`) - Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
+        
+        The **user_pool_config** object supports the following:
+        
+          * `app_id_client_regex` (`pulumi.Input[str]`) - A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+          * `aws_region` (`pulumi.Input[str]`) - The AWS region in which the user pool was created.
+          * `default_action` (`pulumi.Input[str]`) - The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+          * `user_pool_id` (`pulumi.Input[str]`) - The user pool ID.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_graphql_api.html.markdown.
         """

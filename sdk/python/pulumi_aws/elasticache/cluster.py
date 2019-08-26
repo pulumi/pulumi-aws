@@ -29,6 +29,11 @@ class Cluster(pulumi.CustomResource):
     """
     List of node objects including `id`, `address`, `port` and `availability_zone`.
     Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
+    
+      * `address` (`str`)
+      * `availability_zone` (`str`) - The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
+      * `id` (`str`)
+      * `port` (`float`) - The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
     """
     cluster_address: pulumi.Output[str]
     """
@@ -315,6 +320,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used
                for the cache cluster.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        
+        The **cache_nodes** object supports the following:
+        
+          * `address` (`pulumi.Input[str]`)
+          * `availability_zone` (`pulumi.Input[str]`) - The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
+          * `id` (`pulumi.Input[str]`)
+          * `port` (`pulumi.Input[float]`) - The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_cluster.html.markdown.
         """

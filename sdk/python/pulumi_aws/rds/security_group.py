@@ -21,6 +21,12 @@ class SecurityGroup(pulumi.CustomResource):
     ingress: pulumi.Output[list]
     """
     A list of ingress rules.
+    
+      * `cidr` (`str`) - The CIDR block to accept
+      * `security_group_id` (`str`) - The ID of the security group to authorize
+      * `security_group_name` (`str`) - The name of the security group to authorize
+      * `security_group_owner_id` (`str`) - The owner Id of the security group provided
+        by `security_group_name`.
     """
     name: pulumi.Output[str]
     """
@@ -43,6 +49,14 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[list] ingress: A list of ingress rules.
         :param pulumi.Input[str] name: The name of the DB security group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **ingress** object supports the following:
+        
+          * `cidr` (`pulumi.Input[str]`) - The CIDR block to accept
+          * `security_group_id` (`pulumi.Input[str]`) - The ID of the security group to authorize
+          * `security_group_name` (`pulumi.Input[str]`) - The name of the security group to authorize
+          * `security_group_owner_id` (`pulumi.Input[str]`) - The owner Id of the security group provided
+            by `security_group_name`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_security_group.html.markdown.
         """
@@ -92,6 +106,14 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[list] ingress: A list of ingress rules.
         :param pulumi.Input[str] name: The name of the DB security group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **ingress** object supports the following:
+        
+          * `cidr` (`pulumi.Input[str]`) - The CIDR block to accept
+          * `security_group_id` (`pulumi.Input[str]`) - The ID of the security group to authorize
+          * `security_group_name` (`pulumi.Input[str]`) - The name of the security group to authorize
+          * `security_group_owner_id` (`pulumi.Input[str]`) - The owner Id of the security group provided
+            by `security_group_name`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_security_group.html.markdown.
         """

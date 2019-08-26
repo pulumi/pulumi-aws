@@ -17,6 +17,8 @@ class Cluster(pulumi.CustomResource):
     certificate_authority: pulumi.Output[dict]
     """
     Nested attribute containing `certificate-authority-data` for your cluster.
+    
+      * `data` (`str`) - The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
     """
     created_at: pulumi.Output[str]
     enabled_cluster_log_types: pulumi.Output[list]
@@ -50,6 +52,12 @@ class Cluster(pulumi.CustomResource):
     vpc_config: pulumi.Output[dict]
     """
     Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
+    
+      * `endpoint_private_access` (`bool`) - Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
+      * `endpoint_public_access` (`bool`) - Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+      * `security_group_ids` (`list`) - List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
+      * `subnet_ids` (`list`) - List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
+      * `vpc_id` (`str`) - The VPC associated with your cluster.
     """
     def __init__(__self__, resource_name, opts=None, enabled_cluster_log_types=None, name=None, role_arn=None, version=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -62,6 +70,14 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         :param pulumi.Input[str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         :param pulumi.Input[dict] vpc_config: Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
+        
+        The **vpc_config** object supports the following:
+        
+          * `endpoint_private_access` (`pulumi.Input[bool]`) - Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
+          * `endpoint_public_access` (`pulumi.Input[bool]`) - Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+          * `security_group_ids` (`pulumi.Input[list]`) - List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
+          * `subnet_ids` (`pulumi.Input[list]`) - List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
+          * `vpc_id` (`pulumi.Input[str]`) - The VPC associated with your cluster.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_cluster.html.markdown.
         """
@@ -122,6 +138,18 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
         :param pulumi.Input[str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         :param pulumi.Input[dict] vpc_config: Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
+        
+        The **certificate_authority** object supports the following:
+        
+          * `data` (`pulumi.Input[str]`) - The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+        
+        The **vpc_config** object supports the following:
+        
+          * `endpoint_private_access` (`pulumi.Input[bool]`) - Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
+          * `endpoint_public_access` (`pulumi.Input[bool]`) - Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+          * `security_group_ids` (`pulumi.Input[list]`) - List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
+          * `subnet_ids` (`pulumi.Input[list]`) - List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
+          * `vpc_id` (`pulumi.Input[str]`) - The VPC associated with your cluster.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_cluster.html.markdown.
         """

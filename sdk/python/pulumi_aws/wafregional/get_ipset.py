@@ -35,6 +35,8 @@ class AwaitableGetIpsetResult(GetIpsetResult):
 def get_ipset(name=None,opts=None):
     """
     `wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+    
+    :param str name: The name of the WAF Regional IP set.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_ipset.html.markdown.
     """

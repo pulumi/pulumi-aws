@@ -38,10 +38,42 @@ class Policy(pulumi.CustomResource):
     step_scaling_policy_configuration: pulumi.Output[dict]
     """
     Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+    
+      * `adjustment_type` (`str`)
+      * `cooldown` (`float`)
+      * `metric_aggregation_type` (`str`)
+      * `min_adjustment_magnitude` (`float`)
+      * `step_adjustments` (`list`)
+    
+        * `metric_interval_lower_bound` (`str`)
+        * `metric_interval_upper_bound` (`str`)
+        * `scaling_adjustment` (`float`)
     """
     target_tracking_scaling_policy_configuration: pulumi.Output[dict]
     """
     A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+    
+      * `customized_metric_specification` (`dict`)
+    
+        * `dimensions` (`list`)
+    
+          * `name` (`str`) - The name of the policy.
+          * `value` (`str`)
+    
+        * `metric_name` (`str`)
+        * `namespace` (`str`)
+        * `statistic` (`str`)
+        * `unit` (`str`)
+    
+      * `disable_scale_in` (`bool`)
+      * `predefined_metric_specification` (`dict`)
+    
+        * `predefined_metric_type` (`str`)
+        * `resource_label` (`str`)
+    
+      * `scale_in_cooldown` (`float`)
+      * `scale_out_cooldown` (`float`)
+      * `target_value` (`float`)
     """
     def __init__(__self__, resource_name, opts=None, alarms=None, name=None, policy_type=None, resource_id=None, scalable_dimension=None, service_namespace=None, step_scaling_policy_configuration=None, target_tracking_scaling_policy_configuration=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -80,6 +112,42 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] service_namespace: The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         :param pulumi.Input[dict] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
         :param pulumi.Input[dict] target_tracking_scaling_policy_configuration: A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        
+        The **step_scaling_policy_configuration** object supports the following:
+        
+          * `adjustment_type` (`pulumi.Input[str]`)
+          * `cooldown` (`pulumi.Input[float]`)
+          * `metric_aggregation_type` (`pulumi.Input[str]`)
+          * `min_adjustment_magnitude` (`pulumi.Input[float]`)
+          * `step_adjustments` (`pulumi.Input[list]`)
+        
+            * `metric_interval_lower_bound` (`pulumi.Input[str]`)
+            * `metric_interval_upper_bound` (`pulumi.Input[str]`)
+            * `scaling_adjustment` (`pulumi.Input[float]`)
+        
+        The **target_tracking_scaling_policy_configuration** object supports the following:
+        
+          * `customized_metric_specification` (`pulumi.Input[dict]`)
+        
+            * `dimensions` (`pulumi.Input[list]`)
+        
+              * `name` (`pulumi.Input[str]`) - The name of the policy.
+              * `value` (`pulumi.Input[str]`)
+        
+            * `metric_name` (`pulumi.Input[str]`)
+            * `namespace` (`pulumi.Input[str]`)
+            * `statistic` (`pulumi.Input[str]`)
+            * `unit` (`pulumi.Input[str]`)
+        
+          * `disable_scale_in` (`pulumi.Input[bool]`)
+          * `predefined_metric_specification` (`pulumi.Input[dict]`)
+        
+            * `predefined_metric_type` (`pulumi.Input[str]`)
+            * `resource_label` (`pulumi.Input[str]`)
+        
+          * `scale_in_cooldown` (`pulumi.Input[float]`)
+          * `scale_out_cooldown` (`pulumi.Input[float]`)
+          * `target_value` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_policy.html.markdown.
         """
@@ -138,6 +206,42 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] service_namespace: The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         :param pulumi.Input[dict] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
         :param pulumi.Input[dict] target_tracking_scaling_policy_configuration: A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        
+        The **step_scaling_policy_configuration** object supports the following:
+        
+          * `adjustment_type` (`pulumi.Input[str]`)
+          * `cooldown` (`pulumi.Input[float]`)
+          * `metric_aggregation_type` (`pulumi.Input[str]`)
+          * `min_adjustment_magnitude` (`pulumi.Input[float]`)
+          * `step_adjustments` (`pulumi.Input[list]`)
+        
+            * `metric_interval_lower_bound` (`pulumi.Input[str]`)
+            * `metric_interval_upper_bound` (`pulumi.Input[str]`)
+            * `scaling_adjustment` (`pulumi.Input[float]`)
+        
+        The **target_tracking_scaling_policy_configuration** object supports the following:
+        
+          * `customized_metric_specification` (`pulumi.Input[dict]`)
+        
+            * `dimensions` (`pulumi.Input[list]`)
+        
+              * `name` (`pulumi.Input[str]`) - The name of the policy.
+              * `value` (`pulumi.Input[str]`)
+        
+            * `metric_name` (`pulumi.Input[str]`)
+            * `namespace` (`pulumi.Input[str]`)
+            * `statistic` (`pulumi.Input[str]`)
+            * `unit` (`pulumi.Input[str]`)
+        
+          * `disable_scale_in` (`pulumi.Input[bool]`)
+          * `predefined_metric_specification` (`pulumi.Input[dict]`)
+        
+            * `predefined_metric_type` (`pulumi.Input[str]`)
+            * `resource_label` (`pulumi.Input[str]`)
+        
+          * `scale_in_cooldown` (`pulumi.Input[float]`)
+          * `scale_out_cooldown` (`pulumi.Input[float]`)
+          * `target_value` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_policy.html.markdown.
         """

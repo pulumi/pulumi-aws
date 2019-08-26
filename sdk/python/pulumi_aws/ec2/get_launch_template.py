@@ -218,6 +218,8 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
 def get_launch_template(name=None,tags=None,opts=None):
     """
     Provides information about a Launch Template.
+    
+    :param str name: The name of the launch template.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
     """

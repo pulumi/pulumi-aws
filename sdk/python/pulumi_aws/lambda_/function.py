@@ -17,6 +17,11 @@ class Function(pulumi.CustomResource):
     dead_letter_config: pulumi.Output[dict]
     """
     Nested block to configure the function's *dead letter queue*. See details below.
+    
+      * `target_arn` (`str`) - The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
+        option is used, the function's IAM role must be granted suitable access to write to the target object,
+        which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
+        which service is targeted.
     """
     description: pulumi.Output[str]
     """
@@ -25,6 +30,8 @@ class Function(pulumi.CustomResource):
     environment: pulumi.Output[dict]
     """
     The Lambda environment's configuration settings. Fields documented below.
+    
+      * `variables` (`dict`) - A map that defines environment variables for the Lambda function.
     """
     code: pulumi.Output[pulumi.Archive]
     """
@@ -115,6 +122,10 @@ class Function(pulumi.CustomResource):
     vpc_config: pulumi.Output[dict]
     """
     Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
+    
+      * `security_group_ids` (`list`) - A list of security group IDs associated with the Lambda function.
+      * `subnet_ids` (`list`) - A list of subnet IDs associated with the Lambda function.
+      * `vpc_id` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, dead_letter_config=None, description=None, environment=None, code=None, name=None, handler=None, kms_key_arn=None, layers=None, memory_size=None, publish=None, reserved_concurrent_executions=None, role=None, runtime=None, s3_bucket=None, s3_key=None, s3_object_version=None, source_code_hash=None, tags=None, timeout=None, tracing_config=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -157,6 +168,31 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
         :param pulumi.Input[float] timeout: The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
         :param pulumi.Input[dict] vpc_config: Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
+        
+        The **dead_letter_config** object supports the following:
+        
+          * `target_arn` (`pulumi.Input[str]`) - The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
+            option is used, the function's IAM role must be granted suitable access to write to the target object,
+            which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
+            which service is targeted.
+        
+        The **environment** object supports the following:
+        
+          * `variables` (`pulumi.Input[dict]`) - A map that defines environment variables for the Lambda function.
+        
+        The **tracing_config** object supports the following:
+        
+          * `mode` (`pulumi.Input[str]`) - Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
+            the request from an upstream service if it contains a tracing header with
+            "sampled=1". If Active, Lambda will respect any tracing header it receives
+            from an upstream service. If no tracing header is received, Lambda will call
+            X-Ray for a tracing decision.
+        
+        The **vpc_config** object supports the following:
+        
+          * `security_group_ids` (`pulumi.Input[list]`) - A list of security group IDs associated with the Lambda function.
+          * `subnet_ids` (`pulumi.Input[list]`) - A list of subnet IDs associated with the Lambda function.
+          * `vpc_id` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function.html.markdown.
         """
@@ -252,6 +288,31 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[float] timeout: The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
         :param pulumi.Input[str] version: Latest published version of your Lambda Function.
         :param pulumi.Input[dict] vpc_config: Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
+        
+        The **dead_letter_config** object supports the following:
+        
+          * `target_arn` (`pulumi.Input[str]`) - The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
+            option is used, the function's IAM role must be granted suitable access to write to the target object,
+            which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
+            which service is targeted.
+        
+        The **environment** object supports the following:
+        
+          * `variables` (`pulumi.Input[dict]`) - A map that defines environment variables for the Lambda function.
+        
+        The **tracing_config** object supports the following:
+        
+          * `mode` (`pulumi.Input[str]`) - Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
+            the request from an upstream service if it contains a tracing header with
+            "sampled=1". If Active, Lambda will respect any tracing header it receives
+            from an upstream service. If no tracing header is received, Lambda will call
+            X-Ray for a tracing decision.
+        
+        The **vpc_config** object supports the following:
+        
+          * `security_group_ids` (`pulumi.Input[list]`) - A list of security group IDs associated with the Lambda function.
+          * `subnet_ids` (`pulumi.Input[list]`) - A list of subnet IDs associated with the Lambda function.
+          * `vpc_id` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function.html.markdown.
         """

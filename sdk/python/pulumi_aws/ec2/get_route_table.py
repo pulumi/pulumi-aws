@@ -76,6 +76,20 @@ def get_route_table(filters=None,route_table_id=None,subnet_id=None,tags=None,vp
     This resource can prove useful when a module accepts a Subnet id as
     an input variable and needs to, for example, add a route in
     the Route Table.
+    
+    :param list filters: Custom filter block as described below.
+    :param str route_table_id: The id of the specific Route Table to retrieve.
+    :param str subnet_id: The id of a Subnet which is connected to the Route Table (not be exported if not given in parameter).
+    :param dict tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired Route Table.
+    :param str vpc_id: The id of the VPC that the desired Route Table belongs to.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - The name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+      * `values` (`list`) - Set of values that are accepted for the given field.
+        A Route Table will be selected if any one of the given values matches.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_table.html.markdown.
     """

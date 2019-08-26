@@ -110,6 +110,17 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
 def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,opts=None):
     """
     Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
+    
+    :param str arn: Amazon Resource Name (ARN) of the certificate authority.
+    
+    The **revocation_configurations** object supports the following:
+    
+      * `crl_configurations` (`list`)
+    
+        * `custom_cname` (`str`)
+        * `enabled` (`bool`)
+        * `expiration_in_days` (`float`)
+        * `s3_bucket_name` (`str`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
     """

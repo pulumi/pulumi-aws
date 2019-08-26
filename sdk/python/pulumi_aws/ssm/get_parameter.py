@@ -55,6 +55,9 @@ class AwaitableGetParameterResult(GetParameterResult):
 def get_parameter(name=None,with_decryption=None,opts=None):
     """
     Provides an SSM Parameter data source.
+    
+    :param str name: The name of the parameter.
+    :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_parameter.html.markdown.
     """

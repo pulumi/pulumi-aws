@@ -21,6 +21,10 @@ class Rule(pulumi.CustomResource):
     predicates: pulumi.Output[list]
     """
     The objects to include in a rule (documented below).
+    
+      * `data_id` (`str`)
+      * `negated` (`bool`)
+      * `type` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, metric_name=None, name=None, predicates=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -43,6 +47,12 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[str] name: The name or description of the rule.
         :param pulumi.Input[list] predicates: The objects to include in a rule (documented below).
+        
+        The **predicates** object supports the following:
+        
+          * `data_id` (`pulumi.Input[str]`)
+          * `negated` (`pulumi.Input[bool]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_rule.html.markdown.
         """
@@ -86,6 +96,12 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[str] name: The name or description of the rule.
         :param pulumi.Input[list] predicates: The objects to include in a rule (documented below).
+        
+        The **predicates** object supports the following:
+        
+          * `data_id` (`pulumi.Input[str]`)
+          * `negated` (`pulumi.Input[bool]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_rule.html.markdown.
         """

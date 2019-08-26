@@ -13,6 +13,10 @@ class Trigger(pulumi.CustomResource):
     actions: pulumi.Output[list]
     """
     List of actions initiated by this trigger when it fires. Defined below.
+    
+      * `arguments` (`dict`) - Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
+      * `job_name` (`str`) - The name of the job to watch.
+      * `timeout` (`float`) - The job run timeout in minutes. It overrides the timeout value of the job.
     """
     description: pulumi.Output[str]
     """
@@ -29,6 +33,14 @@ class Trigger(pulumi.CustomResource):
     predicate: pulumi.Output[dict]
     """
     A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+    
+      * `conditions` (`list`) - A list of the conditions that determine when the trigger will fire. Defined below.
+    
+        * `job_name` (`str`) - The name of the job to watch.
+        * `logical_operator` (`str`) - A logical operator. Defaults to `EQUALS`.
+        * `state` (`str`) - The condition state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`.
+    
+      * `logical` (`str`) - How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
     """
     schedule: pulumi.Output[str]
     """
@@ -51,6 +63,22 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.Input[dict] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
+        
+        The **actions** object supports the following:
+        
+          * `arguments` (`pulumi.Input[dict]`) - Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
+          * `job_name` (`pulumi.Input[str]`) - The name of the job to watch.
+          * `timeout` (`pulumi.Input[float]`) - The job run timeout in minutes. It overrides the timeout value of the job.
+        
+        The **predicate** object supports the following:
+        
+          * `conditions` (`pulumi.Input[list]`) - A list of the conditions that determine when the trigger will fire. Defined below.
+        
+            * `job_name` (`pulumi.Input[str]`) - The name of the job to watch.
+            * `logical_operator` (`pulumi.Input[str]`) - A logical operator. Defaults to `EQUALS`.
+            * `state` (`pulumi.Input[str]`) - The condition state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`.
+        
+          * `logical` (`pulumi.Input[str]`) - How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_trigger.html.markdown.
         """
@@ -104,6 +132,22 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.Input[dict] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
+        
+        The **actions** object supports the following:
+        
+          * `arguments` (`pulumi.Input[dict]`) - Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
+          * `job_name` (`pulumi.Input[str]`) - The name of the job to watch.
+          * `timeout` (`pulumi.Input[float]`) - The job run timeout in minutes. It overrides the timeout value of the job.
+        
+        The **predicate** object supports the following:
+        
+          * `conditions` (`pulumi.Input[list]`) - A list of the conditions that determine when the trigger will fire. Defined below.
+        
+            * `job_name` (`pulumi.Input[str]`) - The name of the job to watch.
+            * `logical_operator` (`pulumi.Input[str]`) - A logical operator. Defaults to `EQUALS`.
+            * `state` (`pulumi.Input[str]`) - The condition state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`.
+        
+          * `logical` (`pulumi.Input[str]`) - How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_trigger.html.markdown.
         """

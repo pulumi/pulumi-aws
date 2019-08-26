@@ -97,6 +97,8 @@ def get_stream(name=None,opts=None):
     resources.
     
     For more details, see the [Amazon Kinesis Documentation][1].
+    
+    :param str name: The name of the Kinesis Stream.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
     """

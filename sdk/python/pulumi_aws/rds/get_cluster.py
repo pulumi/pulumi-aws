@@ -139,6 +139,8 @@ class AwaitableGetClusterResult(GetClusterResult):
 def get_cluster(cluster_identifier=None,tags=None,opts=None):
     """
     Provides information about a RDS cluster.
+    
+    :param str cluster_identifier: The cluster identifier of the RDS cluster.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/rds_cluster.html.markdown.
     """

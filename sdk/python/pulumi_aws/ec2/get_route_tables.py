@@ -50,6 +50,18 @@ class AwaitableGetRouteTablesResult(GetRouteTablesResult):
 def get_route_tables(filters=None,tags=None,vpc_id=None,opts=None):
     """
     This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+    
+    :param list filters: Custom filter block as described below.
+    :param dict tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired route tables.
+    :param str vpc_id: The VPC ID that you want to filter from.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - The name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+      * `values` (`list`) - Set of values that are accepted for the given field.
+        A Route Table will be selected if any one of the given values matches.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
     """

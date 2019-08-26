@@ -128,6 +128,19 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
 def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_ids=None,snapshot_ids=None,tags=None,opts=None):
     """
     Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
+    
+    :param list filters: One or more name/value pairs to filter off of. There are
+           several valid keys, for a full reference, check out
+           [describe-snapshots in the AWS CLI reference][1].
+    :param bool most_recent: If more than one result is returned, use the most recent snapshot.
+    :param list owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    :param list restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
+    :param list snapshot_ids: Returns information on a specific snapshot_id.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`)
+      * `values` (`list`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
     """

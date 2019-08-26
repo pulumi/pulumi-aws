@@ -53,6 +53,26 @@ class Policy(pulumi.CustomResource):
     target_tracking_configuration: pulumi.Output[dict]
     """
     A target tracking policy. These have the following structure:
+    
+      * `customized_metric_specification` (`dict`) - A customized metric. Conflicts with `predefined_metric_specification`.
+    
+        * `metric_dimensions` (`list`) - The dimensions of the metric.
+    
+          * `name` (`str`) - The name of the dimension.
+          * `value` (`str`) - The value of the dimension.
+    
+        * `metric_name` (`str`) - The name of the metric.
+        * `namespace` (`str`) - The namespace of the metric.
+        * `statistic` (`str`) - The statistic of the metric.
+        * `unit` (`str`) - The unit of the metric.
+    
+      * `disable_scale_in` (`bool`) - Indicates whether scale in by the target tracking policy is disabled.
+      * `predefined_metric_specification` (`dict`) - A predefined metric. Conflicts with `customized_metric_specification`.
+    
+        * `predefined_metric_type` (`str`) - The metric type.
+        * `resource_label` (`str`) - Identifies the resource associated with the metric type.
+    
+      * `target_value` (`float`) - The target value for the metric.
     """
     def __init__(__self__, resource_name, opts=None, adjustment_type=None, autoscaling_group_name=None, cooldown=None, estimated_instance_warmup=None, metric_aggregation_type=None, min_adjustment_magnitude=None, name=None, policy_type=None, scaling_adjustment=None, step_adjustments=None, target_tracking_configuration=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -77,6 +97,41 @@ class Policy(pulumi.CustomResource):
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
         :param pulumi.Input[dict] target_tracking_configuration: A target tracking policy. These have the following structure:
+        
+        The **step_adjustments** object supports the following:
+        
+          * `metric_interval_lower_bound` (`pulumi.Input[str]`) - The lower bound for the
+            difference between the alarm threshold and the CloudWatch metric.
+            Without a value, AWS will treat this bound as infinity.
+          * `metric_interval_upper_bound` (`pulumi.Input[str]`) - The upper bound for the
+            difference between the alarm threshold and the CloudWatch metric.
+            Without a value, AWS will treat this bound as infinity. The upper bound
+            must be greater than the lower bound.
+          * `scaling_adjustment` (`pulumi.Input[float]`) - The number of members by which to
+            scale, when the adjustment bounds are breached. A positive value scales
+            up. A negative value scales down.
+        
+        The **target_tracking_configuration** object supports the following:
+        
+          * `customized_metric_specification` (`pulumi.Input[dict]`) - A customized metric. Conflicts with `predefined_metric_specification`.
+        
+            * `metric_dimensions` (`pulumi.Input[list]`) - The dimensions of the metric.
+        
+              * `name` (`pulumi.Input[str]`) - The name of the dimension.
+              * `value` (`pulumi.Input[str]`) - The value of the dimension.
+        
+            * `metric_name` (`pulumi.Input[str]`) - The name of the metric.
+            * `namespace` (`pulumi.Input[str]`) - The namespace of the metric.
+            * `statistic` (`pulumi.Input[str]`) - The statistic of the metric.
+            * `unit` (`pulumi.Input[str]`) - The unit of the metric.
+        
+          * `disable_scale_in` (`pulumi.Input[bool]`) - Indicates whether scale in by the target tracking policy is disabled.
+          * `predefined_metric_specification` (`pulumi.Input[dict]`) - A predefined metric. Conflicts with `customized_metric_specification`.
+        
+            * `predefined_metric_type` (`pulumi.Input[str]`) - The metric type.
+            * `resource_label` (`pulumi.Input[str]`) - Identifies the resource associated with the metric type.
+        
+          * `target_value` (`pulumi.Input[float]`) - The target value for the metric.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_policy.html.markdown.
         """
@@ -138,6 +193,41 @@ class Policy(pulumi.CustomResource):
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
         :param pulumi.Input[dict] target_tracking_configuration: A target tracking policy. These have the following structure:
+        
+        The **step_adjustments** object supports the following:
+        
+          * `metric_interval_lower_bound` (`pulumi.Input[str]`) - The lower bound for the
+            difference between the alarm threshold and the CloudWatch metric.
+            Without a value, AWS will treat this bound as infinity.
+          * `metric_interval_upper_bound` (`pulumi.Input[str]`) - The upper bound for the
+            difference between the alarm threshold and the CloudWatch metric.
+            Without a value, AWS will treat this bound as infinity. The upper bound
+            must be greater than the lower bound.
+          * `scaling_adjustment` (`pulumi.Input[float]`) - The number of members by which to
+            scale, when the adjustment bounds are breached. A positive value scales
+            up. A negative value scales down.
+        
+        The **target_tracking_configuration** object supports the following:
+        
+          * `customized_metric_specification` (`pulumi.Input[dict]`) - A customized metric. Conflicts with `predefined_metric_specification`.
+        
+            * `metric_dimensions` (`pulumi.Input[list]`) - The dimensions of the metric.
+        
+              * `name` (`pulumi.Input[str]`) - The name of the dimension.
+              * `value` (`pulumi.Input[str]`) - The value of the dimension.
+        
+            * `metric_name` (`pulumi.Input[str]`) - The name of the metric.
+            * `namespace` (`pulumi.Input[str]`) - The namespace of the metric.
+            * `statistic` (`pulumi.Input[str]`) - The statistic of the metric.
+            * `unit` (`pulumi.Input[str]`) - The unit of the metric.
+        
+          * `disable_scale_in` (`pulumi.Input[bool]`) - Indicates whether scale in by the target tracking policy is disabled.
+          * `predefined_metric_specification` (`pulumi.Input[dict]`) - A predefined metric. Conflicts with `customized_metric_specification`.
+        
+            * `predefined_metric_type` (`pulumi.Input[str]`) - The metric type.
+            * `resource_label` (`pulumi.Input[str]`) - Identifies the resource associated with the metric type.
+        
+          * `target_value` (`pulumi.Input[float]`) - The target value for the metric.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_policy.html.markdown.
         """

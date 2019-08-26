@@ -63,6 +63,14 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
 def get_route_table(filters=None,id=None,tags=None,opts=None):
     """
     Get information on an EC2 Transit Gateway Route Table.
+    
+    :param list filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param str id: Identifier of the EC2 Transit Gateway Route Table.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - Name of the filter.
+      * `values` (`list`) - List of one or more values for the filter.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_route_table.html.markdown.
     """

@@ -33,6 +33,31 @@ class Route(pulumi.CustomResource):
     spec: pulumi.Output[dict]
     """
     The route specification to apply.
+    
+      * `http_route` (`dict`) - The HTTP routing information for the route.
+    
+        * `action` (`dict`) - The action to take if a match is determined.
+    
+          * `weighted_targets` (`list`) - The targets that traffic is routed to when a request matches the route.
+            You can specify one or more targets and their relative weights with which to distribute traffic.
+    
+            * `virtual_node` (`str`) - The virtual node to associate with the weighted target.
+            * `weight` (`float`) - The relative weight of the weighted target. An integer between 0 and 100.
+    
+        * `match` (`dict`) - The criteria for determining an HTTP request match.
+    
+          * `prefix` (`str`) - Specifies the path with which to match requests.
+            This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+    
+      * `tcp_route` (`dict`) - The TCP routing information for the route.
+    
+        * `action` (`dict`) - The action to take if a match is determined.
+    
+          * `weighted_targets` (`list`) - The targets that traffic is routed to when a request matches the route.
+            You can specify one or more targets and their relative weights with which to distribute traffic.
+    
+            * `virtual_node` (`str`) - The virtual node to associate with the weighted target.
+            * `weight` (`float`) - The relative weight of the weighted target. An integer between 0 and 100.
     """
     tags: pulumi.Output[dict]
     """
@@ -53,6 +78,33 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[dict] spec: The route specification to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_router_name: The name of the virtual router in which to create the route.
+        
+        The **spec** object supports the following:
+        
+          * `http_route` (`pulumi.Input[dict]`) - The HTTP routing information for the route.
+        
+            * `action` (`pulumi.Input[dict]`) - The action to take if a match is determined.
+        
+              * `weighted_targets` (`pulumi.Input[list]`) - The targets that traffic is routed to when a request matches the route.
+                You can specify one or more targets and their relative weights with which to distribute traffic.
+        
+                * `virtual_node` (`pulumi.Input[str]`) - The virtual node to associate with the weighted target.
+                * `weight` (`pulumi.Input[float]`) - The relative weight of the weighted target. An integer between 0 and 100.
+        
+            * `match` (`pulumi.Input[dict]`) - The criteria for determining an HTTP request match.
+        
+              * `prefix` (`pulumi.Input[str]`) - Specifies the path with which to match requests.
+                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        
+          * `tcp_route` (`pulumi.Input[dict]`) - The TCP routing information for the route.
+        
+            * `action` (`pulumi.Input[dict]`) - The action to take if a match is determined.
+        
+              * `weighted_targets` (`pulumi.Input[list]`) - The targets that traffic is routed to when a request matches the route.
+                You can specify one or more targets and their relative weights with which to distribute traffic.
+        
+                * `virtual_node` (`pulumi.Input[str]`) - The virtual node to associate with the weighted target.
+                * `weight` (`pulumi.Input[float]`) - The relative weight of the weighted target. An integer between 0 and 100.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_route.html.markdown.
         """
@@ -110,6 +162,33 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[dict] spec: The route specification to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_router_name: The name of the virtual router in which to create the route.
+        
+        The **spec** object supports the following:
+        
+          * `http_route` (`pulumi.Input[dict]`) - The HTTP routing information for the route.
+        
+            * `action` (`pulumi.Input[dict]`) - The action to take if a match is determined.
+        
+              * `weighted_targets` (`pulumi.Input[list]`) - The targets that traffic is routed to when a request matches the route.
+                You can specify one or more targets and their relative weights with which to distribute traffic.
+        
+                * `virtual_node` (`pulumi.Input[str]`) - The virtual node to associate with the weighted target.
+                * `weight` (`pulumi.Input[float]`) - The relative weight of the weighted target. An integer between 0 and 100.
+        
+            * `match` (`pulumi.Input[dict]`) - The criteria for determining an HTTP request match.
+        
+              * `prefix` (`pulumi.Input[str]`) - Specifies the path with which to match requests.
+                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        
+          * `tcp_route` (`pulumi.Input[dict]`) - The TCP routing information for the route.
+        
+            * `action` (`pulumi.Input[dict]`) - The action to take if a match is determined.
+        
+              * `weighted_targets` (`pulumi.Input[list]`) - The targets that traffic is routed to when a request matches the route.
+                You can specify one or more targets and their relative weights with which to distribute traffic.
+        
+                * `virtual_node` (`pulumi.Input[str]`) - The virtual node to associate with the weighted target.
+                * `weight` (`pulumi.Input[float]`) - The relative weight of the weighted target. An integer between 0 and 100.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_route.html.markdown.
         """

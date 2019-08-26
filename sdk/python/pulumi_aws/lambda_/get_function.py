@@ -183,6 +183,9 @@ class AwaitableGetFunctionResult(GetFunctionResult):
 def get_function(function_name=None,qualifier=None,tags=None,opts=None):
     """
     Provides information about a Lambda Function.
+    
+    :param str function_name: Name of the lambda function.
+    :param str qualifier: Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
     """

@@ -109,6 +109,8 @@ def get_load_balancer(name=None,tags=None,opts=None):
     This data source can prove useful when a module accepts an LB as an input
     variable and needs to, for example, determine the security groups associated
     with it, etc.
+    
+    :param str name: The unique name of the load balancer.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb.html.markdown.
     """

@@ -35,6 +35,8 @@ class AwaitableGetWebAclResult(GetWebAclResult):
 def get_web_acl(name=None,opts=None):
     """
     `waf.Rule` Retrieves a WAF Web ACL Resource Id.
+    
+    :param str name: The name of the WAF Web ACL.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_web_acl.html.markdown.
     """

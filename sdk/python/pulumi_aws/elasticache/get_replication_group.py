@@ -115,6 +115,8 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
 def get_replication_group(replication_group_id=None,opts=None):
     """
     Use this data source to get information about an Elasticache Replication Group.
+    
+    :param str replication_group_id: The identifier for the replication group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_replication_group.html.markdown.
     """

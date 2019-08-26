@@ -25,6 +25,10 @@ class DeliveryChannel(pulumi.CustomResource):
     snapshot_delivery_properties: pulumi.Output[dict]
     """
     Options for how AWS Config delivers configuration snapshots. See below
+    
+      * `delivery_frequency` (`str`) - - The frequency with which AWS Config recurringly delivers configuration snapshots.
+        e.g. `One_Hour` or `Three_Hours`.
+        Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
     """
     sns_topic_arn: pulumi.Output[str]
     """
@@ -43,6 +47,12 @@ class DeliveryChannel(pulumi.CustomResource):
         :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[dict] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
+        
+        The **snapshot_delivery_properties** object supports the following:
+        
+          * `delivery_frequency` (`pulumi.Input[str]`) - - The frequency with which AWS Config recurringly delivers configuration snapshots.
+            e.g. `One_Hour` or `Three_Hours`.
+            Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_delivery_channel.html.markdown.
         """
@@ -90,6 +100,12 @@ class DeliveryChannel(pulumi.CustomResource):
         :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[dict] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
+        
+        The **snapshot_delivery_properties** object supports the following:
+        
+          * `delivery_frequency` (`pulumi.Input[str]`) - - The frequency with which AWS Config recurringly delivers configuration snapshots.
+            e.g. `One_Hour` or `Three_Hours`.
+            Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_delivery_channel.html.markdown.
         """

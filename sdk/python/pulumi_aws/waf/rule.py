@@ -21,6 +21,13 @@ class Rule(pulumi.CustomResource):
     predicates: pulumi.Output[list]
     """
     The objects to include in a rule (documented below).
+    
+      * `data_id` (`str`) - A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
+      * `negated` (`bool`) - Set this to `false` if you want to allow, block, or count requests
+        based on the settings in the specified [waf_byte_match_set](https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set.html), [waf_ipset](https://www.terraform.io/docs/providers/aws/r/waf_ipset.html), [waf.SizeConstraintSet](https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set.html), [waf.SqlInjectionMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_sql_injection_match_set.html) or [waf.XssMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_xss_match_set.html).
+        For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
+        If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+      * `type` (`str`) - The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
     """
     def __init__(__self__, resource_name, opts=None, metric_name=None, name=None, predicates=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -31,6 +38,15 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
         :param pulumi.Input[str] name: The name or description of the rule.
         :param pulumi.Input[list] predicates: The objects to include in a rule (documented below).
+        
+        The **predicates** object supports the following:
+        
+          * `data_id` (`pulumi.Input[str]`) - A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
+          * `negated` (`pulumi.Input[bool]`) - Set this to `false` if you want to allow, block, or count requests
+            based on the settings in the specified [waf_byte_match_set](https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set.html), [waf_ipset](https://www.terraform.io/docs/providers/aws/r/waf_ipset.html), [waf.SizeConstraintSet](https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set.html), [waf.SqlInjectionMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_sql_injection_match_set.html) or [waf.XssMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_xss_match_set.html).
+            For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
+            If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+          * `type` (`pulumi.Input[str]`) - The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rule.html.markdown.
         """
@@ -74,6 +90,15 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
         :param pulumi.Input[str] name: The name or description of the rule.
         :param pulumi.Input[list] predicates: The objects to include in a rule (documented below).
+        
+        The **predicates** object supports the following:
+        
+          * `data_id` (`pulumi.Input[str]`) - A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
+          * `negated` (`pulumi.Input[bool]`) - Set this to `false` if you want to allow, block, or count requests
+            based on the settings in the specified [waf_byte_match_set](https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set.html), [waf_ipset](https://www.terraform.io/docs/providers/aws/r/waf_ipset.html), [waf.SizeConstraintSet](https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set.html), [waf.SqlInjectionMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_sql_injection_match_set.html) or [waf.XssMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_xss_match_set.html).
+            For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
+            If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+          * `type` (`pulumi.Input[str]`) - The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rule.html.markdown.
         """

@@ -71,6 +71,8 @@ def get_cluster(cluster_name=None,opts=None):
     """
     The ECS Cluster data source allows access to details of a specific
     cluster within an AWS ECS service.
+    
+    :param str cluster_name: The name of the ECS Cluster
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_cluster.html.markdown.
     """

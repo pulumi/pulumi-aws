@@ -42,6 +42,15 @@ class AwaitableGetSecretsResult(GetSecretsResult):
 def get_secrets(secrets=None,opts=None):
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
+    
+    :param list secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+    
+    The **secrets** object supports the following:
+    
+      * `context` (`dict`) - An optional mapping that makes up the Encryption Context for the secret.
+      * `grant_tokens` (`list`) - An optional list of Grant Tokens for the secret.
+      * `name` (`str`) - The name to export this secret under in the attributes.
+      * `payload` (`str`) - Base64 encoded payload, as returned from a KMS encrypt operation.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_secrets.html.markdown.
     """

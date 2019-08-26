@@ -35,6 +35,13 @@ class Stack(pulumi.CustomResource):
     """
     When `use_custom_cookbooks` is set, provide this sub-object as
     described below.
+    
+      * `password` (`str`)
+      * `revision` (`str`)
+      * `ssh_key` (`str`)
+      * `type` (`str`)
+      * `url` (`str`)
+      * `username` (`str`)
     """
     custom_json: pulumi.Output[str]
     """
@@ -142,6 +149,15 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
                security groups apply to created instances.
         :param pulumi.Input[str] vpc_id: The id of the VPC that this stack belongs to.
+        
+        The **custom_cookbooks_sources** object supports the following:
+        
+          * `password` (`pulumi.Input[str]`)
+          * `revision` (`pulumi.Input[str]`)
+          * `ssh_key` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
+          * `url` (`pulumi.Input[str]`)
+          * `username` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_stack.html.markdown.
         """
@@ -236,6 +252,15 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
                security groups apply to created instances.
         :param pulumi.Input[str] vpc_id: The id of the VPC that this stack belongs to.
+        
+        The **custom_cookbooks_sources** object supports the following:
+        
+          * `password` (`pulumi.Input[str]`)
+          * `revision` (`pulumi.Input[str]`)
+          * `ssh_key` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
+          * `url` (`pulumi.Input[str]`)
+          * `username` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_stack.html.markdown.
         """

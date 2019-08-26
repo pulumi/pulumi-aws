@@ -13,6 +13,15 @@ class UserPool(pulumi.CustomResource):
     admin_create_user_config: pulumi.Output[dict]
     """
     The configuration for AdminCreateUser requests.
+    
+      * `allow_admin_create_user_only` (`bool`) - Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
+      * `invite_message_template` (`dict`) - The invite message template structure.
+    
+        * `email_message` (`str`) - The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+        * `email_subject` (`str`) - The subject line for the email message template. Conflicts with `email_verification_subject` argument.
+        * `sms_message` (`str`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+    
+      * `unused_account_validity_days` (`float`) - The user account expiration limit, in days, after which the account is no longer usable.
     """
     alias_attributes: pulumi.Output[list]
     """
@@ -33,10 +42,17 @@ class UserPool(pulumi.CustomResource):
     device_configuration: pulumi.Output[dict]
     """
     The configuration for the user pool's device tracking.
+    
+      * `challenge_required_on_new_device` (`bool`) - Indicates whether a challenge is required on a new device. Only applicable to a new device.
+      * `device_only_remembered_on_user_prompt` (`bool`) - If true, a device is only remembered on user prompt.
     """
     email_configuration: pulumi.Output[dict]
     """
     The Email Configuration.
+    
+      * `email_sending_account` (`str`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+      * `reply_to_email_address` (`str`) - The REPLY-TO email address.
+      * `source_arn` (`str`) - The ARN of the email source.
     """
     email_verification_message: pulumi.Output[str]
     """
@@ -53,6 +69,17 @@ class UserPool(pulumi.CustomResource):
     lambda_config: pulumi.Output[dict]
     """
     A container for the AWS Lambda triggers associated with the user pool.
+    
+      * `create_auth_challenge` (`str`) - The ARN of the lambda creating an authentication challenge.
+      * `custom_message` (`str`) - A custom Message AWS Lambda trigger.
+      * `define_auth_challenge` (`str`) - Defines the authentication challenge.
+      * `post_authentication` (`str`) - A post-authentication AWS Lambda trigger.
+      * `post_confirmation` (`str`) - A post-confirmation AWS Lambda trigger.
+      * `pre_authentication` (`str`) - A pre-authentication AWS Lambda trigger.
+      * `pre_sign_up` (`str`) - A pre-registration AWS Lambda trigger.
+      * `pre_token_generation` (`str`) - Allow to customize identity token claims before token generation.
+      * `user_migration` (`str`) - The user migration Lambda config type.
+      * `verify_auth_challenge_response` (`str`) - Verifies the authentication challenge response.
     """
     last_modified_date: pulumi.Output[str]
     """
@@ -69,10 +96,31 @@ class UserPool(pulumi.CustomResource):
     password_policy: pulumi.Output[dict]
     """
     A container for information about the user pool password policy.
+    
+      * `minimum_length` (`float`) - The minimum length of the password policy that you have set.
+      * `require_lowercase` (`bool`) - Whether you have required users to use at least one lowercase letter in their password.
+      * `require_numbers` (`bool`) - Whether you have required users to use at least one number in their password.
+      * `require_symbols` (`bool`) - Whether you have required users to use at least one symbol in their password.
+      * `require_uppercase` (`bool`) - Whether you have required users to use at least one uppercase letter in their password.
     """
     schemas: pulumi.Output[list]
     """
     A container with the schema attributes of a user pool. Maximum of 50 attributes.
+    
+      * `attribute_data_type` (`str`) - The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+      * `developer_only_attribute` (`bool`) - Specifies whether the attribute type is developer only.
+      * `mutable` (`bool`) - Specifies whether the attribute can be changed once it has been created.
+      * `name` (`str`) - The name of the attribute.
+      * `number_attribute_constraints` (`dict`) - Specifies the constraints for an attribute of the number type.
+    
+        * `max_value` (`str`) - The maximum value of an attribute that is of the number data type.
+        * `min_value` (`str`) - The minimum value of an attribute that is of the number data type.
+    
+      * `required` (`bool`) - Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+      * `string_attribute_constraints` (`dict`) - -Specifies the constraints for an attribute of the string type.
+    
+        * `max_length` (`str`) - The maximum length of an attribute value of the string type.
+        * `min_length` (`str`) - The minimum length of an attribute value of the string type.
     """
     sms_authentication_message: pulumi.Output[str]
     """
@@ -81,6 +129,9 @@ class UserPool(pulumi.CustomResource):
     sms_configuration: pulumi.Output[dict]
     """
     The SMS Configuration.
+    
+      * `external_id` (`str`) - The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+      * `sns_caller_arn` (`str`) - The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
     """
     sms_verification_message: pulumi.Output[str]
     """
@@ -93,6 +144,8 @@ class UserPool(pulumi.CustomResource):
     user_pool_add_ons: pulumi.Output[dict]
     """
     Configuration block for user pool add-ons to enable user pool advanced security mode features.
+    
+      * `advanced_security_mode` (`str`) - The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
     """
     username_attributes: pulumi.Output[list]
     """
@@ -101,6 +154,13 @@ class UserPool(pulumi.CustomResource):
     verification_message_template: pulumi.Output[dict]
     """
     The verification message templates configuration.
+    
+      * `default_email_option` (`str`) - The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+      * `email_message` (`str`) - The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+      * `email_message_by_link` (`str`) - The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+      * `email_subject` (`str`) - The subject line for the email message template. Conflicts with `email_verification_subject` argument.
+      * `email_subject_by_link` (`str`) - The subject line for the email message template for sending a confirmation link to the user.
+      * `sms_message` (`str`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
     """
     def __init__(__self__, resource_name, opts=None, admin_create_user_config=None, alias_attributes=None, auto_verified_attributes=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, tags=None, user_pool_add_ons=None, username_attributes=None, verification_message_template=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -127,6 +187,84 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[dict] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features.
         :param pulumi.Input[list] username_attributes: Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
         :param pulumi.Input[dict] verification_message_template: The verification message templates configuration.
+        
+        The **admin_create_user_config** object supports the following:
+        
+          * `allow_admin_create_user_only` (`pulumi.Input[bool]`) - Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
+          * `invite_message_template` (`pulumi.Input[dict]`) - The invite message template structure.
+        
+            * `email_message` (`pulumi.Input[str]`) - The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+            * `email_subject` (`pulumi.Input[str]`) - The subject line for the email message template. Conflicts with `email_verification_subject` argument.
+            * `sms_message` (`pulumi.Input[str]`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        
+          * `unused_account_validity_days` (`pulumi.Input[float]`) - The user account expiration limit, in days, after which the account is no longer usable.
+        
+        The **email_configuration** object supports the following:
+        
+          * `email_sending_account` (`pulumi.Input[str]`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+          * `reply_to_email_address` (`pulumi.Input[str]`) - The REPLY-TO email address.
+          * `source_arn` (`pulumi.Input[str]`) - The ARN of the email source.
+        
+        The **sms_configuration** object supports the following:
+        
+          * `external_id` (`pulumi.Input[str]`) - The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+          * `sns_caller_arn` (`pulumi.Input[str]`) - The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+        
+        The **user_pool_add_ons** object supports the following:
+        
+          * `advanced_security_mode` (`pulumi.Input[str]`) - The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+        
+        The **device_configuration** object supports the following:
+        
+          * `challenge_required_on_new_device` (`pulumi.Input[bool]`) - Indicates whether a challenge is required on a new device. Only applicable to a new device.
+          * `device_only_remembered_on_user_prompt` (`pulumi.Input[bool]`) - If true, a device is only remembered on user prompt.
+        
+        The **lambda_config** object supports the following:
+        
+          * `create_auth_challenge` (`pulumi.Input[str]`) - The ARN of the lambda creating an authentication challenge.
+          * `custom_message` (`pulumi.Input[str]`) - A custom Message AWS Lambda trigger.
+          * `define_auth_challenge` (`pulumi.Input[str]`) - Defines the authentication challenge.
+          * `post_authentication` (`pulumi.Input[str]`) - A post-authentication AWS Lambda trigger.
+          * `post_confirmation` (`pulumi.Input[str]`) - A post-confirmation AWS Lambda trigger.
+          * `pre_authentication` (`pulumi.Input[str]`) - A pre-authentication AWS Lambda trigger.
+          * `pre_sign_up` (`pulumi.Input[str]`) - A pre-registration AWS Lambda trigger.
+          * `pre_token_generation` (`pulumi.Input[str]`) - Allow to customize identity token claims before token generation.
+          * `user_migration` (`pulumi.Input[str]`) - The user migration Lambda config type.
+          * `verify_auth_challenge_response` (`pulumi.Input[str]`) - Verifies the authentication challenge response.
+        
+        The **password_policy** object supports the following:
+        
+          * `minimum_length` (`pulumi.Input[float]`) - The minimum length of the password policy that you have set.
+          * `require_lowercase` (`pulumi.Input[bool]`) - Whether you have required users to use at least one lowercase letter in their password.
+          * `require_numbers` (`pulumi.Input[bool]`) - Whether you have required users to use at least one number in their password.
+          * `require_symbols` (`pulumi.Input[bool]`) - Whether you have required users to use at least one symbol in their password.
+          * `require_uppercase` (`pulumi.Input[bool]`) - Whether you have required users to use at least one uppercase letter in their password.
+        
+        The **schemas** object supports the following:
+        
+          * `attribute_data_type` (`pulumi.Input[str]`) - The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+          * `developer_only_attribute` (`pulumi.Input[bool]`) - Specifies whether the attribute type is developer only.
+          * `mutable` (`pulumi.Input[bool]`) - Specifies whether the attribute can be changed once it has been created.
+          * `name` (`pulumi.Input[str]`) - The name of the attribute.
+          * `number_attribute_constraints` (`pulumi.Input[dict]`) - Specifies the constraints for an attribute of the number type.
+        
+            * `max_value` (`pulumi.Input[str]`) - The maximum value of an attribute that is of the number data type.
+            * `min_value` (`pulumi.Input[str]`) - The minimum value of an attribute that is of the number data type.
+        
+          * `required` (`pulumi.Input[bool]`) - Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+          * `string_attribute_constraints` (`pulumi.Input[dict]`) - -Specifies the constraints for an attribute of the string type.
+        
+            * `max_length` (`pulumi.Input[str]`) - The maximum length of an attribute value of the string type.
+            * `min_length` (`pulumi.Input[str]`) - The minimum length of an attribute value of the string type.
+        
+        The **verification_message_template** object supports the following:
+        
+          * `default_email_option` (`pulumi.Input[str]`) - The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+          * `email_message` (`pulumi.Input[str]`) - The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+          * `email_message_by_link` (`pulumi.Input[str]`) - The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+          * `email_subject` (`pulumi.Input[str]`) - The subject line for the email message template. Conflicts with `email_verification_subject` argument.
+          * `email_subject_by_link` (`pulumi.Input[str]`) - The subject line for the email message template for sending a confirmation link to the user.
+          * `sms_message` (`pulumi.Input[str]`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool.html.markdown.
         """
@@ -208,6 +346,84 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[dict] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features.
         :param pulumi.Input[list] username_attributes: Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
         :param pulumi.Input[dict] verification_message_template: The verification message templates configuration.
+        
+        The **schemas** object supports the following:
+        
+          * `attribute_data_type` (`pulumi.Input[str]`) - The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+          * `developer_only_attribute` (`pulumi.Input[bool]`) - Specifies whether the attribute type is developer only.
+          * `mutable` (`pulumi.Input[bool]`) - Specifies whether the attribute can be changed once it has been created.
+          * `name` (`pulumi.Input[str]`) - The name of the attribute.
+          * `number_attribute_constraints` (`pulumi.Input[dict]`) - Specifies the constraints for an attribute of the number type.
+        
+            * `max_value` (`pulumi.Input[str]`) - The maximum value of an attribute that is of the number data type.
+            * `min_value` (`pulumi.Input[str]`) - The minimum value of an attribute that is of the number data type.
+        
+          * `required` (`pulumi.Input[bool]`) - Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+          * `string_attribute_constraints` (`pulumi.Input[dict]`) - -Specifies the constraints for an attribute of the string type.
+        
+            * `max_length` (`pulumi.Input[str]`) - The maximum length of an attribute value of the string type.
+            * `min_length` (`pulumi.Input[str]`) - The minimum length of an attribute value of the string type.
+        
+        The **sms_configuration** object supports the following:
+        
+          * `external_id` (`pulumi.Input[str]`) - The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+          * `sns_caller_arn` (`pulumi.Input[str]`) - The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+        
+        The **admin_create_user_config** object supports the following:
+        
+          * `allow_admin_create_user_only` (`pulumi.Input[bool]`) - Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
+          * `invite_message_template` (`pulumi.Input[dict]`) - The invite message template structure.
+        
+            * `email_message` (`pulumi.Input[str]`) - The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+            * `email_subject` (`pulumi.Input[str]`) - The subject line for the email message template. Conflicts with `email_verification_subject` argument.
+            * `sms_message` (`pulumi.Input[str]`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        
+          * `unused_account_validity_days` (`pulumi.Input[float]`) - The user account expiration limit, in days, after which the account is no longer usable.
+        
+        The **password_policy** object supports the following:
+        
+          * `minimum_length` (`pulumi.Input[float]`) - The minimum length of the password policy that you have set.
+          * `require_lowercase` (`pulumi.Input[bool]`) - Whether you have required users to use at least one lowercase letter in their password.
+          * `require_numbers` (`pulumi.Input[bool]`) - Whether you have required users to use at least one number in their password.
+          * `require_symbols` (`pulumi.Input[bool]`) - Whether you have required users to use at least one symbol in their password.
+          * `require_uppercase` (`pulumi.Input[bool]`) - Whether you have required users to use at least one uppercase letter in their password.
+        
+        The **lambda_config** object supports the following:
+        
+          * `create_auth_challenge` (`pulumi.Input[str]`) - The ARN of the lambda creating an authentication challenge.
+          * `custom_message` (`pulumi.Input[str]`) - A custom Message AWS Lambda trigger.
+          * `define_auth_challenge` (`pulumi.Input[str]`) - Defines the authentication challenge.
+          * `post_authentication` (`pulumi.Input[str]`) - A post-authentication AWS Lambda trigger.
+          * `post_confirmation` (`pulumi.Input[str]`) - A post-confirmation AWS Lambda trigger.
+          * `pre_authentication` (`pulumi.Input[str]`) - A pre-authentication AWS Lambda trigger.
+          * `pre_sign_up` (`pulumi.Input[str]`) - A pre-registration AWS Lambda trigger.
+          * `pre_token_generation` (`pulumi.Input[str]`) - Allow to customize identity token claims before token generation.
+          * `user_migration` (`pulumi.Input[str]`) - The user migration Lambda config type.
+          * `verify_auth_challenge_response` (`pulumi.Input[str]`) - Verifies the authentication challenge response.
+        
+        The **user_pool_add_ons** object supports the following:
+        
+          * `advanced_security_mode` (`pulumi.Input[str]`) - The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+        
+        The **verification_message_template** object supports the following:
+        
+          * `default_email_option` (`pulumi.Input[str]`) - The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+          * `email_message` (`pulumi.Input[str]`) - The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+          * `email_message_by_link` (`pulumi.Input[str]`) - The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+          * `email_subject` (`pulumi.Input[str]`) - The subject line for the email message template. Conflicts with `email_verification_subject` argument.
+          * `email_subject_by_link` (`pulumi.Input[str]`) - The subject line for the email message template for sending a confirmation link to the user.
+          * `sms_message` (`pulumi.Input[str]`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        
+        The **device_configuration** object supports the following:
+        
+          * `challenge_required_on_new_device` (`pulumi.Input[bool]`) - Indicates whether a challenge is required on a new device. Only applicable to a new device.
+          * `device_only_remembered_on_user_prompt` (`pulumi.Input[bool]`) - If true, a device is only remembered on user prompt.
+        
+        The **email_configuration** object supports the following:
+        
+          * `email_sending_account` (`pulumi.Input[str]`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+          * `reply_to_email_address` (`pulumi.Input[str]`) - The REPLY-TO email address.
+          * `source_arn` (`pulumi.Input[str]`) - The ARN of the email source.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool.html.markdown.
         """

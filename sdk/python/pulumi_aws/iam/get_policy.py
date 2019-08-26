@@ -67,6 +67,8 @@ def get_policy(arn=None,opts=None):
     """
     This data source can be used to fetch information about a specific
     IAM policy.
+    
+    :param str arn: ARN of the IAM policy.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
     """

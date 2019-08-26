@@ -60,6 +60,14 @@ def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,ty
     Use this data source to get the ARN of a certificate in AWS Certificate
     Manager (ACM), you can reference
     it by domain without having to hard code the ARNs as input.
+    
+    :param str domain: The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+    :param list key_types: A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
+    :param bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
+    :param list statuses: A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+           `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
+           are returned.
+    :param list types: A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acm_certificate.html.markdown.
     """

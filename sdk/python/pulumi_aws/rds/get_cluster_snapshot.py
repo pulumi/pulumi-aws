@@ -149,6 +149,18 @@ def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifi
     
     > **NOTE:** This data source does not apply to snapshots created on DB Instances. 
     See the [`rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
+    
+    :param str db_cluster_identifier: Returns the list of snapshots created by the specific db_cluster
+    :param str db_cluster_snapshot_identifier: Returns information on a specific snapshot_id.
+    :param bool include_public: Set this value to true to include manual DB Cluster Snapshots that are public and can be
+           copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+    :param bool include_shared: Set this value to true to include shared manual DB Cluster Snapshots from other
+           AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
+           The default is `false`.
+    :param bool most_recent: If more than one result is returned, use the most recent Snapshot.
+    :param str snapshot_type: The type of snapshots to be returned. If you don't specify a SnapshotType
+           value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
+           included in the returned results by default. Possible values are, `automated`, `manual`, `shared` and `public`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
     """

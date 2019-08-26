@@ -21,6 +21,8 @@ class GlobalTable(pulumi.CustomResource):
     replicas: pulumi.Output[list]
     """
     Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+    
+      * `region_name` (`str`) - AWS region name of replica DynamoDB Table. e.g. `us-east-1`
     """
     def __init__(__self__, resource_name, opts=None, name=None, replicas=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -32,6 +34,10 @@ class GlobalTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         :param pulumi.Input[list] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+        
+        The **replicas** object supports the following:
+        
+          * `region_name` (`pulumi.Input[str]`) - AWS region name of replica DynamoDB Table. e.g. `us-east-1`
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_global_table.html.markdown.
         """
@@ -75,6 +81,10 @@ class GlobalTable(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the DynamoDB Global Table
         :param pulumi.Input[str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         :param pulumi.Input[list] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+        
+        The **replicas** object supports the following:
+        
+          * `region_name` (`pulumi.Input[str]`) - AWS region name of replica DynamoDB Table. e.g. `us-east-1`
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_global_table.html.markdown.
         """

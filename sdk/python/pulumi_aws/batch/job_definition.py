@@ -31,6 +31,8 @@ class JobDefinition(pulumi.CustomResource):
     """
     Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
     Maximum number of `retry_strategy` is `1`.  Defined below.
+    
+      * `attempts` (`float`)
     """
     revision: pulumi.Output[float]
     """
@@ -39,6 +41,8 @@ class JobDefinition(pulumi.CustomResource):
     timeout: pulumi.Output[dict]
     """
     Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+    
+      * `attempt_duration_seconds` (`float`)
     """
     type: pulumi.Output[str]
     """
@@ -70,6 +74,14 @@ class JobDefinition(pulumi.CustomResource):
                Maximum number of `retry_strategy` is `1`.  Defined below.
         :param pulumi.Input[dict] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         :param pulumi.Input[str] type: The type of job definition.  Must be `container`
+        
+        The **retry_strategy** object supports the following:
+        
+          * `attempts` (`pulumi.Input[float]`)
+        
+        The **timeout** object supports the following:
+        
+          * `attempt_duration_seconds` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_job_definition.html.markdown.
         """
@@ -125,6 +137,14 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[float] revision: The revision of the job definition.
         :param pulumi.Input[dict] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         :param pulumi.Input[str] type: The type of job definition.  Must be `container`
+        
+        The **retry_strategy** object supports the following:
+        
+          * `attempts` (`pulumi.Input[float]`)
+        
+        The **timeout** object supports the following:
+        
+          * `attempt_duration_seconds` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_job_definition.html.markdown.
         """

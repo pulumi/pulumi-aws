@@ -72,6 +72,13 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
 def get_ip_ranges(regions=None,services=None,url=None,opts=None):
     """
     Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
+    
+    :param list regions: Filter IP ranges by regions (or include all regions, if
+           omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
+           (e.g. `eu-central-1`)
+    :param list services: Filter IP ranges by services. Valid items are `amazon`
+           (for amazon.com), `cloudfront`, `codebuild`, `ec2`, `route53`, `route53_healthchecks` and `S3`.
+    :param str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention][1]. Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ip_ranges.html.markdown.
     """

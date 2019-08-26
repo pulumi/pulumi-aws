@@ -33,6 +33,12 @@ class ParameterGroup(pulumi.CustomResource):
     parameters: pulumi.Output[list]
     """
     A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+    
+      * `apply_method` (`str`) - "immediate" (default), or "pending-reboot". Some
+        engines can't apply some parameters without a reboot, and you will need to
+        specify "pending-reboot" here.
+      * `name` (`str`) - The name of the DB parameter.
+      * `value` (`str`) - The value of the DB parameter.
     """
     tags: pulumi.Output[dict]
     """
@@ -55,6 +61,14 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[list] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **parameters** object supports the following:
+        
+          * `apply_method` (`pulumi.Input[str]`) - "immediate" (default), or "pending-reboot". Some
+            engines can't apply some parameters without a reboot, and you will need to
+            specify "pending-reboot" here.
+          * `name` (`pulumi.Input[str]`) - The name of the DB parameter.
+          * `value` (`pulumi.Input[str]`) - The value of the DB parameter.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_parameter_group.html.markdown.
         """
@@ -108,6 +122,14 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[list] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **parameters** object supports the following:
+        
+          * `apply_method` (`pulumi.Input[str]`) - "immediate" (default), or "pending-reboot". Some
+            engines can't apply some parameters without a reboot, and you will need to
+            specify "pending-reboot" here.
+          * `name` (`pulumi.Input[str]`) - The name of the DB parameter.
+          * `value` (`pulumi.Input[str]`) - The value of the DB parameter.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_parameter_group.html.markdown.
         """

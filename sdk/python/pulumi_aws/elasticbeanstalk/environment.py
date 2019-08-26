@@ -15,6 +15,12 @@ class Environment(pulumi.CustomResource):
     List of all option settings configured in the Environment. These
     are a combination of default settings and their overrides from `setting` in
     the configuration.
+    
+      * `name` (`str`) - A unique name for this Environment. This name is used
+        in the application URL
+      * `namespace` (`str`)
+      * `resource` (`str`)
+      * `value` (`str`)
     """
     application: pulumi.Output[str]
     """
@@ -77,6 +83,12 @@ class Environment(pulumi.CustomResource):
     Option settings to configure the new Environment. These
     override specific values that are set as defaults. The format is detailed
     below in Option Settings
+    
+      * `name` (`str`) - A unique name for this Environment. This name is used
+        in the application URL
+      * `namespace` (`str`)
+      * `resource` (`str`)
+      * `value` (`str`)
     """
     solution_stack_name: pulumi.Output[str]
     """
@@ -165,6 +177,14 @@ class Environment(pulumi.CustomResource):
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
                wait for an Elastic Beanstalk Environment to be in a ready state before timing
                out.
+        
+        The **settings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - A unique name for this Environment. This name is used
+            in the application URL
+          * `namespace` (`pulumi.Input[str]`)
+          * `resource` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_environment.html.markdown.
         """
@@ -263,6 +283,22 @@ class Environment(pulumi.CustomResource):
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
                wait for an Elastic Beanstalk Environment to be in a ready state before timing
                out.
+        
+        The **all_settings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - A unique name for this Environment. This name is used
+            in the application URL
+          * `namespace` (`pulumi.Input[str]`)
+          * `resource` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`)
+        
+        The **settings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - A unique name for this Environment. This name is used
+            in the application URL
+          * `namespace` (`pulumi.Input[str]`)
+          * `resource` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_environment.html.markdown.
         """

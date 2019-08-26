@@ -17,6 +17,13 @@ class XssMatchSet(pulumi.CustomResource):
     xss_match_tuples: pulumi.Output[list]
     """
     The parts of web requests that you want to inspect for cross-site scripting attacks.
+    
+      * `field_to_match` (`dict`) - Specifies where in a web request to look for cross-site scripting attacks.
+    
+        * `data` (`str`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
+        * `type` (`str`) - The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
+    
+      * `text_transformation` (`str`) - Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
     """
     def __init__(__self__, resource_name, opts=None, name=None, xss_match_tuples=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -26,6 +33,15 @@ class XssMatchSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the set
         :param pulumi.Input[list] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
+        
+        The **xss_match_tuples** object supports the following:
+        
+          * `field_to_match` (`pulumi.Input[dict]`) - Specifies where in a web request to look for cross-site scripting attacks.
+        
+            * `data` (`pulumi.Input[str]`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
+            * `type` (`pulumi.Input[str]`) - The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
+        
+          * `text_transformation` (`pulumi.Input[str]`) - Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_xss_match_set.html.markdown.
         """
@@ -65,6 +81,15 @@ class XssMatchSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the set
         :param pulumi.Input[list] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
+        
+        The **xss_match_tuples** object supports the following:
+        
+          * `field_to_match` (`pulumi.Input[dict]`) - Specifies where in a web request to look for cross-site scripting attacks.
+        
+            * `data` (`pulumi.Input[str]`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
+            * `type` (`pulumi.Input[str]`) - The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
+        
+          * `text_transformation` (`pulumi.Input[str]`) - Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_xss_match_set.html.markdown.
         """

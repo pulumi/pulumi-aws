@@ -17,6 +17,15 @@ class Recorder(pulumi.CustomResource):
     recording_group: pulumi.Output[dict]
     """
     Recording group - see below.
+    
+      * `all_supported` (`bool`) - Specifies whether AWS Config records configuration changes
+        for every supported type of regional resource (which includes any new type that will become supported in the future).
+        Conflicts with `resource_types`. Defaults to `true`.
+      * `include_global_resource_types` (`bool`) - Specifies whether AWS Config includes all supported types of *global resources*
+        with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+      * `resource_types` (`list`) - A list that specifies the types of AWS resources for which
+        AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
+        See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
     """
     role_arn: pulumi.Output[str]
     """
@@ -37,6 +46,17 @@ class Recorder(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role.
                used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
                See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+        
+        The **recording_group** object supports the following:
+        
+          * `all_supported` (`pulumi.Input[bool]`) - Specifies whether AWS Config records configuration changes
+            for every supported type of regional resource (which includes any new type that will become supported in the future).
+            Conflicts with `resource_types`. Defaults to `true`.
+          * `include_global_resource_types` (`pulumi.Input[bool]`) - Specifies whether AWS Config includes all supported types of *global resources*
+            with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+          * `resource_types` (`pulumi.Input[list]`) - A list that specifies the types of AWS resources for which
+            AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
+            See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_recorder.html.markdown.
         """
@@ -82,6 +102,17 @@ class Recorder(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role.
                used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
                See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+        
+        The **recording_group** object supports the following:
+        
+          * `all_supported` (`pulumi.Input[bool]`) - Specifies whether AWS Config records configuration changes
+            for every supported type of regional resource (which includes any new type that will become supported in the future).
+            Conflicts with `resource_types`. Defaults to `true`.
+          * `include_global_resource_types` (`pulumi.Input[bool]`) - Specifies whether AWS Config includes all supported types of *global resources*
+            with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+          * `resource_types` (`pulumi.Input[list]`) - A list that specifies the types of AWS resources for which
+            AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
+            See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_recorder.html.markdown.
         """

@@ -73,6 +73,9 @@ class AwaitableGetClusterResult(GetClusterResult):
 def get_cluster(cluster_id=None,cluster_state=None,opts=None):
     """
     Use this data source to get information about a CloudHSM v2 cluster
+    
+    :param str cluster_id: The id of Cloud HSM v2 cluster.
+    :param str cluster_state: The state of the cluster to be found.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudhsm_v2_cluster.html.markdown.
     """

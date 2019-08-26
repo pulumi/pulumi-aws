@@ -57,6 +57,28 @@ class AwaitableGetScriptResult(GetScriptResult):
 def get_script(dag_edges=None,dag_nodes=None,language=None,opts=None):
     """
     Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
+    
+    :param list dag_edges: A list of the edges in the DAG. Defined below.
+    :param list dag_nodes: A list of the nodes in the DAG. Defined below.
+    :param str language: The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+    
+    The **dag_edges** object supports the following:
+    
+      * `source` (`str`) - The ID of the node at which the edge starts.
+      * `target` (`str`) - The ID of the node at which the edge ends.
+      * `target_parameter` (`str`) - The target of the edge.
+    
+    The **dag_nodes** object supports the following:
+    
+      * `args` (`list`) - Nested configuration an argument or property of a node. Defined below.
+    
+        * `name` (`str`) - The name of the argument or property.
+        * `param` (`bool`) - Boolean if the value is used as a parameter. Defaults to `false`.
+        * `value` (`str`) - The value of the argument or property.
+    
+      * `id` (`str`) - A node identifier that is unique within the node's graph.
+      * `line_number` (`float`) - The line number of the node.
+      * `node_type` (`str`) - The type of node this is.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/glue_script.html.markdown.
     """

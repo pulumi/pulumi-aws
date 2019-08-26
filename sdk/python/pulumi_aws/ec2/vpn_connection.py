@@ -207,6 +207,20 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] tunnel2_vgw_inside_address: The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
         :param pulumi.Input[str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
         :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
+        
+        The **routes** object supports the following:
+        
+          * `destination_cidr_block` (`pulumi.Input[str]`)
+          * `source` (`pulumi.Input[str]`)
+          * `state` (`pulumi.Input[str]`)
+        
+        The **vgw_telemetries** object supports the following:
+        
+          * `accepted_route_count` (`pulumi.Input[float]`)
+          * `last_status_change` (`pulumi.Input[str]`)
+          * `outside_ip_address` (`pulumi.Input[str]`)
+          * `status` (`pulumi.Input[str]`)
+          * `status_message` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection.html.markdown.
         """
