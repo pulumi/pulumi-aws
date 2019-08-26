@@ -160,7 +160,7 @@ export class BucketObject extends pulumi.CustomResource {
     /**
      * The path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    public readonly source!: pulumi.Output<pulumi.asset.Asset | undefined>;
+    public readonly source!: pulumi.Output<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
@@ -314,7 +314,7 @@ export interface BucketObjectState {
     /**
      * The path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    readonly source?: pulumi.Input<pulumi.asset.Asset>;
+    readonly source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
@@ -402,7 +402,7 @@ export interface BucketObjectArgs {
     /**
      * The path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    readonly source?: pulumi.Input<pulumi.asset.Asset>;
+    readonly source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
