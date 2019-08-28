@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to pulumi-terraform@3f206601e7
+_(none)_
 
 ---
+
+## 1.0.0-rc.1 (2019-08-28)
+* Update to pulumi-terraform@3f206601e7
 
 ## 1.0.0-beta.3 (2019-08-26)
 * Update pulumi-terraform reference to 58c7473d0
