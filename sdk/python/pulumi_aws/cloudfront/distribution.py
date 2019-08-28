@@ -38,11 +38,87 @@ class Distribution(pulumi.CustomResource):
     custom_error_responses: pulumi.Output[list]
     """
     One or more custom error response elements (multiples allowed).
+    
+      * `errorCachingMinTtl` (`float`) - The minimum amount of time you want
+        HTTP error codes to stay in CloudFront caches before CloudFront queries your
+        origin to see whether the object has been updated.
+      * `errorCode` (`float`) - The 4xx or 5xx HTTP status code that you want to
+        customize.
+      * `responseCode` (`float`) - The HTTP status code that you want CloudFront
+        to return with the custom error page to the viewer.
+      * `responsePagePath` (`str`) - The path of the custom error page (for
+        example, `/custom_404.html`).
     """
     default_cache_behavior: pulumi.Output[dict]
     """
     The default cache behavior for this distribution (maximum
     one).
+    
+      * `allowedMethods` (`list`) - Controls which HTTP methods CloudFront
+        processes and forwards to your Amazon S3 bucket or your custom origin.
+      * `cachedMethods` (`list`) - Controls whether CloudFront caches the
+        response to requests using the specified HTTP methods.
+      * `compress` (`bool`) - Whether you want CloudFront to automatically
+        compress content for web requests that include `Accept-Encoding: gzip` in
+        the request header (default: `false`).
+      * `defaultTtl` (`float`) - The default amount of time (in seconds) that an
+        object is in a CloudFront cache before CloudFront forwards another request
+        in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
+        1 day.
+      * `fieldLevelEncryptionId` (`str`) - Field level encryption configuration ID
+      * `forwardedValues` (`dict`) - The forwarded values configuration that specifies how CloudFront
+        handles query strings, cookies and headers (maximum one).
+    
+        * `cookies` (`dict`) - The forwarded values cookies
+          that specifies how CloudFront handles cookies (maximum one).
+    
+          * `forward` (`str`) - Specifies whether you want CloudFront to forward
+            cookies to the origin that is associated with this cache behavior. You can
+            specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
+            subsequent `whitelisted_names`
+          * `whitelistedNames` (`list`) - If you have specified `whitelist` to
+            `forward`, the whitelisted cookies that you want CloudFront to forward to
+            your origin.
+    
+        * `headers` (`list`) - Specifies the Headers, if any, that you want
+          CloudFront to vary upon for this cache behavior. Specify `*` to include all
+          headers.
+        * `queryString` (`bool`) - Indicates whether you want CloudFront to forward
+          query strings to the origin that is associated with this cache behavior.
+        * `queryStringCacheKeys` (`list`) - When specified, along with a value of
+          `true` for `query_string`, all query strings are forwarded, however only the
+          query string keys listed in this argument are cached. When omitted with a
+          value of `true` for `query_string`, all query string keys are cached.
+    
+      * `lambdaFunctionAssociations` (`list`) - A config block that triggers a lambda function with
+        specific actions. Defined below, maximum 4.
+    
+        * `eventType` (`str`) - The specific event to trigger this function.
+          Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+          `origin-response`
+        * `includeBody` (`bool`) - When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
+        * `lambdaArn` (`str`) - ARN of the Lambda function.
+    
+      * `maxTtl` (`float`) - The maximum amount of time (in seconds) that an
+        object is in a CloudFront cache before CloudFront forwards another request
+        to your origin to determine whether the object has been updated. Only
+        effective in the presence of `Cache-Control max-age`, `Cache-Control
+        s-maxage`, and `Expires` headers. Defaults to 365 days.
+      * `minTtl` (`float`) - The minimum amount of time that you want objects to
+        stay in CloudFront caches before CloudFront queries your origin to see
+        whether the object has been updated. Defaults to 0 seconds.
+      * `smoothStreaming` (`bool`) - Indicates whether you want to distribute
+        media files in Microsoft Smooth Streaming format using the origin that is
+        associated with this cache behavior.
+      * `targetOriginId` (`str`) - The value of ID for the origin that you want
+        CloudFront to route requests to when a request matches the path pattern
+        either for a cache behavior or for the default cache behavior.
+      * `trustedSigners` (`list`) - The AWS accounts, if any, that you want to
+        allow to create signed URLs for private content.
+      * `viewerProtocolPolicy` (`str`) - Use this element to specify the
+        protocol that users can use to access the files in the origin specified by
+        TargetOriginId when a request matches the path pattern in PathPattern. One
+        of `allow-all`, `https-only`, or `redirect-to-https`.
     """
     default_root_object: pulumi.Output[str]
     """
@@ -94,22 +170,141 @@ class Distribution(pulumi.CustomResource):
     The logging
     configuration that controls how logs are written
     to your distribution (maximum one).
+    
+      * `bucket` (`str`) - The Amazon S3 bucket to store the access logs in, for
+        example, `myawslogbucket.s3.amazonaws.com`.
+      * `includeCookies` (`bool`) - Specifies whether you want CloudFront to
+        include cookies in access logs (default: `false`).
+      * `prefix` (`str`) - An optional string that you want CloudFront to prefix
+        to the access log filenames for this distribution, for example, `myprefix/`.
     """
     ordered_cache_behaviors: pulumi.Output[list]
     """
     An ordered list of cache behaviors
     resource for this distribution. List from top to bottom
     in order of precedence. The topmost cache behavior will have precedence 0.
+    
+      * `allowedMethods` (`list`) - Controls which HTTP methods CloudFront
+        processes and forwards to your Amazon S3 bucket or your custom origin.
+      * `cachedMethods` (`list`) - Controls whether CloudFront caches the
+        response to requests using the specified HTTP methods.
+      * `compress` (`bool`) - Whether you want CloudFront to automatically
+        compress content for web requests that include `Accept-Encoding: gzip` in
+        the request header (default: `false`).
+      * `defaultTtl` (`float`) - The default amount of time (in seconds) that an
+        object is in a CloudFront cache before CloudFront forwards another request
+        in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
+        1 day.
+      * `fieldLevelEncryptionId` (`str`) - Field level encryption configuration ID
+      * `forwardedValues` (`dict`) - The forwarded values configuration that specifies how CloudFront
+        handles query strings, cookies and headers (maximum one).
+    
+        * `cookies` (`dict`) - The forwarded values cookies
+          that specifies how CloudFront handles cookies (maximum one).
+    
+          * `forward` (`str`) - Specifies whether you want CloudFront to forward
+            cookies to the origin that is associated with this cache behavior. You can
+            specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
+            subsequent `whitelisted_names`
+          * `whitelistedNames` (`list`) - If you have specified `whitelist` to
+            `forward`, the whitelisted cookies that you want CloudFront to forward to
+            your origin.
+    
+        * `headers` (`list`) - Specifies the Headers, if any, that you want
+          CloudFront to vary upon for this cache behavior. Specify `*` to include all
+          headers.
+        * `queryString` (`bool`) - Indicates whether you want CloudFront to forward
+          query strings to the origin that is associated with this cache behavior.
+        * `queryStringCacheKeys` (`list`) - When specified, along with a value of
+          `true` for `query_string`, all query strings are forwarded, however only the
+          query string keys listed in this argument are cached. When omitted with a
+          value of `true` for `query_string`, all query string keys are cached.
+    
+      * `lambdaFunctionAssociations` (`list`) - A config block that triggers a lambda function with
+        specific actions. Defined below, maximum 4.
+    
+        * `eventType` (`str`) - The specific event to trigger this function.
+          Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+          `origin-response`
+        * `includeBody` (`bool`) - When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
+        * `lambdaArn` (`str`) - ARN of the Lambda function.
+    
+      * `maxTtl` (`float`) - The maximum amount of time (in seconds) that an
+        object is in a CloudFront cache before CloudFront forwards another request
+        to your origin to determine whether the object has been updated. Only
+        effective in the presence of `Cache-Control max-age`, `Cache-Control
+        s-maxage`, and `Expires` headers. Defaults to 365 days.
+      * `minTtl` (`float`) - The minimum amount of time that you want objects to
+        stay in CloudFront caches before CloudFront queries your origin to see
+        whether the object has been updated. Defaults to 0 seconds.
+      * `pathPattern` (`str`) - The pattern (for example, `images/*.jpg)` that
+        specifies which requests you want this cache behavior to apply to.
+      * `smoothStreaming` (`bool`) - Indicates whether you want to distribute
+        media files in Microsoft Smooth Streaming format using the origin that is
+        associated with this cache behavior.
+      * `targetOriginId` (`str`) - The value of ID for the origin that you want
+        CloudFront to route requests to when a request matches the path pattern
+        either for a cache behavior or for the default cache behavior.
+      * `trustedSigners` (`list`) - The AWS accounts, if any, that you want to
+        allow to create signed URLs for private content.
+      * `viewerProtocolPolicy` (`str`) - Use this element to specify the
+        protocol that users can use to access the files in the origin specified by
+        TargetOriginId when a request matches the path pattern in PathPattern. One
+        of `allow-all`, `https-only`, or `redirect-to-https`.
     """
     origins: pulumi.Output[list]
     """
     One or more origins for this
     distribution (multiples allowed).
+    
+      * `customHeaders` (`list`) - One or more sub-resources with `name` and
+        `value` parameters that specify header data that will be sent to the origin
+        (multiples allowed).
+    
+        * `name` (`str`)
+        * `value` (`str`)
+    
+      * `customOriginConfig` (`dict`) - The CloudFront custom
+        origin configuration information. If an S3
+        origin is required, use `s3_origin_config` instead.
+    
+        * `httpPort` (`float`) - The HTTP port the custom origin listens on.
+        * `httpsPort` (`float`) - The HTTPS port the custom origin listens on.
+        * `originKeepaliveTimeout` (`float`) - The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+        * `originProtocolPolicy` (`str`) - The origin protocol policy to apply to
+          your origin. One of `http-only`, `https-only`, or `match-viewer`.
+        * `originReadTimeout` (`float`) - The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+        * `originSslProtocols` (`list`) - The SSL/TLS protocols that you want
+          CloudFront to use when communicating with your origin over HTTPS. A list of
+          one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
+    
+      * `domain_name` (`str`) - The DNS domain name of either the S3 bucket, or
+        web site of your custom origin.
+      * `originId` (`str`) - The unique identifier of the member origin
+      * `originPath` (`str`) - An optional element that causes CloudFront to
+        request your content from a directory in your Amazon S3 bucket or your
+        custom origin.
+      * `s3OriginConfig` (`dict`) - The CloudFront S3 origin
+        configuration information. If a custom origin is required, use
+        `custom_origin_config` instead.
+    
+        * `originAccessIdentity` (`str`) - The [CloudFront origin access
+          identity][5] to associate with the origin.
     """
     origin_groups: pulumi.Output[list]
     """
     One or more origin_group for this
     distribution (multiples allowed).
+    
+      * `failoverCriteria` (`dict`) - The failover criteria for when to failover to the secondary origin
+    
+        * `statusCodes` (`list`) - A list of HTTP status codes for the origin group
+    
+      * `members` (`list`) - Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. Minimum 2.
+    
+        * `originId` (`str`) - The unique identifier of the member origin
+    
+      * `originId` (`str`) - The unique identifier of the member origin
     """
     price_class: pulumi.Output[str]
     """
@@ -120,6 +315,15 @@ class Distribution(pulumi.CustomResource):
     """
     The restriction
     configuration for this distribution (maximum one).
+    
+      * `geoRestriction` (`dict`)
+    
+        * `locations` (`list`) - The [ISO 3166-1-alpha-2 codes][4] for which you
+          want CloudFront either to distribute your content (`whitelist`) or not
+          distribute your content (`blacklist`).
+        * `restrictionType` (`str`) - The method that you want to use to restrict
+          distribution of your content by country: `none`, `whitelist`, or
+          `blacklist`.
     """
     retain_on_delete: pulumi.Output[bool]
     """
@@ -142,6 +346,27 @@ class Distribution(pulumi.CustomResource):
     The SSL
     configuration for this distribution (maximum
     one).
+    
+      * `acmCertificateArn` (`str`) - The ARN of the [AWS Certificate Manager][6]
+        certificate that you wish to use with this distribution. Specify this,
+        `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM
+        certificate must be in  US-EAST-1.
+      * `cloudfrontDefaultCertificate` (`bool`) - `true` if you want viewers to use HTTPS
+        to request your objects and you're using the CloudFront domain name for your
+        distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
+      * `iamCertificateId` (`str`) - The IAM certificate identifier of the custom viewer
+        certificate for this distribution if you are using a custom domain. Specify
+        this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
+      * `minimumProtocolVersion` (`str`) - The minimum version of the SSL protocol that
+        you want CloudFront to use for HTTPS connections. One of `SSLv3`, `TLSv1`,
+        `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
+        If you are using a custom certificate (specified with `acm_certificate_arn`
+        or `iam_certificate_id`), and have specified `sni-only` in
+        `ssl_support_method`, `TLSv1` or later must be specified. If you have
+        specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be
+        specified. If you have specified `cloudfront_default_certificate`, `TLSv1`
+        must be specified.
+      * `sslSupportMethod` (`str`)
     """
     wait_for_deployment: pulumi.Output[bool]
     """
@@ -217,6 +442,247 @@ class Distribution(pulumi.CustomResource):
                distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
                region and the credentials configuring this argument must have
                `waf:GetWebACL` permissions assigned.
+        
+        The **custom_error_responses** object supports the following:
+        
+          * `errorCachingMinTtl` (`pulumi.Input[float]`) - The minimum amount of time you want
+            HTTP error codes to stay in CloudFront caches before CloudFront queries your
+            origin to see whether the object has been updated.
+          * `errorCode` (`pulumi.Input[float]`) - The 4xx or 5xx HTTP status code that you want to
+            customize.
+          * `responseCode` (`pulumi.Input[float]`) - The HTTP status code that you want CloudFront
+            to return with the custom error page to the viewer.
+          * `responsePagePath` (`pulumi.Input[str]`) - The path of the custom error page (for
+            example, `/custom_404.html`).
+        
+        The **default_cache_behavior** object supports the following:
+        
+          * `allowedMethods` (`pulumi.Input[list]`) - Controls which HTTP methods CloudFront
+            processes and forwards to your Amazon S3 bucket or your custom origin.
+          * `cachedMethods` (`pulumi.Input[list]`) - Controls whether CloudFront caches the
+            response to requests using the specified HTTP methods.
+          * `compress` (`pulumi.Input[bool]`) - Whether you want CloudFront to automatically
+            compress content for web requests that include `Accept-Encoding: gzip` in
+            the request header (default: `false`).
+          * `defaultTtl` (`pulumi.Input[float]`) - The default amount of time (in seconds) that an
+            object is in a CloudFront cache before CloudFront forwards another request
+            in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
+            1 day.
+          * `fieldLevelEncryptionId` (`pulumi.Input[str]`) - Field level encryption configuration ID
+          * `forwardedValues` (`pulumi.Input[dict]`) - The forwarded values configuration that specifies how CloudFront
+            handles query strings, cookies and headers (maximum one).
+        
+            * `cookies` (`pulumi.Input[dict]`) - The forwarded values cookies
+              that specifies how CloudFront handles cookies (maximum one).
+        
+              * `forward` (`pulumi.Input[str]`) - Specifies whether you want CloudFront to forward
+                cookies to the origin that is associated with this cache behavior. You can
+                specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
+                subsequent `whitelisted_names`
+              * `whitelistedNames` (`pulumi.Input[list]`) - If you have specified `whitelist` to
+                `forward`, the whitelisted cookies that you want CloudFront to forward to
+                your origin.
+        
+            * `headers` (`pulumi.Input[list]`) - Specifies the Headers, if any, that you want
+              CloudFront to vary upon for this cache behavior. Specify `*` to include all
+              headers.
+            * `queryString` (`pulumi.Input[bool]`) - Indicates whether you want CloudFront to forward
+              query strings to the origin that is associated with this cache behavior.
+            * `queryStringCacheKeys` (`pulumi.Input[list]`) - When specified, along with a value of
+              `true` for `query_string`, all query strings are forwarded, however only the
+              query string keys listed in this argument are cached. When omitted with a
+              value of `true` for `query_string`, all query string keys are cached.
+        
+          * `lambdaFunctionAssociations` (`pulumi.Input[list]`) - A config block that triggers a lambda function with
+            specific actions. Defined below, maximum 4.
+        
+            * `eventType` (`pulumi.Input[str]`) - The specific event to trigger this function.
+              Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+              `origin-response`
+            * `includeBody` (`pulumi.Input[bool]`) - When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
+            * `lambdaArn` (`pulumi.Input[str]`) - ARN of the Lambda function.
+        
+          * `maxTtl` (`pulumi.Input[float]`) - The maximum amount of time (in seconds) that an
+            object is in a CloudFront cache before CloudFront forwards another request
+            to your origin to determine whether the object has been updated. Only
+            effective in the presence of `Cache-Control max-age`, `Cache-Control
+            s-maxage`, and `Expires` headers. Defaults to 365 days.
+          * `minTtl` (`pulumi.Input[float]`) - The minimum amount of time that you want objects to
+            stay in CloudFront caches before CloudFront queries your origin to see
+            whether the object has been updated. Defaults to 0 seconds.
+          * `smoothStreaming` (`pulumi.Input[bool]`) - Indicates whether you want to distribute
+            media files in Microsoft Smooth Streaming format using the origin that is
+            associated with this cache behavior.
+          * `targetOriginId` (`pulumi.Input[str]`) - The value of ID for the origin that you want
+            CloudFront to route requests to when a request matches the path pattern
+            either for a cache behavior or for the default cache behavior.
+          * `trustedSigners` (`pulumi.Input[list]`) - The AWS accounts, if any, that you want to
+            allow to create signed URLs for private content.
+          * `viewerProtocolPolicy` (`pulumi.Input[str]`) - Use this element to specify the
+            protocol that users can use to access the files in the origin specified by
+            TargetOriginId when a request matches the path pattern in PathPattern. One
+            of `allow-all`, `https-only`, or `redirect-to-https`.
+        
+        The **logging_config** object supports the following:
+        
+          * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket to store the access logs in, for
+            example, `myawslogbucket.s3.amazonaws.com`.
+          * `includeCookies` (`pulumi.Input[bool]`) - Specifies whether you want CloudFront to
+            include cookies in access logs (default: `false`).
+          * `prefix` (`pulumi.Input[str]`) - An optional string that you want CloudFront to prefix
+            to the access log filenames for this distribution, for example, `myprefix/`.
+        
+        The **ordered_cache_behaviors** object supports the following:
+        
+          * `allowedMethods` (`pulumi.Input[list]`) - Controls which HTTP methods CloudFront
+            processes and forwards to your Amazon S3 bucket or your custom origin.
+          * `cachedMethods` (`pulumi.Input[list]`) - Controls whether CloudFront caches the
+            response to requests using the specified HTTP methods.
+          * `compress` (`pulumi.Input[bool]`) - Whether you want CloudFront to automatically
+            compress content for web requests that include `Accept-Encoding: gzip` in
+            the request header (default: `false`).
+          * `defaultTtl` (`pulumi.Input[float]`) - The default amount of time (in seconds) that an
+            object is in a CloudFront cache before CloudFront forwards another request
+            in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
+            1 day.
+          * `fieldLevelEncryptionId` (`pulumi.Input[str]`) - Field level encryption configuration ID
+          * `forwardedValues` (`pulumi.Input[dict]`) - The forwarded values configuration that specifies how CloudFront
+            handles query strings, cookies and headers (maximum one).
+        
+            * `cookies` (`pulumi.Input[dict]`) - The forwarded values cookies
+              that specifies how CloudFront handles cookies (maximum one).
+        
+              * `forward` (`pulumi.Input[str]`) - Specifies whether you want CloudFront to forward
+                cookies to the origin that is associated with this cache behavior. You can
+                specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
+                subsequent `whitelisted_names`
+              * `whitelistedNames` (`pulumi.Input[list]`) - If you have specified `whitelist` to
+                `forward`, the whitelisted cookies that you want CloudFront to forward to
+                your origin.
+        
+            * `headers` (`pulumi.Input[list]`) - Specifies the Headers, if any, that you want
+              CloudFront to vary upon for this cache behavior. Specify `*` to include all
+              headers.
+            * `queryString` (`pulumi.Input[bool]`) - Indicates whether you want CloudFront to forward
+              query strings to the origin that is associated with this cache behavior.
+            * `queryStringCacheKeys` (`pulumi.Input[list]`) - When specified, along with a value of
+              `true` for `query_string`, all query strings are forwarded, however only the
+              query string keys listed in this argument are cached. When omitted with a
+              value of `true` for `query_string`, all query string keys are cached.
+        
+          * `lambdaFunctionAssociations` (`pulumi.Input[list]`) - A config block that triggers a lambda function with
+            specific actions. Defined below, maximum 4.
+        
+            * `eventType` (`pulumi.Input[str]`) - The specific event to trigger this function.
+              Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+              `origin-response`
+            * `includeBody` (`pulumi.Input[bool]`) - When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
+            * `lambdaArn` (`pulumi.Input[str]`) - ARN of the Lambda function.
+        
+          * `maxTtl` (`pulumi.Input[float]`) - The maximum amount of time (in seconds) that an
+            object is in a CloudFront cache before CloudFront forwards another request
+            to your origin to determine whether the object has been updated. Only
+            effective in the presence of `Cache-Control max-age`, `Cache-Control
+            s-maxage`, and `Expires` headers. Defaults to 365 days.
+          * `minTtl` (`pulumi.Input[float]`) - The minimum amount of time that you want objects to
+            stay in CloudFront caches before CloudFront queries your origin to see
+            whether the object has been updated. Defaults to 0 seconds.
+          * `pathPattern` (`pulumi.Input[str]`) - The pattern (for example, `images/*.jpg)` that
+            specifies which requests you want this cache behavior to apply to.
+          * `smoothStreaming` (`pulumi.Input[bool]`) - Indicates whether you want to distribute
+            media files in Microsoft Smooth Streaming format using the origin that is
+            associated with this cache behavior.
+          * `targetOriginId` (`pulumi.Input[str]`) - The value of ID for the origin that you want
+            CloudFront to route requests to when a request matches the path pattern
+            either for a cache behavior or for the default cache behavior.
+          * `trustedSigners` (`pulumi.Input[list]`) - The AWS accounts, if any, that you want to
+            allow to create signed URLs for private content.
+          * `viewerProtocolPolicy` (`pulumi.Input[str]`) - Use this element to specify the
+            protocol that users can use to access the files in the origin specified by
+            TargetOriginId when a request matches the path pattern in PathPattern. One
+            of `allow-all`, `https-only`, or `redirect-to-https`.
+        
+        The **origin_groups** object supports the following:
+        
+          * `failoverCriteria` (`pulumi.Input[dict]`) - The failover criteria for when to failover to the secondary origin
+        
+            * `statusCodes` (`pulumi.Input[list]`) - A list of HTTP status codes for the origin group
+        
+          * `members` (`pulumi.Input[list]`) - Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. Minimum 2.
+        
+            * `originId` (`pulumi.Input[str]`) - The unique identifier of the member origin
+        
+          * `originId` (`pulumi.Input[str]`) - The unique identifier of the member origin
+        
+        The **origins** object supports the following:
+        
+          * `customHeaders` (`pulumi.Input[list]`) - One or more sub-resources with `name` and
+            `value` parameters that specify header data that will be sent to the origin
+            (multiples allowed).
+        
+            * `name` (`pulumi.Input[str]`)
+            * `value` (`pulumi.Input[str]`)
+        
+          * `customOriginConfig` (`pulumi.Input[dict]`) - The CloudFront custom
+            origin configuration information. If an S3
+            origin is required, use `s3_origin_config` instead.
+        
+            * `httpPort` (`pulumi.Input[float]`) - The HTTP port the custom origin listens on.
+            * `httpsPort` (`pulumi.Input[float]`) - The HTTPS port the custom origin listens on.
+            * `originKeepaliveTimeout` (`pulumi.Input[float]`) - The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+            * `originProtocolPolicy` (`pulumi.Input[str]`) - The origin protocol policy to apply to
+              your origin. One of `http-only`, `https-only`, or `match-viewer`.
+            * `originReadTimeout` (`pulumi.Input[float]`) - The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+            * `originSslProtocols` (`pulumi.Input[list]`) - The SSL/TLS protocols that you want
+              CloudFront to use when communicating with your origin over HTTPS. A list of
+              one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
+        
+          * `domain_name` (`pulumi.Input[str]`) - The DNS domain name of either the S3 bucket, or
+            web site of your custom origin.
+          * `originId` (`pulumi.Input[str]`) - The unique identifier of the member origin
+          * `originPath` (`pulumi.Input[str]`) - An optional element that causes CloudFront to
+            request your content from a directory in your Amazon S3 bucket or your
+            custom origin.
+          * `s3OriginConfig` (`pulumi.Input[dict]`) - The CloudFront S3 origin
+            configuration information. If a custom origin is required, use
+            `custom_origin_config` instead.
+        
+            * `originAccessIdentity` (`pulumi.Input[str]`) - The [CloudFront origin access
+              identity][5] to associate with the origin.
+        
+        The **restrictions** object supports the following:
+        
+          * `geoRestriction` (`pulumi.Input[dict]`)
+        
+            * `locations` (`pulumi.Input[list]`) - The [ISO 3166-1-alpha-2 codes][4] for which you
+              want CloudFront either to distribute your content (`whitelist`) or not
+              distribute your content (`blacklist`).
+            * `restrictionType` (`pulumi.Input[str]`) - The method that you want to use to restrict
+              distribution of your content by country: `none`, `whitelist`, or
+              `blacklist`.
+        
+        The **viewer_certificate** object supports the following:
+        
+          * `acmCertificateArn` (`pulumi.Input[str]`) - The ARN of the [AWS Certificate Manager][6]
+            certificate that you wish to use with this distribution. Specify this,
+            `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM
+            certificate must be in  US-EAST-1.
+          * `cloudfrontDefaultCertificate` (`pulumi.Input[bool]`) - `true` if you want viewers to use HTTPS
+            to request your objects and you're using the CloudFront domain name for your
+            distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
+          * `iamCertificateId` (`pulumi.Input[str]`) - The IAM certificate identifier of the custom viewer
+            certificate for this distribution if you are using a custom domain. Specify
+            this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
+          * `minimumProtocolVersion` (`pulumi.Input[str]`) - The minimum version of the SSL protocol that
+            you want CloudFront to use for HTTPS connections. One of `SSLv3`, `TLSv1`,
+            `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
+            If you are using a custom certificate (specified with `acm_certificate_arn`
+            or `iam_certificate_id`), and have specified `sni-only` in
+            `ssl_support_method`, `TLSv1` or later must be specified. If you have
+            specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be
+            specified. If you have specified `cloudfront_default_certificate`, `TLSv1`
+            must be specified.
+          * `sslSupportMethod` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_distribution.html.markdown.
         """
@@ -353,6 +819,247 @@ class Distribution(pulumi.CustomResource):
                distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
                region and the credentials configuring this argument must have
                `waf:GetWebACL` permissions assigned.
+        
+        The **custom_error_responses** object supports the following:
+        
+          * `errorCachingMinTtl` (`pulumi.Input[float]`) - The minimum amount of time you want
+            HTTP error codes to stay in CloudFront caches before CloudFront queries your
+            origin to see whether the object has been updated.
+          * `errorCode` (`pulumi.Input[float]`) - The 4xx or 5xx HTTP status code that you want to
+            customize.
+          * `responseCode` (`pulumi.Input[float]`) - The HTTP status code that you want CloudFront
+            to return with the custom error page to the viewer.
+          * `responsePagePath` (`pulumi.Input[str]`) - The path of the custom error page (for
+            example, `/custom_404.html`).
+        
+        The **default_cache_behavior** object supports the following:
+        
+          * `allowedMethods` (`pulumi.Input[list]`) - Controls which HTTP methods CloudFront
+            processes and forwards to your Amazon S3 bucket or your custom origin.
+          * `cachedMethods` (`pulumi.Input[list]`) - Controls whether CloudFront caches the
+            response to requests using the specified HTTP methods.
+          * `compress` (`pulumi.Input[bool]`) - Whether you want CloudFront to automatically
+            compress content for web requests that include `Accept-Encoding: gzip` in
+            the request header (default: `false`).
+          * `defaultTtl` (`pulumi.Input[float]`) - The default amount of time (in seconds) that an
+            object is in a CloudFront cache before CloudFront forwards another request
+            in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
+            1 day.
+          * `fieldLevelEncryptionId` (`pulumi.Input[str]`) - Field level encryption configuration ID
+          * `forwardedValues` (`pulumi.Input[dict]`) - The forwarded values configuration that specifies how CloudFront
+            handles query strings, cookies and headers (maximum one).
+        
+            * `cookies` (`pulumi.Input[dict]`) - The forwarded values cookies
+              that specifies how CloudFront handles cookies (maximum one).
+        
+              * `forward` (`pulumi.Input[str]`) - Specifies whether you want CloudFront to forward
+                cookies to the origin that is associated with this cache behavior. You can
+                specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
+                subsequent `whitelisted_names`
+              * `whitelistedNames` (`pulumi.Input[list]`) - If you have specified `whitelist` to
+                `forward`, the whitelisted cookies that you want CloudFront to forward to
+                your origin.
+        
+            * `headers` (`pulumi.Input[list]`) - Specifies the Headers, if any, that you want
+              CloudFront to vary upon for this cache behavior. Specify `*` to include all
+              headers.
+            * `queryString` (`pulumi.Input[bool]`) - Indicates whether you want CloudFront to forward
+              query strings to the origin that is associated with this cache behavior.
+            * `queryStringCacheKeys` (`pulumi.Input[list]`) - When specified, along with a value of
+              `true` for `query_string`, all query strings are forwarded, however only the
+              query string keys listed in this argument are cached. When omitted with a
+              value of `true` for `query_string`, all query string keys are cached.
+        
+          * `lambdaFunctionAssociations` (`pulumi.Input[list]`) - A config block that triggers a lambda function with
+            specific actions. Defined below, maximum 4.
+        
+            * `eventType` (`pulumi.Input[str]`) - The specific event to trigger this function.
+              Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+              `origin-response`
+            * `includeBody` (`pulumi.Input[bool]`) - When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
+            * `lambdaArn` (`pulumi.Input[str]`) - ARN of the Lambda function.
+        
+          * `maxTtl` (`pulumi.Input[float]`) - The maximum amount of time (in seconds) that an
+            object is in a CloudFront cache before CloudFront forwards another request
+            to your origin to determine whether the object has been updated. Only
+            effective in the presence of `Cache-Control max-age`, `Cache-Control
+            s-maxage`, and `Expires` headers. Defaults to 365 days.
+          * `minTtl` (`pulumi.Input[float]`) - The minimum amount of time that you want objects to
+            stay in CloudFront caches before CloudFront queries your origin to see
+            whether the object has been updated. Defaults to 0 seconds.
+          * `smoothStreaming` (`pulumi.Input[bool]`) - Indicates whether you want to distribute
+            media files in Microsoft Smooth Streaming format using the origin that is
+            associated with this cache behavior.
+          * `targetOriginId` (`pulumi.Input[str]`) - The value of ID for the origin that you want
+            CloudFront to route requests to when a request matches the path pattern
+            either for a cache behavior or for the default cache behavior.
+          * `trustedSigners` (`pulumi.Input[list]`) - The AWS accounts, if any, that you want to
+            allow to create signed URLs for private content.
+          * `viewerProtocolPolicy` (`pulumi.Input[str]`) - Use this element to specify the
+            protocol that users can use to access the files in the origin specified by
+            TargetOriginId when a request matches the path pattern in PathPattern. One
+            of `allow-all`, `https-only`, or `redirect-to-https`.
+        
+        The **logging_config** object supports the following:
+        
+          * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket to store the access logs in, for
+            example, `myawslogbucket.s3.amazonaws.com`.
+          * `includeCookies` (`pulumi.Input[bool]`) - Specifies whether you want CloudFront to
+            include cookies in access logs (default: `false`).
+          * `prefix` (`pulumi.Input[str]`) - An optional string that you want CloudFront to prefix
+            to the access log filenames for this distribution, for example, `myprefix/`.
+        
+        The **ordered_cache_behaviors** object supports the following:
+        
+          * `allowedMethods` (`pulumi.Input[list]`) - Controls which HTTP methods CloudFront
+            processes and forwards to your Amazon S3 bucket or your custom origin.
+          * `cachedMethods` (`pulumi.Input[list]`) - Controls whether CloudFront caches the
+            response to requests using the specified HTTP methods.
+          * `compress` (`pulumi.Input[bool]`) - Whether you want CloudFront to automatically
+            compress content for web requests that include `Accept-Encoding: gzip` in
+            the request header (default: `false`).
+          * `defaultTtl` (`pulumi.Input[float]`) - The default amount of time (in seconds) that an
+            object is in a CloudFront cache before CloudFront forwards another request
+            in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
+            1 day.
+          * `fieldLevelEncryptionId` (`pulumi.Input[str]`) - Field level encryption configuration ID
+          * `forwardedValues` (`pulumi.Input[dict]`) - The forwarded values configuration that specifies how CloudFront
+            handles query strings, cookies and headers (maximum one).
+        
+            * `cookies` (`pulumi.Input[dict]`) - The forwarded values cookies
+              that specifies how CloudFront handles cookies (maximum one).
+        
+              * `forward` (`pulumi.Input[str]`) - Specifies whether you want CloudFront to forward
+                cookies to the origin that is associated with this cache behavior. You can
+                specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
+                subsequent `whitelisted_names`
+              * `whitelistedNames` (`pulumi.Input[list]`) - If you have specified `whitelist` to
+                `forward`, the whitelisted cookies that you want CloudFront to forward to
+                your origin.
+        
+            * `headers` (`pulumi.Input[list]`) - Specifies the Headers, if any, that you want
+              CloudFront to vary upon for this cache behavior. Specify `*` to include all
+              headers.
+            * `queryString` (`pulumi.Input[bool]`) - Indicates whether you want CloudFront to forward
+              query strings to the origin that is associated with this cache behavior.
+            * `queryStringCacheKeys` (`pulumi.Input[list]`) - When specified, along with a value of
+              `true` for `query_string`, all query strings are forwarded, however only the
+              query string keys listed in this argument are cached. When omitted with a
+              value of `true` for `query_string`, all query string keys are cached.
+        
+          * `lambdaFunctionAssociations` (`pulumi.Input[list]`) - A config block that triggers a lambda function with
+            specific actions. Defined below, maximum 4.
+        
+            * `eventType` (`pulumi.Input[str]`) - The specific event to trigger this function.
+              Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+              `origin-response`
+            * `includeBody` (`pulumi.Input[bool]`) - When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
+            * `lambdaArn` (`pulumi.Input[str]`) - ARN of the Lambda function.
+        
+          * `maxTtl` (`pulumi.Input[float]`) - The maximum amount of time (in seconds) that an
+            object is in a CloudFront cache before CloudFront forwards another request
+            to your origin to determine whether the object has been updated. Only
+            effective in the presence of `Cache-Control max-age`, `Cache-Control
+            s-maxage`, and `Expires` headers. Defaults to 365 days.
+          * `minTtl` (`pulumi.Input[float]`) - The minimum amount of time that you want objects to
+            stay in CloudFront caches before CloudFront queries your origin to see
+            whether the object has been updated. Defaults to 0 seconds.
+          * `pathPattern` (`pulumi.Input[str]`) - The pattern (for example, `images/*.jpg)` that
+            specifies which requests you want this cache behavior to apply to.
+          * `smoothStreaming` (`pulumi.Input[bool]`) - Indicates whether you want to distribute
+            media files in Microsoft Smooth Streaming format using the origin that is
+            associated with this cache behavior.
+          * `targetOriginId` (`pulumi.Input[str]`) - The value of ID for the origin that you want
+            CloudFront to route requests to when a request matches the path pattern
+            either for a cache behavior or for the default cache behavior.
+          * `trustedSigners` (`pulumi.Input[list]`) - The AWS accounts, if any, that you want to
+            allow to create signed URLs for private content.
+          * `viewerProtocolPolicy` (`pulumi.Input[str]`) - Use this element to specify the
+            protocol that users can use to access the files in the origin specified by
+            TargetOriginId when a request matches the path pattern in PathPattern. One
+            of `allow-all`, `https-only`, or `redirect-to-https`.
+        
+        The **origin_groups** object supports the following:
+        
+          * `failoverCriteria` (`pulumi.Input[dict]`) - The failover criteria for when to failover to the secondary origin
+        
+            * `statusCodes` (`pulumi.Input[list]`) - A list of HTTP status codes for the origin group
+        
+          * `members` (`pulumi.Input[list]`) - Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. Minimum 2.
+        
+            * `originId` (`pulumi.Input[str]`) - The unique identifier of the member origin
+        
+          * `originId` (`pulumi.Input[str]`) - The unique identifier of the member origin
+        
+        The **origins** object supports the following:
+        
+          * `customHeaders` (`pulumi.Input[list]`) - One or more sub-resources with `name` and
+            `value` parameters that specify header data that will be sent to the origin
+            (multiples allowed).
+        
+            * `name` (`pulumi.Input[str]`)
+            * `value` (`pulumi.Input[str]`)
+        
+          * `customOriginConfig` (`pulumi.Input[dict]`) - The CloudFront custom
+            origin configuration information. If an S3
+            origin is required, use `s3_origin_config` instead.
+        
+            * `httpPort` (`pulumi.Input[float]`) - The HTTP port the custom origin listens on.
+            * `httpsPort` (`pulumi.Input[float]`) - The HTTPS port the custom origin listens on.
+            * `originKeepaliveTimeout` (`pulumi.Input[float]`) - The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+            * `originProtocolPolicy` (`pulumi.Input[str]`) - The origin protocol policy to apply to
+              your origin. One of `http-only`, `https-only`, or `match-viewer`.
+            * `originReadTimeout` (`pulumi.Input[float]`) - The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+            * `originSslProtocols` (`pulumi.Input[list]`) - The SSL/TLS protocols that you want
+              CloudFront to use when communicating with your origin over HTTPS. A list of
+              one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
+        
+          * `domain_name` (`pulumi.Input[str]`) - The DNS domain name of either the S3 bucket, or
+            web site of your custom origin.
+          * `originId` (`pulumi.Input[str]`) - The unique identifier of the member origin
+          * `originPath` (`pulumi.Input[str]`) - An optional element that causes CloudFront to
+            request your content from a directory in your Amazon S3 bucket or your
+            custom origin.
+          * `s3OriginConfig` (`pulumi.Input[dict]`) - The CloudFront S3 origin
+            configuration information. If a custom origin is required, use
+            `custom_origin_config` instead.
+        
+            * `originAccessIdentity` (`pulumi.Input[str]`) - The [CloudFront origin access
+              identity][5] to associate with the origin.
+        
+        The **restrictions** object supports the following:
+        
+          * `geoRestriction` (`pulumi.Input[dict]`)
+        
+            * `locations` (`pulumi.Input[list]`) - The [ISO 3166-1-alpha-2 codes][4] for which you
+              want CloudFront either to distribute your content (`whitelist`) or not
+              distribute your content (`blacklist`).
+            * `restrictionType` (`pulumi.Input[str]`) - The method that you want to use to restrict
+              distribution of your content by country: `none`, `whitelist`, or
+              `blacklist`.
+        
+        The **viewer_certificate** object supports the following:
+        
+          * `acmCertificateArn` (`pulumi.Input[str]`) - The ARN of the [AWS Certificate Manager][6]
+            certificate that you wish to use with this distribution. Specify this,
+            `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM
+            certificate must be in  US-EAST-1.
+          * `cloudfrontDefaultCertificate` (`pulumi.Input[bool]`) - `true` if you want viewers to use HTTPS
+            to request your objects and you're using the CloudFront domain name for your
+            distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
+          * `iamCertificateId` (`pulumi.Input[str]`) - The IAM certificate identifier of the custom viewer
+            certificate for this distribution if you are using a custom domain. Specify
+            this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
+          * `minimumProtocolVersion` (`pulumi.Input[str]`) - The minimum version of the SSL protocol that
+            you want CloudFront to use for HTTPS connections. One of `SSLv3`, `TLSv1`,
+            `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
+            If you are using a custom certificate (specified with `acm_certificate_arn`
+            or `iam_certificate_id`), and have specified `sni-only` in
+            `ssl_support_method`, `TLSv1` or later must be specified. If you have
+            specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be
+            specified. If you have specified `cloudfront_default_certificate`, `TLSv1`
+            must be specified.
+          * `sslSupportMethod` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_distribution.html.markdown.
         """

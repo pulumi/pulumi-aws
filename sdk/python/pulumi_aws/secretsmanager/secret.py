@@ -49,6 +49,8 @@ class Secret(pulumi.CustomResource):
     rotation_rules: pulumi.Output[dict]
     """
     A structure that defines the rotation configuration for this secret. Defined below.
+    
+      * `automaticallyAfterDays` (`float`) - Specifies the number of days between automatic scheduled rotations of the secret.
     """
     tags: pulumi.Output[dict]
     """
@@ -69,6 +71,10 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret.
         :param pulumi.Input[dict] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
         :param pulumi.Input[dict] tags: Specifies a key-value map of user-defined tags that are attached to the secret.
+        
+        The **rotation_rules** object supports the following:
+        
+          * `automaticallyAfterDays` (`pulumi.Input[float]`) - Specifies the number of days between automatic scheduled rotations of the secret.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/secretsmanager_secret.html.markdown.
         """
@@ -126,6 +132,10 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret.
         :param pulumi.Input[dict] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
         :param pulumi.Input[dict] tags: Specifies a key-value map of user-defined tags that are attached to the secret.
+        
+        The **rotation_rules** object supports the following:
+        
+          * `automaticallyAfterDays` (`pulumi.Input[float]`) - Specifies the number of days between automatic scheduled rotations of the secret.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/secretsmanager_secret.html.markdown.
         """

@@ -38,6 +38,8 @@ class AwaitableGetHostedZoneResult(GetHostedZoneResult):
 def get_hosted_zone(region=None,opts=None):
     """
     Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
+    
+    :param str region: The region you'd like the zone for. By default, fetches the current region.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_hosted_zone.html.markdown.
     """
@@ -45,7 +47,7 @@ def get_hosted_zone(region=None,opts=None):
 
     __args__['region'] = region
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getHostedZone:getHostedZone', __args__, opts=opts).value

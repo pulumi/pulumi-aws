@@ -72,6 +72,8 @@ class AwaitableGetArnResult(GetArnResult):
 def get_arn(arn=None,opts=None):
     """
     Parses an Amazon Resource Name (ARN) into its constituent parts.
+    
+    :param str arn: The ARN to parse.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
     """
@@ -79,7 +81,7 @@ def get_arn(arn=None,opts=None):
 
     __args__['arn'] = arn
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getArn:getArn', __args__, opts=opts).value

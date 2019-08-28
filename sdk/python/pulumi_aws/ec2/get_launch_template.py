@@ -218,6 +218,8 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
 def get_launch_template(name=None,tags=None,opts=None):
     """
     Provides information about a Launch Template.
+    
+    :param str name: The name of the launch template.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
     """
@@ -226,7 +228,7 @@ def get_launch_template(name=None,tags=None,opts=None):
     __args__['name'] = name
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLaunchTemplate:getLaunchTemplate', __args__, opts=opts).value

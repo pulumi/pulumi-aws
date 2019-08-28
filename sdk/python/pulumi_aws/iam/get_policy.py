@@ -67,6 +67,8 @@ def get_policy(arn=None,opts=None):
     """
     This data source can be used to fetch information about a specific
     IAM policy.
+    
+    :param str arn: ARN of the IAM policy.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
     """
@@ -74,7 +76,7 @@ def get_policy(arn=None,opts=None):
 
     __args__['arn'] = arn
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getPolicy:getPolicy', __args__, opts=opts).value

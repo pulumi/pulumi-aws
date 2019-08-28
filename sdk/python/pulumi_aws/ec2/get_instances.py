@@ -63,6 +63,20 @@ class AwaitableGetInstancesResult(GetInstancesResult):
 
 def get_instances(filters=None,instance_state_names=None,instance_tags=None,opts=None):
     """
+    Use this data source to access information about an existing resource.
+    
+    :param list filters: One or more name/value pairs to use as filters. There are
+           several valid keys, for a full reference, check out
+           [describe-instances in the AWS CLI reference][1].
+    :param list instance_state_names: A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+    :param dict instance_tags: A mapping of tags, each pair of which must
+           exactly match a pair on desired instances.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`)
+      * `values` (`list`)
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
     """
     __args__ = dict()
@@ -71,7 +85,7 @@ def get_instances(filters=None,instance_state_names=None,instance_tags=None,opts
     __args__['instanceStateNames'] = instance_state_names
     __args__['instanceTags'] = instance_tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstances:getInstances', __args__, opts=opts).value

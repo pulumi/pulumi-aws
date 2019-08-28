@@ -93,6 +93,8 @@ def get_role(name=None,opts=None):
     This data source can be used to fetch information about a specific
     IAM role. By using this data source, you can reference IAM role
     properties without having to hard code ARNs as input.
+    
+    :param str name: The friendly IAM role name to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
     """
@@ -100,7 +102,7 @@ def get_role(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getRole:getRole', __args__, opts=opts).value

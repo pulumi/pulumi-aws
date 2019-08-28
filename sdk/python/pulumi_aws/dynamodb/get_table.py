@@ -103,6 +103,12 @@ class AwaitableGetTableResult(GetTableResult):
 def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
     """
     Provides information about a DynamoDB table.
+    
+    :param str name: The name of the DynamoDB table.
+    
+    The **server_side_encryption** object supports the following:
+    
+      * `enabled` (`bool`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
     """
@@ -112,7 +118,7 @@ def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
     __args__['serverSideEncryption'] = server_side_encryption
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:dynamodb/getTable:getTable', __args__, opts=opts).value

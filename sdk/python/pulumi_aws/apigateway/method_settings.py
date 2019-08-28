@@ -21,6 +21,17 @@ class MethodSettings(pulumi.CustomResource):
     settings: pulumi.Output[dict]
     """
     The settings block, see below.
+    
+      * `cacheDataEncrypted` (`bool`) - Specifies whether the cached responses are encrypted.
+      * `cacheTtlInSeconds` (`float`) - Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+      * `cachingEnabled` (`bool`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+      * `dataTraceEnabled` (`bool`) - Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+      * `loggingLevel` (`str`) - Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+      * `metricsEnabled` (`bool`) - Specifies whether Amazon CloudWatch metrics are enabled for this method.
+      * `requireAuthorizationForCacheControl` (`bool`) - Specifies whether authorization is required for a cache invalidation request.
+      * `throttlingBurstLimit` (`float`) - Specifies the throttling burst limit.
+      * `throttlingRateLimit` (`float`) - Specifies the throttling rate limit.
+      * `unauthorizedCacheControlHeaderStrategy` (`str`) - Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
     """
     stage_name: pulumi.Output[str]
     """
@@ -36,6 +47,19 @@ class MethodSettings(pulumi.CustomResource):
         :param pulumi.Input[str] rest_api: The ID of the REST API
         :param pulumi.Input[dict] settings: The settings block, see below.
         :param pulumi.Input[str] stage_name: The name of the stage
+        
+        The **settings** object supports the following:
+        
+          * `cacheDataEncrypted` (`pulumi.Input[bool]`) - Specifies whether the cached responses are encrypted.
+          * `cacheTtlInSeconds` (`pulumi.Input[float]`) - Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+          * `cachingEnabled` (`pulumi.Input[bool]`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+          * `dataTraceEnabled` (`pulumi.Input[bool]`) - Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+          * `loggingLevel` (`pulumi.Input[str]`) - Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+          * `metricsEnabled` (`pulumi.Input[bool]`) - Specifies whether Amazon CloudWatch metrics are enabled for this method.
+          * `requireAuthorizationForCacheControl` (`pulumi.Input[bool]`) - Specifies whether authorization is required for a cache invalidation request.
+          * `throttlingBurstLimit` (`pulumi.Input[float]`) - Specifies the throttling burst limit.
+          * `throttlingRateLimit` (`pulumi.Input[float]`) - Specifies the throttling rate limit.
+          * `unauthorizedCacheControlHeaderStrategy` (`pulumi.Input[str]`) - Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_settings.html.markdown.
         """
@@ -87,6 +111,19 @@ class MethodSettings(pulumi.CustomResource):
         :param pulumi.Input[str] rest_api: The ID of the REST API
         :param pulumi.Input[dict] settings: The settings block, see below.
         :param pulumi.Input[str] stage_name: The name of the stage
+        
+        The **settings** object supports the following:
+        
+          * `cacheDataEncrypted` (`pulumi.Input[bool]`) - Specifies whether the cached responses are encrypted.
+          * `cacheTtlInSeconds` (`pulumi.Input[float]`) - Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+          * `cachingEnabled` (`pulumi.Input[bool]`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+          * `dataTraceEnabled` (`pulumi.Input[bool]`) - Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+          * `loggingLevel` (`pulumi.Input[str]`) - Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+          * `metricsEnabled` (`pulumi.Input[bool]`) - Specifies whether Amazon CloudWatch metrics are enabled for this method.
+          * `requireAuthorizationForCacheControl` (`pulumi.Input[bool]`) - Specifies whether authorization is required for a cache invalidation request.
+          * `throttlingBurstLimit` (`pulumi.Input[float]`) - Specifies the throttling burst limit.
+          * `throttlingRateLimit` (`pulumi.Input[float]`) - Specifies the throttling rate limit.
+          * `unauthorizedCacheControlHeaderStrategy` (`pulumi.Input[str]`) - Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_settings.html.markdown.
         """

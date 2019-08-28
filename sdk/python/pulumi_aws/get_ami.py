@@ -247,6 +247,25 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
     """
     Use this data source to get the ID of a registered AMI for use in other
     resources.
+    
+    :param list executable_users: Limit search to users with *explicit* launch permission on
+           the image. Valid items are the numeric account ID or `self`.
+    :param list filters: One or more name/value pairs to filter off of. There are
+           several valid keys, for a full reference, check out
+           [describe-images in the AWS CLI reference][1].
+    :param bool most_recent: If more than one result is returned, use the most
+           recent AMI.
+    :param str name_regex: A regex string to apply to the AMI list returned
+           by AWS. This allows more advanced filtering not supported from the AWS API. This
+           filtering is done locally on what AWS returns, and could have a performance
+           impact if the result is large. It is recommended to combine this with other
+           options to narrow down the list AWS returns.
+    :param list owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - The name of the AMI that was provided during image creation.
+      * `values` (`list`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
     """
@@ -259,7 +278,7 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
     __args__['owners'] = owners
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getAmi:getAmi', __args__, opts=opts).value

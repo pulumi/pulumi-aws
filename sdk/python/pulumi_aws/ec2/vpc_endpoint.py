@@ -21,6 +21,9 @@ class VpcEndpoint(pulumi.CustomResource):
     dns_entries: pulumi.Output[list]
     """
     The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+    
+      * `dns_name` (`str`) - The DNS name.
+      * `hosted_zone_id` (`str`) - The ID of the private hosted zone.
     """
     network_interface_ids: pulumi.Output[list]
     """
@@ -177,6 +180,11 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
+        
+        The **dns_entries** object supports the following:
+        
+          * `dns_name` (`pulumi.Input[str]`) - The DNS name.
+          * `hosted_zone_id` (`pulumi.Input[str]`) - The ID of the private hosted zone.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint.html.markdown.
         """

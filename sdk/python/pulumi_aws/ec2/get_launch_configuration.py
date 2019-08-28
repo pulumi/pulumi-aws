@@ -150,6 +150,8 @@ class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
 def get_launch_configuration(name=None,opts=None):
     """
     Provides information about a Launch Configuration.
+    
+    :param str name: The name of the launch configuration.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_configuration.html.markdown.
     """
@@ -157,7 +159,7 @@ def get_launch_configuration(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLaunchConfiguration:getLaunchConfiguration', __args__, opts=opts).value

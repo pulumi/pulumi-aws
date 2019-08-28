@@ -17,6 +17,11 @@ class Model(pulumi.CustomResource):
     containers: pulumi.Output[list]
     """
     Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+    
+      * `containerHostname` (`str`)
+      * `environment` (`dict`)
+      * `image` (`str`)
+      * `modelDataUrl` (`str`)
     """
     enable_network_isolation: pulumi.Output[bool]
     """
@@ -33,6 +38,11 @@ class Model(pulumi.CustomResource):
     primary_container: pulumi.Output[dict]
     """
     The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+    
+      * `containerHostname` (`str`)
+      * `environment` (`dict`)
+      * `image` (`str`)
+      * `modelDataUrl` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -41,6 +51,9 @@ class Model(pulumi.CustomResource):
     vpc_config: pulumi.Output[dict]
     """
     Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+    
+      * `security_group_ids` (`list`)
+      * `subnets` (`list`)
     """
     def __init__(__self__, resource_name, opts=None, containers=None, enable_network_isolation=None, execution_role_arn=None, name=None, primary_container=None, tags=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -55,6 +68,25 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[dict] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] vpc_config: Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+        
+        The **containers** object supports the following:
+        
+          * `containerHostname` (`pulumi.Input[str]`)
+          * `environment` (`pulumi.Input[dict]`)
+          * `image` (`pulumi.Input[str]`)
+          * `modelDataUrl` (`pulumi.Input[str]`)
+        
+        The **primary_container** object supports the following:
+        
+          * `containerHostname` (`pulumi.Input[str]`)
+          * `environment` (`pulumi.Input[dict]`)
+          * `image` (`pulumi.Input[str]`)
+          * `modelDataUrl` (`pulumi.Input[str]`)
+        
+        The **vpc_config** object supports the following:
+        
+          * `security_group_ids` (`pulumi.Input[list]`)
+          * `subnets` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_model.html.markdown.
         """
@@ -108,6 +140,25 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[dict] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] vpc_config: Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+        
+        The **containers** object supports the following:
+        
+          * `containerHostname` (`pulumi.Input[str]`)
+          * `environment` (`pulumi.Input[dict]`)
+          * `image` (`pulumi.Input[str]`)
+          * `modelDataUrl` (`pulumi.Input[str]`)
+        
+        The **primary_container** object supports the following:
+        
+          * `containerHostname` (`pulumi.Input[str]`)
+          * `environment` (`pulumi.Input[dict]`)
+          * `image` (`pulumi.Input[str]`)
+          * `modelDataUrl` (`pulumi.Input[str]`)
+        
+        The **vpc_config** object supports the following:
+        
+          * `security_group_ids` (`pulumi.Input[list]`)
+          * `subnets` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_model.html.markdown.
         """

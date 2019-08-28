@@ -53,6 +53,13 @@ class WindowsFileSystem(pulumi.CustomResource):
     self_managed_active_directory: pulumi.Output[dict]
     """
     Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. Detailed below.
+    
+      * `dns_ips` (`list`) - A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+      * `domain_name` (`str`) - The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+      * `fileSystemAdministratorsGroup` (`str`) - The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+      * `organizationalUnitDistinguishedName` (`str`) - The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+      * `password` (`str`) - The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+      * `username` (`str`) - The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
     """
     skip_final_backup: pulumi.Output[bool]
     storage_capacity: pulumi.Output[float]
@@ -99,6 +106,15 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the file system.
         :param pulumi.Input[float] throughput_capacity: Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        
+        The **self_managed_active_directory** object supports the following:
+        
+          * `dns_ips` (`pulumi.Input[list]`) - A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+          * `domain_name` (`pulumi.Input[str]`) - The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+          * `fileSystemAdministratorsGroup` (`pulumi.Input[str]`) - The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+          * `organizationalUnitDistinguishedName` (`pulumi.Input[str]`) - The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+          * `password` (`pulumi.Input[str]`) - The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+          * `username` (`pulumi.Input[str]`) - The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/fsx_windows_file_system.html.markdown.
         """
@@ -175,6 +191,15 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[float] throughput_capacity: Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
         :param pulumi.Input[str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        
+        The **self_managed_active_directory** object supports the following:
+        
+          * `dns_ips` (`pulumi.Input[list]`) - A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+          * `domain_name` (`pulumi.Input[str]`) - The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+          * `fileSystemAdministratorsGroup` (`pulumi.Input[str]`) - The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+          * `organizationalUnitDistinguishedName` (`pulumi.Input[str]`) - The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+          * `password` (`pulumi.Input[str]`) - The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+          * `username` (`pulumi.Input[str]`) - The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/fsx_windows_file_system.html.markdown.
         """

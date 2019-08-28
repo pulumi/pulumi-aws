@@ -17,6 +17,9 @@ class EfsLocation(pulumi.CustomResource):
     ec2_config: pulumi.Output[dict]
     """
     Configuration block containing EC2 configurations for connecting to the EFS File System.
+    
+      * `securityGroupArns` (`list`) - List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+      * `subnetArn` (`str`) - Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
     """
     efs_file_system_arn: pulumi.Output[str]
     """
@@ -43,6 +46,11 @@ class EfsLocation(pulumi.CustomResource):
         :param pulumi.Input[str] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Default `/`.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Location.
+        
+        The **ec2_config** object supports the following:
+        
+          * `securityGroupArns` (`pulumi.Input[list]`) - List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+          * `subnetArn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_efs.html.markdown.
         """
@@ -93,6 +101,11 @@ class EfsLocation(pulumi.CustomResource):
         :param pulumi.Input[str] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Default `/`.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Location.
+        
+        The **ec2_config** object supports the following:
+        
+          * `securityGroupArns` (`pulumi.Input[list]`) - List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+          * `subnetArn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_efs.html.markdown.
         """

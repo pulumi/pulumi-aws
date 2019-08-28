@@ -71,6 +71,10 @@ class AwaitableGetSecretVersionResult(GetSecretVersionResult):
 def get_secret_version(secret_id=None,version_id=None,version_stage=None,opts=None):
     """
     Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
+    
+    :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    :param str version_id: Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
+    :param str version_stage: Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
     """
@@ -80,7 +84,7 @@ def get_secret_version(secret_id=None,version_id=None,version_stage=None,opts=No
     __args__['versionId'] = version_id
     __args__['versionStage'] = version_stage
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecretVersion:getSecretVersion', __args__, opts=opts).value

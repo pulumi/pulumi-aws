@@ -30,6 +30,9 @@ class Broker(pulumi.CustomResource):
     configuration: pulumi.Output[dict]
     """
     Configuration of the broker. See below.
+    
+      * `id` (`str`) - The Configuration ID.
+      * `revision` (`float`) - Revision of the Configuration.
     """
     deployment_mode: pulumi.Output[str]
     """
@@ -58,14 +61,25 @@ class Broker(pulumi.CustomResource):
     * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
     * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
     * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+    
+      * `consoleUrl` (`str`)
+      * `endpoints` (`list`)
+      * `ip_address` (`str`)
     """
     logs: pulumi.Output[dict]
     """
     Logging configuration of the broker. See below.
+    
+      * `audit` (`bool`) - Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+      * `general` (`bool`) - Enables general logging via CloudWatch. Defaults to `false`.
     """
     maintenance_window_start_time: pulumi.Output[dict]
     """
     Maintenance window start time. See below.
+    
+      * `dayOfWeek` (`str`) - The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
+      * `timeOfDay` (`str`) - The time, in 24-hour format. e.g. `02:00`
+      * `timeZone` (`str`) - The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
     """
     publicly_accessible: pulumi.Output[bool]
     """
@@ -86,6 +100,11 @@ class Broker(pulumi.CustomResource):
     users: pulumi.Output[list]
     """
     The list of all ActiveMQ usernames for the specified broker. See below.
+    
+      * `consoleAccess` (`bool`) - Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
+      * `groups` (`list`) - The list of groups (20 maximum) to which the ActiveMQ user belongs.
+      * `password` (`str`) - The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+      * `username` (`str`) - The username of the user.
     """
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -124,6 +143,29 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[list] subnet_ids: The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] users: The list of all ActiveMQ usernames for the specified broker. See below.
+        
+        The **configuration** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The Configuration ID.
+          * `revision` (`pulumi.Input[float]`) - Revision of the Configuration.
+        
+        The **logs** object supports the following:
+        
+          * `audit` (`pulumi.Input[bool]`) - Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+          * `general` (`pulumi.Input[bool]`) - Enables general logging via CloudWatch. Defaults to `false`.
+        
+        The **maintenance_window_start_time** object supports the following:
+        
+          * `dayOfWeek` (`pulumi.Input[str]`) - The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
+          * `timeOfDay` (`pulumi.Input[str]`) - The time, in 24-hour format. e.g. `02:00`
+          * `timeZone` (`pulumi.Input[str]`) - The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
+        
+        The **users** object supports the following:
+        
+          * `consoleAccess` (`pulumi.Input[bool]`) - Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
+          * `groups` (`pulumi.Input[list]`) - The list of groups (20 maximum) to which the ActiveMQ user belongs.
+          * `password` (`pulumi.Input[str]`) - The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+          * `username` (`pulumi.Input[str]`) - The username of the user.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_broker.html.markdown.
         """
@@ -214,6 +256,35 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[list] subnet_ids: The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] users: The list of all ActiveMQ usernames for the specified broker. See below.
+        
+        The **configuration** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The Configuration ID.
+          * `revision` (`pulumi.Input[float]`) - Revision of the Configuration.
+        
+        The **instances** object supports the following:
+        
+          * `consoleUrl` (`pulumi.Input[str]`)
+          * `endpoints` (`pulumi.Input[list]`)
+          * `ip_address` (`pulumi.Input[str]`)
+        
+        The **logs** object supports the following:
+        
+          * `audit` (`pulumi.Input[bool]`) - Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+          * `general` (`pulumi.Input[bool]`) - Enables general logging via CloudWatch. Defaults to `false`.
+        
+        The **maintenance_window_start_time** object supports the following:
+        
+          * `dayOfWeek` (`pulumi.Input[str]`) - The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
+          * `timeOfDay` (`pulumi.Input[str]`) - The time, in 24-hour format. e.g. `02:00`
+          * `timeZone` (`pulumi.Input[str]`) - The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
+        
+        The **users** object supports the following:
+        
+          * `consoleAccess` (`pulumi.Input[bool]`) - Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
+          * `groups` (`pulumi.Input[list]`) - The list of groups (20 maximum) to which the ActiveMQ user belongs.
+          * `password` (`pulumi.Input[str]`) - The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+          * `username` (`pulumi.Input[str]`) - The username of the user.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_broker.html.markdown.
         """

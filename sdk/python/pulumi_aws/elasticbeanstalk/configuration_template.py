@@ -31,6 +31,11 @@ class ConfigurationTemplate(pulumi.CustomResource):
     Option settings to configure the new Environment. These
     override specific values that are set as defaults. The format is detailed
     below in Option Settings
+    
+      * `name` (`str`) - A unique name for this Template.
+      * `namespace` (`str`)
+      * `resource` (`str`)
+      * `value` (`str`)
     """
     solution_stack_name: pulumi.Output[str]
     """
@@ -63,6 +68,13 @@ class ConfigurationTemplate(pulumi.CustomResource):
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your Template
                off of. Example stacks can be found in the [Amazon API documentation][1]
+        
+        The **settings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - A unique name for this Template.
+          * `namespace` (`pulumi.Input[str]`)
+          * `resource` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_configuration_template.html.markdown.
         """
@@ -115,6 +127,13 @@ class ConfigurationTemplate(pulumi.CustomResource):
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your Template
                off of. Example stacks can be found in the [Amazon API documentation][1]
+        
+        The **settings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - A unique name for this Template.
+          * `namespace` (`pulumi.Input[str]`)
+          * `resource` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_configuration_template.html.markdown.
         """

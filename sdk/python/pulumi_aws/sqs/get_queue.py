@@ -51,6 +51,8 @@ def get_queue(name=None,opts=None):
     Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
     By using this data source, you can reference SQS queues without having to hardcode
     the ARNs as input.
+    
+    :param str name: The name of the queue to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
     """
@@ -58,7 +60,7 @@ def get_queue(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:sqs/getQueue:getQueue', __args__, opts=opts).value

@@ -38,11 +38,31 @@ class Rule(pulumi.CustomResource):
     scope: pulumi.Output[dict]
     """
     Scope defines which resources can trigger an evaluation for the rule as documented below.
+    
+      * `complianceResourceId` (`str`) - The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
+        If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
+      * `complianceResourceTypes` (`list`) - A list of resource types of only those AWS resources that you want to trigger an
+        evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
+        a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+      * `tagKey` (`str`) - The tag key that is applied to only those AWS resources that you want you
+        want to trigger an evaluation for the rule.
+      * `tagValue` (`str`) - The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
     """
     source: pulumi.Output[dict]
     """
     Source specifies the rule owner, the rule identifier, and the notifications that cause
     the function to evaluate your AWS resources as documented below.
+    
+      * `owner` (`str`) - Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
+      * `sourceDetails` (`list`) - Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
+    
+        * `eventSource` (`str`) - The source of the event, such as an AWS service, that triggers AWS Config
+          to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+        * `maximum_execution_frequency` (`str`) - The frequency that you want AWS Config to run evaluations for a rule that
+          is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        * `messageType` (`str`) - The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+    
+      * `sourceIdentifier` (`str`) - For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
     """
     tags: pulumi.Output[dict]
     """
@@ -65,6 +85,30 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[dict] source: Source specifies the rule owner, the rule identifier, and the notifications that cause
                the function to evaluate your AWS resources as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **scope** object supports the following:
+        
+          * `complianceResourceId` (`pulumi.Input[str]`) - The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
+            If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
+          * `complianceResourceTypes` (`pulumi.Input[list]`) - A list of resource types of only those AWS resources that you want to trigger an
+            evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
+            a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+          * `tagKey` (`pulumi.Input[str]`) - The tag key that is applied to only those AWS resources that you want you
+            want to trigger an evaluation for the rule.
+          * `tagValue` (`pulumi.Input[str]`) - The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
+        
+        The **source** object supports the following:
+        
+          * `owner` (`pulumi.Input[str]`) - Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
+          * `sourceDetails` (`pulumi.Input[list]`) - Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
+        
+            * `eventSource` (`pulumi.Input[str]`) - The source of the event, such as an AWS service, that triggers AWS Config
+              to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+            * `maximum_execution_frequency` (`pulumi.Input[str]`) - The frequency that you want AWS Config to run evaluations for a rule that
+              is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+            * `messageType` (`pulumi.Input[str]`) - The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+        
+          * `sourceIdentifier` (`pulumi.Input[str]`) - For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_config_rule.html.markdown.
         """
@@ -122,6 +166,30 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[dict] source: Source specifies the rule owner, the rule identifier, and the notifications that cause
                the function to evaluate your AWS resources as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **scope** object supports the following:
+        
+          * `complianceResourceId` (`pulumi.Input[str]`) - The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
+            If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
+          * `complianceResourceTypes` (`pulumi.Input[list]`) - A list of resource types of only those AWS resources that you want to trigger an
+            evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
+            a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+          * `tagKey` (`pulumi.Input[str]`) - The tag key that is applied to only those AWS resources that you want you
+            want to trigger an evaluation for the rule.
+          * `tagValue` (`pulumi.Input[str]`) - The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
+        
+        The **source** object supports the following:
+        
+          * `owner` (`pulumi.Input[str]`) - Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
+          * `sourceDetails` (`pulumi.Input[list]`) - Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
+        
+            * `eventSource` (`pulumi.Input[str]`) - The source of the event, such as an AWS service, that triggers AWS Config
+              to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+            * `maximum_execution_frequency` (`pulumi.Input[str]`) - The frequency that you want AWS Config to run evaluations for a rule that
+              is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+            * `messageType` (`pulumi.Input[str]`) - The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+        
+          * `sourceIdentifier` (`pulumi.Input[str]`) - For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_config_rule.html.markdown.
         """

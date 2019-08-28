@@ -17,6 +17,8 @@ class Service(pulumi.CustomResource):
     deployment_controller: pulumi.Output[dict]
     """
     Configuration block containing deployment controller configuration. Defined below.
+    
+      * `type` (`str`)
     """
     deployment_maximum_percent: pulumi.Output[float]
     """
@@ -49,6 +51,11 @@ class Service(pulumi.CustomResource):
     load_balancers: pulumi.Output[list]
     """
     A load balancer block. Load balancers documented below.
+    
+      * `containerName` (`str`)
+      * `containerPort` (`float`)
+      * `elbName` (`str`)
+      * `target_group_arn` (`str`)
     """
     name: pulumi.Output[str]
     """
@@ -57,15 +64,25 @@ class Service(pulumi.CustomResource):
     network_configuration: pulumi.Output[dict]
     """
     The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
+    
+      * `assignPublicIp` (`bool`)
+      * `security_groups` (`list`)
+      * `subnets` (`list`)
     """
     ordered_placement_strategies: pulumi.Output[list]
     """
     Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
+    
+      * `field` (`str`)
+      * `type` (`str`)
     """
     placement_constraints: pulumi.Output[list]
     """
     rules that are taken into consideration during task placement. Maximum number of
     `placement_constraints` is `10`. Defined below.
+    
+      * `expression` (`str`)
+      * `type` (`str`)
     """
     platform_version: pulumi.Output[str]
     """
@@ -82,6 +99,11 @@ class Service(pulumi.CustomResource):
     service_registries: pulumi.Output[dict]
     """
     The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
+    
+      * `containerName` (`str`)
+      * `containerPort` (`float`)
+      * `port` (`float`)
+      * `registryArn` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -184,6 +206,40 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+        
+        The **deployment_controller** object supports the following:
+        
+          * `type` (`pulumi.Input[str]`)
+        
+        The **load_balancers** object supports the following:
+        
+          * `containerName` (`pulumi.Input[str]`)
+          * `containerPort` (`pulumi.Input[float]`)
+          * `elbName` (`pulumi.Input[str]`)
+          * `target_group_arn` (`pulumi.Input[str]`)
+        
+        The **network_configuration** object supports the following:
+        
+          * `assignPublicIp` (`pulumi.Input[bool]`)
+          * `security_groups` (`pulumi.Input[list]`)
+          * `subnets` (`pulumi.Input[list]`)
+        
+        The **ordered_placement_strategies** object supports the following:
+        
+          * `field` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
+        
+        The **placement_constraints** object supports the following:
+        
+          * `expression` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
+        
+        The **service_registries** object supports the following:
+        
+          * `containerName` (`pulumi.Input[str]`)
+          * `containerPort` (`pulumi.Input[float]`)
+          * `port` (`pulumi.Input[float]`)
+          * `registryArn` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_service.html.markdown.
         """
@@ -264,6 +320,40 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+        
+        The **deployment_controller** object supports the following:
+        
+          * `type` (`pulumi.Input[str]`)
+        
+        The **load_balancers** object supports the following:
+        
+          * `containerName` (`pulumi.Input[str]`)
+          * `containerPort` (`pulumi.Input[float]`)
+          * `elbName` (`pulumi.Input[str]`)
+          * `target_group_arn` (`pulumi.Input[str]`)
+        
+        The **network_configuration** object supports the following:
+        
+          * `assignPublicIp` (`pulumi.Input[bool]`)
+          * `security_groups` (`pulumi.Input[list]`)
+          * `subnets` (`pulumi.Input[list]`)
+        
+        The **ordered_placement_strategies** object supports the following:
+        
+          * `field` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
+        
+        The **placement_constraints** object supports the following:
+        
+          * `expression` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
+        
+        The **service_registries** object supports the following:
+        
+          * `containerName` (`pulumi.Input[str]`)
+          * `containerPort` (`pulumi.Input[float]`)
+          * `port` (`pulumi.Input[float]`)
+          * `registryArn` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_service.html.markdown.
         """

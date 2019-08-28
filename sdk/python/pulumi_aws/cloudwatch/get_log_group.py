@@ -49,6 +49,8 @@ class AwaitableGetLogGroupResult(GetLogGroupResult):
 def get_log_group(name=None,opts=None):
     """
     Use this data source to get information about an AWS Cloudwatch Log Group
+    
+    :param str name: The name of the Cloudwatch log group
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudwatch_log_group.html.markdown.
     """
@@ -56,7 +58,7 @@ def get_log_group(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getLogGroup:getLogGroup', __args__, opts=opts).value

@@ -272,6 +272,20 @@ def get_instance(filters=None,get_password_data=None,get_user_data=None,instance
     """
     Use this data source to get the ID of an Amazon EC2 Instance for use in other
     resources.
+    
+    :param list filters: One or more name/value pairs to use as filters. There are
+           several valid keys, for a full reference, check out
+           [describe-instances in the AWS CLI reference][1].
+    :param bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+    :param bool get_user_data: Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+    :param str instance_id: Specify the exact Instance ID with which to populate the data source.
+    :param dict instance_tags: A mapping of tags, each pair of which must
+           exactly match a pair on the desired Instance.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`)
+      * `values` (`list`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
     """
@@ -284,7 +298,7 @@ def get_instance(filters=None,get_password_data=None,get_user_data=None,instance
     __args__['instanceTags'] = instance_tags
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstance:getInstance', __args__, opts=opts).value

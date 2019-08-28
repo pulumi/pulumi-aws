@@ -29,6 +29,9 @@ class ParameterGroup(pulumi.CustomResource):
     parameters: pulumi.Output[list]
     """
     A list of Redshift parameters to apply.
+    
+      * `name` (`str`) - The name of the Redshift parameter.
+      * `value` (`str`) - The value of the Redshift parameter.
     """
     tags: pulumi.Output[dict]
     """
@@ -45,6 +48,11 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Redshift parameter.
         :param pulumi.Input[list] parameters: A list of Redshift parameters to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **parameters** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the Redshift parameter.
+          * `value` (`pulumi.Input[str]`) - The value of the Redshift parameter.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_parameter_group.html.markdown.
         """
@@ -96,6 +104,11 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Redshift parameter.
         :param pulumi.Input[list] parameters: A list of Redshift parameters to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **parameters** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the Redshift parameter.
+          * `value` (`pulumi.Input[str]`) - The value of the Redshift parameter.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_parameter_group.html.markdown.
         """

@@ -105,6 +105,8 @@ class AwaitableGetClusterResult(GetClusterResult):
 def get_cluster(name=None,opts=None):
     """
     Retrieve information about an EKS Cluster.
+    
+    :param str name: The name of the cluster
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster.html.markdown.
     """
@@ -112,7 +114,7 @@ def get_cluster(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:eks/getCluster:getCluster', __args__, opts=opts).value

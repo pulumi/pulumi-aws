@@ -17,6 +17,9 @@ class BucketMetric(pulumi.CustomResource):
     filter: pulumi.Output[dict]
     """
     [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+    
+      * `prefix` (`str`) - Object prefix for filtering (singular).
+      * `tags` (`dict`) - Object tags for filtering (up to 10).
     """
     name: pulumi.Output[str]
     """
@@ -31,6 +34,11 @@ class BucketMetric(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: The name of the bucket to put metric configuration.
         :param pulumi.Input[dict] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[str] name: Unique identifier of the metrics configuration for the bucket.
+        
+        The **filter** object supports the following:
+        
+          * `prefix` (`pulumi.Input[str]`) - Object prefix for filtering (singular).
+          * `tags` (`pulumi.Input[dict]`) - Object tags for filtering (up to 10).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_metric.html.markdown.
         """
@@ -74,6 +82,11 @@ class BucketMetric(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: The name of the bucket to put metric configuration.
         :param pulumi.Input[dict] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[str] name: Unique identifier of the metrics configuration for the bucket.
+        
+        The **filter** object supports the following:
+        
+          * `prefix` (`pulumi.Input[str]`) - Object prefix for filtering (singular).
+          * `tags` (`pulumi.Input[dict]`) - Object tags for filtering (up to 10).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_metric.html.markdown.
         """

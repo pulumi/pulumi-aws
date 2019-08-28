@@ -22,6 +22,14 @@ class AmiFromInstance(pulumi.CustomResource):
     """
     Nested block describing an EBS block device that should be
     attached to created instances. The structure of this block is described below.
+    
+      * `deleteOnTermination` (`bool`)
+      * `device_name` (`str`)
+      * `encrypted` (`bool`)
+      * `iops` (`float`)
+      * `snapshot_id` (`str`)
+      * `volume_size` (`float`)
+      * `volumeType` (`str`)
     """
     ena_support: pulumi.Output[bool]
     """
@@ -31,6 +39,9 @@ class AmiFromInstance(pulumi.CustomResource):
     """
     Nested block describing an ephemeral block device that
     should be attached to created instances. The structure of this block is described below.
+    
+      * `device_name` (`str`)
+      * `virtualName` (`str`)
     """
     image_location: pulumi.Output[str]
     """
@@ -117,6 +128,21 @@ class AmiFromInstance(pulumi.CustomResource):
                guarantees that no filesystem writes will be underway at the time of snapshot.
         :param pulumi.Input[str] source_instance_id: The id of the instance to use as the basis of the AMI.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **ebs_block_devices** object supports the following:
+        
+          * `deleteOnTermination` (`pulumi.Input[bool]`)
+          * `device_name` (`pulumi.Input[str]`)
+          * `encrypted` (`pulumi.Input[bool]`)
+          * `iops` (`pulumi.Input[float]`)
+          * `snapshot_id` (`pulumi.Input[str]`)
+          * `volume_size` (`pulumi.Input[float]`)
+          * `volumeType` (`pulumi.Input[str]`)
+        
+        The **ephemeral_block_devices** object supports the following:
+        
+          * `device_name` (`pulumi.Input[str]`)
+          * `virtualName` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_from_instance.html.markdown.
         """
@@ -197,6 +223,21 @@ class AmiFromInstance(pulumi.CustomResource):
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
+        
+        The **ebs_block_devices** object supports the following:
+        
+          * `deleteOnTermination` (`pulumi.Input[bool]`)
+          * `device_name` (`pulumi.Input[str]`)
+          * `encrypted` (`pulumi.Input[bool]`)
+          * `iops` (`pulumi.Input[float]`)
+          * `snapshot_id` (`pulumi.Input[str]`)
+          * `volume_size` (`pulumi.Input[float]`)
+          * `volumeType` (`pulumi.Input[str]`)
+        
+        The **ephemeral_block_devices** object supports the following:
+        
+          * `device_name` (`pulumi.Input[str]`)
+          * `virtualName` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_from_instance.html.markdown.
         """

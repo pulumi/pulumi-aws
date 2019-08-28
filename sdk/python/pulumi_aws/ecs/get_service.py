@@ -75,6 +75,9 @@ def get_service(cluster_arn=None,service_name=None,opts=None):
     """
     The ECS Service data source allows access to details of a specific
     Service within a AWS ECS Cluster.
+    
+    :param str cluster_arn: The arn of the ECS Cluster
+    :param str service_name: The name of the ECS Service
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_service.html.markdown.
     """
@@ -83,7 +86,7 @@ def get_service(cluster_arn=None,service_name=None,opts=None):
     __args__['clusterArn'] = cluster_arn
     __args__['serviceName'] = service_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecs/getService:getService', __args__, opts=opts).value

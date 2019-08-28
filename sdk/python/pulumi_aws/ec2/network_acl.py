@@ -14,11 +14,35 @@ class NetworkAcl(pulumi.CustomResource):
     """
     Specifies an egress rule. Parameters defined below.
     This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+    
+      * `action` (`str`) - The action to take.
+      * `cidr_block` (`str`) - The CIDR block to match. This must be a
+        valid network mask.
+      * `from_port` (`float`) - The from port to match.
+      * `icmp_code` (`float`) - The ICMP type code to be used. Default 0.
+      * `icmp_type` (`float`) - The ICMP type to be used. Default 0.
+      * `ipv6_cidr_block` (`str`) - The IPv6 CIDR block.
+      * `protocol` (`str`) - The protocol to match. If using the -1 'all'
+        protocol, you must specify a from and to port of 0.
+      * `ruleNo` (`float`) - The rule number. Used for ordering.
+      * `to_port` (`float`) - The to port to match.
     """
     ingress: pulumi.Output[list]
     """
     Specifies an ingress rule. Parameters defined below.
     This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+    
+      * `action` (`str`) - The action to take.
+      * `cidr_block` (`str`) - The CIDR block to match. This must be a
+        valid network mask.
+      * `from_port` (`float`) - The from port to match.
+      * `icmp_code` (`float`) - The ICMP type code to be used. Default 0.
+      * `icmp_type` (`float`) - The ICMP type to be used. Default 0.
+      * `ipv6_cidr_block` (`str`) - The IPv6 CIDR block.
+      * `protocol` (`str`) - The protocol to match. If using the -1 'all'
+        protocol, you must specify a from and to port of 0.
+      * `ruleNo` (`float`) - The rule number. Used for ordering.
+      * `to_port` (`float`) - The to port to match.
     """
     owner_id: pulumi.Output[str]
     """
@@ -56,6 +80,34 @@ class NetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
+        
+        The **egress** object supports the following:
+        
+          * `action` (`pulumi.Input[str]`) - The action to take.
+          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
+            valid network mask.
+          * `from_port` (`pulumi.Input[float]`) - The from port to match.
+          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
+          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
+          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
+          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
+            protocol, you must specify a from and to port of 0.
+          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
+          * `to_port` (`pulumi.Input[float]`) - The to port to match.
+        
+        The **ingress** object supports the following:
+        
+          * `action` (`pulumi.Input[str]`) - The action to take.
+          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
+            valid network mask.
+          * `from_port` (`pulumi.Input[float]`) - The from port to match.
+          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
+          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
+          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
+          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
+            protocol, you must specify a from and to port of 0.
+          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
+          * `to_port` (`pulumi.Input[float]`) - The to port to match.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl.html.markdown.
         """
@@ -107,6 +159,34 @@ class NetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
+        
+        The **egress** object supports the following:
+        
+          * `action` (`pulumi.Input[str]`) - The action to take.
+          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
+            valid network mask.
+          * `from_port` (`pulumi.Input[float]`) - The from port to match.
+          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
+          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
+          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
+          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
+            protocol, you must specify a from and to port of 0.
+          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
+          * `to_port` (`pulumi.Input[float]`) - The to port to match.
+        
+        The **ingress** object supports the following:
+        
+          * `action` (`pulumi.Input[str]`) - The action to take.
+          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
+            valid network mask.
+          * `from_port` (`pulumi.Input[float]`) - The from port to match.
+          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
+          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
+          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
+          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
+            protocol, you must specify a from and to port of 0.
+          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
+          * `to_port` (`pulumi.Input[float]`) - The to port to match.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl.html.markdown.
         """

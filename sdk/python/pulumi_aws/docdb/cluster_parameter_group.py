@@ -33,6 +33,10 @@ class ClusterParameterGroup(pulumi.CustomResource):
     parameters: pulumi.Output[list]
     """
     A list of documentDB parameters to apply.
+    
+      * `applyMethod` (`str`) - Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+      * `name` (`str`) - The name of the documentDB parameter.
+      * `value` (`str`) - The value of the documentDB parameter.
     """
     tags: pulumi.Output[dict]
     """
@@ -50,6 +54,12 @@ class ClusterParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[list] parameters: A list of documentDB parameters to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **parameters** object supports the following:
+        
+          * `applyMethod` (`pulumi.Input[str]`) - Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+          * `name` (`pulumi.Input[str]`) - The name of the documentDB parameter.
+          * `value` (`pulumi.Input[str]`) - The value of the documentDB parameter.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_parameter_group.html.markdown.
         """
@@ -101,6 +111,12 @@ class ClusterParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[list] parameters: A list of documentDB parameters to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **parameters** object supports the following:
+        
+          * `applyMethod` (`pulumi.Input[str]`) - Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+          * `name` (`pulumi.Input[str]`) - The name of the documentDB parameter.
+          * `value` (`pulumi.Input[str]`) - The value of the documentDB parameter.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_parameter_group.html.markdown.
         """

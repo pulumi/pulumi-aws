@@ -13,6 +13,21 @@ class SecurityConfiguration(pulumi.CustomResource):
     encryption_configuration: pulumi.Output[dict]
     """
     Configuration block containing encryption configuration. Detailed below.
+    
+      * `cloudwatchEncryption` (`dict`)
+    
+        * `cloudwatchEncryptionMode` (`str`) - Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
+        * `kms_key_arn` (`str`) - Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+    
+      * `jobBookmarksEncryption` (`dict`)
+    
+        * `jobBookmarksEncryptionMode` (`str`) - Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
+        * `kms_key_arn` (`str`) - Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+    
+      * `s3Encryption` (`dict`) - A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
+    
+        * `kms_key_arn` (`str`) - Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        * `s3EncryptionMode` (`str`) - Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
     """
     name: pulumi.Output[str]
     """
@@ -26,6 +41,23 @@ class SecurityConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
         :param pulumi.Input[str] name: Name of the security configuration.
+        
+        The **encryption_configuration** object supports the following:
+        
+          * `cloudwatchEncryption` (`pulumi.Input[dict]`)
+        
+            * `cloudwatchEncryptionMode` (`pulumi.Input[str]`) - Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
+            * `kms_key_arn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        
+          * `jobBookmarksEncryption` (`pulumi.Input[dict]`)
+        
+            * `jobBookmarksEncryptionMode` (`pulumi.Input[str]`) - Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
+            * `kms_key_arn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        
+          * `s3Encryption` (`pulumi.Input[dict]`) - A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
+        
+            * `kms_key_arn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+            * `s3EncryptionMode` (`pulumi.Input[str]`) - Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_security_configuration.html.markdown.
         """
@@ -67,6 +99,23 @@ class SecurityConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
         :param pulumi.Input[str] name: Name of the security configuration.
+        
+        The **encryption_configuration** object supports the following:
+        
+          * `cloudwatchEncryption` (`pulumi.Input[dict]`)
+        
+            * `cloudwatchEncryptionMode` (`pulumi.Input[str]`) - Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
+            * `kms_key_arn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        
+          * `jobBookmarksEncryption` (`pulumi.Input[dict]`)
+        
+            * `jobBookmarksEncryptionMode` (`pulumi.Input[str]`) - Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
+            * `kms_key_arn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        
+          * `s3Encryption` (`pulumi.Input[dict]`) - A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
+        
+            * `kms_key_arn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+            * `s3EncryptionMode` (`pulumi.Input[str]`) - Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_security_configuration.html.markdown.
         """

@@ -96,6 +96,9 @@ def get_container_definition(container_name=None,task_definition=None,opts=None)
     """
     The ECS container definition data source allows access to details of
     a specific container within an AWS ECS service.
+    
+    :param str container_name: The name of the container definition
+    :param str task_definition: The ARN of the task definition which contains the container
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
     """
@@ -104,7 +107,7 @@ def get_container_definition(container_name=None,task_definition=None,opts=None)
     __args__['containerName'] = container_name
     __args__['taskDefinition'] = task_definition
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecs/getContainerDefinition:getContainerDefinition', __args__, opts=opts).value

@@ -26,6 +26,16 @@ class DefaultRouteTable(pulumi.CustomResource):
     """
     A list of route objects. Their keys are documented below.
     This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+    
+      * `cidr_block` (`str`) - The CIDR block of the route.
+      * `egress_only_gateway_id` (`str`) - Identifier of a VPC Egress Only Internet Gateway.
+      * `gateway_id` (`str`) - Identifier of a VPC internet gateway or a virtual private gateway.
+      * `instance_id` (`str`) - Identifier of an EC2 instance.
+      * `ipv6_cidr_block` (`str`) - The Ipv6 CIDR block of the route
+      * `nat_gateway_id` (`str`) - Identifier of a VPC NAT gateway.
+      * `network_interface_id` (`str`) - Identifier of an EC2 network interface.
+      * `transit_gateway_id` (`str`) - Identifier of an EC2 Transit Gateway.
+      * `vpc_peering_connection_id` (`str`) - Identifier of a VPC peering connection.
     """
     tags: pulumi.Output[dict]
     """
@@ -72,6 +82,18 @@ class DefaultRouteTable(pulumi.CustomResource):
         :param pulumi.Input[list] routes: A list of route objects. Their keys are documented below.
                This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **routes** object supports the following:
+        
+          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block of the route.
+          * `egress_only_gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC Egress Only Internet Gateway.
+          * `gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC internet gateway or a virtual private gateway.
+          * `instance_id` (`pulumi.Input[str]`) - Identifier of an EC2 instance.
+          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The Ipv6 CIDR block of the route
+          * `nat_gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC NAT gateway.
+          * `network_interface_id` (`pulumi.Input[str]`) - Identifier of an EC2 network interface.
+          * `transit_gateway_id` (`pulumi.Input[str]`) - Identifier of an EC2 Transit Gateway.
+          * `vpc_peering_connection_id` (`pulumi.Input[str]`) - Identifier of a VPC peering connection.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_route_table.html.markdown.
         """
@@ -121,6 +143,18 @@ class DefaultRouteTable(pulumi.CustomResource):
         :param pulumi.Input[list] routes: A list of route objects. Their keys are documented below.
                This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **routes** object supports the following:
+        
+          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block of the route.
+          * `egress_only_gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC Egress Only Internet Gateway.
+          * `gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC internet gateway or a virtual private gateway.
+          * `instance_id` (`pulumi.Input[str]`) - Identifier of an EC2 instance.
+          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The Ipv6 CIDR block of the route
+          * `nat_gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC NAT gateway.
+          * `network_interface_id` (`pulumi.Input[str]`) - Identifier of an EC2 network interface.
+          * `transit_gateway_id` (`pulumi.Input[str]`) - Identifier of an EC2 Transit Gateway.
+          * `vpc_peering_connection_id` (`pulumi.Input[str]`) - Identifier of a VPC peering connection.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_route_table.html.markdown.
         """

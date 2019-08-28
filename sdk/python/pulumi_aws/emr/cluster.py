@@ -25,6 +25,10 @@ class Cluster(pulumi.CustomResource):
     bootstrap_actions: pulumi.Output[list]
     """
     List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
+    
+      * `args` (`list`)
+      * `name` (`str`) - The name of the job flow
+      * `path` (`str`)
     """
     cluster_state: pulumi.Output[str]
     configurations: pulumi.Output[str]
@@ -42,6 +46,20 @@ class Cluster(pulumi.CustomResource):
     core_instance_group: pulumi.Output[dict]
     """
     Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `core_instance_count` argument, `core_instance_type` argument, or `instance_group` configuration blocks are set. Detailed below.
+    
+      * `autoscaling_policy` (`str`)
+      * `bid_price` (`str`)
+      * `ebs_configs` (`list`)
+    
+        * `iops` (`float`)
+        * `size` (`float`)
+        * `type` (`str`)
+        * `volumesPerInstance` (`float`)
+    
+      * `id` (`str`) - The ID of the EMR Cluster
+      * `instance_count` (`float`)
+      * `instance_type` (`str`)
+      * `name` (`str`) - The name of the job flow
     """
     core_instance_type: pulumi.Output[str]
     """
@@ -58,10 +76,34 @@ class Cluster(pulumi.CustomResource):
     ec2_attributes: pulumi.Output[dict]
     """
     Attributes for the EC2 instances running the job flow. Defined below
+    
+      * `additionalMasterSecurityGroups` (`str`)
+      * `additionalSlaveSecurityGroups` (`str`)
+      * `emrManagedMasterSecurityGroup` (`str`)
+      * `emrManagedSlaveSecurityGroup` (`str`)
+      * `instanceProfile` (`str`)
+      * `key_name` (`str`)
+      * `serviceAccessSecurityGroup` (`str`)
+      * `subnet_id` (`str`)
     """
     instance_groups: pulumi.Output[list]
     """
     Use the `master_instance_group` configuration block, `core_instance_group` configuration block and [`emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `master_instance_group` or `core_instance_group` configuration blocks are set. Defined below
+    
+      * `autoscaling_policy` (`str`)
+      * `bid_price` (`str`)
+      * `ebs_configs` (`list`)
+    
+        * `iops` (`float`)
+        * `size` (`float`)
+        * `type` (`str`)
+        * `volumesPerInstance` (`float`)
+    
+      * `id` (`str`) - The ID of the EMR Cluster
+      * `instance_count` (`float`)
+      * `instanceRole` (`str`)
+      * `instance_type` (`str`)
+      * `name` (`str`) - The name of the job flow
     """
     keep_job_flow_alive_when_no_steps: pulumi.Output[bool]
     """
@@ -70,6 +112,12 @@ class Cluster(pulumi.CustomResource):
     kerberos_attributes: pulumi.Output[dict]
     """
     Kerberos configuration for the cluster. Defined below
+    
+      * `adDomainJoinPassword` (`str`)
+      * `adDomainJoinUser` (`str`)
+      * `crossRealmTrustPrincipalPassword` (`str`)
+      * `kdcAdminPassword` (`str`)
+      * `realm` (`str`)
     """
     log_uri: pulumi.Output[str]
     """
@@ -78,6 +126,19 @@ class Cluster(pulumi.CustomResource):
     master_instance_group: pulumi.Output[dict]
     """
     Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `master_instance_type` argument or `instance_group` configuration blocks are set. Detailed below.
+    
+      * `bid_price` (`str`)
+      * `ebs_configs` (`list`)
+    
+        * `iops` (`float`)
+        * `size` (`float`)
+        * `type` (`str`)
+        * `volumesPerInstance` (`float`)
+    
+      * `id` (`str`) - The ID of the EMR Cluster
+      * `instance_count` (`float`)
+      * `instance_type` (`str`)
+      * `name` (`str`) - The name of the job flow
     """
     master_instance_type: pulumi.Output[str]
     """
@@ -111,6 +172,16 @@ class Cluster(pulumi.CustomResource):
     steps: pulumi.Output[list]
     """
     List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+    
+      * `actionOnFailure` (`str`)
+      * `hadoopJarStep` (`dict`)
+    
+        * `args` (`list`)
+        * `jar` (`str`)
+        * `mainClass` (`str`)
+        * `properties` (`dict`)
+    
+      * `name` (`str`) - The name of the job flow
     """
     tags: pulumi.Output[dict]
     """
@@ -266,6 +337,91 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: list of tags to apply to the EMR Cluster
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
+        
+        The **bootstrap_actions** object supports the following:
+        
+          * `args` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - The name of the job flow
+          * `path` (`pulumi.Input[str]`)
+        
+        The **core_instance_group** object supports the following:
+        
+          * `autoscaling_policy` (`pulumi.Input[str]`)
+          * `bid_price` (`pulumi.Input[str]`)
+          * `ebs_configs` (`pulumi.Input[list]`)
+        
+            * `iops` (`pulumi.Input[float]`)
+            * `size` (`pulumi.Input[float]`)
+            * `type` (`pulumi.Input[str]`)
+            * `volumesPerInstance` (`pulumi.Input[float]`)
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the EMR Cluster
+          * `instance_count` (`pulumi.Input[float]`)
+          * `instance_type` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the job flow
+        
+        The **ec2_attributes** object supports the following:
+        
+          * `additionalMasterSecurityGroups` (`pulumi.Input[str]`)
+          * `additionalSlaveSecurityGroups` (`pulumi.Input[str]`)
+          * `emrManagedMasterSecurityGroup` (`pulumi.Input[str]`)
+          * `emrManagedSlaveSecurityGroup` (`pulumi.Input[str]`)
+          * `instanceProfile` (`pulumi.Input[str]`)
+          * `key_name` (`pulumi.Input[str]`)
+          * `serviceAccessSecurityGroup` (`pulumi.Input[str]`)
+          * `subnet_id` (`pulumi.Input[str]`)
+        
+        The **instance_groups** object supports the following:
+        
+          * `autoscaling_policy` (`pulumi.Input[str]`)
+          * `bid_price` (`pulumi.Input[str]`)
+          * `ebs_configs` (`pulumi.Input[list]`)
+        
+            * `iops` (`pulumi.Input[float]`)
+            * `size` (`pulumi.Input[float]`)
+            * `type` (`pulumi.Input[str]`)
+            * `volumesPerInstance` (`pulumi.Input[float]`)
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the EMR Cluster
+          * `instance_count` (`pulumi.Input[float]`)
+          * `instanceRole` (`pulumi.Input[str]`)
+          * `instance_type` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the job flow
+        
+        The **kerberos_attributes** object supports the following:
+        
+          * `adDomainJoinPassword` (`pulumi.Input[str]`)
+          * `adDomainJoinUser` (`pulumi.Input[str]`)
+          * `crossRealmTrustPrincipalPassword` (`pulumi.Input[str]`)
+          * `kdcAdminPassword` (`pulumi.Input[str]`)
+          * `realm` (`pulumi.Input[str]`)
+        
+        The **master_instance_group** object supports the following:
+        
+          * `bid_price` (`pulumi.Input[str]`)
+          * `ebs_configs` (`pulumi.Input[list]`)
+        
+            * `iops` (`pulumi.Input[float]`)
+            * `size` (`pulumi.Input[float]`)
+            * `type` (`pulumi.Input[str]`)
+            * `volumesPerInstance` (`pulumi.Input[float]`)
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the EMR Cluster
+          * `instance_count` (`pulumi.Input[float]`)
+          * `instance_type` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the job flow
+        
+        The **steps** object supports the following:
+        
+          * `actionOnFailure` (`pulumi.Input[str]`)
+          * `hadoopJarStep` (`pulumi.Input[dict]`)
+        
+            * `args` (`pulumi.Input[list]`)
+            * `jar` (`pulumi.Input[str]`)
+            * `mainClass` (`pulumi.Input[str]`)
+            * `properties` (`pulumi.Input[dict]`)
+        
+          * `name` (`pulumi.Input[str]`) - The name of the job flow
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.
         """
@@ -363,6 +519,91 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: list of tags to apply to the EMR Cluster
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
+        
+        The **bootstrap_actions** object supports the following:
+        
+          * `args` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - The name of the job flow
+          * `path` (`pulumi.Input[str]`)
+        
+        The **core_instance_group** object supports the following:
+        
+          * `autoscaling_policy` (`pulumi.Input[str]`)
+          * `bid_price` (`pulumi.Input[str]`)
+          * `ebs_configs` (`pulumi.Input[list]`)
+        
+            * `iops` (`pulumi.Input[float]`)
+            * `size` (`pulumi.Input[float]`)
+            * `type` (`pulumi.Input[str]`)
+            * `volumesPerInstance` (`pulumi.Input[float]`)
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the EMR Cluster
+          * `instance_count` (`pulumi.Input[float]`)
+          * `instance_type` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the job flow
+        
+        The **ec2_attributes** object supports the following:
+        
+          * `additionalMasterSecurityGroups` (`pulumi.Input[str]`)
+          * `additionalSlaveSecurityGroups` (`pulumi.Input[str]`)
+          * `emrManagedMasterSecurityGroup` (`pulumi.Input[str]`)
+          * `emrManagedSlaveSecurityGroup` (`pulumi.Input[str]`)
+          * `instanceProfile` (`pulumi.Input[str]`)
+          * `key_name` (`pulumi.Input[str]`)
+          * `serviceAccessSecurityGroup` (`pulumi.Input[str]`)
+          * `subnet_id` (`pulumi.Input[str]`)
+        
+        The **instance_groups** object supports the following:
+        
+          * `autoscaling_policy` (`pulumi.Input[str]`)
+          * `bid_price` (`pulumi.Input[str]`)
+          * `ebs_configs` (`pulumi.Input[list]`)
+        
+            * `iops` (`pulumi.Input[float]`)
+            * `size` (`pulumi.Input[float]`)
+            * `type` (`pulumi.Input[str]`)
+            * `volumesPerInstance` (`pulumi.Input[float]`)
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the EMR Cluster
+          * `instance_count` (`pulumi.Input[float]`)
+          * `instanceRole` (`pulumi.Input[str]`)
+          * `instance_type` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the job flow
+        
+        The **kerberos_attributes** object supports the following:
+        
+          * `adDomainJoinPassword` (`pulumi.Input[str]`)
+          * `adDomainJoinUser` (`pulumi.Input[str]`)
+          * `crossRealmTrustPrincipalPassword` (`pulumi.Input[str]`)
+          * `kdcAdminPassword` (`pulumi.Input[str]`)
+          * `realm` (`pulumi.Input[str]`)
+        
+        The **master_instance_group** object supports the following:
+        
+          * `bid_price` (`pulumi.Input[str]`)
+          * `ebs_configs` (`pulumi.Input[list]`)
+        
+            * `iops` (`pulumi.Input[float]`)
+            * `size` (`pulumi.Input[float]`)
+            * `type` (`pulumi.Input[str]`)
+            * `volumesPerInstance` (`pulumi.Input[float]`)
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the EMR Cluster
+          * `instance_count` (`pulumi.Input[float]`)
+          * `instance_type` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the job flow
+        
+        The **steps** object supports the following:
+        
+          * `actionOnFailure` (`pulumi.Input[str]`)
+          * `hadoopJarStep` (`pulumi.Input[dict]`)
+        
+            * `args` (`pulumi.Input[list]`)
+            * `jar` (`pulumi.Input[str]`)
+            * `mainClass` (`pulumi.Input[str]`)
+            * `properties` (`pulumi.Input[dict]`)
+        
+          * `name` (`pulumi.Input[str]`) - The name of the job flow
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.
         """

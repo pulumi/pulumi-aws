@@ -23,10 +23,113 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     extended_s3_configuration: pulumi.Output[dict]
     """
     Enhanced configuration options for the s3 destination. More details are given below.
+    
+      * `bucketArn` (`str`) - The ARN of the S3 bucket
+      * `bufferInterval` (`float`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      * `bufferSize` (`float`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+      * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+    
+        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        * `log_group_name` (`str`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+        * `logStreamName` (`str`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+    
+      * `compressionFormat` (`str`) - The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+      * `dataFormatConversionConfiguration` (`dict`) - Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
+    
+        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        * `inputFormatConfiguration` (`dict`) - Nested argument that specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. More details below.
+    
+          * `deserializer` (`dict`) - Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
+    
+            * `hiveJsonSerDe` (`dict`) - Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
+    
+              * `timestampFormats` (`list`) - A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
+    
+            * `openXJsonSerDe` (`dict`) - Nested argument that specifies the OpenX SerDe. More details below.
+    
+              * `caseInsensitive` (`bool`) - When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
+              * `columnToJsonKeyMappings` (`dict`) - A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
+              * `convertDotsInJsonKeysToUnderscores` (`bool`) - When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option. Defaults to `false`.
+    
+        * `outputFormatConfiguration` (`dict`) - Nested argument that specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. More details below.
+    
+          * `serializer` (`dict`) - Nested argument that specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. More details below.
+    
+            * `orcSerDe` (`dict`) - Nested argument that specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). More details below.
+    
+              * `blockSizeBytes` (`float`) - The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+              * `bloomFilterColumns` (`list`) - A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+              * `bloomFilterFalsePositiveProbability` (`float`) - The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
+              * `compression` (`str`) - The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+              * `dictionaryKeyThreshold` (`float`) - A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
+              * `enablePadding` (`bool`) - Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
+              * `formatVersion` (`str`) - The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
+              * `paddingTolerance` (`float`) - A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enable_padding` is `false`.
+              * `rowIndexStride` (`float`) - The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+              * `stripeSizeBytes` (`float`) - The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+    
+            * `parquetSerDe` (`dict`) - Nested argument that specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/documentation/latest/). More details below.
+    
+              * `blockSizeBytes` (`float`) - The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+              * `compression` (`str`) - The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+              * `enableDictionaryCompression` (`bool`) - Indicates whether to enable dictionary compression.
+              * `maxPaddingBytes` (`float`) - The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
+              * `pageSizeBytes` (`float`) - The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
+              * `writerVersion` (`str`) - Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
+    
+        * `schemaConfiguration` (`dict`) - Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
+    
+          * `catalog_id` (`str`) - The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+          * `database_name` (`str`) - Specifies the name of the AWS Glue database that contains the schema for the output data.
+          * `region` (`str`) - If you don't specify an AWS Region, the default is the current region.
+          * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+          * `table_name` (`str`) - Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+          * `version_id` (`str`) - Specifies the table version for the output data schema. Defaults to `LATEST`.
+    
+      * `errorOutputPrefix` (`str`) - Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
+      * `kms_key_arn` (`str`) - Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+      * `prefix` (`str`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+      * `processingConfiguration` (`dict`) - The data processing configuration.  More details are given below.
+    
+        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        * `processors` (`list`) - Array of data processors. More details are given below
+    
+          * `parameters` (`list`) - Array of processor parameters. More details are given below
+    
+            * `parameterName` (`str`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+            * `parameterValue` (`str`) - Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+    
+          * `type` (`str`) - The type of processor. Valid Values: `Lambda`
+    
+      * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      * `s3BackupConfiguration` (`dict`) - The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+    
+        * `bucketArn` (`str`) - The ARN of the S3 bucket
+        * `bufferInterval` (`float`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        * `bufferSize` (`float`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+          We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+        * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+    
+          * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+          * `log_group_name` (`str`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+          * `logStreamName` (`str`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+    
+        * `compressionFormat` (`str`) - The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+        * `kms_key_arn` (`str`) - Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+          be used.
+        * `prefix` (`str`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+    
+      * `s3BackupMode` (`str`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
     """
     kinesis_source_configuration: pulumi.Output[dict]
     """
     Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+    
+      * `kinesisStreamArn` (`str`) - The kinesis stream used as the source of the firehose delivery stream.
+      * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
     """
     name: pulumi.Output[str]
     """
@@ -38,11 +141,73 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     Configuration options if redshift is the destination.
     Using `redshift_configuration` requires the user to also specify a
     `s3_configuration` block. More details are given below.
+    
+      * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+    
+        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        * `log_group_name` (`str`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+        * `logStreamName` (`str`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+    
+      * `clusterJdbcurl` (`str`) - The jdbcurl of the redshift cluster.
+      * `copyOptions` (`str`) - Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
+      * `dataTableColumns` (`str`) - The data table columns that will be targeted by the copy command.
+      * `dataTableName` (`str`) - The name of the table in the redshift cluster that the s3 bucket will copy to.
+      * `password` (`str`) - The password for the username above.
+      * `processingConfiguration` (`dict`) - The data processing configuration.  More details are given below.
+    
+        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        * `processors` (`list`) - Array of data processors. More details are given below
+    
+          * `parameters` (`list`) - Array of processor parameters. More details are given below
+    
+            * `parameterName` (`str`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+            * `parameterValue` (`str`) - Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+    
+          * `type` (`str`) - The type of processor. Valid Values: `Lambda`
+    
+      * `retryDuration` (`float`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+      * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      * `s3BackupConfiguration` (`dict`) - The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+    
+        * `bucketArn` (`str`) - The ARN of the S3 bucket
+        * `bufferInterval` (`float`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        * `bufferSize` (`float`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+          We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+        * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+    
+          * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+          * `log_group_name` (`str`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+          * `logStreamName` (`str`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+    
+        * `compressionFormat` (`str`) - The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+        * `kms_key_arn` (`str`) - Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+          be used.
+        * `prefix` (`str`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+    
+      * `s3BackupMode` (`str`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+      * `username` (`str`) - The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
     """
     s3_configuration: pulumi.Output[dict]
     """
     Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
     is redshift). More details are given below.
+    
+      * `bucketArn` (`str`) - The ARN of the S3 bucket
+      * `bufferInterval` (`float`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+      * `bufferSize` (`float`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+      * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+    
+        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        * `log_group_name` (`str`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+        * `logStreamName` (`str`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+    
+      * `compressionFormat` (`str`) - The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+      * `kms_key_arn` (`str`) - Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+      * `prefix` (`str`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+      * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
     """
     splunk_configuration: pulumi.Output[dict]
     tags: pulumi.Output[dict]
@@ -74,6 +239,236 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                is redshift). More details are given below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
+        
+        The **elasticsearch_configuration** object supports the following:
+        
+          * `bufferingInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+          * `bufferingSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+            * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+          * `domainArn` (`pulumi.Input[str]`) - The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
+          * `indexName` (`pulumi.Input[str]`) - The Elasticsearch index name.
+          * `indexRotationPeriod` (`pulumi.Input[str]`) - The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+          * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
+        
+              * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
+        
+                * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+                * `parameterValue` (`pulumi.Input[str]`) - Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+        
+              * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
+        
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+          * `typeName` (`pulumi.Input[str]`) - The Elasticsearch type name with maximum length of 100 characters.
+        
+        The **extended_s3_configuration** object supports the following:
+        
+          * `bucketArn` (`pulumi.Input[str]`) - The ARN of the S3 bucket
+          * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+          * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+            We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+            * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+          * `compressionFormat` (`pulumi.Input[str]`) - The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+          * `dataFormatConversionConfiguration` (`pulumi.Input[dict]`) - Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `inputFormatConfiguration` (`pulumi.Input[dict]`) - Nested argument that specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. More details below.
+        
+              * `deserializer` (`pulumi.Input[dict]`) - Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
+        
+                * `hiveJsonSerDe` (`pulumi.Input[dict]`) - Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
+        
+                  * `timestampFormats` (`pulumi.Input[list]`) - A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
+        
+                * `openXJsonSerDe` (`pulumi.Input[dict]`) - Nested argument that specifies the OpenX SerDe. More details below.
+        
+                  * `caseInsensitive` (`pulumi.Input[bool]`) - When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
+                  * `columnToJsonKeyMappings` (`pulumi.Input[dict]`) - A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
+                  * `convertDotsInJsonKeysToUnderscores` (`pulumi.Input[bool]`) - When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option. Defaults to `false`.
+        
+            * `outputFormatConfiguration` (`pulumi.Input[dict]`) - Nested argument that specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. More details below.
+        
+              * `serializer` (`pulumi.Input[dict]`) - Nested argument that specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. More details below.
+        
+                * `orcSerDe` (`pulumi.Input[dict]`) - Nested argument that specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). More details below.
+        
+                  * `blockSizeBytes` (`pulumi.Input[float]`) - The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+                  * `bloomFilterColumns` (`pulumi.Input[list]`) - A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+                  * `bloomFilterFalsePositiveProbability` (`pulumi.Input[float]`) - The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
+                  * `compression` (`pulumi.Input[str]`) - The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+                  * `dictionaryKeyThreshold` (`pulumi.Input[float]`) - A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
+                  * `enablePadding` (`pulumi.Input[bool]`) - Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
+                  * `formatVersion` (`pulumi.Input[str]`) - The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
+                  * `paddingTolerance` (`pulumi.Input[float]`) - A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enable_padding` is `false`.
+                  * `rowIndexStride` (`pulumi.Input[float]`) - The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+                  * `stripeSizeBytes` (`pulumi.Input[float]`) - The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+        
+                * `parquetSerDe` (`pulumi.Input[dict]`) - Nested argument that specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/documentation/latest/). More details below.
+        
+                  * `blockSizeBytes` (`pulumi.Input[float]`) - The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+                  * `compression` (`pulumi.Input[str]`) - The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+                  * `enableDictionaryCompression` (`pulumi.Input[bool]`) - Indicates whether to enable dictionary compression.
+                  * `maxPaddingBytes` (`pulumi.Input[float]`) - The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
+                  * `pageSizeBytes` (`pulumi.Input[float]`) - The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
+                  * `writerVersion` (`pulumi.Input[str]`) - Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
+        
+            * `schemaConfiguration` (`pulumi.Input[dict]`) - Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
+        
+              * `catalog_id` (`pulumi.Input[str]`) - The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+              * `database_name` (`pulumi.Input[str]`) - Specifies the name of the AWS Glue database that contains the schema for the output data.
+              * `region` (`pulumi.Input[str]`) - If you don't specify an AWS Region, the default is the current region.
+              * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+              * `table_name` (`pulumi.Input[str]`) - Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+              * `version_id` (`pulumi.Input[str]`) - Specifies the table version for the output data schema. Defaults to `LATEST`.
+        
+          * `errorOutputPrefix` (`pulumi.Input[str]`) - Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
+          * `kms_key_arn` (`pulumi.Input[str]`) - Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+            be used.
+          * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+          * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
+        
+              * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
+        
+                * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+                * `parameterValue` (`pulumi.Input[str]`) - Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+        
+              * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
+        
+          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+          * `s3BackupConfiguration` (`pulumi.Input[dict]`) - The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+        
+            * `bucketArn` (`pulumi.Input[str]`) - The ARN of the S3 bucket
+            * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+            * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+              We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+            * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+              * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+              * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+              * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+            * `compressionFormat` (`pulumi.Input[str]`) - The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+            * `kms_key_arn` (`pulumi.Input[str]`) - Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+              be used.
+            * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+            * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        
+          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        
+        The **kinesis_source_configuration** object supports the following:
+        
+          * `kinesisStreamArn` (`pulumi.Input[str]`) - The kinesis stream used as the source of the firehose delivery stream.
+          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        
+        The **redshift_configuration** object supports the following:
+        
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+            * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+          * `clusterJdbcurl` (`pulumi.Input[str]`) - The jdbcurl of the redshift cluster.
+          * `copyOptions` (`pulumi.Input[str]`) - Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
+          * `dataTableColumns` (`pulumi.Input[str]`) - The data table columns that will be targeted by the copy command.
+          * `dataTableName` (`pulumi.Input[str]`) - The name of the table in the redshift cluster that the s3 bucket will copy to.
+          * `password` (`pulumi.Input[str]`) - The password for the username above.
+          * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
+        
+              * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
+        
+                * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+                * `parameterValue` (`pulumi.Input[str]`) - Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+        
+              * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
+        
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+          * `s3BackupConfiguration` (`pulumi.Input[dict]`) - The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+        
+            * `bucketArn` (`pulumi.Input[str]`) - The ARN of the S3 bucket
+            * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+            * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+              We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+            * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+              * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+              * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+              * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+            * `compressionFormat` (`pulumi.Input[str]`) - The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+            * `kms_key_arn` (`pulumi.Input[str]`) - Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+              be used.
+            * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+            * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        
+          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+          * `username` (`pulumi.Input[str]`) - The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
+        
+        The **s3_configuration** object supports the following:
+        
+          * `bucketArn` (`pulumi.Input[str]`) - The ARN of the S3 bucket
+          * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+          * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+            We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+            * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+          * `compressionFormat` (`pulumi.Input[str]`) - The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+          * `kms_key_arn` (`pulumi.Input[str]`) - Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+            be used.
+          * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        
+        The **splunk_configuration** object supports the following:
+        
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+            * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+          * `hecAcknowledgmentTimeout` (`pulumi.Input[float]`) - The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+          * `hecEndpoint` (`pulumi.Input[str]`) - The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+          * `hecEndpointType` (`pulumi.Input[str]`) - The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+          * `hecToken` (`pulumi.Input[str]`) - The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+          * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
+        
+              * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
+        
+                * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+                * `parameterValue` (`pulumi.Input[str]`) - Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+        
+              * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
+        
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_firehose_delivery_stream.html.markdown.
         """
@@ -136,6 +531,236 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                is redshift). More details are given below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
+        
+        The **elasticsearch_configuration** object supports the following:
+        
+          * `bufferingInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+          * `bufferingSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+            * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+          * `domainArn` (`pulumi.Input[str]`) - The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
+          * `indexName` (`pulumi.Input[str]`) - The Elasticsearch index name.
+          * `indexRotationPeriod` (`pulumi.Input[str]`) - The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+          * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
+        
+              * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
+        
+                * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+                * `parameterValue` (`pulumi.Input[str]`) - Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+        
+              * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
+        
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+          * `typeName` (`pulumi.Input[str]`) - The Elasticsearch type name with maximum length of 100 characters.
+        
+        The **extended_s3_configuration** object supports the following:
+        
+          * `bucketArn` (`pulumi.Input[str]`) - The ARN of the S3 bucket
+          * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+          * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+            We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+            * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+          * `compressionFormat` (`pulumi.Input[str]`) - The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+          * `dataFormatConversionConfiguration` (`pulumi.Input[dict]`) - Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `inputFormatConfiguration` (`pulumi.Input[dict]`) - Nested argument that specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. More details below.
+        
+              * `deserializer` (`pulumi.Input[dict]`) - Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
+        
+                * `hiveJsonSerDe` (`pulumi.Input[dict]`) - Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
+        
+                  * `timestampFormats` (`pulumi.Input[list]`) - A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
+        
+                * `openXJsonSerDe` (`pulumi.Input[dict]`) - Nested argument that specifies the OpenX SerDe. More details below.
+        
+                  * `caseInsensitive` (`pulumi.Input[bool]`) - When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
+                  * `columnToJsonKeyMappings` (`pulumi.Input[dict]`) - A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
+                  * `convertDotsInJsonKeysToUnderscores` (`pulumi.Input[bool]`) - When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option. Defaults to `false`.
+        
+            * `outputFormatConfiguration` (`pulumi.Input[dict]`) - Nested argument that specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. More details below.
+        
+              * `serializer` (`pulumi.Input[dict]`) - Nested argument that specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. More details below.
+        
+                * `orcSerDe` (`pulumi.Input[dict]`) - Nested argument that specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). More details below.
+        
+                  * `blockSizeBytes` (`pulumi.Input[float]`) - The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+                  * `bloomFilterColumns` (`pulumi.Input[list]`) - A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+                  * `bloomFilterFalsePositiveProbability` (`pulumi.Input[float]`) - The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
+                  * `compression` (`pulumi.Input[str]`) - The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+                  * `dictionaryKeyThreshold` (`pulumi.Input[float]`) - A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
+                  * `enablePadding` (`pulumi.Input[bool]`) - Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
+                  * `formatVersion` (`pulumi.Input[str]`) - The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
+                  * `paddingTolerance` (`pulumi.Input[float]`) - A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enable_padding` is `false`.
+                  * `rowIndexStride` (`pulumi.Input[float]`) - The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+                  * `stripeSizeBytes` (`pulumi.Input[float]`) - The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+        
+                * `parquetSerDe` (`pulumi.Input[dict]`) - Nested argument that specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/documentation/latest/). More details below.
+        
+                  * `blockSizeBytes` (`pulumi.Input[float]`) - The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+                  * `compression` (`pulumi.Input[str]`) - The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+                  * `enableDictionaryCompression` (`pulumi.Input[bool]`) - Indicates whether to enable dictionary compression.
+                  * `maxPaddingBytes` (`pulumi.Input[float]`) - The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
+                  * `pageSizeBytes` (`pulumi.Input[float]`) - The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
+                  * `writerVersion` (`pulumi.Input[str]`) - Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
+        
+            * `schemaConfiguration` (`pulumi.Input[dict]`) - Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
+        
+              * `catalog_id` (`pulumi.Input[str]`) - The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+              * `database_name` (`pulumi.Input[str]`) - Specifies the name of the AWS Glue database that contains the schema for the output data.
+              * `region` (`pulumi.Input[str]`) - If you don't specify an AWS Region, the default is the current region.
+              * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+              * `table_name` (`pulumi.Input[str]`) - Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+              * `version_id` (`pulumi.Input[str]`) - Specifies the table version for the output data schema. Defaults to `LATEST`.
+        
+          * `errorOutputPrefix` (`pulumi.Input[str]`) - Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
+          * `kms_key_arn` (`pulumi.Input[str]`) - Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+            be used.
+          * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+          * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
+        
+              * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
+        
+                * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+                * `parameterValue` (`pulumi.Input[str]`) - Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+        
+              * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
+        
+          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+          * `s3BackupConfiguration` (`pulumi.Input[dict]`) - The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+        
+            * `bucketArn` (`pulumi.Input[str]`) - The ARN of the S3 bucket
+            * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+            * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+              We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+            * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+              * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+              * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+              * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+            * `compressionFormat` (`pulumi.Input[str]`) - The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+            * `kms_key_arn` (`pulumi.Input[str]`) - Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+              be used.
+            * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+            * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        
+          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        
+        The **kinesis_source_configuration** object supports the following:
+        
+          * `kinesisStreamArn` (`pulumi.Input[str]`) - The kinesis stream used as the source of the firehose delivery stream.
+          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        
+        The **redshift_configuration** object supports the following:
+        
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+            * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+          * `clusterJdbcurl` (`pulumi.Input[str]`) - The jdbcurl of the redshift cluster.
+          * `copyOptions` (`pulumi.Input[str]`) - Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
+          * `dataTableColumns` (`pulumi.Input[str]`) - The data table columns that will be targeted by the copy command.
+          * `dataTableName` (`pulumi.Input[str]`) - The name of the table in the redshift cluster that the s3 bucket will copy to.
+          * `password` (`pulumi.Input[str]`) - The password for the username above.
+          * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
+        
+              * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
+        
+                * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+                * `parameterValue` (`pulumi.Input[str]`) - Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+        
+              * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
+        
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+          * `s3BackupConfiguration` (`pulumi.Input[dict]`) - The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+        
+            * `bucketArn` (`pulumi.Input[str]`) - The ARN of the S3 bucket
+            * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+            * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+              We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+            * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+              * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+              * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+              * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+            * `compressionFormat` (`pulumi.Input[str]`) - The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+            * `kms_key_arn` (`pulumi.Input[str]`) - Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+              be used.
+            * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+            * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        
+          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+          * `username` (`pulumi.Input[str]`) - The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
+        
+        The **s3_configuration** object supports the following:
+        
+          * `bucketArn` (`pulumi.Input[str]`) - The ARN of the S3 bucket
+          * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+          * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+            We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+            * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+          * `compressionFormat` (`pulumi.Input[str]`) - The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+          * `kms_key_arn` (`pulumi.Input[str]`) - Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+            be used.
+          * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        
+        The **splunk_configuration** object supports the following:
+        
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+            * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        
+          * `hecAcknowledgmentTimeout` (`pulumi.Input[float]`) - The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+          * `hecEndpoint` (`pulumi.Input[str]`) - The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+          * `hecEndpointType` (`pulumi.Input[str]`) - The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+          * `hecToken` (`pulumi.Input[str]`) - The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+          * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
+        
+            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
+        
+              * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
+        
+                * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+                * `parameterValue` (`pulumi.Input[str]`) - Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+        
+              * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
+        
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_firehose_delivery_stream.html.markdown.
         """

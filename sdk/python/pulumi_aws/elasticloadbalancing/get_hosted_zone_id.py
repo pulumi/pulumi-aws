@@ -36,6 +36,9 @@ def get_hosted_zone_id(region=None,opts=None):
     """
     Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
     in a given region for the purpose of using in an AWS Route53 Alias.
+    
+    :param str region: Name of the region whose AWS ELB HostedZoneId is desired.
+           Defaults to the region from the AWS provider configuration.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id_legacy.html.markdown.
     """
@@ -43,7 +46,7 @@ def get_hosted_zone_id(region=None,opts=None):
 
     __args__['region'] = region
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId', __args__, opts=opts).value

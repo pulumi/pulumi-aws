@@ -28,6 +28,17 @@ class Domain(pulumi.CustomResource):
     cluster_config: pulumi.Output[dict]
     """
     Cluster configuration of the domain, see below.
+    
+      * `dedicatedMasterCount` (`float`) - Number of dedicated master nodes in the cluster
+      * `dedicatedMasterEnabled` (`bool`) - Indicates whether dedicated master nodes are enabled for the cluster.
+      * `dedicatedMasterType` (`str`) - Instance type of the dedicated master nodes in the cluster.
+      * `instance_count` (`float`) - Number of instances in the cluster.
+      * `instance_type` (`str`) - Instance type of data nodes in the cluster.
+      * `zoneAwarenessConfig` (`dict`) - Configuration block containing zone awareness settings. Documented below.
+    
+        * `availabilityZoneCount` (`float`) - Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
+    
+      * `zoneAwarenessEnabled` (`bool`) - Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
     """
     cognito_options: pulumi.Output[dict]
     domain_id: pulumi.Output[str]
@@ -41,6 +52,13 @@ class Domain(pulumi.CustomResource):
     ebs_options: pulumi.Output[dict]
     """
     EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
+    
+      * `ebsEnabled` (`bool`) - Whether EBS volumes are attached to data nodes in the domain
+      * `iops` (`float`) - The baseline input/output (I/O) performance of EBS volumes
+        attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+      * `volume_size` (`float`) - The size of EBS volumes attached to data nodes (in GB).
+        **Required** if `ebs_enabled` is set to `true`.
+      * `volumeType` (`str`) - The type of EBS volumes attached to data nodes.
     """
     elasticsearch_version: pulumi.Output[str]
     """
@@ -49,6 +67,9 @@ class Domain(pulumi.CustomResource):
     encrypt_at_rest: pulumi.Output[dict]
     """
     Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
+    
+      * `enabled` (`bool`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+      * `kms_key_id` (`str`) - The KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
     """
     endpoint: pulumi.Output[str]
     """
@@ -63,14 +84,23 @@ class Domain(pulumi.CustomResource):
     log_publishing_options: pulumi.Output[list]
     """
     Options for publishing slow logs to CloudWatch Logs.
+    
+      * `cloudwatch_log_group_arn` (`str`) - ARN of the Cloudwatch log group to which log needs to be published.
+      * `enabled` (`bool`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+      * `logType` (`str`) - A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
     """
     node_to_node_encryption: pulumi.Output[dict]
     """
     Node-to-node encryption options. See below.
+    
+      * `enabled` (`bool`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
     """
     snapshot_options: pulumi.Output[dict]
     """
     Snapshot related options, see below.
+    
+      * `automatedSnapshotStartHour` (`float`) - Hour during which the service takes an automated daily
+        snapshot of the indices in the domain.
     """
     tags: pulumi.Output[dict]
     """
@@ -79,6 +109,11 @@ class Domain(pulumi.CustomResource):
     vpc_options: pulumi.Output[dict]
     """
     VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
+    
+      * `availability_zones` (`list`)
+      * `security_group_ids` (`list`) - List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
+      * `subnet_ids` (`list`) - List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
+      * `vpc_id` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, access_policies=None, advanced_options=None, cluster_config=None, cognito_options=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, log_publishing_options=None, node_to_node_encryption=None, snapshot_options=None, tags=None, vpc_options=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -101,6 +136,62 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[dict] snapshot_options: Snapshot related options, see below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
         :param pulumi.Input[dict] vpc_options: VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
+        
+        The **cluster_config** object supports the following:
+        
+          * `dedicatedMasterCount` (`pulumi.Input[float]`) - Number of dedicated master nodes in the cluster
+          * `dedicatedMasterEnabled` (`pulumi.Input[bool]`) - Indicates whether dedicated master nodes are enabled for the cluster.
+          * `dedicatedMasterType` (`pulumi.Input[str]`) - Instance type of the dedicated master nodes in the cluster.
+          * `instance_count` (`pulumi.Input[float]`) - Number of instances in the cluster.
+          * `instance_type` (`pulumi.Input[str]`) - Instance type of data nodes in the cluster.
+          * `zoneAwarenessConfig` (`pulumi.Input[dict]`) - Configuration block containing zone awareness settings. Documented below.
+        
+            * `availabilityZoneCount` (`pulumi.Input[float]`) - Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
+        
+          * `zoneAwarenessEnabled` (`pulumi.Input[bool]`) - Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+        
+        The **cognito_options** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+          * `identity_pool_id` (`pulumi.Input[str]`) - ID of the Cognito Identity Pool to use
+          * `role_arn` (`pulumi.Input[str]`) - ARN of the IAM role that has the AmazonESCognitoAccess policy attached
+          * `user_pool_id` (`pulumi.Input[str]`) - ID of the Cognito User Pool to use
+        
+        The **ebs_options** object supports the following:
+        
+          * `ebsEnabled` (`pulumi.Input[bool]`) - Whether EBS volumes are attached to data nodes in the domain
+          * `iops` (`pulumi.Input[float]`) - The baseline input/output (I/O) performance of EBS volumes
+            attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+          * `volume_size` (`pulumi.Input[float]`) - The size of EBS volumes attached to data nodes (in GB).
+            **Required** if `ebs_enabled` is set to `true`.
+          * `volumeType` (`pulumi.Input[str]`) - The type of EBS volumes attached to data nodes.
+        
+        The **encrypt_at_rest** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+          * `kms_key_id` (`pulumi.Input[str]`) - The KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
+        
+        The **log_publishing_options** object supports the following:
+        
+          * `cloudwatch_log_group_arn` (`pulumi.Input[str]`) - ARN of the Cloudwatch log group to which log needs to be published.
+          * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+          * `logType` (`pulumi.Input[str]`) - A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+        
+        The **node_to_node_encryption** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+        
+        The **snapshot_options** object supports the following:
+        
+          * `automatedSnapshotStartHour` (`pulumi.Input[float]`) - Hour during which the service takes an automated daily
+            snapshot of the indices in the domain.
+        
+        The **vpc_options** object supports the following:
+        
+          * `availability_zones` (`pulumi.Input[list]`)
+          * `security_group_ids` (`pulumi.Input[list]`) - List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
+          * `subnet_ids` (`pulumi.Input[list]`) - List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
+          * `vpc_id` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticsearch_domain.html.markdown.
         """
@@ -174,6 +265,62 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[dict] snapshot_options: Snapshot related options, see below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
         :param pulumi.Input[dict] vpc_options: VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
+        
+        The **cluster_config** object supports the following:
+        
+          * `dedicatedMasterCount` (`pulumi.Input[float]`) - Number of dedicated master nodes in the cluster
+          * `dedicatedMasterEnabled` (`pulumi.Input[bool]`) - Indicates whether dedicated master nodes are enabled for the cluster.
+          * `dedicatedMasterType` (`pulumi.Input[str]`) - Instance type of the dedicated master nodes in the cluster.
+          * `instance_count` (`pulumi.Input[float]`) - Number of instances in the cluster.
+          * `instance_type` (`pulumi.Input[str]`) - Instance type of data nodes in the cluster.
+          * `zoneAwarenessConfig` (`pulumi.Input[dict]`) - Configuration block containing zone awareness settings. Documented below.
+        
+            * `availabilityZoneCount` (`pulumi.Input[float]`) - Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
+        
+          * `zoneAwarenessEnabled` (`pulumi.Input[bool]`) - Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+        
+        The **cognito_options** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+          * `identity_pool_id` (`pulumi.Input[str]`) - ID of the Cognito Identity Pool to use
+          * `role_arn` (`pulumi.Input[str]`) - ARN of the IAM role that has the AmazonESCognitoAccess policy attached
+          * `user_pool_id` (`pulumi.Input[str]`) - ID of the Cognito User Pool to use
+        
+        The **ebs_options** object supports the following:
+        
+          * `ebsEnabled` (`pulumi.Input[bool]`) - Whether EBS volumes are attached to data nodes in the domain
+          * `iops` (`pulumi.Input[float]`) - The baseline input/output (I/O) performance of EBS volumes
+            attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+          * `volume_size` (`pulumi.Input[float]`) - The size of EBS volumes attached to data nodes (in GB).
+            **Required** if `ebs_enabled` is set to `true`.
+          * `volumeType` (`pulumi.Input[str]`) - The type of EBS volumes attached to data nodes.
+        
+        The **encrypt_at_rest** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+          * `kms_key_id` (`pulumi.Input[str]`) - The KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
+        
+        The **log_publishing_options** object supports the following:
+        
+          * `cloudwatch_log_group_arn` (`pulumi.Input[str]`) - ARN of the Cloudwatch log group to which log needs to be published.
+          * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+          * `logType` (`pulumi.Input[str]`) - A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+        
+        The **node_to_node_encryption** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+        
+        The **snapshot_options** object supports the following:
+        
+          * `automatedSnapshotStartHour` (`pulumi.Input[float]`) - Hour during which the service takes an automated daily
+            snapshot of the indices in the domain.
+        
+        The **vpc_options** object supports the following:
+        
+          * `availability_zones` (`pulumi.Input[list]`)
+          * `security_group_ids` (`pulumi.Input[list]`) - List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
+          * `subnet_ids` (`pulumi.Input[list]`) - List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
+          * `vpc_id` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticsearch_domain.html.markdown.
         """

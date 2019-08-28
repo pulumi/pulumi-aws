@@ -46,6 +46,9 @@ class AwaitableGetDirectConnectGatewayAttachmentResult(GetDirectConnectGatewayAt
 def get_direct_connect_gateway_attachment(dx_gateway_id=None,tags=None,transit_gateway_id=None,opts=None):
     """
     Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
+    
+    :param str dx_gateway_id: Identifier of the Direct Connect Gateway.
+    :param str transit_gateway_id: Identifier of the EC2 Transit Gateway.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_dx_gateway_attachment.html.markdown.
     """
@@ -55,7 +58,7 @@ def get_direct_connect_gateway_attachment(dx_gateway_id=None,tags=None,transit_g
     __args__['tags'] = tags
     __args__['transitGatewayId'] = transit_gateway_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment', __args__, opts=opts).value

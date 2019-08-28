@@ -55,6 +55,9 @@ class AwaitableGetParameterResult(GetParameterResult):
 def get_parameter(name=None,with_decryption=None,opts=None):
     """
     Provides an SSM Parameter data source.
+    
+    :param str name: The name of the parameter.
+    :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_parameter.html.markdown.
     """
@@ -63,7 +66,7 @@ def get_parameter(name=None,with_decryption=None,opts=None):
     __args__['name'] = name
     __args__['withDecryption'] = with_decryption
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ssm/getParameter:getParameter', __args__, opts=opts).value

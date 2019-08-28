@@ -34,10 +34,16 @@ class Crawler(pulumi.CustomResource):
     dynamodb_targets: pulumi.Output[list]
     """
     List of nested DynamoDB target arguments. See below.
+    
+      * `path` (`str`) - The path to the Amazon S3 target.
     """
     jdbc_targets: pulumi.Output[list]
     """
     List of nested JBDC target arguments. See below.
+    
+      * `connectionName` (`str`) - The name of the connection to use to connect to the JDBC target.
+      * `exclusions` (`list`) - A list of glob patterns used to exclude from the crawl.
+      * `path` (`str`) - The path to the Amazon S3 target.
     """
     name: pulumi.Output[str]
     """
@@ -50,6 +56,9 @@ class Crawler(pulumi.CustomResource):
     s3_targets: pulumi.Output[list]
     """
     List nested Amazon S3 target arguments. See below.
+    
+      * `exclusions` (`list`) - A list of glob patterns used to exclude from the crawl.
+      * `path` (`str`) - The path to the Amazon S3 target.
     """
     schedule: pulumi.Output[str]
     """
@@ -58,6 +67,9 @@ class Crawler(pulumi.CustomResource):
     schema_change_policy: pulumi.Output[dict]
     """
     Policy for the crawler's update and deletion behavior.
+    
+      * `deleteBehavior` (`str`) - The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+      * `updateBehavior` (`str`) - The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
     """
     security_configuration: pulumi.Output[str]
     """
@@ -86,6 +98,31 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[dict] schema_change_policy: Policy for the crawler's update and deletion behavior.
         :param pulumi.Input[str] security_configuration: The name of Security Configuration to be used by the crawler
         :param pulumi.Input[str] table_prefix: The table prefix used for catalog tables that are created.
+        
+        The **catalog_targets** object supports the following:
+        
+          * `database_name` (`pulumi.Input[str]`) - The name of the Glue database to be synchronized.
+          * `tables` (`pulumi.Input[list]`) - A list of catalog tables to be synchronized.
+        
+        The **dynamodb_targets** object supports the following:
+        
+          * `path` (`pulumi.Input[str]`) - The path to the Amazon S3 target.
+        
+        The **jdbc_targets** object supports the following:
+        
+          * `connectionName` (`pulumi.Input[str]`) - The name of the connection to use to connect to the JDBC target.
+          * `exclusions` (`pulumi.Input[list]`) - A list of glob patterns used to exclude from the crawl.
+          * `path` (`pulumi.Input[str]`) - The path to the Amazon S3 target.
+        
+        The **s3_targets** object supports the following:
+        
+          * `exclusions` (`pulumi.Input[list]`) - A list of glob patterns used to exclude from the crawl.
+          * `path` (`pulumi.Input[str]`) - The path to the Amazon S3 target.
+        
+        The **schema_change_policy** object supports the following:
+        
+          * `deleteBehavior` (`pulumi.Input[str]`) - The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+          * `updateBehavior` (`pulumi.Input[str]`) - The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
         """
@@ -154,6 +191,31 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[dict] schema_change_policy: Policy for the crawler's update and deletion behavior.
         :param pulumi.Input[str] security_configuration: The name of Security Configuration to be used by the crawler
         :param pulumi.Input[str] table_prefix: The table prefix used for catalog tables that are created.
+        
+        The **catalog_targets** object supports the following:
+        
+          * `database_name` (`pulumi.Input[str]`) - The name of the Glue database to be synchronized.
+          * `tables` (`pulumi.Input[list]`) - A list of catalog tables to be synchronized.
+        
+        The **dynamodb_targets** object supports the following:
+        
+          * `path` (`pulumi.Input[str]`) - The path to the Amazon S3 target.
+        
+        The **jdbc_targets** object supports the following:
+        
+          * `connectionName` (`pulumi.Input[str]`) - The name of the connection to use to connect to the JDBC target.
+          * `exclusions` (`pulumi.Input[list]`) - A list of glob patterns used to exclude from the crawl.
+          * `path` (`pulumi.Input[str]`) - The path to the Amazon S3 target.
+        
+        The **s3_targets** object supports the following:
+        
+          * `exclusions` (`pulumi.Input[list]`) - A list of glob patterns used to exclude from the crawl.
+          * `path` (`pulumi.Input[str]`) - The path to the Amazon S3 target.
+        
+        The **schema_change_policy** object supports the following:
+        
+          * `deleteBehavior` (`pulumi.Input[str]`) - The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+          * `updateBehavior` (`pulumi.Input[str]`) - The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
         """

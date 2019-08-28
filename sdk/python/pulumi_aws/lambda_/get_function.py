@@ -183,6 +183,9 @@ class AwaitableGetFunctionResult(GetFunctionResult):
 def get_function(function_name=None,qualifier=None,tags=None,opts=None):
     """
     Provides information about a Lambda Function.
+    
+    :param str function_name: Name of the lambda function.
+    :param str qualifier: Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
     """
@@ -192,7 +195,7 @@ def get_function(function_name=None,qualifier=None,tags=None,opts=None):
     __args__['qualifier'] = qualifier
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:lambda/getFunction:getFunction', __args__, opts=opts).value

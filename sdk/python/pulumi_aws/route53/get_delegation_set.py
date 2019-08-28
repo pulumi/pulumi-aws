@@ -38,6 +38,8 @@ def get_delegation_set(id=None,opts=None):
     `route53.DelegationSet` provides details about a specific Route 53 Delegation Set.
     
     This data source allows to find a list of name servers associated with a specific delegation set.
+    
+    :param str id: The Hosted Zone id of the desired delegation set.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_delegation_set.html.markdown.
     """
@@ -45,7 +47,7 @@ def get_delegation_set(id=None,opts=None):
 
     __args__['id'] = id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:route53/getDelegationSet:getDelegationSet', __args__, opts=opts).value

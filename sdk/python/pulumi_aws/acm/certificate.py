@@ -34,6 +34,11 @@ class Certificate(pulumi.CustomResource):
     domain_validation_options: pulumi.Output[list]
     """
     A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+    
+      * `domain_name` (`str`) - A domain name for which the certificate should be issued
+      * `resourceRecordName` (`str`) - The name of the DNS record to create to validate the certificate
+      * `resourceRecordType` (`str`) - The type of DNS record to create
+      * `resourceRecordValue` (`str`) - The value the DNS record needs to have
     """
     options: pulumi.Output[dict]
     private_key: pulumi.Output[str]
@@ -95,6 +100,10 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
                * Importing an existing certificate
+        
+        The **options** object supports the following:
+        
+          * `certificateTransparencyLoggingPreference` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
         """
@@ -155,6 +164,17 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[list] validation_emails: A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
                * Importing an existing certificate
+        
+        The **domain_validation_options** object supports the following:
+        
+          * `domain_name` (`pulumi.Input[str]`) - A domain name for which the certificate should be issued
+          * `resourceRecordName` (`pulumi.Input[str]`) - The name of the DNS record to create to validate the certificate
+          * `resourceRecordType` (`pulumi.Input[str]`) - The type of DNS record to create
+          * `resourceRecordValue` (`pulumi.Input[str]`) - The value the DNS record needs to have
+        
+        The **options** object supports the following:
+        
+          * `certificateTransparencyLoggingPreference` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
         """

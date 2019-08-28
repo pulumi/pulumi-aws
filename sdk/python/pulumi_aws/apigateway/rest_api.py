@@ -33,6 +33,8 @@ class RestApi(pulumi.CustomResource):
     endpoint_configuration: pulumi.Output[dict]
     """
     Nested argument defining API endpoint configuration including endpoint type. Defined below.
+    
+      * `types` (`str`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
     """
     execution_arn: pulumi.Output[str]
     """
@@ -70,6 +72,10 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[float] minimum_compression_size: Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
         :param pulumi.Input[str] name: The name of the REST API
         :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
+        
+        The **endpoint_configuration** object supports the following:
+        
+          * `types` (`pulumi.Input[str]`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_rest_api.html.markdown.
         """
@@ -129,6 +135,10 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the REST API
         :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
         :param pulumi.Input[str] root_resource_id: The resource ID of the REST API's root
+        
+        The **endpoint_configuration** object supports the following:
+        
+          * `types` (`pulumi.Input[str]`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_rest_api.html.markdown.
         """

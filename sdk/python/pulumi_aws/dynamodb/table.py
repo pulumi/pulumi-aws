@@ -17,6 +17,9 @@ class Table(pulumi.CustomResource):
     attributes: pulumi.Output[list]
     """
     List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+    
+      * `name` (`str`) - The name of the index
+      * `type` (`str`) - Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
     """
     billing_mode: pulumi.Output[str]
     """
@@ -27,6 +30,21 @@ class Table(pulumi.CustomResource):
     Describe a GSI for the table;
     subject to the normal limits on the number of GSIs, projected
     attributes, etc.
+    
+      * `hash_key` (`str`) - The name of the hash key in the index; must be
+        defined as an attribute in the resource.
+      * `name` (`str`) - The name of the index
+      * `nonKeyAttributes` (`list`) - Only required with `INCLUDE` as a
+        projection type; a list of attributes to project into the index. These
+        do not need to be defined as attributes on the table.
+      * `projectionType` (`str`) - One of `ALL`, `INCLUDE` or `KEYS_ONLY`
+        where `ALL` projects every attribute into the index, `KEYS_ONLY`
+        projects just the hash and range key into the index, and `INCLUDE`
+        projects only the keys specified in the _non_key_attributes_
+        parameter.
+      * `range_key` (`str`) - The name of the range key; must be defined
+      * `read_capacity` (`float`) - The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+      * `write_capacity` (`float`) - The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
     """
     hash_key: pulumi.Output[str]
     """
@@ -38,6 +56,17 @@ class Table(pulumi.CustomResource):
     Describe an LSI on the table;
     these can only be allocated *at creation* so you cannot change this
     definition after you have created the resource.
+    
+      * `name` (`str`) - The name of the index
+      * `nonKeyAttributes` (`list`) - Only required with `INCLUDE` as a
+        projection type; a list of attributes to project into the index. These
+        do not need to be defined as attributes on the table.
+      * `projectionType` (`str`) - One of `ALL`, `INCLUDE` or `KEYS_ONLY`
+        where `ALL` projects every attribute into the index, `KEYS_ONLY`
+        projects just the hash and range key into the index, and `INCLUDE`
+        projects only the keys specified in the _non_key_attributes_
+        parameter.
+      * `range_key` (`str`) - The name of the range key; must be defined
     """
     name: pulumi.Output[str]
     """
@@ -46,6 +75,8 @@ class Table(pulumi.CustomResource):
     point_in_time_recovery: pulumi.Output[dict]
     """
     Point-in-time recovery options.
+    
+      * `enabled` (`bool`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
     """
     range_key: pulumi.Output[str]
     """
@@ -58,6 +89,8 @@ class Table(pulumi.CustomResource):
     server_side_encryption: pulumi.Output[dict]
     """
     Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
+    
+      * `enabled` (`bool`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
     """
     stream_arn: pulumi.Output[str]
     """
@@ -85,6 +118,9 @@ class Table(pulumi.CustomResource):
     ttl: pulumi.Output[dict]
     """
     Defines ttl, has two properties, and can only be specified once:
+    
+      * `attributeName` (`str`) - The name of the table attribute to store the TTL timestamp in.
+      * `enabled` (`bool`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
     """
     write_capacity: pulumi.Output[float]
     """
@@ -118,6 +154,54 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A map of tags to populate on the created table.
         :param pulumi.Input[dict] ttl: Defines ttl, has two properties, and can only be specified once:
         :param pulumi.Input[float] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        
+        The **attributes** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the index
+          * `type` (`pulumi.Input[str]`) - Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
+        
+        The **global_secondary_indexes** object supports the following:
+        
+          * `hash_key` (`pulumi.Input[str]`) - The name of the hash key in the index; must be
+            defined as an attribute in the resource.
+          * `name` (`pulumi.Input[str]`) - The name of the index
+          * `nonKeyAttributes` (`pulumi.Input[list]`) - Only required with `INCLUDE` as a
+            projection type; a list of attributes to project into the index. These
+            do not need to be defined as attributes on the table.
+          * `projectionType` (`pulumi.Input[str]`) - One of `ALL`, `INCLUDE` or `KEYS_ONLY`
+            where `ALL` projects every attribute into the index, `KEYS_ONLY`
+            projects just the hash and range key into the index, and `INCLUDE`
+            projects only the keys specified in the _non_key_attributes_
+            parameter.
+          * `range_key` (`pulumi.Input[str]`) - The name of the range key; must be defined
+          * `read_capacity` (`pulumi.Input[float]`) - The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+          * `write_capacity` (`pulumi.Input[float]`) - The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        
+        The **local_secondary_indexes** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the index
+          * `nonKeyAttributes` (`pulumi.Input[list]`) - Only required with `INCLUDE` as a
+            projection type; a list of attributes to project into the index. These
+            do not need to be defined as attributes on the table.
+          * `projectionType` (`pulumi.Input[str]`) - One of `ALL`, `INCLUDE` or `KEYS_ONLY`
+            where `ALL` projects every attribute into the index, `KEYS_ONLY`
+            projects just the hash and range key into the index, and `INCLUDE`
+            projects only the keys specified in the _non_key_attributes_
+            parameter.
+          * `range_key` (`pulumi.Input[str]`) - The name of the range key; must be defined
+        
+        The **point_in_time_recovery** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+        
+        The **server_side_encryption** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+        
+        The **ttl** object supports the following:
+        
+          * `attributeName` (`pulumi.Input[str]`) - The name of the table attribute to store the TTL timestamp in.
+          * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_table.html.markdown.
         """
@@ -201,6 +285,54 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A map of tags to populate on the created table.
         :param pulumi.Input[dict] ttl: Defines ttl, has two properties, and can only be specified once:
         :param pulumi.Input[float] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        
+        The **attributes** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the index
+          * `type` (`pulumi.Input[str]`) - Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
+        
+        The **global_secondary_indexes** object supports the following:
+        
+          * `hash_key` (`pulumi.Input[str]`) - The name of the hash key in the index; must be
+            defined as an attribute in the resource.
+          * `name` (`pulumi.Input[str]`) - The name of the index
+          * `nonKeyAttributes` (`pulumi.Input[list]`) - Only required with `INCLUDE` as a
+            projection type; a list of attributes to project into the index. These
+            do not need to be defined as attributes on the table.
+          * `projectionType` (`pulumi.Input[str]`) - One of `ALL`, `INCLUDE` or `KEYS_ONLY`
+            where `ALL` projects every attribute into the index, `KEYS_ONLY`
+            projects just the hash and range key into the index, and `INCLUDE`
+            projects only the keys specified in the _non_key_attributes_
+            parameter.
+          * `range_key` (`pulumi.Input[str]`) - The name of the range key; must be defined
+          * `read_capacity` (`pulumi.Input[float]`) - The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+          * `write_capacity` (`pulumi.Input[float]`) - The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        
+        The **local_secondary_indexes** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the index
+          * `nonKeyAttributes` (`pulumi.Input[list]`) - Only required with `INCLUDE` as a
+            projection type; a list of attributes to project into the index. These
+            do not need to be defined as attributes on the table.
+          * `projectionType` (`pulumi.Input[str]`) - One of `ALL`, `INCLUDE` or `KEYS_ONLY`
+            where `ALL` projects every attribute into the index, `KEYS_ONLY`
+            projects just the hash and range key into the index, and `INCLUDE`
+            projects only the keys specified in the _non_key_attributes_
+            parameter.
+          * `range_key` (`pulumi.Input[str]`) - The name of the range key; must be defined
+        
+        The **point_in_time_recovery** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+        
+        The **server_side_encryption** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+        
+        The **ttl** object supports the following:
+        
+          * `attributeName` (`pulumi.Input[str]`) - The name of the table attribute to store the TTL timestamp in.
+          * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_table.html.markdown.
         """

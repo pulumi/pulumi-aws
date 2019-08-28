@@ -17,6 +17,21 @@ class Inventory(pulumi.CustomResource):
     destination: pulumi.Output[dict]
     """
     Destination bucket where inventory list files are written (documented below).
+    
+      * `bucket` (`dict`) - The S3 bucket configuration where inventory results are published (documented below).
+    
+        * `account_id` (`str`) - The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+        * `bucketArn` (`str`) - The Amazon S3 bucket ARN of the destination.
+        * `encryption` (`dict`) - Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+    
+          * `sseKms` (`dict`) - Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+    
+            * `key_id` (`str`) - The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+    
+          * `sseS3` (`dict`) - Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+    
+        * `format` (`str`) - Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+        * `prefix` (`str`) - The prefix that is prepended to all inventory results.
     """
     enabled: pulumi.Output[bool]
     """
@@ -25,6 +40,8 @@ class Inventory(pulumi.CustomResource):
     filter: pulumi.Output[dict]
     """
     Object filtering that accepts a prefix (documented below).
+    
+      * `prefix` (`str`) - The prefix that is prepended to all inventory results.
     """
     included_object_versions: pulumi.Output[str]
     """
@@ -41,6 +58,8 @@ class Inventory(pulumi.CustomResource):
     schedule: pulumi.Output[dict]
     """
     Contains the frequency for generating inventory results (documented below).
+    
+      * `frequency` (`str`) - Specifies how frequently inventory results are produced. Can be `Daily` or `Weekly`.
     """
     def __init__(__self__, resource_name, opts=None, bucket=None, destination=None, enabled=None, filter=None, included_object_versions=None, name=None, optional_fields=None, schedule=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -56,6 +75,31 @@ class Inventory(pulumi.CustomResource):
         :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
         :param pulumi.Input[list] optional_fields: Contains the optional fields that are included in the inventory results.
         :param pulumi.Input[dict] schedule: Contains the frequency for generating inventory results (documented below).
+        
+        The **destination** object supports the following:
+        
+          * `bucket` (`pulumi.Input[dict]`) - The S3 bucket configuration where inventory results are published (documented below).
+        
+            * `account_id` (`pulumi.Input[str]`) - The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+            * `bucketArn` (`pulumi.Input[str]`) - The Amazon S3 bucket ARN of the destination.
+            * `encryption` (`pulumi.Input[dict]`) - Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+        
+              * `sseKms` (`pulumi.Input[dict]`) - Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+        
+                * `key_id` (`pulumi.Input[str]`) - The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+        
+              * `sseS3` (`pulumi.Input[dict]`) - Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+        
+            * `format` (`pulumi.Input[str]`) - Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+            * `prefix` (`pulumi.Input[str]`) - The prefix that is prepended to all inventory results.
+        
+        The **filter** object supports the following:
+        
+          * `prefix` (`pulumi.Input[str]`) - The prefix that is prepended to all inventory results.
+        
+        The **schedule** object supports the following:
+        
+          * `frequency` (`pulumi.Input[str]`) - Specifies how frequently inventory results are produced. Can be `Daily` or `Weekly`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_inventory.html.markdown.
         """
@@ -115,6 +159,31 @@ class Inventory(pulumi.CustomResource):
         :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
         :param pulumi.Input[list] optional_fields: Contains the optional fields that are included in the inventory results.
         :param pulumi.Input[dict] schedule: Contains the frequency for generating inventory results (documented below).
+        
+        The **destination** object supports the following:
+        
+          * `bucket` (`pulumi.Input[dict]`) - The S3 bucket configuration where inventory results are published (documented below).
+        
+            * `account_id` (`pulumi.Input[str]`) - The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+            * `bucketArn` (`pulumi.Input[str]`) - The Amazon S3 bucket ARN of the destination.
+            * `encryption` (`pulumi.Input[dict]`) - Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+        
+              * `sseKms` (`pulumi.Input[dict]`) - Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+        
+                * `key_id` (`pulumi.Input[str]`) - The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+        
+              * `sseS3` (`pulumi.Input[dict]`) - Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+        
+            * `format` (`pulumi.Input[str]`) - Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+            * `prefix` (`pulumi.Input[str]`) - The prefix that is prepended to all inventory results.
+        
+        The **filter** object supports the following:
+        
+          * `prefix` (`pulumi.Input[str]`) - The prefix that is prepended to all inventory results.
+        
+        The **schedule** object supports the following:
+        
+          * `frequency` (`pulumi.Input[str]`) - Specifies how frequently inventory results are produced. Can be `Daily` or `Weekly`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_inventory.html.markdown.
         """

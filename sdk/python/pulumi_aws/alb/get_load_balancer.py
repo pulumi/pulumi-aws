@@ -97,6 +97,9 @@ def get_load_balancer(arn=None,name=None,tags=None,opts=None):
     This data source can prove useful when a module accepts an LB as an input
     variable and needs to, for example, determine the security groups associated
     with it, etc.
+    
+    :param str arn: The full ARN of the load balancer.
+    :param str name: The unique name of the load balancer.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb.html.markdown.
     """
@@ -106,7 +109,7 @@ def get_load_balancer(arn=None,name=None,tags=None,opts=None):
     __args__['name'] = name
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:alb/getLoadBalancer:getLoadBalancer', __args__, opts=opts).value

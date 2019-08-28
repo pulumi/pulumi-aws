@@ -151,6 +151,8 @@ class AwaitableGetGroupResult(GetGroupResult):
 def get_group(name=None,opts=None):
     """
     Use this data source to get information on an existing autoscaling group.
+    
+    :param str name: Specify the exact name of the desired autoscaling group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_group.html.markdown.
     """
@@ -158,7 +160,7 @@ def get_group(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:autoscaling/getGroup:getGroup', __args__, opts=opts).value

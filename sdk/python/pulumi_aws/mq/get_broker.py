@@ -99,6 +99,14 @@ class AwaitableGetBrokerResult(GetBrokerResult):
 def get_broker(broker_id=None,broker_name=None,logs=None,tags=None,opts=None):
     """
     Provides information about a MQ Broker.
+    
+    :param str broker_id: The unique id of the mq broker.
+    :param str broker_name: The unique name of the mq broker.
+    
+    The **logs** object supports the following:
+    
+      * `audit` (`bool`)
+      * `general` (`bool`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/mq_broker.html.markdown.
     """
@@ -109,7 +117,7 @@ def get_broker(broker_id=None,broker_name=None,logs=None,tags=None,opts=None):
     __args__['logs'] = logs
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:mq/getBroker:getBroker', __args__, opts=opts).value

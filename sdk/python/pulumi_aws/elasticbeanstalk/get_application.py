@@ -53,6 +53,8 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 def get_application(name=None,opts=None):
     """
     Retrieve information about an Elastic Beanstalk Application.
+    
+    :param str name: The name of the application
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_application.html.markdown.
     """
@@ -60,7 +62,7 @@ def get_application(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getApplication:getApplication', __args__, opts=opts).value

@@ -17,10 +17,16 @@ class Webhook(pulumi.CustomResource):
     authentication_configuration: pulumi.Output[dict]
     """
     An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+    
+      * `allowedIpRange` (`str`)
+      * `secretToken` (`str`)
     """
     filters: pulumi.Output[list]
     """
     One or more `filter` blocks. Filter blocks are documented below.
+    
+      * `jsonPath` (`str`)
+      * `matchEquals` (`str`)
     """
     name: pulumi.Output[str]
     """
@@ -55,6 +61,16 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         :param pulumi.Input[str] target_pipeline: The name of the pipeline.
+        
+        The **authentication_configuration** object supports the following:
+        
+          * `allowedIpRange` (`pulumi.Input[str]`)
+          * `secretToken` (`pulumi.Input[str]`)
+        
+        The **filters** object supports the following:
+        
+          * `jsonPath` (`pulumi.Input[str]`)
+          * `matchEquals` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline_webhook.html.markdown.
         """
@@ -114,6 +130,16 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         :param pulumi.Input[str] target_pipeline: The name of the pipeline.
         :param pulumi.Input[str] url: The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
+        
+        The **authentication_configuration** object supports the following:
+        
+          * `allowedIpRange` (`pulumi.Input[str]`)
+          * `secretToken` (`pulumi.Input[str]`)
+        
+        The **filters** object supports the following:
+        
+          * `jsonPath` (`pulumi.Input[str]`)
+          * `matchEquals` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline_webhook.html.markdown.
         """

@@ -58,6 +58,8 @@ def get_group(group_name=None,opts=None):
     This data source can be used to fetch information about a specific
     IAM group. By using this data source, you can reference IAM group
     properties without having to hard code ARNs as input.
+    
+    :param str group_name: The friendly IAM group name to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_group.html.markdown.
     """
@@ -65,7 +67,7 @@ def get_group(group_name=None,opts=None):
 
     __args__['groupName'] = group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getGroup:getGroup', __args__, opts=opts).value

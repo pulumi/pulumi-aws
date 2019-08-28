@@ -37,6 +37,10 @@ class CatalogTable(pulumi.CustomResource):
     partition_keys: pulumi.Output[list]
     """
     A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+    
+      * `comment` (`str`) - Free-form text comment.
+      * `name` (`str`) - Name of the SerDe.
+      * `type` (`str`) - The datatype of data in the Column.
     """
     retention: pulumi.Output[float]
     """
@@ -45,6 +49,38 @@ class CatalogTable(pulumi.CustomResource):
     storage_descriptor: pulumi.Output[dict]
     """
     A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+    
+      * `bucketColumns` (`list`) - A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+      * `columns` (`list`) - A list of the Columns in the table.
+    
+        * `comment` (`str`) - Free-form text comment.
+        * `name` (`str`) - Name of the SerDe.
+        * `type` (`str`) - The datatype of data in the Column.
+    
+      * `compressed` (`bool`) - True if the data in the table is compressed, or False if not.
+      * `inputFormat` (`str`) - The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+      * `location` (`str`) - The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+      * `numberOfBuckets` (`float`) - Must be specified if the table contains any dimension columns.
+      * `outputFormat` (`str`) - The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+      * `parameters` (`dict`) - A map of initialization parameters for the SerDe, in key-value form.
+      * `serDeInfo` (`dict`) - Serialization/deserialization (SerDe) information.
+    
+        * `name` (`str`) - Name of the SerDe.
+        * `parameters` (`dict`) - A map of initialization parameters for the SerDe, in key-value form.
+        * `serializationLibrary` (`str`) - Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+    
+      * `skewedInfo` (`dict`) - Information about values that appear very frequently in a column (skewed values).
+    
+        * `skewedColumnNames` (`list`) - A list of names of columns that contain skewed values.
+        * `skewedColumnValueLocationMaps` (`dict`) - A list of values that appear so frequently as to be considered skewed.
+        * `skewedColumnValues` (`list`) - A mapping of skewed values to the columns that contain them.
+    
+      * `sortColumns` (`list`) - A list of Order objects specifying the sort order of each bucket in the table.
+    
+        * `column` (`str`) - The name of the column.
+        * `sortOrder` (`float`) - Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+    
+      * `storedAsSubDirectories` (`bool`) - True if the table data is stored in subdirectories, or False if not.
     """
     table_type: pulumi.Output[str]
     """
@@ -76,6 +112,46 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[str] table_type: The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[str] view_original_text: If the table is a view, the original text of the view; otherwise null.
+        
+        The **partition_keys** object supports the following:
+        
+          * `comment` (`pulumi.Input[str]`) - Free-form text comment.
+          * `name` (`pulumi.Input[str]`) - Name of the SerDe.
+          * `type` (`pulumi.Input[str]`) - The datatype of data in the Column.
+        
+        The **storage_descriptor** object supports the following:
+        
+          * `bucketColumns` (`pulumi.Input[list]`) - A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+          * `columns` (`pulumi.Input[list]`) - A list of the Columns in the table.
+        
+            * `comment` (`pulumi.Input[str]`) - Free-form text comment.
+            * `name` (`pulumi.Input[str]`) - Name of the SerDe.
+            * `type` (`pulumi.Input[str]`) - The datatype of data in the Column.
+        
+          * `compressed` (`pulumi.Input[bool]`) - True if the data in the table is compressed, or False if not.
+          * `inputFormat` (`pulumi.Input[str]`) - The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+          * `location` (`pulumi.Input[str]`) - The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+          * `numberOfBuckets` (`pulumi.Input[float]`) - Must be specified if the table contains any dimension columns.
+          * `outputFormat` (`pulumi.Input[str]`) - The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+          * `parameters` (`pulumi.Input[dict]`) - A map of initialization parameters for the SerDe, in key-value form.
+          * `serDeInfo` (`pulumi.Input[dict]`) - Serialization/deserialization (SerDe) information.
+        
+            * `name` (`pulumi.Input[str]`) - Name of the SerDe.
+            * `parameters` (`pulumi.Input[dict]`) - A map of initialization parameters for the SerDe, in key-value form.
+            * `serializationLibrary` (`pulumi.Input[str]`) - Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+        
+          * `skewedInfo` (`pulumi.Input[dict]`) - Information about values that appear very frequently in a column (skewed values).
+        
+            * `skewedColumnNames` (`pulumi.Input[list]`) - A list of names of columns that contain skewed values.
+            * `skewedColumnValueLocationMaps` (`pulumi.Input[dict]`) - A list of values that appear so frequently as to be considered skewed.
+            * `skewedColumnValues` (`pulumi.Input[list]`) - A mapping of skewed values to the columns that contain them.
+        
+          * `sortColumns` (`pulumi.Input[list]`) - A list of Order objects specifying the sort order of each bucket in the table.
+        
+            * `column` (`pulumi.Input[str]`) - The name of the column.
+            * `sortOrder` (`pulumi.Input[float]`) - Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+        
+          * `storedAsSubDirectories` (`pulumi.Input[bool]`) - True if the table data is stored in subdirectories, or False if not.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_table.html.markdown.
         """
@@ -137,6 +213,46 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[str] table_type: The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[str] view_original_text: If the table is a view, the original text of the view; otherwise null.
+        
+        The **partition_keys** object supports the following:
+        
+          * `comment` (`pulumi.Input[str]`) - Free-form text comment.
+          * `name` (`pulumi.Input[str]`) - Name of the SerDe.
+          * `type` (`pulumi.Input[str]`) - The datatype of data in the Column.
+        
+        The **storage_descriptor** object supports the following:
+        
+          * `bucketColumns` (`pulumi.Input[list]`) - A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+          * `columns` (`pulumi.Input[list]`) - A list of the Columns in the table.
+        
+            * `comment` (`pulumi.Input[str]`) - Free-form text comment.
+            * `name` (`pulumi.Input[str]`) - Name of the SerDe.
+            * `type` (`pulumi.Input[str]`) - The datatype of data in the Column.
+        
+          * `compressed` (`pulumi.Input[bool]`) - True if the data in the table is compressed, or False if not.
+          * `inputFormat` (`pulumi.Input[str]`) - The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+          * `location` (`pulumi.Input[str]`) - The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+          * `numberOfBuckets` (`pulumi.Input[float]`) - Must be specified if the table contains any dimension columns.
+          * `outputFormat` (`pulumi.Input[str]`) - The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+          * `parameters` (`pulumi.Input[dict]`) - A map of initialization parameters for the SerDe, in key-value form.
+          * `serDeInfo` (`pulumi.Input[dict]`) - Serialization/deserialization (SerDe) information.
+        
+            * `name` (`pulumi.Input[str]`) - Name of the SerDe.
+            * `parameters` (`pulumi.Input[dict]`) - A map of initialization parameters for the SerDe, in key-value form.
+            * `serializationLibrary` (`pulumi.Input[str]`) - Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+        
+          * `skewedInfo` (`pulumi.Input[dict]`) - Information about values that appear very frequently in a column (skewed values).
+        
+            * `skewedColumnNames` (`pulumi.Input[list]`) - A list of names of columns that contain skewed values.
+            * `skewedColumnValueLocationMaps` (`pulumi.Input[dict]`) - A list of values that appear so frequently as to be considered skewed.
+            * `skewedColumnValues` (`pulumi.Input[list]`) - A mapping of skewed values to the columns that contain them.
+        
+          * `sortColumns` (`pulumi.Input[list]`) - A list of Order objects specifying the sort order of each bucket in the table.
+        
+            * `column` (`pulumi.Input[str]`) - The name of the column.
+            * `sortOrder` (`pulumi.Input[float]`) - Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+        
+          * `storedAsSubDirectories` (`pulumi.Input[bool]`) - True if the table data is stored in subdirectories, or False if not.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_table.html.markdown.
         """

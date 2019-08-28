@@ -42,6 +42,10 @@ class Gateway(pulumi.CustomResource):
     smb_active_directory_settings: pulumi.Output[dict]
     """
     Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+    
+      * `domain_name` (`str`) - The name of the domain that you want the gateway to join.
+      * `password` (`str`) - The password of the user who has permission to add the gateway to the Active Directory domain.
+      * `username` (`str`) - The user name of user who has permission to add the gateway to the Active Directory domain.
     """
     smb_guest_password: pulumi.Output[str]
     """
@@ -67,6 +71,12 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[dict] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         :param pulumi.Input[str] tape_drive_type: Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
+        
+        The **smb_active_directory_settings** object supports the following:
+        
+          * `domain_name` (`pulumi.Input[str]`) - The name of the domain that you want the gateway to join.
+          * `password` (`pulumi.Input[str]`) - The password of the user who has permission to add the gateway to the Active Directory domain.
+          * `username` (`pulumi.Input[str]`) - The user name of user who has permission to add the gateway to the Active Directory domain.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_gateway.html.markdown.
         """
@@ -127,6 +137,12 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[dict] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         :param pulumi.Input[str] tape_drive_type: Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
+        
+        The **smb_active_directory_settings** object supports the following:
+        
+          * `domain_name` (`pulumi.Input[str]`) - The name of the domain that you want the gateway to join.
+          * `password` (`pulumi.Input[str]`) - The password of the user who has permission to add the gateway to the Active Directory domain.
+          * `username` (`pulumi.Input[str]`) - The user name of user who has permission to add the gateway to the Active Directory domain.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_gateway.html.markdown.
         """

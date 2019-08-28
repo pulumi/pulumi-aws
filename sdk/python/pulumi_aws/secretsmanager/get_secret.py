@@ -91,6 +91,9 @@ class AwaitableGetSecretResult(GetSecretResult):
 def get_secret(arn=None,name=None,opts=None):
     """
     Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
+    
+    :param str arn: The Amazon Resource Name (ARN) of the secret to retrieve.
+    :param str name: The name of the secret to retrieve.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret.html.markdown.
     """
@@ -99,7 +102,7 @@ def get_secret(arn=None,name=None,opts=None):
     __args__['arn'] = arn
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecret:getSecret', __args__, opts=opts).value

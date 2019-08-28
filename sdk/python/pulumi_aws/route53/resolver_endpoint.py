@@ -28,6 +28,10 @@ class ResolverEndpoint(pulumi.CustomResource):
     """
     The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
     to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+    
+      * `ip` (`str`) - The IP address in the subnet that you want to use for DNS queries.
+      * `ipId` (`str`)
+      * `subnet_id` (`str`) - The ID of the subnet that contains the IP address.
     """
     name: pulumi.Output[str]
     """
@@ -55,6 +59,12 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] name: The friendly name of the Route 53 Resolver endpoint.
         :param pulumi.Input[list] security_group_ids: The ID of one or more security groups that you want to use to control access to this VPC.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **ip_addresses** object supports the following:
+        
+          * `ip` (`pulumi.Input[str]`) - The IP address in the subnet that you want to use for DNS queries.
+          * `ipId` (`pulumi.Input[str]`)
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of the subnet that contains the IP address.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_endpoint.html.markdown.
         """
@@ -113,6 +123,12 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] name: The friendly name of the Route 53 Resolver endpoint.
         :param pulumi.Input[list] security_group_ids: The ID of one or more security groups that you want to use to control access to this VPC.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **ip_addresses** object supports the following:
+        
+          * `ip` (`pulumi.Input[str]`) - The IP address in the subnet that you want to use for DNS queries.
+          * `ipId` (`pulumi.Input[str]`)
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of the subnet that contains the IP address.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_endpoint.html.markdown.
         """

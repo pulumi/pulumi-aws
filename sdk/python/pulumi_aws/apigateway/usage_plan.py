@@ -13,6 +13,9 @@ class UsagePlan(pulumi.CustomResource):
     api_stages: pulumi.Output[list]
     """
     The associated API stages of the usage plan.
+    
+      * `apiId` (`str`) - API Id of the associated API stage in a usage plan.
+      * `stage` (`str`) - API stage name of the associated API stage in a usage plan.
     """
     description: pulumi.Output[str]
     """
@@ -29,10 +32,17 @@ class UsagePlan(pulumi.CustomResource):
     quota_settings: pulumi.Output[dict]
     """
     The quota settings of the usage plan.
+    
+      * `limit` (`float`) - The maximum number of requests that can be made in a given time period.
+      * `offset` (`float`) - The number of requests subtracted from the given limit in the initial time period.
+      * `period` (`str`) - The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
     """
     throttle_settings: pulumi.Output[dict]
     """
     The throttling limits of the usage plan.
+    
+      * `burstLimit` (`float`) - The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+      * `rateLimit` (`float`) - The API request steady-state rate limit.
     """
     def __init__(__self__, resource_name, opts=None, api_stages=None, description=None, name=None, product_code=None, quota_settings=None, throttle_settings=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -46,6 +56,22 @@ class UsagePlan(pulumi.CustomResource):
         :param pulumi.Input[str] product_code: The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input[dict] quota_settings: The quota settings of the usage plan.
         :param pulumi.Input[dict] throttle_settings: The throttling limits of the usage plan.
+        
+        The **api_stages** object supports the following:
+        
+          * `apiId` (`pulumi.Input[str]`) - API Id of the associated API stage in a usage plan.
+          * `stage` (`pulumi.Input[str]`) - API stage name of the associated API stage in a usage plan.
+        
+        The **quota_settings** object supports the following:
+        
+          * `limit` (`pulumi.Input[float]`) - The maximum number of requests that can be made in a given time period.
+          * `offset` (`pulumi.Input[float]`) - The number of requests subtracted from the given limit in the initial time period.
+          * `period` (`pulumi.Input[str]`) - The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        
+        The **throttle_settings** object supports the following:
+        
+          * `burstLimit` (`pulumi.Input[float]`) - The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+          * `rateLimit` (`pulumi.Input[float]`) - The API request steady-state rate limit.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_usage_plan.html.markdown.
         """
@@ -93,6 +119,22 @@ class UsagePlan(pulumi.CustomResource):
         :param pulumi.Input[str] product_code: The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input[dict] quota_settings: The quota settings of the usage plan.
         :param pulumi.Input[dict] throttle_settings: The throttling limits of the usage plan.
+        
+        The **api_stages** object supports the following:
+        
+          * `apiId` (`pulumi.Input[str]`) - API Id of the associated API stage in a usage plan.
+          * `stage` (`pulumi.Input[str]`) - API stage name of the associated API stage in a usage plan.
+        
+        The **quota_settings** object supports the following:
+        
+          * `limit` (`pulumi.Input[float]`) - The maximum number of requests that can be made in a given time period.
+          * `offset` (`pulumi.Input[float]`) - The number of requests subtracted from the given limit in the initial time period.
+          * `period` (`pulumi.Input[str]`) - The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        
+        The **throttle_settings** object supports the following:
+        
+          * `burstLimit` (`pulumi.Input[float]`) - The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+          * `rateLimit` (`pulumi.Input[float]`) - The API request steady-state rate limit.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_usage_plan.html.markdown.
         """

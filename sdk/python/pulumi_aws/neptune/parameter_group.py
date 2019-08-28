@@ -29,6 +29,10 @@ class ParameterGroup(pulumi.CustomResource):
     parameters: pulumi.Output[list]
     """
     A list of Neptune parameters to apply.
+    
+      * `applyMethod` (`str`) - The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+      * `name` (`str`) - The name of the Neptune parameter.
+      * `value` (`str`) - The value of the Neptune parameter.
     """
     tags: pulumi.Output[dict]
     """
@@ -45,6 +49,12 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Neptune parameter.
         :param pulumi.Input[list] parameters: A list of Neptune parameters to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **parameters** object supports the following:
+        
+          * `applyMethod` (`pulumi.Input[str]`) - The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+          * `name` (`pulumi.Input[str]`) - The name of the Neptune parameter.
+          * `value` (`pulumi.Input[str]`) - The value of the Neptune parameter.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_parameter_group.html.markdown.
         """
@@ -94,6 +104,12 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Neptune parameter.
         :param pulumi.Input[list] parameters: A list of Neptune parameters to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **parameters** object supports the following:
+        
+          * `applyMethod` (`pulumi.Input[str]`) - The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+          * `name` (`pulumi.Input[str]`) - The name of the Neptune parameter.
+          * `value` (`pulumi.Input[str]`) - The value of the Neptune parameter.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_parameter_group.html.markdown.
         """

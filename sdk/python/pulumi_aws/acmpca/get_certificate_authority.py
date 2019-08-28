@@ -110,6 +110,17 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
 def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,opts=None):
     """
     Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
+    
+    :param str arn: Amazon Resource Name (ARN) of the certificate authority.
+    
+    The **revocation_configurations** object supports the following:
+    
+      * `crlConfigurations` (`list`)
+    
+        * `customCname` (`str`)
+        * `enabled` (`bool`)
+        * `expirationInDays` (`float`)
+        * `s3BucketName` (`str`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
     """
@@ -119,7 +130,7 @@ def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,
     __args__['revocationConfigurations'] = revocation_configurations
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:acmpca/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts).value

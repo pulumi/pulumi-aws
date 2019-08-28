@@ -46,6 +46,8 @@ def get_key(id=None,opts=None):
     """
     Use this data source to get the name and value of a pre-existing API Key, for
     example to supply credentials for a dependency microservice.
+    
+    :param str id: The ID of the API Key to look up.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_api_key.html.markdown.
     """
@@ -53,7 +55,7 @@ def get_key(id=None,opts=None):
 
     __args__['id'] = id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getKey:getKey', __args__, opts=opts).value

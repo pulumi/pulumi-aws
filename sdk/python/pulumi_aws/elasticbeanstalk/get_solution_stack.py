@@ -46,6 +46,12 @@ class AwaitableGetSolutionStackResult(GetSolutionStackResult):
 def get_solution_stack(most_recent=None,name_regex=None,opts=None):
     """
     Use this data source to get the name of a elastic beanstalk solution stack.
+    
+    :param bool most_recent: If more than one result is returned, use the most
+           recent solution stack.
+    :param str name_regex: A regex string to apply to the solution stack list returned
+           by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+           AWS documentation for reference solution stack names.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_solution_stack.html.markdown.
     """
@@ -54,7 +60,7 @@ def get_solution_stack(most_recent=None,name_regex=None,opts=None):
     __args__['mostRecent'] = most_recent
     __args__['nameRegex'] = name_regex
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts).value

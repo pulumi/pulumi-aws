@@ -55,6 +55,17 @@ def get_security_groups(filters=None,tags=None,opts=None):
     """
     Use this data source to get IDs and VPC membership of Security Groups that are created
     outside of this provider.
+    
+    :param list filters: One or more name/value pairs to use as filters. There are
+           several valid keys, for a full reference, check out
+           [describe-security-groups in the AWS CLI reference][1].
+    :param dict tags: A mapping of tags, each pair of which must exactly match for
+           desired security groups.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`)
+      * `values` (`list`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_groups.html.markdown.
     """
@@ -63,7 +74,7 @@ def get_security_groups(filters=None,tags=None,opts=None):
     __args__['filters'] = filters
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSecurityGroups:getSecurityGroups', __args__, opts=opts).value

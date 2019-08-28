@@ -25,6 +25,13 @@ class EndpointConfiguration(pulumi.CustomResource):
     production_variants: pulumi.Output[list]
     """
     Fields are documented below.
+    
+      * `acceleratorType` (`str`)
+      * `initialInstanceCount` (`float`)
+      * `initialVariantWeight` (`float`)
+      * `instance_type` (`str`)
+      * `modelName` (`str`)
+      * `variantName` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -40,6 +47,15 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[list] production_variants: Fields are documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **production_variants** object supports the following:
+        
+          * `acceleratorType` (`pulumi.Input[str]`)
+          * `initialInstanceCount` (`pulumi.Input[float]`)
+          * `initialVariantWeight` (`pulumi.Input[float]`)
+          * `instance_type` (`pulumi.Input[str]`)
+          * `modelName` (`pulumi.Input[str]`)
+          * `variantName` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint_configuration.html.markdown.
         """
@@ -87,6 +103,15 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[list] production_variants: Fields are documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **production_variants** object supports the following:
+        
+          * `acceleratorType` (`pulumi.Input[str]`)
+          * `initialInstanceCount` (`pulumi.Input[float]`)
+          * `initialVariantWeight` (`pulumi.Input[float]`)
+          * `instance_type` (`pulumi.Input[str]`)
+          * `modelName` (`pulumi.Input[str]`)
+          * `variantName` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint_configuration.html.markdown.
         """

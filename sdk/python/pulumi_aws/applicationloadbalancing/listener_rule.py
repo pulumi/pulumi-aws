@@ -13,6 +13,50 @@ class ListenerRule(pulumi.CustomResource):
     actions: pulumi.Output[list]
     """
     An Action block. Action blocks are documented below.
+    
+      * `authenticateCognito` (`dict`) - Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
+    
+        * `authenticationRequestExtraParams` (`dict`) - The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+        * `onUnauthenticatedRequest` (`str`) - The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+        * `scope` (`str`) - The set of user claims to be requested from the IdP.
+        * `sessionCookieName` (`str`) - The name of the cookie used to maintain session information.
+        * `sessionTimeout` (`float`) - The maximum duration of the authentication session, in seconds.
+        * `userPoolArn` (`str`) - The ARN of the Cognito user pool.
+        * `userPoolClientId` (`str`) - The ID of the Cognito user pool client.
+        * `userPoolDomain` (`str`) - The domain prefix or fully-qualified domain name of the Cognito user pool.
+    
+      * `authenticateOidc` (`dict`) - Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
+    
+        * `authenticationRequestExtraParams` (`dict`) - The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+        * `authorizationEndpoint` (`str`) - The authorization endpoint of the IdP.
+        * `clientId` (`str`) - The OAuth 2.0 client identifier.
+        * `clientSecret` (`str`) - The OAuth 2.0 client secret.
+        * `issuer` (`str`) - The OIDC issuer identifier of the IdP.
+        * `onUnauthenticatedRequest` (`str`) - The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+        * `scope` (`str`) - The set of user claims to be requested from the IdP.
+        * `sessionCookieName` (`str`) - The name of the cookie used to maintain session information.
+        * `sessionTimeout` (`float`) - The maximum duration of the authentication session, in seconds.
+        * `tokenEndpoint` (`str`) - The token endpoint of the IdP.
+        * `userInfoEndpoint` (`str`) - The user info endpoint of the IdP.
+    
+      * `fixedResponse` (`dict`) - Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
+    
+        * `content_type` (`str`) - The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+        * `messageBody` (`str`) - The message body.
+        * `status_code` (`str`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+    
+      * `order` (`float`)
+      * `redirect` (`dict`) - Information for creating a redirect action. Required if `type` is `redirect`.
+    
+        * `host` (`str`) - The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+        * `path` (`str`) - The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+        * `port` (`str`) - The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+        * `protocol` (`str`) - The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+        * `query` (`str`) - The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+        * `status_code` (`str`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+    
+      * `target_group_arn` (`str`) - The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+      * `type` (`str`) - The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
     """
     arn: pulumi.Output[str]
     """
@@ -21,6 +65,9 @@ class ListenerRule(pulumi.CustomResource):
     conditions: pulumi.Output[list]
     """
     A Condition block. Condition blocks are documented below.
+    
+      * `field` (`str`) - The name of the field. Must be one of `path-pattern` for path based routing or `host-header` for host based routing.
+      * `values` (`str`) - The path patterns to match. A maximum of 1 can be defined.
     """
     listener_arn: pulumi.Output[str]
     """
@@ -42,6 +89,57 @@ class ListenerRule(pulumi.CustomResource):
         :param pulumi.Input[list] conditions: A Condition block. Condition blocks are documented below.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the rule.
         :param pulumi.Input[float] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
+        
+        The **actions** object supports the following:
+        
+          * `authenticateCognito` (`pulumi.Input[dict]`) - Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
+        
+            * `authenticationRequestExtraParams` (`pulumi.Input[dict]`) - The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+            * `onUnauthenticatedRequest` (`pulumi.Input[str]`) - The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+            * `scope` (`pulumi.Input[str]`) - The set of user claims to be requested from the IdP.
+            * `sessionCookieName` (`pulumi.Input[str]`) - The name of the cookie used to maintain session information.
+            * `sessionTimeout` (`pulumi.Input[float]`) - The maximum duration of the authentication session, in seconds.
+            * `userPoolArn` (`pulumi.Input[str]`) - The ARN of the Cognito user pool.
+            * `userPoolClientId` (`pulumi.Input[str]`) - The ID of the Cognito user pool client.
+            * `userPoolDomain` (`pulumi.Input[str]`) - The domain prefix or fully-qualified domain name of the Cognito user pool.
+        
+          * `authenticateOidc` (`pulumi.Input[dict]`) - Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
+        
+            * `authenticationRequestExtraParams` (`pulumi.Input[dict]`) - The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+            * `authorizationEndpoint` (`pulumi.Input[str]`) - The authorization endpoint of the IdP.
+            * `clientId` (`pulumi.Input[str]`) - The OAuth 2.0 client identifier.
+            * `clientSecret` (`pulumi.Input[str]`) - The OAuth 2.0 client secret.
+            * `issuer` (`pulumi.Input[str]`) - The OIDC issuer identifier of the IdP.
+            * `onUnauthenticatedRequest` (`pulumi.Input[str]`) - The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+            * `scope` (`pulumi.Input[str]`) - The set of user claims to be requested from the IdP.
+            * `sessionCookieName` (`pulumi.Input[str]`) - The name of the cookie used to maintain session information.
+            * `sessionTimeout` (`pulumi.Input[float]`) - The maximum duration of the authentication session, in seconds.
+            * `tokenEndpoint` (`pulumi.Input[str]`) - The token endpoint of the IdP.
+            * `userInfoEndpoint` (`pulumi.Input[str]`) - The user info endpoint of the IdP.
+        
+          * `fixedResponse` (`pulumi.Input[dict]`) - Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
+        
+            * `content_type` (`pulumi.Input[str]`) - The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+            * `messageBody` (`pulumi.Input[str]`) - The message body.
+            * `status_code` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        
+          * `order` (`pulumi.Input[float]`)
+          * `redirect` (`pulumi.Input[dict]`) - Information for creating a redirect action. Required if `type` is `redirect`.
+        
+            * `host` (`pulumi.Input[str]`) - The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+            * `path` (`pulumi.Input[str]`) - The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+            * `port` (`pulumi.Input[str]`) - The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+            * `protocol` (`pulumi.Input[str]`) - The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+            * `query` (`pulumi.Input[str]`) - The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+            * `status_code` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        
+          * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+          * `type` (`pulumi.Input[str]`) - The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        
+        The **conditions** object supports the following:
+        
+          * `field` (`pulumi.Input[str]`) - The name of the field. Must be one of `path-pattern` for path based routing or `host-header` for host based routing.
+          * `values` (`pulumi.Input[str]`) - The path patterns to match. A maximum of 1 can be defined.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_listener_rule_legacy.html.markdown.
         """
@@ -93,6 +191,57 @@ class ListenerRule(pulumi.CustomResource):
         :param pulumi.Input[list] conditions: A Condition block. Condition blocks are documented below.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the rule.
         :param pulumi.Input[float] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
+        
+        The **actions** object supports the following:
+        
+          * `authenticateCognito` (`pulumi.Input[dict]`) - Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
+        
+            * `authenticationRequestExtraParams` (`pulumi.Input[dict]`) - The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+            * `onUnauthenticatedRequest` (`pulumi.Input[str]`) - The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+            * `scope` (`pulumi.Input[str]`) - The set of user claims to be requested from the IdP.
+            * `sessionCookieName` (`pulumi.Input[str]`) - The name of the cookie used to maintain session information.
+            * `sessionTimeout` (`pulumi.Input[float]`) - The maximum duration of the authentication session, in seconds.
+            * `userPoolArn` (`pulumi.Input[str]`) - The ARN of the Cognito user pool.
+            * `userPoolClientId` (`pulumi.Input[str]`) - The ID of the Cognito user pool client.
+            * `userPoolDomain` (`pulumi.Input[str]`) - The domain prefix or fully-qualified domain name of the Cognito user pool.
+        
+          * `authenticateOidc` (`pulumi.Input[dict]`) - Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
+        
+            * `authenticationRequestExtraParams` (`pulumi.Input[dict]`) - The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+            * `authorizationEndpoint` (`pulumi.Input[str]`) - The authorization endpoint of the IdP.
+            * `clientId` (`pulumi.Input[str]`) - The OAuth 2.0 client identifier.
+            * `clientSecret` (`pulumi.Input[str]`) - The OAuth 2.0 client secret.
+            * `issuer` (`pulumi.Input[str]`) - The OIDC issuer identifier of the IdP.
+            * `onUnauthenticatedRequest` (`pulumi.Input[str]`) - The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+            * `scope` (`pulumi.Input[str]`) - The set of user claims to be requested from the IdP.
+            * `sessionCookieName` (`pulumi.Input[str]`) - The name of the cookie used to maintain session information.
+            * `sessionTimeout` (`pulumi.Input[float]`) - The maximum duration of the authentication session, in seconds.
+            * `tokenEndpoint` (`pulumi.Input[str]`) - The token endpoint of the IdP.
+            * `userInfoEndpoint` (`pulumi.Input[str]`) - The user info endpoint of the IdP.
+        
+          * `fixedResponse` (`pulumi.Input[dict]`) - Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
+        
+            * `content_type` (`pulumi.Input[str]`) - The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+            * `messageBody` (`pulumi.Input[str]`) - The message body.
+            * `status_code` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        
+          * `order` (`pulumi.Input[float]`)
+          * `redirect` (`pulumi.Input[dict]`) - Information for creating a redirect action. Required if `type` is `redirect`.
+        
+            * `host` (`pulumi.Input[str]`) - The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
+            * `path` (`pulumi.Input[str]`) - The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
+            * `port` (`pulumi.Input[str]`) - The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+            * `protocol` (`pulumi.Input[str]`) - The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+            * `query` (`pulumi.Input[str]`) - The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
+            * `status_code` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        
+          * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+          * `type` (`pulumi.Input[str]`) - The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        
+        The **conditions** object supports the following:
+        
+          * `field` (`pulumi.Input[str]`) - The name of the field. Must be one of `path-pattern` for path based routing or `host-header` for host based routing.
+          * `values` (`pulumi.Input[str]`) - The path patterns to match. A maximum of 1 can be defined.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_listener_rule_legacy.html.markdown.
         """

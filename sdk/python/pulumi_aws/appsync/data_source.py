@@ -25,18 +25,29 @@ class DataSource(pulumi.CustomResource):
     dynamodb_config: pulumi.Output[dict]
     """
     DynamoDB settings. See below
+    
+      * `region` (`str`) - AWS region of Elasticsearch domain. Defaults to current region.
+      * `tableName` (`str`) - Name of the DynamoDB table.
+      * `useCallerCredentials` (`bool`) - Set to `true` to use Amazon Cognito credentials with this data source.
     """
     elasticsearch_config: pulumi.Output[dict]
     """
     Amazon Elasticsearch settings. See below
+    
+      * `endpoint` (`str`) - HTTP URL.
+      * `region` (`str`) - AWS region of Elasticsearch domain. Defaults to current region.
     """
     http_config: pulumi.Output[dict]
     """
     HTTP settings. See below
+    
+      * `endpoint` (`str`) - HTTP URL.
     """
     lambda_config: pulumi.Output[dict]
     """
     AWS Lambda settings. See below
+    
+      * `functionArn` (`str`) - The ARN for the Lambda function.
     """
     name: pulumi.Output[str]
     """
@@ -65,6 +76,25 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] name: A user-supplied name for the DataSource.
         :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
         :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+        
+        The **dynamodb_config** object supports the following:
+        
+          * `region` (`pulumi.Input[str]`) - AWS region of Elasticsearch domain. Defaults to current region.
+          * `tableName` (`pulumi.Input[str]`) - Name of the DynamoDB table.
+          * `useCallerCredentials` (`pulumi.Input[bool]`) - Set to `true` to use Amazon Cognito credentials with this data source.
+        
+        The **elasticsearch_config** object supports the following:
+        
+          * `endpoint` (`pulumi.Input[str]`) - HTTP URL.
+          * `region` (`pulumi.Input[str]`) - AWS region of Elasticsearch domain. Defaults to current region.
+        
+        The **http_config** object supports the following:
+        
+          * `endpoint` (`pulumi.Input[str]`) - HTTP URL.
+        
+        The **lambda_config** object supports the following:
+        
+          * `functionArn` (`pulumi.Input[str]`) - The ARN for the Lambda function.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_datasource.html.markdown.
         """
@@ -124,6 +154,25 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] name: A user-supplied name for the DataSource.
         :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
         :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+        
+        The **dynamodb_config** object supports the following:
+        
+          * `region` (`pulumi.Input[str]`) - AWS region of Elasticsearch domain. Defaults to current region.
+          * `tableName` (`pulumi.Input[str]`) - Name of the DynamoDB table.
+          * `useCallerCredentials` (`pulumi.Input[bool]`) - Set to `true` to use Amazon Cognito credentials with this data source.
+        
+        The **elasticsearch_config** object supports the following:
+        
+          * `endpoint` (`pulumi.Input[str]`) - HTTP URL.
+          * `region` (`pulumi.Input[str]`) - AWS region of Elasticsearch domain. Defaults to current region.
+        
+        The **http_config** object supports the following:
+        
+          * `endpoint` (`pulumi.Input[str]`) - HTTP URL.
+        
+        The **lambda_config** object supports the following:
+        
+          * `functionArn` (`pulumi.Input[str]`) - The ARN for the Lambda function.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_datasource.html.markdown.
         """

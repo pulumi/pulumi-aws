@@ -76,6 +76,21 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
 def get_nat_gateway(filters=None,id=None,state=None,subnet_id=None,tags=None,vpc_id=None,opts=None):
     """
     Provides details about a specific Nat Gateway.
+    
+    :param list filters: Custom filter block as described below.
+    :param str id: The id of the specific Nat Gateway to retrieve.
+    :param str state: The state of the NAT gateway (pending | failed | available | deleting | deleted ).
+    :param str subnet_id: The id of subnet that the Nat Gateway resides in.
+    :param dict tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired Nat Gateway.
+    :param str vpc_id: The id of the VPC that the Nat Gateway resides in.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - The name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
+      * `values` (`list`) - Set of values that are accepted for the given field.
+        An Nat Gateway will be selected if any one of the given values matches.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/nat_gateway.html.markdown.
     """
@@ -88,7 +103,7 @@ def get_nat_gateway(filters=None,id=None,state=None,subnet_id=None,tags=None,vpc
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNatGateway:getNatGateway', __args__, opts=opts).value

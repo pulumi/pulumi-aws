@@ -48,6 +48,17 @@ def get_vpcs(filters=None,tags=None,opts=None):
     This resource can be useful for getting back a list of VPC Ids for a region.
     
     The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+    
+    :param list filters: Custom filter block as described below.
+    :param dict tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired vpcs.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - The name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+      * `values` (`list`) - Set of values that are accepted for the given field.
+        A VPC will be selected if any one of the given values matches.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpcs.html.markdown.
     """
@@ -56,7 +67,7 @@ def get_vpcs(filters=None,tags=None,opts=None):
     __args__['filters'] = filters
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcs:getVpcs', __args__, opts=opts).value

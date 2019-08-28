@@ -17,6 +17,9 @@ class LoadBalancerPolicy(pulumi.CustomResource):
     policy_attributes: pulumi.Output[list]
     """
     Policy attribute to apply to the policy.
+    
+      * `name` (`str`)
+      * `value` (`str`)
     """
     policy_name: pulumi.Output[str]
     """
@@ -36,6 +39,11 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         :param pulumi.Input[list] policy_attributes: Policy attribute to apply to the policy.
         :param pulumi.Input[str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[str] policy_type_name: The policy type.
+        
+        The **policy_attributes** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_policy.html.markdown.
         """
@@ -87,6 +95,11 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         :param pulumi.Input[list] policy_attributes: Policy attribute to apply to the policy.
         :param pulumi.Input[str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[str] policy_type_name: The policy type.
+        
+        The **policy_attributes** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_policy.html.markdown.
         """

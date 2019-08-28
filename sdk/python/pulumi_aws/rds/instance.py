@@ -254,6 +254,12 @@ class Instance(pulumi.CustomResource):
     s3_import: pulumi.Output[dict]
     """
     Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
+    
+      * `bucket_name` (`str`) - The bucket name where your backup is stored
+      * `bucketPrefix` (`str`) - Can be blank, but is the path to your backup
+      * `ingestionRole` (`str`) - Role applied to load the data.
+      * `sourceEngine` (`str`) - Source engine for the backup
+      * `sourceEngineVersion` (`str`) - Version of the source engine used to make the backup
     """
     security_group_names: pulumi.Output[list]
     """
@@ -471,6 +477,14 @@ class Instance(pulumi.CustomResource):
                is provided) Username for the master DB user.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to
                associate.
+        
+        The **s3_import** object supports the following:
+        
+          * `bucket_name` (`pulumi.Input[str]`) - The bucket name where your backup is stored
+          * `bucketPrefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
+          * `ingestionRole` (`pulumi.Input[str]`) - Role applied to load the data.
+          * `sourceEngine` (`pulumi.Input[str]`) - Source engine for the backup
+          * `sourceEngineVersion` (`pulumi.Input[str]`) - Version of the source engine used to make the backup
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.
         """
@@ -700,6 +714,14 @@ class Instance(pulumi.CustomResource):
                is provided) Username for the master DB user.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to
                associate.
+        
+        The **s3_import** object supports the following:
+        
+          * `bucket_name` (`pulumi.Input[str]`) - The bucket name where your backup is stored
+          * `bucketPrefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
+          * `ingestionRole` (`pulumi.Input[str]`) - Role applied to load the data.
+          * `sourceEngine` (`pulumi.Input[str]`) - Source engine for the backup
+          * `sourceEngineVersion` (`pulumi.Input[str]`) - Version of the source engine used to make the backup
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.
         """

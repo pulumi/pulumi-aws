@@ -106,6 +106,8 @@ def get_stack(name=None,opts=None):
     """
     The CloudFormation Stack data source allows access to stack
     outputs and other useful data including the template body.
+    
+    :param str name: The name of the stack
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_stack.html.markdown.
     """
@@ -113,7 +115,7 @@ def get_stack(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:cloudformation/getStack:getStack', __args__, opts=opts).value

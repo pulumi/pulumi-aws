@@ -73,6 +73,9 @@ class AwaitableGetClusterResult(GetClusterResult):
 def get_cluster(cluster_id=None,cluster_state=None,opts=None):
     """
     Use this data source to get information about a CloudHSM v2 cluster
+    
+    :param str cluster_id: The id of Cloud HSM v2 cluster.
+    :param str cluster_state: The state of the cluster to be found.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudhsm_v2_cluster.html.markdown.
     """
@@ -81,7 +84,7 @@ def get_cluster(cluster_id=None,cluster_state=None,opts=None):
     __args__['clusterId'] = cluster_id
     __args__['clusterState'] = cluster_state
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:cloudhsmv2/getCluster:getCluster', __args__, opts=opts).value

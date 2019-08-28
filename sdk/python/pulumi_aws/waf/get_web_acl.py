@@ -35,6 +35,8 @@ class AwaitableGetWebAclResult(GetWebAclResult):
 def get_web_acl(name=None,opts=None):
     """
     `waf.Rule` Retrieves a WAF Web ACL Resource Id.
+    
+    :param str name: The name of the WAF Web ACL.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_web_acl.html.markdown.
     """
@@ -42,7 +44,7 @@ def get_web_acl(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:waf/getWebAcl:getWebAcl', __args__, opts=opts).value

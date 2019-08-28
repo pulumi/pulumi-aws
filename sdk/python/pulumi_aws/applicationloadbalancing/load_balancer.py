@@ -13,6 +13,10 @@ class LoadBalancer(pulumi.CustomResource):
     access_logs: pulumi.Output[dict]
     """
     An Access Logs block. Access Logs documented below.
+    
+      * `bucket` (`str`) - The S3 bucket name to store the logs in.
+      * `enabled` (`bool`) - Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
+      * `prefix` (`str`) - The S3 bucket prefix. Logs are stored in the root if not configured.
     """
     arn: pulumi.Output[str]
     """
@@ -73,6 +77,9 @@ class LoadBalancer(pulumi.CustomResource):
     subnet_mappings: pulumi.Output[list]
     """
     A subnet mapping block as documented below.
+    
+      * `allocationId` (`str`) - The allocation ID of the Elastic IP address.
+      * `subnetId` (`str`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
     """
     subnets: pulumi.Output[list]
     """
@@ -117,6 +124,17 @@ class LoadBalancer(pulumi.CustomResource):
                cannot be updated for Load Balancers of type `network`. Changing this value
                for load balancers of type `network` will force a recreation of the resource.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **access_logs** object supports the following:
+        
+          * `bucket` (`pulumi.Input[str]`) - The S3 bucket name to store the logs in.
+          * `enabled` (`pulumi.Input[bool]`) - Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
+          * `prefix` (`pulumi.Input[str]`) - The S3 bucket prefix. Logs are stored in the root if not configured.
+        
+        The **subnet_mappings** object supports the following:
+        
+          * `allocationId` (`pulumi.Input[str]`) - The allocation ID of the Elastic IP address.
+          * `subnetId` (`pulumi.Input[str]`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_legacy.html.markdown.
         """
@@ -195,6 +213,17 @@ class LoadBalancer(pulumi.CustomResource):
                for load balancers of type `network` will force a recreation of the resource.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+        
+        The **access_logs** object supports the following:
+        
+          * `bucket` (`pulumi.Input[str]`) - The S3 bucket name to store the logs in.
+          * `enabled` (`pulumi.Input[bool]`) - Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
+          * `prefix` (`pulumi.Input[str]`) - The S3 bucket prefix. Logs are stored in the root if not configured.
+        
+        The **subnet_mappings** object supports the following:
+        
+          * `allocationId` (`pulumi.Input[str]`) - The allocation ID of the Elastic IP address.
+          * `subnetId` (`pulumi.Input[str]`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_legacy.html.markdown.
         """
