@@ -31,6 +31,11 @@ class ThingType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] deprecated: Whether the thing type is deprecated. If true, no new things could be associated with this type.
         :param pulumi.Input[str] name: The name of the thing type.
+        
+        The **properties** object supports the following:
+        
+          * `description` (`pulumi.Input[str]`) - The description of the thing type.
+          * `searchableAttributes` (`pulumi.Input[list]`) - A list of searchable thing attribute names.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing_type.html.markdown.
         """
@@ -73,6 +78,11 @@ class ThingType(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the created AWS IoT Thing Type.
         :param pulumi.Input[bool] deprecated: Whether the thing type is deprecated. If true, no new things could be associated with this type.
         :param pulumi.Input[str] name: The name of the thing type.
+        
+        The **properties** object supports the following:
+        
+          * `description` (`pulumi.Input[str]`) - The description of the thing type.
+          * `searchableAttributes` (`pulumi.Input[list]`) - A list of searchable thing attribute names.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing_type.html.markdown.
         """

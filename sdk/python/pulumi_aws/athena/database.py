@@ -17,6 +17,9 @@ class Database(pulumi.CustomResource):
     encryption_configuration: pulumi.Output[dict]
     """
     The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+    
+      * `encryptionOption` (`str`)
+      * `kmsKey` (`str`)
     """
     force_destroy: pulumi.Output[bool]
     """
@@ -36,6 +39,11 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[dict] encryption_configuration: The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.
+        
+        The **encryption_configuration** object supports the following:
+        
+          * `encryptionOption` (`pulumi.Input[str]`)
+          * `kmsKey` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_database.html.markdown.
         """
@@ -81,6 +89,11 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[dict] encryption_configuration: The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.
+        
+        The **encryption_configuration** object supports the following:
+        
+          * `encryptionOption` (`pulumi.Input[str]`)
+          * `kmsKey` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_database.html.markdown.
         """

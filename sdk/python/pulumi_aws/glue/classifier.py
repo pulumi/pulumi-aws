@@ -13,10 +13,16 @@ class Classifier(pulumi.CustomResource):
     grok_classifier: pulumi.Output[dict]
     """
     A classifier that uses grok patterns. Defined below.
+    
+      * `classification` (`str`) - An identifier of the data format that the classifier matches.
+      * `customPatterns` (`str`) - Custom grok patterns used by this classifier.
+      * `grokPattern` (`str`) - The grok pattern used by this classifier.
     """
     json_classifier: pulumi.Output[dict]
     """
     A classifier for JSON content. Defined below.
+    
+      * `jsonPath` (`str`) - A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
     """
     name: pulumi.Output[str]
     """
@@ -25,6 +31,9 @@ class Classifier(pulumi.CustomResource):
     xml_classifier: pulumi.Output[dict]
     """
     A classifier for XML content. Defined below.
+    
+      * `classification` (`str`) - An identifier of the data format that the classifier matches.
+      * `rowTag` (`str`) - The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
     """
     def __init__(__self__, resource_name, opts=None, grok_classifier=None, json_classifier=None, name=None, xml_classifier=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -38,6 +47,21 @@ class Classifier(pulumi.CustomResource):
         :param pulumi.Input[dict] json_classifier: A classifier for JSON content. Defined below.
         :param pulumi.Input[str] name: The name of the classifier.
         :param pulumi.Input[dict] xml_classifier: A classifier for XML content. Defined below.
+        
+        The **grok_classifier** object supports the following:
+        
+          * `classification` (`pulumi.Input[str]`) - An identifier of the data format that the classifier matches.
+          * `customPatterns` (`pulumi.Input[str]`) - Custom grok patterns used by this classifier.
+          * `grokPattern` (`pulumi.Input[str]`) - The grok pattern used by this classifier.
+        
+        The **json_classifier** object supports the following:
+        
+          * `jsonPath` (`pulumi.Input[str]`) - A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
+        
+        The **xml_classifier** object supports the following:
+        
+          * `classification` (`pulumi.Input[str]`) - An identifier of the data format that the classifier matches.
+          * `rowTag` (`pulumi.Input[str]`) - The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_classifier.html.markdown.
         """
@@ -81,6 +105,21 @@ class Classifier(pulumi.CustomResource):
         :param pulumi.Input[dict] json_classifier: A classifier for JSON content. Defined below.
         :param pulumi.Input[str] name: The name of the classifier.
         :param pulumi.Input[dict] xml_classifier: A classifier for XML content. Defined below.
+        
+        The **grok_classifier** object supports the following:
+        
+          * `classification` (`pulumi.Input[str]`) - An identifier of the data format that the classifier matches.
+          * `customPatterns` (`pulumi.Input[str]`) - Custom grok patterns used by this classifier.
+          * `grokPattern` (`pulumi.Input[str]`) - The grok pattern used by this classifier.
+        
+        The **json_classifier** object supports the following:
+        
+          * `jsonPath` (`pulumi.Input[str]`) - A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
+        
+        The **xml_classifier** object supports the following:
+        
+          * `classification` (`pulumi.Input[str]`) - An identifier of the data format that the classifier matches.
+          * `rowTag` (`pulumi.Input[str]`) - The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_classifier.html.markdown.
         """

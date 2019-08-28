@@ -84,6 +84,8 @@ class AwaitableGetClusterResult(GetClusterResult):
 def get_cluster(cluster_name=None,tags=None,opts=None):
     """
     Get information on an Amazon MSK Cluster.
+    
+    :param str cluster_name: Name of the cluster.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_cluster.html.markdown.
     """
@@ -92,7 +94,7 @@ def get_cluster(cluster_name=None,tags=None,opts=None):
     __args__['clusterName'] = cluster_name
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:msk/getCluster:getCluster', __args__, opts=opts).value

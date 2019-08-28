@@ -17,10 +17,24 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
     role_mappings: pulumi.Output[list]
     """
     A List of Role Mapping.
+    
+      * `ambiguousRoleResolution` (`str`) - Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
+      * `identityProvider` (`str`) - A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+      * `mappingRules` (`list`) - The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+    
+        * `claim` (`str`) - The claim name that must be present in the token, for example, "isAdmin" or "paid".
+        * `matchType` (`str`) - The match condition that specifies how closely the claim value in the IdP token must match Value.
+        * `role_arn` (`str`) - The role ARN.
+        * `value` (`str`) - A brief string that the claim must match, for example, "paid" or "yes".
+    
+      * `type` (`str`) - The role mapping type.
     """
     roles: pulumi.Output[dict]
     """
     The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+    
+      * `authenticated` (`str`)
+      * `unauthenticated` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, identity_pool_id=None, role_mappings=None, roles=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -31,6 +45,24 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format REGION:GUID.
         :param pulumi.Input[list] role_mappings: A List of Role Mapping.
         :param pulumi.Input[dict] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+        
+        The **role_mappings** object supports the following:
+        
+          * `ambiguousRoleResolution` (`pulumi.Input[str]`) - Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
+          * `identityProvider` (`pulumi.Input[str]`) - A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+          * `mappingRules` (`pulumi.Input[list]`) - The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+        
+            * `claim` (`pulumi.Input[str]`) - The claim name that must be present in the token, for example, "isAdmin" or "paid".
+            * `matchType` (`pulumi.Input[str]`) - The match condition that specifies how closely the claim value in the IdP token must match Value.
+            * `role_arn` (`pulumi.Input[str]`) - The role ARN.
+            * `value` (`pulumi.Input[str]`) - A brief string that the claim must match, for example, "paid" or "yes".
+        
+          * `type` (`pulumi.Input[str]`) - The role mapping type.
+        
+        The **roles** object supports the following:
+        
+          * `authenticated` (`pulumi.Input[str]`)
+          * `unauthenticated` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool_roles_attachment.html.markdown.
         """
@@ -76,6 +108,24 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format REGION:GUID.
         :param pulumi.Input[list] role_mappings: A List of Role Mapping.
         :param pulumi.Input[dict] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+        
+        The **role_mappings** object supports the following:
+        
+          * `ambiguousRoleResolution` (`pulumi.Input[str]`) - Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
+          * `identityProvider` (`pulumi.Input[str]`) - A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+          * `mappingRules` (`pulumi.Input[list]`) - The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+        
+            * `claim` (`pulumi.Input[str]`) - The claim name that must be present in the token, for example, "isAdmin" or "paid".
+            * `matchType` (`pulumi.Input[str]`) - The match condition that specifies how closely the claim value in the IdP token must match Value.
+            * `role_arn` (`pulumi.Input[str]`) - The role ARN.
+            * `value` (`pulumi.Input[str]`) - A brief string that the claim must match, for example, "paid" or "yes".
+        
+          * `type` (`pulumi.Input[str]`) - The role mapping type.
+        
+        The **roles** object supports the following:
+        
+          * `authenticated` (`pulumi.Input[str]`)
+          * `unauthenticated` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool_roles_attachment.html.markdown.
         """

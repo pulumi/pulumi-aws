@@ -75,6 +75,17 @@ def get_route(destination_cidr_block=None,destination_ipv6_cidr_block=None,egres
     This resource can prove useful when finding the resource
     associated with a CIDR. For example, finding the peering
     connection associated with a CIDR value.
+    
+    :param str destination_cidr_block: The CIDR block of the Route belonging to the Route Table.
+    :param str destination_ipv6_cidr_block: The IPv6 CIDR block of the Route belonging to the Route Table.
+    :param str egress_only_gateway_id: The Egress Only Gateway ID of the Route belonging to the Route Table.
+    :param str gateway_id: The Gateway ID of the Route belonging to the Route Table.
+    :param str instance_id: The Instance ID of the Route belonging to the Route Table.
+    :param str nat_gateway_id: The NAT Gateway ID of the Route belonging to the Route Table.
+    :param str network_interface_id: The Network Interface ID of the Route belonging to the Route Table.
+    :param str route_table_id: The id of the specific Route Table containing the Route entry.
+    :param str transit_gateway_id: The EC2 Transit Gateway ID of the Route belonging to the Route Table.
+    :param str vpc_peering_connection_id: The VPC Peering Connection ID of the Route belonging to the Route Table.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
     """
@@ -91,7 +102,7 @@ def get_route(destination_cidr_block=None,destination_ipv6_cidr_block=None,egres
     __args__['transitGatewayId'] = transit_gateway_id
     __args__['vpcPeeringConnectionId'] = vpc_peering_connection_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getRoute:getRoute', __args__, opts=opts).value

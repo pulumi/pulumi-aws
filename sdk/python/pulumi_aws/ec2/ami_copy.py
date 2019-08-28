@@ -22,6 +22,14 @@ class AmiCopy(pulumi.CustomResource):
     """
     Nested block describing an EBS block device that should be
     attached to created instances. The structure of this block is described below.
+    
+      * `deleteOnTermination` (`bool`)
+      * `device_name` (`str`)
+      * `encrypted` (`bool`) - Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+      * `iops` (`float`)
+      * `snapshot_id` (`str`)
+      * `volume_size` (`float`)
+      * `volumeType` (`str`)
     """
     ena_support: pulumi.Output[bool]
     """
@@ -35,6 +43,9 @@ class AmiCopy(pulumi.CustomResource):
     """
     Nested block describing an ephemeral block device that
     should be attached to created instances. The structure of this block is described below.
+    
+      * `device_name` (`str`)
+      * `virtualName` (`str`)
     """
     image_location: pulumi.Output[str]
     """
@@ -119,6 +130,21 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[str] source_ami_region: The region from which the AMI will be copied. This may be the
                same as the AWS provider region in order to create a copy within the same region.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **ebs_block_devices** object supports the following:
+        
+          * `deleteOnTermination` (`pulumi.Input[bool]`)
+          * `device_name` (`pulumi.Input[str]`)
+          * `encrypted` (`pulumi.Input[bool]`) - Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+          * `iops` (`pulumi.Input[float]`)
+          * `snapshot_id` (`pulumi.Input[str]`)
+          * `volume_size` (`pulumi.Input[float]`)
+          * `volumeType` (`pulumi.Input[str]`)
+        
+        The **ephemeral_block_devices** object supports the following:
+        
+          * `device_name` (`pulumi.Input[str]`)
+          * `virtualName` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_copy.html.markdown.
         """
@@ -204,6 +230,21 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
+        
+        The **ebs_block_devices** object supports the following:
+        
+          * `deleteOnTermination` (`pulumi.Input[bool]`)
+          * `device_name` (`pulumi.Input[str]`)
+          * `encrypted` (`pulumi.Input[bool]`) - Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+          * `iops` (`pulumi.Input[float]`)
+          * `snapshot_id` (`pulumi.Input[str]`)
+          * `volume_size` (`pulumi.Input[float]`)
+          * `volumeType` (`pulumi.Input[str]`)
+        
+        The **ephemeral_block_devices** object supports the following:
+        
+          * `device_name` (`pulumi.Input[str]`)
+          * `virtualName` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_copy.html.markdown.
         """

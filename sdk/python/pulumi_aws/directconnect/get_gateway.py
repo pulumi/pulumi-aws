@@ -49,6 +49,8 @@ class AwaitableGetGatewayResult(GetGatewayResult):
 def get_gateway(name=None,opts=None):
     """
     Retrieve information about a Direct Connect Gateway.
+    
+    :param str name: The name of the gateway to retrieve.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dx_gateway.html.markdown.
     """
@@ -56,7 +58,7 @@ def get_gateway(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:directconnect/getGateway:getGateway', __args__, opts=opts).value

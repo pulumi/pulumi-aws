@@ -21,6 +21,8 @@ class Server(pulumi.CustomResource):
     endpoint_details: pulumi.Output[dict]
     """
     The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
+    
+      * `vpc_endpoint_id` (`str`) - The ID of the VPC endpoint.
     """
     endpoint_type: pulumi.Output[str]
     """
@@ -64,6 +66,10 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        
+        The **endpoint_details** object supports the following:
+        
+          * `vpc_endpoint_id` (`pulumi.Input[str]`) - The ID of the VPC endpoint.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_server.html.markdown.
         """
@@ -119,6 +125,10 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        
+        The **endpoint_details** object supports the following:
+        
+          * `vpc_endpoint_id` (`pulumi.Input[str]`) - The ID of the VPC endpoint.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_server.html.markdown.
         """

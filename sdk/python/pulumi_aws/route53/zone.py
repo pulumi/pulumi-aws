@@ -38,6 +38,9 @@ class Zone(pulumi.CustomResource):
     vpcs: pulumi.Output[list]
     """
     Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+    
+      * `vpc_id` (`str`) - ID of the VPC to associate.
+      * `vpc_region` (`str`) - Region of the VPC to associate. Defaults to AWS provider region.
     """
     zone_id: pulumi.Output[str]
     """
@@ -55,6 +58,11 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] name: This is the name of the hosted zone.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the zone.
         :param pulumi.Input[list] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+        
+        The **vpcs** object supports the following:
+        
+          * `vpc_id` (`pulumi.Input[str]`) - ID of the VPC to associate.
+          * `vpc_region` (`pulumi.Input[str]`) - Region of the VPC to associate. Defaults to AWS provider region.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone.html.markdown.
         """
@@ -109,6 +117,11 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the zone.
         :param pulumi.Input[list] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
         :param pulumi.Input[str] zone_id: The Hosted Zone ID. This can be referenced by zone records.
+        
+        The **vpcs** object supports the following:
+        
+          * `vpc_id` (`pulumi.Input[str]`) - ID of the VPC to associate.
+          * `vpc_region` (`pulumi.Input[str]`) - Region of the VPC to associate. Defaults to AWS provider region.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone.html.markdown.
         """

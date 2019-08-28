@@ -40,11 +40,18 @@ class AwaitableGetEventCategoriesResult(GetEventCategoriesResult):
             id=self.id)
 
 def get_event_categories(source_type=None,opts=None):
+    """
+    Use this data source to access information about an existing resource.
+    
+    :param str source_type: The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_event_categories.html.markdown.
+    """
     __args__ = dict()
 
     __args__['sourceType'] = source_type
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:rds/getEventCategories:getEventCategories', __args__, opts=opts).value

@@ -46,6 +46,13 @@ class HaproxyLayer(pulumi.CustomResource):
     ebs_volumes: pulumi.Output[list]
     """
     `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+    
+      * `iops` (`float`)
+      * `mountPoint` (`str`)
+      * `numberOfDisks` (`float`)
+      * `raidLevel` (`str`)
+      * `size` (`float`)
+      * `type` (`str`)
     """
     elastic_load_balancer: pulumi.Output[str]
     """
@@ -126,6 +133,15 @@ class HaproxyLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stats_user: The username for HAProxy stats. Defaults to "opsworks".
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
+        
+        The **ebs_volumes** object supports the following:
+        
+          * `iops` (`pulumi.Input[float]`)
+          * `mountPoint` (`pulumi.Input[str]`)
+          * `numberOfDisks` (`pulumi.Input[float]`)
+          * `raidLevel` (`pulumi.Input[str]`)
+          * `size` (`pulumi.Input[float]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_haproxy_layer.html.markdown.
         """
@@ -212,6 +228,15 @@ class HaproxyLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stats_user: The username for HAProxy stats. Defaults to "opsworks".
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
+        
+        The **ebs_volumes** object supports the following:
+        
+          * `iops` (`pulumi.Input[float]`)
+          * `mountPoint` (`pulumi.Input[str]`)
+          * `numberOfDisks` (`pulumi.Input[float]`)
+          * `raidLevel` (`pulumi.Input[str]`)
+          * `size` (`pulumi.Input[float]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_haproxy_layer.html.markdown.
         """

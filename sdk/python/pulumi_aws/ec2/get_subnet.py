@@ -94,6 +94,28 @@ def get_subnet(availability_zone=None,availability_zone_id=None,cidr_block=None,
     This resource can prove useful when a module accepts a subnet id as
     an input variable and needs to, for example, determine the id of the
     VPC that the subnet belongs to.
+    
+    :param str availability_zone: The availability zone where the
+           subnet must reside.
+    :param str availability_zone_id: The ID of the Availability Zone for the subnet.
+    :param str cidr_block: The cidr block of the desired subnet.
+    :param bool default_for_az: Boolean constraint for whether the desired
+           subnet must be the default subnet for its associated availability zone.
+    :param list filters: Custom filter block as described below.
+    :param str id: The id of the specific subnet to retrieve.
+    :param str ipv6_cidr_block: The Ipv6 cidr block of the desired subnet
+    :param str state: The state that the desired subnet must have.
+    :param dict tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired subnet.
+    :param str vpc_id: The id of the VPC that the desired subnet belongs to.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - The name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+        For example, if matching against tag `Name`, use:
+      * `values` (`list`) - Set of values that are accepted for the given field.
+        A subnet will be selected if any one of the given values matches.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet.html.markdown.
     """
@@ -110,7 +132,7 @@ def get_subnet(availability_zone=None,availability_zone_id=None,cidr_block=None,
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSubnet:getSubnet', __args__, opts=opts).value

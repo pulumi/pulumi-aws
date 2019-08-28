@@ -48,6 +48,17 @@ def get_snapshot_ids(filters=None,owners=None,restorable_by_user_ids=None,opts=N
     """
     Use this data source to get a list of EBS Snapshot IDs matching the specified
     criteria.
+    
+    :param list filters: One or more name/value pairs to filter off of. There are
+           several valid keys, for a full reference, check out
+           [describe-volumes in the AWS CLI reference][1].
+    :param list owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    :param list restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`)
+      * `values` (`list`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
     """
@@ -57,7 +68,7 @@ def get_snapshot_ids(filters=None,owners=None,restorable_by_user_ids=None,opts=N
     __args__['owners'] = owners
     __args__['restorableByUserIds'] = restorable_by_user_ids
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshotIds:getSnapshotIds', __args__, opts=opts).value

@@ -57,6 +57,9 @@ def get_region(endpoint=None,name=None,opts=None):
     discover the name of the region configured within the provider. The latter
     can be useful in a child module which is inheriting an AWS provider
     configuration from its parent module.
+    
+    :param str endpoint: The EC2 endpoint of the region to select.
+    :param str name: The full name of the region to select.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.
     """
@@ -65,7 +68,7 @@ def get_region(endpoint=None,name=None,opts=None):
     __args__['endpoint'] = endpoint
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getRegion:getRegion', __args__, opts=opts).value

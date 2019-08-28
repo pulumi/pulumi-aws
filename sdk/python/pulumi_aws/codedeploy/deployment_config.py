@@ -25,10 +25,25 @@ class DeploymentConfig(pulumi.CustomResource):
     minimum_healthy_hosts: pulumi.Output[dict]
     """
     A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
+    
+      * `type` (`str`)
+      * `value` (`float`)
     """
     traffic_routing_config: pulumi.Output[dict]
     """
     A traffic_routing_config block. Traffic Routing Config is documented below.
+    
+      * `timeBasedCanary` (`dict`)
+    
+        * `interval` (`float`)
+        * `percentage` (`float`)
+    
+      * `timeBasedLinear` (`dict`)
+    
+        * `interval` (`float`)
+        * `percentage` (`float`)
+    
+      * `type` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, compute_platform=None, deployment_config_name=None, minimum_healthy_hosts=None, traffic_routing_config=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -40,6 +55,25 @@ class DeploymentConfig(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input[dict] minimum_healthy_hosts: A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
         :param pulumi.Input[dict] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
+        
+        The **minimum_healthy_hosts** object supports the following:
+        
+          * `type` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[float]`)
+        
+        The **traffic_routing_config** object supports the following:
+        
+          * `timeBasedCanary` (`pulumi.Input[dict]`)
+        
+            * `interval` (`pulumi.Input[float]`)
+            * `percentage` (`pulumi.Input[float]`)
+        
+          * `timeBasedLinear` (`pulumi.Input[dict]`)
+        
+            * `interval` (`pulumi.Input[float]`)
+            * `percentage` (`pulumi.Input[float]`)
+        
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codedeploy_deployment_config.html.markdown.
         """
@@ -87,6 +121,25 @@ class DeploymentConfig(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input[dict] minimum_healthy_hosts: A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
         :param pulumi.Input[dict] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
+        
+        The **minimum_healthy_hosts** object supports the following:
+        
+          * `type` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[float]`)
+        
+        The **traffic_routing_config** object supports the following:
+        
+          * `timeBasedCanary` (`pulumi.Input[dict]`)
+        
+            * `interval` (`pulumi.Input[float]`)
+            * `percentage` (`pulumi.Input[float]`)
+        
+          * `timeBasedLinear` (`pulumi.Input[dict]`)
+        
+            * `interval` (`pulumi.Input[float]`)
+            * `percentage` (`pulumi.Input[float]`)
+        
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codedeploy_deployment_config.html.markdown.
         """

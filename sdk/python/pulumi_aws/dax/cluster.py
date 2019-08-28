@@ -60,6 +60,11 @@ class Cluster(pulumi.CustomResource):
     List of node objects including `id`, `address`, `port` and
     `availability_zone`. Referenceable e.g. as
     `${aws_dax_cluster.test.nodes.0.address}`
+    
+      * `address` (`str`)
+      * `availability_zone` (`str`)
+      * `id` (`str`)
+      * `port` (`float`) - The port used by the configuration endpoint
     """
     notification_topic_arn: pulumi.Output[str]
     """
@@ -90,6 +95,8 @@ class Cluster(pulumi.CustomResource):
     server_side_encryption: pulumi.Output[dict]
     """
     Encrypt at rest options
+    
+      * `enabled` (`bool`) - Whether to enable encryption at rest. Defaults to `false`.
     """
     subnet_group_name: pulumi.Output[str]
     """
@@ -134,6 +141,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the
                cluster
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        
+        The **server_side_encryption** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Whether to enable encryption at rest. Defaults to `false`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_cluster.html.markdown.
         """
@@ -231,6 +242,17 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the
                cluster
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        
+        The **nodes** object supports the following:
+        
+          * `address` (`pulumi.Input[str]`)
+          * `availability_zone` (`pulumi.Input[str]`)
+          * `id` (`pulumi.Input[str]`)
+          * `port` (`pulumi.Input[float]`) - The port used by the configuration endpoint
+        
+        The **server_side_encryption** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Whether to enable encryption at rest. Defaults to `false`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_cluster.html.markdown.
         """

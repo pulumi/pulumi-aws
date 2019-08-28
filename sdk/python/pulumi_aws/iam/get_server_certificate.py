@@ -76,6 +76,11 @@ def get_server_certificate(latest=None,name=None,name_prefix=None,path_prefix=No
     
     The import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn. 
     It will not retrieve the private key which is not available through the AWS API.   
+    
+    :param bool latest: sort results by expiration date. returns the certificate with expiration date in furthest in the future.
+    :param str name: exact name of the cert to lookup
+    :param str name_prefix: prefix of cert to filter by
+    :param str path_prefix: prefix of path to filter by
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_server_certificate.html.markdown.
     """
@@ -86,7 +91,7 @@ def get_server_certificate(latest=None,name=None,name_prefix=None,path_prefix=No
     __args__['namePrefix'] = name_prefix
     __args__['pathPrefix'] = path_prefix
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getServerCertificate:getServerCertificate', __args__, opts=opts).value

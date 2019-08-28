@@ -123,6 +123,24 @@ def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=No
     This resource can prove useful when a module accepts a vpc id as
     an input variable and needs to, for example, determine the CIDR block of that
     VPC.
+    
+    :param str cidr_block: The cidr block of the desired VPC.
+    :param bool default: Boolean constraint on whether the desired VPC is
+           the default VPC for the region.
+    :param str dhcp_options_id: The DHCP options id of the desired VPC.
+    :param list filters: Custom filter block as described below.
+    :param str id: The id of the specific VPC to retrieve.
+    :param str state: The current state of the desired VPC.
+           Can be either `"pending"` or `"available"`.
+    :param dict tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired VPC.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - The name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+      * `values` (`list`) - Set of values that are accepted for the given field.
+        A VPC will be selected if any one of the given values matches.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc.html.markdown.
     """
@@ -136,7 +154,7 @@ def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=No
     __args__['state'] = state
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpc:getVpc', __args__, opts=opts).value

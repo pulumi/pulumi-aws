@@ -47,6 +47,8 @@ class AwaitableGetEndpointResult(GetEndpointResult):
 def get_endpoint(endpoint_type=None,opts=None):
     """
     Returns a unique endpoint specific to the AWS account making the call.
+    
+    :param str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Job`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iot_endpoint.html.markdown.
     """
@@ -54,7 +56,7 @@ def get_endpoint(endpoint_type=None,opts=None):
 
     __args__['endpointType'] = endpoint_type
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iot/getEndpoint:getEndpoint', __args__, opts=opts).value

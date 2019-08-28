@@ -71,6 +71,8 @@ def get_cluster(cluster_name=None,opts=None):
     """
     The ECS Cluster data source allows access to details of a specific
     cluster within an AWS ECS service.
+    
+    :param str cluster_name: The name of the ECS Cluster
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_cluster.html.markdown.
     """
@@ -78,7 +80,7 @@ def get_cluster(cluster_name=None,opts=None):
 
     __args__['clusterName'] = cluster_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecs/getCluster:getCluster', __args__, opts=opts).value

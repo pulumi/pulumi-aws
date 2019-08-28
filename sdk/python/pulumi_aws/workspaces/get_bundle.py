@@ -77,6 +77,8 @@ class AwaitableGetBundleResult(GetBundleResult):
 def get_bundle(bundle_id=None,opts=None):
     """
     Use this data source to get information about a Workspaces Bundle.
+    
+    :param str bundle_id: The ID of the bundle.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
     """
@@ -84,7 +86,7 @@ def get_bundle(bundle_id=None,opts=None):
 
     __args__['bundleId'] = bundle_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:workspaces/getBundle:getBundle', __args__, opts=opts).value

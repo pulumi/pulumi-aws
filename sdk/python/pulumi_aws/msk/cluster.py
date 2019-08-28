@@ -25,10 +25,20 @@ class Cluster(pulumi.CustomResource):
     broker_node_group_info: pulumi.Output[dict]
     """
     Configuration block for the broker nodes of the Kafka cluster.
+    
+      * `azDistribution` (`str`) - The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
+      * `clientSubnets` (`list`) - A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+      * `ebsVolumeSize` (`float`) - The size in GiB of the EBS volume for the data drive on each broker node.
+      * `instance_type` (`str`) - Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+      * `security_groups` (`list`) - A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
     """
     client_authentication: pulumi.Output[dict]
     """
     Configuration block for specifying a client authentication. See below.
+    
+      * `tls` (`dict`) - Configuration block for specifying TLS client authentication. See below.
+    
+        * `certificateAuthorityArns` (`list`) - List of ACM Certificate Authority Amazon Resource Names (ARNs).
     """
     cluster_name: pulumi.Output[str]
     """
@@ -37,6 +47,9 @@ class Cluster(pulumi.CustomResource):
     configuration_info: pulumi.Output[dict]
     """
     Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+    
+      * `arn` (`str`) - Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+      * `revision` (`float`) - Revision of the MSK Configuration to use in the cluster.
     """
     current_version: pulumi.Output[str]
     """
@@ -46,6 +59,12 @@ class Cluster(pulumi.CustomResource):
     encryption_info: pulumi.Output[dict]
     """
     Configuration block for specifying encryption. See below.
+    
+      * `encryptionAtRestKmsKeyArn` (`str`) - You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+      * `encryptionInTransit` (`dict`) - Configuration block to specify encryption in transit. See below.
+    
+        * `clientBroker` (`str`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value: `TLS_PLAINTEXT`.
+        * `inCluster` (`bool`) - Whether data communication among broker nodes is encrypted. Default value: `true`.
     """
     enhanced_monitoring: pulumi.Output[str]
     """
@@ -82,6 +101,33 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] kafka_version: Specify the desired Kafka software version.
         :param pulumi.Input[float] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        
+        The **broker_node_group_info** object supports the following:
+        
+          * `azDistribution` (`pulumi.Input[str]`) - The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
+          * `clientSubnets` (`pulumi.Input[list]`) - A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+          * `ebsVolumeSize` (`pulumi.Input[float]`) - The size in GiB of the EBS volume for the data drive on each broker node.
+          * `instance_type` (`pulumi.Input[str]`) - Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+          * `security_groups` (`pulumi.Input[list]`) - A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+        
+        The **client_authentication** object supports the following:
+        
+          * `tls` (`pulumi.Input[dict]`) - Configuration block for specifying TLS client authentication. See below.
+        
+            * `certificateAuthorityArns` (`pulumi.Input[list]`) - List of ACM Certificate Authority Amazon Resource Names (ARNs).
+        
+        The **configuration_info** object supports the following:
+        
+          * `arn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+          * `revision` (`pulumi.Input[float]`) - Revision of the MSK Configuration to use in the cluster.
+        
+        The **encryption_info** object supports the following:
+        
+          * `encryptionAtRestKmsKeyArn` (`pulumi.Input[str]`) - You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+          * `encryptionInTransit` (`pulumi.Input[dict]`) - Configuration block to specify encryption in transit. See below.
+        
+            * `clientBroker` (`pulumi.Input[str]`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value: `TLS_PLAINTEXT`.
+            * `inCluster` (`pulumi.Input[bool]`) - Whether data communication among broker nodes is encrypted. Default value: `true`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_cluster.html.markdown.
         """
@@ -154,6 +200,33 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[float] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
         :param pulumi.Input[str] zookeeper_connect_string: A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
+        
+        The **broker_node_group_info** object supports the following:
+        
+          * `azDistribution` (`pulumi.Input[str]`) - The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
+          * `clientSubnets` (`pulumi.Input[list]`) - A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+          * `ebsVolumeSize` (`pulumi.Input[float]`) - The size in GiB of the EBS volume for the data drive on each broker node.
+          * `instance_type` (`pulumi.Input[str]`) - Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+          * `security_groups` (`pulumi.Input[list]`) - A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+        
+        The **client_authentication** object supports the following:
+        
+          * `tls` (`pulumi.Input[dict]`) - Configuration block for specifying TLS client authentication. See below.
+        
+            * `certificateAuthorityArns` (`pulumi.Input[list]`) - List of ACM Certificate Authority Amazon Resource Names (ARNs).
+        
+        The **configuration_info** object supports the following:
+        
+          * `arn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+          * `revision` (`pulumi.Input[float]`) - Revision of the MSK Configuration to use in the cluster.
+        
+        The **encryption_info** object supports the following:
+        
+          * `encryptionAtRestKmsKeyArn` (`pulumi.Input[str]`) - You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+          * `encryptionInTransit` (`pulumi.Input[dict]`) - Configuration block to specify encryption in transit. See below.
+        
+            * `clientBroker` (`pulumi.Input[str]`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value: `TLS_PLAINTEXT`.
+            * `inCluster` (`pulumi.Input[bool]`) - Whether data communication among broker nodes is encrypted. Default value: `true`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_cluster.html.markdown.
         """

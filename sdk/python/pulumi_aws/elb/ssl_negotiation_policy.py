@@ -13,6 +13,9 @@ class SslNegotiationPolicy(pulumi.CustomResource):
     attributes: pulumi.Output[list]
     """
     An SSL Negotiation policy attribute. Each has two properties:
+    
+      * `name` (`str`) - The name of the attribute
+      * `value` (`str`) - The value of the attribute
     """
     lb_port: pulumi.Output[float]
     """
@@ -42,6 +45,11 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
         :param pulumi.Input[str] name: The name of the attribute
+        
+        The **attributes** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the attribute
+          * `value` (`pulumi.Input[str]`) - The value of the attribute
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_ssl_negotiation_policy.html.markdown.
         """
@@ -94,6 +102,11 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
         :param pulumi.Input[str] name: The name of the attribute
+        
+        The **attributes** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the attribute
+          * `value` (`pulumi.Input[str]`) - The value of the attribute
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_ssl_negotiation_policy.html.markdown.
         """

@@ -79,6 +79,16 @@ class AwaitableGetBucketObjectsResult(GetBucketObjectsResult):
 
 def get_bucket_objects(bucket=None,delimiter=None,encoding_type=None,fetch_owner=None,max_keys=None,prefix=None,start_after=None,opts=None):
     """
+    Use this data source to access information about an existing resource.
+    
+    :param str bucket: Lists object keys in this S3 bucket
+    :param str delimiter: A character used to group keys (Default: none)
+    :param str encoding_type: Encodes keys using this method (Default: none; besides none, only "url" can be used)
+    :param bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
+    :param float max_keys: Maximum object keys to return (Default: 1000)
+    :param str prefix: Limits results to object keys with this prefix (Default: none)
+    :param str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_objects.html.markdown.
     """
     __args__ = dict()
@@ -91,7 +101,7 @@ def get_bucket_objects(bucket=None,delimiter=None,encoding_type=None,fetch_owner
     __args__['prefix'] = prefix
     __args__['startAfter'] = start_after
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucketObjects:getBucketObjects', __args__, opts=opts).value

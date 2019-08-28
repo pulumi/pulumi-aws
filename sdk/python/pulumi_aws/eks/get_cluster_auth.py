@@ -47,6 +47,8 @@ def get_cluster_auth(name=None,opts=None):
     [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
     This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
     server configured.
+    
+    :param str name: The name of the cluster
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster_auth.html.markdown.
     """
@@ -54,7 +56,7 @@ def get_cluster_auth(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:eks/getClusterAuth:getClusterAuth', __args__, opts=opts).value

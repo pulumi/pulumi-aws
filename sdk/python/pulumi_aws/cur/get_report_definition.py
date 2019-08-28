@@ -95,6 +95,8 @@ def get_report_definition(report_name=None,opts=None):
     > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
     
     > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
+    
+    :param str report_name: The name of the report definition to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cur_report_definition.html.markdown.
     """
@@ -102,7 +104,7 @@ def get_report_definition(report_name=None,opts=None):
 
     __args__['reportName'] = report_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:cur/getReportDefinition:getReportDefinition', __args__, opts=opts).value

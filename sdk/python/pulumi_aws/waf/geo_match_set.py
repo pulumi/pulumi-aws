@@ -13,6 +13,11 @@ class GeoMatchSet(pulumi.CustomResource):
     geo_match_constraints: pulumi.Output[list]
     """
     The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
+    
+      * `type` (`str`) - The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+      * `value` (`str`) - The country that you want AWS WAF to search for.
+        This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+        See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
     """
     name: pulumi.Output[str]
     """
@@ -26,6 +31,13 @@ class GeoMatchSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] geo_match_constraints: The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[str] name: The name or description of the GeoMatchSet.
+        
+        The **geo_match_constraints** object supports the following:
+        
+          * `type` (`pulumi.Input[str]`) - The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+          * `value` (`pulumi.Input[str]`) - The country that you want AWS WAF to search for.
+            This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+            See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_geo_match_set.html.markdown.
         """
@@ -65,6 +77,13 @@ class GeoMatchSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] geo_match_constraints: The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[str] name: The name or description of the GeoMatchSet.
+        
+        The **geo_match_constraints** object supports the following:
+        
+          * `type` (`pulumi.Input[str]`) - The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+          * `value` (`pulumi.Input[str]`) - The country that you want AWS WAF to search for.
+            This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+            See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_geo_match_set.html.markdown.
         """

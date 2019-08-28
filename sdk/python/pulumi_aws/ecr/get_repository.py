@@ -63,6 +63,8 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
 def get_repository(name=None,tags=None,opts=None):
     """
     The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
+    
+    :param str name: The name of the ECR Repository.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_repository.html.markdown.
     """
@@ -71,7 +73,7 @@ def get_repository(name=None,tags=None,opts=None):
     __args__['name'] = name
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecr/getRepository:getRepository', __args__, opts=opts).value

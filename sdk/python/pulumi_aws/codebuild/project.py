@@ -17,6 +17,16 @@ class Project(pulumi.CustomResource):
     artifacts: pulumi.Output[dict]
     """
     Information about the project's build output artifacts. Artifact blocks are documented below.
+    
+      * `artifactIdentifier` (`str`) - The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+      * `encryptionDisabled` (`bool`) - If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+      * `location` (`str`) - The location of the source code from git or s3.
+      * `name` (`str`) - The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+      * `namespaceType` (`str`) - The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+      * `overrideArtifactName` (`bool`) - If set to true, a name specified in the build spec file overrides the artifact name.
+      * `packaging` (`str`) - The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+      * `path` (`str`) - If `type` is set to `S3`, this is the path to the output artifact
+      * `type` (`str`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
     """
     badge_enabled: pulumi.Output[bool]
     """
@@ -33,6 +43,10 @@ class Project(pulumi.CustomResource):
     cache: pulumi.Output[dict]
     """
     Information about the cache storage for the project. Cache blocks are documented below.
+    
+      * `location` (`str`) - The location of the source code from git or s3.
+      * `modes` (`list`) - Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, and `LOCAL_CUSTOM_CACHE`
+      * `type` (`str`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
     """
     description: pulumi.Output[str]
     """
@@ -45,10 +59,40 @@ class Project(pulumi.CustomResource):
     environment: pulumi.Output[dict]
     """
     Information about the project's build environment. Environment blocks are documented below.
+    
+      * `certificate` (`str`) - The ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
+      * `computeType` (`str`) - Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM` or `BUILD_GENERAL1_LARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
+      * `environmentVariables` (`list`) - A set of environment variables to make available to builds for this build project.
+    
+        * `name` (`str`) - The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        * `type` (`str`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        * `value` (`str`) - The environment variable's value.
+    
+      * `image` (`str`) - The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+      * `imagePullCredentialsType` (`str`) - The type of credentials AWS CodeBuild uses to pull images in your build. Available values for this parameter are `CODEBUILD` or `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials. Default to `CODEBUILD`
+      * `privilegedMode` (`bool`) - If set to true, enables running the Docker daemon inside a Docker container. Defaults to `false`.
+      * `registryCredential` (`dict`) - Information about credentials for access to a private Docker registry. Registry Credential config blocks are documented below.
+    
+        * `credential` (`str`) - The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
+        * `credentialProvider` (`str`) - The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
+    
+      * `type` (`str`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
     """
     logs_config: pulumi.Output[dict]
     """
     Configuration for the builds to store log data to CloudWatch or S3.
+    
+      * `cloudwatchLogs` (`dict`) - Configuration for the builds to store logs to CloudWatch
+    
+        * `groupName` (`str`) - The group name of the logs in CloudWatch Logs.
+        * `status` (`str`) - Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+        * `streamName` (`str`) - The stream name of the logs in CloudWatch Logs.
+    
+      * `s3Logs` (`dict`) - Configuration for the builds to store logs to S3.
+    
+        * `encryptionDisabled` (`bool`) - If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+        * `location` (`str`) - The location of the source code from git or s3.
+        * `status` (`str`) - Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
     """
     name: pulumi.Output[str]
     """
@@ -57,10 +101,33 @@ class Project(pulumi.CustomResource):
     secondary_artifacts: pulumi.Output[list]
     """
     A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
+    
+      * `artifactIdentifier` (`str`) - The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+      * `encryptionDisabled` (`bool`) - If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+      * `location` (`str`) - The location of the source code from git or s3.
+      * `name` (`str`) - The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+      * `namespaceType` (`str`) - The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+      * `overrideArtifactName` (`bool`) - If set to true, a name specified in the build spec file overrides the artifact name.
+      * `packaging` (`str`) - The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+      * `path` (`str`) - If `type` is set to `S3`, this is the path to the output artifact
+      * `type` (`str`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
     """
     secondary_sources: pulumi.Output[list]
     """
     A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
+    
+      * `auths` (`list`) - Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+    
+        * `resource` (`str`) - The resource value that applies to the specified authorization type.
+        * `type` (`str`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+    
+      * `buildspec` (`str`) - The build spec declaration to use for this build project's related builds.
+      * `gitCloneDepth` (`float`) - Truncate git history to this many commits.
+      * `insecureSsl` (`bool`) - Ignore SSL warnings when connecting to source control.
+      * `location` (`str`) - The location of the source code from git or s3.
+      * `reportBuildStatus` (`bool`) - Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+      * `sourceIdentifier` (`str`) - The source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+      * `type` (`str`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
     """
     service_role: pulumi.Output[str]
     """
@@ -69,6 +136,18 @@ class Project(pulumi.CustomResource):
     source: pulumi.Output[dict]
     """
     Information about the project's input source code. Source blocks are documented below.
+    
+      * `auths` (`list`) - Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+    
+        * `resource` (`str`) - The resource value that applies to the specified authorization type.
+        * `type` (`str`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+    
+      * `buildspec` (`str`) - The build spec declaration to use for this build project's related builds.
+      * `gitCloneDepth` (`float`) - Truncate git history to this many commits.
+      * `insecureSsl` (`bool`) - Ignore SSL warnings when connecting to source control.
+      * `location` (`str`) - The location of the source code from git or s3.
+      * `reportBuildStatus` (`bool`) - Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+      * `type` (`str`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
     """
     tags: pulumi.Output[dict]
     """
@@ -77,6 +156,10 @@ class Project(pulumi.CustomResource):
     vpc_config: pulumi.Output[dict]
     """
     Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
+    
+      * `securityGroupIds` (`list`) - The security group IDs to assign to running builds.
+      * `subnets` (`list`) - The subnet IDs within which to run builds.
+      * `vpc_id` (`str`) - The ID of the VPC within which to run builds.
     """
     def __init__(__self__, resource_name, opts=None, artifacts=None, badge_enabled=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, logs_config=None, name=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -99,6 +182,105 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[dict] source: Information about the project's input source code. Source blocks are documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] vpc_config: Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
+        
+        The **artifacts** object supports the following:
+        
+          * `artifactIdentifier` (`pulumi.Input[str]`) - The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+          * `encryptionDisabled` (`pulumi.Input[bool]`) - If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+          * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
+          * `name` (`pulumi.Input[str]`) - The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+          * `namespaceType` (`pulumi.Input[str]`) - The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+          * `overrideArtifactName` (`pulumi.Input[bool]`) - If set to true, a name specified in the build spec file overrides the artifact name.
+          * `packaging` (`pulumi.Input[str]`) - The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+          * `path` (`pulumi.Input[str]`) - If `type` is set to `S3`, this is the path to the output artifact
+          * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+        The **cache** object supports the following:
+        
+          * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
+          * `modes` (`pulumi.Input[list]`) - Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, and `LOCAL_CUSTOM_CACHE`
+          * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+        The **environment** object supports the following:
+        
+          * `certificate` (`pulumi.Input[str]`) - The ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
+          * `computeType` (`pulumi.Input[str]`) - Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM` or `BUILD_GENERAL1_LARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
+          * `environmentVariables` (`pulumi.Input[list]`) - A set of environment variables to make available to builds for this build project.
+        
+            * `name` (`pulumi.Input[str]`) - The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+            * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+            * `value` (`pulumi.Input[str]`) - The environment variable's value.
+        
+          * `image` (`pulumi.Input[str]`) - The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+          * `imagePullCredentialsType` (`pulumi.Input[str]`) - The type of credentials AWS CodeBuild uses to pull images in your build. Available values for this parameter are `CODEBUILD` or `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials. Default to `CODEBUILD`
+          * `privilegedMode` (`pulumi.Input[bool]`) - If set to true, enables running the Docker daemon inside a Docker container. Defaults to `false`.
+          * `registryCredential` (`pulumi.Input[dict]`) - Information about credentials for access to a private Docker registry. Registry Credential config blocks are documented below.
+        
+            * `credential` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
+            * `credentialProvider` (`pulumi.Input[str]`) - The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
+        
+          * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+        The **logs_config** object supports the following:
+        
+          * `cloudwatchLogs` (`pulumi.Input[dict]`) - Configuration for the builds to store logs to CloudWatch
+        
+            * `groupName` (`pulumi.Input[str]`) - The group name of the logs in CloudWatch Logs.
+            * `status` (`pulumi.Input[str]`) - Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+            * `streamName` (`pulumi.Input[str]`) - The stream name of the logs in CloudWatch Logs.
+        
+          * `s3Logs` (`pulumi.Input[dict]`) - Configuration for the builds to store logs to S3.
+        
+            * `encryptionDisabled` (`pulumi.Input[bool]`) - If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+            * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
+            * `status` (`pulumi.Input[str]`) - Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+        
+        The **secondary_artifacts** object supports the following:
+        
+          * `artifactIdentifier` (`pulumi.Input[str]`) - The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+          * `encryptionDisabled` (`pulumi.Input[bool]`) - If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+          * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
+          * `name` (`pulumi.Input[str]`) - The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+          * `namespaceType` (`pulumi.Input[str]`) - The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+          * `overrideArtifactName` (`pulumi.Input[bool]`) - If set to true, a name specified in the build spec file overrides the artifact name.
+          * `packaging` (`pulumi.Input[str]`) - The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+          * `path` (`pulumi.Input[str]`) - If `type` is set to `S3`, this is the path to the output artifact
+          * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+        The **secondary_sources** object supports the following:
+        
+          * `auths` (`pulumi.Input[list]`) - Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+        
+            * `resource` (`pulumi.Input[str]`) - The resource value that applies to the specified authorization type.
+            * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+          * `buildspec` (`pulumi.Input[str]`) - The build spec declaration to use for this build project's related builds.
+          * `gitCloneDepth` (`pulumi.Input[float]`) - Truncate git history to this many commits.
+          * `insecureSsl` (`pulumi.Input[bool]`) - Ignore SSL warnings when connecting to source control.
+          * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
+          * `reportBuildStatus` (`pulumi.Input[bool]`) - Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+          * `sourceIdentifier` (`pulumi.Input[str]`) - The source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+          * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+        The **source** object supports the following:
+        
+          * `auths` (`pulumi.Input[list]`) - Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+        
+            * `resource` (`pulumi.Input[str]`) - The resource value that applies to the specified authorization type.
+            * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+          * `buildspec` (`pulumi.Input[str]`) - The build spec declaration to use for this build project's related builds.
+          * `gitCloneDepth` (`pulumi.Input[float]`) - Truncate git history to this many commits.
+          * `insecureSsl` (`pulumi.Input[bool]`) - Ignore SSL warnings when connecting to source control.
+          * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
+          * `reportBuildStatus` (`pulumi.Input[bool]`) - Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+          * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+        The **vpc_config** object supports the following:
+        
+          * `securityGroupIds` (`pulumi.Input[list]`) - The security group IDs to assign to running builds.
+          * `subnets` (`pulumi.Input[list]`) - The subnet IDs within which to run builds.
+          * `vpc_id` (`pulumi.Input[str]`) - The ID of the VPC within which to run builds.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_project.html.markdown.
         """
@@ -176,6 +358,105 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[dict] source: Information about the project's input source code. Source blocks are documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] vpc_config: Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
+        
+        The **artifacts** object supports the following:
+        
+          * `artifactIdentifier` (`pulumi.Input[str]`) - The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+          * `encryptionDisabled` (`pulumi.Input[bool]`) - If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+          * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
+          * `name` (`pulumi.Input[str]`) - The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+          * `namespaceType` (`pulumi.Input[str]`) - The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+          * `overrideArtifactName` (`pulumi.Input[bool]`) - If set to true, a name specified in the build spec file overrides the artifact name.
+          * `packaging` (`pulumi.Input[str]`) - The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+          * `path` (`pulumi.Input[str]`) - If `type` is set to `S3`, this is the path to the output artifact
+          * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+        The **cache** object supports the following:
+        
+          * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
+          * `modes` (`pulumi.Input[list]`) - Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, and `LOCAL_CUSTOM_CACHE`
+          * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+        The **environment** object supports the following:
+        
+          * `certificate` (`pulumi.Input[str]`) - The ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
+          * `computeType` (`pulumi.Input[str]`) - Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM` or `BUILD_GENERAL1_LARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
+          * `environmentVariables` (`pulumi.Input[list]`) - A set of environment variables to make available to builds for this build project.
+        
+            * `name` (`pulumi.Input[str]`) - The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+            * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+            * `value` (`pulumi.Input[str]`) - The environment variable's value.
+        
+          * `image` (`pulumi.Input[str]`) - The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+          * `imagePullCredentialsType` (`pulumi.Input[str]`) - The type of credentials AWS CodeBuild uses to pull images in your build. Available values for this parameter are `CODEBUILD` or `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials. Default to `CODEBUILD`
+          * `privilegedMode` (`pulumi.Input[bool]`) - If set to true, enables running the Docker daemon inside a Docker container. Defaults to `false`.
+          * `registryCredential` (`pulumi.Input[dict]`) - Information about credentials for access to a private Docker registry. Registry Credential config blocks are documented below.
+        
+            * `credential` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
+            * `credentialProvider` (`pulumi.Input[str]`) - The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
+        
+          * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+        The **logs_config** object supports the following:
+        
+          * `cloudwatchLogs` (`pulumi.Input[dict]`) - Configuration for the builds to store logs to CloudWatch
+        
+            * `groupName` (`pulumi.Input[str]`) - The group name of the logs in CloudWatch Logs.
+            * `status` (`pulumi.Input[str]`) - Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+            * `streamName` (`pulumi.Input[str]`) - The stream name of the logs in CloudWatch Logs.
+        
+          * `s3Logs` (`pulumi.Input[dict]`) - Configuration for the builds to store logs to S3.
+        
+            * `encryptionDisabled` (`pulumi.Input[bool]`) - If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+            * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
+            * `status` (`pulumi.Input[str]`) - Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+        
+        The **secondary_artifacts** object supports the following:
+        
+          * `artifactIdentifier` (`pulumi.Input[str]`) - The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+          * `encryptionDisabled` (`pulumi.Input[bool]`) - If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+          * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
+          * `name` (`pulumi.Input[str]`) - The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+          * `namespaceType` (`pulumi.Input[str]`) - The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+          * `overrideArtifactName` (`pulumi.Input[bool]`) - If set to true, a name specified in the build spec file overrides the artifact name.
+          * `packaging` (`pulumi.Input[str]`) - The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+          * `path` (`pulumi.Input[str]`) - If `type` is set to `S3`, this is the path to the output artifact
+          * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+        The **secondary_sources** object supports the following:
+        
+          * `auths` (`pulumi.Input[list]`) - Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+        
+            * `resource` (`pulumi.Input[str]`) - The resource value that applies to the specified authorization type.
+            * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+          * `buildspec` (`pulumi.Input[str]`) - The build spec declaration to use for this build project's related builds.
+          * `gitCloneDepth` (`pulumi.Input[float]`) - Truncate git history to this many commits.
+          * `insecureSsl` (`pulumi.Input[bool]`) - Ignore SSL warnings when connecting to source control.
+          * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
+          * `reportBuildStatus` (`pulumi.Input[bool]`) - Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+          * `sourceIdentifier` (`pulumi.Input[str]`) - The source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+          * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+        The **source** object supports the following:
+        
+          * `auths` (`pulumi.Input[list]`) - Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+        
+            * `resource` (`pulumi.Input[str]`) - The resource value that applies to the specified authorization type.
+            * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+          * `buildspec` (`pulumi.Input[str]`) - The build spec declaration to use for this build project's related builds.
+          * `gitCloneDepth` (`pulumi.Input[float]`) - Truncate git history to this many commits.
+          * `insecureSsl` (`pulumi.Input[bool]`) - Ignore SSL warnings when connecting to source control.
+          * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
+          * `reportBuildStatus` (`pulumi.Input[bool]`) - Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+          * `type` (`pulumi.Input[str]`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        
+        The **vpc_config** object supports the following:
+        
+          * `securityGroupIds` (`pulumi.Input[list]`) - The security group IDs to assign to running builds.
+          * `subnets` (`pulumi.Input[list]`) - The subnet IDs within which to run builds.
+          * `vpc_id` (`pulumi.Input[str]`) - The ID of the VPC within which to run builds.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_project.html.markdown.
         """

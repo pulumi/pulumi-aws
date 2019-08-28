@@ -44,12 +44,27 @@ class AwaitableGetNetworkInterfacesResult(GetNetworkInterfacesResult):
             id=self.id)
 
 def get_network_interfaces(filters=None,tags=None,opts=None):
+    """
+    Use this data source to access information about an existing resource.
+    
+    :param list filters: Custom filter block as described below.
+    :param dict tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired network interfaces.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - The name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
+      * `values` (`list`) - Set of values that are accepted for the given field.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interfaces.html.markdown.
+    """
     __args__ = dict()
 
     __args__['filters'] = filters
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInterfaces:getNetworkInterfaces', __args__, opts=opts).value

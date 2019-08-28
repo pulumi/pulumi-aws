@@ -13,6 +13,14 @@ class RuleGroup(pulumi.CustomResource):
     activated_rules: pulumi.Output[list]
     """
     A list of activated rules, see below
+    
+      * `action` (`dict`) - Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+    
+        * `type` (`str`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+    
+      * `priority` (`float`) - Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+      * `rule_id` (`str`) - The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)
+      * `type` (`str`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
     """
     metric_name: pulumi.Output[str]
     """
@@ -31,6 +39,16 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[list] activated_rules: A list of activated rules, see below
         :param pulumi.Input[str] metric_name: A friendly name for the metrics from the rule group
         :param pulumi.Input[str] name: A friendly name of the rule group
+        
+        The **activated_rules** object supports the following:
+        
+          * `action` (`pulumi.Input[dict]`) - Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+        
+            * `type` (`pulumi.Input[str]`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+        
+          * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+          * `rule_id` (`pulumi.Input[str]`) - The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)
+          * `type` (`pulumi.Input[str]`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_rule_group.html.markdown.
         """
@@ -74,6 +92,16 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[list] activated_rules: A list of activated rules, see below
         :param pulumi.Input[str] metric_name: A friendly name for the metrics from the rule group
         :param pulumi.Input[str] name: A friendly name of the rule group
+        
+        The **activated_rules** object supports the following:
+        
+          * `action` (`pulumi.Input[dict]`) - Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+        
+            * `type` (`pulumi.Input[str]`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+        
+          * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+          * `rule_id` (`pulumi.Input[str]`) - The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)
+          * `type` (`pulumi.Input[str]`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_rule_group.html.markdown.
         """

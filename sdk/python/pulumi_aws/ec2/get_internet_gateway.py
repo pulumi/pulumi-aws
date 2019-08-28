@@ -54,6 +54,18 @@ class AwaitableGetInternetGatewayResult(GetInternetGatewayResult):
 def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=None):
     """
     `ec2.InternetGateway` provides details about a specific Internet Gateway.
+    
+    :param list filters: Custom filter block as described below.
+    :param str internet_gateway_id: The id of the specific Internet Gateway to retrieve.
+    :param dict tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired Internet Gateway.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - The name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html).
+      * `values` (`list`) - Set of values that are accepted for the given field.
+        An Internet Gateway will be selected if any one of the given values matches.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
     """
@@ -63,7 +75,7 @@ def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=No
     __args__['internetGatewayId'] = internet_gateway_id
     __args__['tags'] = tags
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts).value

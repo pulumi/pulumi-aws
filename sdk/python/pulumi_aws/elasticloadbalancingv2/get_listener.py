@@ -65,6 +65,10 @@ def get_listener(arn=None,load_balancer_arn=None,port=None,opts=None):
     This data source can prove useful when a module accepts an LB Listener as an
     input variable and needs to know the LB it is attached to, or other
     information specific to the listener in question.
+    
+    :param str arn: The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
+    :param str load_balancer_arn: The arn of the load balancer. Required if `arn` is not set.
+    :param float port: The port of the listener. Required if `arn` is not set.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener_legacy.html.markdown.
     """
@@ -74,7 +78,7 @@ def get_listener(arn=None,load_balancer_arn=None,port=None,opts=None):
     __args__['loadBalancerArn'] = load_balancer_arn
     __args__['port'] = port
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:elasticloadbalancingv2/getListener:getListener', __args__, opts=opts).value

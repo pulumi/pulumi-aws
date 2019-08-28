@@ -55,6 +55,24 @@ class AwaitableGetAmiIdsResult(GetAmiIdsResult):
 def get_ami_ids(executable_users=None,filters=None,name_regex=None,owners=None,sort_ascending=None,opts=None):
     """
     Use this data source to get a list of AMI IDs matching the specified criteria.
+    
+    :param list executable_users: Limit search to users with *explicit* launch
+           permission on  the image. Valid items are the numeric account ID or `self`.
+    :param list filters: One or more name/value pairs to filter off of. There
+           are several valid keys, for a full reference, check out
+           [describe-images in the AWS CLI reference][1].
+    :param str name_regex: A regex string to apply to the AMI list returned
+           by AWS. This allows more advanced filtering not supported from the AWS API.
+           This filtering is done locally on what AWS returns, and could have a performance
+           impact if the result is large. It is recommended to combine this with other
+           options to narrow down the list AWS returns.
+    :param list owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+    :param bool sort_ascending: Used to sort AMIs by creation time.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`)
+      * `values` (`list`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami_ids.html.markdown.
     """
@@ -66,7 +84,7 @@ def get_ami_ids(executable_users=None,filters=None,name_regex=None,owners=None,s
     __args__['owners'] = owners
     __args__['sortAscending'] = sort_ascending
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getAmiIds:getAmiIds', __args__, opts=opts).value

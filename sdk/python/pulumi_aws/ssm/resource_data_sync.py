@@ -17,6 +17,12 @@ class ResourceDataSync(pulumi.CustomResource):
     s3_destination: pulumi.Output[dict]
     """
     Amazon S3 configuration details for the sync.
+    
+      * `bucket_name` (`str`)
+      * `kms_key_arn` (`str`)
+      * `prefix` (`str`)
+      * `region` (`str`)
+      * `syncFormat` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, name=None, s3_destination=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -36,6 +42,14 @@ class ResourceDataSync(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name for the configuration.
         :param pulumi.Input[dict] s3_destination: Amazon S3 configuration details for the sync.
+        
+        The **s3_destination** object supports the following:
+        
+          * `bucket_name` (`pulumi.Input[str]`)
+          * `kms_key_arn` (`pulumi.Input[str]`)
+          * `prefix` (`pulumi.Input[str]`)
+          * `region` (`pulumi.Input[str]`)
+          * `syncFormat` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_resource_data_sync.html.markdown.
         """
@@ -77,6 +91,14 @@ class ResourceDataSync(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name for the configuration.
         :param pulumi.Input[dict] s3_destination: Amazon S3 configuration details for the sync.
+        
+        The **s3_destination** object supports the following:
+        
+          * `bucket_name` (`pulumi.Input[str]`)
+          * `kms_key_arn` (`pulumi.Input[str]`)
+          * `prefix` (`pulumi.Input[str]`)
+          * `region` (`pulumi.Input[str]`)
+          * `syncFormat` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_resource_data_sync.html.markdown.
         """

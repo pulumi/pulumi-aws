@@ -47,6 +47,14 @@ def get_product(filters=None,service_code=None,opts=None):
     """
     Use this data source to get the pricing information of all products in AWS.
     This data source is only available in a us-east-1 or ap-south-1 provider.
+    
+    :param list filters: A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+    :param str service_code: The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+    
+    The **filters** object supports the following:
+    
+      * `field` (`str`) - The product attribute name that you want to filter on.
+      * `value` (`str`) - The product attribute value that you want to filter on.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
     """
@@ -55,7 +63,7 @@ def get_product(filters=None,service_code=None,opts=None):
     __args__['filters'] = filters
     __args__['serviceCode'] = service_code
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:pricing/getProduct:getProduct', __args__, opts=opts).value

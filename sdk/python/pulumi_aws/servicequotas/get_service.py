@@ -42,6 +42,8 @@ class AwaitableGetServiceResult(GetServiceResult):
 def get_service(service_name=None,opts=None):
     """
     Retrieve information about a Service Quotas Service.
+    
+    :param str service_name: Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service.html.markdown.
     """
@@ -49,7 +51,7 @@ def get_service(service_name=None,opts=None):
 
     __args__['serviceName'] = service_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:servicequotas/getService:getService', __args__, opts=opts).value

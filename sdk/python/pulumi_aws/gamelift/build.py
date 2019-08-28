@@ -21,6 +21,10 @@ class Build(pulumi.CustomResource):
     storage_location: pulumi.Output[dict]
     """
     Information indicating where your game build files are stored. See below.
+    
+      * `bucket` (`str`) - Name of your S3 bucket.
+      * `key` (`str`) - Name of the zip file containing your build files.
+      * `role_arn` (`str`) - ARN of the access role that allows Amazon GameLift to access your S3 bucket.
     """
     version: pulumi.Output[str]
     """
@@ -36,6 +40,12 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[str] operating_system: Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
         :param pulumi.Input[dict] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[str] version: Version that is associated with this build.
+        
+        The **storage_location** object supports the following:
+        
+          * `bucket` (`pulumi.Input[str]`) - Name of your S3 bucket.
+          * `key` (`pulumi.Input[str]`) - Name of the zip file containing your build files.
+          * `role_arn` (`pulumi.Input[str]`) - ARN of the access role that allows Amazon GameLift to access your S3 bucket.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_build.html.markdown.
         """
@@ -83,6 +93,12 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[str] operating_system: Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
         :param pulumi.Input[dict] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[str] version: Version that is associated with this build.
+        
+        The **storage_location** object supports the following:
+        
+          * `bucket` (`pulumi.Input[str]`) - Name of your S3 bucket.
+          * `key` (`pulumi.Input[str]`) - Name of the zip file containing your build files.
+          * `role_arn` (`pulumi.Input[str]`) - ARN of the access role that allows Amazon GameLift to access your S3 bucket.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_build.html.markdown.
         """

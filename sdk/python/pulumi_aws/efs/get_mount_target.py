@@ -84,6 +84,8 @@ class AwaitableGetMountTargetResult(GetMountTargetResult):
 def get_mount_target(mount_target_id=None,opts=None):
     """
     Provides information about an Elastic File System Mount Target (EFS).
+    
+    :param str mount_target_id: ID of the mount target that you want to have described
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
     """
@@ -91,7 +93,7 @@ def get_mount_target(mount_target_id=None,opts=None):
 
     __args__['mountTargetId'] = mount_target_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:efs/getMountTarget:getMountTarget', __args__, opts=opts).value

@@ -97,6 +97,8 @@ def get_stream(name=None,opts=None):
     resources.
     
     For more details, see the [Amazon Kinesis Documentation][1].
+    
+    :param str name: The name of the Kinesis Stream.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
     """
@@ -104,7 +106,7 @@ def get_stream(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:kinesis/getStream:getStream', __args__, opts=opts).value

@@ -18,6 +18,12 @@ class Cluster(pulumi.CustomResource):
     * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
     * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
     * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
+    
+      * `awsHardwareCertificate` (`str`)
+      * `clusterCertificate` (`str`)
+      * `clusterCsr` (`str`)
+      * `hsmCertificate` (`str`)
+      * `manufacturerHardwareCertificate` (`str`)
     """
     cluster_id: pulumi.Output[str]
     """
@@ -132,6 +138,14 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[list] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The id of the VPC that the CloudHSM cluster resides in.
+        
+        The **cluster_certificates** object supports the following:
+        
+          * `awsHardwareCertificate` (`pulumi.Input[str]`)
+          * `clusterCertificate` (`pulumi.Input[str]`)
+          * `clusterCsr` (`pulumi.Input[str]`)
+          * `hsmCertificate` (`pulumi.Input[str]`)
+          * `manufacturerHardwareCertificate` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_cluster.html.markdown.
         """

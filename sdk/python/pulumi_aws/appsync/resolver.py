@@ -33,6 +33,8 @@ class Resolver(pulumi.CustomResource):
     pipeline_config: pulumi.Output[dict]
     """
     The PipelineConfig. A `pipeline_config` block is documented below.
+    
+      * `functions` (`list`)
     """
     request_template: pulumi.Output[str]
     """
@@ -60,6 +62,10 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
+        
+        The **pipeline_config** object supports the following:
+        
+          * `functions` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_resolver.html.markdown.
         """
@@ -123,6 +129,10 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
+        
+        The **pipeline_config** object supports the following:
+        
+          * `functions` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_resolver.html.markdown.
         """

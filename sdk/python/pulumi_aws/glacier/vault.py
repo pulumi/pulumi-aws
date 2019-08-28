@@ -30,6 +30,9 @@ class Vault(pulumi.CustomResource):
     notifications: pulumi.Output[list]
     """
     The notifications for the Vault. Fields documented below.
+    
+      * `events` (`list`) - You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
+      * `snsTopic` (`str`) - The SNS Topic ARN.
     """
     tags: pulumi.Output[dict]
     """
@@ -48,6 +51,11 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         :param pulumi.Input[list] notifications: The notifications for the Vault. Fields documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **notifications** object supports the following:
+        
+          * `events` (`pulumi.Input[list]`) - You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
+          * `snsTopic` (`pulumi.Input[str]`) - The SNS Topic ARN.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glacier_vault.html.markdown.
         """
@@ -96,6 +104,11 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         :param pulumi.Input[list] notifications: The notifications for the Vault. Fields documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **notifications** object supports the following:
+        
+          * `events` (`pulumi.Input[list]`) - You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
+          * `snsTopic` (`pulumi.Input[str]`) - The SNS Topic ARN.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glacier_vault.html.markdown.
         """

@@ -174,6 +174,19 @@ def get_snapshot(db_instance_identifier=None,db_snapshot_identifier=None,include
     
     > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
     See the [`rds.ClusterSnapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
+    
+    :param str db_instance_identifier: Returns the list of snapshots created by the specific db_instance
+    :param str db_snapshot_identifier: Returns information on a specific snapshot_id.
+    :param bool include_public: Set this value to true to include manual DB snapshots that are public and can be
+           copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+    :param bool include_shared: Set this value to true to include shared manual DB snapshots from other
+           AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
+           The default is `false`.
+    :param bool most_recent: If more than one result is returned, use the most
+           recent Snapshot.
+    :param str snapshot_type: The type of snapshots to be returned. If you don't specify a SnapshotType
+           value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
+           included in the returned results by default. Possible values are, `automated`, `manual`, `shared` and `public`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
     """
@@ -186,7 +199,7 @@ def get_snapshot(db_instance_identifier=None,db_snapshot_identifier=None,include
     __args__['mostRecent'] = most_recent
     __args__['snapshotType'] = snapshot_type
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:rds/getSnapshot:getSnapshot', __args__, opts=opts).value

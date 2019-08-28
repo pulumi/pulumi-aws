@@ -95,6 +95,13 @@ def get_zone(name=None,private_zone=None,resource_record_set_count=None,tags=Non
     `route53.Zone` provides details about a specific Route 53 Hosted Zone.
     
     This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
+    
+    :param str name: The Hosted Zone name of the desired Hosted Zone.
+    :param bool private_zone: Used with `name` field to get a private Hosted Zone.
+    :param dict tags: Used with `name` field. A mapping of tags, each pair of which must exactly match
+           a pair on the desired Hosted Zone.
+    :param str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
+    :param str zone_id: The Hosted Zone id of the desired Hosted Zone.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
     """
@@ -107,7 +114,7 @@ def get_zone(name=None,private_zone=None,resource_record_set_count=None,tags=Non
     __args__['vpcId'] = vpc_id
     __args__['zoneId'] = zone_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:route53/getZone:getZone', __args__, opts=opts).value

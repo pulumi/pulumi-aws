@@ -59,6 +59,11 @@ def get_invocation(function_name=None,input=None,qualifier=None,opts=None):
     Use this data source to invoke custom lambda functions as data source.
     The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
     invocation type.
+    
+    :param str function_name: The name of the lambda function.
+    :param str input: A string in JSON format that is passed as payload to the lambda function.
+    :param str qualifier: The qualifier (a.k.a version) of the lambda function. Defaults
+           to `$LATEST`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
     """
@@ -68,7 +73,7 @@ def get_invocation(function_name=None,input=None,qualifier=None,opts=None):
     __args__['input'] = input
     __args__['qualifier'] = qualifier
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:lambda/getInvocation:getInvocation', __args__, opts=opts).value

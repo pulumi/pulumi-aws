@@ -13,6 +13,11 @@ class OrganizationalUnit(pulumi.CustomResource):
     accounts: pulumi.Output[list]
     """
     List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
+    
+      * `arn` (`str`) - ARN of the organizational unit
+      * `email` (`str`) - Email of the account
+      * `id` (`str`) - Identifier of the organization unit
+      * `name` (`str`) - The name for the organizational unit
     """
     arn: pulumi.Output[str]
     """
@@ -79,6 +84,13 @@ class OrganizationalUnit(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the organizational unit
         :param pulumi.Input[str] name: The name for the organizational unit
         :param pulumi.Input[str] parent_id: ID of the parent organizational unit, which may be the root
+        
+        The **accounts** object supports the following:
+        
+          * `arn` (`pulumi.Input[str]`) - ARN of the organizational unit
+          * `email` (`pulumi.Input[str]`) - Email of the account
+          * `id` (`pulumi.Input[str]`) - Identifier of the organization unit
+          * `name` (`pulumi.Input[str]`) - The name for the organizational unit
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organizational_unit.html.markdown.
         """

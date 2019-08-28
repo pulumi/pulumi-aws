@@ -13,6 +13,9 @@ class Grant(pulumi.CustomResource):
     constraints: pulumi.Output[list]
     """
     A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+    
+      * `encryptionContextEquals` (`dict`)
+      * `encryptionContextSubset` (`dict`)
     """
     grant_creation_tokens: pulumi.Output[list]
     """
@@ -60,6 +63,11 @@ class Grant(pulumi.CustomResource):
         :param pulumi.Input[str] key_id: The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         :param pulumi.Input[str] name: A friendly name for identifying the grant.
         :param pulumi.Input[list] operations: A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
+        
+        The **constraints** object supports the following:
+        
+          * `encryptionContextEquals` (`pulumi.Input[dict]`)
+          * `encryptionContextSubset` (`pulumi.Input[dict]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_grant.html.markdown.
         """
@@ -121,6 +129,11 @@ class Grant(pulumi.CustomResource):
         :param pulumi.Input[str] key_id: The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         :param pulumi.Input[str] name: A friendly name for identifying the grant.
         :param pulumi.Input[list] operations: A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
+        
+        The **constraints** object supports the following:
+        
+          * `encryptionContextEquals` (`pulumi.Input[dict]`)
+          * `encryptionContextSubset` (`pulumi.Input[dict]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_grant.html.markdown.
         """

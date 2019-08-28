@@ -89,6 +89,27 @@ def get_vpc_peering_connection(cidr_block=None,filters=None,id=None,owner_id=Non
     """
     The VPC Peering Connection data source provides details about
     a specific VPC peering connection.
+    
+    :param str cidr_block: The CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param list filters: Custom filter block as described below.
+    :param str id: The ID of the specific VPC Peering Connection to retrieve.
+    :param str owner_id: The AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_cidr_block: The CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_owner_id: The AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_region: The region of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_vpc_id: The ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str region: The region of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param str status: The status of the specific VPC Peering Connection to retrieve.
+    :param dict tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired VPC Peering Connection.
+    :param str vpc_id: The ID of the requester VPC of the specific VPC Peering Connection to retrieve.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - The name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+      * `values` (`list`) - Set of values that are accepted for the given field.
+        A VPC Peering Connection will be selected if any one of the given values matches.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
     """
@@ -107,7 +128,7 @@ def get_vpc_peering_connection(cidr_block=None,filters=None,id=None,owner_id=Non
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection', __args__, opts=opts).value

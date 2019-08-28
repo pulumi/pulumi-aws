@@ -46,6 +46,13 @@ class GangliaLayer(pulumi.CustomResource):
     ebs_volumes: pulumi.Output[list]
     """
     `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+    
+      * `iops` (`float`)
+      * `mountPoint` (`str`)
+      * `numberOfDisks` (`float`)
+      * `raidLevel` (`str`)
+      * `size` (`float`)
+      * `type` (`str`)
     """
     elastic_load_balancer: pulumi.Output[str]
     """
@@ -111,6 +118,15 @@ class GangliaLayer(pulumi.CustomResource):
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
+        
+        The **ebs_volumes** object supports the following:
+        
+          * `iops` (`pulumi.Input[float]`)
+          * `mountPoint` (`pulumi.Input[str]`)
+          * `numberOfDisks` (`pulumi.Input[float]`)
+          * `raidLevel` (`pulumi.Input[str]`)
+          * `size` (`pulumi.Input[float]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_ganglia_layer.html.markdown.
         """
@@ -191,6 +207,15 @@ class GangliaLayer(pulumi.CustomResource):
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
+        
+        The **ebs_volumes** object supports the following:
+        
+          * `iops` (`pulumi.Input[float]`)
+          * `mountPoint` (`pulumi.Input[str]`)
+          * `numberOfDisks` (`pulumi.Input[float]`)
+          * `raidLevel` (`pulumi.Input[str]`)
+          * `size` (`pulumi.Input[float]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_ganglia_layer.html.markdown.
         """

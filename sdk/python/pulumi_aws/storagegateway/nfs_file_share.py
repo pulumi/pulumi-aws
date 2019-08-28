@@ -49,6 +49,11 @@ class NfsFileShare(pulumi.CustomResource):
     nfs_file_share_defaults: pulumi.Output[dict]
     """
     Nested argument with file share default values. More information below.
+    
+      * `directoryMode` (`str`) - The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
+      * `fileMode` (`str`) - The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
+      * `groupId` (`float`) - The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
+      * `owner_id` (`float`) - The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
     """
     object_acl: pulumi.Output[str]
     """
@@ -89,6 +94,13 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
+        
+        The **nfs_file_share_defaults** object supports the following:
+        
+          * `directoryMode` (`pulumi.Input[str]`) - The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
+          * `fileMode` (`pulumi.Input[str]`) - The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
+          * `groupId` (`pulumi.Input[float]`) - The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
+          * `owner_id` (`pulumi.Input[float]`) - The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_nfs_file_share.html.markdown.
         """
@@ -162,6 +174,13 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
+        
+        The **nfs_file_share_defaults** object supports the following:
+        
+          * `directoryMode` (`pulumi.Input[str]`) - The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
+          * `fileMode` (`pulumi.Input[str]`) - The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
+          * `groupId` (`pulumi.Input[float]`) - The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
+          * `owner_id` (`pulumi.Input[float]`) - The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_nfs_file_share.html.markdown.
         """

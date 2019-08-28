@@ -78,6 +78,8 @@ def get_server(server_id=None,opts=None):
     """
     Use this data source to get the ARN of an AWS Transfer Server for use in other
     resources.
+    
+    :param str server_id: ID for an SFTP server.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/transfer_server.html.markdown.
     """
@@ -85,7 +87,7 @@ def get_server(server_id=None,opts=None):
 
     __args__['serverId'] = server_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:transfer/getServer:getServer', __args__, opts=opts).value

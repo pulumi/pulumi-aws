@@ -13,6 +13,10 @@ class Endpoint(pulumi.CustomResource):
     authentication_options: pulumi.Output[dict]
     """
     Information about the authentication method to be used to authenticate clients.
+    
+      * `activeDirectoryId` (`str`) - The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
+      * `rootCertificateChainArn` (`str`) - The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
+      * `type` (`str`) - The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, or `directory-service-authentication` to use Active Directory authentication.
     """
     client_cidr_block: pulumi.Output[str]
     """
@@ -21,6 +25,10 @@ class Endpoint(pulumi.CustomResource):
     connection_log_options: pulumi.Output[dict]
     """
     Information about the client connection logging options.
+    
+      * `cloudwatchLogGroup` (`str`) - The name of the CloudWatch Logs log group.
+      * `cloudwatchLogStream` (`str`) - The name of the CloudWatch Logs log stream to which the connection data is published.
+      * `enabled` (`bool`) - Indicates whether connection logging is enabled.
     """
     description: pulumi.Output[str]
     """
@@ -70,6 +78,18 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
+        
+        The **authentication_options** object supports the following:
+        
+          * `activeDirectoryId` (`pulumi.Input[str]`) - The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
+          * `rootCertificateChainArn` (`pulumi.Input[str]`) - The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
+          * `type` (`pulumi.Input[str]`) - The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, or `directory-service-authentication` to use Active Directory authentication.
+        
+        The **connection_log_options** object supports the following:
+        
+          * `cloudwatchLogGroup` (`pulumi.Input[str]`) - The name of the CloudWatch Logs log group.
+          * `cloudwatchLogStream` (`pulumi.Input[str]`) - The name of the CloudWatch Logs log stream to which the connection data is published.
+          * `enabled` (`pulumi.Input[bool]`) - Indicates whether connection logging is enabled.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_client_vpn_endpoint.html.markdown.
         """
@@ -135,6 +155,18 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] status: The current state of the Client VPN endpoint.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
+        
+        The **authentication_options** object supports the following:
+        
+          * `activeDirectoryId` (`pulumi.Input[str]`) - The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
+          * `rootCertificateChainArn` (`pulumi.Input[str]`) - The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
+          * `type` (`pulumi.Input[str]`) - The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, or `directory-service-authentication` to use Active Directory authentication.
+        
+        The **connection_log_options** object supports the following:
+        
+          * `cloudwatchLogGroup` (`pulumi.Input[str]`) - The name of the CloudWatch Logs log group.
+          * `cloudwatchLogStream` (`pulumi.Input[str]`) - The name of the CloudWatch Logs log stream to which the connection data is published.
+          * `enabled` (`pulumi.Input[bool]`) - Indicates whether connection logging is enabled.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_client_vpn_endpoint.html.markdown.
         """

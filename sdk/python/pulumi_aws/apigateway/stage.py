@@ -13,6 +13,10 @@ class Stage(pulumi.CustomResource):
     access_log_settings: pulumi.Output[dict]
     """
     Enables access logs for the API stage. Detailed below.
+    
+      * `destinationArn` (`str`) - ARN of the log group to send the logs to. Automatically removes trailing `:*` if present.
+      * `format` (`str`) - The formatting and values recorded in the logs. 
+        For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
     """
     cache_cluster_enabled: pulumi.Output[bool]
     """
@@ -89,6 +93,12 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] variables: A map that defines the stage variables
         :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
+        
+        The **access_log_settings** object supports the following:
+        
+          * `destinationArn` (`pulumi.Input[str]`) - ARN of the log group to send the logs to. Automatically removes trailing `:*` if present.
+          * `format` (`pulumi.Input[str]`) - The formatting and values recorded in the logs. 
+            For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_stage.html.markdown.
         """
@@ -162,6 +172,12 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] variables: A map that defines the stage variables
         :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
+        
+        The **access_log_settings** object supports the following:
+        
+          * `destinationArn` (`pulumi.Input[str]`) - ARN of the log group to send the logs to. Automatically removes trailing `:*` if present.
+          * `format` (`pulumi.Input[str]`) - The formatting and values recorded in the logs. 
+            For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_stage.html.markdown.
         """

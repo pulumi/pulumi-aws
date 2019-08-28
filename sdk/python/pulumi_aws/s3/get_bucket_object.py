@@ -172,6 +172,10 @@ def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,
     _optionally_ (see below) content of an object stored inside S3 bucket.
     
     > **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
+    
+    :param str bucket: The name of the bucket to read the object from
+    :param str key: The full path to the object inside the bucket
+    :param str version_id: Specific version ID of the object returned (defaults to latest version)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_object.html.markdown.
     """
@@ -183,7 +187,7 @@ def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,
     __args__['tags'] = tags
     __args__['versionId'] = version_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucketObject:getBucketObject', __args__, opts=opts).value
