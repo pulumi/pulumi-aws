@@ -8,6 +8,7 @@ NODE_MODULE_NAME := @pulumi/aws
 
 TFGEN           := pulumi-tfgen-${PACK}
 PROVIDER        := pulumi-resource-${PACK}
+GENERATOR       := generate-union-types
 VERSION         := $(shell scripts/get-version)
 PYPI_VERSION    := $(shell scripts/get-py-version)
 
@@ -19,10 +20,13 @@ tfgen::
 provider::
 	go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
 
+generator::
+	go run ${PROJECT}/cmd/${GENERATOR}
+
 # NOTE: Since the plugin is published using the nodejs style semver version
 # We set the PLUGIN_VERSION to be the same as the version we use when building
 # the provider (e.g. x.y.z-dev-... instead of x.y.zdev...)
-build:: provider tfgen install_plugins
+build:: provider tfgen generator install_plugins
 	for LANGUAGE in "nodejs" "python" "go" ; do \
 		$(TFGEN) $$LANGUAGE --overlays overlays/$$LANGUAGE/ --out ${PACKDIR}/$$LANGUAGE/ || exit 3 ; \
 	done
