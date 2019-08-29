@@ -2,7 +2,7 @@
 
 # Amazon Web Services (AWS) provider
 
-The Amazon Web Services (AWS) resource provider for Pulumi lets you use AWS resources in your cloud programs.  To use
+The Amazon Web Services (AWS) resource provider for Pulumi lets you use AWS resources in your cloud programs. To use
 this package, please [install the Pulumi CLI first](https://pulumi.io/). For a streamlined Pulumi walkthrough, including language runtime installation and AWS configuration, click "Get Started" below.
 
 <div>
