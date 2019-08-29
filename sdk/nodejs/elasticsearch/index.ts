@@ -4,3 +4,4 @@
 // Export members:
 export * from "./domain";
 export * from "./domainPolicy";
+export * from "./getDomain";

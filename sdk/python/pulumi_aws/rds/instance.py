@@ -123,7 +123,8 @@ class Instance(pulumi.CustomResource):
     final_snapshot_identifier: pulumi.Output[str]
     """
     The name of your final DB snapshot
-    when this DB instance is deleted. If omitted, no final snapshot will be made.
+    when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
+    set to `false`.
     """
     hosted_zone_id: pulumi.Output[str]
     """
@@ -397,7 +398,8 @@ class Instance(pulumi.CustomResource):
                For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
                Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
-               when this DB instance is deleted. If omitted, no final snapshot will be made.
+               when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
+               set to `false`.
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or
                mappings of AWS Identity and Access Management (IAM) accounts to database
                accounts is enabled.
@@ -630,7 +632,8 @@ class Instance(pulumi.CustomResource):
                For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
                Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
-               when this DB instance is deleted. If omitted, no final snapshot will be made.
+               when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
+               set to `false`.
         :param pulumi.Input[str] hosted_zone_id: The canonical hosted zone ID of the DB instance (to be used
                in a Route 53 Alias record).
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or

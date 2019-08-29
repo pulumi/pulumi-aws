@@ -53,7 +53,7 @@ class Domain(pulumi.CustomResource):
     """
     EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
     
-      * `ebsEnabled` (`bool`) - Whether EBS volumes are attached to data nodes in the domain
+      * `ebsEnabled` (`bool`) - Whether EBS volumes are attached to data nodes in the domain.
       * `iops` (`float`) - The baseline input/output (I/O) performance of EBS volumes
         attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
       * `volume_size` (`float`) - The size of EBS volumes attached to data nodes (in GB).
@@ -159,7 +159,7 @@ class Domain(pulumi.CustomResource):
         
         The **ebs_options** object supports the following:
         
-          * `ebsEnabled` (`pulumi.Input[bool]`) - Whether EBS volumes are attached to data nodes in the domain
+          * `ebsEnabled` (`pulumi.Input[bool]`) - Whether EBS volumes are attached to data nodes in the domain.
           * `iops` (`pulumi.Input[float]`) - The baseline input/output (I/O) performance of EBS volumes
             attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
           * `volume_size` (`pulumi.Input[float]`) - The size of EBS volumes attached to data nodes (in GB).
@@ -288,7 +288,7 @@ class Domain(pulumi.CustomResource):
         
         The **ebs_options** object supports the following:
         
-          * `ebsEnabled` (`pulumi.Input[bool]`) - Whether EBS volumes are attached to data nodes in the domain
+          * `ebsEnabled` (`pulumi.Input[bool]`) - Whether EBS volumes are attached to data nodes in the domain.
           * `iops` (`pulumi.Input[float]`) - The baseline input/output (I/O) performance of EBS volumes
             attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
           * `volume_size` (`pulumi.Input[float]`) - The size of EBS volumes attached to data nodes (in GB).

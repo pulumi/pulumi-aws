@@ -1966,6 +1966,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafregional_ipset":   {Tok: awsDataSource(wafregionalMod, "getIpset")},
 			// Organizations
 			"aws_organizations_organization": {Tok: awsDataSource(organizationsMod, "getOrganization")},
+			// ElasticSearch
+			"aws_elasticsearch_domain": {Tok: awsDataSource(elasticsearchMod, "getDomain")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

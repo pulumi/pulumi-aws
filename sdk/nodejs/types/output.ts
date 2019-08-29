@@ -6931,7 +6931,7 @@ export namespace elasticsearch {
 
     export interface DomainEbsOptions {
         /**
-         * Whether EBS volumes are attached to data nodes in the domain
+         * Whether EBS volumes are attached to data nodes in the domain.
          */
         ebsEnabled: boolean;
         /**
@@ -7001,6 +7001,143 @@ export namespace elasticsearch {
          * List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
          */
         subnetIds?: string[];
+        vpcId: string;
+    }
+
+    export interface GetDomainClusterConfig {
+        /**
+         * Number of dedicated master nodes in the cluster.
+         */
+        dedicatedMasterCount: number;
+        /**
+         * Indicates whether dedicated master nodes are enabled for the cluster.
+         */
+        dedicatedMasterEnabled: boolean;
+        /**
+         * Instance type of the dedicated master nodes in the cluster.
+         */
+        dedicatedMasterType: string;
+        /**
+         * Number of instances in the cluster.
+         */
+        instanceCount: number;
+        /**
+         * Instance type of data nodes in the cluster.
+         */
+        instanceType: string;
+        /**
+         * Configuration block containing zone awareness settings.
+         */
+        zoneAwarenessConfigs: outputs.elasticsearch.GetDomainClusterConfigZoneAwarenessConfig[];
+        /**
+         * Indicates whether zone awareness is enabled.
+         */
+        zoneAwarenessEnabled: boolean;
+    }
+
+    export interface GetDomainClusterConfigZoneAwarenessConfig {
+        /**
+         * Number of availability zones used.
+         */
+        availabilityZoneCount: number;
+    }
+
+    export interface GetDomainCognitoOption {
+        /**
+         * Whether node to node encryption is enabled.
+         */
+        enabled: boolean;
+        /**
+         * The Cognito Identity pool used by the domain.
+         */
+        identityPoolId: string;
+        /**
+         * The IAM Role with the AmazonESCognitoAccess policy attached.
+         */
+        roleArn: string;
+        /**
+         * The Cognito User pool used by the domain.
+         */
+        userPoolId: string;
+    }
+
+    export interface GetDomainEbsOption {
+        /**
+         * Whether EBS volumes are attached to data nodes in the domain.
+         */
+        ebsEnabled: boolean;
+        /**
+         * The baseline input/output (I/O) performance of EBS volumes
+         * attached to data nodes.
+         */
+        iops: number;
+        /**
+         * The size of EBS volumes attached to data nodes (in GB).
+         */
+        volumeSize: number;
+        /**
+         * The type of EBS volumes attached to data nodes.
+         */
+        volumeType: string;
+    }
+
+    export interface GetDomainEncryptionAtRest {
+        /**
+         * Whether node to node encryption is enabled.
+         */
+        enabled: boolean;
+        /**
+         * The KMS key id used to encrypt data at rest.
+         */
+        kmsKeyId: string;
+    }
+
+    export interface GetDomainLogPublishingOption {
+        /**
+         * The CloudWatch Log Group where the logs are published.
+         */
+        cloudwatchLogGroupArn: string;
+        /**
+         * Whether node to node encryption is enabled.
+         */
+        enabled: boolean;
+        /**
+         * The type of Elasticsearch log being published.
+         */
+        logType: string;
+    }
+
+    export interface GetDomainNodeToNodeEncryption {
+        /**
+         * Whether node to node encryption is enabled.
+         */
+        enabled: boolean;
+    }
+
+    export interface GetDomainSnapshotOption {
+        /**
+         * Hour during which the service takes an automated daily
+         * snapshot of the indices in the domain.
+         */
+        automatedSnapshotStartHour: number;
+    }
+
+    export interface GetDomainVpcOption {
+        /**
+         * The availability zones used by the domain.
+         */
+        availabilityZones: string[];
+        /**
+         * The security groups used by the domain.
+         */
+        securityGroupIds: string[];
+        /**
+         * The subnets used by the domain.
+         */
+        subnetIds: string[];
+        /**
+         * The VPC used by the domain.
+         */
         vpcId: string;
     }
 }

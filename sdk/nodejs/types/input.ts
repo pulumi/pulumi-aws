@@ -6310,7 +6310,7 @@ export namespace elasticsearch {
 
     export interface DomainEbsOptions {
         /**
-         * Whether EBS volumes are attached to data nodes in the domain
+         * Whether EBS volumes are attached to data nodes in the domain.
          */
         ebsEnabled: pulumi.Input<boolean>;
         /**

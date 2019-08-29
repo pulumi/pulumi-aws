@@ -49,6 +49,9 @@ class Grant(pulumi.CustomResource):
     """
     retire_on_delete: pulumi.Output[bool]
     retiring_principal: pulumi.Output[str]
+    """
+    The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+    """
     def __init__(__self__, resource_name, opts=None, constraints=None, grant_creation_tokens=None, grantee_principal=None, key_id=None, name=None, operations=None, retire_on_delete=None, retiring_principal=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource-based access control mechanism for a KMS customer master key.
@@ -63,6 +66,7 @@ class Grant(pulumi.CustomResource):
         :param pulumi.Input[str] key_id: The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         :param pulumi.Input[str] name: A friendly name for identifying the grant.
         :param pulumi.Input[list] operations: A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
+        :param pulumi.Input[str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
         
         The **constraints** object supports the following:
         
@@ -129,6 +133,7 @@ class Grant(pulumi.CustomResource):
         :param pulumi.Input[str] key_id: The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         :param pulumi.Input[str] name: A friendly name for identifying the grant.
         :param pulumi.Input[list] operations: A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
+        :param pulumi.Input[str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
         
         The **constraints** object supports the following:
         
