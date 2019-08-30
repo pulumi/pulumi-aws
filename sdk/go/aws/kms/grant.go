@@ -136,6 +136,7 @@ func (r *Grant) RetireOnDelete() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["retireOnDelete"])
 }
 
+// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 func (r *Grant) RetiringPrincipal() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["retiringPrincipal"])
 }
@@ -161,6 +162,7 @@ type GrantState struct {
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
 	Operations interface{}
 	RetireOnDelete interface{}
+	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	RetiringPrincipal interface{}
 }
 
@@ -181,5 +183,6 @@ type GrantArgs struct {
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
 	Operations interface{}
 	RetireOnDelete interface{}
+	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	RetiringPrincipal interface{}
 }

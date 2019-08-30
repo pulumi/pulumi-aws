@@ -213,7 +213,8 @@ export class Instance extends pulumi.CustomResource {
     public readonly engineVersion!: pulumi.Output<string>;
     /**
      * The name of your final DB snapshot
-     * when this DB instance is deleted. If omitted, no final snapshot will be made.
+     * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
+     * set to `false`.
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -665,7 +666,8 @@ export interface InstanceState {
     readonly engineVersion?: pulumi.Input<string>;
     /**
      * The name of your final DB snapshot
-     * when this DB instance is deleted. If omitted, no final snapshot will be made.
+     * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
+     * set to `false`.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
@@ -958,7 +960,8 @@ export interface InstanceArgs {
     readonly engineVersion?: pulumi.Input<string>;
     /**
      * The name of your final DB snapshot
-     * when this DB instance is deleted. If omitted, no final snapshot will be made.
+     * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
+     * set to `false`.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**

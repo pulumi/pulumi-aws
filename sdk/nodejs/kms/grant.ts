@@ -112,6 +112,9 @@ export class Grant extends pulumi.CustomResource {
      */
     public readonly operations!: pulumi.Output<string[]>;
     public readonly retireOnDelete!: pulumi.Output<boolean | undefined>;
+    /**
+     * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+     */
     public readonly retiringPrincipal!: pulumi.Output<string | undefined>;
 
     /**
@@ -208,6 +211,9 @@ export interface GrantState {
      */
     readonly operations?: pulumi.Input<pulumi.Input<string>[]>;
     readonly retireOnDelete?: pulumi.Input<boolean>;
+    /**
+     * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+     */
     readonly retiringPrincipal?: pulumi.Input<string>;
 }
 
@@ -242,5 +248,8 @@ export interface GrantArgs {
      */
     readonly operations: pulumi.Input<pulumi.Input<string>[]>;
     readonly retireOnDelete?: pulumi.Input<boolean>;
+    /**
+     * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+     */
     readonly retiringPrincipal?: pulumi.Input<string>;
 }
