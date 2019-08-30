@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.26.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 1.0.0-rc.2 (2019-08-30)
+* Upgrade to v2.26.0 of the AWS Terraform Provider
 
 ## 1.0.0-rc.1 (2019-08-28)
 * Update to pulumi-terraform@3f206601e7
