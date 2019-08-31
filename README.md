@@ -1,9 +1,20 @@
 [![Build Status](https://travis-ci.com/pulumi/pulumi-aws.svg?token=eHg7Zp5zdDDJfTjY8ejq&branch=master)](https://travis-ci.com/pulumi/pulumi-aws)
+[![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
+[![NPM version](https://badge.fury.io/js/%40pulumi%2Fpulumi.svg)](https://npmjs.com/package/@pulumi/pulumi)
+[![Python version](https://badge.fury.io/py/pulumi.svg)](https://pypi.org/project/pulumi)
+[![GoDoc](https://godoc.org/github.com/pulumi/pulumi?status.svg)](https://godoc.org/github.com/pulumi/pulumi)
+[![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi/blob/master/LICENSE)
 
 # Amazon Web Services (AWS) provider
 
-The Amazon Web Services (AWS) resource provider for Pulumi lets you use AWS resources in your cloud programs.  To use
-this package, please [install the Pulumi CLI first](https://pulumi.io/).
+The Amazon Web Services (AWS) resource provider for Pulumi lets you use AWS resources in your cloud programs. To use
+this package, please [install the Pulumi CLI first](https://pulumi.io/). For a streamlined Pulumi walkthrough, including language runtime installation and AWS configuration, click "Get Started" below.
+
+<div>
+    <a href="https://www.pulumi.com/docs/get-started/aws" title="Get Started">
+       <img src="https://www.pulumi.com/images/get-started.svg" width="120">
+    </a>
+</div>
 
 ## Installing
 
