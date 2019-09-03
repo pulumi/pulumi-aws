@@ -13,6 +13,9 @@ PYPI_VERSION    := $(shell scripts/get-py-version)
 
 TESTPARALLELISM := 10
 
+# Set NOPROXY to true to skip GOPROXY on 'ensure'
+NOPROXY := false
+
 tfgen::
 	go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
 
