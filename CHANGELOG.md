@@ -6,6 +6,9 @@ _(none)_
 
 ---
 
+## 1.0.0 (2019-09-03)
+* Use 1.0 version of Pulumi dependency
+
 ## 1.0.0-rc.2 (2019-08-30)
 * Upgrade to v2.26.0 of the AWS Terraform Provider
 
