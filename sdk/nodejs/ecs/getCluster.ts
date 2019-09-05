@@ -70,6 +70,10 @@ export interface GetClusterResult {
      */
     readonly runningTasksCount: number;
     /**
+     * The settings associated with the ECS Cluster.
+     */
+    readonly settings: outputs.ecs.GetClusterSetting[];
+    /**
      * The status of the ECS Cluster
      */
     readonly status: string;

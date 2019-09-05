@@ -280,6 +280,11 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      * is redshift). More details are given below.
      */
     public readonly s3Configuration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamS3Configuration | undefined>;
+    /**
+     * Encrypt at rest options.
+     * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     */
+    public readonly serverSideEncryption!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamServerSideEncryption | undefined>;
     public readonly splunkConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration | undefined>;
     /**
      * A mapping of tags to assign to the resource.
@@ -311,6 +316,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["redshiftConfiguration"] = state ? state.redshiftConfiguration : undefined;
             inputs["s3Configuration"] = state ? state.s3Configuration : undefined;
+            inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             inputs["splunkConfiguration"] = state ? state.splunkConfiguration : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["versionId"] = state ? state.versionId : undefined;
@@ -328,6 +334,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["redshiftConfiguration"] = args ? args.redshiftConfiguration : undefined;
             inputs["s3Configuration"] = args ? args.s3Configuration : undefined;
+            inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             inputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["versionId"] = args ? args.versionId : undefined;
@@ -381,6 +388,11 @@ export interface FirehoseDeliveryStreamState {
      * is redshift). More details are given below.
      */
     readonly s3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamS3Configuration>;
+    /**
+     * Encrypt at rest options.
+     * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     */
+    readonly serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
     readonly splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
     /**
      * A mapping of tags to assign to the resource.
@@ -430,6 +442,11 @@ export interface FirehoseDeliveryStreamArgs {
      * is redshift). More details are given below.
      */
     readonly s3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamS3Configuration>;
+    /**
+     * Encrypt at rest options.
+     * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     */
+    readonly serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
     readonly splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
     /**
      * A mapping of tags to assign to the resource.

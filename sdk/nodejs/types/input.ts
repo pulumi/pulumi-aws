@@ -45,10 +45,12 @@ export interface ProviderAssumeRole {
 export interface ProviderEndpoint {
     acm?: pulumi.Input<string>;
     acmpca?: pulumi.Input<string>;
+    amplify?: pulumi.Input<string>;
     apigateway?: pulumi.Input<string>;
     applicationautoscaling?: pulumi.Input<string>;
     applicationinsights?: pulumi.Input<string>;
     appmesh?: pulumi.Input<string>;
+    appstream?: pulumi.Input<string>;
     appsync?: pulumi.Input<string>;
     athena?: pulumi.Input<string>;
     autoscaling?: pulumi.Input<string>;
@@ -105,6 +107,8 @@ export interface ProviderEndpoint {
     iam?: pulumi.Input<string>;
     inspector?: pulumi.Input<string>;
     iot?: pulumi.Input<string>;
+    iotanalytics?: pulumi.Input<string>;
+    iotevents?: pulumi.Input<string>;
     kafka?: pulumi.Input<string>;
     kinesis?: pulumi.Input<string>;
     kinesisAnalytics?: pulumi.Input<string>;
@@ -128,6 +132,7 @@ export interface ProviderEndpoint {
     neptune?: pulumi.Input<string>;
     opsworks?: pulumi.Input<string>;
     organizations?: pulumi.Input<string>;
+    personalize?: pulumi.Input<string>;
     pinpoint?: pulumi.Input<string>;
     pricing?: pulumi.Input<string>;
     quicksight?: pulumi.Input<string>;
@@ -5538,6 +5543,14 @@ export namespace ec2transitgateway {
 }
 
 export namespace ecs {
+    export interface ClusterSetting {
+        /**
+         * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+         */
+        name: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
     export interface ServiceDeploymentController {
         type?: pulumi.Input<string>;
     }
@@ -8548,6 +8561,13 @@ export namespace kinesis {
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamServerSideEncryption {
+        /**
+         * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+         */
+        enabled?: pulumi.Input<boolean>;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfiguration {

@@ -18,18 +18,38 @@ class Cluster(pulumi.CustomResource):
     """
     The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
     """
+    settings: pulumi.Output[list]
+    """
+    Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+    
+      * `name` (`str`) - The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+      * `value` (`str`)
+    """
     tags: pulumi.Output[dict]
     """
     Key-value mapping of resource tags
     """
-    def __init__(__self__, resource_name, opts=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, settings=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an ECS cluster.
+        
+        ## setting
+        
+        The `setting` configuration block supports the following:
+        
+        * `name` - (Required) Name of the setting to manage. Valid values: `containerInsights`.
+        * `value` -  (Required) The value to assign to the setting. Value values are `enabled` and `disabled`.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+        :param pulumi.Input[list] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        
+        The **settings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+          * `value` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
         """
@@ -51,6 +71,7 @@ class Cluster(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
+            __props__['settings'] = settings
             __props__['tags'] = tags
             __props__['arn'] = None
         super(Cluster, __self__).__init__(
@@ -60,7 +81,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, name=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, name=None, settings=None, tags=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -70,7 +91,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the cluster
         :param pulumi.Input[str] name: The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+        :param pulumi.Input[list] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        
+        The **settings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+          * `value` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
         """
@@ -79,6 +106,7 @@ class Cluster(pulumi.CustomResource):
         __props__ = dict()
         __props__["arn"] = arn
         __props__["name"] = name
+        __props__["settings"] = settings
         __props__["tags"] = tags
         return Cluster(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

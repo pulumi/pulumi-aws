@@ -5991,6 +5991,19 @@ export namespace ec2transitgateway {
 }
 
 export namespace ecs {
+    export interface ClusterSetting {
+        /**
+         * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+         */
+        name: string;
+        value: string;
+    }
+
+    export interface GetClusterSetting {
+        name: string;
+        value: string;
+    }
+
     export interface ServiceDeploymentController {
         type?: string;
     }
@@ -9329,6 +9342,13 @@ export namespace kinesis {
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
+    }
+
+    export interface FirehoseDeliveryStreamServerSideEncryption {
+        /**
+         * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+         */
+        enabled?: boolean;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfiguration {

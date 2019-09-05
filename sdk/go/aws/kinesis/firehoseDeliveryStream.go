@@ -34,6 +34,7 @@ func NewFirehoseDeliveryStream(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["redshiftConfiguration"] = nil
 		inputs["s3Configuration"] = nil
+		inputs["serverSideEncryption"] = nil
 		inputs["splunkConfiguration"] = nil
 		inputs["tags"] = nil
 		inputs["versionId"] = nil
@@ -47,6 +48,7 @@ func NewFirehoseDeliveryStream(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["redshiftConfiguration"] = args.RedshiftConfiguration
 		inputs["s3Configuration"] = args.S3Configuration
+		inputs["serverSideEncryption"] = args.ServerSideEncryption
 		inputs["splunkConfiguration"] = args.SplunkConfiguration
 		inputs["tags"] = args.Tags
 		inputs["versionId"] = args.VersionId
@@ -73,6 +75,7 @@ func GetFirehoseDeliveryStream(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["redshiftConfiguration"] = state.RedshiftConfiguration
 		inputs["s3Configuration"] = state.S3Configuration
+		inputs["serverSideEncryption"] = state.ServerSideEncryption
 		inputs["splunkConfiguration"] = state.SplunkConfiguration
 		inputs["tags"] = state.Tags
 		inputs["versionId"] = state.VersionId
@@ -141,6 +144,12 @@ func (r *FirehoseDeliveryStream) S3Configuration() *pulumi.Output {
 	return r.s.State["s3Configuration"]
 }
 
+// Encrypt at rest options.
+// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+func (r *FirehoseDeliveryStream) ServerSideEncryption() *pulumi.Output {
+	return r.s.State["serverSideEncryption"]
+}
+
 func (r *FirehoseDeliveryStream) SplunkConfiguration() *pulumi.Output {
 	return r.s.State["splunkConfiguration"]
 }
@@ -177,6 +186,9 @@ type FirehoseDeliveryStreamState struct {
 	// Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
 	// is redshift). More details are given below.
 	S3Configuration interface{}
+	// Encrypt at rest options.
+	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+	ServerSideEncryption interface{}
 	SplunkConfiguration interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -206,6 +218,9 @@ type FirehoseDeliveryStreamArgs struct {
 	// Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
 	// is redshift). More details are given below.
 	S3Configuration interface{}
+	// Encrypt at rest options.
+	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+	ServerSideEncryption interface{}
 	SplunkConfiguration interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
