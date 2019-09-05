@@ -131,6 +131,8 @@ github.com/aws/aws-sdk-go v1.21.7/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN
 github.com/aws/aws-sdk-go v1.22.0/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN924inxo=
 github.com/aws/aws-sdk-go v1.23.0 h1:ilfJN/vJtFo1XDFxB2YMBYGeOvGZl6Qow17oyD4+Z9A=
 github.com/aws/aws-sdk-go v1.23.0/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN924inxo=
+github.com/aws/aws-sdk-go v1.23.15 h1:ut2ZzO0A34Ds18NXvvkWWKyO4aZqQ9uZquslWzCQvGU=
+github.com/aws/aws-sdk-go v1.23.15/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN924inxo=
 github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f/go.mod h1:AuiFmCCPBSrqvVMvuqFuk0qogytodnVFVSN5CeJB8Gc=
 github.com/beevik/etree v1.1.0 h1:T0xke/WvNtMoCqgzPhkX2r4rjY3GDZFi+FjpRZY2Jbs=
 github.com/beevik/etree v1.1.0/go.mod h1:r8Aw8JqVegEf0w2fDnATrX9VpkMcyFeM0FhwO62wh+A=
@@ -781,6 +783,10 @@ github.com/pulumi/pulumi-terraform v0.18.4-0.20190905205929-ed0b5c29edd1 h1:LDuW
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190905205929-ed0b5c29edd1/go.mod h1:9u1l2SF/x/tsSMzlCPFqdHB45V0htFD6aa+7mtbA2/Q=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20190829204928-a19bb9b87d1 h1:22zeMgR/c1PwUDOqc8SAHYWC4i9OhbOPK0Wr5FcmJY4=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20190829204928-a19bb9b87d1/go.mod h1:Yc+SQyXHUSQkxM3hi7lzaOnD5uu21v0xNyVMcOGsj9Y=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20190905203329-f456b1beaedc h1:UlZAw4duifvPHxDa12zBGmL6iysTdqaDLYaQ3KzUEOU=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20190905203329-f456b1beaedc/go.mod h1:ywfllIO2LPlzOyLYBUE8N1vr1AMiK1CiEP1bA4I8zVc=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20190905221946-5fe3ff1db123 h1:NJ7/Ow25n5Bwku04RWyNvVgbpyN0fsVceMg+DPaA9zg=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20190905221946-5fe3ff1db123/go.mod h1:ywfllIO2LPlzOyLYBUE8N1vr1AMiK1CiEP1bA4I8zVc=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/reconquest/loreley v0.0.0-20160708080500-2ab6b7470a54 h1:J2RvHxEMIzMV6XbaZIj9s5G4lG3hhqWxS7Cl1Jii44c=
