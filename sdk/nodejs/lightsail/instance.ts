@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * ### OS Only
  * 
  * - `amazonLinux20180302`
- * - `centos7180501`
+ * - `centos7190101`
  * - `debian87`
  * - `debian95`
  * - `freebsd111`
@@ -143,11 +143,6 @@ export class Instance extends pulumi.CustomResource {
 
     /**
      * The ARN of the Lightsail instance (matches `id`).
-     * * `availabilityZone`
-     * * `blueprintId`
-     * * `bundleId`
-     * * `keyPairName`
-     * * `userData`
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -165,6 +160,14 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly bundleId!: pulumi.Output<string>;
     public /*out*/ readonly cpuCount!: pulumi.Output<number>;
+    /**
+     * The timestamp when the instance was created.
+     * * `availabilityZone`
+     * * `blueprintId`
+     * * `bundleId`
+     * * `keyPairName`
+     * * `userData`
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public /*out*/ readonly ipv6Address!: pulumi.Output<string>;
     public /*out*/ readonly isStaticIp!: pulumi.Output<boolean>;
@@ -263,11 +266,6 @@ export class Instance extends pulumi.CustomResource {
 export interface InstanceState {
     /**
      * The ARN of the Lightsail instance (matches `id`).
-     * * `availabilityZone`
-     * * `blueprintId`
-     * * `bundleId`
-     * * `keyPairName`
-     * * `userData`
      */
     readonly arn?: pulumi.Input<string>;
     /**
@@ -285,6 +283,14 @@ export interface InstanceState {
      */
     readonly bundleId?: pulumi.Input<string>;
     readonly cpuCount?: pulumi.Input<number>;
+    /**
+     * The timestamp when the instance was created.
+     * * `availabilityZone`
+     * * `blueprintId`
+     * * `bundleId`
+     * * `keyPairName`
+     * * `userData`
+     */
     readonly createdAt?: pulumi.Input<string>;
     readonly ipv6Address?: pulumi.Input<string>;
     readonly isStaticIp?: pulumi.Input<boolean>;

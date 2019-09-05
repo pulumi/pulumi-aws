@@ -209,6 +209,13 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
       * `prefix` (`str`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
       * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
     """
+    server_side_encryption: pulumi.Output[dict]
+    """
+    Encrypt at rest options.
+    Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+    
+      * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+    """
     splunk_configuration: pulumi.Output[dict]
     tags: pulumi.Output[dict]
     """
@@ -218,7 +225,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     """
     Specifies the table version for the output data schema. Defaults to `LATEST`.
     """
-    def __init__(__self__, resource_name, opts=None, arn=None, destination=None, destination_id=None, elasticsearch_configuration=None, extended_s3_configuration=None, kinesis_source_configuration=None, name=None, redshift_configuration=None, s3_configuration=None, splunk_configuration=None, tags=None, version_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, arn=None, destination=None, destination_id=None, elasticsearch_configuration=None, extended_s3_configuration=None, kinesis_source_configuration=None, name=None, redshift_configuration=None, s3_configuration=None, server_side_encryption=None, splunk_configuration=None, tags=None, version_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
         
@@ -237,6 +244,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                `s3_configuration` block. More details are given below.
         :param pulumi.Input[dict] s3_configuration: Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
                is redshift). More details are given below.
+        :param pulumi.Input[dict] server_side_encryption: Encrypt at rest options.
+               Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
         
@@ -442,6 +451,10 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             be used.
           * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
           * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        
+        The **server_side_encryption** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
         
         The **splunk_configuration** object supports the following:
         
@@ -500,6 +513,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             __props__['name'] = name
             __props__['redshift_configuration'] = redshift_configuration
             __props__['s3_configuration'] = s3_configuration
+            __props__['server_side_encryption'] = server_side_encryption
             __props__['splunk_configuration'] = splunk_configuration
             __props__['tags'] = tags
             __props__['version_id'] = version_id
@@ -510,7 +524,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, destination=None, destination_id=None, elasticsearch_configuration=None, extended_s3_configuration=None, kinesis_source_configuration=None, name=None, redshift_configuration=None, s3_configuration=None, splunk_configuration=None, tags=None, version_id=None):
+    def get(resource_name, id, opts=None, arn=None, destination=None, destination_id=None, elasticsearch_configuration=None, extended_s3_configuration=None, kinesis_source_configuration=None, name=None, redshift_configuration=None, s3_configuration=None, server_side_encryption=None, splunk_configuration=None, tags=None, version_id=None):
         """
         Get an existing FirehoseDeliveryStream resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -529,6 +543,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                `s3_configuration` block. More details are given below.
         :param pulumi.Input[dict] s3_configuration: Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
                is redshift). More details are given below.
+        :param pulumi.Input[dict] server_side_encryption: Encrypt at rest options.
+               Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
         
@@ -735,6 +751,10 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
           * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
         
+        The **server_side_encryption** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        
         The **splunk_configuration** object supports the following:
         
           * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
@@ -776,6 +796,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         __props__["name"] = name
         __props__["redshift_configuration"] = redshift_configuration
         __props__["s3_configuration"] = s3_configuration
+        __props__["server_side_encryption"] = server_side_encryption
         __props__["splunk_configuration"] = splunk_configuration
         __props__["tags"] = tags
         __props__["version_id"] = version_id

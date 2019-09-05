@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -15,6 +17,13 @@ import * as utilities from "../utilities";
  * 
  * const foo = new aws.ecs.Cluster("foo", {});
  * ```
+ * 
+ * ## setting
+ * 
+ * The `setting` configuration block supports the following:
+ * 
+ * * `name` - (Required) Name of the setting to manage. Valid values: `containerInsights`.
+ * * `value` -  (Required) The value to assign to the setting. Value values are `enabled` and `disabled`.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
  */
@@ -54,6 +63,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+     */
+    public readonly settings!: pulumi.Output<outputs.ecs.ClusterSetting[]>;
+    /**
      * Key-value mapping of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
@@ -72,10 +85,12 @@ export class Cluster extends pulumi.CustomResource {
             const state = argsOrState as ClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["settings"] = state ? state.settings : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["settings"] = args ? args.settings : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -103,6 +118,10 @@ export interface ClusterState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+     */
+    readonly settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
+    /**
      * Key-value mapping of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
@@ -116,6 +135,10 @@ export interface ClusterArgs {
      * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+     */
+    readonly settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
     /**
      * Key-value mapping of resource tags
      */

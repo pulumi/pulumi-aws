@@ -39,7 +39,7 @@ import (
 // ### OS Only
 // 
 // - `amazonLinux20180302`
-// - `centos7180501`
+// - `centos7190101`
 // - `debian87`
 // - `debian95`
 // - `freebsd111`
@@ -189,11 +189,6 @@ func (r *Instance) ID() *pulumi.IDOutput {
 }
 
 // The ARN of the Lightsail instance (matches `id`).
-// * `availabilityZone`
-// * `blueprintId`
-// * `bundleId`
-// * `keyPairName`
-// * `userData`
 func (r *Instance) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
@@ -219,6 +214,12 @@ func (r *Instance) CpuCount() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["cpuCount"])
 }
 
+// The timestamp when the instance was created.
+// * `availabilityZone`
+// * `blueprintId`
+// * `bundleId`
+// * `keyPairName`
+// * `userData`
 func (r *Instance) CreatedAt() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["createdAt"])
 }
@@ -271,11 +272,6 @@ func (r *Instance) Username() *pulumi.StringOutput {
 // Input properties used for looking up and filtering Instance resources.
 type InstanceState struct {
 	// The ARN of the Lightsail instance (matches `id`).
-	// * `availabilityZone`
-	// * `blueprintId`
-	// * `bundleId`
-	// * `keyPairName`
-	// * `userData`
 	Arn interface{}
 	// The Availability Zone in which to create your
 	// instance (see list below)
@@ -286,6 +282,12 @@ type InstanceState struct {
 	// The bundle of specification information (see list below)
 	BundleId interface{}
 	CpuCount interface{}
+	// The timestamp when the instance was created.
+	// * `availabilityZone`
+	// * `blueprintId`
+	// * `bundleId`
+	// * `keyPairName`
+	// * `userData`
 	CreatedAt interface{}
 	Ipv6Address interface{}
 	IsStaticIp interface{}

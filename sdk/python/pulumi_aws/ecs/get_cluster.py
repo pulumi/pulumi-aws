@@ -13,7 +13,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, cluster_name=None, pending_tasks_count=None, registered_container_instances_count=None, running_tasks_count=None, status=None, id=None):
+    def __init__(__self__, arn=None, cluster_name=None, pending_tasks_count=None, registered_container_instances_count=None, running_tasks_count=None, settings=None, status=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -41,6 +41,12 @@ class GetClusterResult:
         """
         The number of running tasks for the ECS Cluster
         """
+        if settings and not isinstance(settings, list):
+            raise TypeError("Expected argument 'settings' to be a list")
+        __self__.settings = settings
+        """
+        The settings associated with the ECS Cluster.
+        """
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         __self__.status = status
@@ -64,6 +70,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             pending_tasks_count=self.pending_tasks_count,
             registered_container_instances_count=self.registered_container_instances_count,
             running_tasks_count=self.running_tasks_count,
+            settings=self.settings,
             status=self.status,
             id=self.id)
 
@@ -91,5 +98,6 @@ def get_cluster(cluster_name=None,opts=None):
         pending_tasks_count=__ret__.get('pendingTasksCount'),
         registered_container_instances_count=__ret__.get('registeredContainerInstancesCount'),
         running_tasks_count=__ret__.get('runningTasksCount'),
+        settings=__ret__.get('settings'),
         status=__ret__.get('status'),
         id=__ret__.get('id'))

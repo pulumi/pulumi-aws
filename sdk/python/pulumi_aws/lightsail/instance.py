@@ -13,11 +13,6 @@ class Instance(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
     The ARN of the Lightsail instance (matches `id`).
-    * `availability_zone`
-    * `blueprint_id`
-    * `bundle_id`
-    * `key_pair_name`
-    * `user_data`
     """
     availability_zone: pulumi.Output[str]
     """
@@ -35,6 +30,14 @@ class Instance(pulumi.CustomResource):
     """
     cpu_count: pulumi.Output[float]
     created_at: pulumi.Output[str]
+    """
+    The timestamp when the instance was created.
+    * `availability_zone`
+    * `blueprint_id`
+    * `bundle_id`
+    * `key_pair_name`
+    * `user_data`
+    """
     ipv6_address: pulumi.Output[str]
     is_static_ip: pulumi.Output[bool]
     key_pair_name: pulumi.Output[str]
@@ -91,7 +94,7 @@ class Instance(pulumi.CustomResource):
         ### OS Only
         
         - `amazon_linux_2018_03_0_2`
-        - `centos_7_1805_01`
+        - `centos_7_1901_01`
         - `debian_8_7`
         - `debian_9_5`
         - `freebsd_11_1`
@@ -219,16 +222,17 @@ class Instance(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the Lightsail instance (matches `id`).
-               * `availability_zone`
-               * `blueprint_id`
-               * `bundle_id`
-               * `key_pair_name`
-               * `user_data`
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your
                instance (see list below)
         :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image
                (see list below)
         :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
+        :param pulumi.Input[str] created_at: The timestamp when the instance was created.
+               * `availability_zone`
+               * `blueprint_id`
+               * `bundle_id`
+               * `key_pair_name`
+               * `user_data`
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
                Lightsail console (cannot use `ec2.KeyPair` at this time)
         :param pulumi.Input[str] name: The name of the Lightsail Instance

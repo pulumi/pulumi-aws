@@ -8,6 +8,13 @@ import (
 )
 
 // Provides an ECS cluster.
+// 
+// ## setting
+// 
+// The `setting` configuration block supports the following:
+// 
+// * `name` - (Required) Name of the setting to manage. Valid values: `containerInsights`.
+// * `value` -  (Required) The value to assign to the setting. Value values are `enabled` and `disabled`.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
 type Cluster struct {
@@ -20,9 +27,11 @@ func NewCluster(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["name"] = nil
+		inputs["settings"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["name"] = args.Name
+		inputs["settings"] = args.Settings
 		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
@@ -41,6 +50,7 @@ func GetCluster(ctx *pulumi.Context,
 	if state != nil {
 		inputs["arn"] = state.Arn
 		inputs["name"] = state.Name
+		inputs["settings"] = state.Settings
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:ecs/cluster:Cluster", name, id, inputs, opts...)
@@ -70,6 +80,11 @@ func (r *Cluster) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+func (r *Cluster) Settings() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["settings"])
+}
+
 // Key-value mapping of resource tags
 func (r *Cluster) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
@@ -81,6 +96,8 @@ type ClusterState struct {
 	Arn interface{}
 	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name interface{}
+	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+	Settings interface{}
 	// Key-value mapping of resource tags
 	Tags interface{}
 }
@@ -89,6 +106,8 @@ type ClusterState struct {
 type ClusterArgs struct {
 	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name interface{}
+	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+	Settings interface{}
 	// Key-value mapping of resource tags
 	Tags interface{}
 }

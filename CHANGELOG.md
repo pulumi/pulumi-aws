@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.27.0 of the AWS Terraform provider
+* Upgrade to pulumi-terraform ed0b5c29ed
 
 ---
 
