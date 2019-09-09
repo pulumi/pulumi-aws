@@ -769,7 +769,8 @@ func Provider() tfbridge.ProviderInfo {
 						AltTypes: []tokens.Type{awsType(iamMod, "InstanceProfile")},
 					},
 					"instance_type": {
-						Type: awsType(ec2Mod+"/instanceType", "InstanceType"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(ec2Mod+"/instanceType", "InstanceType")},
 					},
 				},
 			},

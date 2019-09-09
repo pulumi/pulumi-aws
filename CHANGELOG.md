@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to 1.0 of pulumi SDK
+* Allow ec2 InstanceTypes to be passed as a string as well as the typed value
 
 ---
 

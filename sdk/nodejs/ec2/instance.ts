@@ -152,7 +152,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
      */
-    public readonly instanceType!: pulumi.Output<InstanceType>;
+    public readonly instanceType!: pulumi.Output<string>;
     public readonly ipv6AddressCount!: pulumi.Output<number>;
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -444,7 +444,7 @@ export interface InstanceState {
     /**
      * The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
      */
-    readonly instanceType?: pulumi.Input<InstanceType>;
+    readonly instanceType?: pulumi.Input<string | InstanceType>;
     readonly ipv6AddressCount?: pulumi.Input<number>;
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -619,7 +619,7 @@ export interface InstanceArgs {
     /**
      * The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
      */
-    readonly instanceType: pulumi.Input<InstanceType>;
+    readonly instanceType: pulumi.Input<string | InstanceType>;
     readonly ipv6AddressCount?: pulumi.Input<number>;
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
