@@ -72,6 +72,11 @@ func TestExamples(t *testing.T) {
 			RunUpdateTest: true,
 		}),
 		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "bucket"),
+			CloudURL:      "s3://ci-remote-state-bucket",
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
 			Dir:           path.Join(cwd, "cloudwatch"),
 			RunUpdateTest: true,
 		}),
@@ -97,6 +102,11 @@ func TestExamples(t *testing.T) {
 		}),
 		baseJS.With(integration.ProgramTestOptions{
 			Dir:           path.Join(cwd, "ssmparameter"),
+			RunUpdateTest: true,
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "ssmparameter"),
+			CloudURL:      "s3://ci-remote-state-bucket",
 			RunUpdateTest: true,
 		}),
 		baseJS.With(integration.ProgramTestOptions{
