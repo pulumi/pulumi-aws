@@ -23,7 +23,8 @@ import * as utilities from "../utilities";
  *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleOrganizationManagedRule = new aws.cfg.OrganizationManagedRule("example", {
+ * const exampleConfigOrganizationManagedRule = new aws.ConfigOrganizationManagedRule("example", {
+ *     name: "example",
  *     ruleIdentifier: "IAM_PASSWORD_POLICY",
  * }, {dependsOn: [exampleOrganization]});
  * ```
