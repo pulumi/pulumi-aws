@@ -1979,7 +1979,7 @@ func Provider() tfbridge.ProviderInfo {
 				"resolve":           "^1.7.1",
 			},
 			DevDependencies: map[string]string{
-				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
+				"@types/node": "^8.0.0", // so we can access strongly typed node definitions.
 				"@types/mime": "^2.0.0",
 			},
 			Overlay: &tfbridge.OverlayInfo{
