@@ -28,9 +28,8 @@ import * as utilities from "../utilities";
  *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleConfigOrganizationCustomRule = new aws.ConfigOrganizationCustomRule("example", {
+ * const exampleOrganizationCustomRule = new aws.cfg.OrganizationCustomRule("example", {
  *     lambdaFunctionArn: aws_lambda_function_example.arn,
- *     name: "example",
  *     triggerTypes: ["ConfigurationItemChangeNotification"],
  * }, {dependsOn: [examplePermission, exampleOrganization]});
  * ```
