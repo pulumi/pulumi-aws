@@ -2246,29 +2246,6 @@ export namespace cfg {
 }
 
 export namespace cloudfront {
-    export interface DistributionActiveTrustedSigner {
-        /**
-         * Whether the distribution is enabled to accept end
-         * user requests for content.
-         */
-        enabled?: pulumi.Input<boolean>;
-        /**
-         * Nested attributes of each trusted signer
-         */
-        items?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionActiveTrustedSignerItem>[]>;
-    }
-
-    export interface DistributionActiveTrustedSignerItem {
-        /**
-         * AWS account ID or `self`
-         */
-        awsAccountNumber?: pulumi.Input<string>;
-        /**
-         * Set of active CloudFront key pairs associated with the signer account
-         */
-        keyPairIds?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface DistributionCustomErrorResponse {
         /**
          * The minimum amount of time you want
@@ -2358,7 +2335,8 @@ export namespace cloudfront {
          */
         targetOriginId: pulumi.Input<string>;
         /**
-         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
+         * The AWS accounts, if any, that you want to
+         * allow to create signed URLs for private content.
          */
         trustedSigners?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -2517,7 +2495,8 @@ export namespace cloudfront {
          */
         targetOriginId: pulumi.Input<string>;
         /**
-         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
+         * The AWS accounts, if any, that you want to
+         * allow to create signed URLs for private content.
          */
         trustedSigners?: pulumi.Input<pulumi.Input<string>[]>;
         /**
