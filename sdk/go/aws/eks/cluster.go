@@ -42,6 +42,7 @@ func NewCluster(ctx *pulumi.Context,
 	inputs["certificateAuthority"] = nil
 	inputs["createdAt"] = nil
 	inputs["endpoint"] = nil
+	inputs["identities"] = nil
 	inputs["platformVersion"] = nil
 	inputs["status"] = nil
 	s, err := ctx.RegisterResource("aws:eks/cluster:Cluster", name, true, inputs, opts...)
@@ -62,6 +63,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["createdAt"] = state.CreatedAt
 		inputs["enabledClusterLogTypes"] = state.EnabledClusterLogTypes
 		inputs["endpoint"] = state.Endpoint
+		inputs["identities"] = state.Identities
 		inputs["name"] = state.Name
 		inputs["platformVersion"] = state.PlatformVersion
 		inputs["roleArn"] = state.RoleArn
@@ -110,6 +112,11 @@ func (r *Cluster) Endpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
+// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
+func (r *Cluster) Identities() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["identities"])
+}
+
 // Name of the cluster.
 func (r *Cluster) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -151,6 +158,8 @@ type ClusterState struct {
 	EnabledClusterLogTypes interface{}
 	// The endpoint for your Kubernetes API server.
 	Endpoint interface{}
+	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
+	Identities interface{}
 	// Name of the cluster.
 	Name interface{}
 	// The platform version for the cluster.

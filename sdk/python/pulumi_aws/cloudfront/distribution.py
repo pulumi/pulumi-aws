@@ -10,11 +10,16 @@ from typing import Union
 from .. import utilities, tables
 
 class Distribution(pulumi.CustomResource):
-    active_trusted_signers: pulumi.Output[dict]
+    active_trusted_signers: pulumi.Output[list]
     """
-    The key pair IDs that CloudFront is aware of for
-    each trusted signer, if the distribution is set up to serve private content
-    with signed URLs.
+    Nested attributes of active trusted signers, if the distribution is set up to serve private content with signed URLs
+    
+      * `enabled` (`bool`) - Whether the distribution is enabled to accept end
+        user requests for content.
+      * `items` (`list`) - Nested attributes of each trusted signer
+    
+        * `awsAccountNumber` (`str`) - AWS account ID or `self`
+        * `keyPairIds` (`list`) - Set of active CloudFront key pairs associated with the signer account
     """
     aliases: pulumi.Output[list]
     """
@@ -113,8 +118,7 @@ class Distribution(pulumi.CustomResource):
       * `targetOriginId` (`str`) - The value of ID for the origin that you want
         CloudFront to route requests to when a request matches the path pattern
         either for a cache behavior or for the default cache behavior.
-      * `trustedSigners` (`list`) - The AWS accounts, if any, that you want to
-        allow to create signed URLs for private content.
+      * `trustedSigners` (`list`) - List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
       * `viewerProtocolPolicy` (`str`) - Use this element to specify the
         protocol that users can use to access the files in the origin specified by
         TargetOriginId when a request matches the path pattern in PathPattern. One
@@ -245,8 +249,7 @@ class Distribution(pulumi.CustomResource):
       * `targetOriginId` (`str`) - The value of ID for the origin that you want
         CloudFront to route requests to when a request matches the path pattern
         either for a cache behavior or for the default cache behavior.
-      * `trustedSigners` (`list`) - The AWS accounts, if any, that you want to
-        allow to create signed URLs for private content.
+      * `trustedSigners` (`list`) - List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
       * `viewerProtocolPolicy` (`str`) - Use this element to specify the
         protocol that users can use to access the files in the origin specified by
         TargetOriginId when a request matches the path pattern in PathPattern. One
@@ -516,8 +519,7 @@ class Distribution(pulumi.CustomResource):
           * `targetOriginId` (`pulumi.Input[str]`) - The value of ID for the origin that you want
             CloudFront to route requests to when a request matches the path pattern
             either for a cache behavior or for the default cache behavior.
-          * `trustedSigners` (`pulumi.Input[list]`) - The AWS accounts, if any, that you want to
-            allow to create signed URLs for private content.
+          * `trustedSigners` (`pulumi.Input[list]`) - List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
           * `viewerProtocolPolicy` (`pulumi.Input[str]`) - Use this element to specify the
             protocol that users can use to access the files in the origin specified by
             TargetOriginId when a request matches the path pattern in PathPattern. One
@@ -595,8 +597,7 @@ class Distribution(pulumi.CustomResource):
           * `targetOriginId` (`pulumi.Input[str]`) - The value of ID for the origin that you want
             CloudFront to route requests to when a request matches the path pattern
             either for a cache behavior or for the default cache behavior.
-          * `trustedSigners` (`pulumi.Input[list]`) - The AWS accounts, if any, that you want to
-            allow to create signed URLs for private content.
+          * `trustedSigners` (`pulumi.Input[list]`) - List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
           * `viewerProtocolPolicy` (`pulumi.Input[str]`) - Use this element to specify the
             protocol that users can use to access the files in the origin specified by
             TargetOriginId when a request matches the path pattern in PathPattern. One
@@ -756,9 +757,7 @@ class Distribution(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] active_trusted_signers: The key pair IDs that CloudFront is aware of for
-               each trusted signer, if the distribution is set up to serve private content
-               with signed URLs.
+        :param pulumi.Input[list] active_trusted_signers: Nested attributes of active trusted signers, if the distribution is set up to serve private content with signed URLs
         :param pulumi.Input[list] aliases: Extra CNAMEs (alternate domain names), if any, for
                this distribution.
         :param pulumi.Input[str] arn: The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
@@ -819,6 +818,15 @@ class Distribution(pulumi.CustomResource):
                distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
                region and the credentials configuring this argument must have
                `waf:GetWebACL` permissions assigned.
+        
+        The **active_trusted_signers** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Whether the distribution is enabled to accept end
+            user requests for content.
+          * `items` (`pulumi.Input[list]`) - Nested attributes of each trusted signer
+        
+            * `awsAccountNumber` (`pulumi.Input[str]`) - AWS account ID or `self`
+            * `keyPairIds` (`pulumi.Input[list]`) - Set of active CloudFront key pairs associated with the signer account
         
         The **custom_error_responses** object supports the following:
         
@@ -893,8 +901,7 @@ class Distribution(pulumi.CustomResource):
           * `targetOriginId` (`pulumi.Input[str]`) - The value of ID for the origin that you want
             CloudFront to route requests to when a request matches the path pattern
             either for a cache behavior or for the default cache behavior.
-          * `trustedSigners` (`pulumi.Input[list]`) - The AWS accounts, if any, that you want to
-            allow to create signed URLs for private content.
+          * `trustedSigners` (`pulumi.Input[list]`) - List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
           * `viewerProtocolPolicy` (`pulumi.Input[str]`) - Use this element to specify the
             protocol that users can use to access the files in the origin specified by
             TargetOriginId when a request matches the path pattern in PathPattern. One
@@ -972,8 +979,7 @@ class Distribution(pulumi.CustomResource):
           * `targetOriginId` (`pulumi.Input[str]`) - The value of ID for the origin that you want
             CloudFront to route requests to when a request matches the path pattern
             either for a cache behavior or for the default cache behavior.
-          * `trustedSigners` (`pulumi.Input[list]`) - The AWS accounts, if any, that you want to
-            allow to create signed URLs for private content.
+          * `trustedSigners` (`pulumi.Input[list]`) - List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
           * `viewerProtocolPolicy` (`pulumi.Input[str]`) - Use this element to specify the
             protocol that users can use to access the files in the origin specified by
             TargetOriginId when a request matches the path pattern in PathPattern. One

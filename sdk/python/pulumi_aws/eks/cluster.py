@@ -29,6 +29,14 @@ class Cluster(pulumi.CustomResource):
     """
     The endpoint for your Kubernetes API server.
     """
+    identities: pulumi.Output[list]
+    """
+    Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
+    
+      * `oidcs` (`list`) - Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+    
+        * `issuer` (`str`) - Issuer URL for the OpenID Connect identity provider.
+    """
     name: pulumi.Output[str]
     """
     Name of the cluster.
@@ -111,6 +119,7 @@ class Cluster(pulumi.CustomResource):
             __props__['certificate_authority'] = None
             __props__['created_at'] = None
             __props__['endpoint'] = None
+            __props__['identities'] = None
             __props__['platform_version'] = None
             __props__['status'] = None
         super(Cluster, __self__).__init__(
@@ -120,7 +129,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, name=None, platform_version=None, role_arn=None, status=None, version=None, vpc_config=None):
+    def get(resource_name, id, opts=None, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, identities=None, name=None, platform_version=None, role_arn=None, status=None, version=None, vpc_config=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -132,6 +141,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] certificate_authority: Nested attribute containing `certificate-authority-data` for your cluster.
         :param pulumi.Input[list] enabled_cluster_log_types: A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
         :param pulumi.Input[str] endpoint: The endpoint for your Kubernetes API server.
+        :param pulumi.Input[list] identities: Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
         :param pulumi.Input[str] name: Name of the cluster.
         :param pulumi.Input[str] platform_version: The platform version for the cluster.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
@@ -142,6 +152,12 @@ class Cluster(pulumi.CustomResource):
         The **certificate_authority** object supports the following:
         
           * `data` (`pulumi.Input[str]`) - The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+        
+        The **identities** object supports the following:
+        
+          * `oidcs` (`pulumi.Input[list]`) - Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+        
+            * `issuer` (`pulumi.Input[str]`) - Issuer URL for the OpenID Connect identity provider.
         
         The **vpc_config** object supports the following:
         
@@ -161,6 +177,7 @@ class Cluster(pulumi.CustomResource):
         __props__["created_at"] = created_at
         __props__["enabled_cluster_log_types"] = enabled_cluster_log_types
         __props__["endpoint"] = endpoint
+        __props__["identities"] = identities
         __props__["name"] = name
         __props__["platform_version"] = platform_version
         __props__["role_arn"] = role_arn

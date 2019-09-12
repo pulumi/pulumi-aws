@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * });
  * 
  * export const endpoint = example.endpoint;
+ * // Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
+ * export const identityOidcIssuer = example.identities[0].oidc.0.issuer;
  * export const kubeconfigCertificateAuthorityData = example.certificateAuthority.data;
  * ```
  *
@@ -74,6 +76,10 @@ export interface GetClusterResult {
      * The endpoint for your Kubernetes API server.
      */
     readonly endpoint: string;
+    /**
+     * Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the [`aws.eks.Cluster` resource documentation](https://www.terraform.io/docs/providers/aws/r/eks_cluster.html).
+     */
+    readonly identities: outputs.eks.GetClusterIdentity[];
     readonly name: string;
     /**
      * The platform version for the cluster.

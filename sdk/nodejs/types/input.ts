@@ -2246,6 +2246,29 @@ export namespace cfg {
 }
 
 export namespace cloudfront {
+    export interface DistributionActiveTrustedSigner {
+        /**
+         * Whether the distribution is enabled to accept end
+         * user requests for content.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Nested attributes of each trusted signer
+         */
+        items?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionActiveTrustedSignerItem>[]>;
+    }
+
+    export interface DistributionActiveTrustedSignerItem {
+        /**
+         * AWS account ID or `self`
+         */
+        awsAccountNumber?: pulumi.Input<string>;
+        /**
+         * Set of active CloudFront key pairs associated with the signer account
+         */
+        keyPairIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface DistributionCustomErrorResponse {
         /**
          * The minimum amount of time you want
@@ -2335,8 +2358,7 @@ export namespace cloudfront {
          */
         targetOriginId: pulumi.Input<string>;
         /**
-         * The AWS accounts, if any, that you want to
-         * allow to create signed URLs for private content.
+         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
          */
         trustedSigners?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -2495,8 +2517,7 @@ export namespace cloudfront {
          */
         targetOriginId: pulumi.Input<string>;
         /**
-         * The AWS accounts, if any, that you want to
-         * allow to create signed URLs for private content.
+         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
          */
         trustedSigners?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -5669,6 +5690,20 @@ export namespace eks {
          * The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
          */
         data?: pulumi.Input<string>;
+    }
+
+    export interface ClusterIdentity {
+        /**
+         * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+         */
+        oidcs?: pulumi.Input<pulumi.Input<inputs.eks.ClusterIdentityOidc>[]>;
+    }
+
+    export interface ClusterIdentityOidc {
+        /**
+         * Issuer URL for the OpenID Connect identity provider.
+         */
+        issuer?: pulumi.Input<string>;
     }
 
     export interface ClusterVpcConfig {

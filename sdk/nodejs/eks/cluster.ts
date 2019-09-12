@@ -54,6 +54,43 @@ import * as utilities from "../utilities";
  *     ],
  * }, {dependsOn: [exampleLogGroup]});
  * ```
+ * 
+ * ### Enabling IAM Roles for Service Accounts
+ * 
+ * Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const exampleCluster = new aws.eks.Cluster("example", {});
+ * const current = aws.getCallerIdentity({});
+ * const exampleOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("example", {
+ *     clientIdLists: ["sts.amazonaws.com"],
+ *     thumbprintLists: [],
+ *     url: exampleCluster.identities[0].oidc.0.issuer,
+ * });
+ * const exampleAssumeRolePolicy = pulumi.all([exampleOpenIdConnectProvider.url, exampleOpenIdConnectProvider.arn]).apply(([url, arn]) => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRoleWithWebIdentity"],
+ *         conditions: [{
+ *             test: "StringEquals",
+ *             values: ["system:serviceaccount:kube-system:aws-node"],
+ *             variable: `${url.replace("https://", "")}:sub`,
+ *         }],
+ *         effect: "Allow",
+ *         principals: [{
+ *             identifiers: [arn],
+ *             type: "Federated",
+ *         }],
+ *     }],
+ * }));
+ * const exampleRole = new aws.iam.Role("example", {
+ *     assumeRolePolicy: exampleAssumeRolePolicy.json,
+ * });
+ * ```
+ * 
+ * After adding inline IAM Policies (e.g. [`aws.iam.RolePolicy` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html)) or attaching IAM Policies (e.g. [`aws.iam.Policy` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy.html) and [`aws.iam.RolePolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy.html)) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g. [`kubernetesServiceAccount` resource](https://www.terraform.io/docs/providers/kubernetes/r/service_account.html)) and recreate any pods.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_cluster.html.markdown.
  */
@@ -102,6 +139,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
+     * Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
+     */
+    public /*out*/ readonly identities!: pulumi.Output<outputs.eks.ClusterIdentity[]>;
+    /**
      * Name of the cluster.
      */
     public readonly name!: pulumi.Output<string>;
@@ -143,6 +184,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["createdAt"] = state ? state.createdAt : undefined;
             inputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
+            inputs["identities"] = state ? state.identities : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["platformVersion"] = state ? state.platformVersion : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
@@ -166,6 +208,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["certificateAuthority"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["identities"] = undefined /*out*/;
             inputs["platformVersion"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
@@ -201,6 +244,10 @@ export interface ClusterState {
      * The endpoint for your Kubernetes API server.
      */
     readonly endpoint?: pulumi.Input<string>;
+    /**
+     * Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
+     */
+    readonly identities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterIdentity>[]>;
     /**
      * Name of the cluster.
      */

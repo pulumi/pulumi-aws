@@ -706,6 +706,8 @@
         "resourcegroups/index.ts",
         "route53/delegationSet.ts",
         "route53/getDelegationSet.ts",
+        "route53/getResolverRule.ts",
+        "route53/getResolverRules.ts",
         "route53/getZone.ts",
         "route53/healthCheck.ts",
         "route53/index.ts",

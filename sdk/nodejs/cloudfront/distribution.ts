@@ -235,11 +235,9 @@ export class Distribution extends pulumi.CustomResource {
     }
 
     /**
-     * The key pair IDs that CloudFront is aware of for
-     * each trusted signer, if the distribution is set up to serve private content
-     * with signed URLs.
+     * Nested attributes of active trusted signers, if the distribution is set up to serve private content with signed URLs
      */
-    public /*out*/ readonly activeTrustedSigners!: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly activeTrustedSigners!: pulumi.Output<outputs.cloudfront.DistributionActiveTrustedSigner[]>;
     /**
      * Extra CNAMEs (alternate domain names), if any, for
      * this distribution.
@@ -484,11 +482,9 @@ export class Distribution extends pulumi.CustomResource {
  */
 export interface DistributionState {
     /**
-     * The key pair IDs that CloudFront is aware of for
-     * each trusted signer, if the distribution is set up to serve private content
-     * with signed URLs.
+     * Nested attributes of active trusted signers, if the distribution is set up to serve private content with signed URLs
      */
-    readonly activeTrustedSigners?: pulumi.Input<{[key: string]: any}>;
+    readonly activeTrustedSigners?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionActiveTrustedSigner>[]>;
     /**
      * Extra CNAMEs (alternate domain names), if any, for
      * this distribution.

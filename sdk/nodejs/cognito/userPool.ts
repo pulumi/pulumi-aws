@@ -124,7 +124,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      */
-    public readonly smsVerificationMessage!: pulumi.Output<string | undefined>;
+    public readonly smsVerificationMessage!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the User Pool.
      */
