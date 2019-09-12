@@ -4,6 +4,8 @@
 // Export members:
 export * from "./delegationSet";
 export * from "./getDelegationSet";
+export * from "./getResolverRule";
+export * from "./getResolverRules";
 export * from "./getZone";
 export * from "./healthCheck";
 export * from "./queryLog";

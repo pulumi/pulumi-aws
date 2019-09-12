@@ -25,6 +25,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		CreatedAt: outputs["createdAt"],
 		EnabledClusterLogTypes: outputs["enabledClusterLogTypes"],
 		Endpoint: outputs["endpoint"],
+		Identities: outputs["identities"],
 		Name: outputs["name"],
 		PlatformVersion: outputs["platformVersion"],
 		RoleArn: outputs["roleArn"],
@@ -53,6 +54,8 @@ type GetClusterResult struct {
 	EnabledClusterLogTypes interface{}
 	// The endpoint for your Kubernetes API server.
 	Endpoint interface{}
+	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the [`eks.Cluster` resource documentation](https://www.terraform.io/docs/providers/aws/r/eks_cluster.html).
+	Identities interface{}
 	Name interface{}
 	// The platform version for the cluster.
 	PlatformVersion interface{}

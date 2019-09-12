@@ -2290,6 +2290,29 @@ export namespace cfg {
 }
 
 export namespace cloudfront {
+    export interface DistributionActiveTrustedSigner {
+        /**
+         * Whether the distribution is enabled to accept end
+         * user requests for content.
+         */
+        enabled: boolean;
+        /**
+         * Nested attributes of each trusted signer
+         */
+        items: outputs.cloudfront.DistributionActiveTrustedSignerItem[];
+    }
+
+    export interface DistributionActiveTrustedSignerItem {
+        /**
+         * AWS account ID or `self`
+         */
+        awsAccountNumber: string;
+        /**
+         * Set of active CloudFront key pairs associated with the signer account
+         */
+        keyPairIds: string[];
+    }
+
     export interface DistributionCustomErrorResponse {
         /**
          * The minimum amount of time you want
@@ -2379,8 +2402,7 @@ export namespace cloudfront {
          */
         targetOriginId: string;
         /**
-         * The AWS accounts, if any, that you want to
-         * allow to create signed URLs for private content.
+         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
          */
         trustedSigners?: string[];
         /**
@@ -2539,8 +2561,7 @@ export namespace cloudfront {
          */
         targetOriginId: string;
         /**
-         * The AWS accounts, if any, that you want to
-         * allow to create signed URLs for private content.
+         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
          */
         trustedSigners?: string[];
         /**
@@ -6124,6 +6145,20 @@ export namespace eks {
         data: string;
     }
 
+    export interface ClusterIdentity {
+        /**
+         * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+         */
+        oidcs: outputs.eks.ClusterIdentityOidc[];
+    }
+
+    export interface ClusterIdentityOidc {
+        /**
+         * Issuer URL for the OpenID Connect identity provider.
+         */
+        issuer: string;
+    }
+
     export interface ClusterVpcConfig {
         /**
          * Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
@@ -6152,6 +6187,20 @@ export namespace eks {
          * The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
          */
         data: string;
+    }
+
+    export interface GetClusterIdentity {
+        /**
+         * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+         */
+        oidcs: outputs.eks.GetClusterIdentityOidc[];
+    }
+
+    export interface GetClusterIdentityOidc {
+        /**
+         * Issuer URL for the OpenID Connect identity provider.
+         */
+        issuer: string;
     }
 
     export interface GetClusterVpcConfig {

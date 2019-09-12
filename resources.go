@@ -1929,6 +1929,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Route53
 			"aws_route53_zone":           {Tok: awsDataSource(route53Mod, "getZone")},
 			"aws_route53_delegation_set": {Tok: awsDataSource(route53Mod, "getDelegationSet")},
+			"aws_route53_resolver_rule":  {Tok: awsDataSource(route53Mod, "getResolverRule")},
+			"aws_route53_resolver_rules": {Tok: awsDataSource(route53Mod, "getResolverRules")},
 			// S3
 			"aws_s3_bucket":         {Tok: awsDataSource(s3Mod, "getBucket")},
 			"aws_s3_bucket_object":  {Tok: awsDataSource(s3Mod, "getBucketObject")},

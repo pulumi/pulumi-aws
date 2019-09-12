@@ -13,7 +13,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, name=None, platform_version=None, role_arn=None, status=None, version=None, vpc_config=None, id=None):
+    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, identities=None, name=None, platform_version=None, role_arn=None, status=None, version=None, vpc_config=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -43,6 +43,12 @@ class GetClusterResult:
         __self__.endpoint = endpoint
         """
         The endpoint for your Kubernetes API server.
+        """
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        __self__.identities = identities
+        """
+        Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the [`eks.Cluster` resource documentation](https://www.terraform.io/docs/providers/aws/r/eks_cluster.html).
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -94,6 +100,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             created_at=self.created_at,
             enabled_cluster_log_types=self.enabled_cluster_log_types,
             endpoint=self.endpoint,
+            identities=self.identities,
             name=self.name,
             platform_version=self.platform_version,
             role_arn=self.role_arn,
@@ -125,6 +132,7 @@ def get_cluster(name=None,opts=None):
         created_at=__ret__.get('createdAt'),
         enabled_cluster_log_types=__ret__.get('enabledClusterLogTypes'),
         endpoint=__ret__.get('endpoint'),
+        identities=__ret__.get('identities'),
         name=__ret__.get('name'),
         platform_version=__ret__.get('platformVersion'),
         role_arn=__ret__.get('roleArn'),
