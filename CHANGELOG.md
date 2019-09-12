@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to 1.0 of pulumi SDK
-* Upgrade to v2.28.0 of the AWS Terraform provider.
+_(none)_
 
 ---
+
+## 1.2.0 (2019-09-12)
+* Upgrade to 1.0 of pulumi SDK
+* Upgrade to v2.28.0 of the AWS Terraform provider.
 
 ## 1.1.0 (2019-09-06)
 * Upgrade to v2.27.0 of the AWS Terraform provider
