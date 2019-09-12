@@ -2290,29 +2290,6 @@ export namespace cfg {
 }
 
 export namespace cloudfront {
-    export interface DistributionActiveTrustedSigner {
-        /**
-         * Whether the distribution is enabled to accept end
-         * user requests for content.
-         */
-        enabled: boolean;
-        /**
-         * Nested attributes of each trusted signer
-         */
-        items: outputs.cloudfront.DistributionActiveTrustedSignerItem[];
-    }
-
-    export interface DistributionActiveTrustedSignerItem {
-        /**
-         * AWS account ID or `self`
-         */
-        awsAccountNumber: string;
-        /**
-         * Set of active CloudFront key pairs associated with the signer account
-         */
-        keyPairIds: string[];
-    }
-
     export interface DistributionCustomErrorResponse {
         /**
          * The minimum amount of time you want
@@ -2402,7 +2379,8 @@ export namespace cloudfront {
          */
         targetOriginId: string;
         /**
-         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
+         * The AWS accounts, if any, that you want to
+         * allow to create signed URLs for private content.
          */
         trustedSigners?: string[];
         /**
@@ -2561,7 +2539,8 @@ export namespace cloudfront {
          */
         targetOriginId: string;
         /**
-         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the CloudFront User Guide for more information about this feature.
+         * The AWS accounts, if any, that you want to
+         * allow to create signed URLs for private content.
          */
         trustedSigners?: string[];
         /**

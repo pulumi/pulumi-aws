@@ -153,9 +153,11 @@ func (r *Distribution) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Nested attributes of active trusted signers, if the distribution is set up to serve private content with signed URLs
-func (r *Distribution) ActiveTrustedSigners() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["activeTrustedSigners"])
+// The key pair IDs that CloudFront is aware of for
+// each trusted signer, if the distribution is set up to serve private content
+// with signed URLs.
+func (r *Distribution) ActiveTrustedSigners() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["activeTrustedSigners"])
 }
 
 // Extra CNAMEs (alternate domain names), if any, for
@@ -328,7 +330,9 @@ func (r *Distribution) WebAclId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Distribution resources.
 type DistributionState struct {
-	// Nested attributes of active trusted signers, if the distribution is set up to serve private content with signed URLs
+	// The key pair IDs that CloudFront is aware of for
+	// each trusted signer, if the distribution is set up to serve private content
+	// with signed URLs.
 	ActiveTrustedSigners interface{}
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
