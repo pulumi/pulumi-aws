@@ -66,6 +66,11 @@ export module Principals {
     export const CodeCommitPrincipal: Principal = {Service: "codecommit.amazonaws.com"};
 
     /**
+     * Service Principal for CodeBuild
+     */
+    export const CodeBuildPrincipal: Principal = {Service: "codebuild.amazonaws.com"};
+
+    /**
      * Service Principal for CodeDeploy
      */
     export const CodeDeployPrincipal: Principal = {Service: "codedeploy.amazonaws.com"};
