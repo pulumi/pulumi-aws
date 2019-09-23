@@ -166,7 +166,30 @@ func TestExamples(t *testing.T) {
 			RunUpdateTest: true,
 			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 				cfg := &aws.Config{
-					Region: aws.String("us-west-2"),
+					Region: aws.String(envRegion),
+				}
+				sess, err := session.NewSession(cfg)
+				if !assert.NoError(t, err) {
+					return
+				}
+				lambdaSvc := lambda.New(sess)
+				out, err := lambdaSvc.Invoke(&lambda.InvokeInput{
+					FunctionName: aws.String(stack.Outputs["functionARN"].(string)),
+				})
+				if !assert.NoError(t, err) {
+					return
+				}
+
+				if out.FunctionError != nil {
+					assert.Nil(t, out.FunctionError, "Function error: %q\n", *out.FunctionError)
+				}
+			},
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "callbackfunction-secrets"),
+			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+				cfg := &aws.Config{
+					Region: aws.String(envRegion),
 				}
 				sess, err := session.NewSession(cfg)
 				if !assert.NoError(t, err) {
