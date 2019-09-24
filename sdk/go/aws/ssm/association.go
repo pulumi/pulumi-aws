@@ -87,6 +87,7 @@ func (r *Association) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The ID of the SSM association.
 func (r *Association) AssociationId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["associationId"])
 }
@@ -148,6 +149,7 @@ func (r *Association) Targets() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering Association resources.
 type AssociationState struct {
+	// The ID of the SSM association.
 	AssociationId interface{}
 	// The descriptive name for the association.
 	AssociationName interface{}

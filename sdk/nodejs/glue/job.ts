@@ -112,7 +112,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * The name of the Security Configuration to be associated with the job. 
+     * The name of the Security Configuration to be associated with the job.
      */
     public readonly securityConfiguration!: pulumi.Output<string | undefined>;
     /**
@@ -221,7 +221,7 @@ export interface JobState {
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
-     * The name of the Security Configuration to be associated with the job. 
+     * The name of the Security Configuration to be associated with the job.
      */
     readonly securityConfiguration?: pulumi.Input<string>;
     /**
@@ -275,7 +275,7 @@ export interface JobArgs {
      */
     readonly roleArn: pulumi.Input<string>;
     /**
-     * The name of the Security Configuration to be associated with the job. 
+     * The name of the Security Configuration to be associated with the job.
      */
     readonly securityConfiguration?: pulumi.Input<string>;
     /**

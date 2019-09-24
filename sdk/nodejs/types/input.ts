@@ -7358,6 +7358,10 @@ export namespace glue {
          */
         name?: pulumi.Input<string>;
         /**
+         * The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+         */
+        pythonVersion?: pulumi.Input<string>;
+        /**
          * Specifies the S3 path to a script that executes a job.
          */
         scriptLocation: pulumi.Input<string>;

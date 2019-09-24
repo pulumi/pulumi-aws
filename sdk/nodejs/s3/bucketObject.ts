@@ -67,6 +67,32 @@ import {Bucket} from "./bucket";
  *     source: new pulumi.asset.FileAsset("index.html"),
  * });
  * ```
+ * 
+ * ### S3 Object Lock
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const examplebucket = new aws.s3.Bucket("examplebucket", {
+ *     acl: "private",
+ *     objectLockConfiguration: {
+ *         objectLockEnabled: "Enabled",
+ *     },
+ *     versioning: {
+ *         enabled: true,
+ *     },
+ * });
+ * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
+ *     bucket: examplebucket.id,
+ *     forceDestroy: true,
+ *     key: "someobject",
+ *     objectLockLegalHoldStatus: "ON",
+ *     objectLockMode: "GOVERNANCE",
+ *     objectLockRetainUntilDate: "2021-12-31T23:59:60Z",
+ *     source: new pulumi.asset.FileAsset("important.txt"),
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_object.html.markdown.
  */
@@ -139,6 +165,11 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly etag!: pulumi.Output<string>;
     /**
+     * Allow the object to be deleted by removing any legal hold on any object version.
+     * Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+     */
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the object once it is in the bucket.
      */
     public readonly key!: pulumi.Output<string>;
@@ -153,6 +184,18 @@ export class BucketObject extends pulumi.CustomResource {
      * A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+     */
+    public readonly objectLockLegalHoldStatus!: pulumi.Output<string | undefined>;
+    /**
+     * The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+     */
+    public readonly objectLockMode!: pulumi.Output<string | undefined>;
+    /**
+     * The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+     */
+    public readonly objectLockRetainUntilDate!: pulumi.Output<string | undefined>;
     /**
      * Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
@@ -202,9 +245,13 @@ export class BucketObject extends pulumi.CustomResource {
             inputs["contentLanguage"] = state ? state.contentLanguage : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["etag"] = state ? state.etag : undefined;
+            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             inputs["key"] = state ? state.key : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
+            inputs["objectLockLegalHoldStatus"] = state ? state.objectLockLegalHoldStatus : undefined;
+            inputs["objectLockMode"] = state ? state.objectLockMode : undefined;
+            inputs["objectLockRetainUntilDate"] = state ? state.objectLockRetainUntilDate : undefined;
             inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             inputs["source"] = state ? state.source : undefined;
             inputs["storageClass"] = state ? state.storageClass : undefined;
@@ -226,9 +273,13 @@ export class BucketObject extends pulumi.CustomResource {
             inputs["contentLanguage"] = args ? args.contentLanguage : undefined;
             inputs["contentType"] = args ? args.contentType : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             inputs["key"] = args ? args.key : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
+            inputs["objectLockLegalHoldStatus"] = args ? args.objectLockLegalHoldStatus : undefined;
+            inputs["objectLockMode"] = args ? args.objectLockMode : undefined;
+            inputs["objectLockRetainUntilDate"] = args ? args.objectLockRetainUntilDate : undefined;
             inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["storageClass"] = args ? args.storageClass : undefined;
@@ -293,6 +344,11 @@ export interface BucketObjectState {
      */
     readonly etag?: pulumi.Input<string>;
     /**
+     * Allow the object to be deleted by removing any legal hold on any object version.
+     * Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+     */
+    readonly forceDestroy?: pulumi.Input<boolean>;
+    /**
      * The name of the object once it is in the bucket.
      */
     readonly key?: pulumi.Input<string>;
@@ -307,6 +363,18 @@ export interface BucketObjectState {
      * A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
     readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+     */
+    readonly objectLockLegalHoldStatus?: pulumi.Input<string>;
+    /**
+     * The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+     */
+    readonly objectLockMode?: pulumi.Input<string>;
+    /**
+     * The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+     */
+    readonly objectLockRetainUntilDate?: pulumi.Input<string>;
     /**
      * Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
@@ -381,6 +449,11 @@ export interface BucketObjectArgs {
      */
     readonly etag?: pulumi.Input<string>;
     /**
+     * Allow the object to be deleted by removing any legal hold on any object version.
+     * Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+     */
+    readonly forceDestroy?: pulumi.Input<boolean>;
+    /**
      * The name of the object once it is in the bucket.
      */
     readonly key?: pulumi.Input<string>;
@@ -395,6 +468,18 @@ export interface BucketObjectArgs {
      * A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
     readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+     */
+    readonly objectLockLegalHoldStatus?: pulumi.Input<string>;
+    /**
+     * The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+     */
+    readonly objectLockMode?: pulumi.Input<string>;
+    /**
+     * The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+     */
+    readonly objectLockRetainUntilDate?: pulumi.Input<string>;
     /**
      * Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */

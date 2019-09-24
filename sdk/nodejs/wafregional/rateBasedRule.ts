@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *         type: "IPMatch",
  *     }],
  *     rateKey: "IP",
- *     rateLimit: 2000,
+ *     rateLimit: 100,
  * }, {dependsOn: [ipset]});
  * ```
  *
@@ -79,7 +79,7 @@ export class RateBasedRule extends pulumi.CustomResource {
      */
     public readonly rateKey!: pulumi.Output<string>;
     /**
-     * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
+     * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
      */
     public readonly rateLimit!: pulumi.Output<number>;
 
@@ -149,7 +149,7 @@ export interface RateBasedRuleState {
      */
     readonly rateKey?: pulumi.Input<string>;
     /**
-     * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
+     * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
      */
     readonly rateLimit?: pulumi.Input<number>;
 }
@@ -175,7 +175,7 @@ export interface RateBasedRuleArgs {
      */
     readonly rateKey: pulumi.Input<string>;
     /**
-     * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
+     * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
      */
     readonly rateLimit: pulumi.Input<number>;
 }

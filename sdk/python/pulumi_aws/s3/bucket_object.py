@@ -51,6 +51,11 @@ class BucketObject(pulumi.CustomResource):
     Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
     This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
     """
+    force_destroy: pulumi.Output[bool]
+    """
+    Allow the object to be deleted by removing any legal hold on any object version.
+    Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+    """
     key: pulumi.Output[str]
     """
     The name of the object once it is in the bucket.
@@ -65,6 +70,18 @@ class BucketObject(pulumi.CustomResource):
     metadata: pulumi.Output[dict]
     """
     A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+    """
+    object_lock_legal_hold_status: pulumi.Output[str]
+    """
+    The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+    """
+    object_lock_mode: pulumi.Output[str]
+    """
+    The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+    """
+    object_lock_retain_until_date: pulumi.Output[str]
+    """
+    The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
     """
     server_side_encryption: pulumi.Output[str]
     """
@@ -92,7 +109,7 @@ class BucketObject(pulumi.CustomResource):
     """
     Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
     """
-    def __init__(__self__, resource_name, opts=None, acl=None, bucket=None, cache_control=None, content=None, content_base64=None, content_disposition=None, content_encoding=None, content_language=None, content_type=None, etag=None, key=None, kms_key_id=None, metadata=None, server_side_encryption=None, source=None, storage_class=None, tags=None, website_redirect=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, acl=None, bucket=None, cache_control=None, content=None, content_base64=None, content_disposition=None, content_encoding=None, content_language=None, content_type=None, etag=None, force_destroy=None, key=None, kms_key_id=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, server_side_encryption=None, source=None, storage_class=None, tags=None, website_redirect=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a S3 bucket object resource.
         
@@ -109,12 +126,17 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[str] content_type: A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
         :param pulumi.Input[str] etag: Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
                This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
+        :param pulumi.Input[bool] force_destroy: Allow the object to be deleted by removing any legal hold on any object version.
+               Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: The name of the object once it is in the bucket.
         :param pulumi.Input[str] kms_key_id: Specifies the AWS KMS Key ARN to use for object encryption.
                This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
                use the exported `arn` attribute:
                `kms_key_id = "${aws_kms_key.foo.arn}"`
         :param pulumi.Input[dict] metadata: A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+        :param pulumi.Input[str] object_lock_legal_hold_status: The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+        :param pulumi.Input[str] object_lock_mode: The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+        :param pulumi.Input[str] object_lock_retain_until_date: The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: The path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[str] storage_class: Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
@@ -153,9 +175,13 @@ class BucketObject(pulumi.CustomResource):
             __props__['content_language'] = content_language
             __props__['content_type'] = content_type
             __props__['etag'] = etag
+            __props__['force_destroy'] = force_destroy
             __props__['key'] = key
             __props__['kms_key_id'] = kms_key_id
             __props__['metadata'] = metadata
+            __props__['object_lock_legal_hold_status'] = object_lock_legal_hold_status
+            __props__['object_lock_mode'] = object_lock_mode
+            __props__['object_lock_retain_until_date'] = object_lock_retain_until_date
             __props__['server_side_encryption'] = server_side_encryption
             __props__['source'] = source
             __props__['storage_class'] = storage_class
@@ -169,7 +195,7 @@ class BucketObject(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, acl=None, bucket=None, cache_control=None, content=None, content_base64=None, content_disposition=None, content_encoding=None, content_language=None, content_type=None, etag=None, key=None, kms_key_id=None, metadata=None, server_side_encryption=None, source=None, storage_class=None, tags=None, version_id=None, website_redirect=None):
+    def get(resource_name, id, opts=None, acl=None, bucket=None, cache_control=None, content=None, content_base64=None, content_disposition=None, content_encoding=None, content_language=None, content_type=None, etag=None, force_destroy=None, key=None, kms_key_id=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, server_side_encryption=None, source=None, storage_class=None, tags=None, version_id=None, website_redirect=None):
         """
         Get an existing BucketObject resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -188,12 +214,17 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[str] content_type: A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
         :param pulumi.Input[str] etag: Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
                This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
+        :param pulumi.Input[bool] force_destroy: Allow the object to be deleted by removing any legal hold on any object version.
+               Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: The name of the object once it is in the bucket.
         :param pulumi.Input[str] kms_key_id: Specifies the AWS KMS Key ARN to use for object encryption.
                This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
                use the exported `arn` attribute:
                `kms_key_id = "${aws_kms_key.foo.arn}"`
         :param pulumi.Input[dict] metadata: A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+        :param pulumi.Input[str] object_lock_legal_hold_status: The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+        :param pulumi.Input[str] object_lock_mode: The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+        :param pulumi.Input[str] object_lock_retain_until_date: The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: The path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[str] storage_class: Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
@@ -218,9 +249,13 @@ class BucketObject(pulumi.CustomResource):
         __props__["content_language"] = content_language
         __props__["content_type"] = content_type
         __props__["etag"] = etag
+        __props__["force_destroy"] = force_destroy
         __props__["key"] = key
         __props__["kms_key_id"] = kms_key_id
         __props__["metadata"] = metadata
+        __props__["object_lock_legal_hold_status"] = object_lock_legal_hold_status
+        __props__["object_lock_mode"] = object_lock_mode
+        __props__["object_lock_retain_until_date"] = object_lock_retain_until_date
         __props__["server_side_encryption"] = server_side_encryption
         __props__["source"] = source
         __props__["storage_class"] = storage_class

@@ -35,7 +35,7 @@ class RateBasedRule(pulumi.CustomResource):
     """
     rate_limit: pulumi.Output[float]
     """
-    The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
+    The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
     """
     def __init__(__self__, resource_name, opts=None, metric_name=None, name=None, predicates=None, rate_key=None, rate_limit=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -47,7 +47,7 @@ class RateBasedRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name or description of the rule.
         :param pulumi.Input[list] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[str] rate_key: Valid value is IP.
-        :param pulumi.Input[float] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
+        :param pulumi.Input[float] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         
         The **predicates** object supports the following:
         
@@ -107,7 +107,7 @@ class RateBasedRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name or description of the rule.
         :param pulumi.Input[list] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[str] rate_key: Valid value is IP.
-        :param pulumi.Input[float] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
+        :param pulumi.Input[float] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         
         The **predicates** object supports the following:
         

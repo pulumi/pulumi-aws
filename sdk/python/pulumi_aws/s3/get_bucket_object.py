@@ -13,7 +13,7 @@ class GetBucketObjectResult:
     """
     A collection of values returned by getBucketObject.
     """
-    def __init__(__self__, body=None, bucket=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, key=None, last_modified=None, metadata=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None, id=None):
+    def __init__(__self__, body=None, bucket=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None, id=None):
         if body and not isinstance(body, str):
             raise TypeError("Expected argument 'body' to be a str")
         __self__.body = body
@@ -92,6 +92,24 @@ class GetBucketObjectResult:
         """
         A map of metadata stored with the object in S3
         """
+        if object_lock_legal_hold_status and not isinstance(object_lock_legal_hold_status, str):
+            raise TypeError("Expected argument 'object_lock_legal_hold_status' to be a str")
+        __self__.object_lock_legal_hold_status = object_lock_legal_hold_status
+        """
+        Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
+        """
+        if object_lock_mode and not isinstance(object_lock_mode, str):
+            raise TypeError("Expected argument 'object_lock_mode' to be a str")
+        __self__.object_lock_mode = object_lock_mode
+        """
+        The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
+        """
+        if object_lock_retain_until_date and not isinstance(object_lock_retain_until_date, str):
+            raise TypeError("Expected argument 'object_lock_retain_until_date' to be a str")
+        __self__.object_lock_retain_until_date = object_lock_retain_until_date
+        """
+        The date and time when this object's object lock will expire.
+        """
         if range and not isinstance(range, str):
             raise TypeError("Expected argument 'range' to be a str")
         __self__.range = range
@@ -157,6 +175,9 @@ class AwaitableGetBucketObjectResult(GetBucketObjectResult):
             key=self.key,
             last_modified=self.last_modified,
             metadata=self.metadata,
+            object_lock_legal_hold_status=self.object_lock_legal_hold_status,
+            object_lock_mode=self.object_lock_mode,
+            object_lock_retain_until_date=self.object_lock_retain_until_date,
             range=self.range,
             server_side_encryption=self.server_side_encryption,
             sse_kms_key_id=self.sse_kms_key_id,
@@ -207,6 +228,9 @@ def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,
         key=__ret__.get('key'),
         last_modified=__ret__.get('lastModified'),
         metadata=__ret__.get('metadata'),
+        object_lock_legal_hold_status=__ret__.get('objectLockLegalHoldStatus'),
+        object_lock_mode=__ret__.get('objectLockMode'),
+        object_lock_retain_until_date=__ret__.get('objectLockRetainUntilDate'),
         range=__ret__.get('range'),
         server_side_encryption=__ret__.get('serverSideEncryption'),
         sse_kms_key_id=__ret__.get('sseKmsKeyId'),

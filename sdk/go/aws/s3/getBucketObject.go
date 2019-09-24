@@ -41,6 +41,9 @@ func LookupBucketObject(ctx *pulumi.Context, args *GetBucketObjectArgs) (*GetBuc
 		Key: outputs["key"],
 		LastModified: outputs["lastModified"],
 		Metadata: outputs["metadata"],
+		ObjectLockLegalHoldStatus: outputs["objectLockLegalHoldStatus"],
+		ObjectLockMode: outputs["objectLockMode"],
+		ObjectLockRetainUntilDate: outputs["objectLockRetainUntilDate"],
 		Range: outputs["range"],
 		ServerSideEncryption: outputs["serverSideEncryption"],
 		SseKmsKeyId: outputs["sseKmsKeyId"],
@@ -92,6 +95,12 @@ type GetBucketObjectResult struct {
 	LastModified interface{}
 	// A map of metadata stored with the object in S3
 	Metadata interface{}
+	// Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
+	ObjectLockLegalHoldStatus interface{}
+	// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
+	ObjectLockMode interface{}
+	// The date and time when this object's object lock will expire.
+	ObjectLockRetainUntilDate interface{}
 	Range interface{}
 	// If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
 	ServerSideEncryption interface{}
