@@ -52,6 +52,9 @@ export class Association extends pulumi.CustomResource {
         return obj['__pulumiType'] === Association.__pulumiType;
     }
 
+    /**
+     * The ID of the SSM association.
+     */
     public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
      * The descriptive name for the association.
@@ -152,6 +155,9 @@ export class Association extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Association resources.
  */
 export interface AssociationState {
+    /**
+     * The ID of the SSM association.
+     */
     readonly associationId?: pulumi.Input<string>;
     /**
      * The descriptive name for the association.

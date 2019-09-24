@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Add CodeBuild principal
+* Upgrade to v2.29.0 of the AWS Terraform provider.
 
 ---
 

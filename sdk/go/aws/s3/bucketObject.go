@@ -33,9 +33,13 @@ func NewBucketObject(ctx *pulumi.Context,
 		inputs["contentLanguage"] = nil
 		inputs["contentType"] = nil
 		inputs["etag"] = nil
+		inputs["forceDestroy"] = nil
 		inputs["key"] = nil
 		inputs["kmsKeyId"] = nil
 		inputs["metadata"] = nil
+		inputs["objectLockLegalHoldStatus"] = nil
+		inputs["objectLockMode"] = nil
+		inputs["objectLockRetainUntilDate"] = nil
 		inputs["serverSideEncryption"] = nil
 		inputs["source"] = nil
 		inputs["storageClass"] = nil
@@ -52,9 +56,13 @@ func NewBucketObject(ctx *pulumi.Context,
 		inputs["contentLanguage"] = args.ContentLanguage
 		inputs["contentType"] = args.ContentType
 		inputs["etag"] = args.Etag
+		inputs["forceDestroy"] = args.ForceDestroy
 		inputs["key"] = args.Key
 		inputs["kmsKeyId"] = args.KmsKeyId
 		inputs["metadata"] = args.Metadata
+		inputs["objectLockLegalHoldStatus"] = args.ObjectLockLegalHoldStatus
+		inputs["objectLockMode"] = args.ObjectLockMode
+		inputs["objectLockRetainUntilDate"] = args.ObjectLockRetainUntilDate
 		inputs["serverSideEncryption"] = args.ServerSideEncryption
 		inputs["source"] = args.Source
 		inputs["storageClass"] = args.StorageClass
@@ -85,9 +93,13 @@ func GetBucketObject(ctx *pulumi.Context,
 		inputs["contentLanguage"] = state.ContentLanguage
 		inputs["contentType"] = state.ContentType
 		inputs["etag"] = state.Etag
+		inputs["forceDestroy"] = state.ForceDestroy
 		inputs["key"] = state.Key
 		inputs["kmsKeyId"] = state.KmsKeyId
 		inputs["metadata"] = state.Metadata
+		inputs["objectLockLegalHoldStatus"] = state.ObjectLockLegalHoldStatus
+		inputs["objectLockMode"] = state.ObjectLockMode
+		inputs["objectLockRetainUntilDate"] = state.ObjectLockRetainUntilDate
 		inputs["serverSideEncryption"] = state.ServerSideEncryption
 		inputs["source"] = state.Source
 		inputs["storageClass"] = state.StorageClass
@@ -163,6 +175,12 @@ func (r *BucketObject) Etag() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["etag"])
 }
 
+// Allow the object to be deleted by removing any legal hold on any object version.
+// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+func (r *BucketObject) ForceDestroy() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
+}
+
 // The name of the object once it is in the bucket.
 func (r *BucketObject) Key() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["key"])
@@ -179,6 +197,21 @@ func (r *BucketObject) KmsKeyId() *pulumi.StringOutput {
 // A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 func (r *BucketObject) Metadata() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["metadata"])
+}
+
+// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+func (r *BucketObject) ObjectLockLegalHoldStatus() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["objectLockLegalHoldStatus"])
+}
+
+// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+func (r *BucketObject) ObjectLockMode() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["objectLockMode"])
+}
+
+// The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+func (r *BucketObject) ObjectLockRetainUntilDate() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["objectLockRetainUntilDate"])
 }
 
 // Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
@@ -236,6 +269,9 @@ type BucketObjectState struct {
 	// Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
 	// This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`.
 	Etag interface{}
+	// Allow the object to be deleted by removing any legal hold on any object version.
+	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+	ForceDestroy interface{}
 	// The name of the object once it is in the bucket.
 	Key interface{}
 	// Specifies the AWS KMS Key ARN to use for object encryption.
@@ -245,6 +281,12 @@ type BucketObjectState struct {
 	KmsKeyId interface{}
 	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata interface{}
+	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+	ObjectLockLegalHoldStatus interface{}
+	// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	ObjectLockMode interface{}
+	// The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+	ObjectLockRetainUntilDate interface{}
 	// Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption interface{}
 	// The path to a file that will be read and uploaded as raw bytes for the object content.
@@ -284,6 +326,9 @@ type BucketObjectArgs struct {
 	// Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
 	// This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`.
 	Etag interface{}
+	// Allow the object to be deleted by removing any legal hold on any object version.
+	// Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+	ForceDestroy interface{}
 	// The name of the object once it is in the bucket.
 	Key interface{}
 	// Specifies the AWS KMS Key ARN to use for object encryption.
@@ -293,6 +338,12 @@ type BucketObjectArgs struct {
 	KmsKeyId interface{}
 	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata interface{}
+	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+	ObjectLockLegalHoldStatus interface{}
+	// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	ObjectLockMode interface{}
+	// The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+	ObjectLockRetainUntilDate interface{}
 	// Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption interface{}
 	// The path to a file that will be read and uploaded as raw bytes for the object content.

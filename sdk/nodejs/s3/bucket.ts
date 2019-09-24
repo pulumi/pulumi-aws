@@ -259,7 +259,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly corsRules!: pulumi.Output<outputs.s3.BucketCorsRule[] | undefined>;
     /**
-     * A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
+     * A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
@@ -432,7 +432,7 @@ export interface BucketState {
      */
     readonly corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsRule>[]>;
     /**
-     * A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
+     * A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
     /**
@@ -526,7 +526,7 @@ export interface BucketArgs {
      */
     readonly corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsRule>[]>;
     /**
-     * A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
+     * A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
     /**

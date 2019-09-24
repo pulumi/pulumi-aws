@@ -97,7 +97,7 @@ func (r *RateBasedRule) RateKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["rateKey"])
 }
 
-// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
+// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
 func (r *RateBasedRule) RateLimit() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["rateLimit"])
 }
@@ -112,7 +112,7 @@ type RateBasedRuleState struct {
 	Predicates interface{}
 	// Valid value is IP.
 	RateKey interface{}
-	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
+	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
 	RateLimit interface{}
 }
 
@@ -126,6 +126,6 @@ type RateBasedRuleArgs struct {
 	Predicates interface{}
 	// Valid value is IP.
 	RateKey interface{}
-	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
+	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
 	RateLimit interface{}
 }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 import {ARN} from "../index";
 
 /**
- * Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS. The Lambda Function itself includes source code and runtime configuration.
+ * Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS, enabling serverless backend solutions. The Lambda Function itself includes source code and runtime configuration.
  * 
  * For information about Lambda and how to use it, see [What is AWS Lambda?][1]
  * 

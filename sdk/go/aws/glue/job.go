@@ -145,7 +145,7 @@ func (r *Job) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
-// The name of the Security Configuration to be associated with the job. 
+// The name of the Security Configuration to be associated with the job.
 func (r *Job) SecurityConfiguration() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["securityConfiguration"])
 }
@@ -177,7 +177,7 @@ type JobState struct {
 	Name interface{}
 	// The ARN of the IAM role associated with this job.
 	RoleArn interface{}
-	// The name of the Security Configuration to be associated with the job. 
+	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration interface{}
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout interface{}
@@ -205,7 +205,7 @@ type JobArgs struct {
 	Name interface{}
 	// The ARN of the IAM role associated with this job.
 	RoleArn interface{}
-	// The name of the Security Configuration to be associated with the job. 
+	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration interface{}
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout interface{}

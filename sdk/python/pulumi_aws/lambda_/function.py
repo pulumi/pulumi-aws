@@ -129,7 +129,7 @@ class Function(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, dead_letter_config=None, description=None, environment=None, code=None, name=None, handler=None, kms_key_arn=None, layers=None, memory_size=None, publish=None, reserved_concurrent_executions=None, role=None, runtime=None, s3_bucket=None, s3_key=None, s3_object_version=None, source_code_hash=None, tags=None, timeout=None, tracing_config=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS. The Lambda Function itself includes source code and runtime configuration.
+        Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS, enabling serverless backend solutions. The Lambda Function itself includes source code and runtime configuration.
         
         For information about Lambda and how to use it, see [What is AWS Lambda?][1]
         
