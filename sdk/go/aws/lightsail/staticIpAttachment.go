@@ -34,6 +34,7 @@ func NewStaticIpAttachment(ctx *pulumi.Context,
 		inputs["instanceName"] = args.InstanceName
 		inputs["staticIpName"] = args.StaticIpName
 	}
+	inputs["ipAddress"] = nil
 	s, err := ctx.RegisterResource("aws:lightsail/staticIpAttachment:StaticIpAttachment", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -48,6 +49,7 @@ func GetStaticIpAttachment(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["instanceName"] = state.InstanceName
+		inputs["ipAddress"] = state.IpAddress
 		inputs["staticIpName"] = state.StaticIpName
 	}
 	s, err := ctx.ReadResource("aws:lightsail/staticIpAttachment:StaticIpAttachment", name, id, inputs, opts...)
@@ -72,6 +74,11 @@ func (r *StaticIpAttachment) InstanceName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["instanceName"])
 }
 
+// The allocated static IP address
+func (r *StaticIpAttachment) IpAddress() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
+}
+
 // The name of the allocated static IP
 func (r *StaticIpAttachment) StaticIpName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["staticIpName"])
@@ -81,6 +88,8 @@ func (r *StaticIpAttachment) StaticIpName() *pulumi.StringOutput {
 type StaticIpAttachmentState struct {
 	// The name of the Lightsail instance to attach the IP to
 	InstanceName interface{}
+	// The allocated static IP address
+	IpAddress interface{}
 	// The name of the allocated static IP
 	StaticIpName interface{}
 }

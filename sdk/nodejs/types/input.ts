@@ -1605,6 +1605,55 @@ export namespace appsync {
         functionArn: pulumi.Input<string>;
     }
 
+    export interface GraphQLApiAdditionalAuthenticationProvider {
+        /**
+         * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+         */
+        authenticationType: pulumi.Input<string>;
+        /**
+         * Nested argument containing OpenID Connect configuration. Defined below.
+         */
+        openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig>;
+        /**
+         * The Amazon Cognito User Pool configuration. Defined below.
+         */
+        userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig>;
+    }
+
+    export interface GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig {
+        /**
+         * Number of milliseconds a token is valid after being authenticated.
+         */
+        authTtl?: pulumi.Input<number>;
+        /**
+         * Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * Number of milliseconds a token is valid after being issued to a user.
+         */
+        iatTtl?: pulumi.Input<number>;
+        /**
+         * Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
+         */
+        issuer: pulumi.Input<string>;
+    }
+
+    export interface GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
+        /**
+         * A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+         */
+        appIdClientRegex?: pulumi.Input<string>;
+        /**
+         * The AWS region in which the user pool was created.
+         */
+        awsRegion?: pulumi.Input<string>;
+        /**
+         * The user pool ID.
+         */
+        userPoolId: pulumi.Input<string>;
+    }
+
     export interface GraphQLApiLogConfig {
         /**
          * Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
@@ -5151,7 +5200,7 @@ export namespace ec2 {
          */
         instanceId?: pulumi.Input<string>;
         /**
-         * The Ipv6 CIDR block of the route
+         * The Ipv6 CIDR block of the route.
          */
         ipv6CidrBlock?: pulumi.Input<string>;
         /**

@@ -134,7 +134,6 @@ func (r *SecurityGroupRule) Ipv6CidrBlocks() *pulumi.ArrayOutput {
 }
 
 // List of prefix list IDs (for allowing access to VPC endpoints).
-// Only valid with `egress`.
 func (r *SecurityGroupRule) PrefixListIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["prefixListIds"])
 }
@@ -183,7 +182,6 @@ type SecurityGroupRuleState struct {
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks interface{}
 	// List of prefix list IDs (for allowing access to VPC endpoints).
-	// Only valid with `egress`.
 	PrefixListIds interface{}
 	// The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol interface{}
@@ -213,7 +211,6 @@ type SecurityGroupRuleArgs struct {
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks interface{}
 	// List of prefix list IDs (for allowing access to VPC endpoints).
-	// Only valid with `egress`.
 	PrefixListIds interface{}
 	// The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol interface{}

@@ -80,6 +80,20 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
+ * ### With Multiple Authentication Providers
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     additionalAuthenticationProviders: [{
+ *         authenticationType: "AWS_IAM",
+ *     }],
+ *     authenticationType: "API_KEY",
+ * });
+ * ```
+ * 
  * ### Enabling Logging
  * 
  * ```typescript
@@ -143,6 +157,10 @@ export class GraphQLApi extends pulumi.CustomResource {
     }
 
     /**
+     * One or more additional authentication providers for the GraphqlApi. Defined below.
+     */
+    public readonly additionalAuthenticationProviders!: pulumi.Output<outputs.appsync.GraphQLApiAdditionalAuthenticationProvider[] | undefined>;
+    /**
      * The ARN
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -191,6 +209,7 @@ export class GraphQLApi extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as GraphQLApiState | undefined;
+            inputs["additionalAuthenticationProviders"] = state ? state.additionalAuthenticationProviders : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["authenticationType"] = state ? state.authenticationType : undefined;
             inputs["logConfig"] = state ? state.logConfig : undefined;
@@ -205,6 +224,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             if (!args || args.authenticationType === undefined) {
                 throw new Error("Missing required property 'authenticationType'");
             }
+            inputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
             inputs["authenticationType"] = args ? args.authenticationType : undefined;
             inputs["logConfig"] = args ? args.logConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -230,6 +250,10 @@ export class GraphQLApi extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GraphQLApi resources.
  */
 export interface GraphQLApiState {
+    /**
+     * One or more additional authentication providers for the GraphqlApi. Defined below.
+     */
+    readonly additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
     /**
      * The ARN
      */
@@ -272,6 +296,10 @@ export interface GraphQLApiState {
  * The set of arguments for constructing a GraphQLApi resource.
  */
 export interface GraphQLApiArgs {
+    /**
+     * One or more additional authentication providers for the GraphqlApi. Defined below.
+     */
+    readonly additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
     /**
      * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
      */
