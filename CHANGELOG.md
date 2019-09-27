@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.30.0 of the AWS Terraform provider.
+_(none)_
 
 ---
+
+## 1.4.0 (2019-09-27)
+* Upgrade to v2.30.0 of the AWS Terraform provider.
 
 ## 1.3.0 (2019-09-24)
 * Add CodeBuild principal
