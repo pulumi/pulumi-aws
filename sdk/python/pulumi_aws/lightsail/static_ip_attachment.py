@@ -14,6 +14,10 @@ class StaticIpAttachment(pulumi.CustomResource):
     """
     The name of the Lightsail instance to attach the IP to
     """
+    ip_address: pulumi.Output[str]
+    """
+    The allocated static IP address
+    """
     static_ip_name: pulumi.Output[str]
     """
     The name of the allocated static IP
@@ -54,6 +58,7 @@ class StaticIpAttachment(pulumi.CustomResource):
             if static_ip_name is None:
                 raise TypeError("Missing required property 'static_ip_name'")
             __props__['static_ip_name'] = static_ip_name
+            __props__['ip_address'] = None
         super(StaticIpAttachment, __self__).__init__(
             'aws:lightsail/staticIpAttachment:StaticIpAttachment',
             resource_name,
@@ -61,7 +66,7 @@ class StaticIpAttachment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, instance_name=None, static_ip_name=None):
+    def get(resource_name, id, opts=None, instance_name=None, ip_address=None, static_ip_name=None):
         """
         Get an existing StaticIpAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -70,6 +75,7 @@ class StaticIpAttachment(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_name: The name of the Lightsail instance to attach the IP to
+        :param pulumi.Input[str] ip_address: The allocated static IP address
         :param pulumi.Input[str] static_ip_name: The name of the allocated static IP
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_static_ip_attachment.html.markdown.
@@ -78,6 +84,7 @@ class StaticIpAttachment(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["instance_name"] = instance_name
+        __props__["ip_address"] = ip_address
         __props__["static_ip_name"] = static_ip_name
         return StaticIpAttachment(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

@@ -128,6 +128,9 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
      */
     public readonly selfManagedActiveDirectory!: pulumi.Output<outputs.fsx.WindowsFileSystemSelfManagedActiveDirectory | undefined>;
+    /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     */
     public readonly skipFinalBackup!: pulumi.Output<boolean | undefined>;
     /**
      * Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
@@ -273,6 +276,9 @@ export interface WindowsFileSystemState {
      * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
      */
     readonly selfManagedActiveDirectory?: pulumi.Input<inputs.fsx.WindowsFileSystemSelfManagedActiveDirectory>;
+    /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     */
     readonly skipFinalBackup?: pulumi.Input<boolean>;
     /**
      * Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
@@ -332,6 +338,9 @@ export interface WindowsFileSystemArgs {
      * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
      */
     readonly selfManagedActiveDirectory?: pulumi.Input<inputs.fsx.WindowsFileSystemSelfManagedActiveDirectory>;
+    /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     */
     readonly skipFinalBackup?: pulumi.Input<boolean>;
     /**
      * Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.

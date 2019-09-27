@@ -82,7 +82,7 @@ export class RouteTable extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the AWS account that owns the route table
+     * The ID of the AWS account that owns the route table.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export class RouteTable extends pulumi.CustomResource {
  */
 export interface RouteTableState {
     /**
-     * The ID of the AWS account that owns the route table
+     * The ID of the AWS account that owns the route table.
      */
     readonly ownerId?: pulumi.Input<string>;
     /**

@@ -62,6 +62,10 @@ export class StaticIpAttachment extends pulumi.CustomResource {
      */
     public readonly instanceName!: pulumi.Output<string>;
     /**
+     * The allocated static IP address
+     */
+    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    /**
      * The name of the allocated static IP
      */
     public readonly staticIpName!: pulumi.Output<string>;
@@ -79,6 +83,7 @@ export class StaticIpAttachment extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as StaticIpAttachmentState | undefined;
             inputs["instanceName"] = state ? state.instanceName : undefined;
+            inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["staticIpName"] = state ? state.staticIpName : undefined;
         } else {
             const args = argsOrState as StaticIpAttachmentArgs | undefined;
@@ -90,6 +95,7 @@ export class StaticIpAttachment extends pulumi.CustomResource {
             }
             inputs["instanceName"] = args ? args.instanceName : undefined;
             inputs["staticIpName"] = args ? args.staticIpName : undefined;
+            inputs["ipAddress"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -110,6 +116,10 @@ export interface StaticIpAttachmentState {
      * The name of the Lightsail instance to attach the IP to
      */
     readonly instanceName?: pulumi.Input<string>;
+    /**
+     * The allocated static IP address
+     */
+    readonly ipAddress?: pulumi.Input<string>;
     /**
      * The name of the allocated static IP
      */

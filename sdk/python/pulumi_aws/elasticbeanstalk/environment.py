@@ -12,7 +12,7 @@ from .. import utilities, tables
 class Environment(pulumi.CustomResource):
     all_settings: pulumi.Output[list]
     """
-    List of all option settings configured in the Environment. These
+    List of all option settings configured in this Environment. These
     are a combination of default settings and their overrides from `setting` in
     the configuration.
     
@@ -30,11 +30,11 @@ class Environment(pulumi.CustomResource):
     arn: pulumi.Output[str]
     autoscaling_groups: pulumi.Output[list]
     """
-    The autoscaling groups used by this environment.
+    The autoscaling groups used by this Environment.
     """
     cname: pulumi.Output[str]
     """
-    Fully qualified DNS name for the Environment.
+    Fully qualified DNS name for this Environment.
     """
     cname_prefix: pulumi.Output[str]
     """
@@ -45,17 +45,21 @@ class Environment(pulumi.CustomResource):
     """
     Short description of the Environment
     """
+    endpoint_url: pulumi.Output[str]
+    """
+    The URL to the Load Balancer for this Environment
+    """
     instances: pulumi.Output[list]
     """
-    Instances used by this environment.
+    Instances used by this Environment.
     """
     launch_configurations: pulumi.Output[list]
     """
-    Launch configurations in use by this environment.
+    Launch configurations in use by this Environment.
     """
     load_balancers: pulumi.Output[list]
     """
-    Elastic load balancers in use by this environment.
+    Elastic load balancers in use by this Environment.
     """
     name: pulumi.Output[str]
     """
@@ -76,7 +80,7 @@ class Environment(pulumi.CustomResource):
     """
     queues: pulumi.Output[list]
     """
-    SQS queues in use by this environment.
+    SQS queues in use by this Environment.
     """
     settings: pulumi.Output[list]
     """
@@ -111,7 +115,7 @@ class Environment(pulumi.CustomResource):
     """
     triggers: pulumi.Output[list]
     """
-    Autoscaling triggers in use by this environment.
+    Autoscaling triggers in use by this Environment.
     """
     version: pulumi.Output[str]
     """
@@ -224,6 +228,7 @@ class Environment(pulumi.CustomResource):
             __props__['arn'] = None
             __props__['autoscaling_groups'] = None
             __props__['cname'] = None
+            __props__['endpoint_url'] = None
             __props__['instances'] = None
             __props__['launch_configurations'] = None
             __props__['load_balancers'] = None
@@ -236,7 +241,7 @@ class Environment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, all_settings=None, application=None, arn=None, autoscaling_groups=None, cname=None, cname_prefix=None, description=None, instances=None, launch_configurations=None, load_balancers=None, name=None, platform_arn=None, poll_interval=None, queues=None, settings=None, solution_stack_name=None, tags=None, template_name=None, tier=None, triggers=None, version=None, wait_for_ready_timeout=None):
+    def get(resource_name, id, opts=None, all_settings=None, application=None, arn=None, autoscaling_groups=None, cname=None, cname_prefix=None, description=None, endpoint_url=None, instances=None, launch_configurations=None, load_balancers=None, name=None, platform_arn=None, poll_interval=None, queues=None, settings=None, solution_stack_name=None, tags=None, template_name=None, tier=None, triggers=None, version=None, wait_for_ready_timeout=None):
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -244,19 +249,20 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] all_settings: List of all option settings configured in the Environment. These
+        :param pulumi.Input[list] all_settings: List of all option settings configured in this Environment. These
                are a combination of default settings and their overrides from `setting` in
                the configuration.
         :param pulumi.Input[str] application: Name of the application that contains the version
                to be deployed
-        :param pulumi.Input[list] autoscaling_groups: The autoscaling groups used by this environment.
-        :param pulumi.Input[str] cname: Fully qualified DNS name for the Environment.
+        :param pulumi.Input[list] autoscaling_groups: The autoscaling groups used by this Environment.
+        :param pulumi.Input[str] cname: Fully qualified DNS name for this Environment.
         :param pulumi.Input[str] cname_prefix: Prefix to use for the fully qualified DNS name of
                the Environment.
         :param pulumi.Input[str] description: Short description of the Environment
-        :param pulumi.Input[list] instances: Instances used by this environment.
-        :param pulumi.Input[list] launch_configurations: Launch configurations in use by this environment.
-        :param pulumi.Input[list] load_balancers: Elastic load balancers in use by this environment.
+        :param pulumi.Input[str] endpoint_url: The URL to the Load Balancer for this Environment
+        :param pulumi.Input[list] instances: Instances used by this Environment.
+        :param pulumi.Input[list] launch_configurations: Launch configurations in use by this Environment.
+        :param pulumi.Input[list] load_balancers: Elastic load balancers in use by this Environment.
         :param pulumi.Input[str] name: A unique name for this Environment. This name is used
                in the application URL
         :param pulumi.Input[str] platform_arn: The [ARN][2] of the Elastic Beanstalk [Platform][3]
@@ -265,7 +271,7 @@ class Environment(pulumi.CustomResource):
                check if changes have been applied. Use this to adjust the rate of API calls
                for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
                use the default behavior, which is an exponential backoff
-        :param pulumi.Input[list] queues: SQS queues in use by this environment.
+        :param pulumi.Input[list] queues: SQS queues in use by this Environment.
         :param pulumi.Input[list] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
@@ -276,7 +282,7 @@ class Environment(pulumi.CustomResource):
                template to use in deployment
         :param pulumi.Input[str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
                or `WebServer`. If tier is left blank `WebServer` will be used.
-        :param pulumi.Input[list] triggers: Autoscaling triggers in use by this environment.
+        :param pulumi.Input[list] triggers: Autoscaling triggers in use by this Environment.
         :param pulumi.Input[str] version: The name of the Elastic Beanstalk Application Version
                to use in deployment.
         :param pulumi.Input[str] wait_for_ready_timeout: The maximum
@@ -312,6 +318,7 @@ class Environment(pulumi.CustomResource):
         __props__["cname"] = cname
         __props__["cname_prefix"] = cname_prefix
         __props__["description"] = description
+        __props__["endpoint_url"] = endpoint_url
         __props__["instances"] = instances
         __props__["launch_configurations"] = launch_configurations
         __props__["load_balancers"] = load_balancers

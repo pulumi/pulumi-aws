@@ -12,7 +12,7 @@ from .. import utilities, tables
 class RouteTable(pulumi.CustomResource):
     owner_id: pulumi.Output[str]
     """
-    The ID of the AWS account that owns the route table
+    The ID of the AWS account that owns the route table.
     """
     propagating_vgws: pulumi.Output[list]
     """
@@ -26,7 +26,7 @@ class RouteTable(pulumi.CustomResource):
       * `egress_only_gateway_id` (`str`) - Identifier of a VPC Egress Only Internet Gateway.
       * `gateway_id` (`str`) - Identifier of a VPC internet gateway or a virtual private gateway.
       * `instance_id` (`str`) - Identifier of an EC2 instance.
-      * `ipv6_cidr_block` (`str`) - The Ipv6 CIDR block of the route
+      * `ipv6_cidr_block` (`str`) - The Ipv6 CIDR block of the route.
       * `nat_gateway_id` (`str`) - Identifier of a VPC NAT gateway.
       * `network_interface_id` (`str`) - Identifier of an EC2 network interface.
       * `transit_gateway_id` (`str`) - Identifier of an EC2 Transit Gateway.
@@ -76,7 +76,7 @@ class RouteTable(pulumi.CustomResource):
           * `egress_only_gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC Egress Only Internet Gateway.
           * `gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC internet gateway or a virtual private gateway.
           * `instance_id` (`pulumi.Input[str]`) - Identifier of an EC2 instance.
-          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The Ipv6 CIDR block of the route
+          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The Ipv6 CIDR block of the route.
           * `nat_gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC NAT gateway.
           * `network_interface_id` (`pulumi.Input[str]`) - Identifier of an EC2 network interface.
           * `transit_gateway_id` (`pulumi.Input[str]`) - Identifier of an EC2 Transit Gateway.
@@ -123,7 +123,7 @@ class RouteTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the route table
+        :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the route table.
         :param pulumi.Input[list] propagating_vgws: A list of virtual gateways for propagation.
         :param pulumi.Input[list] routes: A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -135,7 +135,7 @@ class RouteTable(pulumi.CustomResource):
           * `egress_only_gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC Egress Only Internet Gateway.
           * `gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC internet gateway or a virtual private gateway.
           * `instance_id` (`pulumi.Input[str]`) - Identifier of an EC2 instance.
-          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The Ipv6 CIDR block of the route
+          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The Ipv6 CIDR block of the route.
           * `nat_gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC NAT gateway.
           * `network_interface_id` (`pulumi.Input[str]`) - Identifier of an EC2 network interface.
           * `transit_gateway_id` (`pulumi.Input[str]`) - Identifier of an EC2 Transit Gateway.

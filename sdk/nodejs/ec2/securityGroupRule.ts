@@ -110,7 +110,6 @@ export class SecurityGroupRule extends pulumi.CustomResource {
     public readonly ipv6CidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
      * List of prefix list IDs (for allowing access to VPC endpoints).
-     * Only valid with `egress`.
      */
     public readonly prefixListIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -226,7 +225,6 @@ export interface SecurityGroupRuleState {
     readonly ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of prefix list IDs (for allowing access to VPC endpoints).
-     * Only valid with `egress`.
      */
     readonly prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -280,7 +278,6 @@ export interface SecurityGroupRuleArgs {
     readonly ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of prefix list IDs (for allowing access to VPC endpoints).
-     * Only valid with `egress`.
      */
     readonly prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

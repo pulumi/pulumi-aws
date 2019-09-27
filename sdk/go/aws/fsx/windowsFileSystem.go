@@ -168,6 +168,7 @@ func (r *WindowsFileSystem) SelfManagedActiveDirectory() *pulumi.Output {
 	return r.s.State["selfManagedActiveDirectory"]
 }
 
+// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 func (r *WindowsFileSystem) SkipFinalBackup() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["skipFinalBackup"])
 }
@@ -226,6 +227,7 @@ type WindowsFileSystemState struct {
 	SecurityGroupIds interface{}
 	// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
 	SelfManagedActiveDirectory interface{}
+	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup interface{}
 	// Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
 	StorageCapacity interface{}
@@ -257,6 +259,7 @@ type WindowsFileSystemArgs struct {
 	SecurityGroupIds interface{}
 	// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
 	SelfManagedActiveDirectory interface{}
+	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup interface{}
 	// Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
 	StorageCapacity interface{}

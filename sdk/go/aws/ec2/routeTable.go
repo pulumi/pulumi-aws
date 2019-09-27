@@ -89,7 +89,7 @@ func (r *RouteTable) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The ID of the AWS account that owns the route table
+// The ID of the AWS account that owns the route table.
 func (r *RouteTable) OwnerId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ownerId"])
 }
@@ -116,7 +116,7 @@ func (r *RouteTable) VpcId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering RouteTable resources.
 type RouteTableState struct {
-	// The ID of the AWS account that owns the route table
+	// The ID of the AWS account that owns the route table.
 	OwnerId interface{}
 	// A list of virtual gateways for propagation.
 	PropagatingVgws interface{}

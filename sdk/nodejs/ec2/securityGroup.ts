@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *         cidrBlocks: "", // add a CIDR block here
  *         // TLS (change to whatever ports you need)
  *         fromPort: 443,
- *         protocol: "-1",
+ *         protocol: "tcp",
  *         toPort: 443,
  *     }],
  *     vpcId: aws_vpc_main.id,

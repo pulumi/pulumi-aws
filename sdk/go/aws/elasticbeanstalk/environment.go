@@ -72,6 +72,7 @@ func NewEnvironment(ctx *pulumi.Context,
 	inputs["arn"] = nil
 	inputs["autoscalingGroups"] = nil
 	inputs["cname"] = nil
+	inputs["endpointUrl"] = nil
 	inputs["instances"] = nil
 	inputs["launchConfigurations"] = nil
 	inputs["loadBalancers"] = nil
@@ -97,6 +98,7 @@ func GetEnvironment(ctx *pulumi.Context,
 		inputs["cname"] = state.Cname
 		inputs["cnamePrefix"] = state.CnamePrefix
 		inputs["description"] = state.Description
+		inputs["endpointUrl"] = state.EndpointUrl
 		inputs["instances"] = state.Instances
 		inputs["launchConfigurations"] = state.LaunchConfigurations
 		inputs["loadBalancers"] = state.LoadBalancers
@@ -130,7 +132,7 @@ func (r *Environment) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// List of all option settings configured in the Environment. These
+// List of all option settings configured in this Environment. These
 // are a combination of default settings and their overrides from `setting` in
 // the configuration.
 func (r *Environment) AllSettings() *pulumi.ArrayOutput {
@@ -147,12 +149,12 @@ func (r *Environment) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The autoscaling groups used by this environment.
+// The autoscaling groups used by this Environment.
 func (r *Environment) AutoscalingGroups() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["autoscalingGroups"])
 }
 
-// Fully qualified DNS name for the Environment.
+// Fully qualified DNS name for this Environment.
 func (r *Environment) Cname() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["cname"])
 }
@@ -168,17 +170,22 @@ func (r *Environment) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// Instances used by this environment.
+// The URL to the Load Balancer for this Environment
+func (r *Environment) EndpointUrl() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["endpointUrl"])
+}
+
+// Instances used by this Environment.
 func (r *Environment) Instances() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["instances"])
 }
 
-// Launch configurations in use by this environment.
+// Launch configurations in use by this Environment.
 func (r *Environment) LaunchConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["launchConfigurations"])
 }
 
-// Elastic load balancers in use by this environment.
+// Elastic load balancers in use by this Environment.
 func (r *Environment) LoadBalancers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["loadBalancers"])
 }
@@ -203,7 +210,7 @@ func (r *Environment) PollInterval() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["pollInterval"])
 }
 
-// SQS queues in use by this environment.
+// SQS queues in use by this Environment.
 func (r *Environment) Queues() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["queues"])
 }
@@ -238,7 +245,7 @@ func (r *Environment) Tier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tier"])
 }
 
-// Autoscaling triggers in use by this environment.
+// Autoscaling triggers in use by this Environment.
 func (r *Environment) Triggers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["triggers"])
 }
@@ -259,7 +266,7 @@ func (r *Environment) WaitForReadyTimeout() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Environment resources.
 type EnvironmentState struct {
-	// List of all option settings configured in the Environment. These
+	// List of all option settings configured in this Environment. These
 	// are a combination of default settings and their overrides from `setting` in
 	// the configuration.
 	AllSettings interface{}
@@ -267,20 +274,22 @@ type EnvironmentState struct {
 	// to be deployed
 	Application interface{}
 	Arn interface{}
-	// The autoscaling groups used by this environment.
+	// The autoscaling groups used by this Environment.
 	AutoscalingGroups interface{}
-	// Fully qualified DNS name for the Environment.
+	// Fully qualified DNS name for this Environment.
 	Cname interface{}
 	// Prefix to use for the fully qualified DNS name of
 	// the Environment.
 	CnamePrefix interface{}
 	// Short description of the Environment
 	Description interface{}
-	// Instances used by this environment.
+	// The URL to the Load Balancer for this Environment
+	EndpointUrl interface{}
+	// Instances used by this Environment.
 	Instances interface{}
-	// Launch configurations in use by this environment.
+	// Launch configurations in use by this Environment.
 	LaunchConfigurations interface{}
-	// Elastic load balancers in use by this environment.
+	// Elastic load balancers in use by this Environment.
 	LoadBalancers interface{}
 	// A unique name for this Environment. This name is used
 	// in the application URL
@@ -293,7 +302,7 @@ type EnvironmentState struct {
 	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
 	// use the default behavior, which is an exponential backoff
 	PollInterval interface{}
-	// SQS queues in use by this environment.
+	// SQS queues in use by this Environment.
 	Queues interface{}
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
@@ -310,7 +319,7 @@ type EnvironmentState struct {
 	// Elastic Beanstalk Environment tier. Valid values are `Worker`
 	// or `WebServer`. If tier is left blank `WebServer` will be used.
 	Tier interface{}
-	// Autoscaling triggers in use by this environment.
+	// Autoscaling triggers in use by this Environment.
 	Triggers interface{}
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.

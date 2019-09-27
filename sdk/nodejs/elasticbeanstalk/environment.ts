@@ -101,7 +101,7 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /**
-     * List of all option settings configured in the Environment. These
+     * List of all option settings configured in this Environment. These
      * are a combination of default settings and their overrides from `setting` in
      * the configuration.
      */
@@ -113,11 +113,11 @@ export class Environment extends pulumi.CustomResource {
     public readonly application!: pulumi.Output<Application>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The autoscaling groups used by this environment.
+     * The autoscaling groups used by this Environment.
      */
     public /*out*/ readonly autoscalingGroups!: pulumi.Output<string[]>;
     /**
-     * Fully qualified DNS name for the Environment.
+     * Fully qualified DNS name for this Environment.
      */
     public /*out*/ readonly cname!: pulumi.Output<string>;
     /**
@@ -130,15 +130,19 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Instances used by this environment.
+     * The URL to the Load Balancer for this Environment
+     */
+    public /*out*/ readonly endpointUrl!: pulumi.Output<string>;
+    /**
+     * Instances used by this Environment.
      */
     public /*out*/ readonly instances!: pulumi.Output<string[]>;
     /**
-     * Launch configurations in use by this environment.
+     * Launch configurations in use by this Environment.
      */
     public /*out*/ readonly launchConfigurations!: pulumi.Output<string[]>;
     /**
-     * Elastic load balancers in use by this environment.
+     * Elastic load balancers in use by this Environment.
      */
     public /*out*/ readonly loadBalancers!: pulumi.Output<string[]>;
     /**
@@ -159,7 +163,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly pollInterval!: pulumi.Output<string | undefined>;
     /**
-     * SQS queues in use by this environment.
+     * SQS queues in use by this Environment.
      */
     public /*out*/ readonly queues!: pulumi.Output<string[]>;
     /**
@@ -188,7 +192,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly tier!: pulumi.Output<string | undefined>;
     /**
-     * Autoscaling triggers in use by this environment.
+     * Autoscaling triggers in use by this Environment.
      */
     public /*out*/ readonly triggers!: pulumi.Output<string[]>;
     /**
@@ -223,6 +227,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["cname"] = state ? state.cname : undefined;
             inputs["cnamePrefix"] = state ? state.cnamePrefix : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["endpointUrl"] = state ? state.endpointUrl : undefined;
             inputs["instances"] = state ? state.instances : undefined;
             inputs["launchConfigurations"] = state ? state.launchConfigurations : undefined;
             inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
@@ -260,6 +265,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["autoscalingGroups"] = undefined /*out*/;
             inputs["cname"] = undefined /*out*/;
+            inputs["endpointUrl"] = undefined /*out*/;
             inputs["instances"] = undefined /*out*/;
             inputs["launchConfigurations"] = undefined /*out*/;
             inputs["loadBalancers"] = undefined /*out*/;
@@ -282,7 +288,7 @@ export class Environment extends pulumi.CustomResource {
  */
 export interface EnvironmentState {
     /**
-     * List of all option settings configured in the Environment. These
+     * List of all option settings configured in this Environment. These
      * are a combination of default settings and their overrides from `setting` in
      * the configuration.
      */
@@ -294,11 +300,11 @@ export interface EnvironmentState {
     readonly application?: pulumi.Input<Application>;
     readonly arn?: pulumi.Input<string>;
     /**
-     * The autoscaling groups used by this environment.
+     * The autoscaling groups used by this Environment.
      */
     readonly autoscalingGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Fully qualified DNS name for the Environment.
+     * Fully qualified DNS name for this Environment.
      */
     readonly cname?: pulumi.Input<string>;
     /**
@@ -311,15 +317,19 @@ export interface EnvironmentState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Instances used by this environment.
+     * The URL to the Load Balancer for this Environment
+     */
+    readonly endpointUrl?: pulumi.Input<string>;
+    /**
+     * Instances used by this Environment.
      */
     readonly instances?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Launch configurations in use by this environment.
+     * Launch configurations in use by this Environment.
      */
     readonly launchConfigurations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Elastic load balancers in use by this environment.
+     * Elastic load balancers in use by this Environment.
      */
     readonly loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -340,7 +350,7 @@ export interface EnvironmentState {
      */
     readonly pollInterval?: pulumi.Input<string>;
     /**
-     * SQS queues in use by this environment.
+     * SQS queues in use by this Environment.
      */
     readonly queues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -369,7 +379,7 @@ export interface EnvironmentState {
      */
     readonly tier?: pulumi.Input<string>;
     /**
-     * Autoscaling triggers in use by this environment.
+     * Autoscaling triggers in use by this Environment.
      */
     readonly triggers?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -23,6 +23,7 @@ func NewGraphQLApi(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["additionalAuthenticationProviders"] = nil
 		inputs["authenticationType"] = nil
 		inputs["logConfig"] = nil
 		inputs["name"] = nil
@@ -31,6 +32,7 @@ func NewGraphQLApi(ctx *pulumi.Context,
 		inputs["tags"] = nil
 		inputs["userPoolConfig"] = nil
 	} else {
+		inputs["additionalAuthenticationProviders"] = args.AdditionalAuthenticationProviders
 		inputs["authenticationType"] = args.AuthenticationType
 		inputs["logConfig"] = args.LogConfig
 		inputs["name"] = args.Name
@@ -54,6 +56,7 @@ func GetGraphQLApi(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *GraphQLApiState, opts ...pulumi.ResourceOpt) (*GraphQLApi, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["additionalAuthenticationProviders"] = state.AdditionalAuthenticationProviders
 		inputs["arn"] = state.Arn
 		inputs["authenticationType"] = state.AuthenticationType
 		inputs["logConfig"] = state.LogConfig
@@ -79,6 +82,11 @@ func (r *GraphQLApi) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *GraphQLApi) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// One or more additional authentication providers for the GraphqlApi. Defined below.
+func (r *GraphQLApi) AdditionalAuthenticationProviders() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["additionalAuthenticationProviders"])
 }
 
 // The ARN
@@ -128,6 +136,8 @@ func (r *GraphQLApi) UserPoolConfig() *pulumi.Output {
 
 // Input properties used for looking up and filtering GraphQLApi resources.
 type GraphQLApiState struct {
+	// One or more additional authentication providers for the GraphqlApi. Defined below.
+	AdditionalAuthenticationProviders interface{}
 	// The ARN
 	Arn interface{}
 	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
@@ -150,6 +160,8 @@ type GraphQLApiState struct {
 
 // The set of arguments for constructing a GraphQLApi resource.
 type GraphQLApiArgs struct {
+	// One or more additional authentication providers for the GraphqlApi. Defined below.
+	AdditionalAuthenticationProviders interface{}
 	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
 	AuthenticationType interface{}
 	// Nested argument containing logging configuration. Defined below.
