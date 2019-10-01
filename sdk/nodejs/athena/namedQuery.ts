@@ -15,14 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const hogeBucket = new aws.s3.Bucket("hoge", {});
  * const testKey = new aws.kms.Key("test", {
  *     deletionWindowInDays: 7,
  *     description: "Athena KMS Key",
- * });
- * const hogeBucket = new aws.s3.Bucket("hoge", {});
- * const hogeDatabase = new aws.athena.Database("hoge", {
- *     bucket: hogeBucket.id,
- *     name: "users",
  * });
  * const testWorkgroup = new aws.athena.Workgroup("test", {
  *     configuration: {
@@ -33,6 +29,10 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ * });
+ * const hogeDatabase = new aws.athena.Database("hoge", {
+ *     bucket: hogeBucket.id,
+ *     name: "users",
  * });
  * const foo = new aws.athena.NamedQuery("foo", {
  *     database: hogeDatabase.name,

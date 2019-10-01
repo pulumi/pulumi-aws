@@ -15,9 +15,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("example", {
- *     licenseCountingType: "Instance",
- * });
  * const exampleAmi = aws.getAmi({
  *     filters: [{
  *         name: "name",
@@ -29,6 +26,9 @@ import * as utilities from "../utilities";
  * const exampleInstance = new aws.ec2.Instance("example", {
  *     ami: exampleAmi.id,
  *     instanceType: "t2.micro",
+ * });
+ * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("example", {
+ *     licenseCountingType: "Instance",
  * });
  * const exampleAssociation = new aws.licensemanager.Association("example", {
  *     licenseConfigurationArn: exampleLicenseConfiguration.arn,

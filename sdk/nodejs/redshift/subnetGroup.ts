@@ -18,19 +18,19 @@ import * as utilities from "../utilities";
  * const fooVpc = new aws.ec2.Vpc("foo", {
  *     cidrBlock: "10.1.0.0/16",
  * });
- * const bar = new aws.ec2.Subnet("bar", {
- *     availabilityZone: "us-west-2b",
- *     cidrBlock: "10.1.2.0/24",
- *     tags: {
- *         Name: "tf-dbsubnet-test-2",
- *     },
- *     vpcId: fooVpc.id,
- * });
  * const fooSubnet = new aws.ec2.Subnet("foo", {
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.1.1.0/24",
  *     tags: {
  *         Name: "tf-dbsubnet-test-1",
+ *     },
+ *     vpcId: fooVpc.id,
+ * });
+ * const bar = new aws.ec2.Subnet("bar", {
+ *     availabilityZone: "us-west-2b",
+ *     cidrBlock: "10.1.2.0/24",
+ *     tags: {
+ *         Name: "tf-dbsubnet-test-2",
  *     },
  *     vpcId: fooVpc.id,
  * });

@@ -33,11 +33,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const sg = new aws.ec2.SecurityGroup("sg", {
- *     tags: {
- *         type: "test-security-group",
- *     },
- * });
  * const ami = aws.getAmi({
  *     filters: [{
  *         name: "name",
@@ -51,6 +46,11 @@ import * as utilities from "../utilities";
  *     instanceType: "t2.micro",
  *     tags: {
  *         type: "test-instance",
+ *     },
+ * });
+ * const sg = new aws.ec2.SecurityGroup("sg", {
+ *     tags: {
+ *         type: "test-security-group",
  *     },
  * });
  * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
@@ -67,13 +67,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const instance = aws.ec2.getInstance({
+ *     instanceId: "i-1234567890abcdef0",
+ * });
  * const sg = new aws.ec2.SecurityGroup("sg", {
  *     tags: {
  *         type: "test-security-group",
  *     },
- * });
- * const instance = aws.ec2.getInstance({
- *     instanceId: "i-1234567890abcdef0",
  * });
  * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
  *     networkInterfaceId: instance.networkInterfaceId,

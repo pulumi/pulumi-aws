@@ -100,13 +100,13 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucket = new aws.s3.Bucket("bucket", {});
  * const func = new aws.lambda.Function("func", {
  *     code: new pulumi.asset.FileArchive("your-function.zip"),
  *     handler: "exports.example",
  *     role: iamForLambda.arn,
  *     runtime: "go1.x",
  * });
+ * const bucket = new aws.s3.Bucket("bucket", {});
  * const allowBucket = new aws.lambda.Permission("allowBucket", {
  *     action: "lambda:InvokeFunction",
  *     function: func.arn,
@@ -145,23 +145,23 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucket = new aws.s3.Bucket("bucket", {});
  * const func1 = new aws.lambda.Function("func1", {
  *     code: new pulumi.asset.FileArchive("your-function1.zip"),
  *     handler: "exports.example",
  *     role: iamForLambda.arn,
  *     runtime: "go1.x",
  * });
- * const func2 = new aws.lambda.Function("func2", {
- *     code: new pulumi.asset.FileArchive("your-function2.zip"),
- *     handler: "exports.example",
- *     role: iamForLambda.arn,
- * });
+ * const bucket = new aws.s3.Bucket("bucket", {});
  * const allowBucket1 = new aws.lambda.Permission("allowBucket1", {
  *     action: "lambda:InvokeFunction",
  *     function: func1.arn,
  *     principal: "s3.amazonaws.com",
  *     sourceArn: bucket.arn,
+ * });
+ * const func2 = new aws.lambda.Function("func2", {
+ *     code: new pulumi.asset.FileArchive("your-function2.zip"),
+ *     handler: "exports.example",
+ *     role: iamForLambda.arn,
  * });
  * const allowBucket2 = new aws.lambda.Permission("allowBucket2", {
  *     action: "lambda:InvokeFunction",

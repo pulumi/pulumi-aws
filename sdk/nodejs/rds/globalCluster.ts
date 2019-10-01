@@ -12,6 +12,41 @@ import * as utilities from "../utilities";
  * More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
  * 
  * > **NOTE:** RDS only supports the `aurora` engine (MySQL 5.6 compatible) for Global Clusters at this time.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const primary = new aws.Provider("primary", {
+ *     region: "us-east-2",
+ * });
+ * const secondary = new aws.Provider("secondary", {
+ *     region: "us-west-2",
+ * });
+ * const example = new aws.rds.GlobalCluster("example", {
+ *     globalClusterIdentifier: "example",
+ * }, {provider: primary});
+ * const primaryCluster = new aws.rds.Cluster("primary", {
+ *     // ... other configuration ...
+ *     engineMode: "global",
+ *     globalClusterIdentifier: example.id,
+ * }, {provider: primary});
+ * const primaryClusterInstance = new aws.rds.ClusterInstance("primary", {
+ *     // ... other configuration ...
+ *     clusterIdentifier: primaryCluster.id,
+ * }, {provider: primary});
+ * const secondaryCluster = new aws.rds.Cluster("secondary", {
+ *     // ... other configuration ...
+ *     engineMode: "global",
+ *     globalClusterIdentifier: example.id,
+ * }, {provider: secondary,dependsOn: [primaryClusterInstance]});
+ * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondary", {
+ *     // ... other configuration ...
+ *     clusterIdentifier: secondaryCluster.id,
+ * }, {provider: secondary});
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_global_cluster.html.markdown.
  */

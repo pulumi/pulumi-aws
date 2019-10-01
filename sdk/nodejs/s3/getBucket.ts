@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testZone = aws.route53.getZone({
- *     name: "test.com.",
- * });
  * const selected = aws.s3.getBucket({
  *     bucket: "bucket.test.com",
+ * });
+ * const testZone = aws.route53.getZone({
+ *     name: "test.com.",
  * });
  * const example = new aws.route53.Record("example", {
  *     aliases: [{

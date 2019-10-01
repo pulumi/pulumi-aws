@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: "developmentCluster",
  *     dbSubnetGroupName: "myDbSubnetGroup",
  *     snapshotIdentifier: developmentFinalSnapshot.id,
- * });
+ * }, {ignoreChanges: ["snapshotIdentifier"]});
  * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
  *     clusterIdentifier: auroraCluster.id,
  *     dbSubnetGroupName: "myDbSubnetGroup",

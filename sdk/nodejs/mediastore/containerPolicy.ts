@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const currentRegion = aws.getRegion();
+ * const currentCallerIdentity = aws.getCallerIdentity();
  * const exampleContainer = new aws.mediastore.Container("example", {});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentRegion = aws.getRegion({});
  * const exampleContainerPolicy = new aws.mediastore.ContainerPolicy("example", {
  *     containerName: exampleContainer.name,
  *     policy: pulumi.interpolate`{
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * 		"Action": [ "mediastore:*" ],
  * 		"Principal": {"AWS" : "arn:aws:iam::${currentCallerIdentity.accountId}:root"},
  * 		"Effect": "Allow",
- * 		"Resource": "arn:aws:mediastore:${currentCallerIdentity.accountId}:${currentRegion.name}:container/${exampleContainer.name}/*",
+ * 		"Resource": "arn:aws:mediastore:${currentCallerIdentity.accountId}:${currentRegion.name!}:container/${exampleContainer.name}/*",
  * 		"Condition": {
  * 			"Bool": { "aws:SecureTransport": "true" }
  * 		}

@@ -45,23 +45,6 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const mainIdentityPoolRoleAttachment = new aws.cognito.IdentityPoolRoleAttachment("main", {
- *     identityPoolId: mainIdentityPool.id,
- *     roleMappings: [{
- *         ambiguousRoleResolution: "AuthenticatedRole",
- *         identityProvider: "graph.facebook.com",
- *         mappingRules: [{
- *             claim: "isAdmin",
- *             matchType: "Equals",
- *             roleArn: authenticatedRole.arn,
- *             value: "paid",
- *         }],
- *         type: "Rules",
- *     }],
- *     roles: {
- *         authenticated: authenticatedRole.arn,
- *     },
- * });
  * const authenticatedRolePolicy = new aws.iam.RolePolicy("authenticated", {
  *     policy: `{
  *   "Version": "2012-10-17",
@@ -81,6 +64,23 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     role: authenticatedRole.id,
+ * });
+ * const mainIdentityPoolRoleAttachment = new aws.cognito.IdentityPoolRoleAttachment("main", {
+ *     identityPoolId: mainIdentityPool.id,
+ *     roleMappings: [{
+ *         ambiguousRoleResolution: "AuthenticatedRole",
+ *         identityProvider: "graph.facebook.com",
+ *         mappingRules: [{
+ *             claim: "isAdmin",
+ *             matchType: "Equals",
+ *             roleArn: authenticatedRole.arn,
+ *             value: "paid",
+ *         }],
+ *         type: "Rules",
+ *     }],
+ *     roles: {
+ *         authenticated: authenticatedRole.arn,
+ *     },
  * });
  * ```
  *

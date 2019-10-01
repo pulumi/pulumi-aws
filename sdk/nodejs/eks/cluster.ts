@@ -64,12 +64,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const exampleCluster = new aws.eks.Cluster("example", {});
- * const current = aws.getCallerIdentity({});
  * const exampleOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("example", {
  *     clientIdLists: ["sts.amazonaws.com"],
  *     thumbprintLists: [],
- *     url: exampleCluster.identities[0].oidc.0.issuer,
+ *     url: exampleCluster.identities[0].oidcs[0].issuer,
  * });
+ * const current = aws.getCallerIdentity();
  * const exampleAssumeRolePolicy = pulumi.all([exampleOpenIdConnectProvider.url, exampleOpenIdConnectProvider.arn]).apply(([url, arn]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRoleWithWebIdentity"],

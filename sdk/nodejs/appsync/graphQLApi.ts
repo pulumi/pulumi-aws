@@ -115,15 +115,15 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
+ *     role: exampleRole.name,
+ * });
  * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
  *     logConfig: {
  *         cloudwatchLogsRoleArn: exampleRole.arn,
  *         fieldLogLevel: "ERROR",
  *     },
- * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
- *     role: exampleRole.name,
  * });
  * ```
  *

@@ -30,6 +30,15 @@ import * as utilities from "../utilities";
  *         Name: "wu-tang",
  *     },
  * });
+ * const wuTangCaPubkeyPolicy = new aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", {
+ *     loadBalancerName: wu_tang.name,
+ *     policyAttributes: [{
+ *         name: "PublicKey",
+ *         value: fs.readFileSync("wu-tang-pubkey", "utf-8"),
+ *     }],
+ *     policyName: "wu-tang-ca-pubkey-policy",
+ *     policyTypeName: "PublicKeyPolicyType",
+ * });
  * const wuTangRootCaBackendAuthPolicy = new aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", {
  *     loadBalancerName: wu_tang.name,
  *     policyAttributes: [{
@@ -43,15 +52,6 @@ import * as utilities from "../utilities";
  *     instancePort: 443,
  *     loadBalancerName: wu_tang.name,
  *     policyNames: [wu_tang_root_ca_backend_auth_policy.policyName],
- * });
- * const wuTangCaPubkeyPolicy = new aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", {
- *     loadBalancerName: wu_tang.name,
- *     policyAttributes: [{
- *         name: "PublicKey",
- *         value: fs.readFileSync("wu-tang-pubkey", "utf-8"),
- *     }],
- *     policyName: "wu-tang-ca-pubkey-policy",
- *     policyTypeName: "PublicKeyPolicyType",
  * });
  * ```
  * 

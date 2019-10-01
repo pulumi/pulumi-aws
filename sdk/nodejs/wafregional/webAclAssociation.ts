@@ -17,32 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const fooVpc = new aws.ec2.Vpc("foo", {
- *     cidrBlock: "10.1.0.0/16",
- * });
  * const ipset = new aws.wafregional.IpSet("ipset", {
  *     ipSetDescriptors: [{
  *         type: "IPV4",
  *         value: "192.0.7.0/24",
  *     }],
- * });
- * const available = aws.getAvailabilityZones({});
- * const bar = new aws.ec2.Subnet("bar", {
- *     availabilityZone: available.names[1],
- *     cidrBlock: "10.1.2.0/24",
- *     vpcId: fooVpc.id,
- * });
- * const fooSubnet = new aws.ec2.Subnet("foo", {
- *     availabilityZone: available.names[0],
- *     cidrBlock: "10.1.1.0/24",
- *     vpcId: fooVpc.id,
- * });
- * const fooLoadBalancer = new aws.alb.LoadBalancer("foo", {
- *     internal: true,
- *     subnets: [
- *         fooSubnet.id,
- *         bar.id,
- *     ],
  * });
  * const fooRule = new aws.wafregional.Rule("foo", {
  *     metricName: "tfWAFRule",
@@ -64,6 +43,27 @@ import * as utilities from "../utilities";
  *         priority: 1,
  *         ruleId: fooRule.id,
  *     }],
+ * });
+ * const fooVpc = new aws.ec2.Vpc("foo", {
+ *     cidrBlock: "10.1.0.0/16",
+ * });
+ * const available = aws.getAvailabilityZones();
+ * const fooSubnet = new aws.ec2.Subnet("foo", {
+ *     availabilityZone: available.names[0],
+ *     cidrBlock: "10.1.1.0/24",
+ *     vpcId: fooVpc.id,
+ * });
+ * const bar = new aws.ec2.Subnet("bar", {
+ *     availabilityZone: available.names[1],
+ *     cidrBlock: "10.1.2.0/24",
+ *     vpcId: fooVpc.id,
+ * });
+ * const fooLoadBalancer = new aws.alb.LoadBalancer("foo", {
+ *     internal: true,
+ *     subnets: [
+ *         fooSubnet.id,
+ *         bar.id,
+ *     ],
  * });
  * const fooWebAclAssociation = new aws.wafregional.WebAclAssociation("foo", {
  *     resourceArn: fooLoadBalancer.arn,

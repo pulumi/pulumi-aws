@@ -14,6 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const fooServer = new aws.transfer.Server("foo", {
+ *     identityProviderType: "SERVICE_MANAGED",
+ *     tags: {
+ *         NAME: "tf-acc-test-transfer-server",
+ *     },
+ * });
  * const fooRole = new aws.iam.Role("foo", {
  *     assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
@@ -28,12 +34,6 @@ import * as utilities from "../utilities";
  * 	]
  * }
  * `,
- * });
- * const fooServer = new aws.transfer.Server("foo", {
- *     identityProviderType: "SERVICE_MANAGED",
- *     tags: {
- *         NAME: "tf-acc-test-transfer-server",
- *     },
  * });
  * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
  *     policy: `{

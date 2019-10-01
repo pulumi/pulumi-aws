@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  *     cluster: "clusterName",
  *     desiredCount: 2,
  *     taskDefinition: "taskDefinitionFamily:1",
- * });
+ * }, {ignoreChanges: ["desiredCount"]});
  * ```
  * 
  * ### Aurora Read Replica Autoscaling

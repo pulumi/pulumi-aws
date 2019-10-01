@@ -21,21 +21,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const awsBatchServiceRoleRole = new aws.iam.Role("awsBatchServiceRole", {
- *     assumeRolePolicy: `{
- *     "Version": "2012-10-17",
- *     "Statement": [
- * 	{
- * 	    "Action": "sts:AssumeRole",
- * 	    "Effect": "Allow",
- * 	    "Principal": {
- * 		"Service": "batch.amazonaws.com"
- * 	    }
- * 	}
- *     ]
- * }
- * `,
- * });
  * const ecsInstanceRoleRole = new aws.iam.Role("ecsInstanceRole", {
  *     assumeRolePolicy: `{
  *     "Version": "2012-10-17",
@@ -51,16 +36,35 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sample", {});
- * const sampleVpc = new aws.ec2.Vpc("sample", {
- *     cidrBlock: "10.1.0.0/16",
+ * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecsInstanceRole", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
+ *     role: ecsInstanceRoleRole.name,
  * });
  * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecsInstanceRole", {
  *     role: ecsInstanceRoleRole.name,
  * });
+ * const awsBatchServiceRoleRole = new aws.iam.Role("awsBatchServiceRole", {
+ *     assumeRolePolicy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ * 	{
+ * 	    "Action": "sts:AssumeRole",
+ * 	    "Effect": "Allow",
+ * 	    "Principal": {
+ * 		"Service": "batch.amazonaws.com"
+ * 	    }
+ * 	}
+ *     ]
+ * }
+ * `,
+ * });
  * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("awsBatchServiceRole", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
  *     role: awsBatchServiceRoleRole.name,
+ * });
+ * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sample", {});
+ * const sampleVpc = new aws.ec2.Vpc("sample", {
+ *     cidrBlock: "10.1.0.0/16",
  * });
  * const sampleSubnet = new aws.ec2.Subnet("sample", {
  *     cidrBlock: "10.1.1.0/24",
@@ -80,10 +84,6 @@ import * as utilities from "../utilities";
  *     serviceRole: awsBatchServiceRoleRole.arn,
  *     type: "MANAGED",
  * }, {dependsOn: [awsBatchServiceRoleRolePolicyAttachment]});
- * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecsInstanceRole", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
- *     role: ecsInstanceRoleRole.name,
- * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_compute_environment.html.markdown.

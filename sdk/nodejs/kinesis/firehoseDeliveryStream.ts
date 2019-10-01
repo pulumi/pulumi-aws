@@ -19,6 +19,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const bucket = new aws.s3.Bucket("bucket", {
+ *     acl: "private",
+ * });
  * const firehoseRole = new aws.iam.Role("firehoseRole", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -51,9 +54,6 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucket = new aws.s3.Bucket("bucket", {
- *     acl: "private",
- * });
  * const lambdaProcessor = new aws.lambda.Function("lambdaProcessor", {
  *     code: new pulumi.asset.FileArchive("lambda.zip"),
  *     handler: "exports.handler",
@@ -85,6 +85,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const bucket = new aws.s3.Bucket("bucket", {
+ *     acl: "private",
+ * });
  * const firehoseRole = new aws.iam.Role("firehoseRole", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -100,9 +103,6 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- * });
- * const bucket = new aws.s3.Bucket("bucket", {
- *     acl: "private",
  * });
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "s3",

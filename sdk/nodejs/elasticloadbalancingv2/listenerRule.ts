@@ -17,45 +17,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const pool = new aws.cognito.UserPool("pool", {});
- * const client = new aws.cognito.UserPoolClient("client", {});
- * const domain = new aws.cognito.UserPoolDomain("domain", {});
  * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
  * const frontEndListener = new aws.lb.Listener("frontEnd", {});
- * const admin = new aws.lb.ListenerRule("admin", {
- *     actions: [
- *         {
- *             authenticateOidc: {
- *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
- *                 clientId: "clientId",
- *                 clientSecret: "clientSecret",
- *                 issuer: "https://example.com",
- *                 tokenEndpoint: "https://example.com/token_endpoint",
- *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
- *             },
- *             type: "authenticate-oidc",
- *         },
- *         {
- *             targetGroupArn: aws_lb_target_group_static.arn,
- *             type: "forward",
- *         },
- *     ],
- *     listenerArn: frontEndListener.arn,
- * });
- * const healthCheck = new aws.lb.ListenerRule("healthCheck", {
+ * const static = new aws.lb.ListenerRule("static", {
  *     actions: [{
- *         fixedResponse: {
- *             contentType: "text/plain",
- *             messageBody: "HEALTHY",
- *             statusCode: "200",
- *         },
- *         type: "fixed-response",
+ *         targetGroupArn: aws_lb_target_group_static.arn,
+ *         type: "forward",
  *     }],
  *     conditions: [{
  *         field: "path-pattern",
- *         values: "/health",
+ *         values: "/static/*",
  *     }],
  *     listenerArn: frontEndListener.arn,
+ *     priority: 100,
  * });
  * const hostBasedRouting = new aws.lb.ListenerRule("hostBasedRouting", {
  *     actions: [{
@@ -84,17 +58,43 @@ import * as utilities from "../utilities";
  *     }],
  *     listenerArn: frontEndListener.arn,
  * });
- * const static = new aws.lb.ListenerRule("static", {
+ * const healthCheck = new aws.lb.ListenerRule("healthCheck", {
  *     actions: [{
- *         targetGroupArn: aws_lb_target_group_static.arn,
- *         type: "forward",
+ *         fixedResponse: {
+ *             contentType: "text/plain",
+ *             messageBody: "HEALTHY",
+ *             statusCode: "200",
+ *         },
+ *         type: "fixed-response",
  *     }],
  *     conditions: [{
  *         field: "path-pattern",
- *         values: "/static/*",
+ *         values: "/health",
  *     }],
  *     listenerArn: frontEndListener.arn,
- *     priority: 100,
+ * });
+ * const pool = new aws.cognito.UserPool("pool", {});
+ * const client = new aws.cognito.UserPoolClient("client", {});
+ * const domain = new aws.cognito.UserPoolDomain("domain", {});
+ * const admin = new aws.lb.ListenerRule("admin", {
+ *     actions: [
+ *         {
+ *             authenticateOidc: {
+ *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
+ *                 clientId: "clientId",
+ *                 clientSecret: "clientSecret",
+ *                 issuer: "https://example.com",
+ *                 tokenEndpoint: "https://example.com/token_endpoint",
+ *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
+ *             },
+ *             type: "authenticate-oidc",
+ *         },
+ *         {
+ *             targetGroupArn: aws_lb_target_group_static.arn,
+ *             type: "forward",
+ *         },
+ *     ],
+ *     listenerArn: frontEndListener.arn,
  * });
  * ```
  *

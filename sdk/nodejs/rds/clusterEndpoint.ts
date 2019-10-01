@@ -42,6 +42,12 @@ import * as utilities from "../utilities";
  *     identifier: "test2",
  *     instanceClass: "db.t2.small",
  * });
+ * const test3 = new aws.rds.ClusterInstance("test3", {
+ *     applyImmediately: true,
+ *     clusterIdentifier: defaultCluster.id,
+ *     identifier: "test3",
+ *     instanceClass: "db.t2.small",
+ * });
  * const eligible = new aws.rds.ClusterEndpoint("eligible", {
  *     clusterEndpointIdentifier: "reader",
  *     clusterIdentifier: defaultCluster.id,
@@ -50,12 +56,6 @@ import * as utilities from "../utilities";
  *         test1.id,
  *         test2.id,
  *     ],
- * });
- * const test3 = new aws.rds.ClusterInstance("test3", {
- *     applyImmediately: true,
- *     clusterIdentifier: defaultCluster.id,
- *     identifier: "test3",
- *     instanceClass: "db.t2.small",
  * });
  * const static = new aws.rds.ClusterEndpoint("static", {
  *     clusterEndpointIdentifier: "static",

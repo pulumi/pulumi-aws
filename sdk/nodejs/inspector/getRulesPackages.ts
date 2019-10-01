@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * // Declare the data source
+ * const rules = aws.inspector.getRulesPackages();
  * // e.g. Use in aws.inspector.AssessmentTemplate
  * const group = new aws.inspector.ResourceGroup("group", {
  *     tags: {
  *         test: "test",
  *     },
  * });
- * // Declare the data source
- * const rules = aws.inspector.getRulesPackages({});
  * const assessmentAssessmentTarget = new aws.inspector.AssessmentTarget("assessment", {
  *     resourceGroupArn: group.arn,
  * });

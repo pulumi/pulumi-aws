@@ -12,6 +12,42 @@ import * as utilities from "../utilities";
  * a permissive CloudWatch log resource policy must be in place, and
  * the Route53 hosted zone must be public.
  * See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const usEast1 = new aws.Provider("us-east-1", {
+ *     region: "us-east-1",
+ * });
+ * const exampleComZone = new aws.route53.Zone("exampleCom", {});
+ * const awsRoute53ExampleCom = new aws.cloudwatch.LogGroup("awsRoute53ExampleCom", {
+ *     retentionInDays: 30,
+ * }, {provider: us_east_1});
+ * const route53_query_logging_policyPolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: [
+ *             "logs:CreateLogStream",
+ *             "logs:PutLogEvents",
+ *         ],
+ *         principals: [{
+ *             identifiers: ["route53.amazonaws.com"],
+ *             type: "Service",
+ *         }],
+ *         resources: ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
+ *     }],
+ * });
+ * const route53_query_logging_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy", {
+ *     policyDocument: route53_query_logging_policyPolicyDocument.json,
+ *     policyName: "route53-query-logging-policy",
+ * }, {provider: us_east_1});
+ * const exampleComQueryLog = new aws.route53.QueryLog("exampleCom", {
+ *     cloudwatchLogGroupArn: awsRoute53ExampleCom.arn,
+ *     zoneId: exampleComZone.zoneId,
+ * }, {dependsOn: [route53_query_logging_policyLogResourcePolicy]});
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_query_log.html.markdown.
  */

@@ -16,14 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const available = aws.getAvailabilityZones();
+ * const currentRegion = aws.getRegion();
+ * const currentCallerIdentity = aws.getCallerIdentity();
  * const fooEip = new aws.ec2.Eip("foo", {
  *     vpc: true,
  * });
- * const available = aws.getAvailabilityZones({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentRegion = aws.getRegion({});
  * const fooProtection = new aws.shield.Protection("foo", {
- *     resourceArn: pulumi.interpolate`arn:aws:ec2:${currentRegion.name}:${currentCallerIdentity.accountId}:eip-allocation/${fooEip.id}`,
+ *     resourceArn: pulumi.interpolate`arn:aws:ec2:${currentRegion.name!}:${currentCallerIdentity.accountId}:eip-allocation/${fooEip.id}`,
  * });
  * ```
  *

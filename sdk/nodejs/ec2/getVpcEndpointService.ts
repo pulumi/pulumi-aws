@@ -18,17 +18,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * // Create a VPC
- * const foo = new aws.ec2.Vpc("foo", {
- *     cidrBlock: "10.0.0.0/16",
- * });
  * // Declare the data source
  * const s3 = aws.ec2.getVpcEndpointService({
  *     service: "s3",
  * });
+ * // Create a VPC
+ * const foo = new aws.ec2.Vpc("foo", {
+ *     cidrBlock: "10.0.0.0/16",
+ * });
  * // Create a VPC endpoint
  * const ep = new aws.ec2.VpcEndpoint("ep", {
- *     serviceName: s3.serviceName,
+ *     serviceName: s3.serviceName!,
  *     vpcId: foo.id,
  * });
  * ```

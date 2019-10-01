@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const key = new aws.kms.Key("a", {});
  * const role = new aws.iam.Role("a", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -31,7 +32,6 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const key = new aws.kms.Key("a", {});
  * const grant = new aws.kms.Grant("a", {
  *     constraints: [{
  *         encryptionContextEquals: {

@@ -36,12 +36,12 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const exampleSelection = new aws.backup.Selection("example", {
- *     iamRoleArn: exampleRole.arn,
- * });
  * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
  *     role: exampleRole.name,
+ * });
+ * const exampleSelection = new aws.backup.Selection("example", {
+ *     iamRoleArn: exampleRole.arn,
  * });
  * ```
  * 
