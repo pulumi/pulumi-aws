@@ -27,13 +27,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const s3OriginId = "myS3Origin";
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "private",
  *     tags: {
  *         Name: "My bucket",
  *     },
  * });
+ * const s3OriginId = "myS3Origin";
  * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
  *     aliases: [
  *         "mysite.example.com",

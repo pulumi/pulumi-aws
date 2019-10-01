@@ -17,10 +17,6 @@ import {ARN} from "../index";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
- * const cert = new aws.iot.Certificate("cert", {
- *     active: true,
- *     csr: fs.readFileSync("csr.pem", "utf-8"),
- * });
  * const pubsub = new aws.iot.Policy("pubsub", {
  *     policy: `{
  *   "Version": "2012-10-17",
@@ -35,6 +31,10 @@ import {ARN} from "../index";
  *   ]
  * }
  * `,
+ * });
+ * const cert = new aws.iot.Certificate("cert", {
+ *     active: true,
+ *     csr: fs.readFileSync("csr.pem", "utf-8"),
  * });
  * const att = new aws.iot.PolicyAttachment("att", {
  *     policy: pubsub.name,

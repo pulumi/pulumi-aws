@@ -19,6 +19,164 @@ import {Topic} from "./topic";
  * > **NOTE:** If SNS topic and SQS queue are in different AWS accounts but the same region it is important for the "aws.sns.TopicSubscription" to use the AWS provider of the account with the SQS queue. If "aws.sns.TopicSubscription" is using a Provider with a different account than the SQS queue, the provider creates the subscriptions but does not keep state and tries to re-create the subscription at every apply.
  * 
  * > **NOTE:** If SNS topic and SQS queue are in different AWS accounts and different AWS regions it is important to recognize that the subscription needs to be initiated from the account with the SQS queue but in the region of the SNS topic.
+ * 
+ * ## Example Usage
+ * 
+ * You can directly supply a topic and ARN by hand in the `topicArn` property along with the queue ARN:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("userUpdatesSqsTarget", {
+ *     endpoint: "arn:aws:sqs:us-west-2:432981146916:queue-too",
+ *     protocol: "sqs",
+ *     topic: "arn:aws:sns:us-west-2:432981146916:user-updates-topic",
+ * });
+ * ```
+ * 
+ * Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const userUpdates = new aws.sns.Topic("userUpdates", {});
+ * const userUpdatesQueue = new aws.sqs.Queue("userUpdatesQueue", {});
+ * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("userUpdatesSqsTarget", {
+ *     endpoint: userUpdatesQueue.arn,
+ *     protocol: "sqs",
+ *     topic: userUpdates.arn,
+ * });
+ * ```
+ * 
+ * You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * //#
+ * //# Variables
+ * //#
+ * const sns = config.get("sns") || {
+ *     "account-id": "111111111111",
+ *     displayName: "example",
+ *     name: "example-sns-topic",
+ *     region: "us-west-1",
+ *     "role-name": "service/service",
+ * };
+ * const sqs = config.get("sqs") || {
+ *     "account-id": "222222222222",
+ *     name: "example-sqs-queue",
+ *     region: "us-east-1",
+ *     "role-name": "service/service",
+ * };
+ * 
+ * const snsTopicPolicy = aws.iam.getPolicyDocument({
+ *     policyId: "__default_policy_ID",
+ *     statements: [
+ *         {
+ *             actions: [
+ *                 "SNS:Subscribe",
+ *                 "SNS:SetTopicAttributes",
+ *                 "SNS:RemovePermission",
+ *                 "SNS:Receive",
+ *                 "SNS:Publish",
+ *                 "SNS:ListSubscriptionsByTopic",
+ *                 "SNS:GetTopicAttributes",
+ *                 "SNS:DeleteTopic",
+ *                 "SNS:AddPermission",
+ *             ],
+ *             conditions: [{
+ *                 test: "StringEquals",
+ *                 values: [sns["account-id"]],
+ *                 variable: "AWS:SourceOwner",
+ *             }],
+ *             effect: "Allow",
+ *             principals: [{
+ *                 identifiers: ["*"],
+ *                 type: "AWS",
+ *             }],
+ *             resources: [`arn:aws:sns:${sns["region"]}:${sns["account-id"]}:${sns["name"]}`],
+ *             sid: "__default_statement_ID",
+ *         },
+ *         {
+ *             actions: [
+ *                 "SNS:Subscribe",
+ *                 "SNS:Receive",
+ *             ],
+ *             conditions: [{
+ *                 test: "StringLike",
+ *                 values: [`arn:aws:sqs:${sqs["region"]}:${sqs["account-id"]}:${sqs["name"]}`],
+ *                 variable: "SNS:Endpoint",
+ *             }],
+ *             effect: "Allow",
+ *             principals: [{
+ *                 identifiers: ["*"],
+ *                 type: "AWS",
+ *             }],
+ *             resources: [`arn:aws:sns:${sns["region"]}:${sns["account-id"]}:${sns["name"]}`],
+ *             sid: "__console_sub_0",
+ *         },
+ *     ],
+ * });
+ * const sqsQueuePolicy = aws.iam.getPolicyDocument({
+ *     policyId: `arn:aws:sqs:${sqs["region"]}:${sqs["account-id"]}:${sqs["name"]}/SQSDefaultPolicy`,
+ *     statements: [{
+ *         actions: ["SQS:SendMessage"],
+ *         conditions: [{
+ *             test: "ArnEquals",
+ *             values: [`arn:aws:sns:${sns["region"]}:${sns["account-id"]}:${sns["name"]}`],
+ *             variable: "aws:SourceArn",
+ *         }],
+ *         effect: "Allow",
+ *         principals: [{
+ *             identifiers: ["*"],
+ *             type: "AWS",
+ *         }],
+ *         resources: [`arn:aws:sqs:${sqs["region"]}:${sqs["account-id"]}:${sqs["name"]}`],
+ *         sid: "example-sns-topic",
+ *     }],
+ * });
+ * // provider to manage SNS topics
+ * const awsSns = new aws.Provider("sns", {
+ *     assumeRole: [{
+ *         roleArn: `arn:aws:iam::${sns["account-id"]}:role/${sns["role-name"]}`,
+ *         sessionName: `sns-${sns["region"]}`,
+ *     }],
+ *     region: sns["region"],
+ * });
+ * // provider to manage SQS queues
+ * const awsSqs = new aws.Provider("sqs", {
+ *     assumeRole: [{
+ *         roleArn: `arn:aws:iam::${sqs["account-id"]}:role/${sqs["role-name"]}`,
+ *         sessionName: `sqs-${sqs["region"]}`,
+ *     }],
+ *     region: sqs["region"],
+ * });
+ * // provider to subscribe SQS to SNS (using the SQS account but the SNS region)
+ * const sns2sqs = new aws.Provider("sns2sqs", {
+ *     assumeRole: [{
+ *         roleArn: `arn:aws:iam::${sqs["account-id"]}:role/${sqs["role-name"]}`,
+ *         sessionName: `sns2sqs-${sns["region"]}`,
+ *     }],
+ *     region: sns["region"],
+ * });
+ * const sns_topicTopic = new aws.sns.Topic("sns-topic", {
+ *     displayName: sns["displayName"],
+ *     policy: sns_topic_policy.json,
+ * }, {provider: awsSns});
+ * const sqsQueue = new aws.sqs.Queue("sqs-queue", {
+ *     policy: sqs_queue_policy.json,
+ * }, {provider: awsSqs});
+ * const sns_topicTopicSubscription = new aws.sns.TopicSubscription("sns-topic", {
+ *     endpoint: sqs_queue.arn,
+ *     protocol: "sqs",
+ *     topic: sns_topicTopic.arn,
+ * }, {provider: sns2sqs});
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_subscription.html.markdown.
  */

@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     role: aws_iam_role_iam_for_lambda.arn, // (not shown)
  *     s3Bucket: lambda.bucket,
  *     s3Key: lambda.key,
- *     s3ObjectVersion: lambda.versionId,
+ *     s3ObjectVersion: lambda.versionId!,
  * });
  * ```
  *

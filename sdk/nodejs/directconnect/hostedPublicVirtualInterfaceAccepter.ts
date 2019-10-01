@@ -7,6 +7,37 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
  * This resource accepts ownership of a public virtual interface created by another AWS account.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const accepter = new aws.Provider("accepter", {});
+ * const accepterCallerIdentity = aws.getCallerIdentity({provider: accepter});
+ * // Creator's side of the VIF
+ * const creator = new aws.directconnect.HostedPublicVirtualInterface("creator", {
+ *     addressFamily: "ipv4",
+ *     amazonAddress: "175.45.176.2/30",
+ *     bgpAsn: 65352,
+ *     connectionId: "dxcon-zzzzzzzz",
+ *     customerAddress: "175.45.176.1/30",
+ *     ownerAccountId: accepterCallerIdentity.accountId,
+ *     routeFilterPrefixes: [
+ *         "210.52.109.0/24",
+ *         "175.45.176.0/22",
+ *     ],
+ *     vlan: 4094,
+ * });
+ * // Accepter's side of the VIF.
+ * const accepterHostedPublicVirtualInterfaceAccepter = new aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepter", {
+ *     tags: {
+ *         Side: "Accepter",
+ *     },
+ *     virtualInterfaceId: creator.id,
+ * }, {provider: accepter});
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_public_virtual_interface_accepter.html.markdown.
  */

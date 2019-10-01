@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const bar = new aws.ec2.Vpc("bar", {
- *     cidrBlock: "10.1.0.0/16",
- * });
  * const fooVpc = new aws.ec2.Vpc("foo", {
  *     cidrBlock: "10.0.0.0/16",
+ * });
+ * const bar = new aws.ec2.Vpc("bar", {
+ *     cidrBlock: "10.1.0.0/16",
  * });
  * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("foo", {
  *     autoAccept: true,
@@ -47,6 +47,57 @@ import * as utilities from "../utilities";
  * ```
  * 
  * Basic cross-account usage:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const requester = new aws.Provider("requester", {});
+ * const accepter = new aws.Provider("accepter", {});
+ * const main = new aws.ec2.Vpc("main", {
+ *     cidrBlock: "10.0.0.0/16",
+ *     enableDnsHostnames: true,
+ *     enableDnsSupport: true,
+ * }, {provider: requester});
+ * const peerVpc = new aws.ec2.Vpc("peer", {
+ *     cidrBlock: "10.1.0.0/16",
+ *     enableDnsHostnames: true,
+ *     enableDnsSupport: true,
+ * }, {provider: accepter});
+ * const peerCallerIdentity = aws.getCallerIdentity({provider: accepter});
+ * // Requester's side of the connection.
+ * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peer", {
+ *     autoAccept: false,
+ *     peerOwnerId: peerCallerIdentity.accountId,
+ *     peerVpcId: peerVpc.id,
+ *     tags: {
+ *         Side: "Requester",
+ *     },
+ *     vpcId: main.id,
+ * }, {provider: requester});
+ * // Accepter's side of the connection.
+ * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peer", {
+ *     autoAccept: true,
+ *     tags: {
+ *         Side: "Accepter",
+ *     },
+ *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
+ * }, {provider: accepter});
+ * const requesterPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("requester", {
+ *     requester: {
+ *         allowRemoteVpcDnsResolution: true,
+ *     },
+ *     // As options can't be set until the connection has been accepted
+ *     // create an explicit dependency on the accepter.
+ *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
+ * }, {provider: requester});
+ * const accepterPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("accepter", {
+ *     accepter: {
+ *         allowRemoteVpcDnsResolution: true,
+ *     },
+ *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
+ * }, {provider: accepter});
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_options.html.markdown.
  */

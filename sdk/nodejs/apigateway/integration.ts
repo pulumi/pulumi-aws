@@ -59,12 +59,23 @@ import {RestApi} from "./restApi";
  * import * as aws from "@pulumi/aws";
  * 
  * const config = new pulumi.Config();
- * const accountId = config.require("accountId");
  * // Variables
  * const myregion = config.require("myregion");
+ * const accountId = config.require("accountId");
  * 
  * // API Gateway
  * const api = new aws.apigateway.RestApi("api", {});
+ * const resource = new aws.apigateway.Resource("resource", {
+ *     parentId: api.rootResourceId,
+ *     pathPart: "resource",
+ *     restApi: api.id,
+ * });
+ * const method = new aws.apigateway.Method("method", {
+ *     authorization: "NONE",
+ *     httpMethod: "GET",
+ *     resourceId: resource.id,
+ *     restApi: api.id,
+ * });
  * // IAM
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
@@ -81,17 +92,6 @@ import {RestApi} from "./restApi";
  *   ]
  * }
  * `,
- * });
- * const resource = new aws.apigateway.Resource("resource", {
- *     parentId: api.rootResourceId,
- *     pathPart: "resource",
- *     restApi: api.id,
- * });
- * const method = new aws.apigateway.Method("method", {
- *     authorization: "NONE",
- *     httpMethod: "GET",
- *     resourceId: resource.id,
- *     restApi: api.id,
  * });
  * const lambda = new aws.lambda.Function("lambda", {
  *     code: new pulumi.asset.FileArchive("lambda.zip"),
@@ -126,6 +126,14 @@ import {RestApi} from "./restApi";
  * const name = config.require("name");
  * const subnetId = config.require("subnetId");
  * 
+ * const testLoadBalancer = new aws.lb.LoadBalancer("test", {
+ *     internal: true,
+ *     loadBalancerType: "network",
+ *     subnets: [subnetId],
+ * });
+ * const testVpcLink = new aws.apigateway.VpcLink("test", {
+ *     targetArn: testLoadBalancer.arn,
+ * });
  * const testRestApi = new aws.apigateway.RestApi("test", {});
  * const testResource = new aws.apigateway.Resource("test", {
  *     parentId: testRestApi.rootResourceId,
@@ -140,14 +148,6 @@ import {RestApi} from "./restApi";
  *     },
  *     resourceId: testResource.id,
  *     restApi: testRestApi.id,
- * });
- * const testLoadBalancer = new aws.lb.LoadBalancer("test", {
- *     internal: true,
- *     loadBalancerType: "network",
- *     subnets: [subnetId],
- * });
- * const testVpcLink = new aws.apigateway.VpcLink("test", {
- *     targetArn: testLoadBalancer.arn,
  * });
  * const testIntegration = new aws.apigateway.Integration("test", {
  *     connectionId: testVpcLink.id,

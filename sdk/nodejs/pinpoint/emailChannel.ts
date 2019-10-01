@@ -15,6 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const app = new aws.pinpoint.App("app", {});
+ * const identity = new aws.ses.DomainIdentity("identity", {
+ *     domain: "example.com",
+ * });
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -31,9 +35,11 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const app = new aws.pinpoint.App("app", {});
- * const identity = new aws.ses.DomainIdentity("identity", {
- *     domain: "example.com",
+ * const email = new aws.pinpoint.EmailChannel("email", {
+ *     applicationId: app.applicationId,
+ *     fromAddress: "user@example.com",
+ *     identity: identity.arn,
+ *     roleArn: role.arn,
  * });
  * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
  *     policy: `{
@@ -51,12 +57,6 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     role: role.id,
- * });
- * const email = new aws.pinpoint.EmailChannel("email", {
- *     applicationId: app.applicationId,
- *     fromAddress: "user@example.com",
- *     identity: identity.arn,
- *     roleArn: role.arn,
  * });
  * ```
  *

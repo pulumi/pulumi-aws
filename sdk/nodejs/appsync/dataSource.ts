@@ -15,9 +15,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "API_KEY",
- * });
  * const exampleTable = new aws.dynamodb.Table("example", {
  *     attributes: [{
  *         name: "UserId",
@@ -42,14 +39,6 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const exampleDataSource = new aws.appsync.DataSource("example", {
- *     apiId: exampleGraphQLApi.id,
- *     dynamodbConfig: {
- *         tableName: exampleTable.name,
- *     },
- *     serviceRoleArn: exampleRole.arn,
- *     type: "AMAZON_DYNAMODB",
- * });
  * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
@@ -67,6 +56,17 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     role: exampleRole.id,
+ * });
+ * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "API_KEY",
+ * });
+ * const exampleDataSource = new aws.appsync.DataSource("example", {
+ *     apiId: exampleGraphQLApi.id,
+ *     dynamodbConfig: {
+ *         tableName: exampleTable.name,
+ *     },
+ *     serviceRoleArn: exampleRole.arn,
+ *     type: "AMAZON_DYNAMODB",
  * });
  * ```
  *

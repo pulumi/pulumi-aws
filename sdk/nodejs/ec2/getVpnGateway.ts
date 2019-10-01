@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * 
- * export const vpnGatewayId = selected.id;
+ * export const vpnGatewayId = selected.id!;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.

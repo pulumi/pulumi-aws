@@ -43,22 +43,6 @@ import * as utilities from "../utilities";
  *     },
  *     type: "HTTP",
  * });
- * // PIPELINE type resolver
- * const mutationPipelineTest = new aws.appsync.Resolver("Mutation_pipelineTest", {
- *     apiId: testGraphQLApi.id,
- *     field: "pipelineTest",
- *     kind: "PIPELINE",
- *     pipelineConfig: {
- *         functions: [
- *             aws_appsync_function_test1.functionId,
- *             aws_appsync_function_test2.functionId,
- *             aws_appsync_function_test3.functionId,
- *         ],
- *     },
- *     requestTemplate: "{}",
- *     responseTemplate: "$util.toJson($ctx.result)",
- *     type: "Mutation",
- * });
  * // UNIT type resolver (default)
  * const testResolver = new aws.appsync.Resolver("test", {
  *     apiId: testGraphQLApi.id,
@@ -80,6 +64,22 @@ import * as utilities from "../utilities";
  * #end
  * `,
  *     type: "Query",
+ * });
+ * // PIPELINE type resolver
+ * const mutationPipelineTest = new aws.appsync.Resolver("Mutation_pipelineTest", {
+ *     apiId: testGraphQLApi.id,
+ *     field: "pipelineTest",
+ *     kind: "PIPELINE",
+ *     pipelineConfig: {
+ *         functions: [
+ *             aws_appsync_function_test1.functionId,
+ *             aws_appsync_function_test2.functionId,
+ *             aws_appsync_function_test3.functionId,
+ *         ],
+ *     },
+ *     requestTemplate: "{}",
+ *     responseTemplate: "$util.toJson($ctx.result)",
+ *     type: "Mutation",
  * });
  * ```
  *

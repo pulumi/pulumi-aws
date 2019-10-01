@@ -22,13 +22,13 @@ import * as utilities from "../utilities";
  *     preferredBackupWindow: "07:00-09:00",
  *     skipFinalSnapshot: true,
  * });
- * const defaultTopic = new aws.sns.Topic("default", {});
  * const example = new aws.neptune.ClusterInstance("example", {
  *     applyImmediately: true,
  *     clusterIdentifier: defaultCluster.id,
  *     engine: "neptune",
  *     instanceClass: "db.r4.large",
  * });
+ * const defaultTopic = new aws.sns.Topic("default", {});
  * const defaultEventSubscription = new aws.neptune.EventSubscription("default", {
  *     eventCategories: [
  *         "maintenance",

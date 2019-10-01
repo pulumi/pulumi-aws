@@ -60,6 +60,7 @@ import {Function} from "./function";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const defaultTopic = new aws.sns.Topic("default", {});
  * const defaultRole = new aws.iam.Role("default", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -76,7 +77,6 @@ import {Function} from "./function";
  * }
  * `,
  * });
- * const defaultTopic = new aws.sns.Topic("default", {});
  * const func = new aws.lambda.Function("func", {
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
  *     handler: "exports.handler",

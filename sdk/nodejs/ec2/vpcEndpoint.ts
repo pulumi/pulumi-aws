@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *     records: [ptfeServiceVpcEndpoint.dnsEntries.apply(dnsEntries => (<any>dnsEntries[0])["dnsName"])],
  *     ttl: 300,
  *     type: "CNAME",
- *     zoneId: internal.zoneId,
+ *     zoneId: internal.zoneId!,
  * });
  * ```
  * 

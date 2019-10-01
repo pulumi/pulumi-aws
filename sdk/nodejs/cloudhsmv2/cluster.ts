@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const available = aws.getAvailabilityZones();
  * const cloudhsm2Vpc = new aws.ec2.Vpc("cloudhsm2Vpc", {
  *     cidrBlock: "10.0.0.0/16",
  *     tags: {
  *         Name: "example-aws_cloudhsm_v2_cluster",
  *     },
  * });
- * const available = aws.getAvailabilityZones({});
  * const cloudhsm2Subnets: aws.ec2.Subnet[] = [];
  * for (let i = 0; i < 2; i++) {
  *     cloudhsm2Subnets.push(new aws.ec2.Subnet(`cloudhsm2_subnets-${i}`, {

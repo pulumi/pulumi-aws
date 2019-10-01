@@ -55,9 +55,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstances", {
- *     description: "Stop instances nightly",
- *     scheduleExpression: "cron(0 0 * * ? *)",
+ * const ssmLifecycleTrust = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             identifiers: ["events.amazonaws.com"],
+ *             type: "Service",
+ *         }],
+ *     }],
  * });
  * const stopInstance = new aws.ssm.Document("stopInstance", {
  *     content: `  {
@@ -80,27 +85,6 @@ import * as utilities from "../utilities";
  * `,
  *     documentType: "Command",
  * });
- * const ssmLifecycleTrust = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             identifiers: ["events.amazonaws.com"],
- *             type: "Service",
- *         }],
- *     }],
- * });
- * const ssmLifecycleRole = new aws.iam.Role("ssmLifecycle", {
- *     assumeRolePolicy: ssmLifecycleTrust.json,
- * });
- * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stopInstances", {
- *     arn: stopInstance.arn,
- *     roleArn: ssmLifecycleRole.arn,
- *     rule: stopInstancesEventRule.name,
- *     runCommandTargets: [{
- *         key: "tag:Terminate",
- *         values: ["midnight"],
- *     }],
- * });
  * const ssmLifecyclePolicyDocument = stopInstance.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
@@ -120,8 +104,24 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * }));
+ * const ssmLifecycleRole = new aws.iam.Role("ssmLifecycle", {
+ *     assumeRolePolicy: ssmLifecycleTrust.json,
+ * });
  * const ssmLifecyclePolicy = new aws.iam.Policy("ssmLifecycle", {
  *     policy: ssmLifecyclePolicyDocument.json,
+ * });
+ * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstances", {
+ *     description: "Stop instances nightly",
+ *     scheduleExpression: "cron(0 0 * * ? *)",
+ * });
+ * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stopInstances", {
+ *     arn: stopInstance.arn,
+ *     roleArn: ssmLifecycleRole.arn,
+ *     rule: stopInstancesEventRule.name,
+ *     runCommandTargets: [{
+ *         key: "tag:Terminate",
+ *         values: ["midnight"],
+ *     }],
  * });
  * ```
  * 
@@ -169,6 +169,25 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
+ * const ecsEventsRunTaskWithAnyRole = new aws.iam.RolePolicy("ecsEventsRunTaskWithAnyRole", {
+ *     policy: aws_ecs_task_definition_task_name.arn.apply(arn => `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ *         {
+ *             "Effect": "Allow",
+ *             "Action": "iam:PassRole",
+ *             "Resource": "*"
+ *         },
+ *         {
+ *             "Effect": "Allow",
+ *             "Action": "ecs:RunTask",
+ *             "Resource": "${arn.replace(/:\d+$/, ":*")}"
+ *         }
+ *     ]
+ * }
+ * `),
+ *     role: ecsEvents.id,
+ * });
  * const ecsScheduledTask = new aws.cloudwatch.EventTarget("ecsScheduledTask", {
  *     arn: aws_ecs_cluster_cluster_name.arn,
  *     ecsTarget: {
@@ -186,25 +205,6 @@ import * as utilities from "../utilities";
  * `,
  *     roleArn: ecsEvents.arn,
  *     rule: aws_cloudwatch_event_rule_every_hour.name,
- * });
- * const ecsEventsRunTaskWithAnyRole = new aws.iam.RolePolicy("ecsEventsRunTaskWithAnyRole", {
- *     policy: aws_ecs_task_definition_task_name.arn.apply(arn => `{
- *     "Version": "2012-10-17",
- *     "Statement": [
- *         {
- *             "Effect": "Allow",
- *             "Action": "iam:PassRole",
- *             "Resource": "*"
- *         },
- *         {
- *             "Effect": "Allow",
- *             "Action": "ecs:RunTask",
- *             "Resource": "${arn.replace("/:\\d+$/", ":*")}"
- *         }
- *     ]
- * }
- * `),
- *     role: ecsEvents.id,
  * });
  * ```
  *

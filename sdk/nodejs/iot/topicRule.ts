@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const mytopic = new aws.sns.Topic("mytopic", {});
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -28,7 +29,17 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const mytopic = new aws.sns.Topic("mytopic", {});
+ * const rule = new aws.iot.TopicRule("rule", {
+ *     description: "Example rule",
+ *     enabled: true,
+ *     sns: {
+ *         messageFormat: "RAW",
+ *         roleArn: role.arn,
+ *         targetArn: mytopic.arn,
+ *     },
+ *     sql: "SELECT * FROM 'topic/test'",
+ *     sqlVersion: "2015-10-08",
+ * });
  * const iamPolicyForLambda = new aws.iam.RolePolicy("iamPolicyForLambda", {
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
@@ -44,17 +55,6 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     role: role.id,
- * });
- * const rule = new aws.iot.TopicRule("rule", {
- *     description: "Example rule",
- *     enabled: true,
- *     sns: {
- *         messageFormat: "RAW",
- *         roleArn: role.arn,
- *         targetArn: mytopic.arn,
- *     },
- *     sql: "SELECT * FROM 'topic/test'",
- *     sqlVersion: "2015-10-08",
  * });
  * ```
  *

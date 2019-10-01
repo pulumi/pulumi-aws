@@ -42,19 +42,19 @@ import {RestApi} from "./restApi";
  * const config = new pulumi.Config();
  * const cognitoUserPoolName = config.require("cognitoUserPoolName");
  * 
- * const thisRestApi = new aws.apigateway.RestApi("this", {});
  * const thisUserPools = aws.cognito.getUserPools({
  *     name: cognitoUserPoolName,
+ * });
+ * const thisRestApi = new aws.apigateway.RestApi("this", {});
+ * const thisResource = new aws.apigateway.Resource("this", {
+ *     parentId: thisRestApi.rootResourceId,
+ *     pathPart: "{proxy+}",
+ *     restApi: thisRestApi.id,
  * });
  * const thisAuthorizer = new aws.apigateway.Authorizer("this", {
  *     providerArns: thisUserPools.arns,
  *     restApi: thisRestApi.id,
  *     type: "COGNITO_USER_POOLS",
- * });
- * const thisResource = new aws.apigateway.Resource("this", {
- *     parentId: thisRestApi.rootResourceId,
- *     pathPart: "{proxy+}",
- *     restApi: thisRestApi.id,
  * });
  * const any = new aws.apigateway.Method("any", {
  *     authorization: "COGNITO_USER_POOLS",

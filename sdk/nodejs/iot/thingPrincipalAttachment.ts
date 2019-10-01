@@ -16,11 +16,11 @@ import {ARN} from "../index";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
+ * const example = new aws.iot.Thing("example", {});
  * const cert = new aws.iot.Certificate("cert", {
  *     active: true,
  *     csr: fs.readFileSync("csr.pem", "utf-8"),
  * });
- * const example = new aws.iot.Thing("example", {});
  * const att = new aws.iot.ThingPrincipalAttachment("att", {
  *     principal: cert.arn,
  *     thing: example.name,

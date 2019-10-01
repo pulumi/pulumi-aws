@@ -30,12 +30,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const main = new aws.route53.Zone("main", {});
  * const dev = new aws.route53.Zone("dev", {
  *     tags: {
  *         Environment: "dev",
  *     },
  * });
- * const main = new aws.route53.Zone("main", {});
  * const devNs = new aws.route53.Record("dev-ns", {
  *     records: [
  *         dev.nameServers[0],

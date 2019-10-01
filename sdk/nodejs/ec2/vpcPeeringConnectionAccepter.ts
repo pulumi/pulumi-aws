@@ -15,6 +15,43 @@ import * as utilities from "../utilities";
  * The requester can use the `aws.ec2.VpcPeeringConnection` resource to manage its side of the connection
  * and the accepter can use the `aws.ec2.VpcPeeringConnectionAccepter` resource to "adopt" its side of the
  * connection into management.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const peer = new aws.Provider("peer", {
+ *     region: "us-west-2",
+ * });
+ * const main = new aws.ec2.Vpc("main", {
+ *     cidrBlock: "10.0.0.0/16",
+ * });
+ * const peerVpc = new aws.ec2.Vpc("peer", {
+ *     cidrBlock: "10.1.0.0/16",
+ * }, {provider: peer});
+ * const peerCallerIdentity = aws.getCallerIdentity({provider: peer});
+ * // Requester's side of the connection.
+ * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peer", {
+ *     autoAccept: false,
+ *     peerOwnerId: peerCallerIdentity.accountId,
+ *     peerRegion: "us-west-2",
+ *     peerVpcId: peerVpc.id,
+ *     tags: {
+ *         Side: "Requester",
+ *     },
+ *     vpcId: main.id,
+ * });
+ * // Accepter's side of the connection.
+ * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peer", {
+ *     autoAccept: true,
+ *     tags: {
+ *         Side: "Accepter",
+ *     },
+ *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
+ * }, {provider: peer});
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_accepter.html.markdown.
  */

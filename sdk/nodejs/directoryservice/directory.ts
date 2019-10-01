@@ -23,14 +23,14 @@ import * as utilities from "../utilities";
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const barSubnet = new aws.ec2.Subnet("bar", {
- *     availabilityZone: "us-west-2b",
- *     cidrBlock: "10.0.2.0/24",
- *     vpcId: main.id,
- * });
  * const foo = new aws.ec2.Subnet("foo", {
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.0.1.0/24",
+ *     vpcId: main.id,
+ * });
+ * const barSubnet = new aws.ec2.Subnet("bar", {
+ *     availabilityZone: "us-west-2b",
+ *     cidrBlock: "10.0.2.0/24",
  *     vpcId: main.id,
  * });
  * const barDirectory = new aws.directoryservice.Directory("bar", {
@@ -58,14 +58,14 @@ import * as utilities from "../utilities";
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const barSubnet = new aws.ec2.Subnet("bar", {
- *     availabilityZone: "us-west-2b",
- *     cidrBlock: "10.0.2.0/24",
- *     vpcId: main.id,
- * });
  * const foo = new aws.ec2.Subnet("foo", {
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.0.1.0/24",
+ *     vpcId: main.id,
+ * });
+ * const barSubnet = new aws.ec2.Subnet("bar", {
+ *     availabilityZone: "us-west-2b",
+ *     cidrBlock: "10.0.2.0/24",
  *     vpcId: main.id,
  * });
  * const barDirectory = new aws.directoryservice.Directory("bar", {
@@ -94,14 +94,14 @@ import * as utilities from "../utilities";
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const bar = new aws.ec2.Subnet("bar", {
- *     availabilityZone: "us-west-2b",
- *     cidrBlock: "10.0.2.0/24",
- *     vpcId: main.id,
- * });
  * const foo = new aws.ec2.Subnet("foo", {
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.0.1.0/24",
+ *     vpcId: main.id,
+ * });
+ * const bar = new aws.ec2.Subnet("bar", {
+ *     availabilityZone: "us-west-2b",
+ *     cidrBlock: "10.0.2.0/24",
  *     vpcId: main.id,
  * });
  * const connector = new aws.directoryservice.Directory("connector", {
