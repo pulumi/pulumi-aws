@@ -37,6 +37,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     }
     const promise: Promise<GetClusterResult> = pulumi.runtime.invoke("aws:eks/getCluster:getCluster", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -50,6 +51,7 @@ export interface GetClusterArgs {
      * The name of the cluster
      */
     readonly name: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -93,6 +95,10 @@ export interface GetClusterResult {
      * The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      */
     readonly status: string;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags: {[key: string]: any};
     /**
      * The Kubernetes server version for the cluster.
      */

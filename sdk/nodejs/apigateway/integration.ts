@@ -105,7 +105,7 @@ import {RestApi} from "./restApi";
  *     resourceId: resource.id,
  *     restApi: api.id,
  *     type: "AWS_PROXY",
- *     uri: pulumi.interpolate`arn:aws:apigateway:${myregion}:lambda:path/2015-03-31/functions/${lambda.arn}/invocations`,
+ *     uri: lambda.invokeArn,
  * });
  * // Lambda
  * const apigwLambda = new aws.lambda.Permission("apigwLambda", {

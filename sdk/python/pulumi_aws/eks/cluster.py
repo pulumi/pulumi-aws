@@ -53,6 +53,10 @@ class Cluster(pulumi.CustomResource):
     """
     The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
     """
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags.
+    """
     version: pulumi.Output[str]
     """
     Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
@@ -67,7 +71,7 @@ class Cluster(pulumi.CustomResource):
       * `subnet_ids` (`list`) - List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
       * `vpc_id` (`str`) - The VPC associated with your cluster.
     """
-    def __init__(__self__, resource_name, opts=None, enabled_cluster_log_types=None, name=None, role_arn=None, version=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, enabled_cluster_log_types=None, name=None, role_arn=None, tags=None, version=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EKS Cluster.
         
@@ -76,6 +80,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[list] enabled_cluster_log_types: A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
         :param pulumi.Input[str] name: Name of the cluster.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
         :param pulumi.Input[str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         :param pulumi.Input[dict] vpc_config: Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
         
@@ -111,6 +116,7 @@ class Cluster(pulumi.CustomResource):
             if role_arn is None:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
+            __props__['tags'] = tags
             __props__['version'] = version
             if vpc_config is None:
                 raise TypeError("Missing required property 'vpc_config'")
@@ -129,7 +135,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, identities=None, name=None, platform_version=None, role_arn=None, status=None, version=None, vpc_config=None):
+    def get(resource_name, id, opts=None, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, identities=None, name=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -146,6 +152,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] platform_version: The platform version for the cluster.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         :param pulumi.Input[str] status: The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
         :param pulumi.Input[str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         :param pulumi.Input[dict] vpc_config: Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
         
@@ -182,6 +189,7 @@ class Cluster(pulumi.CustomResource):
         __props__["platform_version"] = platform_version
         __props__["role_arn"] = role_arn
         __props__["status"] = status
+        __props__["tags"] = tags
         __props__["version"] = version
         __props__["vpc_config"] = vpc_config
         return Cluster(resource_name, opts=opts, __props__=__props__)

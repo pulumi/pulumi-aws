@@ -93,16 +93,7 @@ class SecurityGroup(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, egress=None, ingress=None, name=None, name_prefix=None, revoke_rules_on_delete=None, tags=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a security group resource.
-        
-        > **NOTE on Security Groups and Security Group Rules:** This provider currently
-        provides both a standalone Security Group Rule resource (a single `ingress` or
-        `egress` rule), and a Security Group resource with `ingress` and `egress` rules
-        defined in-line. At this time you cannot use a Security Group with in-line rules
-        in conjunction with any Security Group Rule resources. Doing so will cause
-        a conflict of rule settings and will overwrite rules.
-        
-        > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
+        Create a SecurityGroup resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -12,11 +12,11 @@ from .. import utilities, tables
 class Response(pulumi.CustomResource):
     response_parameters: pulumi.Output[dict]
     """
-    A map specifying the templates used to transform the response body.
+    A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
     """
     response_templates: pulumi.Output[dict]
     """
-    A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+    A map specifying the templates used to transform the response body.
     """
     response_type: pulumi.Output[str]
     """
@@ -36,8 +36,8 @@ class Response(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] response_parameters: A map specifying the templates used to transform the response body.
-        :param pulumi.Input[dict] response_templates: A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+        :param pulumi.Input[dict] response_parameters: A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+        :param pulumi.Input[dict] response_templates: A map specifying the templates used to transform the response body.
         :param pulumi.Input[str] response_type: The response type of the associated GatewayResponse.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated REST API.
         :param pulumi.Input[str] status_code: The HTTP status code of the Gateway Response.
@@ -85,8 +85,8 @@ class Response(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] response_parameters: A map specifying the templates used to transform the response body.
-        :param pulumi.Input[dict] response_templates: A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+        :param pulumi.Input[dict] response_parameters: A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+        :param pulumi.Input[dict] response_templates: A map specifying the templates used to transform the response body.
         :param pulumi.Input[str] response_type: The response type of the associated GatewayResponse.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated REST API.
         :param pulumi.Input[str] status_code: The HTTP status code of the Gateway Response.

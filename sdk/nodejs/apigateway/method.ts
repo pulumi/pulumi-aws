@@ -124,8 +124,8 @@ export class Method extends pulumi.CustomResource {
      */
     public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of request query string parameters and headers that should be passed to the integration.
-     * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
+     * A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+     * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      */
     public readonly requestParameters!: pulumi.Output<{[key: string]: boolean} | undefined>;
     /**
@@ -230,8 +230,8 @@ export interface MethodState {
      */
     readonly requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of request query string parameters and headers that should be passed to the integration.
-     * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
+     * A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+     * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**
@@ -279,8 +279,8 @@ export interface MethodArgs {
      */
     readonly requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of request query string parameters and headers that should be passed to the integration.
-     * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
+     * A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+     * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**

@@ -38,6 +38,13 @@ class Broker(pulumi.CustomResource):
     """
     The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
     """
+    encryption_options: pulumi.Output[dict]
+    """
+    Configuration block containing encryption options. See below.
+    
+      * `kms_key_id` (`str`) - Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
+      * `useAwsOwnedKey` (`bool`) - Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
+    """
     engine_type: pulumi.Output[str]
     """
     The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
@@ -106,7 +113,7 @@ class Broker(pulumi.CustomResource):
       * `password` (`str`) - The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
       * `username` (`str`) - The username of the user.
     """
-    def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, encryption_options=None, engine_type=None, engine_version=None, host_instance_type=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an MQ Broker Resource. This resources also manages users for the broker.
         
@@ -133,6 +140,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[str] broker_name: The name of the broker.
         :param pulumi.Input[dict] configuration: Configuration of the broker. See below.
         :param pulumi.Input[str] deployment_mode: The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
+        :param pulumi.Input[dict] encryption_options: Configuration block containing encryption options. See below.
         :param pulumi.Input[str] engine_type: The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
         :param pulumi.Input[str] engine_version: The version of the broker engine. Currently, See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
         :param pulumi.Input[str] host_instance_type: The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
@@ -148,6 +156,11 @@ class Broker(pulumi.CustomResource):
         
           * `id` (`pulumi.Input[str]`) - The Configuration ID.
           * `revision` (`pulumi.Input[float]`) - Revision of the Configuration.
+        
+        The **encryption_options** object supports the following:
+        
+          * `kms_key_id` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
+          * `useAwsOwnedKey` (`pulumi.Input[bool]`) - Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
         
         The **logs** object supports the following:
         
@@ -193,6 +206,7 @@ class Broker(pulumi.CustomResource):
             __props__['broker_name'] = broker_name
             __props__['configuration'] = configuration
             __props__['deployment_mode'] = deployment_mode
+            __props__['encryption_options'] = encryption_options
             if engine_type is None:
                 raise TypeError("Missing required property 'engine_type'")
             __props__['engine_type'] = engine_type
@@ -222,7 +236,7 @@ class Broker(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, instances=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None):
+    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, encryption_options=None, engine_type=None, engine_version=None, host_instance_type=None, instances=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None):
         """
         Get an existing Broker resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -237,6 +251,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[str] broker_name: The name of the broker.
         :param pulumi.Input[dict] configuration: Configuration of the broker. See below.
         :param pulumi.Input[str] deployment_mode: The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
+        :param pulumi.Input[dict] encryption_options: Configuration block containing encryption options. See below.
         :param pulumi.Input[str] engine_type: The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
         :param pulumi.Input[str] engine_version: The version of the broker engine. Currently, See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
         :param pulumi.Input[str] host_instance_type: The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
@@ -261,6 +276,11 @@ class Broker(pulumi.CustomResource):
         
           * `id` (`pulumi.Input[str]`) - The Configuration ID.
           * `revision` (`pulumi.Input[float]`) - Revision of the Configuration.
+        
+        The **encryption_options** object supports the following:
+        
+          * `kms_key_id` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
+          * `useAwsOwnedKey` (`pulumi.Input[bool]`) - Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
         
         The **instances** object supports the following:
         
@@ -297,6 +317,7 @@ class Broker(pulumi.CustomResource):
         __props__["broker_name"] = broker_name
         __props__["configuration"] = configuration
         __props__["deployment_mode"] = deployment_mode
+        __props__["encryption_options"] = encryption_options
         __props__["engine_type"] = engine_type
         __props__["engine_version"] = engine_version
         __props__["host_instance_type"] = host_instance_type

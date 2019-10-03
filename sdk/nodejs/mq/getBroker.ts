@@ -74,6 +74,7 @@ export interface GetBrokerResult {
     readonly brokerName: string;
     readonly configuration: outputs.mq.GetBrokerConfiguration;
     readonly deploymentMode: string;
+    readonly encryptionOptions: outputs.mq.GetBrokerEncryptionOption[];
     readonly engineType: string;
     readonly engineVersion: string;
     readonly hostInstanceType: string;

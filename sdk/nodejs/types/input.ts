@@ -98,6 +98,7 @@ export interface ProviderEndpoint {
     es?: pulumi.Input<string>;
     firehose?: pulumi.Input<string>;
     fms?: pulumi.Input<string>;
+    forecast?: pulumi.Input<string>;
     fsx?: pulumi.Input<string>;
     gamelift?: pulumi.Input<string>;
     glacier?: pulumi.Input<string>;
@@ -5142,20 +5143,18 @@ export namespace ec2 {
         /**
          * Allow a local linked EC2-Classic instance to communicate
          * with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-         * to the remote VPC.
+         * to the remote VPC. This option is not supported for inter-region VPC peering.
          */
         allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC. This is
-         * [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-         * inter-region VPC peering.
+         * private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to communicate with a linked EC2-Classic
          * instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-         * connection.
+         * connection. This option is not supported for inter-region VPC peering.
          */
         allowVpcToRemoteClassicLink?: pulumi.Input<boolean>;
     }
@@ -5164,20 +5163,18 @@ export namespace ec2 {
         /**
          * Allow a local linked EC2-Classic instance to communicate
          * with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-         * to the remote VPC.
+         * to the remote VPC. This option is not supported for inter-region VPC peering.
          */
         allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC. This is
-         * [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-         * inter-region VPC peering.
+         * private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to communicate with a linked EC2-Classic
          * instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-         * connection.
+         * connection. This option is not supported for inter-region VPC peering.
          */
         allowVpcToRemoteClassicLink?: pulumi.Input<boolean>;
     }
@@ -9241,6 +9238,17 @@ export namespace mq {
          * Revision of the Configuration.
          */
         revision?: pulumi.Input<number>;
+    }
+
+    export interface BrokerEncryptionOptions {
+        /**
+         * Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
+         */
+        useAwsOwnedKey?: pulumi.Input<boolean>;
     }
 
     export interface BrokerInstance {

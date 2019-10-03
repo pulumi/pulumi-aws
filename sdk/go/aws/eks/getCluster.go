@@ -14,6 +14,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:eks/getCluster:getCluster", inputs)
 	if err != nil {
@@ -30,6 +31,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		PlatformVersion: outputs["platformVersion"],
 		RoleArn: outputs["roleArn"],
 		Status: outputs["status"],
+		Tags: outputs["tags"],
 		Version: outputs["version"],
 		VpcConfig: outputs["vpcConfig"],
 		Id: outputs["id"],
@@ -40,6 +42,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 type GetClusterArgs struct {
 	// The name of the cluster
 	Name interface{}
+	Tags interface{}
 }
 
 // A collection of values returned by getCluster.
@@ -63,6 +66,8 @@ type GetClusterResult struct {
 	RoleArn interface{}
 	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
 	Status interface{}
+	// Key-value mapping of resource tags.
+	Tags interface{}
 	// The Kubernetes server version for the cluster.
 	Version interface{}
 	// Nested attribute containing VPC configuration for the cluster.

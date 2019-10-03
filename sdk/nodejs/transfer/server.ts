@@ -98,7 +98,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly endpointDetails!: pulumi.Output<outputs.transfer.ServerEndpointDetails | undefined>;
     /**
-     * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
+     * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
      */
     public readonly endpointType!: pulumi.Output<string | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface ServerState {
      */
     readonly endpointDetails?: pulumi.Input<inputs.transfer.ServerEndpointDetails>;
     /**
-     * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
+     * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
      */
     readonly endpointType?: pulumi.Input<string>;
     /**
@@ -227,7 +227,7 @@ export interface ServerArgs {
      */
     readonly endpointDetails?: pulumi.Input<inputs.transfer.ServerEndpointDetails>;
     /**
-     * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
+     * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
      */
     readonly endpointType?: pulumi.Input<string>;
     /**

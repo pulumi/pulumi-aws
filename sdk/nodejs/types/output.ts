@@ -5590,20 +5590,18 @@ export namespace ec2 {
         /**
          * Allow a local linked EC2-Classic instance to communicate
          * with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-         * to the remote VPC.
+         * to the remote VPC. This option is not supported for inter-region VPC peering.
          */
         allowClassicLinkToRemoteVpc?: boolean;
         /**
          * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC. This is
-         * [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-         * inter-region VPC peering.
+         * private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: boolean;
         /**
          * Allow a local VPC to communicate with a linked EC2-Classic
          * instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-         * connection.
+         * connection. This option is not supported for inter-region VPC peering.
          */
         allowVpcToRemoteClassicLink?: boolean;
     }
@@ -5612,20 +5610,18 @@ export namespace ec2 {
         /**
          * Allow a local linked EC2-Classic instance to communicate
          * with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-         * to the remote VPC.
+         * to the remote VPC. This option is not supported for inter-region VPC peering.
          */
         allowClassicLinkToRemoteVpc?: boolean;
         /**
          * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC. This is
-         * [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-         * inter-region VPC peering.
+         * private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: boolean;
         /**
          * Allow a local VPC to communicate with a linked EC2-Classic
          * instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-         * connection.
+         * connection. This option is not supported for inter-region VPC peering.
          */
         allowVpcToRemoteClassicLink?: boolean;
     }
@@ -10138,6 +10134,17 @@ export namespace mq {
         revision: number;
     }
 
+    export interface BrokerEncryptionOptions {
+        /**
+         * Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
+         */
+        kmsKeyId: string;
+        /**
+         * Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
+         */
+        useAwsOwnedKey?: boolean;
+    }
+
     export interface BrokerInstance {
         consoleUrl: string;
         endpoints: string[];
@@ -10192,6 +10199,11 @@ export namespace mq {
     export interface GetBrokerConfiguration {
         id: string;
         revision: number;
+    }
+
+    export interface GetBrokerEncryptionOption {
+        kmsKeyId: string;
+        useAwsOwnedKey: boolean;
     }
 
     export interface GetBrokerInstance {

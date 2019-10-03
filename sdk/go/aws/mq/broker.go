@@ -58,6 +58,7 @@ func NewBroker(ctx *pulumi.Context,
 		inputs["brokerName"] = nil
 		inputs["configuration"] = nil
 		inputs["deploymentMode"] = nil
+		inputs["encryptionOptions"] = nil
 		inputs["engineType"] = nil
 		inputs["engineVersion"] = nil
 		inputs["hostInstanceType"] = nil
@@ -74,6 +75,7 @@ func NewBroker(ctx *pulumi.Context,
 		inputs["brokerName"] = args.BrokerName
 		inputs["configuration"] = args.Configuration
 		inputs["deploymentMode"] = args.DeploymentMode
+		inputs["encryptionOptions"] = args.EncryptionOptions
 		inputs["engineType"] = args.EngineType
 		inputs["engineVersion"] = args.EngineVersion
 		inputs["hostInstanceType"] = args.HostInstanceType
@@ -106,6 +108,7 @@ func GetBroker(ctx *pulumi.Context,
 		inputs["brokerName"] = state.BrokerName
 		inputs["configuration"] = state.Configuration
 		inputs["deploymentMode"] = state.DeploymentMode
+		inputs["encryptionOptions"] = state.EncryptionOptions
 		inputs["engineType"] = state.EngineType
 		inputs["engineVersion"] = state.EngineVersion
 		inputs["hostInstanceType"] = state.HostInstanceType
@@ -164,6 +167,11 @@ func (r *Broker) Configuration() *pulumi.Output {
 // The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
 func (r *Broker) DeploymentMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["deploymentMode"])
+}
+
+// Configuration block containing encryption options. See below.
+func (r *Broker) EncryptionOptions() *pulumi.Output {
+	return r.s.State["encryptionOptions"]
 }
 
 // The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
@@ -244,6 +252,8 @@ type BrokerState struct {
 	Configuration interface{}
 	// The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
 	DeploymentMode interface{}
+	// Configuration block containing encryption options. See below.
+	EncryptionOptions interface{}
 	// The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
 	EngineType interface{}
 	// The version of the broker engine. Currently, See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
@@ -289,6 +299,8 @@ type BrokerArgs struct {
 	Configuration interface{}
 	// The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
 	DeploymentMode interface{}
+	// Configuration block containing encryption options. See below.
+	EncryptionOptions interface{}
 	// The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
 	EngineType interface{}
 	// The version of the broker engine. Currently, See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.

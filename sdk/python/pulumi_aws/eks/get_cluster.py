@@ -13,7 +13,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, identities=None, name=None, platform_version=None, role_arn=None, status=None, version=None, vpc_config=None, id=None):
+    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, identities=None, name=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -71,6 +71,12 @@ class GetClusterResult:
         """
         The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         """
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        __self__.tags = tags
+        """
+        Key-value mapping of resource tags.
+        """
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         __self__.version = version
@@ -105,11 +111,12 @@ class AwaitableGetClusterResult(GetClusterResult):
             platform_version=self.platform_version,
             role_arn=self.role_arn,
             status=self.status,
+            tags=self.tags,
             version=self.version,
             vpc_config=self.vpc_config,
             id=self.id)
 
-def get_cluster(name=None,opts=None):
+def get_cluster(name=None,tags=None,opts=None):
     """
     Retrieve information about an EKS Cluster.
     
@@ -120,6 +127,7 @@ def get_cluster(name=None,opts=None):
     __args__ = dict()
 
     __args__['name'] = name
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -137,6 +145,7 @@ def get_cluster(name=None,opts=None):
         platform_version=__ret__.get('platformVersion'),
         role_arn=__ret__.get('roleArn'),
         status=__ret__.get('status'),
+        tags=__ret__.get('tags'),
         version=__ret__.get('version'),
         vpc_config=__ret__.get('vpcConfig'),
         id=__ret__.get('id'))

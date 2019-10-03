@@ -84,6 +84,7 @@ class Provider(pulumi.ProviderResource):
           * `es` (`pulumi.Input[str]`)
           * `firehose` (`pulumi.Input[str]`)
           * `fms` (`pulumi.Input[str]`)
+          * `forecast` (`pulumi.Input[str]`)
           * `fsx` (`pulumi.Input[str]`)
           * `gamelift` (`pulumi.Input[str]`)
           * `glacier` (`pulumi.Input[str]`)
