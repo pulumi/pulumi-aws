@@ -38,8 +38,8 @@ class Method(pulumi.CustomResource):
     """
     request_parameters: pulumi.Output[dict]
     """
-    A map of request query string parameters and headers that should be passed to the integration.
-    For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
+    A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+    For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
     """
     request_validator_id: pulumi.Output[str]
     """
@@ -67,8 +67,8 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[dict] request_models: A map of the API models used for the request's content type
                where key is the content type (e.g. `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
-        :param pulumi.Input[dict] request_parameters: A map of request query string parameters and headers that should be passed to the integration.
-               For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
+        :param pulumi.Input[dict] request_parameters: A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+               For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         :param pulumi.Input[str] request_validator_id: The ID of a `apigateway.RequestValidator`
         :param pulumi.Input[str] resource_id: The API resource ID
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
@@ -133,8 +133,8 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[dict] request_models: A map of the API models used for the request's content type
                where key is the content type (e.g. `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
-        :param pulumi.Input[dict] request_parameters: A map of request query string parameters and headers that should be passed to the integration.
-               For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
+        :param pulumi.Input[dict] request_parameters: A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+               For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         :param pulumi.Input[str] request_validator_id: The ID of a `apigateway.RequestValidator`
         :param pulumi.Input[str] resource_id: The API resource ID
         :param pulumi.Input[str] rest_api: The ID of the associated REST API

@@ -102,6 +102,10 @@ export class Broker extends pulumi.CustomResource {
      */
     public readonly deploymentMode!: pulumi.Output<string | undefined>;
     /**
+     * Configuration block containing encryption options. See below.
+     */
+    public readonly encryptionOptions!: pulumi.Output<outputs.mq.BrokerEncryptionOptions | undefined>;
+    /**
      * The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
      */
     public readonly engineType!: pulumi.Output<string>;
@@ -172,6 +176,7 @@ export class Broker extends pulumi.CustomResource {
             inputs["brokerName"] = state ? state.brokerName : undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
             inputs["deploymentMode"] = state ? state.deploymentMode : undefined;
+            inputs["encryptionOptions"] = state ? state.encryptionOptions : undefined;
             inputs["engineType"] = state ? state.engineType : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
             inputs["hostInstanceType"] = state ? state.hostInstanceType : undefined;
@@ -208,6 +213,7 @@ export class Broker extends pulumi.CustomResource {
             inputs["brokerName"] = args ? args.brokerName : undefined;
             inputs["configuration"] = args ? args.configuration : undefined;
             inputs["deploymentMode"] = args ? args.deploymentMode : undefined;
+            inputs["encryptionOptions"] = args ? args.encryptionOptions : undefined;
             inputs["engineType"] = args ? args.engineType : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
             inputs["hostInstanceType"] = args ? args.hostInstanceType : undefined;
@@ -261,6 +267,10 @@ export interface BrokerState {
      * The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
      */
     readonly deploymentMode?: pulumi.Input<string>;
+    /**
+     * Configuration block containing encryption options. See below.
+     */
+    readonly encryptionOptions?: pulumi.Input<inputs.mq.BrokerEncryptionOptions>;
     /**
      * The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
      */
@@ -340,6 +350,10 @@ export interface BrokerArgs {
      * The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
      */
     readonly deploymentMode?: pulumi.Input<string>;
+    /**
+     * Configuration block containing encryption options. See below.
+     */
+    readonly encryptionOptions?: pulumi.Input<inputs.mq.BrokerEncryptionOptions>;
     /**
      * The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
      */

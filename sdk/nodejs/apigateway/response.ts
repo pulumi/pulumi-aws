@@ -59,11 +59,11 @@ export class Response extends pulumi.CustomResource {
     }
 
     /**
-     * A map specifying the templates used to transform the response body.
+     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
      */
     public readonly responseParameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     * A map specifying the templates used to transform the response body.
      */
     public readonly responseTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -126,11 +126,11 @@ export class Response extends pulumi.CustomResource {
  */
 export interface ResponseState {
     /**
-     * A map specifying the templates used to transform the response body.
+     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
      */
     readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     * A map specifying the templates used to transform the response body.
      */
     readonly responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -152,11 +152,11 @@ export interface ResponseState {
  */
 export interface ResponseArgs {
     /**
-     * A map specifying the templates used to transform the response body.
+     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
      */
     readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     * A map specifying the templates used to transform the response body.
      */
     readonly responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

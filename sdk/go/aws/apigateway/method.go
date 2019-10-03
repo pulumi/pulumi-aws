@@ -127,8 +127,8 @@ func (r *Method) RequestModels() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["requestModels"])
 }
 
-// A map of request query string parameters and headers that should be passed to the integration.
-// For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
+// A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+// For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
 func (r *Method) RequestParameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["requestParameters"])
 }
@@ -164,8 +164,8 @@ type MethodState struct {
 	// where key is the content type (e.g. `application/json`)
 	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
 	RequestModels interface{}
-	// A map of request query string parameters and headers that should be passed to the integration.
-	// For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
+	// A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+	// For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
 	RequestParameters interface{}
 	// The ID of a `apigateway.RequestValidator`
 	RequestValidatorId interface{}
@@ -191,8 +191,8 @@ type MethodArgs struct {
 	// where key is the content type (e.g. `application/json`)
 	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
 	RequestModels interface{}
-	// A map of request query string parameters and headers that should be passed to the integration.
-	// For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
+	// A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
+	// For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
 	RequestParameters interface{}
 	// The ID of a `apigateway.RequestValidator`
 	RequestValidatorId interface{}

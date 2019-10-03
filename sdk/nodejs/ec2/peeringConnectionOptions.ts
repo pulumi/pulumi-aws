@@ -15,7 +15,8 @@ import * as utilities from "../utilities";
  * connection in both a VPC Peering Connection resource and a VPC Peering Connection Options resource.
  * Doing so will cause a conflict of options and will overwrite the options.
  * Using a VPC Peering Connection Options resource decouples management of the connection options from
- * management of the VPC Peering Connection and allows options to be set correctly in cross-account scenarios.
+ * management of the VPC Peering Connection and allows options to be set correctly in cross-region and
+ * cross-account scenarios.
  * 
  * Basic usage:
  * 

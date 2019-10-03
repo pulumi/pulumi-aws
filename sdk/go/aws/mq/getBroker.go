@@ -29,6 +29,7 @@ func LookupBroker(ctx *pulumi.Context, args *GetBrokerArgs) (*GetBrokerResult, e
 		BrokerName: outputs["brokerName"],
 		Configuration: outputs["configuration"],
 		DeploymentMode: outputs["deploymentMode"],
+		EncryptionOptions: outputs["encryptionOptions"],
 		EngineType: outputs["engineType"],
 		EngineVersion: outputs["engineVersion"],
 		HostInstanceType: outputs["hostInstanceType"],
@@ -62,6 +63,7 @@ type GetBrokerResult struct {
 	BrokerName interface{}
 	Configuration interface{}
 	DeploymentMode interface{}
+	EncryptionOptions interface{}
 	EngineType interface{}
 	EngineVersion interface{}
 	HostInstanceType interface{}

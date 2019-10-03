@@ -95,7 +95,7 @@ func (r *Server) EndpointDetails() *pulumi.Output {
 	return r.s.State["endpointDetails"]
 }
 
-// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
+// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
 func (r *Server) EndpointType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpointType"])
 }
@@ -138,7 +138,7 @@ type ServerState struct {
 	Endpoint interface{}
 	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
 	EndpointDetails interface{}
-	// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
+	// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
 	EndpointType interface{}
 	// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
 	ForceDestroy interface{}
@@ -158,7 +158,7 @@ type ServerState struct {
 type ServerArgs struct {
 	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
 	EndpointDetails interface{}
-	// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
+	// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
 	EndpointType interface{}
 	// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
 	ForceDestroy interface{}

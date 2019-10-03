@@ -13,7 +13,7 @@ class GetBrokerResult:
     """
     A collection of values returned by getBroker.
     """
-    def __init__(__self__, arn=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, instances=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None, id=None):
+    def __init__(__self__, arn=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, encryption_options=None, engine_type=None, engine_version=None, host_instance_type=None, instances=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -32,6 +32,9 @@ class GetBrokerResult:
         if deployment_mode and not isinstance(deployment_mode, str):
             raise TypeError("Expected argument 'deployment_mode' to be a str")
         __self__.deployment_mode = deployment_mode
+        if encryption_options and not isinstance(encryption_options, list):
+            raise TypeError("Expected argument 'encryption_options' to be a list")
+        __self__.encryption_options = encryption_options
         if engine_type and not isinstance(engine_type, str):
             raise TypeError("Expected argument 'engine_type' to be a str")
         __self__.engine_type = engine_type
@@ -83,6 +86,7 @@ class AwaitableGetBrokerResult(GetBrokerResult):
             broker_name=self.broker_name,
             configuration=self.configuration,
             deployment_mode=self.deployment_mode,
+            encryption_options=self.encryption_options,
             engine_type=self.engine_type,
             engine_version=self.engine_version,
             host_instance_type=self.host_instance_type,
@@ -129,6 +133,7 @@ def get_broker(broker_id=None,broker_name=None,logs=None,tags=None,opts=None):
         broker_name=__ret__.get('brokerName'),
         configuration=__ret__.get('configuration'),
         deployment_mode=__ret__.get('deploymentMode'),
+        encryption_options=__ret__.get('encryptionOptions'),
         engine_type=__ret__.get('engineType'),
         engine_version=__ret__.get('engineVersion'),
         host_instance_type=__ret__.get('hostInstanceType'),

@@ -159,6 +159,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * Key-value mapping of resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
     public readonly version!: pulumi.Output<string>;
@@ -189,6 +193,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["platformVersion"] = state ? state.platformVersion : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["status"] = state ? state.status : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["version"] = state ? state.version : undefined;
             inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
@@ -202,6 +207,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -265,6 +271,10 @@ export interface ClusterState {
      */
     readonly status?: pulumi.Input<string>;
     /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
     readonly version?: pulumi.Input<string>;
@@ -290,6 +300,10 @@ export interface ClusterArgs {
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
     readonly roleArn: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */

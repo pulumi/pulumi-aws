@@ -29,12 +29,14 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["enabledClusterLogTypes"] = nil
 		inputs["name"] = nil
 		inputs["roleArn"] = nil
+		inputs["tags"] = nil
 		inputs["version"] = nil
 		inputs["vpcConfig"] = nil
 	} else {
 		inputs["enabledClusterLogTypes"] = args.EnabledClusterLogTypes
 		inputs["name"] = args.Name
 		inputs["roleArn"] = args.RoleArn
+		inputs["tags"] = args.Tags
 		inputs["version"] = args.Version
 		inputs["vpcConfig"] = args.VpcConfig
 	}
@@ -68,6 +70,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["platformVersion"] = state.PlatformVersion
 		inputs["roleArn"] = state.RoleArn
 		inputs["status"] = state.Status
+		inputs["tags"] = state.Tags
 		inputs["version"] = state.Version
 		inputs["vpcConfig"] = state.VpcConfig
 	}
@@ -137,6 +140,11 @@ func (r *Cluster) Status() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["status"])
 }
 
+// Key-value mapping of resource tags.
+func (r *Cluster) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
 func (r *Cluster) Version() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["version"])
@@ -168,6 +176,8 @@ type ClusterState struct {
 	RoleArn interface{}
 	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
 	Status interface{}
+	// Key-value mapping of resource tags.
+	Tags interface{}
 	// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
 	Version interface{}
 	// Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
@@ -182,6 +192,8 @@ type ClusterArgs struct {
 	Name interface{}
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn interface{}
+	// Key-value mapping of resource tags.
+	Tags interface{}
 	// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
 	Version interface{}
 	// Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.

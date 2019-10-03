@@ -74,12 +74,12 @@ func (r *Response) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A map specifying the templates used to transform the response body.
+// A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
 func (r *Response) ResponseParameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["responseParameters"])
 }
 
-// A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+// A map specifying the templates used to transform the response body.
 func (r *Response) ResponseTemplates() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["responseTemplates"])
 }
@@ -101,9 +101,9 @@ func (r *Response) StatusCode() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Response resources.
 type ResponseState struct {
-	// A map specifying the templates used to transform the response body.
-	ResponseParameters interface{}
 	// A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+	ResponseParameters interface{}
+	// A map specifying the templates used to transform the response body.
 	ResponseTemplates interface{}
 	// The response type of the associated GatewayResponse.
 	ResponseType interface{}
@@ -115,9 +115,9 @@ type ResponseState struct {
 
 // The set of arguments for constructing a Response resource.
 type ResponseArgs struct {
-	// A map specifying the templates used to transform the response body.
-	ResponseParameters interface{}
 	// A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+	ResponseParameters interface{}
+	// A map specifying the templates used to transform the response body.
 	ResponseTemplates interface{}
 	// The response type of the associated GatewayResponse.
 	ResponseType interface{}
