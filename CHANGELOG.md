@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Regenerate SDK against tf2pulumi 0.6.0
+* Upgrade to v2.31.0 of the AWS Terraform Provider
 
 ---
 
