@@ -39,7 +39,7 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs= {}, opts: pulumi.ResourceOptions = {}) {
+    constructor(name: string, args: ProviderArgs = {}, opts: pulumi.ResourceOptions = {}) {
         const inputs: pulumi.Inputs = {};
         {
             inputs.accessKey = args.accessKey;

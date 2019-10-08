@@ -87,7 +87,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.appsync.GraphQLApi("example", {
- *     additionalAuthenticationProvider: [{
+ *     additionalAuthenticationProviders: [{
  *         authenticationType: "AWS_IAM",
  *     }],
  *     authenticationType: "API_KEY",
