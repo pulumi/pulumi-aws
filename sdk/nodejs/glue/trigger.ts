@@ -125,41 +125,35 @@ export class Trigger extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TriggerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TriggerArgs | TriggerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as TriggerState | undefined;
-            inputs["actions"] = state ? state.actions : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["predicate"] = state ? state.predicate : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: TriggerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: TriggerArgs | TriggerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as TriggerState;
+            inputs.actions = state.actions;
+            inputs.description = state.description;
+            inputs.enabled = state.enabled;
+            inputs.name = state.name;
+            inputs.predicate = state.predicate;
+            inputs.schedule = state.schedule;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as TriggerArgs | undefined;
-            if (!args || args.actions === undefined) {
+            const args = argsOrState as TriggerArgs;
+            if (args.actions === undefined) {
                 throw new Error("Missing required property 'actions'");
             }
-            if (!args || args.type === undefined) {
+            if (args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["predicate"] = args ? args.predicate : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            inputs.actions = args.actions;
+            inputs.description = args.description;
+            inputs.enabled = args.enabled;
+            inputs.name = args.name;
+            inputs.predicate = args.predicate;
+            inputs.schedule = args.schedule;
+            inputs.type = args.type;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Trigger.__pulumiType, name, inputs, opts);
     }
 }

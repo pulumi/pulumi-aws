@@ -68,26 +68,20 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EgressOnlyInternetGatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EgressOnlyInternetGatewayArgs | EgressOnlyInternetGatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EgressOnlyInternetGatewayState | undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: EgressOnlyInternetGatewayArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EgressOnlyInternetGatewayArgs | EgressOnlyInternetGatewayState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EgressOnlyInternetGatewayState;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as EgressOnlyInternetGatewayArgs | undefined;
-            if (!args || args.vpcId === undefined) {
+            const args = argsOrState as EgressOnlyInternetGatewayArgs;
+            if (args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs.vpcId = args.vpcId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EgressOnlyInternetGateway.__pulumiType, name, inputs, opts);
     }
 }

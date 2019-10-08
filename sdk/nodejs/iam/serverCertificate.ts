@@ -157,41 +157,35 @@ export class ServerCertificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServerCertificateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServerCertificateArgs | ServerCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ServerCertificateState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificateBody"] = state ? state.certificateBody : undefined;
-            inputs["certificateChain"] = state ? state.certificateChain : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
+    constructor(name: string, args: ServerCertificateArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ServerCertificateArgs | ServerCertificateState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ServerCertificateState;
+            inputs.arn = state.arn;
+            inputs.certificateBody = state.certificateBody;
+            inputs.certificateChain = state.certificateChain;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.path = state.path;
+            inputs.privateKey = state.privateKey;
         } else {
-            const args = argsOrState as ServerCertificateArgs | undefined;
-            if (!args || args.certificateBody === undefined) {
+            const args = argsOrState as ServerCertificateArgs;
+            if (args.certificateBody === undefined) {
                 throw new Error("Missing required property 'certificateBody'");
             }
-            if (!args || args.privateKey === undefined) {
+            if (args.privateKey === undefined) {
                 throw new Error("Missing required property 'privateKey'");
             }
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["certificateBody"] = args ? args.certificateBody : undefined;
-            inputs["certificateChain"] = args ? args.certificateChain : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
+            inputs.arn = args.arn;
+            inputs.certificateBody = args.certificateBody;
+            inputs.certificateChain = args.certificateChain;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.path = args.path;
+            inputs.privateKey = args.privateKey;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ServerCertificate.__pulumiType, name, inputs, opts);
     }
 }

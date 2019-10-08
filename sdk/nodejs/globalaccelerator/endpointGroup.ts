@@ -94,42 +94,36 @@ export class EndpointGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EndpointGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EndpointGroupArgs | EndpointGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EndpointGroupState | undefined;
-            inputs["endpointConfigurations"] = state ? state.endpointConfigurations : undefined;
-            inputs["endpointGroupRegion"] = state ? state.endpointGroupRegion : undefined;
-            inputs["healthCheckIntervalSeconds"] = state ? state.healthCheckIntervalSeconds : undefined;
-            inputs["healthCheckPath"] = state ? state.healthCheckPath : undefined;
-            inputs["healthCheckPort"] = state ? state.healthCheckPort : undefined;
-            inputs["healthCheckProtocol"] = state ? state.healthCheckProtocol : undefined;
-            inputs["listenerArn"] = state ? state.listenerArn : undefined;
-            inputs["thresholdCount"] = state ? state.thresholdCount : undefined;
-            inputs["trafficDialPercentage"] = state ? state.trafficDialPercentage : undefined;
+    constructor(name: string, args: EndpointGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EndpointGroupArgs | EndpointGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EndpointGroupState;
+            inputs.endpointConfigurations = state.endpointConfigurations;
+            inputs.endpointGroupRegion = state.endpointGroupRegion;
+            inputs.healthCheckIntervalSeconds = state.healthCheckIntervalSeconds;
+            inputs.healthCheckPath = state.healthCheckPath;
+            inputs.healthCheckPort = state.healthCheckPort;
+            inputs.healthCheckProtocol = state.healthCheckProtocol;
+            inputs.listenerArn = state.listenerArn;
+            inputs.thresholdCount = state.thresholdCount;
+            inputs.trafficDialPercentage = state.trafficDialPercentage;
         } else {
-            const args = argsOrState as EndpointGroupArgs | undefined;
-            if (!args || args.listenerArn === undefined) {
+            const args = argsOrState as EndpointGroupArgs;
+            if (args.listenerArn === undefined) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            inputs["endpointConfigurations"] = args ? args.endpointConfigurations : undefined;
-            inputs["endpointGroupRegion"] = args ? args.endpointGroupRegion : undefined;
-            inputs["healthCheckIntervalSeconds"] = args ? args.healthCheckIntervalSeconds : undefined;
-            inputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
-            inputs["healthCheckPort"] = args ? args.healthCheckPort : undefined;
-            inputs["healthCheckProtocol"] = args ? args.healthCheckProtocol : undefined;
-            inputs["listenerArn"] = args ? args.listenerArn : undefined;
-            inputs["thresholdCount"] = args ? args.thresholdCount : undefined;
-            inputs["trafficDialPercentage"] = args ? args.trafficDialPercentage : undefined;
+            inputs.endpointConfigurations = args.endpointConfigurations;
+            inputs.endpointGroupRegion = args.endpointGroupRegion;
+            inputs.healthCheckIntervalSeconds = args.healthCheckIntervalSeconds;
+            inputs.healthCheckPath = args.healthCheckPath;
+            inputs.healthCheckPort = args.healthCheckPort;
+            inputs.healthCheckProtocol = args.healthCheckProtocol;
+            inputs.listenerArn = args.listenerArn;
+            inputs.thresholdCount = args.thresholdCount;
+            inputs.trafficDialPercentage = args.trafficDialPercentage;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EndpointGroup.__pulumiType, name, inputs, opts);
     }
 }

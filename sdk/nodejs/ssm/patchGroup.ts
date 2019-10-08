@@ -69,31 +69,25 @@ export class PatchGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PatchGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PatchGroupArgs | PatchGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PatchGroupState | undefined;
-            inputs["baselineId"] = state ? state.baselineId : undefined;
-            inputs["patchGroup"] = state ? state.patchGroup : undefined;
+    constructor(name: string, args: PatchGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PatchGroupArgs | PatchGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PatchGroupState;
+            inputs.baselineId = state.baselineId;
+            inputs.patchGroup = state.patchGroup;
         } else {
-            const args = argsOrState as PatchGroupArgs | undefined;
-            if (!args || args.baselineId === undefined) {
+            const args = argsOrState as PatchGroupArgs;
+            if (args.baselineId === undefined) {
                 throw new Error("Missing required property 'baselineId'");
             }
-            if (!args || args.patchGroup === undefined) {
+            if (args.patchGroup === undefined) {
                 throw new Error("Missing required property 'patchGroup'");
             }
-            inputs["baselineId"] = args ? args.baselineId : undefined;
-            inputs["patchGroup"] = args ? args.patchGroup : undefined;
+            inputs.baselineId = args.baselineId;
+            inputs.patchGroup = args.patchGroup;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(PatchGroup.__pulumiType, name, inputs, opts);
     }
 }

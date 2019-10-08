@@ -178,47 +178,41 @@ export class Eip extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: EipArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EipArgs | EipState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EipState | undefined;
-            inputs["allocationId"] = state ? state.allocationId : undefined;
-            inputs["associateWithPrivateIp"] = state ? state.associateWithPrivateIp : undefined;
-            inputs["associationId"] = state ? state.associationId : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
-            inputs["instance"] = state ? state.instance : undefined;
-            inputs["networkInterface"] = state ? state.networkInterface : undefined;
-            inputs["privateDns"] = state ? state.privateDns : undefined;
-            inputs["privateIp"] = state ? state.privateIp : undefined;
-            inputs["publicDns"] = state ? state.publicDns : undefined;
-            inputs["publicIp"] = state ? state.publicIp : undefined;
-            inputs["publicIpv4Pool"] = state ? state.publicIpv4Pool : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpc"] = state ? state.vpc : undefined;
+    constructor(name: string, args?: EipArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EipArgs | EipState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EipState;
+            inputs.allocationId = state.allocationId;
+            inputs.associateWithPrivateIp = state.associateWithPrivateIp;
+            inputs.associationId = state.associationId;
+            inputs.domain = state.domain;
+            inputs.instance = state.instance;
+            inputs.networkInterface = state.networkInterface;
+            inputs.privateDns = state.privateDns;
+            inputs.privateIp = state.privateIp;
+            inputs.publicDns = state.publicDns;
+            inputs.publicIp = state.publicIp;
+            inputs.publicIpv4Pool = state.publicIpv4Pool;
+            inputs.tags = state.tags;
+            inputs.vpc = state.vpc;
         } else {
-            const args = argsOrState as EipArgs | undefined;
-            inputs["associateWithPrivateIp"] = args ? args.associateWithPrivateIp : undefined;
-            inputs["instance"] = args ? args.instance : undefined;
-            inputs["networkInterface"] = args ? args.networkInterface : undefined;
-            inputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpc"] = args ? args.vpc : undefined;
-            inputs["allocationId"] = undefined /*out*/;
-            inputs["associationId"] = undefined /*out*/;
-            inputs["domain"] = undefined /*out*/;
-            inputs["privateDns"] = undefined /*out*/;
-            inputs["privateIp"] = undefined /*out*/;
-            inputs["publicDns"] = undefined /*out*/;
-            inputs["publicIp"] = undefined /*out*/;
+            const args = argsOrState as EipArgs;
+            inputs.associateWithPrivateIp = args.associateWithPrivateIp;
+            inputs.instance = args.instance;
+            inputs.networkInterface = args.networkInterface;
+            inputs.publicIpv4Pool = args.publicIpv4Pool;
+            inputs.tags = args.tags;
+            inputs.vpc = args.vpc;
+            inputs.allocationId = undefined /*out*/;
+            inputs.associationId = undefined /*out*/;
+            inputs.domain = undefined /*out*/;
+            inputs.privateDns = undefined /*out*/;
+            inputs.privateIp = undefined /*out*/;
+            inputs.publicDns = undefined /*out*/;
+            inputs.publicIp = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Eip.__pulumiType, name, inputs, opts);
     }
 }

@@ -113,38 +113,32 @@ export class Connection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ConnectionArgs | ConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ConnectionState | undefined;
-            inputs["catalogId"] = state ? state.catalogId : undefined;
-            inputs["connectionProperties"] = state ? state.connectionProperties : undefined;
-            inputs["connectionType"] = state ? state.connectionType : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["matchCriterias"] = state ? state.matchCriterias : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["physicalConnectionRequirements"] = state ? state.physicalConnectionRequirements : undefined;
+    constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ConnectionArgs | ConnectionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ConnectionState;
+            inputs.catalogId = state.catalogId;
+            inputs.connectionProperties = state.connectionProperties;
+            inputs.connectionType = state.connectionType;
+            inputs.description = state.description;
+            inputs.matchCriterias = state.matchCriterias;
+            inputs.name = state.name;
+            inputs.physicalConnectionRequirements = state.physicalConnectionRequirements;
         } else {
-            const args = argsOrState as ConnectionArgs | undefined;
-            if (!args || args.connectionProperties === undefined) {
+            const args = argsOrState as ConnectionArgs;
+            if (args.connectionProperties === undefined) {
                 throw new Error("Missing required property 'connectionProperties'");
             }
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["connectionProperties"] = args ? args.connectionProperties : undefined;
-            inputs["connectionType"] = args ? args.connectionType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["matchCriterias"] = args ? args.matchCriterias : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["physicalConnectionRequirements"] = args ? args.physicalConnectionRequirements : undefined;
+            inputs.catalogId = args.catalogId;
+            inputs.connectionProperties = args.connectionProperties;
+            inputs.connectionType = args.connectionType;
+            inputs.description = args.description;
+            inputs.matchCriterias = args.matchCriterias;
+            inputs.name = args.name;
+            inputs.physicalConnectionRequirements = args.physicalConnectionRequirements;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Connection.__pulumiType, name, inputs, opts);
     }
 }

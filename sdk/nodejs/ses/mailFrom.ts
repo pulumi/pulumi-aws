@@ -88,33 +88,27 @@ export class MailFrom extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MailFromArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MailFromArgs | MailFromState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MailFromState | undefined;
-            inputs["behaviorOnMxFailure"] = state ? state.behaviorOnMxFailure : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
-            inputs["mailFromDomain"] = state ? state.mailFromDomain : undefined;
+    constructor(name: string, args: MailFromArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: MailFromArgs | MailFromState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as MailFromState;
+            inputs.behaviorOnMxFailure = state.behaviorOnMxFailure;
+            inputs.domain = state.domain;
+            inputs.mailFromDomain = state.mailFromDomain;
         } else {
-            const args = argsOrState as MailFromArgs | undefined;
-            if (!args || args.domain === undefined) {
+            const args = argsOrState as MailFromArgs;
+            if (args.domain === undefined) {
                 throw new Error("Missing required property 'domain'");
             }
-            if (!args || args.mailFromDomain === undefined) {
+            if (args.mailFromDomain === undefined) {
                 throw new Error("Missing required property 'mailFromDomain'");
             }
-            inputs["behaviorOnMxFailure"] = args ? args.behaviorOnMxFailure : undefined;
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["mailFromDomain"] = args ? args.mailFromDomain : undefined;
+            inputs.behaviorOnMxFailure = args.behaviorOnMxFailure;
+            inputs.domain = args.domain;
+            inputs.mailFromDomain = args.mailFromDomain;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(MailFrom.__pulumiType, name, inputs, opts);
     }
 }

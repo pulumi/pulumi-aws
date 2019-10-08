@@ -87,36 +87,30 @@ export class SubnetGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubnetGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SubnetGroupArgs | SubnetGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SubnetGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: SubnetGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SubnetGroupArgs | SubnetGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SubnetGroupState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.subnetIds = state.subnetIds;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as SubnetGroupArgs | undefined;
-            if (!args || args.subnetIds === undefined) {
+            const args = argsOrState as SubnetGroupArgs;
+            if (args.subnetIds === undefined) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.subnetIds = args.subnetIds;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SubnetGroup.__pulumiType, name, inputs, opts);
     }
 }

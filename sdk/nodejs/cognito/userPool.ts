@@ -149,67 +149,61 @@ export class UserPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: UserPoolArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserPoolArgs | UserPoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as UserPoolState | undefined;
-            inputs["adminCreateUserConfig"] = state ? state.adminCreateUserConfig : undefined;
-            inputs["aliasAttributes"] = state ? state.aliasAttributes : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoVerifiedAttributes"] = state ? state.autoVerifiedAttributes : undefined;
-            inputs["creationDate"] = state ? state.creationDate : undefined;
-            inputs["deviceConfiguration"] = state ? state.deviceConfiguration : undefined;
-            inputs["emailConfiguration"] = state ? state.emailConfiguration : undefined;
-            inputs["emailVerificationMessage"] = state ? state.emailVerificationMessage : undefined;
-            inputs["emailVerificationSubject"] = state ? state.emailVerificationSubject : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["lambdaConfig"] = state ? state.lambdaConfig : undefined;
-            inputs["lastModifiedDate"] = state ? state.lastModifiedDate : undefined;
-            inputs["mfaConfiguration"] = state ? state.mfaConfiguration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["passwordPolicy"] = state ? state.passwordPolicy : undefined;
-            inputs["schemas"] = state ? state.schemas : undefined;
-            inputs["smsAuthenticationMessage"] = state ? state.smsAuthenticationMessage : undefined;
-            inputs["smsConfiguration"] = state ? state.smsConfiguration : undefined;
-            inputs["smsVerificationMessage"] = state ? state.smsVerificationMessage : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["userPoolAddOns"] = state ? state.userPoolAddOns : undefined;
-            inputs["usernameAttributes"] = state ? state.usernameAttributes : undefined;
-            inputs["verificationMessageTemplate"] = state ? state.verificationMessageTemplate : undefined;
+    constructor(name: string, args?: UserPoolArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: UserPoolArgs | UserPoolState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as UserPoolState;
+            inputs.adminCreateUserConfig = state.adminCreateUserConfig;
+            inputs.aliasAttributes = state.aliasAttributes;
+            inputs.arn = state.arn;
+            inputs.autoVerifiedAttributes = state.autoVerifiedAttributes;
+            inputs.creationDate = state.creationDate;
+            inputs.deviceConfiguration = state.deviceConfiguration;
+            inputs.emailConfiguration = state.emailConfiguration;
+            inputs.emailVerificationMessage = state.emailVerificationMessage;
+            inputs.emailVerificationSubject = state.emailVerificationSubject;
+            inputs.endpoint = state.endpoint;
+            inputs.lambdaConfig = state.lambdaConfig;
+            inputs.lastModifiedDate = state.lastModifiedDate;
+            inputs.mfaConfiguration = state.mfaConfiguration;
+            inputs.name = state.name;
+            inputs.passwordPolicy = state.passwordPolicy;
+            inputs.schemas = state.schemas;
+            inputs.smsAuthenticationMessage = state.smsAuthenticationMessage;
+            inputs.smsConfiguration = state.smsConfiguration;
+            inputs.smsVerificationMessage = state.smsVerificationMessage;
+            inputs.tags = state.tags;
+            inputs.userPoolAddOns = state.userPoolAddOns;
+            inputs.usernameAttributes = state.usernameAttributes;
+            inputs.verificationMessageTemplate = state.verificationMessageTemplate;
         } else {
-            const args = argsOrState as UserPoolArgs | undefined;
-            inputs["adminCreateUserConfig"] = args ? args.adminCreateUserConfig : undefined;
-            inputs["aliasAttributes"] = args ? args.aliasAttributes : undefined;
-            inputs["autoVerifiedAttributes"] = args ? args.autoVerifiedAttributes : undefined;
-            inputs["deviceConfiguration"] = args ? args.deviceConfiguration : undefined;
-            inputs["emailConfiguration"] = args ? args.emailConfiguration : undefined;
-            inputs["emailVerificationMessage"] = args ? args.emailVerificationMessage : undefined;
-            inputs["emailVerificationSubject"] = args ? args.emailVerificationSubject : undefined;
-            inputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
-            inputs["mfaConfiguration"] = args ? args.mfaConfiguration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["passwordPolicy"] = args ? args.passwordPolicy : undefined;
-            inputs["schemas"] = args ? args.schemas : undefined;
-            inputs["smsAuthenticationMessage"] = args ? args.smsAuthenticationMessage : undefined;
-            inputs["smsConfiguration"] = args ? args.smsConfiguration : undefined;
-            inputs["smsVerificationMessage"] = args ? args.smsVerificationMessage : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userPoolAddOns"] = args ? args.userPoolAddOns : undefined;
-            inputs["usernameAttributes"] = args ? args.usernameAttributes : undefined;
-            inputs["verificationMessageTemplate"] = args ? args.verificationMessageTemplate : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["lastModifiedDate"] = undefined /*out*/;
+            const args = argsOrState as UserPoolArgs;
+            inputs.adminCreateUserConfig = args.adminCreateUserConfig;
+            inputs.aliasAttributes = args.aliasAttributes;
+            inputs.autoVerifiedAttributes = args.autoVerifiedAttributes;
+            inputs.deviceConfiguration = args.deviceConfiguration;
+            inputs.emailConfiguration = args.emailConfiguration;
+            inputs.emailVerificationMessage = args.emailVerificationMessage;
+            inputs.emailVerificationSubject = args.emailVerificationSubject;
+            inputs.lambdaConfig = args.lambdaConfig;
+            inputs.mfaConfiguration = args.mfaConfiguration;
+            inputs.name = args.name;
+            inputs.passwordPolicy = args.passwordPolicy;
+            inputs.schemas = args.schemas;
+            inputs.smsAuthenticationMessage = args.smsAuthenticationMessage;
+            inputs.smsConfiguration = args.smsConfiguration;
+            inputs.smsVerificationMessage = args.smsVerificationMessage;
+            inputs.tags = args.tags;
+            inputs.userPoolAddOns = args.userPoolAddOns;
+            inputs.usernameAttributes = args.usernameAttributes;
+            inputs.verificationMessageTemplate = args.verificationMessageTemplate;
+            inputs.arn = undefined /*out*/;
+            inputs.creationDate = undefined /*out*/;
+            inputs.endpoint = undefined /*out*/;
+            inputs.lastModifiedDate = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(UserPool.__pulumiType, name, inputs, opts);
     }
 }

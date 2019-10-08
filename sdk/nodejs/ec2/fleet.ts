@@ -106,47 +106,41 @@ export class Fleet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as FleetState | undefined;
-            inputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
-            inputs["launchTemplateConfig"] = state ? state.launchTemplateConfig : undefined;
-            inputs["onDemandOptions"] = state ? state.onDemandOptions : undefined;
-            inputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
-            inputs["spotOptions"] = state ? state.spotOptions : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["targetCapacitySpecification"] = state ? state.targetCapacitySpecification : undefined;
-            inputs["terminateInstances"] = state ? state.terminateInstances : undefined;
-            inputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: FleetArgs | FleetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as FleetState;
+            inputs.excessCapacityTerminationPolicy = state.excessCapacityTerminationPolicy;
+            inputs.launchTemplateConfig = state.launchTemplateConfig;
+            inputs.onDemandOptions = state.onDemandOptions;
+            inputs.replaceUnhealthyInstances = state.replaceUnhealthyInstances;
+            inputs.spotOptions = state.spotOptions;
+            inputs.tags = state.tags;
+            inputs.targetCapacitySpecification = state.targetCapacitySpecification;
+            inputs.terminateInstances = state.terminateInstances;
+            inputs.terminateInstancesWithExpiration = state.terminateInstancesWithExpiration;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as FleetArgs | undefined;
-            if (!args || args.launchTemplateConfig === undefined) {
+            const args = argsOrState as FleetArgs;
+            if (args.launchTemplateConfig === undefined) {
                 throw new Error("Missing required property 'launchTemplateConfig'");
             }
-            if (!args || args.targetCapacitySpecification === undefined) {
+            if (args.targetCapacitySpecification === undefined) {
                 throw new Error("Missing required property 'targetCapacitySpecification'");
             }
-            inputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
-            inputs["launchTemplateConfig"] = args ? args.launchTemplateConfig : undefined;
-            inputs["onDemandOptions"] = args ? args.onDemandOptions : undefined;
-            inputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
-            inputs["spotOptions"] = args ? args.spotOptions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetCapacitySpecification"] = args ? args.targetCapacitySpecification : undefined;
-            inputs["terminateInstances"] = args ? args.terminateInstances : undefined;
-            inputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            inputs.excessCapacityTerminationPolicy = args.excessCapacityTerminationPolicy;
+            inputs.launchTemplateConfig = args.launchTemplateConfig;
+            inputs.onDemandOptions = args.onDemandOptions;
+            inputs.replaceUnhealthyInstances = args.replaceUnhealthyInstances;
+            inputs.spotOptions = args.spotOptions;
+            inputs.tags = args.tags;
+            inputs.targetCapacitySpecification = args.targetCapacitySpecification;
+            inputs.terminateInstances = args.terminateInstances;
+            inputs.terminateInstancesWithExpiration = args.terminateInstancesWithExpiration;
+            inputs.type = args.type;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Fleet.__pulumiType, name, inputs, opts);
     }
 }

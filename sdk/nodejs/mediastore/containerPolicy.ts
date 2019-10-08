@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const currentRegion = aws.getRegion();
- * const currentCallerIdentity = aws.getCallerIdentity();
  * const exampleContainer = new aws.mediastore.Container("example", {});
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentRegion = aws.getRegion({});
  * const exampleContainerPolicy = new aws.mediastore.ContainerPolicy("example", {
  *     containerName: exampleContainer.name,
  *     policy: pulumi.interpolate`{
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * 		"Action": [ "mediastore:*" ],
  * 		"Principal": {"AWS" : "arn:aws:iam::${currentCallerIdentity.accountId}:root"},
  * 		"Effect": "Allow",
- * 		"Resource": "arn:aws:mediastore:${currentCallerIdentity.accountId}:${currentRegion.name!}:container/${exampleContainer.name}/*",
+ * 		"Resource": "arn:aws:mediastore:${currentCallerIdentity.accountId}:${currentRegion.name}:container/${exampleContainer.name}/*",
  * 		"Condition": {
  * 			"Bool": { "aws:SecureTransport": "true" }
  * 		}
@@ -80,31 +80,25 @@ export class ContainerPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ContainerPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ContainerPolicyArgs | ContainerPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ContainerPolicyState | undefined;
-            inputs["containerName"] = state ? state.containerName : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+    constructor(name: string, args: ContainerPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ContainerPolicyArgs | ContainerPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ContainerPolicyState;
+            inputs.containerName = state.containerName;
+            inputs.policy = state.policy;
         } else {
-            const args = argsOrState as ContainerPolicyArgs | undefined;
-            if (!args || args.containerName === undefined) {
+            const args = argsOrState as ContainerPolicyArgs;
+            if (args.containerName === undefined) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if (!args || args.policy === undefined) {
+            if (args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
+            inputs.containerName = args.containerName;
+            inputs.policy = args.policy;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ContainerPolicy.__pulumiType, name, inputs, opts);
     }
 }

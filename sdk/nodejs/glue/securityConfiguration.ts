@@ -76,28 +76,22 @@ export class SecurityConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SecurityConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SecurityConfigurationArgs | SecurityConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SecurityConfigurationState | undefined;
-            inputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args: SecurityConfigurationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SecurityConfigurationArgs | SecurityConfigurationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SecurityConfigurationState;
+            inputs.encryptionConfiguration = state.encryptionConfiguration;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as SecurityConfigurationArgs | undefined;
-            if (!args || args.encryptionConfiguration === undefined) {
+            const args = argsOrState as SecurityConfigurationArgs;
+            if (args.encryptionConfiguration === undefined) {
                 throw new Error("Missing required property 'encryptionConfiguration'");
             }
-            inputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs.encryptionConfiguration = args.encryptionConfiguration;
+            inputs.name = args.name;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SecurityConfiguration.__pulumiType, name, inputs, opts);
     }
 }

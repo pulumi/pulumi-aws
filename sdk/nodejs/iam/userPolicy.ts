@@ -18,6 +18,9 @@ import {PolicyDocument} from "./documents";
  * const lbUser = new aws.iam.User("lb", {
  *     path: "/system/",
  * });
+ * const lbAccessKey = new aws.iam.AccessKey("lb", {
+ *     user: lbUser.name,
+ * });
  * const lbRo = new aws.iam.UserPolicy("lbRo", {
  *     policy: `{
  *   "Version": "2012-10-17",
@@ -32,9 +35,6 @@ import {PolicyDocument} from "./documents";
  *   ]
  * }
  * `,
- *     user: lbUser.name,
- * });
- * const lbAccessKey = new aws.iam.AccessKey("lb", {
  *     user: lbUser.name,
  * });
  * ```
@@ -92,35 +92,29 @@ export class UserPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserPolicyArgs | UserPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as UserPolicyState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["user"] = state ? state.user : undefined;
+    constructor(name: string, args: UserPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: UserPolicyArgs | UserPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as UserPolicyState;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.policy = state.policy;
+            inputs.user = state.user;
         } else {
-            const args = argsOrState as UserPolicyArgs | undefined;
-            if (!args || args.policy === undefined) {
+            const args = argsOrState as UserPolicyArgs;
+            if (args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (!args || args.user === undefined) {
+            if (args.user === undefined) {
                 throw new Error("Missing required property 'user'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["user"] = args ? args.user : undefined;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.policy = args.policy;
+            inputs.user = args.user;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(UserPolicy.__pulumiType, name, inputs, opts);
     }
 }

@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * const example = new aws.ecs.Service("example", {
  *     // Example: Create service with 2 instances to start
  *     desiredCount: 2,
- * }, {ignoreChanges: ["desiredCount"]});
+ * });
  * ```
  * 
  * ### Daemon Scheduling Strategy
@@ -223,66 +223,60 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ServiceState | undefined;
-            inputs["cluster"] = state ? state.cluster : undefined;
-            inputs["deploymentController"] = state ? state.deploymentController : undefined;
-            inputs["deploymentMaximumPercent"] = state ? state.deploymentMaximumPercent : undefined;
-            inputs["deploymentMinimumHealthyPercent"] = state ? state.deploymentMinimumHealthyPercent : undefined;
-            inputs["desiredCount"] = state ? state.desiredCount : undefined;
-            inputs["enableEcsManagedTags"] = state ? state.enableEcsManagedTags : undefined;
-            inputs["healthCheckGracePeriodSeconds"] = state ? state.healthCheckGracePeriodSeconds : undefined;
-            inputs["iamRole"] = state ? state.iamRole : undefined;
-            inputs["launchType"] = state ? state.launchType : undefined;
-            inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
-            inputs["orderedPlacementStrategies"] = state ? state.orderedPlacementStrategies : undefined;
-            inputs["placementConstraints"] = state ? state.placementConstraints : undefined;
-            inputs["platformVersion"] = state ? state.platformVersion : undefined;
-            inputs["propagateTags"] = state ? state.propagateTags : undefined;
-            inputs["schedulingStrategy"] = state ? state.schedulingStrategy : undefined;
-            inputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["taskDefinition"] = state ? state.taskDefinition : undefined;
-            inputs["waitForSteadyState"] = state ? state.waitForSteadyState : undefined;
+    constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ServiceArgs | ServiceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ServiceState;
+            inputs.cluster = state.cluster;
+            inputs.deploymentController = state.deploymentController;
+            inputs.deploymentMaximumPercent = state.deploymentMaximumPercent;
+            inputs.deploymentMinimumHealthyPercent = state.deploymentMinimumHealthyPercent;
+            inputs.desiredCount = state.desiredCount;
+            inputs.enableEcsManagedTags = state.enableEcsManagedTags;
+            inputs.healthCheckGracePeriodSeconds = state.healthCheckGracePeriodSeconds;
+            inputs.iamRole = state.iamRole;
+            inputs.launchType = state.launchType;
+            inputs.loadBalancers = state.loadBalancers;
+            inputs.name = state.name;
+            inputs.networkConfiguration = state.networkConfiguration;
+            inputs.orderedPlacementStrategies = state.orderedPlacementStrategies;
+            inputs.placementConstraints = state.placementConstraints;
+            inputs.platformVersion = state.platformVersion;
+            inputs.propagateTags = state.propagateTags;
+            inputs.schedulingStrategy = state.schedulingStrategy;
+            inputs.serviceRegistries = state.serviceRegistries;
+            inputs.tags = state.tags;
+            inputs.taskDefinition = state.taskDefinition;
+            inputs.waitForSteadyState = state.waitForSteadyState;
         } else {
-            const args = argsOrState as ServiceArgs | undefined;
-            if (!args || args.taskDefinition === undefined) {
+            const args = argsOrState as ServiceArgs;
+            if (args.taskDefinition === undefined) {
                 throw new Error("Missing required property 'taskDefinition'");
             }
-            inputs["cluster"] = args ? args.cluster : undefined;
-            inputs["deploymentController"] = args ? args.deploymentController : undefined;
-            inputs["deploymentMaximumPercent"] = args ? args.deploymentMaximumPercent : undefined;
-            inputs["deploymentMinimumHealthyPercent"] = args ? args.deploymentMinimumHealthyPercent : undefined;
-            inputs["desiredCount"] = args ? args.desiredCount : undefined;
-            inputs["enableEcsManagedTags"] = args ? args.enableEcsManagedTags : undefined;
-            inputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
-            inputs["iamRole"] = args ? args.iamRole : undefined;
-            inputs["launchType"] = args ? args.launchType : undefined;
-            inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            inputs["orderedPlacementStrategies"] = args ? args.orderedPlacementStrategies : undefined;
-            inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
-            inputs["platformVersion"] = args ? args.platformVersion : undefined;
-            inputs["propagateTags"] = args ? args.propagateTags : undefined;
-            inputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
-            inputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["taskDefinition"] = args ? args.taskDefinition : undefined;
-            inputs["waitForSteadyState"] = args ? args.waitForSteadyState : undefined;
+            inputs.cluster = args.cluster;
+            inputs.deploymentController = args.deploymentController;
+            inputs.deploymentMaximumPercent = args.deploymentMaximumPercent;
+            inputs.deploymentMinimumHealthyPercent = args.deploymentMinimumHealthyPercent;
+            inputs.desiredCount = args.desiredCount;
+            inputs.enableEcsManagedTags = args.enableEcsManagedTags;
+            inputs.healthCheckGracePeriodSeconds = args.healthCheckGracePeriodSeconds;
+            inputs.iamRole = args.iamRole;
+            inputs.launchType = args.launchType;
+            inputs.loadBalancers = args.loadBalancers;
+            inputs.name = args.name;
+            inputs.networkConfiguration = args.networkConfiguration;
+            inputs.orderedPlacementStrategies = args.orderedPlacementStrategies;
+            inputs.placementConstraints = args.placementConstraints;
+            inputs.platformVersion = args.platformVersion;
+            inputs.propagateTags = args.propagateTags;
+            inputs.schedulingStrategy = args.schedulingStrategy;
+            inputs.serviceRegistries = args.serviceRegistries;
+            inputs.tags = args.tags;
+            inputs.taskDefinition = args.taskDefinition;
+            inputs.waitForSteadyState = args.waitForSteadyState;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Service.__pulumiType, name, inputs, opts);
     }
 }

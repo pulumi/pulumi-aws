@@ -82,40 +82,34 @@ export class AssessmentTemplate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AssessmentTemplateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AssessmentTemplateArgs | AssessmentTemplateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AssessmentTemplateState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["duration"] = state ? state.duration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rulesPackageArns"] = state ? state.rulesPackageArns : undefined;
-            inputs["targetArn"] = state ? state.targetArn : undefined;
+    constructor(name: string, args: AssessmentTemplateArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AssessmentTemplateArgs | AssessmentTemplateState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AssessmentTemplateState;
+            inputs.arn = state.arn;
+            inputs.duration = state.duration;
+            inputs.name = state.name;
+            inputs.rulesPackageArns = state.rulesPackageArns;
+            inputs.targetArn = state.targetArn;
         } else {
-            const args = argsOrState as AssessmentTemplateArgs | undefined;
-            if (!args || args.duration === undefined) {
+            const args = argsOrState as AssessmentTemplateArgs;
+            if (args.duration === undefined) {
                 throw new Error("Missing required property 'duration'");
             }
-            if (!args || args.rulesPackageArns === undefined) {
+            if (args.rulesPackageArns === undefined) {
                 throw new Error("Missing required property 'rulesPackageArns'");
             }
-            if (!args || args.targetArn === undefined) {
+            if (args.targetArn === undefined) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            inputs["duration"] = args ? args.duration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rulesPackageArns"] = args ? args.rulesPackageArns : undefined;
-            inputs["targetArn"] = args ? args.targetArn : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.duration = args.duration;
+            inputs.name = args.name;
+            inputs.rulesPackageArns = args.rulesPackageArns;
+            inputs.targetArn = args.targetArn;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(AssessmentTemplate.__pulumiType, name, inputs, opts);
     }
 }

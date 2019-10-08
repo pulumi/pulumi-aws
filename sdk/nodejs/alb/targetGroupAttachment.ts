@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testTargetGroup = new aws.lb.TargetGroup("test", {});
  * const testInstance = new aws.ec2.Instance("test", {});
+ * const testTargetGroup = new aws.lb.TargetGroup("test", {});
  * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
  *     port: 80,
  *     targetGroupArn: testTargetGroup.arn,
@@ -32,10 +32,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const testFunction = new aws.lambda.Function("test", {});
  * const testTargetGroup = new aws.lb.TargetGroup("test", {
  *     targetType: "lambda",
  * });
- * const testFunction = new aws.lambda.Function("test", {});
  * const withLb = new aws.lambda.Permission("withLb", {
  *     action: "lambda:InvokeFunction",
  *     function: testFunction.arn,
@@ -101,35 +101,29 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TargetGroupAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TargetGroupAttachmentArgs | TargetGroupAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as TargetGroupAttachmentState | undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["targetGroupArn"] = state ? state.targetGroupArn : undefined;
-            inputs["targetId"] = state ? state.targetId : undefined;
+    constructor(name: string, args: TargetGroupAttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: TargetGroupAttachmentArgs | TargetGroupAttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as TargetGroupAttachmentState;
+            inputs.availabilityZone = state.availabilityZone;
+            inputs.port = state.port;
+            inputs.targetGroupArn = state.targetGroupArn;
+            inputs.targetId = state.targetId;
         } else {
-            const args = argsOrState as TargetGroupAttachmentArgs | undefined;
-            if (!args || args.targetGroupArn === undefined) {
+            const args = argsOrState as TargetGroupAttachmentArgs;
+            if (args.targetGroupArn === undefined) {
                 throw new Error("Missing required property 'targetGroupArn'");
             }
-            if (!args || args.targetId === undefined) {
+            if (args.targetId === undefined) {
                 throw new Error("Missing required property 'targetId'");
             }
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["targetGroupArn"] = args ? args.targetGroupArn : undefined;
-            inputs["targetId"] = args ? args.targetId : undefined;
+            inputs.availabilityZone = args.availabilityZone;
+            inputs.port = args.port;
+            inputs.targetGroupArn = args.targetGroupArn;
+            inputs.targetId = args.targetId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TargetGroupAttachment.__pulumiType, name, inputs, opts);

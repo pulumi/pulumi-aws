@@ -69,27 +69,21 @@ export class Detector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DetectorArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DetectorArgs | DetectorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DetectorState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["enable"] = state ? state.enable : undefined;
-            inputs["findingPublishingFrequency"] = state ? state.findingPublishingFrequency : undefined;
+    constructor(name: string, args?: DetectorArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DetectorArgs | DetectorState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DetectorState;
+            inputs.accountId = state.accountId;
+            inputs.enable = state.enable;
+            inputs.findingPublishingFrequency = state.findingPublishingFrequency;
         } else {
-            const args = argsOrState as DetectorArgs | undefined;
-            inputs["enable"] = args ? args.enable : undefined;
-            inputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
-            inputs["accountId"] = undefined /*out*/;
+            const args = argsOrState as DetectorArgs;
+            inputs.enable = args.enable;
+            inputs.findingPublishingFrequency = args.findingPublishingFrequency;
+            inputs.accountId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Detector.__pulumiType, name, inputs, opts);
     }
 }

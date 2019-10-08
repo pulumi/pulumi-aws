@@ -65,27 +65,21 @@ export class HttpNamespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: HttpNamespaceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: HttpNamespaceArgs | HttpNamespaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as HttpNamespaceState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args?: HttpNamespaceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: HttpNamespaceArgs | HttpNamespaceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as HttpNamespaceState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as HttpNamespaceArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as HttpNamespaceArgs;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(HttpNamespace.__pulumiType, name, inputs, opts);
     }
 }

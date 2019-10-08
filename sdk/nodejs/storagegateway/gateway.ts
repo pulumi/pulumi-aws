@@ -149,49 +149,43 @@ export class Gateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GatewayArgs | GatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GatewayState | undefined;
-            inputs["activationKey"] = state ? state.activationKey : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["gatewayId"] = state ? state.gatewayId : undefined;
-            inputs["gatewayIpAddress"] = state ? state.gatewayIpAddress : undefined;
-            inputs["gatewayName"] = state ? state.gatewayName : undefined;
-            inputs["gatewayTimezone"] = state ? state.gatewayTimezone : undefined;
-            inputs["gatewayType"] = state ? state.gatewayType : undefined;
-            inputs["mediumChangerType"] = state ? state.mediumChangerType : undefined;
-            inputs["smbActiveDirectorySettings"] = state ? state.smbActiveDirectorySettings : undefined;
-            inputs["smbGuestPassword"] = state ? state.smbGuestPassword : undefined;
-            inputs["tapeDriveType"] = state ? state.tapeDriveType : undefined;
+    constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GatewayArgs | GatewayState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GatewayState;
+            inputs.activationKey = state.activationKey;
+            inputs.arn = state.arn;
+            inputs.gatewayId = state.gatewayId;
+            inputs.gatewayIpAddress = state.gatewayIpAddress;
+            inputs.gatewayName = state.gatewayName;
+            inputs.gatewayTimezone = state.gatewayTimezone;
+            inputs.gatewayType = state.gatewayType;
+            inputs.mediumChangerType = state.mediumChangerType;
+            inputs.smbActiveDirectorySettings = state.smbActiveDirectorySettings;
+            inputs.smbGuestPassword = state.smbGuestPassword;
+            inputs.tapeDriveType = state.tapeDriveType;
         } else {
-            const args = argsOrState as GatewayArgs | undefined;
-            if (!args || args.gatewayName === undefined) {
+            const args = argsOrState as GatewayArgs;
+            if (args.gatewayName === undefined) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if (!args || args.gatewayTimezone === undefined) {
+            if (args.gatewayTimezone === undefined) {
                 throw new Error("Missing required property 'gatewayTimezone'");
             }
-            inputs["activationKey"] = args ? args.activationKey : undefined;
-            inputs["gatewayIpAddress"] = args ? args.gatewayIpAddress : undefined;
-            inputs["gatewayName"] = args ? args.gatewayName : undefined;
-            inputs["gatewayTimezone"] = args ? args.gatewayTimezone : undefined;
-            inputs["gatewayType"] = args ? args.gatewayType : undefined;
-            inputs["mediumChangerType"] = args ? args.mediumChangerType : undefined;
-            inputs["smbActiveDirectorySettings"] = args ? args.smbActiveDirectorySettings : undefined;
-            inputs["smbGuestPassword"] = args ? args.smbGuestPassword : undefined;
-            inputs["tapeDriveType"] = args ? args.tapeDriveType : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["gatewayId"] = undefined /*out*/;
+            inputs.activationKey = args.activationKey;
+            inputs.gatewayIpAddress = args.gatewayIpAddress;
+            inputs.gatewayName = args.gatewayName;
+            inputs.gatewayTimezone = args.gatewayTimezone;
+            inputs.gatewayType = args.gatewayType;
+            inputs.mediumChangerType = args.mediumChangerType;
+            inputs.smbActiveDirectorySettings = args.smbActiveDirectorySettings;
+            inputs.smbGuestPassword = args.smbGuestPassword;
+            inputs.tapeDriveType = args.tapeDriveType;
+            inputs.arn = undefined /*out*/;
+            inputs.gatewayId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Gateway.__pulumiType, name, inputs, opts);
     }
 }

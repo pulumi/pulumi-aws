@@ -15,10 +15,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const app = new aws.pinpoint.App("app", {});
- * const identity = new aws.ses.DomainIdentity("identity", {
- *     domain: "example.com",
- * });
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -35,11 +31,9 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const email = new aws.pinpoint.EmailChannel("email", {
- *     applicationId: app.applicationId,
- *     fromAddress: "user@example.com",
- *     identity: identity.arn,
- *     roleArn: role.arn,
+ * const app = new aws.pinpoint.App("app", {});
+ * const identity = new aws.ses.DomainIdentity("identity", {
+ *     domain: "example.com",
  * });
  * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
  *     policy: `{
@@ -57,6 +51,12 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     role: role.id,
+ * });
+ * const email = new aws.pinpoint.EmailChannel("email", {
+ *     applicationId: app.applicationId,
+ *     fromAddress: "user@example.com",
+ *     identity: identity.arn,
+ *     roleArn: role.arn,
  * });
  * ```
  *
@@ -121,45 +121,39 @@ export class EmailChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EmailChannelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EmailChannelArgs | EmailChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EmailChannelState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["fromAddress"] = state ? state.fromAddress : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["messagesPerSecond"] = state ? state.messagesPerSecond : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
+    constructor(name: string, args: EmailChannelArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EmailChannelArgs | EmailChannelState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EmailChannelState;
+            inputs.applicationId = state.applicationId;
+            inputs.enabled = state.enabled;
+            inputs.fromAddress = state.fromAddress;
+            inputs.identity = state.identity;
+            inputs.messagesPerSecond = state.messagesPerSecond;
+            inputs.roleArn = state.roleArn;
         } else {
-            const args = argsOrState as EmailChannelArgs | undefined;
-            if (!args || args.applicationId === undefined) {
+            const args = argsOrState as EmailChannelArgs;
+            if (args.applicationId === undefined) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (!args || args.fromAddress === undefined) {
+            if (args.fromAddress === undefined) {
                 throw new Error("Missing required property 'fromAddress'");
             }
-            if (!args || args.identity === undefined) {
+            if (args.identity === undefined) {
                 throw new Error("Missing required property 'identity'");
             }
-            if (!args || args.roleArn === undefined) {
+            if (args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["fromAddress"] = args ? args.fromAddress : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["messagesPerSecond"] = undefined /*out*/;
+            inputs.applicationId = args.applicationId;
+            inputs.enabled = args.enabled;
+            inputs.fromAddress = args.fromAddress;
+            inputs.identity = args.identity;
+            inputs.roleArn = args.roleArn;
+            inputs.messagesPerSecond = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EmailChannel.__pulumiType, name, inputs, opts);
     }
 }

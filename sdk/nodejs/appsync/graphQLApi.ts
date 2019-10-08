@@ -87,7 +87,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.appsync.GraphQLApi("example", {
- *     additionalAuthenticationProviders: [{
+ *     additionalAuthenticationProvider: [{
  *         authenticationType: "AWS_IAM",
  *     }],
  *     authenticationType: "API_KEY",
@@ -115,15 +115,15 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
- *     role: exampleRole.name,
- * });
  * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
  *     logConfig: {
  *         cloudwatchLogsRoleArn: exampleRole.arn,
  *         fieldLogLevel: "ERROR",
  *     },
+ * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
+ *     role: exampleRole.name,
  * });
  * ```
  *
@@ -204,44 +204,38 @@ export class GraphQLApi extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GraphQLApiArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GraphQLApiArgs | GraphQLApiState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GraphQLApiState | undefined;
-            inputs["additionalAuthenticationProviders"] = state ? state.additionalAuthenticationProviders : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authenticationType"] = state ? state.authenticationType : undefined;
-            inputs["logConfig"] = state ? state.logConfig : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["openidConnectConfig"] = state ? state.openidConnectConfig : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["uris"] = state ? state.uris : undefined;
-            inputs["userPoolConfig"] = state ? state.userPoolConfig : undefined;
+    constructor(name: string, args: GraphQLApiArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GraphQLApiArgs | GraphQLApiState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GraphQLApiState;
+            inputs.additionalAuthenticationProviders = state.additionalAuthenticationProviders;
+            inputs.arn = state.arn;
+            inputs.authenticationType = state.authenticationType;
+            inputs.logConfig = state.logConfig;
+            inputs.name = state.name;
+            inputs.openidConnectConfig = state.openidConnectConfig;
+            inputs.schema = state.schema;
+            inputs.tags = state.tags;
+            inputs.uris = state.uris;
+            inputs.userPoolConfig = state.userPoolConfig;
         } else {
-            const args = argsOrState as GraphQLApiArgs | undefined;
-            if (!args || args.authenticationType === undefined) {
+            const args = argsOrState as GraphQLApiArgs;
+            if (args.authenticationType === undefined) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            inputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
-            inputs["authenticationType"] = args ? args.authenticationType : undefined;
-            inputs["logConfig"] = args ? args.logConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["openidConnectConfig"] = args ? args.openidConnectConfig : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["uris"] = undefined /*out*/;
+            inputs.additionalAuthenticationProviders = args.additionalAuthenticationProviders;
+            inputs.authenticationType = args.authenticationType;
+            inputs.logConfig = args.logConfig;
+            inputs.name = args.name;
+            inputs.openidConnectConfig = args.openidConnectConfig;
+            inputs.schema = args.schema;
+            inputs.tags = args.tags;
+            inputs.userPoolConfig = args.userPoolConfig;
+            inputs.arn = undefined /*out*/;
+            inputs.uris = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(GraphQLApi.__pulumiType, name, inputs, opts);
     }
 }

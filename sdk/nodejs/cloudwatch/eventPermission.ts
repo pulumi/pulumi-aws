@@ -93,35 +93,29 @@ export class EventPermission extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventPermissionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventPermissionArgs | EventPermissionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EventPermissionState | undefined;
-            inputs["action"] = state ? state.action : undefined;
-            inputs["condition"] = state ? state.condition : undefined;
-            inputs["principal"] = state ? state.principal : undefined;
-            inputs["statementId"] = state ? state.statementId : undefined;
+    constructor(name: string, args: EventPermissionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EventPermissionArgs | EventPermissionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EventPermissionState;
+            inputs.action = state.action;
+            inputs.condition = state.condition;
+            inputs.principal = state.principal;
+            inputs.statementId = state.statementId;
         } else {
-            const args = argsOrState as EventPermissionArgs | undefined;
-            if (!args || args.principal === undefined) {
+            const args = argsOrState as EventPermissionArgs;
+            if (args.principal === undefined) {
                 throw new Error("Missing required property 'principal'");
             }
-            if (!args || args.statementId === undefined) {
+            if (args.statementId === undefined) {
                 throw new Error("Missing required property 'statementId'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["condition"] = args ? args.condition : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["statementId"] = args ? args.statementId : undefined;
+            inputs.action = args.action;
+            inputs.condition = args.condition;
+            inputs.principal = args.principal;
+            inputs.statementId = args.statementId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EventPermission.__pulumiType, name, inputs, opts);
     }
 }

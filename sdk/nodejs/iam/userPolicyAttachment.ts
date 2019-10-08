@@ -18,11 +18,11 @@ import {User} from "./user";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const user = new aws.iam.User("user", {});
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
  *     policy: "", // insert policy here
  * });
+ * const user = new aws.iam.User("user", {});
  * const testAttach = new aws.iam.UserPolicyAttachment("test-attach", {
  *     policyArn: policy.arn,
  *     user: user.name,
@@ -74,31 +74,25 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserPolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserPolicyAttachmentArgs | UserPolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as UserPolicyAttachmentState | undefined;
-            inputs["policyArn"] = state ? state.policyArn : undefined;
-            inputs["user"] = state ? state.user : undefined;
+    constructor(name: string, args: UserPolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: UserPolicyAttachmentArgs | UserPolicyAttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as UserPolicyAttachmentState;
+            inputs.policyArn = state.policyArn;
+            inputs.user = state.user;
         } else {
-            const args = argsOrState as UserPolicyAttachmentArgs | undefined;
-            if (!args || args.policyArn === undefined) {
+            const args = argsOrState as UserPolicyAttachmentArgs;
+            if (args.policyArn === undefined) {
                 throw new Error("Missing required property 'policyArn'");
             }
-            if (!args || args.user === undefined) {
+            if (args.user === undefined) {
                 throw new Error("Missing required property 'user'");
             }
-            inputs["policyArn"] = args ? args.policyArn : undefined;
-            inputs["user"] = args ? args.user : undefined;
+            inputs.policyArn = args.policyArn;
+            inputs.user = args.user;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(UserPolicyAttachment.__pulumiType, name, inputs, opts);
     }
 }

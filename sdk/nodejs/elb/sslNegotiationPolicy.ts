@@ -117,35 +117,29 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SslNegotiationPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SslNegotiationPolicyArgs | SslNegotiationPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SslNegotiationPolicyState | undefined;
-            inputs["attributes"] = state ? state.attributes : undefined;
-            inputs["lbPort"] = state ? state.lbPort : undefined;
-            inputs["loadBalancer"] = state ? state.loadBalancer : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args: SslNegotiationPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SslNegotiationPolicyArgs | SslNegotiationPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SslNegotiationPolicyState;
+            inputs.attributes = state.attributes;
+            inputs.lbPort = state.lbPort;
+            inputs.loadBalancer = state.loadBalancer;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as SslNegotiationPolicyArgs | undefined;
-            if (!args || args.lbPort === undefined) {
+            const args = argsOrState as SslNegotiationPolicyArgs;
+            if (args.lbPort === undefined) {
                 throw new Error("Missing required property 'lbPort'");
             }
-            if (!args || args.loadBalancer === undefined) {
+            if (args.loadBalancer === undefined) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["lbPort"] = args ? args.lbPort : undefined;
-            inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs.attributes = args.attributes;
+            inputs.lbPort = args.lbPort;
+            inputs.loadBalancer = args.loadBalancer;
+            inputs.name = args.name;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SslNegotiationPolicy.__pulumiType, name, inputs, opts);

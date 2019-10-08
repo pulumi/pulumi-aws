@@ -109,53 +109,47 @@ export class LustreFileSystem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LustreFileSystemArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LustreFileSystemArgs | LustreFileSystemState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LustreFileSystemState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["exportPath"] = state ? state.exportPath : undefined;
-            inputs["importPath"] = state ? state.importPath : undefined;
-            inputs["importedFileChunkSize"] = state ? state.importedFileChunkSize : undefined;
-            inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["storageCapacity"] = state ? state.storageCapacity : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
+    constructor(name: string, args: LustreFileSystemArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LustreFileSystemArgs | LustreFileSystemState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LustreFileSystemState;
+            inputs.arn = state.arn;
+            inputs.dnsName = state.dnsName;
+            inputs.exportPath = state.exportPath;
+            inputs.importPath = state.importPath;
+            inputs.importedFileChunkSize = state.importedFileChunkSize;
+            inputs.networkInterfaceIds = state.networkInterfaceIds;
+            inputs.ownerId = state.ownerId;
+            inputs.securityGroupIds = state.securityGroupIds;
+            inputs.storageCapacity = state.storageCapacity;
+            inputs.subnetIds = state.subnetIds;
+            inputs.tags = state.tags;
+            inputs.vpcId = state.vpcId;
+            inputs.weeklyMaintenanceStartTime = state.weeklyMaintenanceStartTime;
         } else {
-            const args = argsOrState as LustreFileSystemArgs | undefined;
-            if (!args || args.storageCapacity === undefined) {
+            const args = argsOrState as LustreFileSystemArgs;
+            if (args.storageCapacity === undefined) {
                 throw new Error("Missing required property 'storageCapacity'");
             }
-            if (!args || args.subnetIds === undefined) {
+            if (args.subnetIds === undefined) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["exportPath"] = args ? args.exportPath : undefined;
-            inputs["importPath"] = args ? args.importPath : undefined;
-            inputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["storageCapacity"] = args ? args.storageCapacity : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["networkInterfaceIds"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            inputs.exportPath = args.exportPath;
+            inputs.importPath = args.importPath;
+            inputs.importedFileChunkSize = args.importedFileChunkSize;
+            inputs.securityGroupIds = args.securityGroupIds;
+            inputs.storageCapacity = args.storageCapacity;
+            inputs.subnetIds = args.subnetIds;
+            inputs.tags = args.tags;
+            inputs.weeklyMaintenanceStartTime = args.weeklyMaintenanceStartTime;
+            inputs.arn = undefined /*out*/;
+            inputs.dnsName = undefined /*out*/;
+            inputs.networkInterfaceIds = undefined /*out*/;
+            inputs.ownerId = undefined /*out*/;
+            inputs.vpcId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LustreFileSystem.__pulumiType, name, inputs, opts);
     }
 }

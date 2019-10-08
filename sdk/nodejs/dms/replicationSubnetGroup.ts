@@ -84,42 +84,36 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReplicationSubnetGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ReplicationSubnetGroupArgs | ReplicationSubnetGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ReplicationSubnetGroupState | undefined;
-            inputs["replicationSubnetGroupArn"] = state ? state.replicationSubnetGroupArn : undefined;
-            inputs["replicationSubnetGroupDescription"] = state ? state.replicationSubnetGroupDescription : undefined;
-            inputs["replicationSubnetGroupId"] = state ? state.replicationSubnetGroupId : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: ReplicationSubnetGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ReplicationSubnetGroupArgs | ReplicationSubnetGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ReplicationSubnetGroupState;
+            inputs.replicationSubnetGroupArn = state.replicationSubnetGroupArn;
+            inputs.replicationSubnetGroupDescription = state.replicationSubnetGroupDescription;
+            inputs.replicationSubnetGroupId = state.replicationSubnetGroupId;
+            inputs.subnetIds = state.subnetIds;
+            inputs.tags = state.tags;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as ReplicationSubnetGroupArgs | undefined;
-            if (!args || args.replicationSubnetGroupDescription === undefined) {
+            const args = argsOrState as ReplicationSubnetGroupArgs;
+            if (args.replicationSubnetGroupDescription === undefined) {
                 throw new Error("Missing required property 'replicationSubnetGroupDescription'");
             }
-            if (!args || args.replicationSubnetGroupId === undefined) {
+            if (args.replicationSubnetGroupId === undefined) {
                 throw new Error("Missing required property 'replicationSubnetGroupId'");
             }
-            if (!args || args.subnetIds === undefined) {
+            if (args.subnetIds === undefined) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["replicationSubnetGroupDescription"] = args ? args.replicationSubnetGroupDescription : undefined;
-            inputs["replicationSubnetGroupId"] = args ? args.replicationSubnetGroupId : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["replicationSubnetGroupArn"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            inputs.replicationSubnetGroupDescription = args.replicationSubnetGroupDescription;
+            inputs.replicationSubnetGroupId = args.replicationSubnetGroupId;
+            inputs.subnetIds = args.subnetIds;
+            inputs.tags = args.tags;
+            inputs.replicationSubnetGroupArn = undefined /*out*/;
+            inputs.vpcId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ReplicationSubnetGroup.__pulumiType, name, inputs, opts);
     }
 }

@@ -83,32 +83,26 @@ export class Policy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PolicyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["defaultVersionId"] = state ? state.defaultVersionId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PolicyArgs | PolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PolicyState;
+            inputs.arn = state.arn;
+            inputs.defaultVersionId = state.defaultVersionId;
+            inputs.name = state.name;
+            inputs.policy = state.policy;
         } else {
-            const args = argsOrState as PolicyArgs | undefined;
-            if (!args || args.policy === undefined) {
+            const args = argsOrState as PolicyArgs;
+            if (args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultVersionId"] = undefined /*out*/;
+            inputs.name = args.name;
+            inputs.policy = args.policy;
+            inputs.arn = undefined /*out*/;
+            inputs.defaultVersionId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Policy.__pulumiType, name, inputs, opts);
     }
 }

@@ -95,41 +95,35 @@ export class Alias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AliasState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["functionName"] = state ? state.functionName : undefined;
-            inputs["functionVersion"] = state ? state.functionVersion : undefined;
-            inputs["invokeArn"] = state ? state.invokeArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["routingConfig"] = state ? state.routingConfig : undefined;
+    constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AliasArgs | AliasState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AliasState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.functionName = state.functionName;
+            inputs.functionVersion = state.functionVersion;
+            inputs.invokeArn = state.invokeArn;
+            inputs.name = state.name;
+            inputs.routingConfig = state.routingConfig;
         } else {
-            const args = argsOrState as AliasArgs | undefined;
-            if (!args || args.functionName === undefined) {
+            const args = argsOrState as AliasArgs;
+            if (args.functionName === undefined) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if (!args || args.functionVersion === undefined) {
+            if (args.functionVersion === undefined) {
                 throw new Error("Missing required property 'functionVersion'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["functionName"] = args ? args.functionName : undefined;
-            inputs["functionVersion"] = args ? args.functionVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["routingConfig"] = args ? args.routingConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["invokeArn"] = undefined /*out*/;
+            inputs.description = args.description;
+            inputs.functionName = args.functionName;
+            inputs.functionVersion = args.functionVersion;
+            inputs.name = args.name;
+            inputs.routingConfig = args.routingConfig;
+            inputs.arn = undefined /*out*/;
+            inputs.invokeArn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Alias.__pulumiType, name, inputs, opts);
     }
 }

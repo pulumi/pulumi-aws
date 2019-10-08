@@ -74,35 +74,29 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebsiteCertificateAuthorityAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WebsiteCertificateAuthorityAssociationArgs | WebsiteCertificateAuthorityAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as WebsiteCertificateAuthorityAssociationState | undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["fleetArn"] = state ? state.fleetArn : undefined;
-            inputs["websiteCaId"] = state ? state.websiteCaId : undefined;
+    constructor(name: string, args: WebsiteCertificateAuthorityAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: WebsiteCertificateAuthorityAssociationArgs | WebsiteCertificateAuthorityAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as WebsiteCertificateAuthorityAssociationState;
+            inputs.certificate = state.certificate;
+            inputs.displayName = state.displayName;
+            inputs.fleetArn = state.fleetArn;
+            inputs.websiteCaId = state.websiteCaId;
         } else {
-            const args = argsOrState as WebsiteCertificateAuthorityAssociationArgs | undefined;
-            if (!args || args.certificate === undefined) {
+            const args = argsOrState as WebsiteCertificateAuthorityAssociationArgs;
+            if (args.certificate === undefined) {
                 throw new Error("Missing required property 'certificate'");
             }
-            if (!args || args.fleetArn === undefined) {
+            if (args.fleetArn === undefined) {
                 throw new Error("Missing required property 'fleetArn'");
             }
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["fleetArn"] = args ? args.fleetArn : undefined;
-            inputs["websiteCaId"] = undefined /*out*/;
+            inputs.certificate = args.certificate;
+            inputs.displayName = args.displayName;
+            inputs.fleetArn = args.fleetArn;
+            inputs.websiteCaId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(WebsiteCertificateAuthorityAssociation.__pulumiType, name, inputs, opts);
     }
 }

@@ -111,49 +111,43 @@ export class SnapshotCopy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SnapshotCopyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SnapshotCopyArgs | SnapshotCopyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SnapshotCopyState | undefined;
-            inputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["encrypted"] = state ? state.encrypted : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["ownerAlias"] = state ? state.ownerAlias : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["sourceRegion"] = state ? state.sourceRegion : undefined;
-            inputs["sourceSnapshotId"] = state ? state.sourceSnapshotId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["volumeId"] = state ? state.volumeId : undefined;
-            inputs["volumeSize"] = state ? state.volumeSize : undefined;
+    constructor(name: string, args: SnapshotCopyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SnapshotCopyArgs | SnapshotCopyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SnapshotCopyState;
+            inputs.dataEncryptionKeyId = state.dataEncryptionKeyId;
+            inputs.description = state.description;
+            inputs.encrypted = state.encrypted;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.ownerAlias = state.ownerAlias;
+            inputs.ownerId = state.ownerId;
+            inputs.sourceRegion = state.sourceRegion;
+            inputs.sourceSnapshotId = state.sourceSnapshotId;
+            inputs.tags = state.tags;
+            inputs.volumeId = state.volumeId;
+            inputs.volumeSize = state.volumeSize;
         } else {
-            const args = argsOrState as SnapshotCopyArgs | undefined;
-            if (!args || args.sourceRegion === undefined) {
+            const args = argsOrState as SnapshotCopyArgs;
+            if (args.sourceRegion === undefined) {
                 throw new Error("Missing required property 'sourceRegion'");
             }
-            if (!args || args.sourceSnapshotId === undefined) {
+            if (args.sourceSnapshotId === undefined) {
                 throw new Error("Missing required property 'sourceSnapshotId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["encrypted"] = args ? args.encrypted : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["sourceRegion"] = args ? args.sourceRegion : undefined;
-            inputs["sourceSnapshotId"] = args ? args.sourceSnapshotId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["dataEncryptionKeyId"] = undefined /*out*/;
-            inputs["ownerAlias"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["volumeId"] = undefined /*out*/;
-            inputs["volumeSize"] = undefined /*out*/;
+            inputs.description = args.description;
+            inputs.encrypted = args.encrypted;
+            inputs.kmsKeyId = args.kmsKeyId;
+            inputs.sourceRegion = args.sourceRegion;
+            inputs.sourceSnapshotId = args.sourceSnapshotId;
+            inputs.tags = args.tags;
+            inputs.dataEncryptionKeyId = undefined /*out*/;
+            inputs.ownerAlias = undefined /*out*/;
+            inputs.ownerId = undefined /*out*/;
+            inputs.volumeId = undefined /*out*/;
+            inputs.volumeSize = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SnapshotCopy.__pulumiType, name, inputs, opts);
     }
 }

@@ -319,101 +319,95 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
-            inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
-            inputs["backtrackWindow"] = state ? state.backtrackWindow : undefined;
-            inputs["backupRetentionPeriod"] = state ? state.backupRetentionPeriod : undefined;
-            inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            inputs["clusterIdentifierPrefix"] = state ? state.clusterIdentifierPrefix : undefined;
-            inputs["clusterMembers"] = state ? state.clusterMembers : undefined;
-            inputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
-            inputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["dbClusterParameterGroupName"] = state ? state.dbClusterParameterGroupName : undefined;
-            inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
-            inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
-            inputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["engineMode"] = state ? state.engineMode : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
-            inputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
-            inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
-            inputs["iamDatabaseAuthenticationEnabled"] = state ? state.iamDatabaseAuthenticationEnabled : undefined;
-            inputs["iamRoles"] = state ? state.iamRoles : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["masterPassword"] = state ? state.masterPassword : undefined;
-            inputs["masterUsername"] = state ? state.masterUsername : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
-            inputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
-            inputs["readerEndpoint"] = state ? state.readerEndpoint : undefined;
-            inputs["replicationSourceIdentifier"] = state ? state.replicationSourceIdentifier : undefined;
-            inputs["s3Import"] = state ? state.s3Import : undefined;
-            inputs["scalingConfiguration"] = state ? state.scalingConfiguration : undefined;
-            inputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
-            inputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
-            inputs["sourceRegion"] = state ? state.sourceRegion : undefined;
-            inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ClusterArgs | ClusterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ClusterState;
+            inputs.applyImmediately = state.applyImmediately;
+            inputs.arn = state.arn;
+            inputs.availabilityZones = state.availabilityZones;
+            inputs.backtrackWindow = state.backtrackWindow;
+            inputs.backupRetentionPeriod = state.backupRetentionPeriod;
+            inputs.clusterIdentifier = state.clusterIdentifier;
+            inputs.clusterIdentifierPrefix = state.clusterIdentifierPrefix;
+            inputs.clusterMembers = state.clusterMembers;
+            inputs.clusterResourceId = state.clusterResourceId;
+            inputs.copyTagsToSnapshot = state.copyTagsToSnapshot;
+            inputs.databaseName = state.databaseName;
+            inputs.dbClusterParameterGroupName = state.dbClusterParameterGroupName;
+            inputs.dbSubnetGroupName = state.dbSubnetGroupName;
+            inputs.deletionProtection = state.deletionProtection;
+            inputs.enabledCloudwatchLogsExports = state.enabledCloudwatchLogsExports;
+            inputs.endpoint = state.endpoint;
+            inputs.engine = state.engine;
+            inputs.engineMode = state.engineMode;
+            inputs.engineVersion = state.engineVersion;
+            inputs.finalSnapshotIdentifier = state.finalSnapshotIdentifier;
+            inputs.globalClusterIdentifier = state.globalClusterIdentifier;
+            inputs.hostedZoneId = state.hostedZoneId;
+            inputs.iamDatabaseAuthenticationEnabled = state.iamDatabaseAuthenticationEnabled;
+            inputs.iamRoles = state.iamRoles;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.masterPassword = state.masterPassword;
+            inputs.masterUsername = state.masterUsername;
+            inputs.port = state.port;
+            inputs.preferredBackupWindow = state.preferredBackupWindow;
+            inputs.preferredMaintenanceWindow = state.preferredMaintenanceWindow;
+            inputs.readerEndpoint = state.readerEndpoint;
+            inputs.replicationSourceIdentifier = state.replicationSourceIdentifier;
+            inputs.s3Import = state.s3Import;
+            inputs.scalingConfiguration = state.scalingConfiguration;
+            inputs.skipFinalSnapshot = state.skipFinalSnapshot;
+            inputs.snapshotIdentifier = state.snapshotIdentifier;
+            inputs.sourceRegion = state.sourceRegion;
+            inputs.storageEncrypted = state.storageEncrypted;
+            inputs.tags = state.tags;
+            inputs.vpcSecurityGroupIds = state.vpcSecurityGroupIds;
         } else {
-            const args = argsOrState as ClusterArgs | undefined;
-            inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            inputs["backtrackWindow"] = args ? args.backtrackWindow : undefined;
-            inputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
-            inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            inputs["clusterIdentifierPrefix"] = args ? args.clusterIdentifierPrefix : undefined;
-            inputs["clusterMembers"] = args ? args.clusterMembers : undefined;
-            inputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
-            inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
-            inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            inputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["engineMode"] = args ? args.engineMode : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
-            inputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
-            inputs["iamDatabaseAuthenticationEnabled"] = args ? args.iamDatabaseAuthenticationEnabled : undefined;
-            inputs["iamRoles"] = args ? args.iamRoles : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["masterPassword"] = args ? args.masterPassword : undefined;
-            inputs["masterUsername"] = args ? args.masterUsername : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["replicationSourceIdentifier"] = args ? args.replicationSourceIdentifier : undefined;
-            inputs["s3Import"] = args ? args.s3Import : undefined;
-            inputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
-            inputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
-            inputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
-            inputs["sourceRegion"] = args ? args.sourceRegion : undefined;
-            inputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["clusterResourceId"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["hostedZoneId"] = undefined /*out*/;
-            inputs["readerEndpoint"] = undefined /*out*/;
+            const args = argsOrState as ClusterArgs;
+            inputs.applyImmediately = args.applyImmediately;
+            inputs.availabilityZones = args.availabilityZones;
+            inputs.backtrackWindow = args.backtrackWindow;
+            inputs.backupRetentionPeriod = args.backupRetentionPeriod;
+            inputs.clusterIdentifier = args.clusterIdentifier;
+            inputs.clusterIdentifierPrefix = args.clusterIdentifierPrefix;
+            inputs.clusterMembers = args.clusterMembers;
+            inputs.copyTagsToSnapshot = args.copyTagsToSnapshot;
+            inputs.databaseName = args.databaseName;
+            inputs.dbClusterParameterGroupName = args.dbClusterParameterGroupName;
+            inputs.dbSubnetGroupName = args.dbSubnetGroupName;
+            inputs.deletionProtection = args.deletionProtection;
+            inputs.enabledCloudwatchLogsExports = args.enabledCloudwatchLogsExports;
+            inputs.engine = args.engine;
+            inputs.engineMode = args.engineMode;
+            inputs.engineVersion = args.engineVersion;
+            inputs.finalSnapshotIdentifier = args.finalSnapshotIdentifier;
+            inputs.globalClusterIdentifier = args.globalClusterIdentifier;
+            inputs.iamDatabaseAuthenticationEnabled = args.iamDatabaseAuthenticationEnabled;
+            inputs.iamRoles = args.iamRoles;
+            inputs.kmsKeyId = args.kmsKeyId;
+            inputs.masterPassword = args.masterPassword;
+            inputs.masterUsername = args.masterUsername;
+            inputs.port = args.port;
+            inputs.preferredBackupWindow = args.preferredBackupWindow;
+            inputs.preferredMaintenanceWindow = args.preferredMaintenanceWindow;
+            inputs.replicationSourceIdentifier = args.replicationSourceIdentifier;
+            inputs.s3Import = args.s3Import;
+            inputs.scalingConfiguration = args.scalingConfiguration;
+            inputs.skipFinalSnapshot = args.skipFinalSnapshot;
+            inputs.snapshotIdentifier = args.snapshotIdentifier;
+            inputs.sourceRegion = args.sourceRegion;
+            inputs.storageEncrypted = args.storageEncrypted;
+            inputs.tags = args.tags;
+            inputs.vpcSecurityGroupIds = args.vpcSecurityGroupIds;
+            inputs.arn = undefined /*out*/;
+            inputs.clusterResourceId = undefined /*out*/;
+            inputs.endpoint = undefined /*out*/;
+            inputs.hostedZoneId = undefined /*out*/;
+            inputs.readerEndpoint = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

@@ -17,11 +17,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const fooVpc = new aws.ec2.Vpc("foo", {
+ *     cidrBlock: "10.1.0.0/16",
+ * });
  * const ipset = new aws.wafregional.IpSet("ipset", {
  *     ipSetDescriptors: [{
  *         type: "IPV4",
  *         value: "192.0.7.0/24",
  *     }],
+ * });
+ * const available = aws.getAvailabilityZones({});
+ * const bar = new aws.ec2.Subnet("bar", {
+ *     availabilityZone: available.names[1],
+ *     cidrBlock: "10.1.2.0/24",
+ *     vpcId: fooVpc.id,
+ * });
+ * const fooSubnet = new aws.ec2.Subnet("foo", {
+ *     availabilityZone: available.names[0],
+ *     cidrBlock: "10.1.1.0/24",
+ *     vpcId: fooVpc.id,
+ * });
+ * const fooLoadBalancer = new aws.alb.LoadBalancer("foo", {
+ *     internal: true,
+ *     subnets: [
+ *         fooSubnet.id,
+ *         bar.id,
+ *     ],
  * });
  * const fooRule = new aws.wafregional.Rule("foo", {
  *     metricName: "tfWAFRule",
@@ -43,27 +64,6 @@ import * as utilities from "../utilities";
  *         priority: 1,
  *         ruleId: fooRule.id,
  *     }],
- * });
- * const fooVpc = new aws.ec2.Vpc("foo", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const available = aws.getAvailabilityZones();
- * const fooSubnet = new aws.ec2.Subnet("foo", {
- *     availabilityZone: available.names[0],
- *     cidrBlock: "10.1.1.0/24",
- *     vpcId: fooVpc.id,
- * });
- * const bar = new aws.ec2.Subnet("bar", {
- *     availabilityZone: available.names[1],
- *     cidrBlock: "10.1.2.0/24",
- *     vpcId: fooVpc.id,
- * });
- * const fooLoadBalancer = new aws.alb.LoadBalancer("foo", {
- *     internal: true,
- *     subnets: [
- *         fooSubnet.id,
- *         bar.id,
- *     ],
  * });
  * const fooWebAclAssociation = new aws.wafregional.WebAclAssociation("foo", {
  *     resourceArn: fooLoadBalancer.arn,
@@ -116,31 +116,25 @@ export class WebAclAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebAclAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WebAclAssociationArgs | WebAclAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as WebAclAssociationState | undefined;
-            inputs["resourceArn"] = state ? state.resourceArn : undefined;
-            inputs["webAclId"] = state ? state.webAclId : undefined;
+    constructor(name: string, args: WebAclAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: WebAclAssociationArgs | WebAclAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as WebAclAssociationState;
+            inputs.resourceArn = state.resourceArn;
+            inputs.webAclId = state.webAclId;
         } else {
-            const args = argsOrState as WebAclAssociationArgs | undefined;
-            if (!args || args.resourceArn === undefined) {
+            const args = argsOrState as WebAclAssociationArgs;
+            if (args.resourceArn === undefined) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if (!args || args.webAclId === undefined) {
+            if (args.webAclId === undefined) {
                 throw new Error("Missing required property 'webAclId'");
             }
-            inputs["resourceArn"] = args ? args.resourceArn : undefined;
-            inputs["webAclId"] = args ? args.webAclId : undefined;
+            inputs.resourceArn = args.resourceArn;
+            inputs.webAclId = args.webAclId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(WebAclAssociation.__pulumiType, name, inputs, opts);
     }
 }

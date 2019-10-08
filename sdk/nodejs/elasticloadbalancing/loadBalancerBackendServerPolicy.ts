@@ -30,15 +30,6 @@ import * as utilities from "../utilities";
  *         Name: "wu-tang",
  *     },
  * });
- * const wuTangCaPubkeyPolicy = new aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", {
- *     loadBalancerName: wu_tang.name,
- *     policyAttributes: [{
- *         name: "PublicKey",
- *         value: fs.readFileSync("wu-tang-pubkey", "utf-8"),
- *     }],
- *     policyName: "wu-tang-ca-pubkey-policy",
- *     policyTypeName: "PublicKeyPolicyType",
- * });
  * const wuTangRootCaBackendAuthPolicy = new aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", {
  *     loadBalancerName: wu_tang.name,
  *     policyAttributes: [{
@@ -52,6 +43,15 @@ import * as utilities from "../utilities";
  *     instancePort: 443,
  *     loadBalancerName: wu_tang.name,
  *     policyNames: [wu_tang_root_ca_backend_auth_policy.policyName],
+ * });
+ * const wuTangCaPubkeyPolicy = new aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", {
+ *     loadBalancerName: wu_tang.name,
+ *     policyAttributes: [{
+ *         name: "PublicKey",
+ *         value: fs.readFileSync("wu-tang-pubkey", "utf-8"),
+ *     }],
+ *     policyName: "wu-tang-ca-pubkey-policy",
+ *     policyTypeName: "PublicKeyPolicyType",
  * });
  * ```
  * 
@@ -112,33 +112,27 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LoadBalancerBackendServerPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LoadBalancerBackendServerPolicyArgs | LoadBalancerBackendServerPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LoadBalancerBackendServerPolicyState | undefined;
-            inputs["instancePort"] = state ? state.instancePort : undefined;
-            inputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
-            inputs["policyNames"] = state ? state.policyNames : undefined;
+    constructor(name: string, args: LoadBalancerBackendServerPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LoadBalancerBackendServerPolicyArgs | LoadBalancerBackendServerPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LoadBalancerBackendServerPolicyState;
+            inputs.instancePort = state.instancePort;
+            inputs.loadBalancerName = state.loadBalancerName;
+            inputs.policyNames = state.policyNames;
         } else {
-            const args = argsOrState as LoadBalancerBackendServerPolicyArgs | undefined;
-            if (!args || args.instancePort === undefined) {
+            const args = argsOrState as LoadBalancerBackendServerPolicyArgs;
+            if (args.instancePort === undefined) {
                 throw new Error("Missing required property 'instancePort'");
             }
-            if (!args || args.loadBalancerName === undefined) {
+            if (args.loadBalancerName === undefined) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            inputs["instancePort"] = args ? args.instancePort : undefined;
-            inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            inputs["policyNames"] = args ? args.policyNames : undefined;
+            inputs.instancePort = args.instancePort;
+            inputs.loadBalancerName = args.loadBalancerName;
+            inputs.policyNames = args.policyNames;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LoadBalancerBackendServerPolicy.__pulumiType, name, inputs, opts);
     }
 }

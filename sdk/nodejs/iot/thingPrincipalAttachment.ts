@@ -16,11 +16,11 @@ import {ARN} from "../index";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
- * const example = new aws.iot.Thing("example", {});
  * const cert = new aws.iot.Certificate("cert", {
  *     active: true,
  *     csr: fs.readFileSync("csr.pem", "utf-8"),
  * });
+ * const example = new aws.iot.Thing("example", {});
  * const att = new aws.iot.ThingPrincipalAttachment("att", {
  *     principal: cert.arn,
  *     thing: example.name,
@@ -72,31 +72,25 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ThingPrincipalAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ThingPrincipalAttachmentArgs | ThingPrincipalAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ThingPrincipalAttachmentState | undefined;
-            inputs["principal"] = state ? state.principal : undefined;
-            inputs["thing"] = state ? state.thing : undefined;
+    constructor(name: string, args: ThingPrincipalAttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ThingPrincipalAttachmentArgs | ThingPrincipalAttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ThingPrincipalAttachmentState;
+            inputs.principal = state.principal;
+            inputs.thing = state.thing;
         } else {
-            const args = argsOrState as ThingPrincipalAttachmentArgs | undefined;
-            if (!args || args.principal === undefined) {
+            const args = argsOrState as ThingPrincipalAttachmentArgs;
+            if (args.principal === undefined) {
                 throw new Error("Missing required property 'principal'");
             }
-            if (!args || args.thing === undefined) {
+            if (args.thing === undefined) {
                 throw new Error("Missing required property 'thing'");
             }
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["thing"] = args ? args.thing : undefined;
+            inputs.principal = args.principal;
+            inputs.thing = args.thing;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ThingPrincipalAttachment.__pulumiType, name, inputs, opts);
     }
 }

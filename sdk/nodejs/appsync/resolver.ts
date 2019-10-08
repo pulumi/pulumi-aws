@@ -43,6 +43,22 @@ import * as utilities from "../utilities";
  *     },
  *     type: "HTTP",
  * });
+ * // PIPELINE type resolver
+ * const mutationPipelineTest = new aws.appsync.Resolver("Mutation_pipelineTest", {
+ *     apiId: testGraphQLApi.id,
+ *     field: "pipelineTest",
+ *     kind: "PIPELINE",
+ *     pipelineConfig: {
+ *         functions: [
+ *             aws_appsync_function_test1.functionId,
+ *             aws_appsync_function_test2.functionId,
+ *             aws_appsync_function_test3.functionId,
+ *         ],
+ *     },
+ *     requestTemplate: "{}",
+ *     responseTemplate: "$util.toJson($ctx.result)",
+ *     type: "Mutation",
+ * });
  * // UNIT type resolver (default)
  * const testResolver = new aws.appsync.Resolver("test", {
  *     apiId: testGraphQLApi.id,
@@ -64,22 +80,6 @@ import * as utilities from "../utilities";
  * #end
  * `,
  *     type: "Query",
- * });
- * // PIPELINE type resolver
- * const mutationPipelineTest = new aws.appsync.Resolver("Mutation_pipelineTest", {
- *     apiId: testGraphQLApi.id,
- *     field: "pipelineTest",
- *     kind: "PIPELINE",
- *     pipelineConfig: {
- *         functions: [
- *             aws_appsync_function_test1.functionId,
- *             aws_appsync_function_test2.functionId,
- *             aws_appsync_function_test3.functionId,
- *         ],
- *     },
- *     requestTemplate: "{}",
- *     responseTemplate: "$util.toJson($ctx.result)",
- *     type: "Mutation",
  * });
  * ```
  *
@@ -156,54 +156,48 @@ export class Resolver extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResolverArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResolverArgs | ResolverState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ResolverState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["dataSource"] = state ? state.dataSource : undefined;
-            inputs["field"] = state ? state.field : undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["pipelineConfig"] = state ? state.pipelineConfig : undefined;
-            inputs["requestTemplate"] = state ? state.requestTemplate : undefined;
-            inputs["responseTemplate"] = state ? state.responseTemplate : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: ResolverArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ResolverArgs | ResolverState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ResolverState;
+            inputs.apiId = state.apiId;
+            inputs.arn = state.arn;
+            inputs.dataSource = state.dataSource;
+            inputs.field = state.field;
+            inputs.kind = state.kind;
+            inputs.pipelineConfig = state.pipelineConfig;
+            inputs.requestTemplate = state.requestTemplate;
+            inputs.responseTemplate = state.responseTemplate;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as ResolverArgs | undefined;
-            if (!args || args.apiId === undefined) {
+            const args = argsOrState as ResolverArgs;
+            if (args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.field === undefined) {
+            if (args.field === undefined) {
                 throw new Error("Missing required property 'field'");
             }
-            if (!args || args.requestTemplate === undefined) {
+            if (args.requestTemplate === undefined) {
                 throw new Error("Missing required property 'requestTemplate'");
             }
-            if (!args || args.responseTemplate === undefined) {
+            if (args.responseTemplate === undefined) {
                 throw new Error("Missing required property 'responseTemplate'");
             }
-            if (!args || args.type === undefined) {
+            if (args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["dataSource"] = args ? args.dataSource : undefined;
-            inputs["field"] = args ? args.field : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["pipelineConfig"] = args ? args.pipelineConfig : undefined;
-            inputs["requestTemplate"] = args ? args.requestTemplate : undefined;
-            inputs["responseTemplate"] = args ? args.responseTemplate : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.apiId = args.apiId;
+            inputs.dataSource = args.dataSource;
+            inputs.field = args.field;
+            inputs.kind = args.kind;
+            inputs.pipelineConfig = args.pipelineConfig;
+            inputs.requestTemplate = args.requestTemplate;
+            inputs.responseTemplate = args.responseTemplate;
+            inputs.type = args.type;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Resolver.__pulumiType, name, inputs, opts);
     }
 }

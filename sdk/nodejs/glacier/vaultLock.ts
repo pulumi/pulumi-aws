@@ -107,38 +107,32 @@ export class VaultLock extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VaultLockArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VaultLockArgs | VaultLockState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VaultLockState | undefined;
-            inputs["completeLock"] = state ? state.completeLock : undefined;
-            inputs["ignoreDeletionError"] = state ? state.ignoreDeletionError : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["vaultName"] = state ? state.vaultName : undefined;
+    constructor(name: string, args: VaultLockArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VaultLockArgs | VaultLockState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VaultLockState;
+            inputs.completeLock = state.completeLock;
+            inputs.ignoreDeletionError = state.ignoreDeletionError;
+            inputs.policy = state.policy;
+            inputs.vaultName = state.vaultName;
         } else {
-            const args = argsOrState as VaultLockArgs | undefined;
-            if (!args || args.completeLock === undefined) {
+            const args = argsOrState as VaultLockArgs;
+            if (args.completeLock === undefined) {
                 throw new Error("Missing required property 'completeLock'");
             }
-            if (!args || args.policy === undefined) {
+            if (args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (!args || args.vaultName === undefined) {
+            if (args.vaultName === undefined) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            inputs["completeLock"] = args ? args.completeLock : undefined;
-            inputs["ignoreDeletionError"] = args ? args.ignoreDeletionError : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["vaultName"] = args ? args.vaultName : undefined;
+            inputs.completeLock = args.completeLock;
+            inputs.ignoreDeletionError = args.ignoreDeletionError;
+            inputs.policy = args.policy;
+            inputs.vaultName = args.vaultName;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VaultLock.__pulumiType, name, inputs, opts);
     }
 }

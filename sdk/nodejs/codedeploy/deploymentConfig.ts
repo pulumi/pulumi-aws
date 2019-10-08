@@ -140,34 +140,28 @@ export class DeploymentConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DeploymentConfigArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DeploymentConfigArgs | DeploymentConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DeploymentConfigState | undefined;
-            inputs["computePlatform"] = state ? state.computePlatform : undefined;
-            inputs["deploymentConfigId"] = state ? state.deploymentConfigId : undefined;
-            inputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;
-            inputs["minimumHealthyHosts"] = state ? state.minimumHealthyHosts : undefined;
-            inputs["trafficRoutingConfig"] = state ? state.trafficRoutingConfig : undefined;
+    constructor(name: string, args: DeploymentConfigArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DeploymentConfigArgs | DeploymentConfigState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DeploymentConfigState;
+            inputs.computePlatform = state.computePlatform;
+            inputs.deploymentConfigId = state.deploymentConfigId;
+            inputs.deploymentConfigName = state.deploymentConfigName;
+            inputs.minimumHealthyHosts = state.minimumHealthyHosts;
+            inputs.trafficRoutingConfig = state.trafficRoutingConfig;
         } else {
-            const args = argsOrState as DeploymentConfigArgs | undefined;
-            if (!args || args.deploymentConfigName === undefined) {
+            const args = argsOrState as DeploymentConfigArgs;
+            if (args.deploymentConfigName === undefined) {
                 throw new Error("Missing required property 'deploymentConfigName'");
             }
-            inputs["computePlatform"] = args ? args.computePlatform : undefined;
-            inputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
-            inputs["minimumHealthyHosts"] = args ? args.minimumHealthyHosts : undefined;
-            inputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
-            inputs["deploymentConfigId"] = undefined /*out*/;
+            inputs.computePlatform = args.computePlatform;
+            inputs.deploymentConfigName = args.deploymentConfigName;
+            inputs.minimumHealthyHosts = args.minimumHealthyHosts;
+            inputs.trafficRoutingConfig = args.trafficRoutingConfig;
+            inputs.deploymentConfigId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DeploymentConfig.__pulumiType, name, inputs, opts);
     }
 }

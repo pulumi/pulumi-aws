@@ -76,32 +76,26 @@ export class Endpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EndpointState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["endpointConfigName"] = state ? state.endpointConfigName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EndpointArgs | EndpointState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EndpointState;
+            inputs.arn = state.arn;
+            inputs.endpointConfigName = state.endpointConfigName;
+            inputs.name = state.name;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as EndpointArgs | undefined;
-            if (!args || args.endpointConfigName === undefined) {
+            const args = argsOrState as EndpointArgs;
+            if (args.endpointConfigName === undefined) {
                 throw new Error("Missing required property 'endpointConfigName'");
             }
-            inputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.endpointConfigName = args.endpointConfigName;
+            inputs.name = args.name;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Endpoint.__pulumiType, name, inputs, opts);
     }
 }

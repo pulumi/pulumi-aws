@@ -72,35 +72,29 @@ export class RouteTableAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RouteTableAssociationArgs | RouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RouteTableAssociationState | undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["resourceType"] = state ? state.resourceType : undefined;
-            inputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
-            inputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
+    constructor(name: string, args: RouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RouteTableAssociationArgs | RouteTableAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RouteTableAssociationState;
+            inputs.resourceId = state.resourceId;
+            inputs.resourceType = state.resourceType;
+            inputs.transitGatewayAttachmentId = state.transitGatewayAttachmentId;
+            inputs.transitGatewayRouteTableId = state.transitGatewayRouteTableId;
         } else {
-            const args = argsOrState as RouteTableAssociationArgs | undefined;
-            if (!args || args.transitGatewayAttachmentId === undefined) {
+            const args = argsOrState as RouteTableAssociationArgs;
+            if (args.transitGatewayAttachmentId === undefined) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
-            if (!args || args.transitGatewayRouteTableId === undefined) {
+            if (args.transitGatewayRouteTableId === undefined) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
-            inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
-            inputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
+            inputs.transitGatewayAttachmentId = args.transitGatewayAttachmentId;
+            inputs.transitGatewayRouteTableId = args.transitGatewayRouteTableId;
+            inputs.resourceId = undefined /*out*/;
+            inputs.resourceType = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RouteTableAssociation.__pulumiType, name, inputs, opts);
     }
 }

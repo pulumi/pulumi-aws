@@ -82,38 +82,32 @@ export class LogMetricFilter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LogMetricFilterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LogMetricFilterArgs | LogMetricFilterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LogMetricFilterState | undefined;
-            inputs["logGroupName"] = state ? state.logGroupName : undefined;
-            inputs["metricTransformation"] = state ? state.metricTransformation : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pattern"] = state ? state.pattern : undefined;
+    constructor(name: string, args: LogMetricFilterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LogMetricFilterArgs | LogMetricFilterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LogMetricFilterState;
+            inputs.logGroupName = state.logGroupName;
+            inputs.metricTransformation = state.metricTransformation;
+            inputs.name = state.name;
+            inputs.pattern = state.pattern;
         } else {
-            const args = argsOrState as LogMetricFilterArgs | undefined;
-            if (!args || args.logGroupName === undefined) {
+            const args = argsOrState as LogMetricFilterArgs;
+            if (args.logGroupName === undefined) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            if (!args || args.metricTransformation === undefined) {
+            if (args.metricTransformation === undefined) {
                 throw new Error("Missing required property 'metricTransformation'");
             }
-            if (!args || args.pattern === undefined) {
+            if (args.pattern === undefined) {
                 throw new Error("Missing required property 'pattern'");
             }
-            inputs["logGroupName"] = args ? args.logGroupName : undefined;
-            inputs["metricTransformation"] = args ? args.metricTransformation : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pattern"] = args ? args.pattern : undefined;
+            inputs.logGroupName = args.logGroupName;
+            inputs.metricTransformation = args.metricTransformation;
+            inputs.name = args.name;
+            inputs.pattern = args.pattern;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LogMetricFilter.__pulumiType, name, inputs, opts);
     }
 }

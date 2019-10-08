@@ -148,59 +148,53 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CachesIscsiVolumeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CachesIscsiVolumeArgs | CachesIscsiVolumeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CachesIscsiVolumeState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["chapEnabled"] = state ? state.chapEnabled : undefined;
-            inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
-            inputs["lunNumber"] = state ? state.lunNumber : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            inputs["networkInterfacePort"] = state ? state.networkInterfacePort : undefined;
-            inputs["snapshotId"] = state ? state.snapshotId : undefined;
-            inputs["sourceVolumeArn"] = state ? state.sourceVolumeArn : undefined;
-            inputs["targetArn"] = state ? state.targetArn : undefined;
-            inputs["targetName"] = state ? state.targetName : undefined;
-            inputs["volumeArn"] = state ? state.volumeArn : undefined;
-            inputs["volumeId"] = state ? state.volumeId : undefined;
-            inputs["volumeSizeInBytes"] = state ? state.volumeSizeInBytes : undefined;
+    constructor(name: string, args: CachesIscsiVolumeArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: CachesIscsiVolumeArgs | CachesIscsiVolumeState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as CachesIscsiVolumeState;
+            inputs.arn = state.arn;
+            inputs.chapEnabled = state.chapEnabled;
+            inputs.gatewayArn = state.gatewayArn;
+            inputs.lunNumber = state.lunNumber;
+            inputs.networkInterfaceId = state.networkInterfaceId;
+            inputs.networkInterfacePort = state.networkInterfacePort;
+            inputs.snapshotId = state.snapshotId;
+            inputs.sourceVolumeArn = state.sourceVolumeArn;
+            inputs.targetArn = state.targetArn;
+            inputs.targetName = state.targetName;
+            inputs.volumeArn = state.volumeArn;
+            inputs.volumeId = state.volumeId;
+            inputs.volumeSizeInBytes = state.volumeSizeInBytes;
         } else {
-            const args = argsOrState as CachesIscsiVolumeArgs | undefined;
-            if (!args || args.gatewayArn === undefined) {
+            const args = argsOrState as CachesIscsiVolumeArgs;
+            if (args.gatewayArn === undefined) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            if (!args || args.networkInterfaceId === undefined) {
+            if (args.networkInterfaceId === undefined) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if (!args || args.targetName === undefined) {
+            if (args.targetName === undefined) {
                 throw new Error("Missing required property 'targetName'");
             }
-            if (!args || args.volumeSizeInBytes === undefined) {
+            if (args.volumeSizeInBytes === undefined) {
                 throw new Error("Missing required property 'volumeSizeInBytes'");
             }
-            inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["snapshotId"] = args ? args.snapshotId : undefined;
-            inputs["sourceVolumeArn"] = args ? args.sourceVolumeArn : undefined;
-            inputs["targetName"] = args ? args.targetName : undefined;
-            inputs["volumeSizeInBytes"] = args ? args.volumeSizeInBytes : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["chapEnabled"] = undefined /*out*/;
-            inputs["lunNumber"] = undefined /*out*/;
-            inputs["networkInterfacePort"] = undefined /*out*/;
-            inputs["targetArn"] = undefined /*out*/;
-            inputs["volumeArn"] = undefined /*out*/;
-            inputs["volumeId"] = undefined /*out*/;
+            inputs.gatewayArn = args.gatewayArn;
+            inputs.networkInterfaceId = args.networkInterfaceId;
+            inputs.snapshotId = args.snapshotId;
+            inputs.sourceVolumeArn = args.sourceVolumeArn;
+            inputs.targetName = args.targetName;
+            inputs.volumeSizeInBytes = args.volumeSizeInBytes;
+            inputs.arn = undefined /*out*/;
+            inputs.chapEnabled = undefined /*out*/;
+            inputs.lunNumber = undefined /*out*/;
+            inputs.networkInterfacePort = undefined /*out*/;
+            inputs.targetArn = undefined /*out*/;
+            inputs.volumeArn = undefined /*out*/;
+            inputs.volumeId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(CachesIscsiVolume.__pulumiType, name, inputs, opts);
     }
 }

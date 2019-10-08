@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const hogeBucket = new aws.s3.Bucket("hoge", {});
  * const testKey = new aws.kms.Key("test", {
  *     deletionWindowInDays: 7,
  *     description: "Athena KMS Key",
+ * });
+ * const hogeBucket = new aws.s3.Bucket("hoge", {});
+ * const hogeDatabase = new aws.athena.Database("hoge", {
+ *     bucket: hogeBucket.id,
+ *     name: "users",
  * });
  * const testWorkgroup = new aws.athena.Workgroup("test", {
  *     configuration: {
@@ -29,10 +33,6 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
- * });
- * const hogeDatabase = new aws.athena.Database("hoge", {
- *     bucket: hogeBucket.id,
- *     name: "users",
  * });
  * const foo = new aws.athena.NamedQuery("foo", {
  *     database: hogeDatabase.name,
@@ -98,37 +98,31 @@ export class NamedQuery extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NamedQueryArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NamedQueryArgs | NamedQueryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NamedQueryState | undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["query"] = state ? state.query : undefined;
-            inputs["workgroup"] = state ? state.workgroup : undefined;
+    constructor(name: string, args: NamedQueryArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: NamedQueryArgs | NamedQueryState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as NamedQueryState;
+            inputs.database = state.database;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.query = state.query;
+            inputs.workgroup = state.workgroup;
         } else {
-            const args = argsOrState as NamedQueryArgs | undefined;
-            if (!args || args.database === undefined) {
+            const args = argsOrState as NamedQueryArgs;
+            if (args.database === undefined) {
                 throw new Error("Missing required property 'database'");
             }
-            if (!args || args.query === undefined) {
+            if (args.query === undefined) {
                 throw new Error("Missing required property 'query'");
             }
-            inputs["database"] = args ? args.database : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["query"] = args ? args.query : undefined;
-            inputs["workgroup"] = args ? args.workgroup : undefined;
+            inputs.database = args.database;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.query = args.query;
+            inputs.workgroup = args.workgroup;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(NamedQuery.__pulumiType, name, inputs, opts);
     }
 }

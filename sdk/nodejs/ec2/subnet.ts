@@ -93,49 +93,43 @@ export class Subnet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SubnetArgs | SubnetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SubnetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["assignIpv6AddressOnCreation"] = state ? state.assignIpv6AddressOnCreation : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
-            inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
-            inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
-            inputs["ipv6CidrBlockAssociationId"] = state ? state.ipv6CidrBlockAssociationId : undefined;
-            inputs["mapPublicIpOnLaunch"] = state ? state.mapPublicIpOnLaunch : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SubnetArgs | SubnetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SubnetState;
+            inputs.arn = state.arn;
+            inputs.assignIpv6AddressOnCreation = state.assignIpv6AddressOnCreation;
+            inputs.availabilityZone = state.availabilityZone;
+            inputs.availabilityZoneId = state.availabilityZoneId;
+            inputs.cidrBlock = state.cidrBlock;
+            inputs.ipv6CidrBlock = state.ipv6CidrBlock;
+            inputs.ipv6CidrBlockAssociationId = state.ipv6CidrBlockAssociationId;
+            inputs.mapPublicIpOnLaunch = state.mapPublicIpOnLaunch;
+            inputs.ownerId = state.ownerId;
+            inputs.tags = state.tags;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as SubnetArgs | undefined;
-            if (!args || args.cidrBlock === undefined) {
+            const args = argsOrState as SubnetArgs;
+            if (args.cidrBlock === undefined) {
                 throw new Error("Missing required property 'cidrBlock'");
             }
-            if (!args || args.vpcId === undefined) {
+            if (args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["assignIpv6AddressOnCreation"] = args ? args.assignIpv6AddressOnCreation : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
-            inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            inputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ipv6CidrBlockAssociationId"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
+            inputs.assignIpv6AddressOnCreation = args.assignIpv6AddressOnCreation;
+            inputs.availabilityZone = args.availabilityZone;
+            inputs.availabilityZoneId = args.availabilityZoneId;
+            inputs.cidrBlock = args.cidrBlock;
+            inputs.ipv6CidrBlock = args.ipv6CidrBlock;
+            inputs.mapPublicIpOnLaunch = args.mapPublicIpOnLaunch;
+            inputs.tags = args.tags;
+            inputs.vpcId = args.vpcId;
+            inputs.arn = undefined /*out*/;
+            inputs.ipv6CidrBlockAssociationId = undefined /*out*/;
+            inputs.ownerId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Subnet.__pulumiType, name, inputs, opts);
     }
 }

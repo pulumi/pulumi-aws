@@ -165,28 +165,22 @@ export class CertificateValidation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CertificateValidationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CertificateValidationArgs | CertificateValidationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CertificateValidationState | undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["validationRecordFqdns"] = state ? state.validationRecordFqdns : undefined;
+    constructor(name: string, args: CertificateValidationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: CertificateValidationArgs | CertificateValidationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as CertificateValidationState;
+            inputs.certificateArn = state.certificateArn;
+            inputs.validationRecordFqdns = state.validationRecordFqdns;
         } else {
-            const args = argsOrState as CertificateValidationArgs | undefined;
-            if (!args || args.certificateArn === undefined) {
+            const args = argsOrState as CertificateValidationArgs;
+            if (args.certificateArn === undefined) {
                 throw new Error("Missing required property 'certificateArn'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["validationRecordFqdns"] = args ? args.validationRecordFqdns : undefined;
+            inputs.certificateArn = args.certificateArn;
+            inputs.validationRecordFqdns = args.validationRecordFqdns;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(CertificateValidation.__pulumiType, name, inputs, opts);
     }
 }

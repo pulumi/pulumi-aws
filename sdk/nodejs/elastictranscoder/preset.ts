@@ -144,46 +144,40 @@ export class Preset extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PresetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PresetArgs | PresetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PresetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["audio"] = state ? state.audio : undefined;
-            inputs["audioCodecOptions"] = state ? state.audioCodecOptions : undefined;
-            inputs["container"] = state ? state.container : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["thumbnails"] = state ? state.thumbnails : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["video"] = state ? state.video : undefined;
-            inputs["videoCodecOptions"] = state ? state.videoCodecOptions : undefined;
-            inputs["videoWatermarks"] = state ? state.videoWatermarks : undefined;
+    constructor(name: string, args: PresetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PresetArgs | PresetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PresetState;
+            inputs.arn = state.arn;
+            inputs.audio = state.audio;
+            inputs.audioCodecOptions = state.audioCodecOptions;
+            inputs.container = state.container;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.thumbnails = state.thumbnails;
+            inputs.type = state.type;
+            inputs.video = state.video;
+            inputs.videoCodecOptions = state.videoCodecOptions;
+            inputs.videoWatermarks = state.videoWatermarks;
         } else {
-            const args = argsOrState as PresetArgs | undefined;
-            if (!args || args.container === undefined) {
+            const args = argsOrState as PresetArgs;
+            if (args.container === undefined) {
                 throw new Error("Missing required property 'container'");
             }
-            inputs["audio"] = args ? args.audio : undefined;
-            inputs["audioCodecOptions"] = args ? args.audioCodecOptions : undefined;
-            inputs["container"] = args ? args.container : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["thumbnails"] = args ? args.thumbnails : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["video"] = args ? args.video : undefined;
-            inputs["videoCodecOptions"] = args ? args.videoCodecOptions : undefined;
-            inputs["videoWatermarks"] = args ? args.videoWatermarks : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.audio = args.audio;
+            inputs.audioCodecOptions = args.audioCodecOptions;
+            inputs.container = args.container;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.thumbnails = args.thumbnails;
+            inputs.type = args.type;
+            inputs.video = args.video;
+            inputs.videoCodecOptions = args.videoCodecOptions;
+            inputs.videoWatermarks = args.videoWatermarks;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Preset.__pulumiType, name, inputs, opts);
     }
 }

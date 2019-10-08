@@ -121,40 +121,34 @@ export class Deployment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DeploymentArgs | DeploymentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DeploymentState | undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["executionArn"] = state ? state.executionArn : undefined;
-            inputs["invokeUrl"] = state ? state.invokeUrl : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["stageDescription"] = state ? state.stageDescription : undefined;
-            inputs["stageName"] = state ? state.stageName : undefined;
-            inputs["variables"] = state ? state.variables : undefined;
+    constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DeploymentArgs | DeploymentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DeploymentState;
+            inputs.createdDate = state.createdDate;
+            inputs.description = state.description;
+            inputs.executionArn = state.executionArn;
+            inputs.invokeUrl = state.invokeUrl;
+            inputs.restApi = state.restApi;
+            inputs.stageDescription = state.stageDescription;
+            inputs.stageName = state.stageName;
+            inputs.variables = state.variables;
         } else {
-            const args = argsOrState as DeploymentArgs | undefined;
-            if (!args || args.restApi === undefined) {
+            const args = argsOrState as DeploymentArgs;
+            if (args.restApi === undefined) {
                 throw new Error("Missing required property 'restApi'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["stageDescription"] = args ? args.stageDescription : undefined;
-            inputs["stageName"] = args ? args.stageName : undefined;
-            inputs["variables"] = args ? args.variables : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["executionArn"] = undefined /*out*/;
-            inputs["invokeUrl"] = undefined /*out*/;
+            inputs.description = args.description;
+            inputs.restApi = args.restApi;
+            inputs.stageDescription = args.stageDescription;
+            inputs.stageName = args.stageName;
+            inputs.variables = args.variables;
+            inputs.createdDate = undefined /*out*/;
+            inputs.executionArn = undefined /*out*/;
+            inputs.invokeUrl = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Deployment.__pulumiType, name, inputs, opts);
     }
 }

@@ -91,41 +91,35 @@ export class Task extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TaskArgs | TaskState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as TaskState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
-            inputs["destinationLocationArn"] = state ? state.destinationLocationArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["options"] = state ? state.options : undefined;
-            inputs["sourceLocationArn"] = state ? state.sourceLocationArn : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: TaskArgs | TaskState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as TaskState;
+            inputs.arn = state.arn;
+            inputs.cloudwatchLogGroupArn = state.cloudwatchLogGroupArn;
+            inputs.destinationLocationArn = state.destinationLocationArn;
+            inputs.name = state.name;
+            inputs.options = state.options;
+            inputs.sourceLocationArn = state.sourceLocationArn;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as TaskArgs | undefined;
-            if (!args || args.destinationLocationArn === undefined) {
+            const args = argsOrState as TaskArgs;
+            if (args.destinationLocationArn === undefined) {
                 throw new Error("Missing required property 'destinationLocationArn'");
             }
-            if (!args || args.sourceLocationArn === undefined) {
+            if (args.sourceLocationArn === undefined) {
                 throw new Error("Missing required property 'sourceLocationArn'");
             }
-            inputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
-            inputs["destinationLocationArn"] = args ? args.destinationLocationArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.cloudwatchLogGroupArn = args.cloudwatchLogGroupArn;
+            inputs.destinationLocationArn = args.destinationLocationArn;
+            inputs.name = args.name;
+            inputs.options = args.options;
+            inputs.sourceLocationArn = args.sourceLocationArn;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Task.__pulumiType, name, inputs, opts);
     }
 }

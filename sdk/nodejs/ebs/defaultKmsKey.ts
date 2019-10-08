@@ -66,26 +66,20 @@ export class DefaultKmsKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DefaultKmsKeyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DefaultKmsKeyArgs | DefaultKmsKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DefaultKmsKeyState | undefined;
-            inputs["keyArn"] = state ? state.keyArn : undefined;
+    constructor(name: string, args: DefaultKmsKeyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DefaultKmsKeyArgs | DefaultKmsKeyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DefaultKmsKeyState;
+            inputs.keyArn = state.keyArn;
         } else {
-            const args = argsOrState as DefaultKmsKeyArgs | undefined;
-            if (!args || args.keyArn === undefined) {
+            const args = argsOrState as DefaultKmsKeyArgs;
+            if (args.keyArn === undefined) {
                 throw new Error("Missing required property 'keyArn'");
             }
-            inputs["keyArn"] = args ? args.keyArn : undefined;
+            inputs.keyArn = args.keyArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DefaultKmsKey.__pulumiType, name, inputs, opts);
     }
 }

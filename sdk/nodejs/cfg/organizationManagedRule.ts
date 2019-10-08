@@ -109,46 +109,40 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: OrganizationManagedRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OrganizationManagedRuleArgs | OrganizationManagedRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as OrganizationManagedRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["excludedAccounts"] = state ? state.excludedAccounts : undefined;
-            inputs["inputParameters"] = state ? state.inputParameters : undefined;
-            inputs["maximumExecutionFrequency"] = state ? state.maximumExecutionFrequency : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceIdScope"] = state ? state.resourceIdScope : undefined;
-            inputs["resourceTypesScopes"] = state ? state.resourceTypesScopes : undefined;
-            inputs["ruleIdentifier"] = state ? state.ruleIdentifier : undefined;
-            inputs["tagKeyScope"] = state ? state.tagKeyScope : undefined;
-            inputs["tagValueScope"] = state ? state.tagValueScope : undefined;
+    constructor(name: string, args: OrganizationManagedRuleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: OrganizationManagedRuleArgs | OrganizationManagedRuleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as OrganizationManagedRuleState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.excludedAccounts = state.excludedAccounts;
+            inputs.inputParameters = state.inputParameters;
+            inputs.maximumExecutionFrequency = state.maximumExecutionFrequency;
+            inputs.name = state.name;
+            inputs.resourceIdScope = state.resourceIdScope;
+            inputs.resourceTypesScopes = state.resourceTypesScopes;
+            inputs.ruleIdentifier = state.ruleIdentifier;
+            inputs.tagKeyScope = state.tagKeyScope;
+            inputs.tagValueScope = state.tagValueScope;
         } else {
-            const args = argsOrState as OrganizationManagedRuleArgs | undefined;
-            if (!args || args.ruleIdentifier === undefined) {
+            const args = argsOrState as OrganizationManagedRuleArgs;
+            if (args.ruleIdentifier === undefined) {
                 throw new Error("Missing required property 'ruleIdentifier'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
-            inputs["inputParameters"] = args ? args.inputParameters : undefined;
-            inputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceIdScope"] = args ? args.resourceIdScope : undefined;
-            inputs["resourceTypesScopes"] = args ? args.resourceTypesScopes : undefined;
-            inputs["ruleIdentifier"] = args ? args.ruleIdentifier : undefined;
-            inputs["tagKeyScope"] = args ? args.tagKeyScope : undefined;
-            inputs["tagValueScope"] = args ? args.tagValueScope : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.description = args.description;
+            inputs.excludedAccounts = args.excludedAccounts;
+            inputs.inputParameters = args.inputParameters;
+            inputs.maximumExecutionFrequency = args.maximumExecutionFrequency;
+            inputs.name = args.name;
+            inputs.resourceIdScope = args.resourceIdScope;
+            inputs.resourceTypesScopes = args.resourceTypesScopes;
+            inputs.ruleIdentifier = args.ruleIdentifier;
+            inputs.tagKeyScope = args.tagKeyScope;
+            inputs.tagValueScope = args.tagValueScope;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(OrganizationManagedRule.__pulumiType, name, inputs, opts);
     }
 }

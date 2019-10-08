@@ -71,29 +71,23 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PublicDnsNamespaceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PublicDnsNamespaceArgs | PublicDnsNamespaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PublicDnsNamespaceState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["hostedZone"] = state ? state.hostedZone : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args?: PublicDnsNamespaceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PublicDnsNamespaceArgs | PublicDnsNamespaceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PublicDnsNamespaceState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.hostedZone = state.hostedZone;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as PublicDnsNamespaceArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["hostedZone"] = undefined /*out*/;
+            const args = argsOrState as PublicDnsNamespaceArgs;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.arn = undefined /*out*/;
+            inputs.hostedZone = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(PublicDnsNamespace.__pulumiType, name, inputs, opts);
     }
 }

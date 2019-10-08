@@ -200,64 +200,58 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LoadBalancerState | undefined;
-            inputs["accessLogs"] = state ? state.accessLogs : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
-            inputs["connectionDraining"] = state ? state.connectionDraining : undefined;
-            inputs["connectionDrainingTimeout"] = state ? state.connectionDrainingTimeout : undefined;
-            inputs["crossZoneLoadBalancing"] = state ? state.crossZoneLoadBalancing : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["healthCheck"] = state ? state.healthCheck : undefined;
-            inputs["idleTimeout"] = state ? state.idleTimeout : undefined;
-            inputs["instances"] = state ? state.instances : undefined;
-            inputs["internal"] = state ? state.internal : undefined;
-            inputs["listeners"] = state ? state.listeners : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["sourceSecurityGroup"] = state ? state.sourceSecurityGroup : undefined;
-            inputs["sourceSecurityGroupId"] = state ? state.sourceSecurityGroupId : undefined;
-            inputs["subnets"] = state ? state.subnets : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["zoneId"] = state ? state.zoneId : undefined;
+    constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LoadBalancerArgs | LoadBalancerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LoadBalancerState;
+            inputs.accessLogs = state.accessLogs;
+            inputs.arn = state.arn;
+            inputs.availabilityZones = state.availabilityZones;
+            inputs.connectionDraining = state.connectionDraining;
+            inputs.connectionDrainingTimeout = state.connectionDrainingTimeout;
+            inputs.crossZoneLoadBalancing = state.crossZoneLoadBalancing;
+            inputs.dnsName = state.dnsName;
+            inputs.healthCheck = state.healthCheck;
+            inputs.idleTimeout = state.idleTimeout;
+            inputs.instances = state.instances;
+            inputs.internal = state.internal;
+            inputs.listeners = state.listeners;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.securityGroups = state.securityGroups;
+            inputs.sourceSecurityGroup = state.sourceSecurityGroup;
+            inputs.sourceSecurityGroupId = state.sourceSecurityGroupId;
+            inputs.subnets = state.subnets;
+            inputs.tags = state.tags;
+            inputs.zoneId = state.zoneId;
         } else {
-            const args = argsOrState as LoadBalancerArgs | undefined;
-            if (!args || args.listeners === undefined) {
+            const args = argsOrState as LoadBalancerArgs;
+            if (args.listeners === undefined) {
                 throw new Error("Missing required property 'listeners'");
             }
-            inputs["accessLogs"] = args ? args.accessLogs : undefined;
-            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            inputs["connectionDraining"] = args ? args.connectionDraining : undefined;
-            inputs["connectionDrainingTimeout"] = args ? args.connectionDrainingTimeout : undefined;
-            inputs["crossZoneLoadBalancing"] = args ? args.crossZoneLoadBalancing : undefined;
-            inputs["healthCheck"] = args ? args.healthCheck : undefined;
-            inputs["idleTimeout"] = args ? args.idleTimeout : undefined;
-            inputs["instances"] = args ? args.instances : undefined;
-            inputs["internal"] = args ? args.internal : undefined;
-            inputs["listeners"] = args ? args.listeners : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["sourceSecurityGroup"] = args ? args.sourceSecurityGroup : undefined;
-            inputs["subnets"] = args ? args.subnets : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["sourceSecurityGroupId"] = undefined /*out*/;
-            inputs["zoneId"] = undefined /*out*/;
+            inputs.accessLogs = args.accessLogs;
+            inputs.availabilityZones = args.availabilityZones;
+            inputs.connectionDraining = args.connectionDraining;
+            inputs.connectionDrainingTimeout = args.connectionDrainingTimeout;
+            inputs.crossZoneLoadBalancing = args.crossZoneLoadBalancing;
+            inputs.healthCheck = args.healthCheck;
+            inputs.idleTimeout = args.idleTimeout;
+            inputs.instances = args.instances;
+            inputs.internal = args.internal;
+            inputs.listeners = args.listeners;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.securityGroups = args.securityGroups;
+            inputs.sourceSecurityGroup = args.sourceSecurityGroup;
+            inputs.subnets = args.subnets;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.dnsName = undefined /*out*/;
+            inputs.sourceSecurityGroupId = undefined /*out*/;
+            inputs.zoneId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LoadBalancer.__pulumiType, name, inputs, opts);
     }
 }

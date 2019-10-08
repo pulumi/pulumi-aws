@@ -86,39 +86,33 @@ export class Configuration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ConfigurationArgs | ConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ConfigurationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["kafkaVersions"] = state ? state.kafkaVersions : undefined;
-            inputs["latestRevision"] = state ? state.latestRevision : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["serverProperties"] = state ? state.serverProperties : undefined;
+    constructor(name: string, args: ConfigurationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ConfigurationArgs | ConfigurationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ConfigurationState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.kafkaVersions = state.kafkaVersions;
+            inputs.latestRevision = state.latestRevision;
+            inputs.name = state.name;
+            inputs.serverProperties = state.serverProperties;
         } else {
-            const args = argsOrState as ConfigurationArgs | undefined;
-            if (!args || args.kafkaVersions === undefined) {
+            const args = argsOrState as ConfigurationArgs;
+            if (args.kafkaVersions === undefined) {
                 throw new Error("Missing required property 'kafkaVersions'");
             }
-            if (!args || args.serverProperties === undefined) {
+            if (args.serverProperties === undefined) {
                 throw new Error("Missing required property 'serverProperties'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["kafkaVersions"] = args ? args.kafkaVersions : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["serverProperties"] = args ? args.serverProperties : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["latestRevision"] = undefined /*out*/;
+            inputs.description = args.description;
+            inputs.kafkaVersions = args.kafkaVersions;
+            inputs.name = args.name;
+            inputs.serverProperties = args.serverProperties;
+            inputs.arn = undefined /*out*/;
+            inputs.latestRevision = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Configuration.__pulumiType, name, inputs, opts);
     }
 }

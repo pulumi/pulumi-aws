@@ -100,13 +100,13 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
+ * const bucket = new aws.s3.Bucket("bucket", {});
  * const func = new aws.lambda.Function("func", {
  *     code: new pulumi.asset.FileArchive("your-function.zip"),
  *     handler: "exports.example",
  *     role: iamForLambda.arn,
  *     runtime: "go1.x",
  * });
- * const bucket = new aws.s3.Bucket("bucket", {});
  * const allowBucket = new aws.lambda.Permission("allowBucket", {
  *     action: "lambda:InvokeFunction",
  *     function: func.arn,
@@ -145,23 +145,23 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
+ * const bucket = new aws.s3.Bucket("bucket", {});
  * const func1 = new aws.lambda.Function("func1", {
  *     code: new pulumi.asset.FileArchive("your-function1.zip"),
  *     handler: "exports.example",
  *     role: iamForLambda.arn,
  *     runtime: "go1.x",
  * });
- * const bucket = new aws.s3.Bucket("bucket", {});
+ * const func2 = new aws.lambda.Function("func2", {
+ *     code: new pulumi.asset.FileArchive("your-function2.zip"),
+ *     handler: "exports.example",
+ *     role: iamForLambda.arn,
+ * });
  * const allowBucket1 = new aws.lambda.Permission("allowBucket1", {
  *     action: "lambda:InvokeFunction",
  *     function: func1.arn,
  *     principal: "s3.amazonaws.com",
  *     sourceArn: bucket.arn,
- * });
- * const func2 = new aws.lambda.Function("func2", {
- *     code: new pulumi.asset.FileArchive("your-function2.zip"),
- *     handler: "exports.example",
- *     role: iamForLambda.arn,
  * });
  * const allowBucket2 = new aws.lambda.Permission("allowBucket2", {
  *     action: "lambda:InvokeFunction",
@@ -284,32 +284,26 @@ export class BucketNotification extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BucketNotificationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BucketNotificationArgs | BucketNotificationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as BucketNotificationState | undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["lambdaFunctions"] = state ? state.lambdaFunctions : undefined;
-            inputs["queues"] = state ? state.queues : undefined;
-            inputs["topics"] = state ? state.topics : undefined;
+    constructor(name: string, args: BucketNotificationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: BucketNotificationArgs | BucketNotificationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as BucketNotificationState;
+            inputs.bucket = state.bucket;
+            inputs.lambdaFunctions = state.lambdaFunctions;
+            inputs.queues = state.queues;
+            inputs.topics = state.topics;
         } else {
-            const args = argsOrState as BucketNotificationArgs | undefined;
-            if (!args || args.bucket === undefined) {
+            const args = argsOrState as BucketNotificationArgs;
+            if (args.bucket === undefined) {
                 throw new Error("Missing required property 'bucket'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["lambdaFunctions"] = args ? args.lambdaFunctions : undefined;
-            inputs["queues"] = args ? args.queues : undefined;
-            inputs["topics"] = args ? args.topics : undefined;
+            inputs.bucket = args.bucket;
+            inputs.lambdaFunctions = args.lambdaFunctions;
+            inputs.queues = args.queues;
+            inputs.topics = args.topics;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(BucketNotification.__pulumiType, name, inputs, opts);
     }
 }

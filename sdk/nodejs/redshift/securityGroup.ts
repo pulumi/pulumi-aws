@@ -71,30 +71,24 @@ export class SecurityGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SecurityGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SecurityGroupArgs | SecurityGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SecurityGroupState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["ingress"] = state ? state.ingress : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args: SecurityGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SecurityGroupArgs | SecurityGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SecurityGroupState;
+            inputs.description = state.description;
+            inputs.ingress = state.ingress;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as SecurityGroupArgs | undefined;
-            if (!args || args.ingress === undefined) {
+            const args = argsOrState as SecurityGroupArgs;
+            if (args.ingress === undefined) {
                 throw new Error("Missing required property 'ingress'");
             }
-            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
-            inputs["ingress"] = args ? args.ingress : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs.description = args.description || "Managed by Pulumi";
+            inputs.ingress = args.ingress;
+            inputs.name = args.name;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SecurityGroup.__pulumiType, name, inputs, opts);
     }
 }

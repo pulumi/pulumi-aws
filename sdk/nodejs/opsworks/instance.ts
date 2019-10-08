@@ -249,117 +249,111 @@ export class Instance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: InstanceArgs | InstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as InstanceState | undefined;
-            inputs["agentVersion"] = state ? state.agentVersion : undefined;
-            inputs["amiId"] = state ? state.amiId : undefined;
-            inputs["architecture"] = state ? state.architecture : undefined;
-            inputs["autoScalingType"] = state ? state.autoScalingType : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
-            inputs["deleteEbs"] = state ? state.deleteEbs : undefined;
-            inputs["deleteEip"] = state ? state.deleteEip : undefined;
-            inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
-            inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
-            inputs["ec2InstanceId"] = state ? state.ec2InstanceId : undefined;
-            inputs["ecsClusterArn"] = state ? state.ecsClusterArn : undefined;
-            inputs["elasticIp"] = state ? state.elasticIp : undefined;
-            inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
-            inputs["hostname"] = state ? state.hostname : undefined;
-            inputs["infrastructureClass"] = state ? state.infrastructureClass : undefined;
-            inputs["installUpdatesOnBoot"] = state ? state.installUpdatesOnBoot : undefined;
-            inputs["instanceProfileArn"] = state ? state.instanceProfileArn : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["lastServiceErrorId"] = state ? state.lastServiceErrorId : undefined;
-            inputs["layerIds"] = state ? state.layerIds : undefined;
-            inputs["os"] = state ? state.os : undefined;
-            inputs["platform"] = state ? state.platform : undefined;
-            inputs["privateDns"] = state ? state.privateDns : undefined;
-            inputs["privateIp"] = state ? state.privateIp : undefined;
-            inputs["publicDns"] = state ? state.publicDns : undefined;
-            inputs["publicIp"] = state ? state.publicIp : undefined;
-            inputs["registeredBy"] = state ? state.registeredBy : undefined;
-            inputs["reportedAgentVersion"] = state ? state.reportedAgentVersion : undefined;
-            inputs["reportedOsFamily"] = state ? state.reportedOsFamily : undefined;
-            inputs["reportedOsName"] = state ? state.reportedOsName : undefined;
-            inputs["reportedOsVersion"] = state ? state.reportedOsVersion : undefined;
-            inputs["rootBlockDevices"] = state ? state.rootBlockDevices : undefined;
-            inputs["rootDeviceType"] = state ? state.rootDeviceType : undefined;
-            inputs["rootDeviceVolumeId"] = state ? state.rootDeviceVolumeId : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["sshHostDsaKeyFingerprint"] = state ? state.sshHostDsaKeyFingerprint : undefined;
-            inputs["sshHostRsaKeyFingerprint"] = state ? state.sshHostRsaKeyFingerprint : undefined;
-            inputs["sshKeyName"] = state ? state.sshKeyName : undefined;
-            inputs["stackId"] = state ? state.stackId : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tenancy"] = state ? state.tenancy : undefined;
-            inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
+    constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: InstanceArgs | InstanceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as InstanceState;
+            inputs.agentVersion = state.agentVersion;
+            inputs.amiId = state.amiId;
+            inputs.architecture = state.architecture;
+            inputs.autoScalingType = state.autoScalingType;
+            inputs.availabilityZone = state.availabilityZone;
+            inputs.createdAt = state.createdAt;
+            inputs.deleteEbs = state.deleteEbs;
+            inputs.deleteEip = state.deleteEip;
+            inputs.ebsBlockDevices = state.ebsBlockDevices;
+            inputs.ebsOptimized = state.ebsOptimized;
+            inputs.ec2InstanceId = state.ec2InstanceId;
+            inputs.ecsClusterArn = state.ecsClusterArn;
+            inputs.elasticIp = state.elasticIp;
+            inputs.ephemeralBlockDevices = state.ephemeralBlockDevices;
+            inputs.hostname = state.hostname;
+            inputs.infrastructureClass = state.infrastructureClass;
+            inputs.installUpdatesOnBoot = state.installUpdatesOnBoot;
+            inputs.instanceProfileArn = state.instanceProfileArn;
+            inputs.instanceType = state.instanceType;
+            inputs.lastServiceErrorId = state.lastServiceErrorId;
+            inputs.layerIds = state.layerIds;
+            inputs.os = state.os;
+            inputs.platform = state.platform;
+            inputs.privateDns = state.privateDns;
+            inputs.privateIp = state.privateIp;
+            inputs.publicDns = state.publicDns;
+            inputs.publicIp = state.publicIp;
+            inputs.registeredBy = state.registeredBy;
+            inputs.reportedAgentVersion = state.reportedAgentVersion;
+            inputs.reportedOsFamily = state.reportedOsFamily;
+            inputs.reportedOsName = state.reportedOsName;
+            inputs.reportedOsVersion = state.reportedOsVersion;
+            inputs.rootBlockDevices = state.rootBlockDevices;
+            inputs.rootDeviceType = state.rootDeviceType;
+            inputs.rootDeviceVolumeId = state.rootDeviceVolumeId;
+            inputs.securityGroupIds = state.securityGroupIds;
+            inputs.sshHostDsaKeyFingerprint = state.sshHostDsaKeyFingerprint;
+            inputs.sshHostRsaKeyFingerprint = state.sshHostRsaKeyFingerprint;
+            inputs.sshKeyName = state.sshKeyName;
+            inputs.stackId = state.stackId;
+            inputs.state = state.state;
+            inputs.status = state.status;
+            inputs.subnetId = state.subnetId;
+            inputs.tenancy = state.tenancy;
+            inputs.virtualizationType = state.virtualizationType;
         } else {
-            const args = argsOrState as InstanceArgs | undefined;
-            if (!args || args.layerIds === undefined) {
+            const args = argsOrState as InstanceArgs;
+            if (args.layerIds === undefined) {
                 throw new Error("Missing required property 'layerIds'");
             }
-            if (!args || args.stackId === undefined) {
+            if (args.stackId === undefined) {
                 throw new Error("Missing required property 'stackId'");
             }
-            inputs["agentVersion"] = args ? args.agentVersion : undefined;
-            inputs["amiId"] = args ? args.amiId : undefined;
-            inputs["architecture"] = args ? args.architecture : undefined;
-            inputs["autoScalingType"] = args ? args.autoScalingType : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["createdAt"] = args ? args.createdAt : undefined;
-            inputs["deleteEbs"] = args ? args.deleteEbs : undefined;
-            inputs["deleteEip"] = args ? args.deleteEip : undefined;
-            inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
-            inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            inputs["ecsClusterArn"] = args ? args.ecsClusterArn : undefined;
-            inputs["elasticIp"] = args ? args.elasticIp : undefined;
-            inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
-            inputs["hostname"] = args ? args.hostname : undefined;
-            inputs["infrastructureClass"] = args ? args.infrastructureClass : undefined;
-            inputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
-            inputs["instanceProfileArn"] = args ? args.instanceProfileArn : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["lastServiceErrorId"] = args ? args.lastServiceErrorId : undefined;
-            inputs["layerIds"] = args ? args.layerIds : undefined;
-            inputs["os"] = args ? args.os : undefined;
-            inputs["platform"] = args ? args.platform : undefined;
-            inputs["privateDns"] = args ? args.privateDns : undefined;
-            inputs["privateIp"] = args ? args.privateIp : undefined;
-            inputs["publicDns"] = args ? args.publicDns : undefined;
-            inputs["publicIp"] = args ? args.publicIp : undefined;
-            inputs["registeredBy"] = args ? args.registeredBy : undefined;
-            inputs["reportedAgentVersion"] = args ? args.reportedAgentVersion : undefined;
-            inputs["reportedOsFamily"] = args ? args.reportedOsFamily : undefined;
-            inputs["reportedOsName"] = args ? args.reportedOsName : undefined;
-            inputs["reportedOsVersion"] = args ? args.reportedOsVersion : undefined;
-            inputs["rootBlockDevices"] = args ? args.rootBlockDevices : undefined;
-            inputs["rootDeviceType"] = args ? args.rootDeviceType : undefined;
-            inputs["rootDeviceVolumeId"] = args ? args.rootDeviceVolumeId : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["sshHostDsaKeyFingerprint"] = args ? args.sshHostDsaKeyFingerprint : undefined;
-            inputs["sshHostRsaKeyFingerprint"] = args ? args.sshHostRsaKeyFingerprint : undefined;
-            inputs["sshKeyName"] = args ? args.sshKeyName : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tenancy"] = args ? args.tenancy : undefined;
-            inputs["virtualizationType"] = args ? args.virtualizationType : undefined;
-            inputs["ec2InstanceId"] = undefined /*out*/;
+            inputs.agentVersion = args.agentVersion;
+            inputs.amiId = args.amiId;
+            inputs.architecture = args.architecture;
+            inputs.autoScalingType = args.autoScalingType;
+            inputs.availabilityZone = args.availabilityZone;
+            inputs.createdAt = args.createdAt;
+            inputs.deleteEbs = args.deleteEbs;
+            inputs.deleteEip = args.deleteEip;
+            inputs.ebsBlockDevices = args.ebsBlockDevices;
+            inputs.ebsOptimized = args.ebsOptimized;
+            inputs.ecsClusterArn = args.ecsClusterArn;
+            inputs.elasticIp = args.elasticIp;
+            inputs.ephemeralBlockDevices = args.ephemeralBlockDevices;
+            inputs.hostname = args.hostname;
+            inputs.infrastructureClass = args.infrastructureClass;
+            inputs.installUpdatesOnBoot = args.installUpdatesOnBoot;
+            inputs.instanceProfileArn = args.instanceProfileArn;
+            inputs.instanceType = args.instanceType;
+            inputs.lastServiceErrorId = args.lastServiceErrorId;
+            inputs.layerIds = args.layerIds;
+            inputs.os = args.os;
+            inputs.platform = args.platform;
+            inputs.privateDns = args.privateDns;
+            inputs.privateIp = args.privateIp;
+            inputs.publicDns = args.publicDns;
+            inputs.publicIp = args.publicIp;
+            inputs.registeredBy = args.registeredBy;
+            inputs.reportedAgentVersion = args.reportedAgentVersion;
+            inputs.reportedOsFamily = args.reportedOsFamily;
+            inputs.reportedOsName = args.reportedOsName;
+            inputs.reportedOsVersion = args.reportedOsVersion;
+            inputs.rootBlockDevices = args.rootBlockDevices;
+            inputs.rootDeviceType = args.rootDeviceType;
+            inputs.rootDeviceVolumeId = args.rootDeviceVolumeId;
+            inputs.securityGroupIds = args.securityGroupIds;
+            inputs.sshHostDsaKeyFingerprint = args.sshHostDsaKeyFingerprint;
+            inputs.sshHostRsaKeyFingerprint = args.sshHostRsaKeyFingerprint;
+            inputs.sshKeyName = args.sshKeyName;
+            inputs.stackId = args.stackId;
+            inputs.state = args.state;
+            inputs.status = args.status;
+            inputs.subnetId = args.subnetId;
+            inputs.tenancy = args.tenancy;
+            inputs.virtualizationType = args.virtualizationType;
+            inputs.ec2InstanceId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Instance.__pulumiType, name, inputs, opts);
     }
 }

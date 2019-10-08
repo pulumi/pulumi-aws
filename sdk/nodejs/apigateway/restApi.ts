@@ -118,43 +118,37 @@ export class RestApi extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RestApiArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RestApiArgs | RestApiState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RestApiState | undefined;
-            inputs["apiKeySource"] = state ? state.apiKeySource : undefined;
-            inputs["binaryMediaTypes"] = state ? state.binaryMediaTypes : undefined;
-            inputs["body"] = state ? state.body : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["endpointConfiguration"] = state ? state.endpointConfiguration : undefined;
-            inputs["executionArn"] = state ? state.executionArn : undefined;
-            inputs["minimumCompressionSize"] = state ? state.minimumCompressionSize : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["rootResourceId"] = state ? state.rootResourceId : undefined;
+    constructor(name: string, args?: RestApiArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RestApiArgs | RestApiState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RestApiState;
+            inputs.apiKeySource = state.apiKeySource;
+            inputs.binaryMediaTypes = state.binaryMediaTypes;
+            inputs.body = state.body;
+            inputs.createdDate = state.createdDate;
+            inputs.description = state.description;
+            inputs.endpointConfiguration = state.endpointConfiguration;
+            inputs.executionArn = state.executionArn;
+            inputs.minimumCompressionSize = state.minimumCompressionSize;
+            inputs.name = state.name;
+            inputs.policy = state.policy;
+            inputs.rootResourceId = state.rootResourceId;
         } else {
-            const args = argsOrState as RestApiArgs | undefined;
-            inputs["apiKeySource"] = args ? args.apiKeySource : undefined;
-            inputs["binaryMediaTypes"] = args ? args.binaryMediaTypes : undefined;
-            inputs["body"] = args ? args.body : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            inputs["minimumCompressionSize"] = args ? args.minimumCompressionSize : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["executionArn"] = undefined /*out*/;
-            inputs["rootResourceId"] = undefined /*out*/;
+            const args = argsOrState as RestApiArgs;
+            inputs.apiKeySource = args.apiKeySource;
+            inputs.binaryMediaTypes = args.binaryMediaTypes;
+            inputs.body = args.body;
+            inputs.description = args.description;
+            inputs.endpointConfiguration = args.endpointConfiguration;
+            inputs.minimumCompressionSize = args.minimumCompressionSize;
+            inputs.name = args.name;
+            inputs.policy = args.policy;
+            inputs.createdDate = undefined /*out*/;
+            inputs.executionArn = undefined /*out*/;
+            inputs.rootResourceId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RestApi.__pulumiType, name, inputs, opts);
     }
 }

@@ -143,47 +143,41 @@ export class AnalyticsApplication extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AnalyticsApplicationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AnalyticsApplicationArgs | AnalyticsApplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AnalyticsApplicationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cloudwatchLoggingOptions"] = state ? state.cloudwatchLoggingOptions : undefined;
-            inputs["code"] = state ? state.code : undefined;
-            inputs["createTimestamp"] = state ? state.createTimestamp : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["inputs"] = state ? state.inputs : undefined;
-            inputs["lastUpdateTimestamp"] = state ? state.lastUpdateTimestamp : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outputs"] = state ? state.outputs : undefined;
-            inputs["referenceDataSources"] = state ? state.referenceDataSources : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["version"] = state ? state.version : undefined;
+    constructor(name: string, args?: AnalyticsApplicationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AnalyticsApplicationArgs | AnalyticsApplicationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AnalyticsApplicationState;
+            inputs.arn = state.arn;
+            inputs.cloudwatchLoggingOptions = state.cloudwatchLoggingOptions;
+            inputs.code = state.code;
+            inputs.createTimestamp = state.createTimestamp;
+            inputs.description = state.description;
+            inputs.inputs = state.inputs;
+            inputs.lastUpdateTimestamp = state.lastUpdateTimestamp;
+            inputs.name = state.name;
+            inputs.outputs = state.outputs;
+            inputs.referenceDataSources = state.referenceDataSources;
+            inputs.status = state.status;
+            inputs.tags = state.tags;
+            inputs.version = state.version;
         } else {
-            const args = argsOrState as AnalyticsApplicationArgs | undefined;
-            inputs["cloudwatchLoggingOptions"] = args ? args.cloudwatchLoggingOptions : undefined;
-            inputs["code"] = args ? args.code : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["inputs"] = args ? args.inputs : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["outputs"] = args ? args.outputs : undefined;
-            inputs["referenceDataSources"] = args ? args.referenceDataSources : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createTimestamp"] = undefined /*out*/;
-            inputs["lastUpdateTimestamp"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            const args = argsOrState as AnalyticsApplicationArgs;
+            inputs.cloudwatchLoggingOptions = args.cloudwatchLoggingOptions;
+            inputs.code = args.code;
+            inputs.description = args.description;
+            inputs.inputs = args.inputs;
+            inputs.name = args.name;
+            inputs.outputs = args.outputs;
+            inputs.referenceDataSources = args.referenceDataSources;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.createTimestamp = undefined /*out*/;
+            inputs.lastUpdateTimestamp = undefined /*out*/;
+            inputs.status = undefined /*out*/;
+            inputs.version = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(AnalyticsApplication.__pulumiType, name, inputs, opts);
     }
 }

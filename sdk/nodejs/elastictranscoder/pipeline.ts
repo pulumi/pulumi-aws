@@ -107,49 +107,43 @@ export class Pipeline extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PipelineState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["awsKmsKeyArn"] = state ? state.awsKmsKeyArn : undefined;
-            inputs["contentConfig"] = state ? state.contentConfig : undefined;
-            inputs["contentConfigPermissions"] = state ? state.contentConfigPermissions : undefined;
-            inputs["inputBucket"] = state ? state.inputBucket : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notifications"] = state ? state.notifications : undefined;
-            inputs["outputBucket"] = state ? state.outputBucket : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["thumbnailConfig"] = state ? state.thumbnailConfig : undefined;
-            inputs["thumbnailConfigPermissions"] = state ? state.thumbnailConfigPermissions : undefined;
+    constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PipelineArgs | PipelineState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PipelineState;
+            inputs.arn = state.arn;
+            inputs.awsKmsKeyArn = state.awsKmsKeyArn;
+            inputs.contentConfig = state.contentConfig;
+            inputs.contentConfigPermissions = state.contentConfigPermissions;
+            inputs.inputBucket = state.inputBucket;
+            inputs.name = state.name;
+            inputs.notifications = state.notifications;
+            inputs.outputBucket = state.outputBucket;
+            inputs.role = state.role;
+            inputs.thumbnailConfig = state.thumbnailConfig;
+            inputs.thumbnailConfigPermissions = state.thumbnailConfigPermissions;
         } else {
-            const args = argsOrState as PipelineArgs | undefined;
-            if (!args || args.inputBucket === undefined) {
+            const args = argsOrState as PipelineArgs;
+            if (args.inputBucket === undefined) {
                 throw new Error("Missing required property 'inputBucket'");
             }
-            if (!args || args.role === undefined) {
+            if (args.role === undefined) {
                 throw new Error("Missing required property 'role'");
             }
-            inputs["awsKmsKeyArn"] = args ? args.awsKmsKeyArn : undefined;
-            inputs["contentConfig"] = args ? args.contentConfig : undefined;
-            inputs["contentConfigPermissions"] = args ? args.contentConfigPermissions : undefined;
-            inputs["inputBucket"] = args ? args.inputBucket : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notifications"] = args ? args.notifications : undefined;
-            inputs["outputBucket"] = args ? args.outputBucket : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["thumbnailConfig"] = args ? args.thumbnailConfig : undefined;
-            inputs["thumbnailConfigPermissions"] = args ? args.thumbnailConfigPermissions : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.awsKmsKeyArn = args.awsKmsKeyArn;
+            inputs.contentConfig = args.contentConfig;
+            inputs.contentConfigPermissions = args.contentConfigPermissions;
+            inputs.inputBucket = args.inputBucket;
+            inputs.name = args.name;
+            inputs.notifications = args.notifications;
+            inputs.outputBucket = args.outputBucket;
+            inputs.role = args.role;
+            inputs.thumbnailConfig = args.thumbnailConfig;
+            inputs.thumbnailConfigPermissions = args.thumbnailConfigPermissions;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Pipeline.__pulumiType, name, inputs, opts);
     }
 }

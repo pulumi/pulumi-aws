@@ -7,37 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
  * This resource accepts ownership of a public virtual interface created by another AWS account.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const accepter = new aws.Provider("accepter", {});
- * const accepterCallerIdentity = aws.getCallerIdentity({provider: accepter});
- * // Creator's side of the VIF
- * const creator = new aws.directconnect.HostedPublicVirtualInterface("creator", {
- *     addressFamily: "ipv4",
- *     amazonAddress: "175.45.176.2/30",
- *     bgpAsn: 65352,
- *     connectionId: "dxcon-zzzzzzzz",
- *     customerAddress: "175.45.176.1/30",
- *     ownerAccountId: accepterCallerIdentity.accountId,
- *     routeFilterPrefixes: [
- *         "210.52.109.0/24",
- *         "175.45.176.0/22",
- *     ],
- *     vlan: 4094,
- * });
- * // Accepter's side of the VIF.
- * const accepterHostedPublicVirtualInterfaceAccepter = new aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepter", {
- *     tags: {
- *         Side: "Accepter",
- *     },
- *     virtualInterfaceId: creator.id,
- * }, {provider: accepter});
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_public_virtual_interface_accepter.html.markdown.
  */
@@ -88,30 +57,24 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: HostedPublicVirtualInterfaceAccepterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: HostedPublicVirtualInterfaceAccepterArgs | HostedPublicVirtualInterfaceAccepterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as HostedPublicVirtualInterfaceAccepterState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
+    constructor(name: string, args: HostedPublicVirtualInterfaceAccepterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: HostedPublicVirtualInterfaceAccepterArgs | HostedPublicVirtualInterfaceAccepterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as HostedPublicVirtualInterfaceAccepterState;
+            inputs.arn = state.arn;
+            inputs.tags = state.tags;
+            inputs.virtualInterfaceId = state.virtualInterfaceId;
         } else {
-            const args = argsOrState as HostedPublicVirtualInterfaceAccepterArgs | undefined;
-            if (!args || args.virtualInterfaceId === undefined) {
+            const args = argsOrState as HostedPublicVirtualInterfaceAccepterArgs;
+            if (args.virtualInterfaceId === undefined) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.tags = args.tags;
+            inputs.virtualInterfaceId = args.virtualInterfaceId;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(HostedPublicVirtualInterfaceAccepter.__pulumiType, name, inputs, opts);
     }
 }

@@ -19,9 +19,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const bucket = new aws.s3.Bucket("bucket", {
- *     acl: "private",
- * });
  * const firehoseRole = new aws.iam.Role("firehoseRole", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -54,6 +51,9 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
+ * const bucket = new aws.s3.Bucket("bucket", {
+ *     acl: "private",
+ * });
  * const lambdaProcessor = new aws.lambda.Function("lambdaProcessor", {
  *     code: new pulumi.asset.FileArchive("lambda.zip"),
  *     handler: "exports.handler",
@@ -85,9 +85,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const bucket = new aws.s3.Bucket("bucket", {
- *     acl: "private",
- * });
  * const firehoseRole = new aws.iam.Role("firehoseRole", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -103,6 +100,9 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ * });
+ * const bucket = new aws.s3.Bucket("bucket", {
+ *     acl: "private",
  * });
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "s3",
@@ -302,50 +302,44 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FirehoseDeliveryStreamArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FirehoseDeliveryStreamArgs | FirehoseDeliveryStreamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as FirehoseDeliveryStreamState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["destination"] = state ? state.destination : undefined;
-            inputs["destinationId"] = state ? state.destinationId : undefined;
-            inputs["elasticsearchConfiguration"] = state ? state.elasticsearchConfiguration : undefined;
-            inputs["extendedS3Configuration"] = state ? state.extendedS3Configuration : undefined;
-            inputs["kinesisSourceConfiguration"] = state ? state.kinesisSourceConfiguration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["redshiftConfiguration"] = state ? state.redshiftConfiguration : undefined;
-            inputs["s3Configuration"] = state ? state.s3Configuration : undefined;
-            inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
-            inputs["splunkConfiguration"] = state ? state.splunkConfiguration : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["versionId"] = state ? state.versionId : undefined;
+    constructor(name: string, args: FirehoseDeliveryStreamArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: FirehoseDeliveryStreamArgs | FirehoseDeliveryStreamState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as FirehoseDeliveryStreamState;
+            inputs.arn = state.arn;
+            inputs.destination = state.destination;
+            inputs.destinationId = state.destinationId;
+            inputs.elasticsearchConfiguration = state.elasticsearchConfiguration;
+            inputs.extendedS3Configuration = state.extendedS3Configuration;
+            inputs.kinesisSourceConfiguration = state.kinesisSourceConfiguration;
+            inputs.name = state.name;
+            inputs.redshiftConfiguration = state.redshiftConfiguration;
+            inputs.s3Configuration = state.s3Configuration;
+            inputs.serverSideEncryption = state.serverSideEncryption;
+            inputs.splunkConfiguration = state.splunkConfiguration;
+            inputs.tags = state.tags;
+            inputs.versionId = state.versionId;
         } else {
-            const args = argsOrState as FirehoseDeliveryStreamArgs | undefined;
-            if (!args || args.destination === undefined) {
+            const args = argsOrState as FirehoseDeliveryStreamArgs;
+            if (args.destination === undefined) {
                 throw new Error("Missing required property 'destination'");
             }
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["destinationId"] = args ? args.destinationId : undefined;
-            inputs["elasticsearchConfiguration"] = args ? args.elasticsearchConfiguration : undefined;
-            inputs["extendedS3Configuration"] = args ? args.extendedS3Configuration : undefined;
-            inputs["kinesisSourceConfiguration"] = args ? args.kinesisSourceConfiguration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["redshiftConfiguration"] = args ? args.redshiftConfiguration : undefined;
-            inputs["s3Configuration"] = args ? args.s3Configuration : undefined;
-            inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
-            inputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["versionId"] = args ? args.versionId : undefined;
+            inputs.arn = args.arn;
+            inputs.destination = args.destination;
+            inputs.destinationId = args.destinationId;
+            inputs.elasticsearchConfiguration = args.elasticsearchConfiguration;
+            inputs.extendedS3Configuration = args.extendedS3Configuration;
+            inputs.kinesisSourceConfiguration = args.kinesisSourceConfiguration;
+            inputs.name = args.name;
+            inputs.redshiftConfiguration = args.redshiftConfiguration;
+            inputs.s3Configuration = args.s3Configuration;
+            inputs.serverSideEncryption = args.serverSideEncryption;
+            inputs.splunkConfiguration = args.splunkConfiguration;
+            inputs.tags = args.tags;
+            inputs.versionId = args.versionId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(FirehoseDeliveryStream.__pulumiType, name, inputs, opts);
     }
 }

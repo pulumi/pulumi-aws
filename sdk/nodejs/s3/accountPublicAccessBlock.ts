@@ -85,31 +85,25 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AccountPublicAccessBlockArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AccountPublicAccessBlockArgs | AccountPublicAccessBlockState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AccountPublicAccessBlockState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["blockPublicAcls"] = state ? state.blockPublicAcls : undefined;
-            inputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;
-            inputs["ignorePublicAcls"] = state ? state.ignorePublicAcls : undefined;
-            inputs["restrictPublicBuckets"] = state ? state.restrictPublicBuckets : undefined;
+    constructor(name: string, args?: AccountPublicAccessBlockArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AccountPublicAccessBlockArgs | AccountPublicAccessBlockState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AccountPublicAccessBlockState;
+            inputs.accountId = state.accountId;
+            inputs.blockPublicAcls = state.blockPublicAcls;
+            inputs.blockPublicPolicy = state.blockPublicPolicy;
+            inputs.ignorePublicAcls = state.ignorePublicAcls;
+            inputs.restrictPublicBuckets = state.restrictPublicBuckets;
         } else {
-            const args = argsOrState as AccountPublicAccessBlockArgs | undefined;
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["blockPublicAcls"] = args ? args.blockPublicAcls : undefined;
-            inputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;
-            inputs["ignorePublicAcls"] = args ? args.ignorePublicAcls : undefined;
-            inputs["restrictPublicBuckets"] = args ? args.restrictPublicBuckets : undefined;
+            const args = argsOrState as AccountPublicAccessBlockArgs;
+            inputs.accountId = args.accountId;
+            inputs.blockPublicAcls = args.blockPublicAcls;
+            inputs.blockPublicPolicy = args.blockPublicPolicy;
+            inputs.ignorePublicAcls = args.ignorePublicAcls;
+            inputs.restrictPublicBuckets = args.restrictPublicBuckets;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(AccountPublicAccessBlock.__pulumiType, name, inputs, opts);
     }
 }

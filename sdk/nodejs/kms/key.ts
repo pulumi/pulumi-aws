@@ -97,39 +97,33 @@ export class Key extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: KeyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: KeyArgs | KeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as KeyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enableKeyRotation"] = state ? state.enableKeyRotation : undefined;
-            inputs["isEnabled"] = state ? state.isEnabled : undefined;
-            inputs["keyId"] = state ? state.keyId : undefined;
-            inputs["keyUsage"] = state ? state.keyUsage : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: KeyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: KeyArgs | KeyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as KeyState;
+            inputs.arn = state.arn;
+            inputs.deletionWindowInDays = state.deletionWindowInDays;
+            inputs.description = state.description;
+            inputs.enableKeyRotation = state.enableKeyRotation;
+            inputs.isEnabled = state.isEnabled;
+            inputs.keyId = state.keyId;
+            inputs.keyUsage = state.keyUsage;
+            inputs.policy = state.policy;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as KeyArgs | undefined;
-            inputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enableKeyRotation"] = args ? args.enableKeyRotation : undefined;
-            inputs["isEnabled"] = args ? args.isEnabled : undefined;
-            inputs["keyUsage"] = args ? args.keyUsage : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["keyId"] = undefined /*out*/;
+            const args = argsOrState as KeyArgs;
+            inputs.deletionWindowInDays = args.deletionWindowInDays;
+            inputs.description = args.description;
+            inputs.enableKeyRotation = args.enableKeyRotation;
+            inputs.isEnabled = args.isEnabled;
+            inputs.keyUsage = args.keyUsage;
+            inputs.policy = args.policy;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.keyId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Key.__pulumiType, name, inputs, opts);
     }
 }

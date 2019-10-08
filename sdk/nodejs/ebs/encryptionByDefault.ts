@@ -61,23 +61,17 @@ export class EncryptionByDefault extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: EncryptionByDefaultArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EncryptionByDefaultArgs | EncryptionByDefaultState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EncryptionByDefaultState | undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
+    constructor(name: string, args?: EncryptionByDefaultArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EncryptionByDefaultArgs | EncryptionByDefaultState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EncryptionByDefaultState;
+            inputs.enabled = state.enabled;
         } else {
-            const args = argsOrState as EncryptionByDefaultArgs | undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
+            const args = argsOrState as EncryptionByDefaultArgs;
+            inputs.enabled = args.enabled;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EncryptionByDefault.__pulumiType, name, inputs, opts);
     }
 }

@@ -71,31 +71,25 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpcDhcpOptionsAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcDhcpOptionsAssociationArgs | VpcDhcpOptionsAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpcDhcpOptionsAssociationState | undefined;
-            inputs["dhcpOptionsId"] = state ? state.dhcpOptionsId : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: VpcDhcpOptionsAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VpcDhcpOptionsAssociationArgs | VpcDhcpOptionsAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VpcDhcpOptionsAssociationState;
+            inputs.dhcpOptionsId = state.dhcpOptionsId;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as VpcDhcpOptionsAssociationArgs | undefined;
-            if (!args || args.dhcpOptionsId === undefined) {
+            const args = argsOrState as VpcDhcpOptionsAssociationArgs;
+            if (args.dhcpOptionsId === undefined) {
                 throw new Error("Missing required property 'dhcpOptionsId'");
             }
-            if (!args || args.vpcId === undefined) {
+            if (args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["dhcpOptionsId"] = args ? args.dhcpOptionsId : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs.dhcpOptionsId = args.dhcpOptionsId;
+            inputs.vpcId = args.vpcId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VpcDhcpOptionsAssociation.__pulumiType, name, inputs, opts);
     }
 }

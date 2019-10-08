@@ -222,68 +222,62 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MaintenanceWindowTaskArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MaintenanceWindowTaskArgs | MaintenanceWindowTaskState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MaintenanceWindowTaskState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["loggingInfo"] = state ? state.loggingInfo : undefined;
-            inputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
-            inputs["maxErrors"] = state ? state.maxErrors : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
-            inputs["targets"] = state ? state.targets : undefined;
-            inputs["taskArn"] = state ? state.taskArn : undefined;
-            inputs["taskInvocationParameters"] = state ? state.taskInvocationParameters : undefined;
-            inputs["taskParameters"] = state ? state.taskParameters : undefined;
-            inputs["taskType"] = state ? state.taskType : undefined;
-            inputs["windowId"] = state ? state.windowId : undefined;
+    constructor(name: string, args: MaintenanceWindowTaskArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: MaintenanceWindowTaskArgs | MaintenanceWindowTaskState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as MaintenanceWindowTaskState;
+            inputs.description = state.description;
+            inputs.loggingInfo = state.loggingInfo;
+            inputs.maxConcurrency = state.maxConcurrency;
+            inputs.maxErrors = state.maxErrors;
+            inputs.name = state.name;
+            inputs.priority = state.priority;
+            inputs.serviceRoleArn = state.serviceRoleArn;
+            inputs.targets = state.targets;
+            inputs.taskArn = state.taskArn;
+            inputs.taskInvocationParameters = state.taskInvocationParameters;
+            inputs.taskParameters = state.taskParameters;
+            inputs.taskType = state.taskType;
+            inputs.windowId = state.windowId;
         } else {
-            const args = argsOrState as MaintenanceWindowTaskArgs | undefined;
-            if (!args || args.maxConcurrency === undefined) {
+            const args = argsOrState as MaintenanceWindowTaskArgs;
+            if (args.maxConcurrency === undefined) {
                 throw new Error("Missing required property 'maxConcurrency'");
             }
-            if (!args || args.maxErrors === undefined) {
+            if (args.maxErrors === undefined) {
                 throw new Error("Missing required property 'maxErrors'");
             }
-            if (!args || args.serviceRoleArn === undefined) {
+            if (args.serviceRoleArn === undefined) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
-            if (!args || args.targets === undefined) {
+            if (args.targets === undefined) {
                 throw new Error("Missing required property 'targets'");
             }
-            if (!args || args.taskArn === undefined) {
+            if (args.taskArn === undefined) {
                 throw new Error("Missing required property 'taskArn'");
             }
-            if (!args || args.taskType === undefined) {
+            if (args.taskType === undefined) {
                 throw new Error("Missing required property 'taskType'");
             }
-            if (!args || args.windowId === undefined) {
+            if (args.windowId === undefined) {
                 throw new Error("Missing required property 'windowId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["loggingInfo"] = args ? args.loggingInfo : undefined;
-            inputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
-            inputs["maxErrors"] = args ? args.maxErrors : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
-            inputs["taskArn"] = args ? args.taskArn : undefined;
-            inputs["taskInvocationParameters"] = args ? args.taskInvocationParameters : undefined;
-            inputs["taskParameters"] = args ? args.taskParameters : undefined;
-            inputs["taskType"] = args ? args.taskType : undefined;
-            inputs["windowId"] = args ? args.windowId : undefined;
+            inputs.description = args.description;
+            inputs.loggingInfo = args.loggingInfo;
+            inputs.maxConcurrency = args.maxConcurrency;
+            inputs.maxErrors = args.maxErrors;
+            inputs.name = args.name;
+            inputs.priority = args.priority;
+            inputs.serviceRoleArn = args.serviceRoleArn;
+            inputs.targets = args.targets;
+            inputs.taskArn = args.taskArn;
+            inputs.taskInvocationParameters = args.taskInvocationParameters;
+            inputs.taskParameters = args.taskParameters;
+            inputs.taskType = args.taskType;
+            inputs.windowId = args.windowId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(MaintenanceWindowTask.__pulumiType, name, inputs, opts);
     }
 }

@@ -76,29 +76,23 @@ export class Template extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TemplateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TemplateArgs | TemplateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as TemplateState | undefined;
-            inputs["html"] = state ? state.html : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["subject"] = state ? state.subject : undefined;
-            inputs["text"] = state ? state.text : undefined;
+    constructor(name: string, args?: TemplateArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: TemplateArgs | TemplateState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as TemplateState;
+            inputs.html = state.html;
+            inputs.name = state.name;
+            inputs.subject = state.subject;
+            inputs.text = state.text;
         } else {
-            const args = argsOrState as TemplateArgs | undefined;
-            inputs["html"] = args ? args.html : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["subject"] = args ? args.subject : undefined;
-            inputs["text"] = args ? args.text : undefined;
+            const args = argsOrState as TemplateArgs;
+            inputs.html = args.html;
+            inputs.name = args.name;
+            inputs.subject = args.subject;
+            inputs.text = args.text;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Template.__pulumiType, name, inputs, opts);
     }
 }

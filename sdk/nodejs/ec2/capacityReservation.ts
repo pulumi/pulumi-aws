@@ -108,55 +108,49 @@ export class CapacityReservation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CapacityReservationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CapacityReservationArgs | CapacityReservationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CapacityReservationState | undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
-            inputs["endDate"] = state ? state.endDate : undefined;
-            inputs["endDateType"] = state ? state.endDateType : undefined;
-            inputs["ephemeralStorage"] = state ? state.ephemeralStorage : undefined;
-            inputs["instanceCount"] = state ? state.instanceCount : undefined;
-            inputs["instanceMatchCriteria"] = state ? state.instanceMatchCriteria : undefined;
-            inputs["instancePlatform"] = state ? state.instancePlatform : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tenancy"] = state ? state.tenancy : undefined;
+    constructor(name: string, args: CapacityReservationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: CapacityReservationArgs | CapacityReservationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as CapacityReservationState;
+            inputs.availabilityZone = state.availabilityZone;
+            inputs.ebsOptimized = state.ebsOptimized;
+            inputs.endDate = state.endDate;
+            inputs.endDateType = state.endDateType;
+            inputs.ephemeralStorage = state.ephemeralStorage;
+            inputs.instanceCount = state.instanceCount;
+            inputs.instanceMatchCriteria = state.instanceMatchCriteria;
+            inputs.instancePlatform = state.instancePlatform;
+            inputs.instanceType = state.instanceType;
+            inputs.tags = state.tags;
+            inputs.tenancy = state.tenancy;
         } else {
-            const args = argsOrState as CapacityReservationArgs | undefined;
-            if (!args || args.availabilityZone === undefined) {
+            const args = argsOrState as CapacityReservationArgs;
+            if (args.availabilityZone === undefined) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            if (!args || args.instanceCount === undefined) {
+            if (args.instanceCount === undefined) {
                 throw new Error("Missing required property 'instanceCount'");
             }
-            if (!args || args.instancePlatform === undefined) {
+            if (args.instancePlatform === undefined) {
                 throw new Error("Missing required property 'instancePlatform'");
             }
-            if (!args || args.instanceType === undefined) {
+            if (args.instanceType === undefined) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            inputs["endDate"] = args ? args.endDate : undefined;
-            inputs["endDateType"] = args ? args.endDateType : undefined;
-            inputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
-            inputs["instanceCount"] = args ? args.instanceCount : undefined;
-            inputs["instanceMatchCriteria"] = args ? args.instanceMatchCriteria : undefined;
-            inputs["instancePlatform"] = args ? args.instancePlatform : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tenancy"] = args ? args.tenancy : undefined;
+            inputs.availabilityZone = args.availabilityZone;
+            inputs.ebsOptimized = args.ebsOptimized;
+            inputs.endDate = args.endDate;
+            inputs.endDateType = args.endDateType;
+            inputs.ephemeralStorage = args.ephemeralStorage;
+            inputs.instanceCount = args.instanceCount;
+            inputs.instanceMatchCriteria = args.instanceMatchCriteria;
+            inputs.instancePlatform = args.instancePlatform;
+            inputs.instanceType = args.instanceType;
+            inputs.tags = args.tags;
+            inputs.tenancy = args.tenancy;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(CapacityReservation.__pulumiType, name, inputs, opts);
     }
 }

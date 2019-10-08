@@ -80,38 +80,32 @@ export class BaiduChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BaiduChannelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BaiduChannelArgs | BaiduChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as BaiduChannelState | undefined;
-            inputs["apiKey"] = state ? state.apiKey : undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["secretKey"] = state ? state.secretKey : undefined;
+    constructor(name: string, args: BaiduChannelArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: BaiduChannelArgs | BaiduChannelState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as BaiduChannelState;
+            inputs.apiKey = state.apiKey;
+            inputs.applicationId = state.applicationId;
+            inputs.enabled = state.enabled;
+            inputs.secretKey = state.secretKey;
         } else {
-            const args = argsOrState as BaiduChannelArgs | undefined;
-            if (!args || args.apiKey === undefined) {
+            const args = argsOrState as BaiduChannelArgs;
+            if (args.apiKey === undefined) {
                 throw new Error("Missing required property 'apiKey'");
             }
-            if (!args || args.applicationId === undefined) {
+            if (args.applicationId === undefined) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (!args || args.secretKey === undefined) {
+            if (args.secretKey === undefined) {
                 throw new Error("Missing required property 'secretKey'");
             }
-            inputs["apiKey"] = args ? args.apiKey : undefined;
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["secretKey"] = args ? args.secretKey : undefined;
+            inputs.apiKey = args.apiKey;
+            inputs.applicationId = args.applicationId;
+            inputs.enabled = args.enabled;
+            inputs.secretKey = args.secretKey;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(BaiduChannel.__pulumiType, name, inputs, opts);
     }
 }

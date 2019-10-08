@@ -79,41 +79,35 @@ export class RdsDbInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RdsDbInstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RdsDbInstanceArgs | RdsDbInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RdsDbInstanceState | undefined;
-            inputs["dbPassword"] = state ? state.dbPassword : undefined;
-            inputs["dbUser"] = state ? state.dbUser : undefined;
-            inputs["rdsDbInstanceArn"] = state ? state.rdsDbInstanceArn : undefined;
-            inputs["stackId"] = state ? state.stackId : undefined;
+    constructor(name: string, args: RdsDbInstanceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RdsDbInstanceArgs | RdsDbInstanceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RdsDbInstanceState;
+            inputs.dbPassword = state.dbPassword;
+            inputs.dbUser = state.dbUser;
+            inputs.rdsDbInstanceArn = state.rdsDbInstanceArn;
+            inputs.stackId = state.stackId;
         } else {
-            const args = argsOrState as RdsDbInstanceArgs | undefined;
-            if (!args || args.dbPassword === undefined) {
+            const args = argsOrState as RdsDbInstanceArgs;
+            if (args.dbPassword === undefined) {
                 throw new Error("Missing required property 'dbPassword'");
             }
-            if (!args || args.dbUser === undefined) {
+            if (args.dbUser === undefined) {
                 throw new Error("Missing required property 'dbUser'");
             }
-            if (!args || args.rdsDbInstanceArn === undefined) {
+            if (args.rdsDbInstanceArn === undefined) {
                 throw new Error("Missing required property 'rdsDbInstanceArn'");
             }
-            if (!args || args.stackId === undefined) {
+            if (args.stackId === undefined) {
                 throw new Error("Missing required property 'stackId'");
             }
-            inputs["dbPassword"] = args ? args.dbPassword : undefined;
-            inputs["dbUser"] = args ? args.dbUser : undefined;
-            inputs["rdsDbInstanceArn"] = args ? args.rdsDbInstanceArn : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
+            inputs.dbPassword = args.dbPassword;
+            inputs.dbUser = args.dbUser;
+            inputs.rdsDbInstanceArn = args.rdsDbInstanceArn;
+            inputs.stackId = args.stackId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RdsDbInstance.__pulumiType, name, inputs, opts);
     }
 }

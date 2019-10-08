@@ -79,38 +79,32 @@ export class AdmChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AdmChannelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AdmChannelArgs | AdmChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AdmChannelState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["clientId"] = state ? state.clientId : undefined;
-            inputs["clientSecret"] = state ? state.clientSecret : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
+    constructor(name: string, args: AdmChannelArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AdmChannelArgs | AdmChannelState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AdmChannelState;
+            inputs.applicationId = state.applicationId;
+            inputs.clientId = state.clientId;
+            inputs.clientSecret = state.clientSecret;
+            inputs.enabled = state.enabled;
         } else {
-            const args = argsOrState as AdmChannelArgs | undefined;
-            if (!args || args.applicationId === undefined) {
+            const args = argsOrState as AdmChannelArgs;
+            if (args.applicationId === undefined) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (!args || args.clientId === undefined) {
+            if (args.clientId === undefined) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if (!args || args.clientSecret === undefined) {
+            if (args.clientSecret === undefined) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
+            inputs.applicationId = args.applicationId;
+            inputs.clientId = args.clientId;
+            inputs.clientSecret = args.clientSecret;
+            inputs.enabled = args.enabled;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(AdmChannel.__pulumiType, name, inputs, opts);
     }
 }

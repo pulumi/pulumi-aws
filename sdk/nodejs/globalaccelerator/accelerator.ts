@@ -83,31 +83,25 @@ export class Accelerator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AcceleratorArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AcceleratorArgs | AcceleratorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AcceleratorState | undefined;
-            inputs["attributes"] = state ? state.attributes : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["ipAddressType"] = state ? state.ipAddressType : undefined;
-            inputs["ipSets"] = state ? state.ipSets : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args?: AcceleratorArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AcceleratorArgs | AcceleratorState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AcceleratorState;
+            inputs.attributes = state.attributes;
+            inputs.enabled = state.enabled;
+            inputs.ipAddressType = state.ipAddressType;
+            inputs.ipSets = state.ipSets;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as AcceleratorArgs | undefined;
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ipSets"] = undefined /*out*/;
+            const args = argsOrState as AcceleratorArgs;
+            inputs.attributes = args.attributes;
+            inputs.enabled = args.enabled;
+            inputs.ipAddressType = args.ipAddressType;
+            inputs.name = args.name;
+            inputs.ipSets = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Accelerator.__pulumiType, name, inputs, opts);
     }
 }

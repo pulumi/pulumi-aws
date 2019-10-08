@@ -74,25 +74,19 @@ export class GeoMatchSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: GeoMatchSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GeoMatchSetArgs | GeoMatchSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GeoMatchSetState | undefined;
-            inputs["geoMatchConstraints"] = state ? state.geoMatchConstraints : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args?: GeoMatchSetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GeoMatchSetArgs | GeoMatchSetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GeoMatchSetState;
+            inputs.geoMatchConstraints = state.geoMatchConstraints;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as GeoMatchSetArgs | undefined;
-            inputs["geoMatchConstraints"] = args ? args.geoMatchConstraints : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            const args = argsOrState as GeoMatchSetArgs;
+            inputs.geoMatchConstraints = args.geoMatchConstraints;
+            inputs.name = args.name;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(GeoMatchSet.__pulumiType, name, inputs, opts);
     }
 }

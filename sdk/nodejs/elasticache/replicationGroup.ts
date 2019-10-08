@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  *     parameterGroupName: "default.redis3.2",
  *     port: 6379,
  *     replicationGroupDescription: "test description",
- * }, {ignoreChanges: ["numberCacheClusters"]});
+ * });
  * const replica = new aws.elasticache.Cluster("replica", {
  *     replicationGroupId: example.id,
  * });
@@ -260,82 +260,76 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReplicationGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ReplicationGroupArgs | ReplicationGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ReplicationGroupState | undefined;
-            inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            inputs["atRestEncryptionEnabled"] = state ? state.atRestEncryptionEnabled : undefined;
-            inputs["authToken"] = state ? state.authToken : undefined;
-            inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
-            inputs["automaticFailoverEnabled"] = state ? state.automaticFailoverEnabled : undefined;
-            inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
-            inputs["clusterMode"] = state ? state.clusterMode : undefined;
-            inputs["configurationEndpointAddress"] = state ? state.configurationEndpointAddress : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
-            inputs["memberClusters"] = state ? state.memberClusters : undefined;
-            inputs["nodeType"] = state ? state.nodeType : undefined;
-            inputs["notificationTopicArn"] = state ? state.notificationTopicArn : undefined;
-            inputs["numberCacheClusters"] = state ? state.numberCacheClusters : undefined;
-            inputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["primaryEndpointAddress"] = state ? state.primaryEndpointAddress : undefined;
-            inputs["replicationGroupDescription"] = state ? state.replicationGroupDescription : undefined;
-            inputs["replicationGroupId"] = state ? state.replicationGroupId : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
-            inputs["snapshotArns"] = state ? state.snapshotArns : undefined;
-            inputs["snapshotName"] = state ? state.snapshotName : undefined;
-            inputs["snapshotRetentionLimit"] = state ? state.snapshotRetentionLimit : undefined;
-            inputs["snapshotWindow"] = state ? state.snapshotWindow : undefined;
-            inputs["subnetGroupName"] = state ? state.subnetGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["transitEncryptionEnabled"] = state ? state.transitEncryptionEnabled : undefined;
+    constructor(name: string, args: ReplicationGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ReplicationGroupArgs | ReplicationGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ReplicationGroupState;
+            inputs.applyImmediately = state.applyImmediately;
+            inputs.atRestEncryptionEnabled = state.atRestEncryptionEnabled;
+            inputs.authToken = state.authToken;
+            inputs.autoMinorVersionUpgrade = state.autoMinorVersionUpgrade;
+            inputs.automaticFailoverEnabled = state.automaticFailoverEnabled;
+            inputs.availabilityZones = state.availabilityZones;
+            inputs.clusterMode = state.clusterMode;
+            inputs.configurationEndpointAddress = state.configurationEndpointAddress;
+            inputs.engine = state.engine;
+            inputs.engineVersion = state.engineVersion;
+            inputs.maintenanceWindow = state.maintenanceWindow;
+            inputs.memberClusters = state.memberClusters;
+            inputs.nodeType = state.nodeType;
+            inputs.notificationTopicArn = state.notificationTopicArn;
+            inputs.numberCacheClusters = state.numberCacheClusters;
+            inputs.parameterGroupName = state.parameterGroupName;
+            inputs.port = state.port;
+            inputs.primaryEndpointAddress = state.primaryEndpointAddress;
+            inputs.replicationGroupDescription = state.replicationGroupDescription;
+            inputs.replicationGroupId = state.replicationGroupId;
+            inputs.securityGroupIds = state.securityGroupIds;
+            inputs.securityGroupNames = state.securityGroupNames;
+            inputs.snapshotArns = state.snapshotArns;
+            inputs.snapshotName = state.snapshotName;
+            inputs.snapshotRetentionLimit = state.snapshotRetentionLimit;
+            inputs.snapshotWindow = state.snapshotWindow;
+            inputs.subnetGroupName = state.subnetGroupName;
+            inputs.tags = state.tags;
+            inputs.transitEncryptionEnabled = state.transitEncryptionEnabled;
         } else {
-            const args = argsOrState as ReplicationGroupArgs | undefined;
-            if (!args || args.replicationGroupDescription === undefined) {
+            const args = argsOrState as ReplicationGroupArgs;
+            if (args.replicationGroupDescription === undefined) {
                 throw new Error("Missing required property 'replicationGroupDescription'");
             }
-            inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            inputs["atRestEncryptionEnabled"] = args ? args.atRestEncryptionEnabled : undefined;
-            inputs["authToken"] = args ? args.authToken : undefined;
-            inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            inputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
-            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            inputs["clusterMode"] = args ? args.clusterMode : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            inputs["nodeType"] = args ? args.nodeType : undefined;
-            inputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
-            inputs["numberCacheClusters"] = args ? args.numberCacheClusters : undefined;
-            inputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["replicationGroupDescription"] = args ? args.replicationGroupDescription : undefined;
-            inputs["replicationGroupId"] = args ? args.replicationGroupId : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
-            inputs["snapshotArns"] = args ? args.snapshotArns : undefined;
-            inputs["snapshotName"] = args ? args.snapshotName : undefined;
-            inputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
-            inputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
-            inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
-            inputs["configurationEndpointAddress"] = undefined /*out*/;
-            inputs["memberClusters"] = undefined /*out*/;
-            inputs["primaryEndpointAddress"] = undefined /*out*/;
+            inputs.applyImmediately = args.applyImmediately;
+            inputs.atRestEncryptionEnabled = args.atRestEncryptionEnabled;
+            inputs.authToken = args.authToken;
+            inputs.autoMinorVersionUpgrade = args.autoMinorVersionUpgrade;
+            inputs.automaticFailoverEnabled = args.automaticFailoverEnabled;
+            inputs.availabilityZones = args.availabilityZones;
+            inputs.clusterMode = args.clusterMode;
+            inputs.engine = args.engine;
+            inputs.engineVersion = args.engineVersion;
+            inputs.maintenanceWindow = args.maintenanceWindow;
+            inputs.nodeType = args.nodeType;
+            inputs.notificationTopicArn = args.notificationTopicArn;
+            inputs.numberCacheClusters = args.numberCacheClusters;
+            inputs.parameterGroupName = args.parameterGroupName;
+            inputs.port = args.port;
+            inputs.replicationGroupDescription = args.replicationGroupDescription;
+            inputs.replicationGroupId = args.replicationGroupId;
+            inputs.securityGroupIds = args.securityGroupIds;
+            inputs.securityGroupNames = args.securityGroupNames;
+            inputs.snapshotArns = args.snapshotArns;
+            inputs.snapshotName = args.snapshotName;
+            inputs.snapshotRetentionLimit = args.snapshotRetentionLimit;
+            inputs.snapshotWindow = args.snapshotWindow;
+            inputs.subnetGroupName = args.subnetGroupName;
+            inputs.tags = args.tags;
+            inputs.transitEncryptionEnabled = args.transitEncryptionEnabled;
+            inputs.configurationEndpointAddress = undefined /*out*/;
+            inputs.memberClusters = undefined /*out*/;
+            inputs.primaryEndpointAddress = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ReplicationGroup.__pulumiType, name, inputs, opts);
     }
 }

@@ -145,48 +145,42 @@ export class Role extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RoleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RoleArgs | RoleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RoleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["assumeRolePolicy"] = state ? state.assumeRolePolicy : undefined;
-            inputs["createDate"] = state ? state.createDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["forceDetachPolicies"] = state ? state.forceDetachPolicies : undefined;
-            inputs["maxSessionDuration"] = state ? state.maxSessionDuration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["uniqueId"] = state ? state.uniqueId : undefined;
+    constructor(name: string, args: RoleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RoleArgs | RoleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RoleState;
+            inputs.arn = state.arn;
+            inputs.assumeRolePolicy = state.assumeRolePolicy;
+            inputs.createDate = state.createDate;
+            inputs.description = state.description;
+            inputs.forceDetachPolicies = state.forceDetachPolicies;
+            inputs.maxSessionDuration = state.maxSessionDuration;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.path = state.path;
+            inputs.permissionsBoundary = state.permissionsBoundary;
+            inputs.tags = state.tags;
+            inputs.uniqueId = state.uniqueId;
         } else {
-            const args = argsOrState as RoleArgs | undefined;
-            if (!args || args.assumeRolePolicy === undefined) {
+            const args = argsOrState as RoleArgs;
+            if (args.assumeRolePolicy === undefined) {
                 throw new Error("Missing required property 'assumeRolePolicy'");
             }
-            inputs["assumeRolePolicy"] = args ? args.assumeRolePolicy : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["forceDetachPolicies"] = args ? args.forceDetachPolicies : undefined;
-            inputs["maxSessionDuration"] = args ? args.maxSessionDuration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createDate"] = undefined /*out*/;
-            inputs["uniqueId"] = undefined /*out*/;
+            inputs.assumeRolePolicy = args.assumeRolePolicy;
+            inputs.description = args.description;
+            inputs.forceDetachPolicies = args.forceDetachPolicies;
+            inputs.maxSessionDuration = args.maxSessionDuration;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.path = args.path;
+            inputs.permissionsBoundary = args.permissionsBoundary;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.createDate = undefined /*out*/;
+            inputs.uniqueId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Role.__pulumiType, name, inputs, opts);
     }
 }

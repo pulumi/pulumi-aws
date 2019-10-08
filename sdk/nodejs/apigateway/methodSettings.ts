@@ -116,41 +116,35 @@ export class MethodSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MethodSettingsArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MethodSettingsArgs | MethodSettingsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MethodSettingsState | undefined;
-            inputs["methodPath"] = state ? state.methodPath : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
-            inputs["stageName"] = state ? state.stageName : undefined;
+    constructor(name: string, args: MethodSettingsArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: MethodSettingsArgs | MethodSettingsState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as MethodSettingsState;
+            inputs.methodPath = state.methodPath;
+            inputs.restApi = state.restApi;
+            inputs.settings = state.settings;
+            inputs.stageName = state.stageName;
         } else {
-            const args = argsOrState as MethodSettingsArgs | undefined;
-            if (!args || args.methodPath === undefined) {
+            const args = argsOrState as MethodSettingsArgs;
+            if (args.methodPath === undefined) {
                 throw new Error("Missing required property 'methodPath'");
             }
-            if (!args || args.restApi === undefined) {
+            if (args.restApi === undefined) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if (!args || args.settings === undefined) {
+            if (args.settings === undefined) {
                 throw new Error("Missing required property 'settings'");
             }
-            if (!args || args.stageName === undefined) {
+            if (args.stageName === undefined) {
                 throw new Error("Missing required property 'stageName'");
             }
-            inputs["methodPath"] = args ? args.methodPath : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
-            inputs["stageName"] = args ? args.stageName : undefined;
+            inputs.methodPath = args.methodPath;
+            inputs.restApi = args.restApi;
+            inputs.settings = args.settings;
+            inputs.stageName = args.stageName;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(MethodSettings.__pulumiType, name, inputs, opts);
     }
 }

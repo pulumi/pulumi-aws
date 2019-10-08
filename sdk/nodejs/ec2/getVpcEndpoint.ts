@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * }));
  * const privateS3 = new aws.ec2.VpcEndpointRouteTableAssociation("privateS3", {
  *     routeTableId: aws_route_table_private.id,
- *     vpcEndpointId: s3.id!,
+ *     vpcEndpointId: s3.id,
  * });
  * ```
  *

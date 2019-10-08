@@ -137,51 +137,45 @@ export class EventSourceMapping extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventSourceMappingArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventSourceMappingArgs | EventSourceMappingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EventSourceMappingState | undefined;
-            inputs["batchSize"] = state ? state.batchSize : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["eventSourceArn"] = state ? state.eventSourceArn : undefined;
-            inputs["functionArn"] = state ? state.functionArn : undefined;
-            inputs["functionName"] = state ? state.functionName : undefined;
-            inputs["lastModified"] = state ? state.lastModified : undefined;
-            inputs["lastProcessingResult"] = state ? state.lastProcessingResult : undefined;
-            inputs["startingPosition"] = state ? state.startingPosition : undefined;
-            inputs["startingPositionTimestamp"] = state ? state.startingPositionTimestamp : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["stateTransitionReason"] = state ? state.stateTransitionReason : undefined;
-            inputs["uuid"] = state ? state.uuid : undefined;
+    constructor(name: string, args: EventSourceMappingArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EventSourceMappingArgs | EventSourceMappingState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EventSourceMappingState;
+            inputs.batchSize = state.batchSize;
+            inputs.enabled = state.enabled;
+            inputs.eventSourceArn = state.eventSourceArn;
+            inputs.functionArn = state.functionArn;
+            inputs.functionName = state.functionName;
+            inputs.lastModified = state.lastModified;
+            inputs.lastProcessingResult = state.lastProcessingResult;
+            inputs.startingPosition = state.startingPosition;
+            inputs.startingPositionTimestamp = state.startingPositionTimestamp;
+            inputs.state = state.state;
+            inputs.stateTransitionReason = state.stateTransitionReason;
+            inputs.uuid = state.uuid;
         } else {
-            const args = argsOrState as EventSourceMappingArgs | undefined;
-            if (!args || args.eventSourceArn === undefined) {
+            const args = argsOrState as EventSourceMappingArgs;
+            if (args.eventSourceArn === undefined) {
                 throw new Error("Missing required property 'eventSourceArn'");
             }
-            if (!args || args.functionName === undefined) {
+            if (args.functionName === undefined) {
                 throw new Error("Missing required property 'functionName'");
             }
-            inputs["batchSize"] = args ? args.batchSize : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
-            inputs["functionName"] = args ? args.functionName : undefined;
-            inputs["startingPosition"] = args ? args.startingPosition : undefined;
-            inputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
-            inputs["functionArn"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["lastProcessingResult"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["stateTransitionReason"] = undefined /*out*/;
-            inputs["uuid"] = undefined /*out*/;
+            inputs.batchSize = args.batchSize;
+            inputs.enabled = args.enabled;
+            inputs.eventSourceArn = args.eventSourceArn;
+            inputs.functionName = args.functionName;
+            inputs.startingPosition = args.startingPosition;
+            inputs.startingPositionTimestamp = args.startingPositionTimestamp;
+            inputs.functionArn = undefined /*out*/;
+            inputs.lastModified = undefined /*out*/;
+            inputs.lastProcessingResult = undefined /*out*/;
+            inputs.state = undefined /*out*/;
+            inputs.stateTransitionReason = undefined /*out*/;
+            inputs.uuid = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EventSourceMapping.__pulumiType, name, inputs, opts);
     }
 }

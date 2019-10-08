@@ -90,44 +90,38 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AccountState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["iamUserAccessToBilling"] = state ? state.iamUserAccessToBilling : undefined;
-            inputs["joinedMethod"] = state ? state.joinedMethod : undefined;
-            inputs["joinedTimestamp"] = state ? state.joinedTimestamp : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parentId"] = state ? state.parentId : undefined;
-            inputs["roleName"] = state ? state.roleName : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AccountArgs | AccountState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AccountState;
+            inputs.arn = state.arn;
+            inputs.email = state.email;
+            inputs.iamUserAccessToBilling = state.iamUserAccessToBilling;
+            inputs.joinedMethod = state.joinedMethod;
+            inputs.joinedTimestamp = state.joinedTimestamp;
+            inputs.name = state.name;
+            inputs.parentId = state.parentId;
+            inputs.roleName = state.roleName;
+            inputs.status = state.status;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as AccountArgs | undefined;
-            if (!args || args.email === undefined) {
+            const args = argsOrState as AccountArgs;
+            if (args.email === undefined) {
                 throw new Error("Missing required property 'email'");
             }
-            inputs["email"] = args ? args.email : undefined;
-            inputs["iamUserAccessToBilling"] = args ? args.iamUserAccessToBilling : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parentId"] = args ? args.parentId : undefined;
-            inputs["roleName"] = args ? args.roleName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["joinedMethod"] = undefined /*out*/;
-            inputs["joinedTimestamp"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            inputs.email = args.email;
+            inputs.iamUserAccessToBilling = args.iamUserAccessToBilling;
+            inputs.name = args.name;
+            inputs.parentId = args.parentId;
+            inputs.roleName = args.roleName;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.joinedMethod = undefined /*out*/;
+            inputs.joinedTimestamp = undefined /*out*/;
+            inputs.status = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Account.__pulumiType, name, inputs, opts);
     }
 }

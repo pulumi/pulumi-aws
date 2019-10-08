@@ -66,31 +66,25 @@ export class Cache extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CacheArgs | CacheState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CacheState | undefined;
-            inputs["diskId"] = state ? state.diskId : undefined;
-            inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+    constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: CacheArgs | CacheState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as CacheState;
+            inputs.diskId = state.diskId;
+            inputs.gatewayArn = state.gatewayArn;
         } else {
-            const args = argsOrState as CacheArgs | undefined;
-            if (!args || args.diskId === undefined) {
+            const args = argsOrState as CacheArgs;
+            if (args.diskId === undefined) {
                 throw new Error("Missing required property 'diskId'");
             }
-            if (!args || args.gatewayArn === undefined) {
+            if (args.gatewayArn === undefined) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            inputs["diskId"] = args ? args.diskId : undefined;
-            inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            inputs.diskId = args.diskId;
+            inputs.gatewayArn = args.gatewayArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Cache.__pulumiType, name, inputs, opts);
     }
 }

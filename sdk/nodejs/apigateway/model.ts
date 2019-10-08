@@ -88,37 +88,31 @@ export class Model extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ModelArgs | ModelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ModelState | undefined;
-            inputs["contentType"] = state ? state.contentType : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
+    constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ModelArgs | ModelState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ModelState;
+            inputs.contentType = state.contentType;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.restApi = state.restApi;
+            inputs.schema = state.schema;
         } else {
-            const args = argsOrState as ModelArgs | undefined;
-            if (!args || args.contentType === undefined) {
+            const args = argsOrState as ModelArgs;
+            if (args.contentType === undefined) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if (!args || args.restApi === undefined) {
+            if (args.restApi === undefined) {
                 throw new Error("Missing required property 'restApi'");
             }
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
+            inputs.contentType = args.contentType;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.restApi = args.restApi;
+            inputs.schema = args.schema;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Model.__pulumiType, name, inputs, opts);
     }
 }

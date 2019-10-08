@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * 
- * export const subnetCidrBlocks = exampleSubnet.map(v => v.cidrBlock!);
+ * export const subnetCidrBlocks = exampleSubnet.map(v => v.cidrBlock);
  * ```
  * 
  * The following example retrieves a list of all subnets in a VPC with a custom

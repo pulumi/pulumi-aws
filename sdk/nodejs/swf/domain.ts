@@ -74,32 +74,26 @@ export class Domain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DomainState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["workflowExecutionRetentionPeriodInDays"] = state ? state.workflowExecutionRetentionPeriodInDays : undefined;
+    constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DomainArgs | DomainState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DomainState;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.workflowExecutionRetentionPeriodInDays = state.workflowExecutionRetentionPeriodInDays;
         } else {
-            const args = argsOrState as DomainArgs | undefined;
-            if (!args || args.workflowExecutionRetentionPeriodInDays === undefined) {
+            const args = argsOrState as DomainArgs;
+            if (args.workflowExecutionRetentionPeriodInDays === undefined) {
                 throw new Error("Missing required property 'workflowExecutionRetentionPeriodInDays'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["workflowExecutionRetentionPeriodInDays"] = args ? args.workflowExecutionRetentionPeriodInDays : undefined;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.workflowExecutionRetentionPeriodInDays = args.workflowExecutionRetentionPeriodInDays;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Domain.__pulumiType, name, inputs, opts);
     }
 }

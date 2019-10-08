@@ -73,31 +73,25 @@ export class CatalogDatabase extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: CatalogDatabaseArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CatalogDatabaseArgs | CatalogDatabaseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CatalogDatabaseState | undefined;
-            inputs["catalogId"] = state ? state.catalogId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["locationUri"] = state ? state.locationUri : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
+    constructor(name: string, args?: CatalogDatabaseArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: CatalogDatabaseArgs | CatalogDatabaseState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as CatalogDatabaseState;
+            inputs.catalogId = state.catalogId;
+            inputs.description = state.description;
+            inputs.locationUri = state.locationUri;
+            inputs.name = state.name;
+            inputs.parameters = state.parameters;
         } else {
-            const args = argsOrState as CatalogDatabaseArgs | undefined;
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["locationUri"] = args ? args.locationUri : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
+            const args = argsOrState as CatalogDatabaseArgs;
+            inputs.catalogId = args.catalogId;
+            inputs.description = args.description;
+            inputs.locationUri = args.locationUri;
+            inputs.name = args.name;
+            inputs.parameters = args.parameters;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(CatalogDatabase.__pulumiType, name, inputs, opts);
     }
 }

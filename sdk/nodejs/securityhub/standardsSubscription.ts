@@ -62,26 +62,20 @@ export class StandardsSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StandardsSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StandardsSubscriptionArgs | StandardsSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as StandardsSubscriptionState | undefined;
-            inputs["standardsArn"] = state ? state.standardsArn : undefined;
+    constructor(name: string, args: StandardsSubscriptionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: StandardsSubscriptionArgs | StandardsSubscriptionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as StandardsSubscriptionState;
+            inputs.standardsArn = state.standardsArn;
         } else {
-            const args = argsOrState as StandardsSubscriptionArgs | undefined;
-            if (!args || args.standardsArn === undefined) {
+            const args = argsOrState as StandardsSubscriptionArgs;
+            if (args.standardsArn === undefined) {
                 throw new Error("Missing required property 'standardsArn'");
             }
-            inputs["standardsArn"] = args ? args.standardsArn : undefined;
+            inputs.standardsArn = args.standardsArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(StandardsSubscription.__pulumiType, name, inputs, opts);
     }
 }

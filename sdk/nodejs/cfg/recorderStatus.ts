@@ -17,10 +17,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const bucket = new aws.s3.Bucket("b", {});
- * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("foo", {
- *     s3BucketName: bucket.bucket,
- * });
  * const role = new aws.iam.Role("r", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -37,16 +33,16 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
+ * const bucket = new aws.s3.Bucket("b", {});
  * const fooRecorder = new aws.cfg.Recorder("foo", {
  *     roleArn: role.arn,
+ * });
+ * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("foo", {
+ *     s3BucketName: bucket.bucket,
  * });
  * const fooRecorderStatus = new aws.cfg.RecorderStatus("foo", {
  *     isEnabled: true,
  * }, {dependsOn: [fooDeliveryChannel]});
- * const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("a", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
- *     role: role.name,
- * });
  * const rolePolicy = new aws.iam.RolePolicy("p", {
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
@@ -65,6 +61,10 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     role: role.id,
+ * });
+ * const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("a", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
+ *     role: role.name,
  * });
  * ```
  *
@@ -113,28 +113,22 @@ export class RecorderStatus extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RecorderStatusArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RecorderStatusArgs | RecorderStatusState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RecorderStatusState | undefined;
-            inputs["isEnabled"] = state ? state.isEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args: RecorderStatusArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RecorderStatusArgs | RecorderStatusState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RecorderStatusState;
+            inputs.isEnabled = state.isEnabled;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as RecorderStatusArgs | undefined;
-            if (!args || args.isEnabled === undefined) {
+            const args = argsOrState as RecorderStatusArgs;
+            if (args.isEnabled === undefined) {
                 throw new Error("Missing required property 'isEnabled'");
             }
-            inputs["isEnabled"] = args ? args.isEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs.isEnabled = args.isEnabled;
+            inputs.name = args.name;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RecorderStatus.__pulumiType, name, inputs, opts);
     }
 }

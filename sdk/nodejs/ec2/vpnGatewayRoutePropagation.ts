@@ -70,31 +70,25 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpnGatewayRoutePropagationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpnGatewayRoutePropagationArgs | VpnGatewayRoutePropagationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpnGatewayRoutePropagationState | undefined;
-            inputs["routeTableId"] = state ? state.routeTableId : undefined;
-            inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
+    constructor(name: string, args: VpnGatewayRoutePropagationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VpnGatewayRoutePropagationArgs | VpnGatewayRoutePropagationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VpnGatewayRoutePropagationState;
+            inputs.routeTableId = state.routeTableId;
+            inputs.vpnGatewayId = state.vpnGatewayId;
         } else {
-            const args = argsOrState as VpnGatewayRoutePropagationArgs | undefined;
-            if (!args || args.routeTableId === undefined) {
+            const args = argsOrState as VpnGatewayRoutePropagationArgs;
+            if (args.routeTableId === undefined) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            if (!args || args.vpnGatewayId === undefined) {
+            if (args.vpnGatewayId === undefined) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
-            inputs["routeTableId"] = args ? args.routeTableId : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            inputs.routeTableId = args.routeTableId;
+            inputs.vpnGatewayId = args.vpnGatewayId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VpnGatewayRoutePropagation.__pulumiType, name, inputs, opts);
     }
 }

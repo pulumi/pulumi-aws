@@ -88,34 +88,28 @@ export class EndpointConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EndpointConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EndpointConfigurationArgs | EndpointConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EndpointConfigurationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["productionVariants"] = state ? state.productionVariants : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: EndpointConfigurationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EndpointConfigurationArgs | EndpointConfigurationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EndpointConfigurationState;
+            inputs.arn = state.arn;
+            inputs.kmsKeyArn = state.kmsKeyArn;
+            inputs.name = state.name;
+            inputs.productionVariants = state.productionVariants;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as EndpointConfigurationArgs | undefined;
-            if (!args || args.productionVariants === undefined) {
+            const args = argsOrState as EndpointConfigurationArgs;
+            if (args.productionVariants === undefined) {
                 throw new Error("Missing required property 'productionVariants'");
             }
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["productionVariants"] = args ? args.productionVariants : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.kmsKeyArn = args.kmsKeyArn;
+            inputs.name = args.name;
+            inputs.productionVariants = args.productionVariants;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EndpointConfiguration.__pulumiType, name, inputs, opts);
     }
 }

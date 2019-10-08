@@ -79,32 +79,26 @@ export class S3BucketAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: S3BucketAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: S3BucketAssociationArgs | S3BucketAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as S3BucketAssociationState | undefined;
-            inputs["bucketName"] = state ? state.bucketName : undefined;
-            inputs["classificationType"] = state ? state.classificationType : undefined;
-            inputs["memberAccountId"] = state ? state.memberAccountId : undefined;
-            inputs["prefix"] = state ? state.prefix : undefined;
+    constructor(name: string, args: S3BucketAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: S3BucketAssociationArgs | S3BucketAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as S3BucketAssociationState;
+            inputs.bucketName = state.bucketName;
+            inputs.classificationType = state.classificationType;
+            inputs.memberAccountId = state.memberAccountId;
+            inputs.prefix = state.prefix;
         } else {
-            const args = argsOrState as S3BucketAssociationArgs | undefined;
-            if (!args || args.bucketName === undefined) {
+            const args = argsOrState as S3BucketAssociationArgs;
+            if (args.bucketName === undefined) {
                 throw new Error("Missing required property 'bucketName'");
             }
-            inputs["bucketName"] = args ? args.bucketName : undefined;
-            inputs["classificationType"] = args ? args.classificationType : undefined;
-            inputs["memberAccountId"] = args ? args.memberAccountId : undefined;
-            inputs["prefix"] = args ? args.prefix : undefined;
+            inputs.bucketName = args.bucketName;
+            inputs.classificationType = args.classificationType;
+            inputs.memberAccountId = args.memberAccountId;
+            inputs.prefix = args.prefix;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(S3BucketAssociation.__pulumiType, name, inputs, opts);
     }
 }

@@ -76,35 +76,29 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IdentityNotificationTopicArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IdentityNotificationTopicArgs | IdentityNotificationTopicState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as IdentityNotificationTopicState | undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["includeOriginalHeaders"] = state ? state.includeOriginalHeaders : undefined;
-            inputs["notificationType"] = state ? state.notificationType : undefined;
-            inputs["topicArn"] = state ? state.topicArn : undefined;
+    constructor(name: string, args: IdentityNotificationTopicArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: IdentityNotificationTopicArgs | IdentityNotificationTopicState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as IdentityNotificationTopicState;
+            inputs.identity = state.identity;
+            inputs.includeOriginalHeaders = state.includeOriginalHeaders;
+            inputs.notificationType = state.notificationType;
+            inputs.topicArn = state.topicArn;
         } else {
-            const args = argsOrState as IdentityNotificationTopicArgs | undefined;
-            if (!args || args.identity === undefined) {
+            const args = argsOrState as IdentityNotificationTopicArgs;
+            if (args.identity === undefined) {
                 throw new Error("Missing required property 'identity'");
             }
-            if (!args || args.notificationType === undefined) {
+            if (args.notificationType === undefined) {
                 throw new Error("Missing required property 'notificationType'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["includeOriginalHeaders"] = args ? args.includeOriginalHeaders : undefined;
-            inputs["notificationType"] = args ? args.notificationType : undefined;
-            inputs["topicArn"] = args ? args.topicArn : undefined;
+            inputs.identity = args.identity;
+            inputs.includeOriginalHeaders = args.includeOriginalHeaders;
+            inputs.notificationType = args.notificationType;
+            inputs.topicArn = args.topicArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(IdentityNotificationTopic.__pulumiType, name, inputs, opts);
     }
 }

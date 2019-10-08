@@ -160,42 +160,36 @@ export class Authorizer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AuthorizerArgs | AuthorizerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AuthorizerState | undefined;
-            inputs["authorizerCredentials"] = state ? state.authorizerCredentials : undefined;
-            inputs["authorizerResultTtlInSeconds"] = state ? state.authorizerResultTtlInSeconds : undefined;
-            inputs["authorizerUri"] = state ? state.authorizerUri : undefined;
-            inputs["identitySource"] = state ? state.identitySource : undefined;
-            inputs["identityValidationExpression"] = state ? state.identityValidationExpression : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["providerArns"] = state ? state.providerArns : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AuthorizerArgs | AuthorizerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AuthorizerState;
+            inputs.authorizerCredentials = state.authorizerCredentials;
+            inputs.authorizerResultTtlInSeconds = state.authorizerResultTtlInSeconds;
+            inputs.authorizerUri = state.authorizerUri;
+            inputs.identitySource = state.identitySource;
+            inputs.identityValidationExpression = state.identityValidationExpression;
+            inputs.name = state.name;
+            inputs.providerArns = state.providerArns;
+            inputs.restApi = state.restApi;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as AuthorizerArgs | undefined;
-            if (!args || args.restApi === undefined) {
+            const args = argsOrState as AuthorizerArgs;
+            if (args.restApi === undefined) {
                 throw new Error("Missing required property 'restApi'");
             }
-            inputs["authorizerCredentials"] = args ? args.authorizerCredentials : undefined;
-            inputs["authorizerResultTtlInSeconds"] = args ? args.authorizerResultTtlInSeconds : undefined;
-            inputs["authorizerUri"] = args ? args.authorizerUri : undefined;
-            inputs["identitySource"] = args ? args.identitySource : undefined;
-            inputs["identityValidationExpression"] = args ? args.identityValidationExpression : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["providerArns"] = args ? args.providerArns : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            inputs.authorizerCredentials = args.authorizerCredentials;
+            inputs.authorizerResultTtlInSeconds = args.authorizerResultTtlInSeconds;
+            inputs.authorizerUri = args.authorizerUri;
+            inputs.identitySource = args.identitySource;
+            inputs.identityValidationExpression = args.identityValidationExpression;
+            inputs.name = args.name;
+            inputs.providerArns = args.providerArns;
+            inputs.restApi = args.restApi;
+            inputs.type = args.type;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Authorizer.__pulumiType, name, inputs, opts);
     }
 }

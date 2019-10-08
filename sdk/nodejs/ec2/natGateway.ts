@@ -97,39 +97,33 @@ export class NatGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NatGatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NatGatewayArgs | NatGatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NatGatewayState | undefined;
-            inputs["allocationId"] = state ? state.allocationId : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            inputs["privateIp"] = state ? state.privateIp : undefined;
-            inputs["publicIp"] = state ? state.publicIp : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: NatGatewayArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: NatGatewayArgs | NatGatewayState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as NatGatewayState;
+            inputs.allocationId = state.allocationId;
+            inputs.networkInterfaceId = state.networkInterfaceId;
+            inputs.privateIp = state.privateIp;
+            inputs.publicIp = state.publicIp;
+            inputs.subnetId = state.subnetId;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as NatGatewayArgs | undefined;
-            if (!args || args.allocationId === undefined) {
+            const args = argsOrState as NatGatewayArgs;
+            if (args.allocationId === undefined) {
                 throw new Error("Missing required property 'allocationId'");
             }
-            if (!args || args.subnetId === undefined) {
+            if (args.subnetId === undefined) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["allocationId"] = args ? args.allocationId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["networkInterfaceId"] = undefined /*out*/;
-            inputs["privateIp"] = undefined /*out*/;
-            inputs["publicIp"] = undefined /*out*/;
+            inputs.allocationId = args.allocationId;
+            inputs.subnetId = args.subnetId;
+            inputs.tags = args.tags;
+            inputs.networkInterfaceId = undefined /*out*/;
+            inputs.privateIp = undefined /*out*/;
+            inputs.publicIp = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(NatGateway.__pulumiType, name, inputs, opts);
     }
 }

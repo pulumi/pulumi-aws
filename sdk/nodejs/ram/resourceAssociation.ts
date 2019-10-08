@@ -66,31 +66,25 @@ export class ResourceAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResourceAssociationArgs | ResourceAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ResourceAssociationState | undefined;
-            inputs["resourceArn"] = state ? state.resourceArn : undefined;
-            inputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
+    constructor(name: string, args: ResourceAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ResourceAssociationArgs | ResourceAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ResourceAssociationState;
+            inputs.resourceArn = state.resourceArn;
+            inputs.resourceShareArn = state.resourceShareArn;
         } else {
-            const args = argsOrState as ResourceAssociationArgs | undefined;
-            if (!args || args.resourceArn === undefined) {
+            const args = argsOrState as ResourceAssociationArgs;
+            if (args.resourceArn === undefined) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if (!args || args.resourceShareArn === undefined) {
+            if (args.resourceShareArn === undefined) {
                 throw new Error("Missing required property 'resourceShareArn'");
             }
-            inputs["resourceArn"] = args ? args.resourceArn : undefined;
-            inputs["resourceShareArn"] = args ? args.resourceShareArn : undefined;
+            inputs.resourceArn = args.resourceArn;
+            inputs.resourceShareArn = args.resourceShareArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ResourceAssociation.__pulumiType, name, inputs, opts);
     }
 }

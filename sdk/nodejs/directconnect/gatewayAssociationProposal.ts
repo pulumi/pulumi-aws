@@ -87,41 +87,35 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GatewayAssociationProposalArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GatewayAssociationProposalArgs | GatewayAssociationProposalState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GatewayAssociationProposalState | undefined;
-            inputs["allowedPrefixes"] = state ? state.allowedPrefixes : undefined;
-            inputs["associatedGatewayId"] = state ? state.associatedGatewayId : undefined;
-            inputs["associatedGatewayOwnerAccountId"] = state ? state.associatedGatewayOwnerAccountId : undefined;
-            inputs["associatedGatewayType"] = state ? state.associatedGatewayType : undefined;
-            inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
-            inputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;
-            inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
+    constructor(name: string, args: GatewayAssociationProposalArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GatewayAssociationProposalArgs | GatewayAssociationProposalState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GatewayAssociationProposalState;
+            inputs.allowedPrefixes = state.allowedPrefixes;
+            inputs.associatedGatewayId = state.associatedGatewayId;
+            inputs.associatedGatewayOwnerAccountId = state.associatedGatewayOwnerAccountId;
+            inputs.associatedGatewayType = state.associatedGatewayType;
+            inputs.dxGatewayId = state.dxGatewayId;
+            inputs.dxGatewayOwnerAccountId = state.dxGatewayOwnerAccountId;
+            inputs.vpnGatewayId = state.vpnGatewayId;
         } else {
-            const args = argsOrState as GatewayAssociationProposalArgs | undefined;
-            if (!args || args.dxGatewayId === undefined) {
+            const args = argsOrState as GatewayAssociationProposalArgs;
+            if (args.dxGatewayId === undefined) {
                 throw new Error("Missing required property 'dxGatewayId'");
             }
-            if (!args || args.dxGatewayOwnerAccountId === undefined) {
+            if (args.dxGatewayOwnerAccountId === undefined) {
                 throw new Error("Missing required property 'dxGatewayOwnerAccountId'");
             }
-            inputs["allowedPrefixes"] = args ? args.allowedPrefixes : undefined;
-            inputs["associatedGatewayId"] = args ? args.associatedGatewayId : undefined;
-            inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
-            inputs["dxGatewayOwnerAccountId"] = args ? args.dxGatewayOwnerAccountId : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
-            inputs["associatedGatewayOwnerAccountId"] = undefined /*out*/;
-            inputs["associatedGatewayType"] = undefined /*out*/;
+            inputs.allowedPrefixes = args.allowedPrefixes;
+            inputs.associatedGatewayId = args.associatedGatewayId;
+            inputs.dxGatewayId = args.dxGatewayId;
+            inputs.dxGatewayOwnerAccountId = args.dxGatewayOwnerAccountId;
+            inputs.vpnGatewayId = args.vpnGatewayId;
+            inputs.associatedGatewayOwnerAccountId = undefined /*out*/;
+            inputs.associatedGatewayType = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(GatewayAssociationProposal.__pulumiType, name, inputs, opts);
     }
 }

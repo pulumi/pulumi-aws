@@ -136,41 +136,35 @@ export class EventDestination extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventDestinationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventDestinationArgs | EventDestinationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EventDestinationState | undefined;
-            inputs["cloudwatchDestinations"] = state ? state.cloudwatchDestinations : undefined;
-            inputs["configurationSetName"] = state ? state.configurationSetName : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["kinesisDestination"] = state ? state.kinesisDestination : undefined;
-            inputs["matchingTypes"] = state ? state.matchingTypes : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["snsDestination"] = state ? state.snsDestination : undefined;
+    constructor(name: string, args: EventDestinationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EventDestinationArgs | EventDestinationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EventDestinationState;
+            inputs.cloudwatchDestinations = state.cloudwatchDestinations;
+            inputs.configurationSetName = state.configurationSetName;
+            inputs.enabled = state.enabled;
+            inputs.kinesisDestination = state.kinesisDestination;
+            inputs.matchingTypes = state.matchingTypes;
+            inputs.name = state.name;
+            inputs.snsDestination = state.snsDestination;
         } else {
-            const args = argsOrState as EventDestinationArgs | undefined;
-            if (!args || args.configurationSetName === undefined) {
+            const args = argsOrState as EventDestinationArgs;
+            if (args.configurationSetName === undefined) {
                 throw new Error("Missing required property 'configurationSetName'");
             }
-            if (!args || args.matchingTypes === undefined) {
+            if (args.matchingTypes === undefined) {
                 throw new Error("Missing required property 'matchingTypes'");
             }
-            inputs["cloudwatchDestinations"] = args ? args.cloudwatchDestinations : undefined;
-            inputs["configurationSetName"] = args ? args.configurationSetName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["kinesisDestination"] = args ? args.kinesisDestination : undefined;
-            inputs["matchingTypes"] = args ? args.matchingTypes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["snsDestination"] = args ? args.snsDestination : undefined;
+            inputs.cloudwatchDestinations = args.cloudwatchDestinations;
+            inputs.configurationSetName = args.configurationSetName;
+            inputs.enabled = args.enabled;
+            inputs.kinesisDestination = args.kinesisDestination;
+            inputs.matchingTypes = args.matchingTypes;
+            inputs.name = args.name;
+            inputs.snsDestination = args.snsDestination;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EventDestination.__pulumiType, name, inputs, opts);
     }
 }

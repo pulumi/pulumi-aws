@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manage accepting a Resource Access Manager (RAM) Resource Share invitation. From a _receiver_ AWS account, accept an invitation to share resources that were shared by a _sender_ AWS account. To create a resource share in the _sender_, see the [`aws.ram.ResourceShare` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_share.html).
+ * 
+ * > **Note:** If both AWS accounts are in the same Organization and [RAM Sharing with AWS Organizations is enabled](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs), this resource is not necessary as RAM Resource Share invitations are not used.
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_resource_share_accepter.html.markdown.
  */
 export class ResourceShareAccepter extends pulumi.CustomResource {
@@ -74,40 +78,34 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceShareAccepterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResourceShareAccepterArgs | ResourceShareAccepterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ResourceShareAccepterState | undefined;
-            inputs["invitationArn"] = state ? state.invitationArn : undefined;
-            inputs["receiverAccountId"] = state ? state.receiverAccountId : undefined;
-            inputs["resources"] = state ? state.resources : undefined;
-            inputs["senderAccountId"] = state ? state.senderAccountId : undefined;
-            inputs["shareArn"] = state ? state.shareArn : undefined;
-            inputs["shareId"] = state ? state.shareId : undefined;
-            inputs["shareName"] = state ? state.shareName : undefined;
-            inputs["status"] = state ? state.status : undefined;
+    constructor(name: string, args: ResourceShareAccepterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ResourceShareAccepterArgs | ResourceShareAccepterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ResourceShareAccepterState;
+            inputs.invitationArn = state.invitationArn;
+            inputs.receiverAccountId = state.receiverAccountId;
+            inputs.resources = state.resources;
+            inputs.senderAccountId = state.senderAccountId;
+            inputs.shareArn = state.shareArn;
+            inputs.shareId = state.shareId;
+            inputs.shareName = state.shareName;
+            inputs.status = state.status;
         } else {
-            const args = argsOrState as ResourceShareAccepterArgs | undefined;
-            if (!args || args.shareArn === undefined) {
+            const args = argsOrState as ResourceShareAccepterArgs;
+            if (args.shareArn === undefined) {
                 throw new Error("Missing required property 'shareArn'");
             }
-            inputs["shareArn"] = args ? args.shareArn : undefined;
-            inputs["invitationArn"] = undefined /*out*/;
-            inputs["receiverAccountId"] = undefined /*out*/;
-            inputs["resources"] = undefined /*out*/;
-            inputs["senderAccountId"] = undefined /*out*/;
-            inputs["shareId"] = undefined /*out*/;
-            inputs["shareName"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            inputs.shareArn = args.shareArn;
+            inputs.invitationArn = undefined /*out*/;
+            inputs.receiverAccountId = undefined /*out*/;
+            inputs.resources = undefined /*out*/;
+            inputs.senderAccountId = undefined /*out*/;
+            inputs.shareId = undefined /*out*/;
+            inputs.shareName = undefined /*out*/;
+            inputs.status = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ResourceShareAccepter.__pulumiType, name, inputs, opts);
     }
 }

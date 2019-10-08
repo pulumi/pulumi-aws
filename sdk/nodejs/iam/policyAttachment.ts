@@ -22,23 +22,6 @@ import {User} from "./user";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const user = new aws.iam.User("user", {});
- * const role = new aws.iam.Role("role", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "ec2.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- * });
  * const group = new aws.iam.Group("group", {});
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
@@ -56,6 +39,23 @@ import {User} from "./user";
  * }
  * `,
  * });
+ * const role = new aws.iam.Role("role", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "ec2.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * const user = new aws.iam.User("user", {});
  * const testAttach = new aws.iam.PolicyAttachment("test-attach", {
  *     groups: [group.name],
  *     policyArn: policy.arn,
@@ -121,34 +121,28 @@ export class PolicyAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyAttachmentArgs | PolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PolicyAttachmentState | undefined;
-            inputs["groups"] = state ? state.groups : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyArn"] = state ? state.policyArn : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
-            inputs["users"] = state ? state.users : undefined;
+    constructor(name: string, args: PolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PolicyAttachmentArgs | PolicyAttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PolicyAttachmentState;
+            inputs.groups = state.groups;
+            inputs.name = state.name;
+            inputs.policyArn = state.policyArn;
+            inputs.roles = state.roles;
+            inputs.users = state.users;
         } else {
-            const args = argsOrState as PolicyAttachmentArgs | undefined;
-            if (!args || args.policyArn === undefined) {
+            const args = argsOrState as PolicyAttachmentArgs;
+            if (args.policyArn === undefined) {
                 throw new Error("Missing required property 'policyArn'");
             }
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyArn"] = args ? args.policyArn : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["users"] = args ? args.users : undefined;
+            inputs.groups = args.groups;
+            inputs.name = args.name;
+            inputs.policyArn = args.policyArn;
+            inputs.roles = args.roles;
+            inputs.users = args.users;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(PolicyAttachment.__pulumiType, name, inputs, opts);
     }
 }

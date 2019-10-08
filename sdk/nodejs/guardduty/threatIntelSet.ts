@@ -92,43 +92,37 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ThreatIntelSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ThreatIntelSetArgs | ThreatIntelSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ThreatIntelSetState | undefined;
-            inputs["activate"] = state ? state.activate : undefined;
-            inputs["detectorId"] = state ? state.detectorId : undefined;
-            inputs["format"] = state ? state.format : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args: ThreatIntelSetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ThreatIntelSetArgs | ThreatIntelSetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ThreatIntelSetState;
+            inputs.activate = state.activate;
+            inputs.detectorId = state.detectorId;
+            inputs.format = state.format;
+            inputs.location = state.location;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as ThreatIntelSetArgs | undefined;
-            if (!args || args.activate === undefined) {
+            const args = argsOrState as ThreatIntelSetArgs;
+            if (args.activate === undefined) {
                 throw new Error("Missing required property 'activate'");
             }
-            if (!args || args.detectorId === undefined) {
+            if (args.detectorId === undefined) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if (!args || args.format === undefined) {
+            if (args.format === undefined) {
                 throw new Error("Missing required property 'format'");
             }
-            if (!args || args.location === undefined) {
+            if (args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            inputs["activate"] = args ? args.activate : undefined;
-            inputs["detectorId"] = args ? args.detectorId : undefined;
-            inputs["format"] = args ? args.format : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs.activate = args.activate;
+            inputs.detectorId = args.detectorId;
+            inputs.format = args.format;
+            inputs.location = args.location;
+            inputs.name = args.name;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ThreatIntelSet.__pulumiType, name, inputs, opts);
     }
 }

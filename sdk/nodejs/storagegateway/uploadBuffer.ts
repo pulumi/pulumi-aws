@@ -68,31 +68,25 @@ export class UploadBuffer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UploadBufferArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UploadBufferArgs | UploadBufferState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as UploadBufferState | undefined;
-            inputs["diskId"] = state ? state.diskId : undefined;
-            inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+    constructor(name: string, args: UploadBufferArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: UploadBufferArgs | UploadBufferState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as UploadBufferState;
+            inputs.diskId = state.diskId;
+            inputs.gatewayArn = state.gatewayArn;
         } else {
-            const args = argsOrState as UploadBufferArgs | undefined;
-            if (!args || args.diskId === undefined) {
+            const args = argsOrState as UploadBufferArgs;
+            if (args.diskId === undefined) {
                 throw new Error("Missing required property 'diskId'");
             }
-            if (!args || args.gatewayArn === undefined) {
+            if (args.gatewayArn === undefined) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            inputs["diskId"] = args ? args.diskId : undefined;
-            inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            inputs.diskId = args.diskId;
+            inputs.gatewayArn = args.gatewayArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(UploadBuffer.__pulumiType, name, inputs, opts);
     }
 }

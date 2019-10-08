@@ -101,42 +101,36 @@ export class ApnsSandboxChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApnsSandboxChannelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApnsSandboxChannelArgs | ApnsSandboxChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ApnsSandboxChannelState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["bundleId"] = state ? state.bundleId : undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["defaultAuthenticationMethod"] = state ? state.defaultAuthenticationMethod : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
-            inputs["teamId"] = state ? state.teamId : undefined;
-            inputs["tokenKey"] = state ? state.tokenKey : undefined;
-            inputs["tokenKeyId"] = state ? state.tokenKeyId : undefined;
+    constructor(name: string, args: ApnsSandboxChannelArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ApnsSandboxChannelArgs | ApnsSandboxChannelState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ApnsSandboxChannelState;
+            inputs.applicationId = state.applicationId;
+            inputs.bundleId = state.bundleId;
+            inputs.certificate = state.certificate;
+            inputs.defaultAuthenticationMethod = state.defaultAuthenticationMethod;
+            inputs.enabled = state.enabled;
+            inputs.privateKey = state.privateKey;
+            inputs.teamId = state.teamId;
+            inputs.tokenKey = state.tokenKey;
+            inputs.tokenKeyId = state.tokenKeyId;
         } else {
-            const args = argsOrState as ApnsSandboxChannelArgs | undefined;
-            if (!args || args.applicationId === undefined) {
+            const args = argsOrState as ApnsSandboxChannelArgs;
+            if (args.applicationId === undefined) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["bundleId"] = args ? args.bundleId : undefined;
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["defaultAuthenticationMethod"] = args ? args.defaultAuthenticationMethod : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["teamId"] = args ? args.teamId : undefined;
-            inputs["tokenKey"] = args ? args.tokenKey : undefined;
-            inputs["tokenKeyId"] = args ? args.tokenKeyId : undefined;
+            inputs.applicationId = args.applicationId;
+            inputs.bundleId = args.bundleId;
+            inputs.certificate = args.certificate;
+            inputs.defaultAuthenticationMethod = args.defaultAuthenticationMethod;
+            inputs.enabled = args.enabled;
+            inputs.privateKey = args.privateKey;
+            inputs.teamId = args.teamId;
+            inputs.tokenKey = args.tokenKey;
+            inputs.tokenKeyId = args.tokenKeyId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ApnsSandboxChannel.__pulumiType, name, inputs, opts);
     }
 }

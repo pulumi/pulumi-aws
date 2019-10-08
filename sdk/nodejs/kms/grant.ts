@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const key = new aws.kms.Key("a", {});
  * const role = new aws.iam.Role("a", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -32,6 +31,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
+ * const key = new aws.kms.Key("a", {});
  * const grant = new aws.kms.Grant("a", {
  *     constraints: [{
  *         encryptionContextEquals: {
@@ -124,50 +124,44 @@ export class Grant extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GrantArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GrantArgs | GrantState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GrantState | undefined;
-            inputs["constraints"] = state ? state.constraints : undefined;
-            inputs["grantCreationTokens"] = state ? state.grantCreationTokens : undefined;
-            inputs["grantId"] = state ? state.grantId : undefined;
-            inputs["grantToken"] = state ? state.grantToken : undefined;
-            inputs["granteePrincipal"] = state ? state.granteePrincipal : undefined;
-            inputs["keyId"] = state ? state.keyId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["operations"] = state ? state.operations : undefined;
-            inputs["retireOnDelete"] = state ? state.retireOnDelete : undefined;
-            inputs["retiringPrincipal"] = state ? state.retiringPrincipal : undefined;
+    constructor(name: string, args: GrantArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GrantArgs | GrantState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GrantState;
+            inputs.constraints = state.constraints;
+            inputs.grantCreationTokens = state.grantCreationTokens;
+            inputs.grantId = state.grantId;
+            inputs.grantToken = state.grantToken;
+            inputs.granteePrincipal = state.granteePrincipal;
+            inputs.keyId = state.keyId;
+            inputs.name = state.name;
+            inputs.operations = state.operations;
+            inputs.retireOnDelete = state.retireOnDelete;
+            inputs.retiringPrincipal = state.retiringPrincipal;
         } else {
-            const args = argsOrState as GrantArgs | undefined;
-            if (!args || args.granteePrincipal === undefined) {
+            const args = argsOrState as GrantArgs;
+            if (args.granteePrincipal === undefined) {
                 throw new Error("Missing required property 'granteePrincipal'");
             }
-            if (!args || args.keyId === undefined) {
+            if (args.keyId === undefined) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if (!args || args.operations === undefined) {
+            if (args.operations === undefined) {
                 throw new Error("Missing required property 'operations'");
             }
-            inputs["constraints"] = args ? args.constraints : undefined;
-            inputs["grantCreationTokens"] = args ? args.grantCreationTokens : undefined;
-            inputs["granteePrincipal"] = args ? args.granteePrincipal : undefined;
-            inputs["keyId"] = args ? args.keyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["operations"] = args ? args.operations : undefined;
-            inputs["retireOnDelete"] = args ? args.retireOnDelete : undefined;
-            inputs["retiringPrincipal"] = args ? args.retiringPrincipal : undefined;
-            inputs["grantId"] = undefined /*out*/;
-            inputs["grantToken"] = undefined /*out*/;
+            inputs.constraints = args.constraints;
+            inputs.grantCreationTokens = args.grantCreationTokens;
+            inputs.granteePrincipal = args.granteePrincipal;
+            inputs.keyId = args.keyId;
+            inputs.name = args.name;
+            inputs.operations = args.operations;
+            inputs.retireOnDelete = args.retireOnDelete;
+            inputs.retiringPrincipal = args.retiringPrincipal;
+            inputs.grantId = undefined /*out*/;
+            inputs.grantToken = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Grant.__pulumiType, name, inputs, opts);
     }
 }

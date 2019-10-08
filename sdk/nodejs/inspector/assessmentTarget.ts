@@ -73,27 +73,21 @@ export class AssessmentTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AssessmentTargetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AssessmentTargetArgs | AssessmentTargetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AssessmentTargetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupArn"] = state ? state.resourceGroupArn : undefined;
+    constructor(name: string, args?: AssessmentTargetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AssessmentTargetArgs | AssessmentTargetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AssessmentTargetState;
+            inputs.arn = state.arn;
+            inputs.name = state.name;
+            inputs.resourceGroupArn = state.resourceGroupArn;
         } else {
-            const args = argsOrState as AssessmentTargetArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupArn"] = args ? args.resourceGroupArn : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as AssessmentTargetArgs;
+            inputs.name = args.name;
+            inputs.resourceGroupArn = args.resourceGroupArn;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(AssessmentTarget.__pulumiType, name, inputs, opts);
     }
 }

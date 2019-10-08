@@ -29,15 +29,6 @@ import * as utilities from "../utilities";
  *         Name: "wu-tang",
  *     },
  * });
- * const wuTangCaPubkeyPolicy = new aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", {
- *     loadBalancerName: wu_tang.name,
- *     policyAttributes: [{
- *         name: "PublicKey",
- *         value: fs.readFileSync("wu-tang-pubkey", "utf-8"),
- *     }],
- *     policyName: "wu-tang-ca-pubkey-policy",
- *     policyTypeName: "PublicKeyPolicyType",
- * });
  * const wuTangRootCaBackendAuthPolicy = new aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", {
  *     loadBalancerName: wu_tang.name,
  *     policyAttributes: [{
@@ -46,6 +37,11 @@ import * as utilities from "../utilities";
  *     }],
  *     policyName: "wu-tang-root-ca-backend-auth-policy",
  *     policyTypeName: "BackendServerAuthenticationPolicyType",
+ * });
+ * const wuTangBackendAuthPolicies443 = new aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", {
+ *     instancePort: 443,
+ *     loadBalancerName: wu_tang.name,
+ *     policyNames: [wu_tang_root_ca_backend_auth_policy.policyName],
  * });
  * const wuTangSsl = new aws.elb.LoadBalancerPolicy("wu-tang-ssl", {
  *     loadBalancerName: wu_tang.name,
@@ -62,6 +58,20 @@ import * as utilities from "../utilities";
  *     policyName: "wu-tang-ssl",
  *     policyTypeName: "SSLNegotiationPolicyType",
  * });
+ * const wuTangListenerPolicies443 = new aws.elb.ListenerPolicy("wu-tang-listener-policies-443", {
+ *     loadBalancerName: wu_tang.name,
+ *     loadBalancerPort: 443,
+ *     policyNames: [wu_tang_ssl.policyName],
+ * });
+ * const wuTangCaPubkeyPolicy = new aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", {
+ *     loadBalancerName: wu_tang.name,
+ *     policyAttributes: [{
+ *         name: "PublicKey",
+ *         value: fs.readFileSync("wu-tang-pubkey", "utf-8"),
+ *     }],
+ *     policyName: "wu-tang-ca-pubkey-policy",
+ *     policyTypeName: "PublicKeyPolicyType",
+ * });
  * const wuTangSslTls11 = new aws.elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", {
  *     loadBalancerName: wu_tang.name,
  *     policyAttributes: [{
@@ -70,16 +80,6 @@ import * as utilities from "../utilities";
  *     }],
  *     policyName: "wu-tang-ssl",
  *     policyTypeName: "SSLNegotiationPolicyType",
- * });
- * const wuTangBackendAuthPolicies443 = new aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", {
- *     instancePort: 443,
- *     loadBalancerName: wu_tang.name,
- *     policyNames: [wu_tang_root_ca_backend_auth_policy.policyName],
- * });
- * const wuTangListenerPolicies443 = new aws.elb.ListenerPolicy("wu-tang-listener-policies-443", {
- *     loadBalancerName: wu_tang.name,
- *     loadBalancerPort: 443,
- *     policyNames: [wu_tang_ssl.policyName],
  * });
  * ```
  * 
@@ -144,38 +144,32 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LoadBalancerPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LoadBalancerPolicyArgs | LoadBalancerPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LoadBalancerPolicyState | undefined;
-            inputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
-            inputs["policyAttributes"] = state ? state.policyAttributes : undefined;
-            inputs["policyName"] = state ? state.policyName : undefined;
-            inputs["policyTypeName"] = state ? state.policyTypeName : undefined;
+    constructor(name: string, args: LoadBalancerPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LoadBalancerPolicyArgs | LoadBalancerPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LoadBalancerPolicyState;
+            inputs.loadBalancerName = state.loadBalancerName;
+            inputs.policyAttributes = state.policyAttributes;
+            inputs.policyName = state.policyName;
+            inputs.policyTypeName = state.policyTypeName;
         } else {
-            const args = argsOrState as LoadBalancerPolicyArgs | undefined;
-            if (!args || args.loadBalancerName === undefined) {
+            const args = argsOrState as LoadBalancerPolicyArgs;
+            if (args.loadBalancerName === undefined) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if (!args || args.policyName === undefined) {
+            if (args.policyName === undefined) {
                 throw new Error("Missing required property 'policyName'");
             }
-            if (!args || args.policyTypeName === undefined) {
+            if (args.policyTypeName === undefined) {
                 throw new Error("Missing required property 'policyTypeName'");
             }
-            inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            inputs["policyAttributes"] = args ? args.policyAttributes : undefined;
-            inputs["policyName"] = args ? args.policyName : undefined;
-            inputs["policyTypeName"] = args ? args.policyTypeName : undefined;
+            inputs.loadBalancerName = args.loadBalancerName;
+            inputs.policyAttributes = args.policyAttributes;
+            inputs.policyName = args.policyName;
+            inputs.policyTypeName = args.policyTypeName;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LoadBalancerPolicy.__pulumiType, name, inputs, opts);

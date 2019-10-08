@@ -75,32 +75,26 @@ export class Database extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DatabaseArgs | DatabaseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DatabaseState | undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
-            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DatabaseArgs | DatabaseState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DatabaseState;
+            inputs.bucket = state.bucket;
+            inputs.encryptionConfiguration = state.encryptionConfiguration;
+            inputs.forceDestroy = state.forceDestroy;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as DatabaseArgs | undefined;
-            if (!args || args.bucket === undefined) {
+            const args = argsOrState as DatabaseArgs;
+            if (args.bucket === undefined) {
                 throw new Error("Missing required property 'bucket'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs.bucket = args.bucket;
+            inputs.encryptionConfiguration = args.encryptionConfiguration;
+            inputs.forceDestroy = args.forceDestroy;
+            inputs.name = args.name;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Database.__pulumiType, name, inputs, opts);
     }
 }

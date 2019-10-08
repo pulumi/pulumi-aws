@@ -152,84 +152,78 @@ export class Function extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FunctionArgs | FunctionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as FunctionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["environment"] = state ? state.environment : undefined;
-            inputs["code"] = state ? state.code : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["handler"] = state ? state.handler : undefined;
-            inputs["invokeArn"] = state ? state.invokeArn : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["lastModified"] = state ? state.lastModified : undefined;
-            inputs["layers"] = state ? state.layers : undefined;
-            inputs["memorySize"] = state ? state.memorySize : undefined;
-            inputs["publish"] = state ? state.publish : undefined;
-            inputs["qualifiedArn"] = state ? state.qualifiedArn : undefined;
-            inputs["reservedConcurrentExecutions"] = state ? state.reservedConcurrentExecutions : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["runtime"] = state ? state.runtime : undefined;
-            inputs["s3Bucket"] = state ? state.s3Bucket : undefined;
-            inputs["s3Key"] = state ? state.s3Key : undefined;
-            inputs["s3ObjectVersion"] = state ? state.s3ObjectVersion : undefined;
-            inputs["sourceCodeHash"] = state ? state.sourceCodeHash : undefined;
-            inputs["sourceCodeSize"] = state ? state.sourceCodeSize : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["timeout"] = state ? state.timeout : undefined;
-            inputs["tracingConfig"] = state ? state.tracingConfig : undefined;
-            inputs["version"] = state ? state.version : undefined;
-            inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+    constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: FunctionArgs | FunctionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as FunctionState;
+            inputs.arn = state.arn;
+            inputs.deadLetterConfig = state.deadLetterConfig;
+            inputs.description = state.description;
+            inputs.environment = state.environment;
+            inputs.code = state.code;
+            inputs.name = state.name;
+            inputs.handler = state.handler;
+            inputs.invokeArn = state.invokeArn;
+            inputs.kmsKeyArn = state.kmsKeyArn;
+            inputs.lastModified = state.lastModified;
+            inputs.layers = state.layers;
+            inputs.memorySize = state.memorySize;
+            inputs.publish = state.publish;
+            inputs.qualifiedArn = state.qualifiedArn;
+            inputs.reservedConcurrentExecutions = state.reservedConcurrentExecutions;
+            inputs.role = state.role;
+            inputs.runtime = state.runtime;
+            inputs.s3Bucket = state.s3Bucket;
+            inputs.s3Key = state.s3Key;
+            inputs.s3ObjectVersion = state.s3ObjectVersion;
+            inputs.sourceCodeHash = state.sourceCodeHash;
+            inputs.sourceCodeSize = state.sourceCodeSize;
+            inputs.tags = state.tags;
+            inputs.timeout = state.timeout;
+            inputs.tracingConfig = state.tracingConfig;
+            inputs.version = state.version;
+            inputs.vpcConfig = state.vpcConfig;
         } else {
-            const args = argsOrState as FunctionArgs | undefined;
-            if (!args || args.handler === undefined) {
+            const args = argsOrState as FunctionArgs;
+            if (args.handler === undefined) {
                 throw new Error("Missing required property 'handler'");
             }
-            if (!args || args.role === undefined) {
+            if (args.role === undefined) {
                 throw new Error("Missing required property 'role'");
             }
-            if (!args || args.runtime === undefined) {
+            if (args.runtime === undefined) {
                 throw new Error("Missing required property 'runtime'");
             }
-            inputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["environment"] = args ? args.environment : undefined;
-            inputs["code"] = args ? args.code : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["handler"] = args ? args.handler : undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["layers"] = args ? args.layers : undefined;
-            inputs["memorySize"] = args ? args.memorySize : undefined;
-            inputs["publish"] = args ? args.publish : undefined;
-            inputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["runtime"] = args ? args.runtime : undefined;
-            inputs["s3Bucket"] = args ? args.s3Bucket : undefined;
-            inputs["s3Key"] = args ? args.s3Key : undefined;
-            inputs["s3ObjectVersion"] = args ? args.s3ObjectVersion : undefined;
-            inputs["sourceCodeHash"] = args ? args.sourceCodeHash : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["tracingConfig"] = args ? args.tracingConfig : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["invokeArn"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["qualifiedArn"] = undefined /*out*/;
-            inputs["sourceCodeSize"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            inputs.deadLetterConfig = args.deadLetterConfig;
+            inputs.description = args.description;
+            inputs.environment = args.environment;
+            inputs.code = args.code;
+            inputs.name = args.name;
+            inputs.handler = args.handler;
+            inputs.kmsKeyArn = args.kmsKeyArn;
+            inputs.layers = args.layers;
+            inputs.memorySize = args.memorySize;
+            inputs.publish = args.publish;
+            inputs.reservedConcurrentExecutions = args.reservedConcurrentExecutions;
+            inputs.role = args.role;
+            inputs.runtime = args.runtime;
+            inputs.s3Bucket = args.s3Bucket;
+            inputs.s3Key = args.s3Key;
+            inputs.s3ObjectVersion = args.s3ObjectVersion;
+            inputs.sourceCodeHash = args.sourceCodeHash;
+            inputs.tags = args.tags;
+            inputs.timeout = args.timeout;
+            inputs.tracingConfig = args.tracingConfig;
+            inputs.vpcConfig = args.vpcConfig;
+            inputs.arn = undefined /*out*/;
+            inputs.invokeArn = undefined /*out*/;
+            inputs.lastModified = undefined /*out*/;
+            inputs.qualifiedArn = undefined /*out*/;
+            inputs.sourceCodeSize = undefined /*out*/;
+            inputs.version = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Function.__pulumiType, name, inputs, opts);
     }
 }

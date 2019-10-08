@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const current = aws.getCallerIdentity();
+ * const current = aws.getCallerIdentity({});
  * const allowMeToFoo = new aws.ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo", {
  *     principalArn: current.arn,
  *     vpcEndpointServiceId: aws_vpc_endpoint_service_foo.id,
@@ -75,31 +75,25 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpcEndpointServiceAllowedPrincipleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcEndpointServiceAllowedPrincipleArgs | VpcEndpointServiceAllowedPrincipleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpcEndpointServiceAllowedPrincipleState | undefined;
-            inputs["principalArn"] = state ? state.principalArn : undefined;
-            inputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
+    constructor(name: string, args: VpcEndpointServiceAllowedPrincipleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VpcEndpointServiceAllowedPrincipleArgs | VpcEndpointServiceAllowedPrincipleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VpcEndpointServiceAllowedPrincipleState;
+            inputs.principalArn = state.principalArn;
+            inputs.vpcEndpointServiceId = state.vpcEndpointServiceId;
         } else {
-            const args = argsOrState as VpcEndpointServiceAllowedPrincipleArgs | undefined;
-            if (!args || args.principalArn === undefined) {
+            const args = argsOrState as VpcEndpointServiceAllowedPrincipleArgs;
+            if (args.principalArn === undefined) {
                 throw new Error("Missing required property 'principalArn'");
             }
-            if (!args || args.vpcEndpointServiceId === undefined) {
+            if (args.vpcEndpointServiceId === undefined) {
                 throw new Error("Missing required property 'vpcEndpointServiceId'");
             }
-            inputs["principalArn"] = args ? args.principalArn : undefined;
-            inputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
+            inputs.principalArn = args.principalArn;
+            inputs.vpcEndpointServiceId = args.vpcEndpointServiceId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VpcEndpointServiceAllowedPrinciple.__pulumiType, name, inputs, opts);
     }
 }

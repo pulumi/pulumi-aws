@@ -70,33 +70,27 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResolverRuleAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResolverRuleAssociationArgs | ResolverRuleAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ResolverRuleAssociationState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resolverRuleId"] = state ? state.resolverRuleId : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: ResolverRuleAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ResolverRuleAssociationArgs | ResolverRuleAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ResolverRuleAssociationState;
+            inputs.name = state.name;
+            inputs.resolverRuleId = state.resolverRuleId;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as ResolverRuleAssociationArgs | undefined;
-            if (!args || args.resolverRuleId === undefined) {
+            const args = argsOrState as ResolverRuleAssociationArgs;
+            if (args.resolverRuleId === undefined) {
                 throw new Error("Missing required property 'resolverRuleId'");
             }
-            if (!args || args.vpcId === undefined) {
+            if (args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resolverRuleId"] = args ? args.resolverRuleId : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs.name = args.name;
+            inputs.resolverRuleId = args.resolverRuleId;
+            inputs.vpcId = args.vpcId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ResolverRuleAssociation.__pulumiType, name, inputs, opts);
     }
 }

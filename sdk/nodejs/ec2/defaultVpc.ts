@@ -137,55 +137,49 @@ export class DefaultVpc extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DefaultVpcArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DefaultVpcArgs | DefaultVpcState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DefaultVpcState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["assignGeneratedIpv6CidrBlock"] = state ? state.assignGeneratedIpv6CidrBlock : undefined;
-            inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
-            inputs["defaultNetworkAclId"] = state ? state.defaultNetworkAclId : undefined;
-            inputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
-            inputs["defaultSecurityGroupId"] = state ? state.defaultSecurityGroupId : undefined;
-            inputs["dhcpOptionsId"] = state ? state.dhcpOptionsId : undefined;
-            inputs["enableClassiclink"] = state ? state.enableClassiclink : undefined;
-            inputs["enableClassiclinkDnsSupport"] = state ? state.enableClassiclinkDnsSupport : undefined;
-            inputs["enableDnsHostnames"] = state ? state.enableDnsHostnames : undefined;
-            inputs["enableDnsSupport"] = state ? state.enableDnsSupport : undefined;
-            inputs["instanceTenancy"] = state ? state.instanceTenancy : undefined;
-            inputs["ipv6AssociationId"] = state ? state.ipv6AssociationId : undefined;
-            inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
-            inputs["mainRouteTableId"] = state ? state.mainRouteTableId : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: DefaultVpcArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DefaultVpcArgs | DefaultVpcState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DefaultVpcState;
+            inputs.arn = state.arn;
+            inputs.assignGeneratedIpv6CidrBlock = state.assignGeneratedIpv6CidrBlock;
+            inputs.cidrBlock = state.cidrBlock;
+            inputs.defaultNetworkAclId = state.defaultNetworkAclId;
+            inputs.defaultRouteTableId = state.defaultRouteTableId;
+            inputs.defaultSecurityGroupId = state.defaultSecurityGroupId;
+            inputs.dhcpOptionsId = state.dhcpOptionsId;
+            inputs.enableClassiclink = state.enableClassiclink;
+            inputs.enableClassiclinkDnsSupport = state.enableClassiclinkDnsSupport;
+            inputs.enableDnsHostnames = state.enableDnsHostnames;
+            inputs.enableDnsSupport = state.enableDnsSupport;
+            inputs.instanceTenancy = state.instanceTenancy;
+            inputs.ipv6AssociationId = state.ipv6AssociationId;
+            inputs.ipv6CidrBlock = state.ipv6CidrBlock;
+            inputs.mainRouteTableId = state.mainRouteTableId;
+            inputs.ownerId = state.ownerId;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as DefaultVpcArgs | undefined;
-            inputs["enableClassiclink"] = args ? args.enableClassiclink : undefined;
-            inputs["enableClassiclinkDnsSupport"] = args ? args.enableClassiclinkDnsSupport : undefined;
-            inputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
-            inputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["assignGeneratedIpv6CidrBlock"] = undefined /*out*/;
-            inputs["cidrBlock"] = undefined /*out*/;
-            inputs["defaultNetworkAclId"] = undefined /*out*/;
-            inputs["defaultRouteTableId"] = undefined /*out*/;
-            inputs["defaultSecurityGroupId"] = undefined /*out*/;
-            inputs["dhcpOptionsId"] = undefined /*out*/;
-            inputs["instanceTenancy"] = undefined /*out*/;
-            inputs["ipv6AssociationId"] = undefined /*out*/;
-            inputs["ipv6CidrBlock"] = undefined /*out*/;
-            inputs["mainRouteTableId"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
+            const args = argsOrState as DefaultVpcArgs;
+            inputs.enableClassiclink = args.enableClassiclink;
+            inputs.enableClassiclinkDnsSupport = args.enableClassiclinkDnsSupport;
+            inputs.enableDnsHostnames = args.enableDnsHostnames;
+            inputs.enableDnsSupport = args.enableDnsSupport;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.assignGeneratedIpv6CidrBlock = undefined /*out*/;
+            inputs.cidrBlock = undefined /*out*/;
+            inputs.defaultNetworkAclId = undefined /*out*/;
+            inputs.defaultRouteTableId = undefined /*out*/;
+            inputs.defaultSecurityGroupId = undefined /*out*/;
+            inputs.dhcpOptionsId = undefined /*out*/;
+            inputs.instanceTenancy = undefined /*out*/;
+            inputs.ipv6AssociationId = undefined /*out*/;
+            inputs.ipv6CidrBlock = undefined /*out*/;
+            inputs.mainRouteTableId = undefined /*out*/;
+            inputs.ownerId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DefaultVpc.__pulumiType, name, inputs, opts);
     }
 }

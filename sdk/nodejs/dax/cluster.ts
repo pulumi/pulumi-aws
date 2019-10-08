@@ -150,69 +150,63 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
-            inputs["clusterAddress"] = state ? state.clusterAddress : undefined;
-            inputs["clusterName"] = state ? state.clusterName : undefined;
-            inputs["configurationEndpoint"] = state ? state.configurationEndpoint : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
-            inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
-            inputs["nodeType"] = state ? state.nodeType : undefined;
-            inputs["nodes"] = state ? state.nodes : undefined;
-            inputs["notificationTopicArn"] = state ? state.notificationTopicArn : undefined;
-            inputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["replicationFactor"] = state ? state.replicationFactor : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
-            inputs["subnetGroupName"] = state ? state.subnetGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ClusterArgs | ClusterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ClusterState;
+            inputs.arn = state.arn;
+            inputs.availabilityZones = state.availabilityZones;
+            inputs.clusterAddress = state.clusterAddress;
+            inputs.clusterName = state.clusterName;
+            inputs.configurationEndpoint = state.configurationEndpoint;
+            inputs.description = state.description;
+            inputs.iamRoleArn = state.iamRoleArn;
+            inputs.maintenanceWindow = state.maintenanceWindow;
+            inputs.nodeType = state.nodeType;
+            inputs.nodes = state.nodes;
+            inputs.notificationTopicArn = state.notificationTopicArn;
+            inputs.parameterGroupName = state.parameterGroupName;
+            inputs.port = state.port;
+            inputs.replicationFactor = state.replicationFactor;
+            inputs.securityGroupIds = state.securityGroupIds;
+            inputs.serverSideEncryption = state.serverSideEncryption;
+            inputs.subnetGroupName = state.subnetGroupName;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.clusterName === undefined) {
+            const args = argsOrState as ClusterArgs;
+            if (args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.iamRoleArn === undefined) {
+            if (args.iamRoleArn === undefined) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if (!args || args.nodeType === undefined) {
+            if (args.nodeType === undefined) {
                 throw new Error("Missing required property 'nodeType'");
             }
-            if (!args || args.replicationFactor === undefined) {
+            if (args.replicationFactor === undefined) {
                 throw new Error("Missing required property 'replicationFactor'");
             }
-            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            inputs["nodeType"] = args ? args.nodeType : undefined;
-            inputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
-            inputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            inputs["replicationFactor"] = args ? args.replicationFactor : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
-            inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["clusterAddress"] = undefined /*out*/;
-            inputs["configurationEndpoint"] = undefined /*out*/;
-            inputs["nodes"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
+            inputs.availabilityZones = args.availabilityZones;
+            inputs.clusterName = args.clusterName;
+            inputs.description = args.description;
+            inputs.iamRoleArn = args.iamRoleArn;
+            inputs.maintenanceWindow = args.maintenanceWindow;
+            inputs.nodeType = args.nodeType;
+            inputs.notificationTopicArn = args.notificationTopicArn;
+            inputs.parameterGroupName = args.parameterGroupName;
+            inputs.replicationFactor = args.replicationFactor;
+            inputs.securityGroupIds = args.securityGroupIds;
+            inputs.serverSideEncryption = args.serverSideEncryption;
+            inputs.subnetGroupName = args.subnetGroupName;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.clusterAddress = undefined /*out*/;
+            inputs.configurationEndpoint = undefined /*out*/;
+            inputs.nodes = undefined /*out*/;
+            inputs.port = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

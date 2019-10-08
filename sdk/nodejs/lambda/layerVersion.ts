@@ -129,52 +129,46 @@ export class LayerVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LayerVersionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LayerVersionArgs | LayerVersionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LayerVersionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["compatibleRuntimes"] = state ? state.compatibleRuntimes : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["code"] = state ? state.code : undefined;
-            inputs["layerArn"] = state ? state.layerArn : undefined;
-            inputs["layerName"] = state ? state.layerName : undefined;
-            inputs["licenseInfo"] = state ? state.licenseInfo : undefined;
-            inputs["s3Bucket"] = state ? state.s3Bucket : undefined;
-            inputs["s3Key"] = state ? state.s3Key : undefined;
-            inputs["s3ObjectVersion"] = state ? state.s3ObjectVersion : undefined;
-            inputs["sourceCodeHash"] = state ? state.sourceCodeHash : undefined;
-            inputs["sourceCodeSize"] = state ? state.sourceCodeSize : undefined;
-            inputs["version"] = state ? state.version : undefined;
+    constructor(name: string, args: LayerVersionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LayerVersionArgs | LayerVersionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LayerVersionState;
+            inputs.arn = state.arn;
+            inputs.compatibleRuntimes = state.compatibleRuntimes;
+            inputs.createdDate = state.createdDate;
+            inputs.description = state.description;
+            inputs.code = state.code;
+            inputs.layerArn = state.layerArn;
+            inputs.layerName = state.layerName;
+            inputs.licenseInfo = state.licenseInfo;
+            inputs.s3Bucket = state.s3Bucket;
+            inputs.s3Key = state.s3Key;
+            inputs.s3ObjectVersion = state.s3ObjectVersion;
+            inputs.sourceCodeHash = state.sourceCodeHash;
+            inputs.sourceCodeSize = state.sourceCodeSize;
+            inputs.version = state.version;
         } else {
-            const args = argsOrState as LayerVersionArgs | undefined;
-            if (!args || args.layerName === undefined) {
+            const args = argsOrState as LayerVersionArgs;
+            if (args.layerName === undefined) {
                 throw new Error("Missing required property 'layerName'");
             }
-            inputs["compatibleRuntimes"] = args ? args.compatibleRuntimes : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["code"] = args ? args.code : undefined;
-            inputs["layerName"] = args ? args.layerName : undefined;
-            inputs["licenseInfo"] = args ? args.licenseInfo : undefined;
-            inputs["s3Bucket"] = args ? args.s3Bucket : undefined;
-            inputs["s3Key"] = args ? args.s3Key : undefined;
-            inputs["s3ObjectVersion"] = args ? args.s3ObjectVersion : undefined;
-            inputs["sourceCodeHash"] = args ? args.sourceCodeHash : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["layerArn"] = undefined /*out*/;
-            inputs["sourceCodeSize"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            inputs.compatibleRuntimes = args.compatibleRuntimes;
+            inputs.description = args.description;
+            inputs.code = args.code;
+            inputs.layerName = args.layerName;
+            inputs.licenseInfo = args.licenseInfo;
+            inputs.s3Bucket = args.s3Bucket;
+            inputs.s3Key = args.s3Key;
+            inputs.s3ObjectVersion = args.s3ObjectVersion;
+            inputs.sourceCodeHash = args.sourceCodeHash;
+            inputs.arn = undefined /*out*/;
+            inputs.createdDate = undefined /*out*/;
+            inputs.layerArn = undefined /*out*/;
+            inputs.sourceCodeSize = undefined /*out*/;
+            inputs.version = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LayerVersion.__pulumiType, name, inputs, opts);
     }
 }

@@ -36,12 +36,12 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
+ * const exampleSelection = new aws.backup.Selection("example", {
+ *     iamRoleArn: exampleRole.arn,
+ * });
  * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
  *     role: exampleRole.name,
- * });
- * const exampleSelection = new aws.backup.Selection("example", {
- *     iamRoleArn: exampleRole.arn,
  * });
  * ```
  * 
@@ -136,37 +136,31 @@ export class Selection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SelectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SelectionArgs | SelectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SelectionState | undefined;
-            inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["planId"] = state ? state.planId : undefined;
-            inputs["resources"] = state ? state.resources : undefined;
-            inputs["selectionTags"] = state ? state.selectionTags : undefined;
+    constructor(name: string, args: SelectionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SelectionArgs | SelectionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SelectionState;
+            inputs.iamRoleArn = state.iamRoleArn;
+            inputs.name = state.name;
+            inputs.planId = state.planId;
+            inputs.resources = state.resources;
+            inputs.selectionTags = state.selectionTags;
         } else {
-            const args = argsOrState as SelectionArgs | undefined;
-            if (!args || args.iamRoleArn === undefined) {
+            const args = argsOrState as SelectionArgs;
+            if (args.iamRoleArn === undefined) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if (!args || args.planId === undefined) {
+            if (args.planId === undefined) {
                 throw new Error("Missing required property 'planId'");
             }
-            inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["planId"] = args ? args.planId : undefined;
-            inputs["resources"] = args ? args.resources : undefined;
-            inputs["selectionTags"] = args ? args.selectionTags : undefined;
+            inputs.iamRoleArn = args.iamRoleArn;
+            inputs.name = args.name;
+            inputs.planId = args.planId;
+            inputs.resources = args.resources;
+            inputs.selectionTags = args.selectionTags;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Selection.__pulumiType, name, inputs, opts);
     }
 }

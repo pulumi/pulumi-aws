@@ -117,41 +117,35 @@ export class FileSystem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: FileSystemArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FileSystemArgs | FileSystemState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as FileSystemState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["creationToken"] = state ? state.creationToken : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["encrypted"] = state ? state.encrypted : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["lifecyclePolicy"] = state ? state.lifecyclePolicy : undefined;
-            inputs["performanceMode"] = state ? state.performanceMode : undefined;
-            inputs["provisionedThroughputInMibps"] = state ? state.provisionedThroughputInMibps : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["throughputMode"] = state ? state.throughputMode : undefined;
+    constructor(name: string, args?: FileSystemArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: FileSystemArgs | FileSystemState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as FileSystemState;
+            inputs.arn = state.arn;
+            inputs.creationToken = state.creationToken;
+            inputs.dnsName = state.dnsName;
+            inputs.encrypted = state.encrypted;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.lifecyclePolicy = state.lifecyclePolicy;
+            inputs.performanceMode = state.performanceMode;
+            inputs.provisionedThroughputInMibps = state.provisionedThroughputInMibps;
+            inputs.tags = state.tags;
+            inputs.throughputMode = state.throughputMode;
         } else {
-            const args = argsOrState as FileSystemArgs | undefined;
-            inputs["creationToken"] = args ? args.creationToken : undefined;
-            inputs["encrypted"] = args ? args.encrypted : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
-            inputs["performanceMode"] = args ? args.performanceMode : undefined;
-            inputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["throughputMode"] = args ? args.throughputMode : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
+            const args = argsOrState as FileSystemArgs;
+            inputs.creationToken = args.creationToken;
+            inputs.encrypted = args.encrypted;
+            inputs.kmsKeyId = args.kmsKeyId;
+            inputs.lifecyclePolicy = args.lifecyclePolicy;
+            inputs.performanceMode = args.performanceMode;
+            inputs.provisionedThroughputInMibps = args.provisionedThroughputInMibps;
+            inputs.tags = args.tags;
+            inputs.throughputMode = args.throughputMode;
+            inputs.arn = undefined /*out*/;
+            inputs.dnsName = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(FileSystem.__pulumiType, name, inputs, opts);
     }
 }

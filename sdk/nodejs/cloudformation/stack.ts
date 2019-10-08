@@ -139,49 +139,43 @@ export class Stack extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: StackArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StackArgs | StackState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as StackState | undefined;
-            inputs["capabilities"] = state ? state.capabilities : undefined;
-            inputs["disableRollback"] = state ? state.disableRollback : undefined;
-            inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notificationArns"] = state ? state.notificationArns : undefined;
-            inputs["onFailure"] = state ? state.onFailure : undefined;
-            inputs["outputs"] = state ? state.outputs : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["policyBody"] = state ? state.policyBody : undefined;
-            inputs["policyUrl"] = state ? state.policyUrl : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["templateBody"] = state ? state.templateBody : undefined;
-            inputs["templateUrl"] = state ? state.templateUrl : undefined;
-            inputs["timeoutInMinutes"] = state ? state.timeoutInMinutes : undefined;
+    constructor(name: string, args?: StackArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: StackArgs | StackState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as StackState;
+            inputs.capabilities = state.capabilities;
+            inputs.disableRollback = state.disableRollback;
+            inputs.iamRoleArn = state.iamRoleArn;
+            inputs.name = state.name;
+            inputs.notificationArns = state.notificationArns;
+            inputs.onFailure = state.onFailure;
+            inputs.outputs = state.outputs;
+            inputs.parameters = state.parameters;
+            inputs.policyBody = state.policyBody;
+            inputs.policyUrl = state.policyUrl;
+            inputs.tags = state.tags;
+            inputs.templateBody = state.templateBody;
+            inputs.templateUrl = state.templateUrl;
+            inputs.timeoutInMinutes = state.timeoutInMinutes;
         } else {
-            const args = argsOrState as StackArgs | undefined;
-            inputs["capabilities"] = args ? args.capabilities : undefined;
-            inputs["disableRollback"] = args ? args.disableRollback : undefined;
-            inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationArns"] = args ? args.notificationArns : undefined;
-            inputs["onFailure"] = args ? args.onFailure : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["policyBody"] = args ? args.policyBody : undefined;
-            inputs["policyUrl"] = args ? args.policyUrl : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateBody"] = args ? args.templateBody : undefined;
-            inputs["templateUrl"] = args ? args.templateUrl : undefined;
-            inputs["timeoutInMinutes"] = args ? args.timeoutInMinutes : undefined;
-            inputs["outputs"] = undefined /*out*/;
+            const args = argsOrState as StackArgs;
+            inputs.capabilities = args.capabilities;
+            inputs.disableRollback = args.disableRollback;
+            inputs.iamRoleArn = args.iamRoleArn;
+            inputs.name = args.name;
+            inputs.notificationArns = args.notificationArns;
+            inputs.onFailure = args.onFailure;
+            inputs.parameters = args.parameters;
+            inputs.policyBody = args.policyBody;
+            inputs.policyUrl = args.policyUrl;
+            inputs.tags = args.tags;
+            inputs.templateBody = args.templateBody;
+            inputs.templateUrl = args.templateUrl;
+            inputs.timeoutInMinutes = args.timeoutInMinutes;
+            inputs.outputs = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Stack.__pulumiType, name, inputs, opts);
     }
 }

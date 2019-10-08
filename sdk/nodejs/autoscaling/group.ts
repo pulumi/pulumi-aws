@@ -57,13 +57,14 @@ import {Metric, MetricsGranularity} from "./metrics";
  *             value: "ipsum",
  *         },
  *     ],
+ *     timeouts: [{
+ *         delete: "15m",
+ *     }],
  *     vpcZoneIdentifiers: [
  *         aws_subnet_example1.id,
  *         aws_subnet_example2.id,
  *     ],
- * }, {timeouts: {
- *     delete: "15m",
- * }});
+ * });
  * ```
  * 
  * ### With Latest Version Of Launch Template
@@ -413,87 +414,81 @@ export class Group extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
-            inputs["defaultCooldown"] = state ? state.defaultCooldown : undefined;
-            inputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
-            inputs["enabledMetrics"] = state ? state.enabledMetrics : undefined;
-            inputs["forceDelete"] = state ? state.forceDelete : undefined;
-            inputs["healthCheckGracePeriod"] = state ? state.healthCheckGracePeriod : undefined;
-            inputs["healthCheckType"] = state ? state.healthCheckType : undefined;
-            inputs["initialLifecycleHooks"] = state ? state.initialLifecycleHooks : undefined;
-            inputs["launchConfiguration"] = state ? state.launchConfiguration : undefined;
-            inputs["launchTemplate"] = state ? state.launchTemplate : undefined;
-            inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
-            inputs["maxSize"] = state ? state.maxSize : undefined;
-            inputs["metricsGranularity"] = state ? state.metricsGranularity : undefined;
-            inputs["minElbCapacity"] = state ? state.minElbCapacity : undefined;
-            inputs["minSize"] = state ? state.minSize : undefined;
-            inputs["mixedInstancesPolicy"] = state ? state.mixedInstancesPolicy : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["placementGroup"] = state ? state.placementGroup : undefined;
-            inputs["protectFromScaleIn"] = state ? state.protectFromScaleIn : undefined;
-            inputs["serviceLinkedRoleArn"] = state ? state.serviceLinkedRoleArn : undefined;
-            inputs["suspendedProcesses"] = state ? state.suspendedProcesses : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsCollection"] = state ? state.tagsCollection : undefined;
-            inputs["targetGroupArns"] = state ? state.targetGroupArns : undefined;
-            inputs["terminationPolicies"] = state ? state.terminationPolicies : undefined;
-            inputs["vpcZoneIdentifiers"] = state ? state.vpcZoneIdentifiers : undefined;
-            inputs["waitForCapacityTimeout"] = state ? state.waitForCapacityTimeout : undefined;
-            inputs["waitForElbCapacity"] = state ? state.waitForElbCapacity : undefined;
+    constructor(name: string, args: GroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GroupArgs | GroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GroupState;
+            inputs.arn = state.arn;
+            inputs.availabilityZones = state.availabilityZones;
+            inputs.defaultCooldown = state.defaultCooldown;
+            inputs.desiredCapacity = state.desiredCapacity;
+            inputs.enabledMetrics = state.enabledMetrics;
+            inputs.forceDelete = state.forceDelete;
+            inputs.healthCheckGracePeriod = state.healthCheckGracePeriod;
+            inputs.healthCheckType = state.healthCheckType;
+            inputs.initialLifecycleHooks = state.initialLifecycleHooks;
+            inputs.launchConfiguration = state.launchConfiguration;
+            inputs.launchTemplate = state.launchTemplate;
+            inputs.loadBalancers = state.loadBalancers;
+            inputs.maxSize = state.maxSize;
+            inputs.metricsGranularity = state.metricsGranularity;
+            inputs.minElbCapacity = state.minElbCapacity;
+            inputs.minSize = state.minSize;
+            inputs.mixedInstancesPolicy = state.mixedInstancesPolicy;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.placementGroup = state.placementGroup;
+            inputs.protectFromScaleIn = state.protectFromScaleIn;
+            inputs.serviceLinkedRoleArn = state.serviceLinkedRoleArn;
+            inputs.suspendedProcesses = state.suspendedProcesses;
+            inputs.tags = state.tags;
+            inputs.tagsCollection = state.tagsCollection;
+            inputs.targetGroupArns = state.targetGroupArns;
+            inputs.terminationPolicies = state.terminationPolicies;
+            inputs.vpcZoneIdentifiers = state.vpcZoneIdentifiers;
+            inputs.waitForCapacityTimeout = state.waitForCapacityTimeout;
+            inputs.waitForElbCapacity = state.waitForElbCapacity;
         } else {
-            const args = argsOrState as GroupArgs | undefined;
-            if (!args || args.maxSize === undefined) {
+            const args = argsOrState as GroupArgs;
+            if (args.maxSize === undefined) {
                 throw new Error("Missing required property 'maxSize'");
             }
-            if (!args || args.minSize === undefined) {
+            if (args.minSize === undefined) {
                 throw new Error("Missing required property 'minSize'");
             }
-            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            inputs["defaultCooldown"] = args ? args.defaultCooldown : undefined;
-            inputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
-            inputs["enabledMetrics"] = args ? args.enabledMetrics : undefined;
-            inputs["forceDelete"] = args ? args.forceDelete : undefined;
-            inputs["healthCheckGracePeriod"] = args ? args.healthCheckGracePeriod : undefined;
-            inputs["healthCheckType"] = args ? args.healthCheckType : undefined;
-            inputs["initialLifecycleHooks"] = args ? args.initialLifecycleHooks : undefined;
-            inputs["launchConfiguration"] = args ? args.launchConfiguration : undefined;
-            inputs["launchTemplate"] = args ? args.launchTemplate : undefined;
-            inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
-            inputs["maxSize"] = args ? args.maxSize : undefined;
-            inputs["metricsGranularity"] = args ? args.metricsGranularity : undefined;
-            inputs["minElbCapacity"] = args ? args.minElbCapacity : undefined;
-            inputs["minSize"] = args ? args.minSize : undefined;
-            inputs["mixedInstancesPolicy"] = args ? args.mixedInstancesPolicy : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["placementGroup"] = args ? args.placementGroup : undefined;
-            inputs["protectFromScaleIn"] = args ? args.protectFromScaleIn : undefined;
-            inputs["serviceLinkedRoleArn"] = args ? args.serviceLinkedRoleArn : undefined;
-            inputs["suspendedProcesses"] = args ? args.suspendedProcesses : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsCollection"] = args ? args.tagsCollection : undefined;
-            inputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
-            inputs["terminationPolicies"] = args ? args.terminationPolicies : undefined;
-            inputs["vpcZoneIdentifiers"] = args ? args.vpcZoneIdentifiers : undefined;
-            inputs["waitForCapacityTimeout"] = args ? args.waitForCapacityTimeout : undefined;
-            inputs["waitForElbCapacity"] = args ? args.waitForElbCapacity : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.availabilityZones = args.availabilityZones;
+            inputs.defaultCooldown = args.defaultCooldown;
+            inputs.desiredCapacity = args.desiredCapacity;
+            inputs.enabledMetrics = args.enabledMetrics;
+            inputs.forceDelete = args.forceDelete;
+            inputs.healthCheckGracePeriod = args.healthCheckGracePeriod;
+            inputs.healthCheckType = args.healthCheckType;
+            inputs.initialLifecycleHooks = args.initialLifecycleHooks;
+            inputs.launchConfiguration = args.launchConfiguration;
+            inputs.launchTemplate = args.launchTemplate;
+            inputs.loadBalancers = args.loadBalancers;
+            inputs.maxSize = args.maxSize;
+            inputs.metricsGranularity = args.metricsGranularity;
+            inputs.minElbCapacity = args.minElbCapacity;
+            inputs.minSize = args.minSize;
+            inputs.mixedInstancesPolicy = args.mixedInstancesPolicy;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.placementGroup = args.placementGroup;
+            inputs.protectFromScaleIn = args.protectFromScaleIn;
+            inputs.serviceLinkedRoleArn = args.serviceLinkedRoleArn;
+            inputs.suspendedProcesses = args.suspendedProcesses;
+            inputs.tags = args.tags;
+            inputs.tagsCollection = args.tagsCollection;
+            inputs.targetGroupArns = args.targetGroupArns;
+            inputs.terminationPolicies = args.terminationPolicies;
+            inputs.vpcZoneIdentifiers = args.vpcZoneIdentifiers;
+            inputs.waitForCapacityTimeout = args.waitForCapacityTimeout;
+            inputs.waitForElbCapacity = args.waitForElbCapacity;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Group.__pulumiType, name, inputs, opts);
     }
 }

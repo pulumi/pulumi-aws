@@ -82,32 +82,26 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SnapshotCopyGrantArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SnapshotCopyGrantArgs | SnapshotCopyGrantState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SnapshotCopyGrantState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["snapshotCopyGrantName"] = state ? state.snapshotCopyGrantName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: SnapshotCopyGrantArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SnapshotCopyGrantArgs | SnapshotCopyGrantState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SnapshotCopyGrantState;
+            inputs.arn = state.arn;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.snapshotCopyGrantName = state.snapshotCopyGrantName;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as SnapshotCopyGrantArgs | undefined;
-            if (!args || args.snapshotCopyGrantName === undefined) {
+            const args = argsOrState as SnapshotCopyGrantArgs;
+            if (args.snapshotCopyGrantName === undefined) {
                 throw new Error("Missing required property 'snapshotCopyGrantName'");
             }
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["snapshotCopyGrantName"] = args ? args.snapshotCopyGrantName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.kmsKeyId = args.kmsKeyId;
+            inputs.snapshotCopyGrantName = args.snapshotCopyGrantName;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SnapshotCopyGrant.__pulumiType, name, inputs, opts);
     }
 }

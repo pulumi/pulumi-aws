@@ -81,33 +81,27 @@ export class Thing extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ThingArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ThingArgs | ThingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ThingState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["attributes"] = state ? state.attributes : undefined;
-            inputs["defaultClientId"] = state ? state.defaultClientId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["thingTypeName"] = state ? state.thingTypeName : undefined;
-            inputs["version"] = state ? state.version : undefined;
+    constructor(name: string, args?: ThingArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ThingArgs | ThingState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ThingState;
+            inputs.arn = state.arn;
+            inputs.attributes = state.attributes;
+            inputs.defaultClientId = state.defaultClientId;
+            inputs.name = state.name;
+            inputs.thingTypeName = state.thingTypeName;
+            inputs.version = state.version;
         } else {
-            const args = argsOrState as ThingArgs | undefined;
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["thingTypeName"] = args ? args.thingTypeName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultClientId"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            const args = argsOrState as ThingArgs;
+            inputs.attributes = args.attributes;
+            inputs.name = args.name;
+            inputs.thingTypeName = args.thingTypeName;
+            inputs.arn = undefined /*out*/;
+            inputs.defaultClientId = undefined /*out*/;
+            inputs.version = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Thing.__pulumiType, name, inputs, opts);
     }
 }

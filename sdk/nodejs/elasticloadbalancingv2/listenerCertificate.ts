@@ -73,31 +73,25 @@ export class ListenerCertificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ListenerCertificateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ListenerCertificateArgs | ListenerCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ListenerCertificateState | undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["listenerArn"] = state ? state.listenerArn : undefined;
+    constructor(name: string, args: ListenerCertificateArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ListenerCertificateArgs | ListenerCertificateState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ListenerCertificateState;
+            inputs.certificateArn = state.certificateArn;
+            inputs.listenerArn = state.listenerArn;
         } else {
-            const args = argsOrState as ListenerCertificateArgs | undefined;
-            if (!args || args.certificateArn === undefined) {
+            const args = argsOrState as ListenerCertificateArgs;
+            if (args.certificateArn === undefined) {
                 throw new Error("Missing required property 'certificateArn'");
             }
-            if (!args || args.listenerArn === undefined) {
+            if (args.listenerArn === undefined) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["listenerArn"] = args ? args.listenerArn : undefined;
+            inputs.certificateArn = args.certificateArn;
+            inputs.listenerArn = args.listenerArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ListenerCertificate.__pulumiType, name, inputs, opts);
     }
 }

@@ -230,70 +230,64 @@ export class BucketObject extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BucketObjectArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BucketObjectArgs | BucketObjectState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as BucketObjectState | undefined;
-            inputs["acl"] = state ? state.acl : undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["cacheControl"] = state ? state.cacheControl : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["contentBase64"] = state ? state.contentBase64 : undefined;
-            inputs["contentDisposition"] = state ? state.contentDisposition : undefined;
-            inputs["contentEncoding"] = state ? state.contentEncoding : undefined;
-            inputs["contentLanguage"] = state ? state.contentLanguage : undefined;
-            inputs["contentType"] = state ? state.contentType : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["objectLockLegalHoldStatus"] = state ? state.objectLockLegalHoldStatus : undefined;
-            inputs["objectLockMode"] = state ? state.objectLockMode : undefined;
-            inputs["objectLockRetainUntilDate"] = state ? state.objectLockRetainUntilDate : undefined;
-            inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
-            inputs["source"] = state ? state.source : undefined;
-            inputs["storageClass"] = state ? state.storageClass : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["versionId"] = state ? state.versionId : undefined;
-            inputs["websiteRedirect"] = state ? state.websiteRedirect : undefined;
+    constructor(name: string, args: BucketObjectArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: BucketObjectArgs | BucketObjectState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as BucketObjectState;
+            inputs.acl = state.acl;
+            inputs.bucket = state.bucket;
+            inputs.cacheControl = state.cacheControl;
+            inputs.content = state.content;
+            inputs.contentBase64 = state.contentBase64;
+            inputs.contentDisposition = state.contentDisposition;
+            inputs.contentEncoding = state.contentEncoding;
+            inputs.contentLanguage = state.contentLanguage;
+            inputs.contentType = state.contentType;
+            inputs.etag = state.etag;
+            inputs.forceDestroy = state.forceDestroy;
+            inputs.key = state.key;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.metadata = state.metadata;
+            inputs.objectLockLegalHoldStatus = state.objectLockLegalHoldStatus;
+            inputs.objectLockMode = state.objectLockMode;
+            inputs.objectLockRetainUntilDate = state.objectLockRetainUntilDate;
+            inputs.serverSideEncryption = state.serverSideEncryption;
+            inputs.source = state.source;
+            inputs.storageClass = state.storageClass;
+            inputs.tags = state.tags;
+            inputs.versionId = state.versionId;
+            inputs.websiteRedirect = state.websiteRedirect;
         } else {
-            const args = argsOrState as BucketObjectArgs | undefined;
-            if (!args || args.bucket === undefined) {
+            const args = argsOrState as BucketObjectArgs;
+            if (args.bucket === undefined) {
                 throw new Error("Missing required property 'bucket'");
             }
-            inputs["acl"] = args ? args.acl : undefined;
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["cacheControl"] = args ? args.cacheControl : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["contentBase64"] = args ? args.contentBase64 : undefined;
-            inputs["contentDisposition"] = args ? args.contentDisposition : undefined;
-            inputs["contentEncoding"] = args ? args.contentEncoding : undefined;
-            inputs["contentLanguage"] = args ? args.contentLanguage : undefined;
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["objectLockLegalHoldStatus"] = args ? args.objectLockLegalHoldStatus : undefined;
-            inputs["objectLockMode"] = args ? args.objectLockMode : undefined;
-            inputs["objectLockRetainUntilDate"] = args ? args.objectLockRetainUntilDate : undefined;
-            inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["storageClass"] = args ? args.storageClass : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
-            inputs["versionId"] = undefined /*out*/;
+            inputs.acl = args.acl;
+            inputs.bucket = args.bucket;
+            inputs.cacheControl = args.cacheControl;
+            inputs.content = args.content;
+            inputs.contentBase64 = args.contentBase64;
+            inputs.contentDisposition = args.contentDisposition;
+            inputs.contentEncoding = args.contentEncoding;
+            inputs.contentLanguage = args.contentLanguage;
+            inputs.contentType = args.contentType;
+            inputs.etag = args.etag;
+            inputs.forceDestroy = args.forceDestroy;
+            inputs.key = args.key;
+            inputs.kmsKeyId = args.kmsKeyId;
+            inputs.metadata = args.metadata;
+            inputs.objectLockLegalHoldStatus = args.objectLockLegalHoldStatus;
+            inputs.objectLockMode = args.objectLockMode;
+            inputs.objectLockRetainUntilDate = args.objectLockRetainUntilDate;
+            inputs.serverSideEncryption = args.serverSideEncryption;
+            inputs.source = args.source;
+            inputs.storageClass = args.storageClass;
+            inputs.tags = args.tags;
+            inputs.websiteRedirect = args.websiteRedirect;
+            inputs.versionId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(BucketObject.__pulumiType, name, inputs, opts);
     }
 }

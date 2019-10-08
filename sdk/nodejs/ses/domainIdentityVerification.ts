@@ -78,28 +78,22 @@ export class DomainIdentityVerification extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainIdentityVerificationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainIdentityVerificationArgs | DomainIdentityVerificationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DomainIdentityVerificationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
+    constructor(name: string, args: DomainIdentityVerificationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DomainIdentityVerificationArgs | DomainIdentityVerificationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DomainIdentityVerificationState;
+            inputs.arn = state.arn;
+            inputs.domain = state.domain;
         } else {
-            const args = argsOrState as DomainIdentityVerificationArgs | undefined;
-            if (!args || args.domain === undefined) {
+            const args = argsOrState as DomainIdentityVerificationArgs;
+            if (args.domain === undefined) {
                 throw new Error("Missing required property 'domain'");
             }
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.domain = args.domain;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DomainIdentityVerification.__pulumiType, name, inputs, opts);
     }
 }

@@ -74,33 +74,27 @@ export class Portfolio extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PortfolioArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PortfolioArgs | PortfolioState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PortfolioState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["createdTime"] = state ? state.createdTime : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["providerName"] = state ? state.providerName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: PortfolioArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PortfolioArgs | PortfolioState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PortfolioState;
+            inputs.arn = state.arn;
+            inputs.createdTime = state.createdTime;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.providerName = state.providerName;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as PortfolioArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["providerName"] = args ? args.providerName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
+            const args = argsOrState as PortfolioArgs;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.providerName = args.providerName;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.createdTime = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Portfolio.__pulumiType, name, inputs, opts);
     }
 }

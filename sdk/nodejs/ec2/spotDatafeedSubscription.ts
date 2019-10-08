@@ -70,28 +70,22 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SpotDatafeedSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SpotDatafeedSubscriptionArgs | SpotDatafeedSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SpotDatafeedSubscriptionState | undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["prefix"] = state ? state.prefix : undefined;
+    constructor(name: string, args: SpotDatafeedSubscriptionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SpotDatafeedSubscriptionArgs | SpotDatafeedSubscriptionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SpotDatafeedSubscriptionState;
+            inputs.bucket = state.bucket;
+            inputs.prefix = state.prefix;
         } else {
-            const args = argsOrState as SpotDatafeedSubscriptionArgs | undefined;
-            if (!args || args.bucket === undefined) {
+            const args = argsOrState as SpotDatafeedSubscriptionArgs;
+            if (args.bucket === undefined) {
                 throw new Error("Missing required property 'bucket'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["prefix"] = args ? args.prefix : undefined;
+            inputs.bucket = args.bucket;
+            inputs.prefix = args.prefix;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SpotDatafeedSubscription.__pulumiType, name, inputs, opts);
     }
 }

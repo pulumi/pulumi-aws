@@ -89,43 +89,37 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LinkAggregationGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LinkAggregationGroupArgs | LinkAggregationGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LinkAggregationGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["connectionsBandwidth"] = state ? state.connectionsBandwidth : undefined;
-            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            inputs["hasLogicalRedundancy"] = state ? state.hasLogicalRedundancy : undefined;
-            inputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: LinkAggregationGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LinkAggregationGroupArgs | LinkAggregationGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LinkAggregationGroupState;
+            inputs.arn = state.arn;
+            inputs.connectionsBandwidth = state.connectionsBandwidth;
+            inputs.forceDestroy = state.forceDestroy;
+            inputs.hasLogicalRedundancy = state.hasLogicalRedundancy;
+            inputs.jumboFrameCapable = state.jumboFrameCapable;
+            inputs.location = state.location;
+            inputs.name = state.name;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as LinkAggregationGroupArgs | undefined;
-            if (!args || args.connectionsBandwidth === undefined) {
+            const args = argsOrState as LinkAggregationGroupArgs;
+            if (args.connectionsBandwidth === undefined) {
                 throw new Error("Missing required property 'connectionsBandwidth'");
             }
-            if (!args || args.location === undefined) {
+            if (args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            inputs["connectionsBandwidth"] = args ? args.connectionsBandwidth : undefined;
-            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["hasLogicalRedundancy"] = undefined /*out*/;
-            inputs["jumboFrameCapable"] = undefined /*out*/;
+            inputs.connectionsBandwidth = args.connectionsBandwidth;
+            inputs.forceDestroy = args.forceDestroy;
+            inputs.location = args.location;
+            inputs.name = args.name;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.hasLogicalRedundancy = undefined /*out*/;
+            inputs.jumboFrameCapable = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LinkAggregationGroup.__pulumiType, name, inputs, opts);
     }
 }

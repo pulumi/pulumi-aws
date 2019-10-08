@@ -98,47 +98,41 @@ export class InstanceGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: InstanceGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: InstanceGroupArgs | InstanceGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as InstanceGroupState | undefined;
-            inputs["autoscalingPolicy"] = state ? state.autoscalingPolicy : undefined;
-            inputs["bidPrice"] = state ? state.bidPrice : undefined;
-            inputs["clusterId"] = state ? state.clusterId : undefined;
-            inputs["ebsConfigs"] = state ? state.ebsConfigs : undefined;
-            inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
-            inputs["instanceCount"] = state ? state.instanceCount : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["runningInstanceCount"] = state ? state.runningInstanceCount : undefined;
-            inputs["status"] = state ? state.status : undefined;
+    constructor(name: string, args: InstanceGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: InstanceGroupArgs | InstanceGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as InstanceGroupState;
+            inputs.autoscalingPolicy = state.autoscalingPolicy;
+            inputs.bidPrice = state.bidPrice;
+            inputs.clusterId = state.clusterId;
+            inputs.ebsConfigs = state.ebsConfigs;
+            inputs.ebsOptimized = state.ebsOptimized;
+            inputs.instanceCount = state.instanceCount;
+            inputs.instanceType = state.instanceType;
+            inputs.name = state.name;
+            inputs.runningInstanceCount = state.runningInstanceCount;
+            inputs.status = state.status;
         } else {
-            const args = argsOrState as InstanceGroupArgs | undefined;
-            if (!args || args.clusterId === undefined) {
+            const args = argsOrState as InstanceGroupArgs;
+            if (args.clusterId === undefined) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if (!args || args.instanceType === undefined) {
+            if (args.instanceType === undefined) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["autoscalingPolicy"] = args ? args.autoscalingPolicy : undefined;
-            inputs["bidPrice"] = args ? args.bidPrice : undefined;
-            inputs["clusterId"] = args ? args.clusterId : undefined;
-            inputs["ebsConfigs"] = args ? args.ebsConfigs : undefined;
-            inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            inputs["instanceCount"] = args ? args.instanceCount : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["runningInstanceCount"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            inputs.autoscalingPolicy = args.autoscalingPolicy;
+            inputs.bidPrice = args.bidPrice;
+            inputs.clusterId = args.clusterId;
+            inputs.ebsConfigs = args.ebsConfigs;
+            inputs.ebsOptimized = args.ebsOptimized;
+            inputs.instanceCount = args.instanceCount;
+            inputs.instanceType = args.instanceType;
+            inputs.name = args.name;
+            inputs.runningInstanceCount = undefined /*out*/;
+            inputs.status = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(InstanceGroup.__pulumiType, name, inputs, opts);
     }
 }

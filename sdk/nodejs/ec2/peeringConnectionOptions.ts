@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const fooVpc = new aws.ec2.Vpc("foo", {
- *     cidrBlock: "10.0.0.0/16",
- * });
  * const bar = new aws.ec2.Vpc("bar", {
  *     cidrBlock: "10.1.0.0/16",
+ * });
+ * const fooVpc = new aws.ec2.Vpc("foo", {
+ *     cidrBlock: "10.0.0.0/16",
  * });
  * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("foo", {
  *     autoAccept: true,
@@ -48,57 +48,6 @@ import * as utilities from "../utilities";
  * ```
  * 
  * Basic cross-account usage:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const requester = new aws.Provider("requester", {});
- * const accepter = new aws.Provider("accepter", {});
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- *     enableDnsHostnames: true,
- *     enableDnsSupport: true,
- * }, {provider: requester});
- * const peerVpc = new aws.ec2.Vpc("peer", {
- *     cidrBlock: "10.1.0.0/16",
- *     enableDnsHostnames: true,
- *     enableDnsSupport: true,
- * }, {provider: accepter});
- * const peerCallerIdentity = aws.getCallerIdentity({provider: accepter});
- * // Requester's side of the connection.
- * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peer", {
- *     autoAccept: false,
- *     peerOwnerId: peerCallerIdentity.accountId,
- *     peerVpcId: peerVpc.id,
- *     tags: {
- *         Side: "Requester",
- *     },
- *     vpcId: main.id,
- * }, {provider: requester});
- * // Accepter's side of the connection.
- * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peer", {
- *     autoAccept: true,
- *     tags: {
- *         Side: "Accepter",
- *     },
- *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
- * }, {provider: accepter});
- * const requesterPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("requester", {
- *     requester: {
- *         allowRemoteVpcDnsResolution: true,
- *     },
- *     // As options can't be set until the connection has been accepted
- *     // create an explicit dependency on the accepter.
- *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
- * }, {provider: requester});
- * const accepterPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("accepter", {
- *     accepter: {
- *         allowRemoteVpcDnsResolution: true,
- *     },
- *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
- * }, {provider: accepter});
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_options.html.markdown.
  */
@@ -153,30 +102,24 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PeeringConnectionOptionsArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PeeringConnectionOptionsArgs | PeeringConnectionOptionsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PeeringConnectionOptionsState | undefined;
-            inputs["accepter"] = state ? state.accepter : undefined;
-            inputs["requester"] = state ? state.requester : undefined;
-            inputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
+    constructor(name: string, args: PeeringConnectionOptionsArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PeeringConnectionOptionsArgs | PeeringConnectionOptionsState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PeeringConnectionOptionsState;
+            inputs.accepter = state.accepter;
+            inputs.requester = state.requester;
+            inputs.vpcPeeringConnectionId = state.vpcPeeringConnectionId;
         } else {
-            const args = argsOrState as PeeringConnectionOptionsArgs | undefined;
-            if (!args || args.vpcPeeringConnectionId === undefined) {
+            const args = argsOrState as PeeringConnectionOptionsArgs;
+            if (args.vpcPeeringConnectionId === undefined) {
                 throw new Error("Missing required property 'vpcPeeringConnectionId'");
             }
-            inputs["accepter"] = args ? args.accepter : undefined;
-            inputs["requester"] = args ? args.requester : undefined;
-            inputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
+            inputs.accepter = args.accepter;
+            inputs.requester = args.requester;
+            inputs.vpcPeeringConnectionId = args.vpcPeeringConnectionId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(PeeringConnectionOptions.__pulumiType, name, inputs, opts);
     }
 }

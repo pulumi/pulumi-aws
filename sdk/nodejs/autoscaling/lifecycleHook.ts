@@ -120,43 +120,37 @@ export class LifecycleHook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LifecycleHookArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LifecycleHookArgs | LifecycleHookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LifecycleHookState | undefined;
-            inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
-            inputs["defaultResult"] = state ? state.defaultResult : undefined;
-            inputs["heartbeatTimeout"] = state ? state.heartbeatTimeout : undefined;
-            inputs["lifecycleTransition"] = state ? state.lifecycleTransition : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notificationMetadata"] = state ? state.notificationMetadata : undefined;
-            inputs["notificationTargetArn"] = state ? state.notificationTargetArn : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
+    constructor(name: string, args: LifecycleHookArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LifecycleHookArgs | LifecycleHookState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LifecycleHookState;
+            inputs.autoscalingGroupName = state.autoscalingGroupName;
+            inputs.defaultResult = state.defaultResult;
+            inputs.heartbeatTimeout = state.heartbeatTimeout;
+            inputs.lifecycleTransition = state.lifecycleTransition;
+            inputs.name = state.name;
+            inputs.notificationMetadata = state.notificationMetadata;
+            inputs.notificationTargetArn = state.notificationTargetArn;
+            inputs.roleArn = state.roleArn;
         } else {
-            const args = argsOrState as LifecycleHookArgs | undefined;
-            if (!args || args.autoscalingGroupName === undefined) {
+            const args = argsOrState as LifecycleHookArgs;
+            if (args.autoscalingGroupName === undefined) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            if (!args || args.lifecycleTransition === undefined) {
+            if (args.lifecycleTransition === undefined) {
                 throw new Error("Missing required property 'lifecycleTransition'");
             }
-            inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
-            inputs["defaultResult"] = args ? args.defaultResult : undefined;
-            inputs["heartbeatTimeout"] = args ? args.heartbeatTimeout : undefined;
-            inputs["lifecycleTransition"] = args ? args.lifecycleTransition : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationMetadata"] = args ? args.notificationMetadata : undefined;
-            inputs["notificationTargetArn"] = args ? args.notificationTargetArn : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs.autoscalingGroupName = args.autoscalingGroupName;
+            inputs.defaultResult = args.defaultResult;
+            inputs.heartbeatTimeout = args.heartbeatTimeout;
+            inputs.lifecycleTransition = args.lifecycleTransition;
+            inputs.name = args.name;
+            inputs.notificationMetadata = args.notificationMetadata;
+            inputs.notificationTargetArn = args.notificationTargetArn;
+            inputs.roleArn = args.roleArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LifecycleHook.__pulumiType, name, inputs, opts);
     }
 }

@@ -71,32 +71,26 @@ export class RouteTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteTableArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RouteTableArgs | RouteTableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RouteTableState | undefined;
-            inputs["defaultAssociationRouteTable"] = state ? state.defaultAssociationRouteTable : undefined;
-            inputs["defaultPropagationRouteTable"] = state ? state.defaultPropagationRouteTable : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
+    constructor(name: string, args: RouteTableArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RouteTableArgs | RouteTableState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RouteTableState;
+            inputs.defaultAssociationRouteTable = state.defaultAssociationRouteTable;
+            inputs.defaultPropagationRouteTable = state.defaultPropagationRouteTable;
+            inputs.tags = state.tags;
+            inputs.transitGatewayId = state.transitGatewayId;
         } else {
-            const args = argsOrState as RouteTableArgs | undefined;
-            if (!args || args.transitGatewayId === undefined) {
+            const args = argsOrState as RouteTableArgs;
+            if (args.transitGatewayId === undefined) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            inputs["defaultAssociationRouteTable"] = undefined /*out*/;
-            inputs["defaultPropagationRouteTable"] = undefined /*out*/;
+            inputs.tags = args.tags;
+            inputs.transitGatewayId = args.transitGatewayId;
+            inputs.defaultAssociationRouteTable = undefined /*out*/;
+            inputs.defaultPropagationRouteTable = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RouteTable.__pulumiType, name, inputs, opts);
     }
 }

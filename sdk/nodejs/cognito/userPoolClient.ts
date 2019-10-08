@@ -133,54 +133,48 @@ export class UserPoolClient extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserPoolClientArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserPoolClientArgs | UserPoolClientState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as UserPoolClientState | undefined;
-            inputs["allowedOauthFlows"] = state ? state.allowedOauthFlows : undefined;
-            inputs["allowedOauthFlowsUserPoolClient"] = state ? state.allowedOauthFlowsUserPoolClient : undefined;
-            inputs["allowedOauthScopes"] = state ? state.allowedOauthScopes : undefined;
-            inputs["callbackUrls"] = state ? state.callbackUrls : undefined;
-            inputs["clientSecret"] = state ? state.clientSecret : undefined;
-            inputs["defaultRedirectUri"] = state ? state.defaultRedirectUri : undefined;
-            inputs["explicitAuthFlows"] = state ? state.explicitAuthFlows : undefined;
-            inputs["generateSecret"] = state ? state.generateSecret : undefined;
-            inputs["logoutUrls"] = state ? state.logoutUrls : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["readAttributes"] = state ? state.readAttributes : undefined;
-            inputs["refreshTokenValidity"] = state ? state.refreshTokenValidity : undefined;
-            inputs["supportedIdentityProviders"] = state ? state.supportedIdentityProviders : undefined;
-            inputs["userPoolId"] = state ? state.userPoolId : undefined;
-            inputs["writeAttributes"] = state ? state.writeAttributes : undefined;
+    constructor(name: string, args: UserPoolClientArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: UserPoolClientArgs | UserPoolClientState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as UserPoolClientState;
+            inputs.allowedOauthFlows = state.allowedOauthFlows;
+            inputs.allowedOauthFlowsUserPoolClient = state.allowedOauthFlowsUserPoolClient;
+            inputs.allowedOauthScopes = state.allowedOauthScopes;
+            inputs.callbackUrls = state.callbackUrls;
+            inputs.clientSecret = state.clientSecret;
+            inputs.defaultRedirectUri = state.defaultRedirectUri;
+            inputs.explicitAuthFlows = state.explicitAuthFlows;
+            inputs.generateSecret = state.generateSecret;
+            inputs.logoutUrls = state.logoutUrls;
+            inputs.name = state.name;
+            inputs.readAttributes = state.readAttributes;
+            inputs.refreshTokenValidity = state.refreshTokenValidity;
+            inputs.supportedIdentityProviders = state.supportedIdentityProviders;
+            inputs.userPoolId = state.userPoolId;
+            inputs.writeAttributes = state.writeAttributes;
         } else {
-            const args = argsOrState as UserPoolClientArgs | undefined;
-            if (!args || args.userPoolId === undefined) {
+            const args = argsOrState as UserPoolClientArgs;
+            if (args.userPoolId === undefined) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            inputs["allowedOauthFlows"] = args ? args.allowedOauthFlows : undefined;
-            inputs["allowedOauthFlowsUserPoolClient"] = args ? args.allowedOauthFlowsUserPoolClient : undefined;
-            inputs["allowedOauthScopes"] = args ? args.allowedOauthScopes : undefined;
-            inputs["callbackUrls"] = args ? args.callbackUrls : undefined;
-            inputs["defaultRedirectUri"] = args ? args.defaultRedirectUri : undefined;
-            inputs["explicitAuthFlows"] = args ? args.explicitAuthFlows : undefined;
-            inputs["generateSecret"] = args ? args.generateSecret : undefined;
-            inputs["logoutUrls"] = args ? args.logoutUrls : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["readAttributes"] = args ? args.readAttributes : undefined;
-            inputs["refreshTokenValidity"] = args ? args.refreshTokenValidity : undefined;
-            inputs["supportedIdentityProviders"] = args ? args.supportedIdentityProviders : undefined;
-            inputs["userPoolId"] = args ? args.userPoolId : undefined;
-            inputs["writeAttributes"] = args ? args.writeAttributes : undefined;
-            inputs["clientSecret"] = undefined /*out*/;
+            inputs.allowedOauthFlows = args.allowedOauthFlows;
+            inputs.allowedOauthFlowsUserPoolClient = args.allowedOauthFlowsUserPoolClient;
+            inputs.allowedOauthScopes = args.allowedOauthScopes;
+            inputs.callbackUrls = args.callbackUrls;
+            inputs.defaultRedirectUri = args.defaultRedirectUri;
+            inputs.explicitAuthFlows = args.explicitAuthFlows;
+            inputs.generateSecret = args.generateSecret;
+            inputs.logoutUrls = args.logoutUrls;
+            inputs.name = args.name;
+            inputs.readAttributes = args.readAttributes;
+            inputs.refreshTokenValidity = args.refreshTokenValidity;
+            inputs.supportedIdentityProviders = args.supportedIdentityProviders;
+            inputs.userPoolId = args.userPoolId;
+            inputs.writeAttributes = args.writeAttributes;
+            inputs.clientSecret = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(UserPoolClient.__pulumiType, name, inputs, opts);
     }
 }

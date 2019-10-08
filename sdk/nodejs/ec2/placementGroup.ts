@@ -68,28 +68,22 @@ export class PlacementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PlacementGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PlacementGroupArgs | PlacementGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PlacementGroupState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["strategy"] = state ? state.strategy : undefined;
+    constructor(name: string, args: PlacementGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PlacementGroupArgs | PlacementGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PlacementGroupState;
+            inputs.name = state.name;
+            inputs.strategy = state.strategy;
         } else {
-            const args = argsOrState as PlacementGroupArgs | undefined;
-            if (!args || args.strategy === undefined) {
+            const args = argsOrState as PlacementGroupArgs;
+            if (args.strategy === undefined) {
                 throw new Error("Missing required property 'strategy'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["strategy"] = args ? args.strategy : undefined;
+            inputs.name = args.name;
+            inputs.strategy = args.strategy;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(PlacementGroup.__pulumiType, name, inputs, opts);
     }
 }

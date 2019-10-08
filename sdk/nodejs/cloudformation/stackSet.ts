@@ -151,46 +151,40 @@ export class StackSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StackSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StackSetArgs | StackSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as StackSetState | undefined;
-            inputs["administrationRoleArn"] = state ? state.administrationRoleArn : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["capabilities"] = state ? state.capabilities : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["executionRoleName"] = state ? state.executionRoleName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["stackSetId"] = state ? state.stackSetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["templateBody"] = state ? state.templateBody : undefined;
-            inputs["templateUrl"] = state ? state.templateUrl : undefined;
+    constructor(name: string, args: StackSetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: StackSetArgs | StackSetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as StackSetState;
+            inputs.administrationRoleArn = state.administrationRoleArn;
+            inputs.arn = state.arn;
+            inputs.capabilities = state.capabilities;
+            inputs.description = state.description;
+            inputs.executionRoleName = state.executionRoleName;
+            inputs.name = state.name;
+            inputs.parameters = state.parameters;
+            inputs.stackSetId = state.stackSetId;
+            inputs.tags = state.tags;
+            inputs.templateBody = state.templateBody;
+            inputs.templateUrl = state.templateUrl;
         } else {
-            const args = argsOrState as StackSetArgs | undefined;
-            if (!args || args.administrationRoleArn === undefined) {
+            const args = argsOrState as StackSetArgs;
+            if (args.administrationRoleArn === undefined) {
                 throw new Error("Missing required property 'administrationRoleArn'");
             }
-            inputs["administrationRoleArn"] = args ? args.administrationRoleArn : undefined;
-            inputs["capabilities"] = args ? args.capabilities : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["executionRoleName"] = args ? args.executionRoleName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateBody"] = args ? args.templateBody : undefined;
-            inputs["templateUrl"] = args ? args.templateUrl : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["stackSetId"] = undefined /*out*/;
+            inputs.administrationRoleArn = args.administrationRoleArn;
+            inputs.capabilities = args.capabilities;
+            inputs.description = args.description;
+            inputs.executionRoleName = args.executionRoleName;
+            inputs.name = args.name;
+            inputs.parameters = args.parameters;
+            inputs.tags = args.tags;
+            inputs.templateBody = args.templateBody;
+            inputs.templateUrl = args.templateUrl;
+            inputs.arn = undefined /*out*/;
+            inputs.stackSetId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(StackSet.__pulumiType, name, inputs, opts);
     }
 }

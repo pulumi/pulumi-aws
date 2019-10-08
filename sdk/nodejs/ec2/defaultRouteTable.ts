@@ -113,36 +113,30 @@ export class DefaultRouteTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DefaultRouteTableArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DefaultRouteTableArgs | DefaultRouteTableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DefaultRouteTableState | undefined;
-            inputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["propagatingVgws"] = state ? state.propagatingVgws : undefined;
-            inputs["routes"] = state ? state.routes : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: DefaultRouteTableArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DefaultRouteTableArgs | DefaultRouteTableState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DefaultRouteTableState;
+            inputs.defaultRouteTableId = state.defaultRouteTableId;
+            inputs.ownerId = state.ownerId;
+            inputs.propagatingVgws = state.propagatingVgws;
+            inputs.routes = state.routes;
+            inputs.tags = state.tags;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as DefaultRouteTableArgs | undefined;
-            if (!args || args.defaultRouteTableId === undefined) {
+            const args = argsOrState as DefaultRouteTableArgs;
+            if (args.defaultRouteTableId === undefined) {
                 throw new Error("Missing required property 'defaultRouteTableId'");
             }
-            inputs["defaultRouteTableId"] = args ? args.defaultRouteTableId : undefined;
-            inputs["propagatingVgws"] = args ? args.propagatingVgws : undefined;
-            inputs["routes"] = args ? args.routes : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            inputs.defaultRouteTableId = args.defaultRouteTableId;
+            inputs.propagatingVgws = args.propagatingVgws;
+            inputs.routes = args.routes;
+            inputs.tags = args.tags;
+            inputs.ownerId = undefined /*out*/;
+            inputs.vpcId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DefaultRouteTable.__pulumiType, name, inputs, opts);
     }
 }

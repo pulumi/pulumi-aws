@@ -30,19 +30,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = aws_iam_role_AWSCloudFormationStackSetAdministrationRole.arn.apply(arn => aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         effect: "Allow",
- *         principals: [{
- *             identifiers: [arn],
- *             type: "AWS",
- *         }],
- *     }],
- * }));
- * const aWSCloudFormationStackSetExecutionRole = new aws.iam.Role("AWSCloudFormationStackSetExecutionRole", {
- *     assumeRolePolicy: aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json,
- * });
  * // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
  * // Additional IAM permissions necessary depend on the resources defined in the Stack Set template
  * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = aws.iam.getPolicyDocument({
@@ -55,6 +42,19 @@ import * as utilities from "../utilities";
  *         effect: "Allow",
  *         resources: ["*"],
  *     }],
+ * });
+ * const aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = aws_iam_role_AWSCloudFormationStackSetAdministrationRole.arn.apply(arn => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         effect: "Allow",
+ *         principals: [{
+ *             identifiers: [arn],
+ *             type: "AWS",
+ *         }],
+ *     }],
+ * }));
+ * const aWSCloudFormationStackSetExecutionRole = new aws.iam.Role("AWSCloudFormationStackSetExecutionRole", {
+ *     assumeRolePolicy: aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json,
  * });
  * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new aws.iam.RolePolicy("AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy", {
  *     policy: aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.json,
@@ -123,36 +123,30 @@ export class StackSetInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StackSetInstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StackSetInstanceArgs | StackSetInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as StackSetInstanceState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["parameterOverrides"] = state ? state.parameterOverrides : undefined;
-            inputs["region"] = state ? state.region : undefined;
-            inputs["retainStack"] = state ? state.retainStack : undefined;
-            inputs["stackId"] = state ? state.stackId : undefined;
-            inputs["stackSetName"] = state ? state.stackSetName : undefined;
+    constructor(name: string, args: StackSetInstanceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: StackSetInstanceArgs | StackSetInstanceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as StackSetInstanceState;
+            inputs.accountId = state.accountId;
+            inputs.parameterOverrides = state.parameterOverrides;
+            inputs.region = state.region;
+            inputs.retainStack = state.retainStack;
+            inputs.stackId = state.stackId;
+            inputs.stackSetName = state.stackSetName;
         } else {
-            const args = argsOrState as StackSetInstanceArgs | undefined;
-            if (!args || args.stackSetName === undefined) {
+            const args = argsOrState as StackSetInstanceArgs;
+            if (args.stackSetName === undefined) {
                 throw new Error("Missing required property 'stackSetName'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["parameterOverrides"] = args ? args.parameterOverrides : undefined;
-            inputs["region"] = args ? args.region : undefined;
-            inputs["retainStack"] = args ? args.retainStack : undefined;
-            inputs["stackSetName"] = args ? args.stackSetName : undefined;
-            inputs["stackId"] = undefined /*out*/;
+            inputs.accountId = args.accountId;
+            inputs.parameterOverrides = args.parameterOverrides;
+            inputs.region = args.region;
+            inputs.retainStack = args.retainStack;
+            inputs.stackSetName = args.stackSetName;
+            inputs.stackId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(StackSetInstance.__pulumiType, name, inputs, opts);
     }
 }

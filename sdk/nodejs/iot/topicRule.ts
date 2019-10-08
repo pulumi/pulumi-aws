@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const mytopic = new aws.sns.Topic("mytopic", {});
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -29,17 +28,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const rule = new aws.iot.TopicRule("rule", {
- *     description: "Example rule",
- *     enabled: true,
- *     sns: {
- *         messageFormat: "RAW",
- *         roleArn: role.arn,
- *         targetArn: mytopic.arn,
- *     },
- *     sql: "SELECT * FROM 'topic/test'",
- *     sqlVersion: "2015-10-08",
- * });
+ * const mytopic = new aws.sns.Topic("mytopic", {});
  * const iamPolicyForLambda = new aws.iam.RolePolicy("iamPolicyForLambda", {
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
@@ -55,6 +44,17 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     role: role.id,
+ * });
+ * const rule = new aws.iot.TopicRule("rule", {
+ *     description: "Example rule",
+ *     enabled: true,
+ *     sns: {
+ *         messageFormat: "RAW",
+ *         roleArn: role.arn,
+ *         targetArn: mytopic.arn,
+ *     },
+ *     sql: "SELECT * FROM 'topic/test'",
+ *     sqlVersion: "2015-10-08",
  * });
  * ```
  *
@@ -130,64 +130,58 @@ export class TopicRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TopicRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TopicRuleArgs | TopicRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as TopicRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cloudwatchAlarm"] = state ? state.cloudwatchAlarm : undefined;
-            inputs["cloudwatchMetric"] = state ? state.cloudwatchMetric : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dynamodb"] = state ? state.dynamodb : undefined;
-            inputs["elasticsearch"] = state ? state.elasticsearch : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["firehose"] = state ? state.firehose : undefined;
-            inputs["kinesis"] = state ? state.kinesis : undefined;
-            inputs["lambda"] = state ? state.lambda : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["republish"] = state ? state.republish : undefined;
-            inputs["s3"] = state ? state.s3 : undefined;
-            inputs["sns"] = state ? state.sns : undefined;
-            inputs["sql"] = state ? state.sql : undefined;
-            inputs["sqlVersion"] = state ? state.sqlVersion : undefined;
-            inputs["sqs"] = state ? state.sqs : undefined;
+    constructor(name: string, args: TopicRuleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: TopicRuleArgs | TopicRuleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as TopicRuleState;
+            inputs.arn = state.arn;
+            inputs.cloudwatchAlarm = state.cloudwatchAlarm;
+            inputs.cloudwatchMetric = state.cloudwatchMetric;
+            inputs.description = state.description;
+            inputs.dynamodb = state.dynamodb;
+            inputs.elasticsearch = state.elasticsearch;
+            inputs.enabled = state.enabled;
+            inputs.firehose = state.firehose;
+            inputs.kinesis = state.kinesis;
+            inputs.lambda = state.lambda;
+            inputs.name = state.name;
+            inputs.republish = state.republish;
+            inputs.s3 = state.s3;
+            inputs.sns = state.sns;
+            inputs.sql = state.sql;
+            inputs.sqlVersion = state.sqlVersion;
+            inputs.sqs = state.sqs;
         } else {
-            const args = argsOrState as TopicRuleArgs | undefined;
-            if (!args || args.enabled === undefined) {
+            const args = argsOrState as TopicRuleArgs;
+            if (args.enabled === undefined) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if (!args || args.sql === undefined) {
+            if (args.sql === undefined) {
                 throw new Error("Missing required property 'sql'");
             }
-            if (!args || args.sqlVersion === undefined) {
+            if (args.sqlVersion === undefined) {
                 throw new Error("Missing required property 'sqlVersion'");
             }
-            inputs["cloudwatchAlarm"] = args ? args.cloudwatchAlarm : undefined;
-            inputs["cloudwatchMetric"] = args ? args.cloudwatchMetric : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dynamodb"] = args ? args.dynamodb : undefined;
-            inputs["elasticsearch"] = args ? args.elasticsearch : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["firehose"] = args ? args.firehose : undefined;
-            inputs["kinesis"] = args ? args.kinesis : undefined;
-            inputs["lambda"] = args ? args.lambda : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["republish"] = args ? args.republish : undefined;
-            inputs["s3"] = args ? args.s3 : undefined;
-            inputs["sns"] = args ? args.sns : undefined;
-            inputs["sql"] = args ? args.sql : undefined;
-            inputs["sqlVersion"] = args ? args.sqlVersion : undefined;
-            inputs["sqs"] = args ? args.sqs : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.cloudwatchAlarm = args.cloudwatchAlarm;
+            inputs.cloudwatchMetric = args.cloudwatchMetric;
+            inputs.description = args.description;
+            inputs.dynamodb = args.dynamodb;
+            inputs.elasticsearch = args.elasticsearch;
+            inputs.enabled = args.enabled;
+            inputs.firehose = args.firehose;
+            inputs.kinesis = args.kinesis;
+            inputs.lambda = args.lambda;
+            inputs.name = args.name;
+            inputs.republish = args.republish;
+            inputs.s3 = args.s3;
+            inputs.sns = args.sns;
+            inputs.sql = args.sql;
+            inputs.sqlVersion = args.sqlVersion;
+            inputs.sqs = args.sqs;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(TopicRule.__pulumiType, name, inputs, opts);
     }
 }

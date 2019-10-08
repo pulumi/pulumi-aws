@@ -208,57 +208,51 @@ export class Record extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RecordArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RecordArgs | RecordState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RecordState | undefined;
-            inputs["aliases"] = state ? state.aliases : undefined;
-            inputs["allowOverwrite"] = state ? state.allowOverwrite : undefined;
-            inputs["failoverRoutingPolicies"] = state ? state.failoverRoutingPolicies : undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["geolocationRoutingPolicies"] = state ? state.geolocationRoutingPolicies : undefined;
-            inputs["healthCheckId"] = state ? state.healthCheckId : undefined;
-            inputs["latencyRoutingPolicies"] = state ? state.latencyRoutingPolicies : undefined;
-            inputs["multivalueAnswerRoutingPolicy"] = state ? state.multivalueAnswerRoutingPolicy : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["records"] = state ? state.records : undefined;
-            inputs["setIdentifier"] = state ? state.setIdentifier : undefined;
-            inputs["ttl"] = state ? state.ttl : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["weightedRoutingPolicies"] = state ? state.weightedRoutingPolicies : undefined;
-            inputs["zoneId"] = state ? state.zoneId : undefined;
+    constructor(name: string, args: RecordArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RecordArgs | RecordState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RecordState;
+            inputs.aliases = state.aliases;
+            inputs.allowOverwrite = state.allowOverwrite;
+            inputs.failoverRoutingPolicies = state.failoverRoutingPolicies;
+            inputs.fqdn = state.fqdn;
+            inputs.geolocationRoutingPolicies = state.geolocationRoutingPolicies;
+            inputs.healthCheckId = state.healthCheckId;
+            inputs.latencyRoutingPolicies = state.latencyRoutingPolicies;
+            inputs.multivalueAnswerRoutingPolicy = state.multivalueAnswerRoutingPolicy;
+            inputs.name = state.name;
+            inputs.records = state.records;
+            inputs.setIdentifier = state.setIdentifier;
+            inputs.ttl = state.ttl;
+            inputs.type = state.type;
+            inputs.weightedRoutingPolicies = state.weightedRoutingPolicies;
+            inputs.zoneId = state.zoneId;
         } else {
-            const args = argsOrState as RecordArgs | undefined;
-            if (!args || args.type === undefined) {
+            const args = argsOrState as RecordArgs;
+            if (args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            if (!args || args.zoneId === undefined) {
+            if (args.zoneId === undefined) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            inputs["aliases"] = args ? args.aliases : undefined;
-            inputs["allowOverwrite"] = args ? args.allowOverwrite : undefined;
-            inputs["failoverRoutingPolicies"] = args ? args.failoverRoutingPolicies : undefined;
-            inputs["geolocationRoutingPolicies"] = args ? args.geolocationRoutingPolicies : undefined;
-            inputs["healthCheckId"] = args ? args.healthCheckId : undefined;
-            inputs["latencyRoutingPolicies"] = args ? args.latencyRoutingPolicies : undefined;
-            inputs["multivalueAnswerRoutingPolicy"] = args ? args.multivalueAnswerRoutingPolicy : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["records"] = args ? args.records : undefined;
-            inputs["setIdentifier"] = args ? args.setIdentifier : undefined;
-            inputs["ttl"] = args ? args.ttl : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["weightedRoutingPolicies"] = args ? args.weightedRoutingPolicies : undefined;
-            inputs["zoneId"] = args ? args.zoneId : undefined;
-            inputs["fqdn"] = undefined /*out*/;
+            inputs.aliases = args.aliases;
+            inputs.allowOverwrite = args.allowOverwrite;
+            inputs.failoverRoutingPolicies = args.failoverRoutingPolicies;
+            inputs.geolocationRoutingPolicies = args.geolocationRoutingPolicies;
+            inputs.healthCheckId = args.healthCheckId;
+            inputs.latencyRoutingPolicies = args.latencyRoutingPolicies;
+            inputs.multivalueAnswerRoutingPolicy = args.multivalueAnswerRoutingPolicy;
+            inputs.name = args.name;
+            inputs.records = args.records;
+            inputs.setIdentifier = args.setIdentifier;
+            inputs.ttl = args.ttl;
+            inputs.type = args.type;
+            inputs.weightedRoutingPolicies = args.weightedRoutingPolicies;
+            inputs.zoneId = args.zoneId;
+            inputs.fqdn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Record.__pulumiType, name, inputs, opts);
     }
 }

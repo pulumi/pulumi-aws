@@ -136,48 +136,42 @@ export class Target extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TargetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TargetArgs | TargetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as TargetState | undefined;
-            inputs["maxCapacity"] = state ? state.maxCapacity : undefined;
-            inputs["minCapacity"] = state ? state.minCapacity : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["scalableDimension"] = state ? state.scalableDimension : undefined;
-            inputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
+    constructor(name: string, args: TargetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: TargetArgs | TargetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as TargetState;
+            inputs.maxCapacity = state.maxCapacity;
+            inputs.minCapacity = state.minCapacity;
+            inputs.resourceId = state.resourceId;
+            inputs.roleArn = state.roleArn;
+            inputs.scalableDimension = state.scalableDimension;
+            inputs.serviceNamespace = state.serviceNamespace;
         } else {
-            const args = argsOrState as TargetArgs | undefined;
-            if (!args || args.maxCapacity === undefined) {
+            const args = argsOrState as TargetArgs;
+            if (args.maxCapacity === undefined) {
                 throw new Error("Missing required property 'maxCapacity'");
             }
-            if (!args || args.minCapacity === undefined) {
+            if (args.minCapacity === undefined) {
                 throw new Error("Missing required property 'minCapacity'");
             }
-            if (!args || args.resourceId === undefined) {
+            if (args.resourceId === undefined) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (!args || args.scalableDimension === undefined) {
+            if (args.scalableDimension === undefined) {
                 throw new Error("Missing required property 'scalableDimension'");
             }
-            if (!args || args.serviceNamespace === undefined) {
+            if (args.serviceNamespace === undefined) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
-            inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            inputs["minCapacity"] = args ? args.minCapacity : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["scalableDimension"] = args ? args.scalableDimension : undefined;
-            inputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
+            inputs.maxCapacity = args.maxCapacity;
+            inputs.minCapacity = args.minCapacity;
+            inputs.resourceId = args.resourceId;
+            inputs.roleArn = args.roleArn;
+            inputs.scalableDimension = args.scalableDimension;
+            inputs.serviceNamespace = args.serviceNamespace;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Target.__pulumiType, name, inputs, opts);
     }
 }

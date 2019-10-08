@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const exampleAccount = new aws.securityhub.Account("example", {});
- * const current = aws.getRegion();
+ * const current = aws.getRegion({});
  * const exampleProductSubscription = new aws.securityhub.ProductSubscription("example", {
- *     productArn: `arn:aws:securityhub:${current.name!}:733251395267:product/alertlogic/althreatmanagement`,
+ *     productArn: `arn:aws:securityhub:${current.name}:733251395267:product/alertlogic/althreatmanagement`,
  * }, {dependsOn: [exampleAccount]});
  * ```
  *
@@ -67,28 +67,22 @@ export class ProductSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProductSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProductSubscriptionArgs | ProductSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ProductSubscriptionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["productArn"] = state ? state.productArn : undefined;
+    constructor(name: string, args: ProductSubscriptionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ProductSubscriptionArgs | ProductSubscriptionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ProductSubscriptionState;
+            inputs.arn = state.arn;
+            inputs.productArn = state.productArn;
         } else {
-            const args = argsOrState as ProductSubscriptionArgs | undefined;
-            if (!args || args.productArn === undefined) {
+            const args = argsOrState as ProductSubscriptionArgs;
+            if (args.productArn === undefined) {
                 throw new Error("Missing required property 'productArn'");
             }
-            inputs["productArn"] = args ? args.productArn : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.productArn = args.productArn;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ProductSubscription.__pulumiType, name, inputs, opts);
     }
 }

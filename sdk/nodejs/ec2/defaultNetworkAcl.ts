@@ -176,38 +176,32 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DefaultNetworkAclArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DefaultNetworkAclArgs | DefaultNetworkAclState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DefaultNetworkAclState | undefined;
-            inputs["defaultNetworkAclId"] = state ? state.defaultNetworkAclId : undefined;
-            inputs["egress"] = state ? state.egress : undefined;
-            inputs["ingress"] = state ? state.ingress : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: DefaultNetworkAclArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DefaultNetworkAclArgs | DefaultNetworkAclState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DefaultNetworkAclState;
+            inputs.defaultNetworkAclId = state.defaultNetworkAclId;
+            inputs.egress = state.egress;
+            inputs.ingress = state.ingress;
+            inputs.ownerId = state.ownerId;
+            inputs.subnetIds = state.subnetIds;
+            inputs.tags = state.tags;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as DefaultNetworkAclArgs | undefined;
-            if (!args || args.defaultNetworkAclId === undefined) {
+            const args = argsOrState as DefaultNetworkAclArgs;
+            if (args.defaultNetworkAclId === undefined) {
                 throw new Error("Missing required property 'defaultNetworkAclId'");
             }
-            inputs["defaultNetworkAclId"] = args ? args.defaultNetworkAclId : undefined;
-            inputs["egress"] = args ? args.egress : undefined;
-            inputs["ingress"] = args ? args.ingress : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            inputs.defaultNetworkAclId = args.defaultNetworkAclId;
+            inputs.egress = args.egress;
+            inputs.ingress = args.ingress;
+            inputs.subnetIds = args.subnetIds;
+            inputs.tags = args.tags;
+            inputs.ownerId = undefined /*out*/;
+            inputs.vpcId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DefaultNetworkAcl.__pulumiType, name, inputs, opts);
     }
 }

@@ -109,36 +109,30 @@ export class NetworkAcl extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkAclArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkAclArgs | NetworkAclState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NetworkAclState | undefined;
-            inputs["egress"] = state ? state.egress : undefined;
-            inputs["ingress"] = state ? state.ingress : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: NetworkAclArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: NetworkAclArgs | NetworkAclState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as NetworkAclState;
+            inputs.egress = state.egress;
+            inputs.ingress = state.ingress;
+            inputs.ownerId = state.ownerId;
+            inputs.subnetIds = state.subnetIds;
+            inputs.tags = state.tags;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as NetworkAclArgs | undefined;
-            if (!args || args.vpcId === undefined) {
+            const args = argsOrState as NetworkAclArgs;
+            if (args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["egress"] = args ? args.egress : undefined;
-            inputs["ingress"] = args ? args.ingress : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["ownerId"] = undefined /*out*/;
+            inputs.egress = args.egress;
+            inputs.ingress = args.ingress;
+            inputs.subnetIds = args.subnetIds;
+            inputs.tags = args.tags;
+            inputs.vpcId = args.vpcId;
+            inputs.ownerId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(NetworkAcl.__pulumiType, name, inputs, opts);
     }
 }

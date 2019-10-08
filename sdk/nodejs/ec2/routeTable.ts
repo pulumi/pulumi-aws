@@ -109,34 +109,28 @@ export class RouteTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteTableArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RouteTableArgs | RouteTableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RouteTableState | undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["propagatingVgws"] = state ? state.propagatingVgws : undefined;
-            inputs["routes"] = state ? state.routes : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: RouteTableArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RouteTableArgs | RouteTableState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RouteTableState;
+            inputs.ownerId = state.ownerId;
+            inputs.propagatingVgws = state.propagatingVgws;
+            inputs.routes = state.routes;
+            inputs.tags = state.tags;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as RouteTableArgs | undefined;
-            if (!args || args.vpcId === undefined) {
+            const args = argsOrState as RouteTableArgs;
+            if (args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["propagatingVgws"] = args ? args.propagatingVgws : undefined;
-            inputs["routes"] = args ? args.routes : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["ownerId"] = undefined /*out*/;
+            inputs.propagatingVgws = args.propagatingVgws;
+            inputs.routes = args.routes;
+            inputs.tags = args.tags;
+            inputs.vpcId = args.vpcId;
+            inputs.ownerId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RouteTable.__pulumiType, name, inputs, opts);
     }
 }

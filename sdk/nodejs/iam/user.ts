@@ -109,35 +109,29 @@ export class User extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: UserArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as UserState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["uniqueId"] = state ? state.uniqueId : undefined;
+    constructor(name: string, args?: UserArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: UserArgs | UserState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as UserState;
+            inputs.arn = state.arn;
+            inputs.forceDestroy = state.forceDestroy;
+            inputs.name = state.name;
+            inputs.path = state.path;
+            inputs.permissionsBoundary = state.permissionsBoundary;
+            inputs.tags = state.tags;
+            inputs.uniqueId = state.uniqueId;
         } else {
-            const args = argsOrState as UserArgs | undefined;
-            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["uniqueId"] = undefined /*out*/;
+            const args = argsOrState as UserArgs;
+            inputs.forceDestroy = args.forceDestroy;
+            inputs.name = args.name;
+            inputs.path = args.path;
+            inputs.permissionsBoundary = args.permissionsBoundary;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.uniqueId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(User.__pulumiType, name, inputs, opts);
     }
 }

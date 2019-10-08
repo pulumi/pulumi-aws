@@ -96,33 +96,27 @@ export class Mesh extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: MeshArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MeshArgs | MeshState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MeshState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["spec"] = state ? state.spec : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: MeshArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: MeshArgs | MeshState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as MeshState;
+            inputs.arn = state.arn;
+            inputs.createdDate = state.createdDate;
+            inputs.lastUpdatedDate = state.lastUpdatedDate;
+            inputs.name = state.name;
+            inputs.spec = state.spec;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as MeshArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["spec"] = args ? args.spec : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["lastUpdatedDate"] = undefined /*out*/;
+            const args = argsOrState as MeshArgs;
+            inputs.name = args.name;
+            inputs.spec = args.spec;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.createdDate = undefined /*out*/;
+            inputs.lastUpdatedDate = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Mesh.__pulumiType, name, inputs, opts);
     }
 }

@@ -105,39 +105,33 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpcEndpointConnectionNotificationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcEndpointConnectionNotificationArgs | VpcEndpointConnectionNotificationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpcEndpointConnectionNotificationState | undefined;
-            inputs["connectionEvents"] = state ? state.connectionEvents : undefined;
-            inputs["connectionNotificationArn"] = state ? state.connectionNotificationArn : undefined;
-            inputs["notificationType"] = state ? state.notificationType : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
-            inputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
+    constructor(name: string, args: VpcEndpointConnectionNotificationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VpcEndpointConnectionNotificationArgs | VpcEndpointConnectionNotificationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VpcEndpointConnectionNotificationState;
+            inputs.connectionEvents = state.connectionEvents;
+            inputs.connectionNotificationArn = state.connectionNotificationArn;
+            inputs.notificationType = state.notificationType;
+            inputs.state = state.state;
+            inputs.vpcEndpointId = state.vpcEndpointId;
+            inputs.vpcEndpointServiceId = state.vpcEndpointServiceId;
         } else {
-            const args = argsOrState as VpcEndpointConnectionNotificationArgs | undefined;
-            if (!args || args.connectionEvents === undefined) {
+            const args = argsOrState as VpcEndpointConnectionNotificationArgs;
+            if (args.connectionEvents === undefined) {
                 throw new Error("Missing required property 'connectionEvents'");
             }
-            if (!args || args.connectionNotificationArn === undefined) {
+            if (args.connectionNotificationArn === undefined) {
                 throw new Error("Missing required property 'connectionNotificationArn'");
             }
-            inputs["connectionEvents"] = args ? args.connectionEvents : undefined;
-            inputs["connectionNotificationArn"] = args ? args.connectionNotificationArn : undefined;
-            inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
-            inputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
-            inputs["notificationType"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            inputs.connectionEvents = args.connectionEvents;
+            inputs.connectionNotificationArn = args.connectionNotificationArn;
+            inputs.vpcEndpointId = args.vpcEndpointId;
+            inputs.vpcEndpointServiceId = args.vpcEndpointServiceId;
+            inputs.notificationType = undefined /*out*/;
+            inputs.state = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VpcEndpointConnectionNotification.__pulumiType, name, inputs, opts);
     }
 }

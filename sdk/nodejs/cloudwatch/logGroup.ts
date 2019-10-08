@@ -87,33 +87,27 @@ export class LogGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: LogGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LogGroupArgs | LogGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LogGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["retentionInDays"] = state ? state.retentionInDays : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: LogGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LogGroupArgs | LogGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LogGroupState;
+            inputs.arn = state.arn;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.retentionInDays = state.retentionInDays;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as LogGroupArgs | undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as LogGroupArgs;
+            inputs.kmsKeyId = args.kmsKeyId;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.retentionInDays = args.retentionInDays;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LogGroup.__pulumiType, name, inputs, opts);
     }
 }

@@ -84,11 +84,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
- * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEnd", {});
  * const pool = new aws.cognito.UserPool("pool", {});
  * const client = new aws.cognito.UserPoolClient("client", {});
  * const domain = new aws.cognito.UserPoolDomain("domain", {});
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
+ * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEnd", {});
  * const frontEndListener = new aws.lb.Listener("frontEnd", {
  *     defaultActions: [
  *         {
@@ -207,44 +207,38 @@ export class Listener extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ListenerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ListenerArgs | ListenerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ListenerState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["defaultActions"] = state ? state.defaultActions : undefined;
-            inputs["loadBalancerArn"] = state ? state.loadBalancerArn : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["sslPolicy"] = state ? state.sslPolicy : undefined;
+    constructor(name: string, args: ListenerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ListenerArgs | ListenerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ListenerState;
+            inputs.arn = state.arn;
+            inputs.certificateArn = state.certificateArn;
+            inputs.defaultActions = state.defaultActions;
+            inputs.loadBalancerArn = state.loadBalancerArn;
+            inputs.port = state.port;
+            inputs.protocol = state.protocol;
+            inputs.sslPolicy = state.sslPolicy;
         } else {
-            const args = argsOrState as ListenerArgs | undefined;
-            if (!args || args.defaultActions === undefined) {
+            const args = argsOrState as ListenerArgs;
+            if (args.defaultActions === undefined) {
                 throw new Error("Missing required property 'defaultActions'");
             }
-            if (!args || args.loadBalancerArn === undefined) {
+            if (args.loadBalancerArn === undefined) {
                 throw new Error("Missing required property 'loadBalancerArn'");
             }
-            if (!args || args.port === undefined) {
+            if (args.port === undefined) {
                 throw new Error("Missing required property 'port'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["defaultActions"] = args ? args.defaultActions : undefined;
-            inputs["loadBalancerArn"] = args ? args.loadBalancerArn : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["sslPolicy"] = args ? args.sslPolicy : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.certificateArn = args.certificateArn;
+            inputs.defaultActions = args.defaultActions;
+            inputs.loadBalancerArn = args.loadBalancerArn;
+            inputs.port = args.port;
+            inputs.protocol = args.protocol;
+            inputs.sslPolicy = args.sslPolicy;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/listener:Listener" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Listener.__pulumiType, name, inputs, opts);

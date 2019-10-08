@@ -79,33 +79,27 @@ export class DocumentationVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DocumentationVersionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DocumentationVersionArgs | DocumentationVersionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DocumentationVersionState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["restApiId"] = state ? state.restApiId : undefined;
-            inputs["version"] = state ? state.version : undefined;
+    constructor(name: string, args: DocumentationVersionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DocumentationVersionArgs | DocumentationVersionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DocumentationVersionState;
+            inputs.description = state.description;
+            inputs.restApiId = state.restApiId;
+            inputs.version = state.version;
         } else {
-            const args = argsOrState as DocumentationVersionArgs | undefined;
-            if (!args || args.restApiId === undefined) {
+            const args = argsOrState as DocumentationVersionArgs;
+            if (args.restApiId === undefined) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            if (!args || args.version === undefined) {
+            if (args.version === undefined) {
                 throw new Error("Missing required property 'version'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
-            inputs["version"] = args ? args.version : undefined;
+            inputs.description = args.description;
+            inputs.restApiId = args.restApiId;
+            inputs.version = args.version;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DocumentationVersion.__pulumiType, name, inputs, opts);
     }
 }

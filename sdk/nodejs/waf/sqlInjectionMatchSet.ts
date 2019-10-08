@@ -70,25 +70,19 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SqlInjectionMatchSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SqlInjectionMatchSetArgs | SqlInjectionMatchSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SqlInjectionMatchSetState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["sqlInjectionMatchTuples"] = state ? state.sqlInjectionMatchTuples : undefined;
+    constructor(name: string, args?: SqlInjectionMatchSetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SqlInjectionMatchSetArgs | SqlInjectionMatchSetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SqlInjectionMatchSetState;
+            inputs.name = state.name;
+            inputs.sqlInjectionMatchTuples = state.sqlInjectionMatchTuples;
         } else {
-            const args = argsOrState as SqlInjectionMatchSetArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["sqlInjectionMatchTuples"] = args ? args.sqlInjectionMatchTuples : undefined;
+            const args = argsOrState as SqlInjectionMatchSetArgs;
+            inputs.name = args.name;
+            inputs.sqlInjectionMatchTuples = args.sqlInjectionMatchTuples;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SqlInjectionMatchSet.__pulumiType, name, inputs, opts);
     }
 }

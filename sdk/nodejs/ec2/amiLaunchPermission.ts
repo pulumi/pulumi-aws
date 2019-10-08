@@ -66,31 +66,25 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AmiLaunchPermissionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AmiLaunchPermissionArgs | AmiLaunchPermissionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AmiLaunchPermissionState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["imageId"] = state ? state.imageId : undefined;
+    constructor(name: string, args: AmiLaunchPermissionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AmiLaunchPermissionArgs | AmiLaunchPermissionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AmiLaunchPermissionState;
+            inputs.accountId = state.accountId;
+            inputs.imageId = state.imageId;
         } else {
-            const args = argsOrState as AmiLaunchPermissionArgs | undefined;
-            if (!args || args.accountId === undefined) {
+            const args = argsOrState as AmiLaunchPermissionArgs;
+            if (args.accountId === undefined) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if (!args || args.imageId === undefined) {
+            if (args.imageId === undefined) {
                 throw new Error("Missing required property 'imageId'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["imageId"] = args ? args.imageId : undefined;
+            inputs.accountId = args.accountId;
+            inputs.imageId = args.imageId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(AmiLaunchPermission.__pulumiType, name, inputs, opts);
     }
 }

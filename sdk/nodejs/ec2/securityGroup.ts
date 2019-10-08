@@ -99,41 +99,35 @@ export class SecurityGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SecurityGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SecurityGroupArgs | SecurityGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SecurityGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["egress"] = state ? state.egress : undefined;
-            inputs["ingress"] = state ? state.ingress : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["revokeRulesOnDelete"] = state ? state.revokeRulesOnDelete : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args?: SecurityGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SecurityGroupArgs | SecurityGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SecurityGroupState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.egress = state.egress;
+            inputs.ingress = state.ingress;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.ownerId = state.ownerId;
+            inputs.revokeRulesOnDelete = state.revokeRulesOnDelete;
+            inputs.tags = state.tags;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as SecurityGroupArgs | undefined;
-            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
-            inputs["egress"] = args ? args.egress : undefined;
-            inputs["ingress"] = args ? args.ingress : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["revokeRulesOnDelete"] = args ? args.revokeRulesOnDelete : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
+            const args = argsOrState as SecurityGroupArgs;
+            inputs.description = args.description || "Managed by Pulumi";
+            inputs.egress = args.egress;
+            inputs.ingress = args.ingress;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.revokeRulesOnDelete = args.revokeRulesOnDelete;
+            inputs.tags = args.tags;
+            inputs.vpcId = args.vpcId;
+            inputs.arn = undefined /*out*/;
+            inputs.ownerId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SecurityGroup.__pulumiType, name, inputs, opts);
     }
 }

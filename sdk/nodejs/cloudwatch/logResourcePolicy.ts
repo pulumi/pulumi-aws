@@ -107,31 +107,25 @@ export class LogResourcePolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LogResourcePolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LogResourcePolicyArgs | LogResourcePolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LogResourcePolicyState | undefined;
-            inputs["policyDocument"] = state ? state.policyDocument : undefined;
-            inputs["policyName"] = state ? state.policyName : undefined;
+    constructor(name: string, args: LogResourcePolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LogResourcePolicyArgs | LogResourcePolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LogResourcePolicyState;
+            inputs.policyDocument = state.policyDocument;
+            inputs.policyName = state.policyName;
         } else {
-            const args = argsOrState as LogResourcePolicyArgs | undefined;
-            if (!args || args.policyDocument === undefined) {
+            const args = argsOrState as LogResourcePolicyArgs;
+            if (args.policyDocument === undefined) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if (!args || args.policyName === undefined) {
+            if (args.policyName === undefined) {
                 throw new Error("Missing required property 'policyName'");
             }
-            inputs["policyDocument"] = args ? args.policyDocument : undefined;
-            inputs["policyName"] = args ? args.policyName : undefined;
+            inputs.policyDocument = args.policyDocument;
+            inputs.policyName = args.policyName;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LogResourcePolicy.__pulumiType, name, inputs, opts);
     }
 }

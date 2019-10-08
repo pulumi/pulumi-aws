@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const available = aws.getAvailabilityZones();
  * const cloudhsm2Vpc = new aws.ec2.Vpc("cloudhsm2Vpc", {
  *     cidrBlock: "10.0.0.0/16",
  *     tags: {
  *         Name: "example-aws_cloudhsm_v2_cluster",
  *     },
  * });
+ * const available = aws.getAvailabilityZones({});
  * const cloudhsm2Subnets: aws.ec2.Subnet[] = [];
  * for (let i = 0; i < 2; i++) {
  *     cloudhsm2Subnets.push(new aws.ec2.Subnet(`cloudhsm2_subnets-${i}`, {
@@ -132,45 +132,39 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
-            inputs["clusterCertificates"] = state ? state.clusterCertificates : undefined;
-            inputs["clusterId"] = state ? state.clusterId : undefined;
-            inputs["clusterState"] = state ? state.clusterState : undefined;
-            inputs["hsmType"] = state ? state.hsmType : undefined;
-            inputs["securityGroupId"] = state ? state.securityGroupId : undefined;
-            inputs["sourceBackupIdentifier"] = state ? state.sourceBackupIdentifier : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ClusterArgs | ClusterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ClusterState;
+            inputs.clusterCertificates = state.clusterCertificates;
+            inputs.clusterId = state.clusterId;
+            inputs.clusterState = state.clusterState;
+            inputs.hsmType = state.hsmType;
+            inputs.securityGroupId = state.securityGroupId;
+            inputs.sourceBackupIdentifier = state.sourceBackupIdentifier;
+            inputs.subnetIds = state.subnetIds;
+            inputs.tags = state.tags;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.hsmType === undefined) {
+            const args = argsOrState as ClusterArgs;
+            if (args.hsmType === undefined) {
                 throw new Error("Missing required property 'hsmType'");
             }
-            if (!args || args.subnetIds === undefined) {
+            if (args.subnetIds === undefined) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            inputs["hsmType"] = args ? args.hsmType : undefined;
-            inputs["sourceBackupIdentifier"] = args ? args.sourceBackupIdentifier : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["clusterCertificates"] = undefined /*out*/;
-            inputs["clusterId"] = undefined /*out*/;
-            inputs["clusterState"] = undefined /*out*/;
-            inputs["securityGroupId"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            inputs.hsmType = args.hsmType;
+            inputs.sourceBackupIdentifier = args.sourceBackupIdentifier;
+            inputs.subnetIds = args.subnetIds;
+            inputs.tags = args.tags;
+            inputs.clusterCertificates = undefined /*out*/;
+            inputs.clusterId = undefined /*out*/;
+            inputs.clusterState = undefined /*out*/;
+            inputs.securityGroupId = undefined /*out*/;
+            inputs.vpcId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

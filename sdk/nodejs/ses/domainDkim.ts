@@ -82,28 +82,22 @@ export class DomainDkim extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainDkimArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainDkimArgs | DomainDkimState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DomainDkimState | undefined;
-            inputs["dkimTokens"] = state ? state.dkimTokens : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
+    constructor(name: string, args: DomainDkimArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DomainDkimArgs | DomainDkimState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DomainDkimState;
+            inputs.dkimTokens = state.dkimTokens;
+            inputs.domain = state.domain;
         } else {
-            const args = argsOrState as DomainDkimArgs | undefined;
-            if (!args || args.domain === undefined) {
+            const args = argsOrState as DomainDkimArgs;
+            if (args.domain === undefined) {
                 throw new Error("Missing required property 'domain'");
             }
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["dkimTokens"] = undefined /*out*/;
+            inputs.domain = args.domain;
+            inputs.dkimTokens = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DomainDkim.__pulumiType, name, inputs, opts);
     }
 }

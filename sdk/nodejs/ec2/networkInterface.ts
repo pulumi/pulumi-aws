@@ -97,44 +97,38 @@ export class NetworkInterface extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkInterfaceArgs | NetworkInterfaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NetworkInterfaceState | undefined;
-            inputs["attachments"] = state ? state.attachments : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["privateDnsName"] = state ? state.privateDnsName : undefined;
-            inputs["privateIp"] = state ? state.privateIp : undefined;
-            inputs["privateIps"] = state ? state.privateIps : undefined;
-            inputs["privateIpsCount"] = state ? state.privateIpsCount : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["sourceDestCheck"] = state ? state.sourceDestCheck : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: NetworkInterfaceArgs | NetworkInterfaceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as NetworkInterfaceState;
+            inputs.attachments = state.attachments;
+            inputs.description = state.description;
+            inputs.privateDnsName = state.privateDnsName;
+            inputs.privateIp = state.privateIp;
+            inputs.privateIps = state.privateIps;
+            inputs.privateIpsCount = state.privateIpsCount;
+            inputs.securityGroups = state.securityGroups;
+            inputs.sourceDestCheck = state.sourceDestCheck;
+            inputs.subnetId = state.subnetId;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as NetworkInterfaceArgs | undefined;
-            if (!args || args.subnetId === undefined) {
+            const args = argsOrState as NetworkInterfaceArgs;
+            if (args.subnetId === undefined) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["attachments"] = args ? args.attachments : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["privateIp"] = args ? args.privateIp : undefined;
-            inputs["privateIps"] = args ? args.privateIps : undefined;
-            inputs["privateIpsCount"] = args ? args.privateIpsCount : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["privateDnsName"] = undefined /*out*/;
+            inputs.attachments = args.attachments;
+            inputs.description = args.description;
+            inputs.privateIp = args.privateIp;
+            inputs.privateIps = args.privateIps;
+            inputs.privateIpsCount = args.privateIpsCount;
+            inputs.securityGroups = args.securityGroups;
+            inputs.sourceDestCheck = args.sourceDestCheck;
+            inputs.subnetId = args.subnetId;
+            inputs.tags = args.tags;
+            inputs.privateDnsName = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(NetworkInterface.__pulumiType, name, inputs, opts);
     }
 }

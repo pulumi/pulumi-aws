@@ -104,38 +104,32 @@ export class LicenseConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LicenseConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LicenseConfigurationArgs | LicenseConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LicenseConfigurationState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["licenseCount"] = state ? state.licenseCount : undefined;
-            inputs["licenseCountHardLimit"] = state ? state.licenseCountHardLimit : undefined;
-            inputs["licenseCountingType"] = state ? state.licenseCountingType : undefined;
-            inputs["licenseRules"] = state ? state.licenseRules : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: LicenseConfigurationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LicenseConfigurationArgs | LicenseConfigurationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LicenseConfigurationState;
+            inputs.description = state.description;
+            inputs.licenseCount = state.licenseCount;
+            inputs.licenseCountHardLimit = state.licenseCountHardLimit;
+            inputs.licenseCountingType = state.licenseCountingType;
+            inputs.licenseRules = state.licenseRules;
+            inputs.name = state.name;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as LicenseConfigurationArgs | undefined;
-            if (!args || args.licenseCountingType === undefined) {
+            const args = argsOrState as LicenseConfigurationArgs;
+            if (args.licenseCountingType === undefined) {
                 throw new Error("Missing required property 'licenseCountingType'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["licenseCount"] = args ? args.licenseCount : undefined;
-            inputs["licenseCountHardLimit"] = args ? args.licenseCountHardLimit : undefined;
-            inputs["licenseCountingType"] = args ? args.licenseCountingType : undefined;
-            inputs["licenseRules"] = args ? args.licenseRules : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            inputs.description = args.description;
+            inputs.licenseCount = args.licenseCount;
+            inputs.licenseCountHardLimit = args.licenseCountHardLimit;
+            inputs.licenseCountingType = args.licenseCountingType;
+            inputs.licenseRules = args.licenseRules;
+            inputs.name = args.name;
+            inputs.tags = args.tags;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LicenseConfiguration.__pulumiType, name, inputs, opts);
     }
 }

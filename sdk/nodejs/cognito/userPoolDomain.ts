@@ -100,41 +100,35 @@ export class UserPoolDomain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserPoolDomainArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserPoolDomainArgs | UserPoolDomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as UserPoolDomainState | undefined;
-            inputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["cloudfrontDistributionArn"] = state ? state.cloudfrontDistributionArn : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
-            inputs["s3Bucket"] = state ? state.s3Bucket : undefined;
-            inputs["userPoolId"] = state ? state.userPoolId : undefined;
-            inputs["version"] = state ? state.version : undefined;
+    constructor(name: string, args: UserPoolDomainArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: UserPoolDomainArgs | UserPoolDomainState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as UserPoolDomainState;
+            inputs.awsAccountId = state.awsAccountId;
+            inputs.certificateArn = state.certificateArn;
+            inputs.cloudfrontDistributionArn = state.cloudfrontDistributionArn;
+            inputs.domain = state.domain;
+            inputs.s3Bucket = state.s3Bucket;
+            inputs.userPoolId = state.userPoolId;
+            inputs.version = state.version;
         } else {
-            const args = argsOrState as UserPoolDomainArgs | undefined;
-            if (!args || args.domain === undefined) {
+            const args = argsOrState as UserPoolDomainArgs;
+            if (args.domain === undefined) {
                 throw new Error("Missing required property 'domain'");
             }
-            if (!args || args.userPoolId === undefined) {
+            if (args.userPoolId === undefined) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["userPoolId"] = args ? args.userPoolId : undefined;
-            inputs["awsAccountId"] = undefined /*out*/;
-            inputs["cloudfrontDistributionArn"] = undefined /*out*/;
-            inputs["s3Bucket"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            inputs.certificateArn = args.certificateArn;
+            inputs.domain = args.domain;
+            inputs.userPoolId = args.userPoolId;
+            inputs.awsAccountId = undefined /*out*/;
+            inputs.cloudfrontDistributionArn = undefined /*out*/;
+            inputs.s3Bucket = undefined /*out*/;
+            inputs.version = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(UserPoolDomain.__pulumiType, name, inputs, opts);
     }
 }

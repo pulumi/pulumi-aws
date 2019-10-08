@@ -95,31 +95,25 @@ export class TopicPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TopicPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TopicPolicyArgs | TopicPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as TopicPolicyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+    constructor(name: string, args: TopicPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: TopicPolicyArgs | TopicPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as TopicPolicyState;
+            inputs.arn = state.arn;
+            inputs.policy = state.policy;
         } else {
-            const args = argsOrState as TopicPolicyArgs | undefined;
-            if (!args || args.arn === undefined) {
+            const args = argsOrState as TopicPolicyArgs;
+            if (args.arn === undefined) {
                 throw new Error("Missing required property 'arn'");
             }
-            if (!args || args.policy === undefined) {
+            if (args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
+            inputs.arn = args.arn;
+            inputs.policy = args.policy;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(TopicPolicy.__pulumiType, name, inputs, opts);
     }
 }

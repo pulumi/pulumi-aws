@@ -74,35 +74,29 @@ export class LogDestination extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LogDestinationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LogDestinationArgs | LogDestinationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LogDestinationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["targetArn"] = state ? state.targetArn : undefined;
+    constructor(name: string, args: LogDestinationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LogDestinationArgs | LogDestinationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LogDestinationState;
+            inputs.arn = state.arn;
+            inputs.name = state.name;
+            inputs.roleArn = state.roleArn;
+            inputs.targetArn = state.targetArn;
         } else {
-            const args = argsOrState as LogDestinationArgs | undefined;
-            if (!args || args.roleArn === undefined) {
+            const args = argsOrState as LogDestinationArgs;
+            if (args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if (!args || args.targetArn === undefined) {
+            if (args.targetArn === undefined) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["targetArn"] = args ? args.targetArn : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.name = args.name;
+            inputs.roleArn = args.roleArn;
+            inputs.targetArn = args.targetArn;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LogDestination.__pulumiType, name, inputs, opts);
     }
 }

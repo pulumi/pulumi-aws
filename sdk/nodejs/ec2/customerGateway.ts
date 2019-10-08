@@ -79,38 +79,32 @@ export class CustomerGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CustomerGatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CustomerGatewayArgs | CustomerGatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CustomerGatewayState | undefined;
-            inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: CustomerGatewayArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: CustomerGatewayArgs | CustomerGatewayState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as CustomerGatewayState;
+            inputs.bgpAsn = state.bgpAsn;
+            inputs.ipAddress = state.ipAddress;
+            inputs.tags = state.tags;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as CustomerGatewayArgs | undefined;
-            if (!args || args.bgpAsn === undefined) {
+            const args = argsOrState as CustomerGatewayArgs;
+            if (args.bgpAsn === undefined) {
                 throw new Error("Missing required property 'bgpAsn'");
             }
-            if (!args || args.ipAddress === undefined) {
+            if (args.ipAddress === undefined) {
                 throw new Error("Missing required property 'ipAddress'");
             }
-            if (!args || args.type === undefined) {
+            if (args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["bgpAsn"] = args ? args.bgpAsn : undefined;
-            inputs["ipAddress"] = args ? args.ipAddress : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            inputs.bgpAsn = args.bgpAsn;
+            inputs.ipAddress = args.ipAddress;
+            inputs.tags = args.tags;
+            inputs.type = args.type;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(CustomerGateway.__pulumiType, name, inputs, opts);
     }
 }

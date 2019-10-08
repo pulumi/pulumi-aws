@@ -149,33 +149,27 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: OriginAccessIdentityArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OriginAccessIdentityArgs | OriginAccessIdentityState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as OriginAccessIdentityState | undefined;
-            inputs["callerReference"] = state ? state.callerReference : undefined;
-            inputs["cloudfrontAccessIdentityPath"] = state ? state.cloudfrontAccessIdentityPath : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["iamArn"] = state ? state.iamArn : undefined;
-            inputs["s3CanonicalUserId"] = state ? state.s3CanonicalUserId : undefined;
+    constructor(name: string, args?: OriginAccessIdentityArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: OriginAccessIdentityArgs | OriginAccessIdentityState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as OriginAccessIdentityState;
+            inputs.callerReference = state.callerReference;
+            inputs.cloudfrontAccessIdentityPath = state.cloudfrontAccessIdentityPath;
+            inputs.comment = state.comment;
+            inputs.etag = state.etag;
+            inputs.iamArn = state.iamArn;
+            inputs.s3CanonicalUserId = state.s3CanonicalUserId;
         } else {
-            const args = argsOrState as OriginAccessIdentityArgs | undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["callerReference"] = undefined /*out*/;
-            inputs["cloudfrontAccessIdentityPath"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["iamArn"] = undefined /*out*/;
-            inputs["s3CanonicalUserId"] = undefined /*out*/;
+            const args = argsOrState as OriginAccessIdentityArgs;
+            inputs.comment = args.comment;
+            inputs.callerReference = undefined /*out*/;
+            inputs.cloudfrontAccessIdentityPath = undefined /*out*/;
+            inputs.etag = undefined /*out*/;
+            inputs.iamArn = undefined /*out*/;
+            inputs.s3CanonicalUserId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(OriginAccessIdentity.__pulumiType, name, inputs, opts);
     }
 }

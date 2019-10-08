@@ -79,30 +79,24 @@ export class DomainIdentity extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainIdentityArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainIdentityArgs | DomainIdentityState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DomainIdentityState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
-            inputs["verificationToken"] = state ? state.verificationToken : undefined;
+    constructor(name: string, args: DomainIdentityArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DomainIdentityArgs | DomainIdentityState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DomainIdentityState;
+            inputs.arn = state.arn;
+            inputs.domain = state.domain;
+            inputs.verificationToken = state.verificationToken;
         } else {
-            const args = argsOrState as DomainIdentityArgs | undefined;
-            if (!args || args.domain === undefined) {
+            const args = argsOrState as DomainIdentityArgs;
+            if (args.domain === undefined) {
                 throw new Error("Missing required property 'domain'");
             }
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["verificationToken"] = undefined /*out*/;
+            inputs.domain = args.domain;
+            inputs.arn = undefined /*out*/;
+            inputs.verificationToken = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DomainIdentity.__pulumiType, name, inputs, opts);
     }
 }

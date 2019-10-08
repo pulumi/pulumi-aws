@@ -75,25 +75,19 @@ export class ByteMatchSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ByteMatchSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ByteMatchSetArgs | ByteMatchSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ByteMatchSetState | undefined;
-            inputs["byteMatchTuples"] = state ? state.byteMatchTuples : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args?: ByteMatchSetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ByteMatchSetArgs | ByteMatchSetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ByteMatchSetState;
+            inputs.byteMatchTuples = state.byteMatchTuples;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as ByteMatchSetArgs | undefined;
-            inputs["byteMatchTuples"] = args ? args.byteMatchTuples : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            const args = argsOrState as ByteMatchSetArgs;
+            inputs.byteMatchTuples = args.byteMatchTuples;
+            inputs.name = args.name;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ByteMatchSet.__pulumiType, name, inputs, opts);
     }
 }

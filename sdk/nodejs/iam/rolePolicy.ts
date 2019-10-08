@@ -105,35 +105,29 @@ export class RolePolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RolePolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RolePolicyArgs | RolePolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RolePolicyState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["role"] = state ? state.role : undefined;
+    constructor(name: string, args: RolePolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RolePolicyArgs | RolePolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RolePolicyState;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.policy = state.policy;
+            inputs.role = state.role;
         } else {
-            const args = argsOrState as RolePolicyArgs | undefined;
-            if (!args || args.policy === undefined) {
+            const args = argsOrState as RolePolicyArgs;
+            if (args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (!args || args.role === undefined) {
+            if (args.role === undefined) {
                 throw new Error("Missing required property 'role'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["role"] = args ? args.role : undefined;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.policy = args.policy;
+            inputs.role = args.role;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RolePolicy.__pulumiType, name, inputs, opts);
     }
 }

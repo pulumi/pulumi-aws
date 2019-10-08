@@ -73,38 +73,32 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: OpenIdConnectProviderArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OpenIdConnectProviderArgs | OpenIdConnectProviderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as OpenIdConnectProviderState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["clientIdLists"] = state ? state.clientIdLists : undefined;
-            inputs["thumbprintLists"] = state ? state.thumbprintLists : undefined;
-            inputs["url"] = state ? state.url : undefined;
+    constructor(name: string, args: OpenIdConnectProviderArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: OpenIdConnectProviderArgs | OpenIdConnectProviderState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as OpenIdConnectProviderState;
+            inputs.arn = state.arn;
+            inputs.clientIdLists = state.clientIdLists;
+            inputs.thumbprintLists = state.thumbprintLists;
+            inputs.url = state.url;
         } else {
-            const args = argsOrState as OpenIdConnectProviderArgs | undefined;
-            if (!args || args.clientIdLists === undefined) {
+            const args = argsOrState as OpenIdConnectProviderArgs;
+            if (args.clientIdLists === undefined) {
                 throw new Error("Missing required property 'clientIdLists'");
             }
-            if (!args || args.thumbprintLists === undefined) {
+            if (args.thumbprintLists === undefined) {
                 throw new Error("Missing required property 'thumbprintLists'");
             }
-            if (!args || args.url === undefined) {
+            if (args.url === undefined) {
                 throw new Error("Missing required property 'url'");
             }
-            inputs["clientIdLists"] = args ? args.clientIdLists : undefined;
-            inputs["thumbprintLists"] = args ? args.thumbprintLists : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.clientIdLists = args.clientIdLists;
+            inputs.thumbprintLists = args.thumbprintLists;
+            inputs.url = args.url;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(OpenIdConnectProvider.__pulumiType, name, inputs, opts);
     }
 }

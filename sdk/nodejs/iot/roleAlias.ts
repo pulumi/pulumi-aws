@@ -85,35 +85,29 @@ export class RoleAlias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RoleAliasArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RoleAliasArgs | RoleAliasState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RoleAliasState | undefined;
-            inputs["alias"] = state ? state.alias : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["credentialDuration"] = state ? state.credentialDuration : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
+    constructor(name: string, args: RoleAliasArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RoleAliasArgs | RoleAliasState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RoleAliasState;
+            inputs.alias = state.alias;
+            inputs.arn = state.arn;
+            inputs.credentialDuration = state.credentialDuration;
+            inputs.roleArn = state.roleArn;
         } else {
-            const args = argsOrState as RoleAliasArgs | undefined;
-            if (!args || args.alias === undefined) {
+            const args = argsOrState as RoleAliasArgs;
+            if (args.alias === undefined) {
                 throw new Error("Missing required property 'alias'");
             }
-            if (!args || args.roleArn === undefined) {
+            if (args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["alias"] = args ? args.alias : undefined;
-            inputs["credentialDuration"] = args ? args.credentialDuration : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.alias = args.alias;
+            inputs.credentialDuration = args.credentialDuration;
+            inputs.roleArn = args.roleArn;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RoleAlias.__pulumiType, name, inputs, opts);
     }
 }

@@ -78,29 +78,23 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ClusterArgs | ClusterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ClusterState;
+            inputs.arn = state.arn;
+            inputs.name = state.name;
+            inputs.settings = state.settings;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as ClusterArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as ClusterArgs;
+            inputs.name = args.name;
+            inputs.settings = args.settings;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

@@ -96,41 +96,35 @@ export class MountTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MountTargetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MountTargetArgs | MountTargetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MountTargetState | undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["fileSystemArn"] = state ? state.fileSystemArn : undefined;
-            inputs["fileSystemId"] = state ? state.fileSystemId : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+    constructor(name: string, args: MountTargetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: MountTargetArgs | MountTargetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as MountTargetState;
+            inputs.dnsName = state.dnsName;
+            inputs.fileSystemArn = state.fileSystemArn;
+            inputs.fileSystemId = state.fileSystemId;
+            inputs.ipAddress = state.ipAddress;
+            inputs.networkInterfaceId = state.networkInterfaceId;
+            inputs.securityGroups = state.securityGroups;
+            inputs.subnetId = state.subnetId;
         } else {
-            const args = argsOrState as MountTargetArgs | undefined;
-            if (!args || args.fileSystemId === undefined) {
+            const args = argsOrState as MountTargetArgs;
+            if (args.fileSystemId === undefined) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            if (!args || args.subnetId === undefined) {
+            if (args.subnetId === undefined) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
-            inputs["ipAddress"] = args ? args.ipAddress : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["fileSystemArn"] = undefined /*out*/;
-            inputs["networkInterfaceId"] = undefined /*out*/;
+            inputs.fileSystemId = args.fileSystemId;
+            inputs.ipAddress = args.ipAddress;
+            inputs.securityGroups = args.securityGroups;
+            inputs.subnetId = args.subnetId;
+            inputs.dnsName = undefined /*out*/;
+            inputs.fileSystemArn = undefined /*out*/;
+            inputs.networkInterfaceId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(MountTarget.__pulumiType, name, inputs, opts);
     }
 }

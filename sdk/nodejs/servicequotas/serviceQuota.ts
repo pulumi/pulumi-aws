@@ -91,50 +91,44 @@ export class ServiceQuota extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServiceQuotaArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServiceQuotaArgs | ServiceQuotaState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ServiceQuotaState | undefined;
-            inputs["adjustable"] = state ? state.adjustable : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["defaultValue"] = state ? state.defaultValue : undefined;
-            inputs["quotaCode"] = state ? state.quotaCode : undefined;
-            inputs["quotaName"] = state ? state.quotaName : undefined;
-            inputs["requestId"] = state ? state.requestId : undefined;
-            inputs["requestStatus"] = state ? state.requestStatus : undefined;
-            inputs["serviceCode"] = state ? state.serviceCode : undefined;
-            inputs["serviceName"] = state ? state.serviceName : undefined;
-            inputs["value"] = state ? state.value : undefined;
+    constructor(name: string, args: ServiceQuotaArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ServiceQuotaArgs | ServiceQuotaState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ServiceQuotaState;
+            inputs.adjustable = state.adjustable;
+            inputs.arn = state.arn;
+            inputs.defaultValue = state.defaultValue;
+            inputs.quotaCode = state.quotaCode;
+            inputs.quotaName = state.quotaName;
+            inputs.requestId = state.requestId;
+            inputs.requestStatus = state.requestStatus;
+            inputs.serviceCode = state.serviceCode;
+            inputs.serviceName = state.serviceName;
+            inputs.value = state.value;
         } else {
-            const args = argsOrState as ServiceQuotaArgs | undefined;
-            if (!args || args.quotaCode === undefined) {
+            const args = argsOrState as ServiceQuotaArgs;
+            if (args.quotaCode === undefined) {
                 throw new Error("Missing required property 'quotaCode'");
             }
-            if (!args || args.serviceCode === undefined) {
+            if (args.serviceCode === undefined) {
                 throw new Error("Missing required property 'serviceCode'");
             }
-            if (!args || args.value === undefined) {
+            if (args.value === undefined) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["quotaCode"] = args ? args.quotaCode : undefined;
-            inputs["serviceCode"] = args ? args.serviceCode : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["adjustable"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultValue"] = undefined /*out*/;
-            inputs["quotaName"] = undefined /*out*/;
-            inputs["requestId"] = undefined /*out*/;
-            inputs["requestStatus"] = undefined /*out*/;
-            inputs["serviceName"] = undefined /*out*/;
+            inputs.quotaCode = args.quotaCode;
+            inputs.serviceCode = args.serviceCode;
+            inputs.value = args.value;
+            inputs.adjustable = undefined /*out*/;
+            inputs.arn = undefined /*out*/;
+            inputs.defaultValue = undefined /*out*/;
+            inputs.quotaName = undefined /*out*/;
+            inputs.requestId = undefined /*out*/;
+            inputs.requestStatus = undefined /*out*/;
+            inputs.serviceName = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ServiceQuota.__pulumiType, name, inputs, opts);
     }
 }

@@ -108,45 +108,39 @@ export class Association extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AssociationArgs | AssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AssociationState | undefined;
-            inputs["associationId"] = state ? state.associationId : undefined;
-            inputs["associationName"] = state ? state.associationName : undefined;
-            inputs["complianceSeverity"] = state ? state.complianceSeverity : undefined;
-            inputs["documentVersion"] = state ? state.documentVersion : undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
-            inputs["maxErrors"] = state ? state.maxErrors : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outputLocation"] = state ? state.outputLocation : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
-            inputs["targets"] = state ? state.targets : undefined;
+    constructor(name: string, args?: AssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AssociationArgs | AssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AssociationState;
+            inputs.associationId = state.associationId;
+            inputs.associationName = state.associationName;
+            inputs.complianceSeverity = state.complianceSeverity;
+            inputs.documentVersion = state.documentVersion;
+            inputs.instanceId = state.instanceId;
+            inputs.maxConcurrency = state.maxConcurrency;
+            inputs.maxErrors = state.maxErrors;
+            inputs.name = state.name;
+            inputs.outputLocation = state.outputLocation;
+            inputs.parameters = state.parameters;
+            inputs.scheduleExpression = state.scheduleExpression;
+            inputs.targets = state.targets;
         } else {
-            const args = argsOrState as AssociationArgs | undefined;
-            inputs["associationName"] = args ? args.associationName : undefined;
-            inputs["complianceSeverity"] = args ? args.complianceSeverity : undefined;
-            inputs["documentVersion"] = args ? args.documentVersion : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
-            inputs["maxErrors"] = args ? args.maxErrors : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["outputLocation"] = args ? args.outputLocation : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
-            inputs["associationId"] = undefined /*out*/;
+            const args = argsOrState as AssociationArgs;
+            inputs.associationName = args.associationName;
+            inputs.complianceSeverity = args.complianceSeverity;
+            inputs.documentVersion = args.documentVersion;
+            inputs.instanceId = args.instanceId;
+            inputs.maxConcurrency = args.maxConcurrency;
+            inputs.maxErrors = args.maxErrors;
+            inputs.name = args.name;
+            inputs.outputLocation = args.outputLocation;
+            inputs.parameters = args.parameters;
+            inputs.scheduleExpression = args.scheduleExpression;
+            inputs.targets = args.targets;
+            inputs.associationId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Association.__pulumiType, name, inputs, opts);
     }
 }

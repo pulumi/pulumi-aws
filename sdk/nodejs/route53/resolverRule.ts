@@ -118,45 +118,39 @@ export class ResolverRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResolverRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResolverRuleArgs | ResolverRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ResolverRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["resolverEndpointId"] = state ? state.resolverEndpointId : undefined;
-            inputs["ruleType"] = state ? state.ruleType : undefined;
-            inputs["shareStatus"] = state ? state.shareStatus : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["targetIps"] = state ? state.targetIps : undefined;
+    constructor(name: string, args: ResolverRuleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ResolverRuleArgs | ResolverRuleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ResolverRuleState;
+            inputs.arn = state.arn;
+            inputs.domainName = state.domainName;
+            inputs.name = state.name;
+            inputs.ownerId = state.ownerId;
+            inputs.resolverEndpointId = state.resolverEndpointId;
+            inputs.ruleType = state.ruleType;
+            inputs.shareStatus = state.shareStatus;
+            inputs.tags = state.tags;
+            inputs.targetIps = state.targetIps;
         } else {
-            const args = argsOrState as ResolverRuleArgs | undefined;
-            if (!args || args.domainName === undefined) {
+            const args = argsOrState as ResolverRuleArgs;
+            if (args.domainName === undefined) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (!args || args.ruleType === undefined) {
+            if (args.ruleType === undefined) {
                 throw new Error("Missing required property 'ruleType'");
             }
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resolverEndpointId"] = args ? args.resolverEndpointId : undefined;
-            inputs["ruleType"] = args ? args.ruleType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetIps"] = args ? args.targetIps : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["shareStatus"] = undefined /*out*/;
+            inputs.domainName = args.domainName;
+            inputs.name = args.name;
+            inputs.resolverEndpointId = args.resolverEndpointId;
+            inputs.ruleType = args.ruleType;
+            inputs.tags = args.tags;
+            inputs.targetIps = args.targetIps;
+            inputs.arn = undefined /*out*/;
+            inputs.ownerId = undefined /*out*/;
+            inputs.shareStatus = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ResolverRule.__pulumiType, name, inputs, opts);
     }
 }

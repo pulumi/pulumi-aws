@@ -92,31 +92,25 @@ export class PolicyAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyAttachmentArgs | PolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PolicyAttachmentState | undefined;
-            inputs["policyId"] = state ? state.policyId : undefined;
-            inputs["targetId"] = state ? state.targetId : undefined;
+    constructor(name: string, args: PolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PolicyAttachmentArgs | PolicyAttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PolicyAttachmentState;
+            inputs.policyId = state.policyId;
+            inputs.targetId = state.targetId;
         } else {
-            const args = argsOrState as PolicyAttachmentArgs | undefined;
-            if (!args || args.policyId === undefined) {
+            const args = argsOrState as PolicyAttachmentArgs;
+            if (args.policyId === undefined) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if (!args || args.targetId === undefined) {
+            if (args.targetId === undefined) {
                 throw new Error("Missing required property 'targetId'");
             }
-            inputs["policyId"] = args ? args.policyId : undefined;
-            inputs["targetId"] = args ? args.targetId : undefined;
+            inputs.policyId = args.policyId;
+            inputs.targetId = args.targetId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(PolicyAttachment.__pulumiType, name, inputs, opts);
     }
 }

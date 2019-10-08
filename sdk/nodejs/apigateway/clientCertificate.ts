@@ -73,29 +73,23 @@ export class ClientCertificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ClientCertificateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClientCertificateArgs | ClientCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClientCertificateState | undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["expirationDate"] = state ? state.expirationDate : undefined;
-            inputs["pemEncodedCertificate"] = state ? state.pemEncodedCertificate : undefined;
+    constructor(name: string, args?: ClientCertificateArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ClientCertificateArgs | ClientCertificateState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ClientCertificateState;
+            inputs.createdDate = state.createdDate;
+            inputs.description = state.description;
+            inputs.expirationDate = state.expirationDate;
+            inputs.pemEncodedCertificate = state.pemEncodedCertificate;
         } else {
-            const args = argsOrState as ClientCertificateArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["expirationDate"] = undefined /*out*/;
-            inputs["pemEncodedCertificate"] = undefined /*out*/;
+            const args = argsOrState as ClientCertificateArgs;
+            inputs.description = args.description;
+            inputs.createdDate = undefined /*out*/;
+            inputs.expirationDate = undefined /*out*/;
+            inputs.pemEncodedCertificate = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ClientCertificate.__pulumiType, name, inputs, opts);
     }
 }

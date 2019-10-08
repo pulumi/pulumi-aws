@@ -208,66 +208,60 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SpotFleetRequestArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SpotFleetRequestArgs | SpotFleetRequestState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SpotFleetRequestState | undefined;
-            inputs["allocationStrategy"] = state ? state.allocationStrategy : undefined;
-            inputs["clientToken"] = state ? state.clientToken : undefined;
-            inputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
-            inputs["fleetType"] = state ? state.fleetType : undefined;
-            inputs["iamFleetRole"] = state ? state.iamFleetRole : undefined;
-            inputs["instanceInterruptionBehaviour"] = state ? state.instanceInterruptionBehaviour : undefined;
-            inputs["instancePoolsToUseCount"] = state ? state.instancePoolsToUseCount : undefined;
-            inputs["launchSpecifications"] = state ? state.launchSpecifications : undefined;
-            inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
-            inputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
-            inputs["spotPrice"] = state ? state.spotPrice : undefined;
-            inputs["spotRequestState"] = state ? state.spotRequestState : undefined;
-            inputs["targetCapacity"] = state ? state.targetCapacity : undefined;
-            inputs["targetGroupArns"] = state ? state.targetGroupArns : undefined;
-            inputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
-            inputs["validFrom"] = state ? state.validFrom : undefined;
-            inputs["validUntil"] = state ? state.validUntil : undefined;
-            inputs["waitForFulfillment"] = state ? state.waitForFulfillment : undefined;
+    constructor(name: string, args: SpotFleetRequestArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SpotFleetRequestArgs | SpotFleetRequestState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SpotFleetRequestState;
+            inputs.allocationStrategy = state.allocationStrategy;
+            inputs.clientToken = state.clientToken;
+            inputs.excessCapacityTerminationPolicy = state.excessCapacityTerminationPolicy;
+            inputs.fleetType = state.fleetType;
+            inputs.iamFleetRole = state.iamFleetRole;
+            inputs.instanceInterruptionBehaviour = state.instanceInterruptionBehaviour;
+            inputs.instancePoolsToUseCount = state.instancePoolsToUseCount;
+            inputs.launchSpecifications = state.launchSpecifications;
+            inputs.loadBalancers = state.loadBalancers;
+            inputs.replaceUnhealthyInstances = state.replaceUnhealthyInstances;
+            inputs.spotPrice = state.spotPrice;
+            inputs.spotRequestState = state.spotRequestState;
+            inputs.targetCapacity = state.targetCapacity;
+            inputs.targetGroupArns = state.targetGroupArns;
+            inputs.terminateInstancesWithExpiration = state.terminateInstancesWithExpiration;
+            inputs.validFrom = state.validFrom;
+            inputs.validUntil = state.validUntil;
+            inputs.waitForFulfillment = state.waitForFulfillment;
         } else {
-            const args = argsOrState as SpotFleetRequestArgs | undefined;
-            if (!args || args.iamFleetRole === undefined) {
+            const args = argsOrState as SpotFleetRequestArgs;
+            if (args.iamFleetRole === undefined) {
                 throw new Error("Missing required property 'iamFleetRole'");
             }
-            if (!args || args.launchSpecifications === undefined) {
+            if (args.launchSpecifications === undefined) {
                 throw new Error("Missing required property 'launchSpecifications'");
             }
-            if (!args || args.targetCapacity === undefined) {
+            if (args.targetCapacity === undefined) {
                 throw new Error("Missing required property 'targetCapacity'");
             }
-            inputs["allocationStrategy"] = args ? args.allocationStrategy : undefined;
-            inputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
-            inputs["fleetType"] = args ? args.fleetType : undefined;
-            inputs["iamFleetRole"] = args ? args.iamFleetRole : undefined;
-            inputs["instanceInterruptionBehaviour"] = args ? args.instanceInterruptionBehaviour : undefined;
-            inputs["instancePoolsToUseCount"] = args ? args.instancePoolsToUseCount : undefined;
-            inputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
-            inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
-            inputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
-            inputs["spotPrice"] = args ? args.spotPrice : undefined;
-            inputs["targetCapacity"] = args ? args.targetCapacity : undefined;
-            inputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
-            inputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
-            inputs["validFrom"] = args ? args.validFrom : undefined;
-            inputs["validUntil"] = args ? args.validUntil : undefined;
-            inputs["waitForFulfillment"] = args ? args.waitForFulfillment : undefined;
-            inputs["clientToken"] = undefined /*out*/;
-            inputs["spotRequestState"] = undefined /*out*/;
+            inputs.allocationStrategy = args.allocationStrategy;
+            inputs.excessCapacityTerminationPolicy = args.excessCapacityTerminationPolicy;
+            inputs.fleetType = args.fleetType;
+            inputs.iamFleetRole = args.iamFleetRole;
+            inputs.instanceInterruptionBehaviour = args.instanceInterruptionBehaviour;
+            inputs.instancePoolsToUseCount = args.instancePoolsToUseCount;
+            inputs.launchSpecifications = args.launchSpecifications;
+            inputs.loadBalancers = args.loadBalancers;
+            inputs.replaceUnhealthyInstances = args.replaceUnhealthyInstances;
+            inputs.spotPrice = args.spotPrice;
+            inputs.targetCapacity = args.targetCapacity;
+            inputs.targetGroupArns = args.targetGroupArns;
+            inputs.terminateInstancesWithExpiration = args.terminateInstancesWithExpiration;
+            inputs.validFrom = args.validFrom;
+            inputs.validUntil = args.validUntil;
+            inputs.waitForFulfillment = args.waitForFulfillment;
+            inputs.clientToken = undefined /*out*/;
+            inputs.spotRequestState = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SpotFleetRequest.__pulumiType, name, inputs, opts);
     }
 }

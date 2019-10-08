@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * 
  * // Create a new replication task
  * const test = new aws.dms.ReplicationTask("test", {
- *     cdcStartTime: "1.48434688e+09",
+ *     cdcStartTime: "1484346880",
  *     migrationType: "full-load",
  *     replicationInstanceArn: aws_dms_replication_instance_test_dms_replication_instance_tf.replicationInstanceArn,
  *     replicationTaskId: "test-dms-replication-task-tf",
@@ -108,59 +108,53 @@ export class ReplicationTask extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReplicationTaskArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ReplicationTaskArgs | ReplicationTaskState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ReplicationTaskState | undefined;
-            inputs["cdcStartTime"] = state ? state.cdcStartTime : undefined;
-            inputs["migrationType"] = state ? state.migrationType : undefined;
-            inputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
-            inputs["replicationTaskArn"] = state ? state.replicationTaskArn : undefined;
-            inputs["replicationTaskId"] = state ? state.replicationTaskId : undefined;
-            inputs["replicationTaskSettings"] = state ? state.replicationTaskSettings : undefined;
-            inputs["sourceEndpointArn"] = state ? state.sourceEndpointArn : undefined;
-            inputs["tableMappings"] = state ? state.tableMappings : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["targetEndpointArn"] = state ? state.targetEndpointArn : undefined;
+    constructor(name: string, args: ReplicationTaskArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ReplicationTaskArgs | ReplicationTaskState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ReplicationTaskState;
+            inputs.cdcStartTime = state.cdcStartTime;
+            inputs.migrationType = state.migrationType;
+            inputs.replicationInstanceArn = state.replicationInstanceArn;
+            inputs.replicationTaskArn = state.replicationTaskArn;
+            inputs.replicationTaskId = state.replicationTaskId;
+            inputs.replicationTaskSettings = state.replicationTaskSettings;
+            inputs.sourceEndpointArn = state.sourceEndpointArn;
+            inputs.tableMappings = state.tableMappings;
+            inputs.tags = state.tags;
+            inputs.targetEndpointArn = state.targetEndpointArn;
         } else {
-            const args = argsOrState as ReplicationTaskArgs | undefined;
-            if (!args || args.migrationType === undefined) {
+            const args = argsOrState as ReplicationTaskArgs;
+            if (args.migrationType === undefined) {
                 throw new Error("Missing required property 'migrationType'");
             }
-            if (!args || args.replicationInstanceArn === undefined) {
+            if (args.replicationInstanceArn === undefined) {
                 throw new Error("Missing required property 'replicationInstanceArn'");
             }
-            if (!args || args.replicationTaskId === undefined) {
+            if (args.replicationTaskId === undefined) {
                 throw new Error("Missing required property 'replicationTaskId'");
             }
-            if (!args || args.sourceEndpointArn === undefined) {
+            if (args.sourceEndpointArn === undefined) {
                 throw new Error("Missing required property 'sourceEndpointArn'");
             }
-            if (!args || args.tableMappings === undefined) {
+            if (args.tableMappings === undefined) {
                 throw new Error("Missing required property 'tableMappings'");
             }
-            if (!args || args.targetEndpointArn === undefined) {
+            if (args.targetEndpointArn === undefined) {
                 throw new Error("Missing required property 'targetEndpointArn'");
             }
-            inputs["cdcStartTime"] = args ? args.cdcStartTime : undefined;
-            inputs["migrationType"] = args ? args.migrationType : undefined;
-            inputs["replicationInstanceArn"] = args ? args.replicationInstanceArn : undefined;
-            inputs["replicationTaskId"] = args ? args.replicationTaskId : undefined;
-            inputs["replicationTaskSettings"] = args ? args.replicationTaskSettings : undefined;
-            inputs["sourceEndpointArn"] = args ? args.sourceEndpointArn : undefined;
-            inputs["tableMappings"] = args ? args.tableMappings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
-            inputs["replicationTaskArn"] = undefined /*out*/;
+            inputs.cdcStartTime = args.cdcStartTime;
+            inputs.migrationType = args.migrationType;
+            inputs.replicationInstanceArn = args.replicationInstanceArn;
+            inputs.replicationTaskId = args.replicationTaskId;
+            inputs.replicationTaskSettings = args.replicationTaskSettings;
+            inputs.sourceEndpointArn = args.sourceEndpointArn;
+            inputs.tableMappings = args.tableMappings;
+            inputs.tags = args.tags;
+            inputs.targetEndpointArn = args.targetEndpointArn;
+            inputs.replicationTaskArn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ReplicationTask.__pulumiType, name, inputs, opts);
     }
 }

@@ -88,31 +88,25 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProxyProtocolPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProxyProtocolPolicyArgs | ProxyProtocolPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ProxyProtocolPolicyState | undefined;
-            inputs["instancePorts"] = state ? state.instancePorts : undefined;
-            inputs["loadBalancer"] = state ? state.loadBalancer : undefined;
+    constructor(name: string, args: ProxyProtocolPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ProxyProtocolPolicyArgs | ProxyProtocolPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ProxyProtocolPolicyState;
+            inputs.instancePorts = state.instancePorts;
+            inputs.loadBalancer = state.loadBalancer;
         } else {
-            const args = argsOrState as ProxyProtocolPolicyArgs | undefined;
-            if (!args || args.instancePorts === undefined) {
+            const args = argsOrState as ProxyProtocolPolicyArgs;
+            if (args.instancePorts === undefined) {
                 throw new Error("Missing required property 'instancePorts'");
             }
-            if (!args || args.loadBalancer === undefined) {
+            if (args.loadBalancer === undefined) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
-            inputs["instancePorts"] = args ? args.instancePorts : undefined;
-            inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
+            inputs.instancePorts = args.instancePorts;
+            inputs.loadBalancer = args.loadBalancer;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ProxyProtocolPolicy.__pulumiType, name, inputs, opts);
     }
 }

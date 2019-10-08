@@ -7,33 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage the accepter's side of a Direct Connect hosted private virtual interface.
  * This resource accepts ownership of a private virtual interface created by another AWS account.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const accepter = new aws.Provider("accepter", {});
- * const accepterCallerIdentity = aws.getCallerIdentity({provider: accepter});
- * // Accepter's side of the VIF.
- * const vpnGw = new aws.ec2.VpnGateway("vpnGw", {}, {provider: accepter});
- * // Creator's side of the VIF
- * const creator = new aws.directconnect.HostedPrivateVirtualInterface("creator", {
- *     addressFamily: "ipv4",
- *     bgpAsn: 65352,
- *     connectionId: "dxcon-zzzzzzzz",
- *     ownerAccountId: accepterCallerIdentity.accountId,
- *     vlan: 4094,
- * }, {dependsOn: [vpnGw]});
- * const accepterHostedPrivateVirtualInterfaceAccepter = new aws.directconnect.HostedPrivateVirtualInterfaceAccepter("accepter", {
- *     tags: {
- *         Side: "Accepter",
- *     },
- *     virtualInterfaceId: creator.id,
- *     vpnGatewayId: vpnGw.id,
- * }, {provider: accepter});
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_private_virtual_interface_accepter.html.markdown.
  */
@@ -92,34 +65,28 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: HostedPrivateVirtualInterfaceAccepterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: HostedPrivateVirtualInterfaceAccepterArgs | HostedPrivateVirtualInterfaceAccepterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as HostedPrivateVirtualInterfaceAccepterState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
-            inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
+    constructor(name: string, args: HostedPrivateVirtualInterfaceAccepterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: HostedPrivateVirtualInterfaceAccepterArgs | HostedPrivateVirtualInterfaceAccepterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as HostedPrivateVirtualInterfaceAccepterState;
+            inputs.arn = state.arn;
+            inputs.dxGatewayId = state.dxGatewayId;
+            inputs.tags = state.tags;
+            inputs.virtualInterfaceId = state.virtualInterfaceId;
+            inputs.vpnGatewayId = state.vpnGatewayId;
         } else {
-            const args = argsOrState as HostedPrivateVirtualInterfaceAccepterArgs | undefined;
-            if (!args || args.virtualInterfaceId === undefined) {
+            const args = argsOrState as HostedPrivateVirtualInterfaceAccepterArgs;
+            if (args.virtualInterfaceId === undefined) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
-            inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.dxGatewayId = args.dxGatewayId;
+            inputs.tags = args.tags;
+            inputs.virtualInterfaceId = args.virtualInterfaceId;
+            inputs.vpnGatewayId = args.vpnGatewayId;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(HostedPrivateVirtualInterfaceAccepter.__pulumiType, name, inputs, opts);
     }
 }

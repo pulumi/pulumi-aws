@@ -101,42 +101,36 @@ export class Snapshot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SnapshotArgs | SnapshotState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SnapshotState | undefined;
-            inputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["encrypted"] = state ? state.encrypted : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["ownerAlias"] = state ? state.ownerAlias : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["volumeId"] = state ? state.volumeId : undefined;
-            inputs["volumeSize"] = state ? state.volumeSize : undefined;
+    constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SnapshotArgs | SnapshotState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SnapshotState;
+            inputs.dataEncryptionKeyId = state.dataEncryptionKeyId;
+            inputs.description = state.description;
+            inputs.encrypted = state.encrypted;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.ownerAlias = state.ownerAlias;
+            inputs.ownerId = state.ownerId;
+            inputs.tags = state.tags;
+            inputs.volumeId = state.volumeId;
+            inputs.volumeSize = state.volumeSize;
         } else {
-            const args = argsOrState as SnapshotArgs | undefined;
-            if (!args || args.volumeId === undefined) {
+            const args = argsOrState as SnapshotArgs;
+            if (args.volumeId === undefined) {
                 throw new Error("Missing required property 'volumeId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["volumeId"] = args ? args.volumeId : undefined;
-            inputs["dataEncryptionKeyId"] = undefined /*out*/;
-            inputs["encrypted"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["ownerAlias"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["volumeSize"] = undefined /*out*/;
+            inputs.description = args.description;
+            inputs.tags = args.tags;
+            inputs.volumeId = args.volumeId;
+            inputs.dataEncryptionKeyId = undefined /*out*/;
+            inputs.encrypted = undefined /*out*/;
+            inputs.kmsKeyId = undefined /*out*/;
+            inputs.ownerAlias = undefined /*out*/;
+            inputs.ownerId = undefined /*out*/;
+            inputs.volumeSize = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Snapshot.__pulumiType, name, inputs, opts);
     }
 }

@@ -83,31 +83,25 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpnGatewayAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpnGatewayAttachmentArgs | VpnGatewayAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpnGatewayAttachmentState | undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
+    constructor(name: string, args: VpnGatewayAttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VpnGatewayAttachmentArgs | VpnGatewayAttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VpnGatewayAttachmentState;
+            inputs.vpcId = state.vpcId;
+            inputs.vpnGatewayId = state.vpnGatewayId;
         } else {
-            const args = argsOrState as VpnGatewayAttachmentArgs | undefined;
-            if (!args || args.vpcId === undefined) {
+            const args = argsOrState as VpnGatewayAttachmentArgs;
+            if (args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            if (!args || args.vpnGatewayId === undefined) {
+            if (args.vpnGatewayId === undefined) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            inputs.vpcId = args.vpcId;
+            inputs.vpnGatewayId = args.vpnGatewayId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VpnGatewayAttachment.__pulumiType, name, inputs, opts);
     }
 }

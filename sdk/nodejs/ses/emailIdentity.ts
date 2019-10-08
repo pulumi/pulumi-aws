@@ -63,28 +63,22 @@ export class EmailIdentity extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EmailIdentityArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EmailIdentityArgs | EmailIdentityState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EmailIdentityState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["email"] = state ? state.email : undefined;
+    constructor(name: string, args: EmailIdentityArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EmailIdentityArgs | EmailIdentityState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EmailIdentityState;
+            inputs.arn = state.arn;
+            inputs.email = state.email;
         } else {
-            const args = argsOrState as EmailIdentityArgs | undefined;
-            if (!args || args.email === undefined) {
+            const args = argsOrState as EmailIdentityArgs;
+            if (args.email === undefined) {
                 throw new Error("Missing required property 'email'");
             }
-            inputs["email"] = args ? args.email : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.email = args.email;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EmailIdentity.__pulumiType, name, inputs, opts);
     }
 }

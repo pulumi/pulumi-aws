@@ -21,9 +21,9 @@ import {NotificationType} from "./notificationType";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = new aws.sns.Topic("example", {});
  * const bar = new aws.autoscaling.Group("bar", {});
  * const foo = new aws.autoscaling.Group("foo", {});
+ * const example = new aws.sns.Topic("example", {});
  * const exampleNotifications = new aws.autoscaling.Notification("exampleNotifications", {
  *     groupNames: [
  *         bar.name,
@@ -89,36 +89,30 @@ export class Notification extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NotificationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NotificationArgs | NotificationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NotificationState | undefined;
-            inputs["groupNames"] = state ? state.groupNames : undefined;
-            inputs["notifications"] = state ? state.notifications : undefined;
-            inputs["topicArn"] = state ? state.topicArn : undefined;
+    constructor(name: string, args: NotificationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: NotificationArgs | NotificationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as NotificationState;
+            inputs.groupNames = state.groupNames;
+            inputs.notifications = state.notifications;
+            inputs.topicArn = state.topicArn;
         } else {
-            const args = argsOrState as NotificationArgs | undefined;
-            if (!args || args.groupNames === undefined) {
+            const args = argsOrState as NotificationArgs;
+            if (args.groupNames === undefined) {
                 throw new Error("Missing required property 'groupNames'");
             }
-            if (!args || args.notifications === undefined) {
+            if (args.notifications === undefined) {
                 throw new Error("Missing required property 'notifications'");
             }
-            if (!args || args.topicArn === undefined) {
+            if (args.topicArn === undefined) {
                 throw new Error("Missing required property 'topicArn'");
             }
-            inputs["groupNames"] = args ? args.groupNames : undefined;
-            inputs["notifications"] = args ? args.notifications : undefined;
-            inputs["topicArn"] = args ? args.topicArn : undefined;
+            inputs.groupNames = args.groupNames;
+            inputs.notifications = args.notifications;
+            inputs.topicArn = args.topicArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Notification.__pulumiType, name, inputs, opts);
     }
 }

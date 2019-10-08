@@ -81,34 +81,28 @@ export class Permission extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PermissionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PermissionArgs | PermissionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PermissionState | undefined;
-            inputs["allowSsh"] = state ? state.allowSsh : undefined;
-            inputs["allowSudo"] = state ? state.allowSudo : undefined;
-            inputs["level"] = state ? state.level : undefined;
-            inputs["stackId"] = state ? state.stackId : undefined;
-            inputs["userArn"] = state ? state.userArn : undefined;
+    constructor(name: string, args: PermissionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PermissionArgs | PermissionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PermissionState;
+            inputs.allowSsh = state.allowSsh;
+            inputs.allowSudo = state.allowSudo;
+            inputs.level = state.level;
+            inputs.stackId = state.stackId;
+            inputs.userArn = state.userArn;
         } else {
-            const args = argsOrState as PermissionArgs | undefined;
-            if (!args || args.userArn === undefined) {
+            const args = argsOrState as PermissionArgs;
+            if (args.userArn === undefined) {
                 throw new Error("Missing required property 'userArn'");
             }
-            inputs["allowSsh"] = args ? args.allowSsh : undefined;
-            inputs["allowSudo"] = args ? args.allowSudo : undefined;
-            inputs["level"] = args ? args.level : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
-            inputs["userArn"] = args ? args.userArn : undefined;
+            inputs.allowSsh = args.allowSsh;
+            inputs.allowSudo = args.allowSudo;
+            inputs.level = args.level;
+            inputs.stackId = args.stackId;
+            inputs.userArn = args.userArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Permission.__pulumiType, name, inputs, opts);
     }
 }

@@ -85,27 +85,21 @@ export class ParameterGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ParameterGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ParameterGroupArgs | ParameterGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ParameterGroupState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
+    constructor(name: string, args?: ParameterGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ParameterGroupArgs | ParameterGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ParameterGroupState;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.parameters = state.parameters;
         } else {
-            const args = argsOrState as ParameterGroupArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
+            const args = argsOrState as ParameterGroupArgs;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.parameters = args.parameters;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ParameterGroup.__pulumiType, name, inputs, opts);
     }
 }

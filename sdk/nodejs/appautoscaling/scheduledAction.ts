@@ -136,45 +136,39 @@ export class ScheduledAction extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ScheduledActionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ScheduledActionArgs | ScheduledActionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ScheduledActionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["endTime"] = state ? state.endTime : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["scalableDimension"] = state ? state.scalableDimension : undefined;
-            inputs["scalableTargetAction"] = state ? state.scalableTargetAction : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
-            inputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
-            inputs["startTime"] = state ? state.startTime : undefined;
+    constructor(name: string, args: ScheduledActionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ScheduledActionArgs | ScheduledActionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ScheduledActionState;
+            inputs.arn = state.arn;
+            inputs.endTime = state.endTime;
+            inputs.name = state.name;
+            inputs.resourceId = state.resourceId;
+            inputs.scalableDimension = state.scalableDimension;
+            inputs.scalableTargetAction = state.scalableTargetAction;
+            inputs.schedule = state.schedule;
+            inputs.serviceNamespace = state.serviceNamespace;
+            inputs.startTime = state.startTime;
         } else {
-            const args = argsOrState as ScheduledActionArgs | undefined;
-            if (!args || args.resourceId === undefined) {
+            const args = argsOrState as ScheduledActionArgs;
+            if (args.resourceId === undefined) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (!args || args.serviceNamespace === undefined) {
+            if (args.serviceNamespace === undefined) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["scalableDimension"] = args ? args.scalableDimension : undefined;
-            inputs["scalableTargetAction"] = args ? args.scalableTargetAction : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.endTime = args.endTime;
+            inputs.name = args.name;
+            inputs.resourceId = args.resourceId;
+            inputs.scalableDimension = args.scalableDimension;
+            inputs.scalableTargetAction = args.scalableTargetAction;
+            inputs.schedule = args.schedule;
+            inputs.serviceNamespace = args.serviceNamespace;
+            inputs.startTime = args.startTime;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ScheduledAction.__pulumiType, name, inputs, opts);
     }
 }

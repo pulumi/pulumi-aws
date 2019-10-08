@@ -74,31 +74,25 @@ export class GroupPolicyAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GroupPolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GroupPolicyAttachmentArgs | GroupPolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GroupPolicyAttachmentState | undefined;
-            inputs["group"] = state ? state.group : undefined;
-            inputs["policyArn"] = state ? state.policyArn : undefined;
+    constructor(name: string, args: GroupPolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GroupPolicyAttachmentArgs | GroupPolicyAttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GroupPolicyAttachmentState;
+            inputs.group = state.group;
+            inputs.policyArn = state.policyArn;
         } else {
-            const args = argsOrState as GroupPolicyAttachmentArgs | undefined;
-            if (!args || args.group === undefined) {
+            const args = argsOrState as GroupPolicyAttachmentArgs;
+            if (args.group === undefined) {
                 throw new Error("Missing required property 'group'");
             }
-            if (!args || args.policyArn === undefined) {
+            if (args.policyArn === undefined) {
                 throw new Error("Missing required property 'policyArn'");
             }
-            inputs["group"] = args ? args.group : undefined;
-            inputs["policyArn"] = args ? args.policyArn : undefined;
+            inputs.group = args.group;
+            inputs.policyArn = args.policyArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(GroupPolicyAttachment.__pulumiType, name, inputs, opts);
     }
 }

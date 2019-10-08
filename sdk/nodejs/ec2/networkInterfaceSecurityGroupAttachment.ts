@@ -33,6 +33,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const sg = new aws.ec2.SecurityGroup("sg", {
+ *     tags: {
+ *         type: "test-security-group",
+ *     },
+ * });
  * const ami = aws.getAmi({
  *     filters: [{
  *         name: "name",
@@ -46,11 +51,6 @@ import * as utilities from "../utilities";
  *     instanceType: "t2.micro",
  *     tags: {
  *         type: "test-instance",
- *     },
- * });
- * const sg = new aws.ec2.SecurityGroup("sg", {
- *     tags: {
- *         type: "test-security-group",
  *     },
  * });
  * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
@@ -67,13 +67,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const instance = aws.ec2.getInstance({
- *     instanceId: "i-1234567890abcdef0",
- * });
  * const sg = new aws.ec2.SecurityGroup("sg", {
  *     tags: {
  *         type: "test-security-group",
  *     },
+ * });
+ * const instance = aws.ec2.getInstance({
+ *     instanceId: "i-1234567890abcdef0",
  * });
  * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
  *     networkInterfaceId: instance.networkInterfaceId,
@@ -130,31 +130,25 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkInterfaceSecurityGroupAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkInterfaceSecurityGroupAttachmentArgs | NetworkInterfaceSecurityGroupAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NetworkInterfaceSecurityGroupAttachmentState | undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            inputs["securityGroupId"] = state ? state.securityGroupId : undefined;
+    constructor(name: string, args: NetworkInterfaceSecurityGroupAttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: NetworkInterfaceSecurityGroupAttachmentArgs | NetworkInterfaceSecurityGroupAttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as NetworkInterfaceSecurityGroupAttachmentState;
+            inputs.networkInterfaceId = state.networkInterfaceId;
+            inputs.securityGroupId = state.securityGroupId;
         } else {
-            const args = argsOrState as NetworkInterfaceSecurityGroupAttachmentArgs | undefined;
-            if (!args || args.networkInterfaceId === undefined) {
+            const args = argsOrState as NetworkInterfaceSecurityGroupAttachmentArgs;
+            if (args.networkInterfaceId === undefined) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if (!args || args.securityGroupId === undefined) {
+            if (args.securityGroupId === undefined) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["securityGroupId"] = args ? args.securityGroupId : undefined;
+            inputs.networkInterfaceId = args.networkInterfaceId;
+            inputs.securityGroupId = args.securityGroupId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(NetworkInterfaceSecurityGroupAttachment.__pulumiType, name, inputs, opts);
     }
 }

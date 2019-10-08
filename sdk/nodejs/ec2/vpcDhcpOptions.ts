@@ -119,35 +119,29 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VpcDhcpOptionsArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcDhcpOptionsArgs | VpcDhcpOptionsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpcDhcpOptionsState | undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["domainNameServers"] = state ? state.domainNameServers : undefined;
-            inputs["netbiosNameServers"] = state ? state.netbiosNameServers : undefined;
-            inputs["netbiosNodeType"] = state ? state.netbiosNodeType : undefined;
-            inputs["ntpServers"] = state ? state.ntpServers : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: VpcDhcpOptionsArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VpcDhcpOptionsArgs | VpcDhcpOptionsState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VpcDhcpOptionsState;
+            inputs.domainName = state.domainName;
+            inputs.domainNameServers = state.domainNameServers;
+            inputs.netbiosNameServers = state.netbiosNameServers;
+            inputs.netbiosNodeType = state.netbiosNodeType;
+            inputs.ntpServers = state.ntpServers;
+            inputs.ownerId = state.ownerId;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as VpcDhcpOptionsArgs | undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["domainNameServers"] = args ? args.domainNameServers : undefined;
-            inputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
-            inputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
-            inputs["ntpServers"] = args ? args.ntpServers : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["ownerId"] = undefined /*out*/;
+            const args = argsOrState as VpcDhcpOptionsArgs;
+            inputs.domainName = args.domainName;
+            inputs.domainNameServers = args.domainNameServers;
+            inputs.netbiosNameServers = args.netbiosNameServers;
+            inputs.netbiosNodeType = args.netbiosNodeType;
+            inputs.ntpServers = args.ntpServers;
+            inputs.tags = args.tags;
+            inputs.ownerId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VpcDhcpOptions.__pulumiType, name, inputs, opts);
     }
 }

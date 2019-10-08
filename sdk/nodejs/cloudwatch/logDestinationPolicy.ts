@@ -81,31 +81,25 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LogDestinationPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LogDestinationPolicyArgs | LogDestinationPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LogDestinationPolicyState | undefined;
-            inputs["accessPolicy"] = state ? state.accessPolicy : undefined;
-            inputs["destinationName"] = state ? state.destinationName : undefined;
+    constructor(name: string, args: LogDestinationPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LogDestinationPolicyArgs | LogDestinationPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LogDestinationPolicyState;
+            inputs.accessPolicy = state.accessPolicy;
+            inputs.destinationName = state.destinationName;
         } else {
-            const args = argsOrState as LogDestinationPolicyArgs | undefined;
-            if (!args || args.accessPolicy === undefined) {
+            const args = argsOrState as LogDestinationPolicyArgs;
+            if (args.accessPolicy === undefined) {
                 throw new Error("Missing required property 'accessPolicy'");
             }
-            if (!args || args.destinationName === undefined) {
+            if (args.destinationName === undefined) {
                 throw new Error("Missing required property 'destinationName'");
             }
-            inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
-            inputs["destinationName"] = args ? args.destinationName : undefined;
+            inputs.accessPolicy = args.accessPolicy;
+            inputs.destinationName = args.destinationName;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LogDestinationPolicy.__pulumiType, name, inputs, opts);
     }
 }

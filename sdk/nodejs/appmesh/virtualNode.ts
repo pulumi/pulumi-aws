@@ -223,41 +223,35 @@ export class VirtualNode extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualNodeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualNodeArgs | VirtualNodeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VirtualNodeState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
-            inputs["meshName"] = state ? state.meshName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["spec"] = state ? state.spec : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: VirtualNodeArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VirtualNodeArgs | VirtualNodeState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VirtualNodeState;
+            inputs.arn = state.arn;
+            inputs.createdDate = state.createdDate;
+            inputs.lastUpdatedDate = state.lastUpdatedDate;
+            inputs.meshName = state.meshName;
+            inputs.name = state.name;
+            inputs.spec = state.spec;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as VirtualNodeArgs | undefined;
-            if (!args || args.meshName === undefined) {
+            const args = argsOrState as VirtualNodeArgs;
+            if (args.meshName === undefined) {
                 throw new Error("Missing required property 'meshName'");
             }
-            if (!args || args.spec === undefined) {
+            if (args.spec === undefined) {
                 throw new Error("Missing required property 'spec'");
             }
-            inputs["meshName"] = args ? args.meshName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["spec"] = args ? args.spec : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["lastUpdatedDate"] = undefined /*out*/;
+            inputs.meshName = args.meshName;
+            inputs.name = args.name;
+            inputs.spec = args.spec;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.createdDate = undefined /*out*/;
+            inputs.lastUpdatedDate = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VirtualNode.__pulumiType, name, inputs, opts);
     }
 }

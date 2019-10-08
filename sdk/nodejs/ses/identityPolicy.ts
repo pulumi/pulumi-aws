@@ -86,33 +86,27 @@ export class IdentityPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IdentityPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IdentityPolicyArgs | IdentityPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as IdentityPolicyState | undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+    constructor(name: string, args: IdentityPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: IdentityPolicyArgs | IdentityPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as IdentityPolicyState;
+            inputs.identity = state.identity;
+            inputs.name = state.name;
+            inputs.policy = state.policy;
         } else {
-            const args = argsOrState as IdentityPolicyArgs | undefined;
-            if (!args || args.identity === undefined) {
+            const args = argsOrState as IdentityPolicyArgs;
+            if (args.identity === undefined) {
                 throw new Error("Missing required property 'identity'");
             }
-            if (!args || args.policy === undefined) {
+            if (args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
+            inputs.identity = args.identity;
+            inputs.name = args.name;
+            inputs.policy = args.policy;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(IdentityPolicy.__pulumiType, name, inputs, opts);
     }
 }

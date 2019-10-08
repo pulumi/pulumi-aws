@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const exampleApplication = new aws.codedeploy.Application("example", {});
  * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -33,11 +34,6 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const aWSCodeDeployRole = new aws.iam.RolePolicyAttachment("AWSCodeDeployRole", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
- *     role: exampleRole.name,
- * });
- * const exampleApplication = new aws.codedeploy.Application("example", {});
  * const exampleTopic = new aws.sns.Topic("example", {});
  * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
  *     alarmConfiguration: {
@@ -70,6 +66,10 @@ import * as utilities from "../utilities";
  *         triggerName: "example-trigger",
  *         triggerTargetArn: exampleTopic.arn,
  *     }],
+ * });
+ * const aWSCodeDeployRole = new aws.iam.RolePolicyAttachment("AWSCodeDeployRole", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
+ *     role: exampleRole.name,
  * });
  * ```
  * 
@@ -258,60 +258,54 @@ export class DeploymentGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DeploymentGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DeploymentGroupArgs | DeploymentGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DeploymentGroupState | undefined;
-            inputs["alarmConfiguration"] = state ? state.alarmConfiguration : undefined;
-            inputs["appName"] = state ? state.appName : undefined;
-            inputs["autoRollbackConfiguration"] = state ? state.autoRollbackConfiguration : undefined;
-            inputs["autoscalingGroups"] = state ? state.autoscalingGroups : undefined;
-            inputs["blueGreenDeploymentConfig"] = state ? state.blueGreenDeploymentConfig : undefined;
-            inputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;
-            inputs["deploymentGroupName"] = state ? state.deploymentGroupName : undefined;
-            inputs["deploymentStyle"] = state ? state.deploymentStyle : undefined;
-            inputs["ec2TagFilters"] = state ? state.ec2TagFilters : undefined;
-            inputs["ec2TagSets"] = state ? state.ec2TagSets : undefined;
-            inputs["ecsService"] = state ? state.ecsService : undefined;
-            inputs["loadBalancerInfo"] = state ? state.loadBalancerInfo : undefined;
-            inputs["onPremisesInstanceTagFilters"] = state ? state.onPremisesInstanceTagFilters : undefined;
-            inputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
-            inputs["triggerConfigurations"] = state ? state.triggerConfigurations : undefined;
+    constructor(name: string, args: DeploymentGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DeploymentGroupArgs | DeploymentGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DeploymentGroupState;
+            inputs.alarmConfiguration = state.alarmConfiguration;
+            inputs.appName = state.appName;
+            inputs.autoRollbackConfiguration = state.autoRollbackConfiguration;
+            inputs.autoscalingGroups = state.autoscalingGroups;
+            inputs.blueGreenDeploymentConfig = state.blueGreenDeploymentConfig;
+            inputs.deploymentConfigName = state.deploymentConfigName;
+            inputs.deploymentGroupName = state.deploymentGroupName;
+            inputs.deploymentStyle = state.deploymentStyle;
+            inputs.ec2TagFilters = state.ec2TagFilters;
+            inputs.ec2TagSets = state.ec2TagSets;
+            inputs.ecsService = state.ecsService;
+            inputs.loadBalancerInfo = state.loadBalancerInfo;
+            inputs.onPremisesInstanceTagFilters = state.onPremisesInstanceTagFilters;
+            inputs.serviceRoleArn = state.serviceRoleArn;
+            inputs.triggerConfigurations = state.triggerConfigurations;
         } else {
-            const args = argsOrState as DeploymentGroupArgs | undefined;
-            if (!args || args.appName === undefined) {
+            const args = argsOrState as DeploymentGroupArgs;
+            if (args.appName === undefined) {
                 throw new Error("Missing required property 'appName'");
             }
-            if (!args || args.deploymentGroupName === undefined) {
+            if (args.deploymentGroupName === undefined) {
                 throw new Error("Missing required property 'deploymentGroupName'");
             }
-            if (!args || args.serviceRoleArn === undefined) {
+            if (args.serviceRoleArn === undefined) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
-            inputs["alarmConfiguration"] = args ? args.alarmConfiguration : undefined;
-            inputs["appName"] = args ? args.appName : undefined;
-            inputs["autoRollbackConfiguration"] = args ? args.autoRollbackConfiguration : undefined;
-            inputs["autoscalingGroups"] = args ? args.autoscalingGroups : undefined;
-            inputs["blueGreenDeploymentConfig"] = args ? args.blueGreenDeploymentConfig : undefined;
-            inputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
-            inputs["deploymentGroupName"] = args ? args.deploymentGroupName : undefined;
-            inputs["deploymentStyle"] = args ? args.deploymentStyle : undefined;
-            inputs["ec2TagFilters"] = args ? args.ec2TagFilters : undefined;
-            inputs["ec2TagSets"] = args ? args.ec2TagSets : undefined;
-            inputs["ecsService"] = args ? args.ecsService : undefined;
-            inputs["loadBalancerInfo"] = args ? args.loadBalancerInfo : undefined;
-            inputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
-            inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            inputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
+            inputs.alarmConfiguration = args.alarmConfiguration;
+            inputs.appName = args.appName;
+            inputs.autoRollbackConfiguration = args.autoRollbackConfiguration;
+            inputs.autoscalingGroups = args.autoscalingGroups;
+            inputs.blueGreenDeploymentConfig = args.blueGreenDeploymentConfig;
+            inputs.deploymentConfigName = args.deploymentConfigName;
+            inputs.deploymentGroupName = args.deploymentGroupName;
+            inputs.deploymentStyle = args.deploymentStyle;
+            inputs.ec2TagFilters = args.ec2TagFilters;
+            inputs.ec2TagSets = args.ec2TagSets;
+            inputs.ecsService = args.ecsService;
+            inputs.loadBalancerInfo = args.loadBalancerInfo;
+            inputs.onPremisesInstanceTagFilters = args.onPremisesInstanceTagFilters;
+            inputs.serviceRoleArn = args.serviceRoleArn;
+            inputs.triggerConfigurations = args.triggerConfigurations;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DeploymentGroup.__pulumiType, name, inputs, opts);
     }
 }

@@ -77,32 +77,26 @@ export class Alias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AliasState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["routingStrategy"] = state ? state.routingStrategy : undefined;
+    constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AliasArgs | AliasState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AliasState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.routingStrategy = state.routingStrategy;
         } else {
-            const args = argsOrState as AliasArgs | undefined;
-            if (!args || args.routingStrategy === undefined) {
+            const args = argsOrState as AliasArgs;
+            if (args.routingStrategy === undefined) {
                 throw new Error("Missing required property 'routingStrategy'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["routingStrategy"] = args ? args.routingStrategy : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.routingStrategy = args.routingStrategy;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Alias.__pulumiType, name, inputs, opts);
     }
 }

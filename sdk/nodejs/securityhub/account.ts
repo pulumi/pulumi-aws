@@ -57,21 +57,15 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AccountState | undefined;
+    constructor(name: string, args?: AccountArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AccountArgs | AccountState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AccountState;
         } else {
-            const args = argsOrState as AccountArgs | undefined;
+            const args = argsOrState as AccountArgs;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Account.__pulumiType, name, inputs, opts);
     }
 }

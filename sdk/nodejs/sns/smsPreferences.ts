@@ -77,33 +77,27 @@ export class SmsPreferences extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SmsPreferencesArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SmsPreferencesArgs | SmsPreferencesState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SmsPreferencesState | undefined;
-            inputs["defaultSenderId"] = state ? state.defaultSenderId : undefined;
-            inputs["defaultSmsType"] = state ? state.defaultSmsType : undefined;
-            inputs["deliveryStatusIamRoleArn"] = state ? state.deliveryStatusIamRoleArn : undefined;
-            inputs["deliveryStatusSuccessSamplingRate"] = state ? state.deliveryStatusSuccessSamplingRate : undefined;
-            inputs["monthlySpendLimit"] = state ? state.monthlySpendLimit : undefined;
-            inputs["usageReportS3Bucket"] = state ? state.usageReportS3Bucket : undefined;
+    constructor(name: string, args?: SmsPreferencesArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SmsPreferencesArgs | SmsPreferencesState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SmsPreferencesState;
+            inputs.defaultSenderId = state.defaultSenderId;
+            inputs.defaultSmsType = state.defaultSmsType;
+            inputs.deliveryStatusIamRoleArn = state.deliveryStatusIamRoleArn;
+            inputs.deliveryStatusSuccessSamplingRate = state.deliveryStatusSuccessSamplingRate;
+            inputs.monthlySpendLimit = state.monthlySpendLimit;
+            inputs.usageReportS3Bucket = state.usageReportS3Bucket;
         } else {
-            const args = argsOrState as SmsPreferencesArgs | undefined;
-            inputs["defaultSenderId"] = args ? args.defaultSenderId : undefined;
-            inputs["defaultSmsType"] = args ? args.defaultSmsType : undefined;
-            inputs["deliveryStatusIamRoleArn"] = args ? args.deliveryStatusIamRoleArn : undefined;
-            inputs["deliveryStatusSuccessSamplingRate"] = args ? args.deliveryStatusSuccessSamplingRate : undefined;
-            inputs["monthlySpendLimit"] = args ? args.monthlySpendLimit : undefined;
-            inputs["usageReportS3Bucket"] = args ? args.usageReportS3Bucket : undefined;
+            const args = argsOrState as SmsPreferencesArgs;
+            inputs.defaultSenderId = args.defaultSenderId;
+            inputs.defaultSmsType = args.defaultSmsType;
+            inputs.deliveryStatusIamRoleArn = args.deliveryStatusIamRoleArn;
+            inputs.deliveryStatusSuccessSamplingRate = args.deliveryStatusSuccessSamplingRate;
+            inputs.monthlySpendLimit = args.monthlySpendLimit;
+            inputs.usageReportS3Bucket = args.usageReportS3Bucket;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SmsPreferences.__pulumiType, name, inputs, opts);
     }
 }

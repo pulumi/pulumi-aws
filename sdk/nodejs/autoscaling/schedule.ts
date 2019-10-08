@@ -112,45 +112,39 @@ export class Schedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ScheduleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
-            inputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
-            inputs["endTime"] = state ? state.endTime : undefined;
-            inputs["maxSize"] = state ? state.maxSize : undefined;
-            inputs["minSize"] = state ? state.minSize : undefined;
-            inputs["recurrence"] = state ? state.recurrence : undefined;
-            inputs["scheduledActionName"] = state ? state.scheduledActionName : undefined;
-            inputs["startTime"] = state ? state.startTime : undefined;
+    constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ScheduleArgs | ScheduleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ScheduleState;
+            inputs.arn = state.arn;
+            inputs.autoscalingGroupName = state.autoscalingGroupName;
+            inputs.desiredCapacity = state.desiredCapacity;
+            inputs.endTime = state.endTime;
+            inputs.maxSize = state.maxSize;
+            inputs.minSize = state.minSize;
+            inputs.recurrence = state.recurrence;
+            inputs.scheduledActionName = state.scheduledActionName;
+            inputs.startTime = state.startTime;
         } else {
-            const args = argsOrState as ScheduleArgs | undefined;
-            if (!args || args.autoscalingGroupName === undefined) {
+            const args = argsOrState as ScheduleArgs;
+            if (args.autoscalingGroupName === undefined) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            if (!args || args.scheduledActionName === undefined) {
+            if (args.scheduledActionName === undefined) {
                 throw new Error("Missing required property 'scheduledActionName'");
             }
-            inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
-            inputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["maxSize"] = args ? args.maxSize : undefined;
-            inputs["minSize"] = args ? args.minSize : undefined;
-            inputs["recurrence"] = args ? args.recurrence : undefined;
-            inputs["scheduledActionName"] = args ? args.scheduledActionName : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.autoscalingGroupName = args.autoscalingGroupName;
+            inputs.desiredCapacity = args.desiredCapacity;
+            inputs.endTime = args.endTime;
+            inputs.maxSize = args.maxSize;
+            inputs.minSize = args.minSize;
+            inputs.recurrence = args.recurrence;
+            inputs.scheduledActionName = args.scheduledActionName;
+            inputs.startTime = args.startTime;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Schedule.__pulumiType, name, inputs, opts);
     }
 }

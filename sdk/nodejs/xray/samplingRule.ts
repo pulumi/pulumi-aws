@@ -120,77 +120,71 @@ export class SamplingRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SamplingRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SamplingRuleArgs | SamplingRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SamplingRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["attributes"] = state ? state.attributes : undefined;
-            inputs["fixedRate"] = state ? state.fixedRate : undefined;
-            inputs["host"] = state ? state.host : undefined;
-            inputs["httpMethod"] = state ? state.httpMethod : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["reservoirSize"] = state ? state.reservoirSize : undefined;
-            inputs["resourceArn"] = state ? state.resourceArn : undefined;
-            inputs["ruleName"] = state ? state.ruleName : undefined;
-            inputs["serviceName"] = state ? state.serviceName : undefined;
-            inputs["serviceType"] = state ? state.serviceType : undefined;
-            inputs["urlPath"] = state ? state.urlPath : undefined;
-            inputs["version"] = state ? state.version : undefined;
+    constructor(name: string, args: SamplingRuleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SamplingRuleArgs | SamplingRuleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SamplingRuleState;
+            inputs.arn = state.arn;
+            inputs.attributes = state.attributes;
+            inputs.fixedRate = state.fixedRate;
+            inputs.host = state.host;
+            inputs.httpMethod = state.httpMethod;
+            inputs.priority = state.priority;
+            inputs.reservoirSize = state.reservoirSize;
+            inputs.resourceArn = state.resourceArn;
+            inputs.ruleName = state.ruleName;
+            inputs.serviceName = state.serviceName;
+            inputs.serviceType = state.serviceType;
+            inputs.urlPath = state.urlPath;
+            inputs.version = state.version;
         } else {
-            const args = argsOrState as SamplingRuleArgs | undefined;
-            if (!args || args.fixedRate === undefined) {
+            const args = argsOrState as SamplingRuleArgs;
+            if (args.fixedRate === undefined) {
                 throw new Error("Missing required property 'fixedRate'");
             }
-            if (!args || args.host === undefined) {
+            if (args.host === undefined) {
                 throw new Error("Missing required property 'host'");
             }
-            if (!args || args.httpMethod === undefined) {
+            if (args.httpMethod === undefined) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if (!args || args.priority === undefined) {
+            if (args.priority === undefined) {
                 throw new Error("Missing required property 'priority'");
             }
-            if (!args || args.reservoirSize === undefined) {
+            if (args.reservoirSize === undefined) {
                 throw new Error("Missing required property 'reservoirSize'");
             }
-            if (!args || args.resourceArn === undefined) {
+            if (args.resourceArn === undefined) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if (!args || args.serviceName === undefined) {
+            if (args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.serviceType === undefined) {
+            if (args.serviceType === undefined) {
                 throw new Error("Missing required property 'serviceType'");
             }
-            if (!args || args.urlPath === undefined) {
+            if (args.urlPath === undefined) {
                 throw new Error("Missing required property 'urlPath'");
             }
-            if (!args || args.version === undefined) {
+            if (args.version === undefined) {
                 throw new Error("Missing required property 'version'");
             }
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["fixedRate"] = args ? args.fixedRate : undefined;
-            inputs["host"] = args ? args.host : undefined;
-            inputs["httpMethod"] = args ? args.httpMethod : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["reservoirSize"] = args ? args.reservoirSize : undefined;
-            inputs["resourceArn"] = args ? args.resourceArn : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["serviceType"] = args ? args.serviceType : undefined;
-            inputs["urlPath"] = args ? args.urlPath : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.attributes = args.attributes;
+            inputs.fixedRate = args.fixedRate;
+            inputs.host = args.host;
+            inputs.httpMethod = args.httpMethod;
+            inputs.priority = args.priority;
+            inputs.reservoirSize = args.reservoirSize;
+            inputs.resourceArn = args.resourceArn;
+            inputs.ruleName = args.ruleName;
+            inputs.serviceName = args.serviceName;
+            inputs.serviceType = args.serviceType;
+            inputs.urlPath = args.urlPath;
+            inputs.version = args.version;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SamplingRule.__pulumiType, name, inputs, opts);
     }
 }

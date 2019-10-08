@@ -87,30 +87,24 @@ export class Attachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AttachmentArgs | AttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AttachmentState | undefined;
-            inputs["albTargetGroupArn"] = state ? state.albTargetGroupArn : undefined;
-            inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
-            inputs["elb"] = state ? state.elb : undefined;
+    constructor(name: string, args: AttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AttachmentArgs | AttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AttachmentState;
+            inputs.albTargetGroupArn = state.albTargetGroupArn;
+            inputs.autoscalingGroupName = state.autoscalingGroupName;
+            inputs.elb = state.elb;
         } else {
-            const args = argsOrState as AttachmentArgs | undefined;
-            if (!args || args.autoscalingGroupName === undefined) {
+            const args = argsOrState as AttachmentArgs;
+            if (args.autoscalingGroupName === undefined) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            inputs["albTargetGroupArn"] = args ? args.albTargetGroupArn : undefined;
-            inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
-            inputs["elb"] = args ? args.elb : undefined;
+            inputs.albTargetGroupArn = args.albTargetGroupArn;
+            inputs.autoscalingGroupName = args.autoscalingGroupName;
+            inputs.elb = args.elb;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Attachment.__pulumiType, name, inputs, opts);
     }
 }

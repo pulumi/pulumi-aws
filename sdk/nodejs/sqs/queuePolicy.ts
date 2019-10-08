@@ -84,31 +84,25 @@ export class QueuePolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: QueuePolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: QueuePolicyArgs | QueuePolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as QueuePolicyState | undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["queueUrl"] = state ? state.queueUrl : undefined;
+    constructor(name: string, args: QueuePolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: QueuePolicyArgs | QueuePolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as QueuePolicyState;
+            inputs.policy = state.policy;
+            inputs.queueUrl = state.queueUrl;
         } else {
-            const args = argsOrState as QueuePolicyArgs | undefined;
-            if (!args || args.policy === undefined) {
+            const args = argsOrState as QueuePolicyArgs;
+            if (args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (!args || args.queueUrl === undefined) {
+            if (args.queueUrl === undefined) {
                 throw new Error("Missing required property 'queueUrl'");
             }
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["queueUrl"] = args ? args.queueUrl : undefined;
+            inputs.policy = args.policy;
+            inputs.queueUrl = args.queueUrl;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(QueuePolicy.__pulumiType, name, inputs, opts);
     }
 }

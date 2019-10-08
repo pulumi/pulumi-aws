@@ -74,29 +74,23 @@ export class ResourceShare extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ResourceShareArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResourceShareArgs | ResourceShareState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ResourceShareState | undefined;
-            inputs["allowExternalPrincipals"] = state ? state.allowExternalPrincipals : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: ResourceShareArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ResourceShareArgs | ResourceShareState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ResourceShareState;
+            inputs.allowExternalPrincipals = state.allowExternalPrincipals;
+            inputs.arn = state.arn;
+            inputs.name = state.name;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as ResourceShareArgs | undefined;
-            inputs["allowExternalPrincipals"] = args ? args.allowExternalPrincipals : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as ResourceShareArgs;
+            inputs.allowExternalPrincipals = args.allowExternalPrincipals;
+            inputs.name = args.name;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ResourceShare.__pulumiType, name, inputs, opts);
     }
 }

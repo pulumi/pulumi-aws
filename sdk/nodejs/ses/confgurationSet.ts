@@ -40,23 +40,17 @@ export class ConfgurationSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ConfgurationSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ConfgurationSetArgs | ConfgurationSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ConfgurationSetState | undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args?: ConfgurationSetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ConfgurationSetArgs | ConfgurationSetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ConfgurationSetState;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as ConfgurationSetArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
+            const args = argsOrState as ConfgurationSetArgs;
+            inputs.name = args.name;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ConfgurationSet.__pulumiType, name, inputs, opts);
     }
 }

@@ -61,26 +61,20 @@ export class AccountAlias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AccountAliasArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AccountAliasArgs | AccountAliasState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AccountAliasState | undefined;
-            inputs["accountAlias"] = state ? state.accountAlias : undefined;
+    constructor(name: string, args: AccountAliasArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AccountAliasArgs | AccountAliasState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AccountAliasState;
+            inputs.accountAlias = state.accountAlias;
         } else {
-            const args = argsOrState as AccountAliasArgs | undefined;
-            if (!args || args.accountAlias === undefined) {
+            const args = argsOrState as AccountAliasArgs;
+            if (args.accountAlias === undefined) {
                 throw new Error("Missing required property 'accountAlias'");
             }
-            inputs["accountAlias"] = args ? args.accountAlias : undefined;
+            inputs.accountAlias = args.accountAlias;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(AccountAlias.__pulumiType, name, inputs, opts);
     }
 }

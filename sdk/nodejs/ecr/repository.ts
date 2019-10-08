@@ -77,33 +77,27 @@ export class Repository extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RepositoryState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["imageTagMutability"] = state ? state.imageTagMutability : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["registryId"] = state ? state.registryId : undefined;
-            inputs["repositoryUrl"] = state ? state.repositoryUrl : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RepositoryArgs | RepositoryState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RepositoryState;
+            inputs.arn = state.arn;
+            inputs.imageTagMutability = state.imageTagMutability;
+            inputs.name = state.name;
+            inputs.registryId = state.registryId;
+            inputs.repositoryUrl = state.repositoryUrl;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as RepositoryArgs | undefined;
-            inputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["registryId"] = undefined /*out*/;
-            inputs["repositoryUrl"] = undefined /*out*/;
+            const args = argsOrState as RepositoryArgs;
+            inputs.imageTagMutability = args.imageTagMutability;
+            inputs.name = args.name;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.registryId = undefined /*out*/;
+            inputs.repositoryUrl = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Repository.__pulumiType, name, inputs, opts);
     }
 }

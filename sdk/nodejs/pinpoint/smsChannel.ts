@@ -82,36 +82,30 @@ export class SmsChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SmsChannelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SmsChannelArgs | SmsChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SmsChannelState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["promotionalMessagesPerSecond"] = state ? state.promotionalMessagesPerSecond : undefined;
-            inputs["senderId"] = state ? state.senderId : undefined;
-            inputs["shortCode"] = state ? state.shortCode : undefined;
-            inputs["transactionalMessagesPerSecond"] = state ? state.transactionalMessagesPerSecond : undefined;
+    constructor(name: string, args: SmsChannelArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SmsChannelArgs | SmsChannelState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SmsChannelState;
+            inputs.applicationId = state.applicationId;
+            inputs.enabled = state.enabled;
+            inputs.promotionalMessagesPerSecond = state.promotionalMessagesPerSecond;
+            inputs.senderId = state.senderId;
+            inputs.shortCode = state.shortCode;
+            inputs.transactionalMessagesPerSecond = state.transactionalMessagesPerSecond;
         } else {
-            const args = argsOrState as SmsChannelArgs | undefined;
-            if (!args || args.applicationId === undefined) {
+            const args = argsOrState as SmsChannelArgs;
+            if (args.applicationId === undefined) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["senderId"] = args ? args.senderId : undefined;
-            inputs["shortCode"] = args ? args.shortCode : undefined;
-            inputs["promotionalMessagesPerSecond"] = undefined /*out*/;
-            inputs["transactionalMessagesPerSecond"] = undefined /*out*/;
+            inputs.applicationId = args.applicationId;
+            inputs.enabled = args.enabled;
+            inputs.senderId = args.senderId;
+            inputs.shortCode = args.shortCode;
+            inputs.promotionalMessagesPerSecond = undefined /*out*/;
+            inputs.transactionalMessagesPerSecond = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SmsChannel.__pulumiType, name, inputs, opts);
     }
 }

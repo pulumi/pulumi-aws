@@ -45,6 +45,23 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
+ * const mainIdentityPoolRoleAttachment = new aws.cognito.IdentityPoolRoleAttachment("main", {
+ *     identityPoolId: mainIdentityPool.id,
+ *     roleMappings: [{
+ *         ambiguousRoleResolution: "AuthenticatedRole",
+ *         identityProvider: "graph.facebook.com",
+ *         mappingRules: [{
+ *             claim: "isAdmin",
+ *             matchType: "Equals",
+ *             roleArn: authenticatedRole.arn,
+ *             value: "paid",
+ *         }],
+ *         type: "Rules",
+ *     }],
+ *     roles: {
+ *         authenticated: authenticatedRole.arn,
+ *     },
+ * });
  * const authenticatedRolePolicy = new aws.iam.RolePolicy("authenticated", {
  *     policy: `{
  *   "Version": "2012-10-17",
@@ -64,23 +81,6 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     role: authenticatedRole.id,
- * });
- * const mainIdentityPoolRoleAttachment = new aws.cognito.IdentityPoolRoleAttachment("main", {
- *     identityPoolId: mainIdentityPool.id,
- *     roleMappings: [{
- *         ambiguousRoleResolution: "AuthenticatedRole",
- *         identityProvider: "graph.facebook.com",
- *         mappingRules: [{
- *             claim: "isAdmin",
- *             matchType: "Equals",
- *             roleArn: authenticatedRole.arn,
- *             value: "paid",
- *         }],
- *         type: "Rules",
- *     }],
- *     roles: {
- *         authenticated: authenticatedRole.arn,
- *     },
  * });
  * ```
  *
@@ -133,33 +133,27 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IdentityPoolRoleAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IdentityPoolRoleAttachmentArgs | IdentityPoolRoleAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as IdentityPoolRoleAttachmentState | undefined;
-            inputs["identityPoolId"] = state ? state.identityPoolId : undefined;
-            inputs["roleMappings"] = state ? state.roleMappings : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
+    constructor(name: string, args: IdentityPoolRoleAttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: IdentityPoolRoleAttachmentArgs | IdentityPoolRoleAttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as IdentityPoolRoleAttachmentState;
+            inputs.identityPoolId = state.identityPoolId;
+            inputs.roleMappings = state.roleMappings;
+            inputs.roles = state.roles;
         } else {
-            const args = argsOrState as IdentityPoolRoleAttachmentArgs | undefined;
-            if (!args || args.identityPoolId === undefined) {
+            const args = argsOrState as IdentityPoolRoleAttachmentArgs;
+            if (args.identityPoolId === undefined) {
                 throw new Error("Missing required property 'identityPoolId'");
             }
-            if (!args || args.roles === undefined) {
+            if (args.roles === undefined) {
                 throw new Error("Missing required property 'roles'");
             }
-            inputs["identityPoolId"] = args ? args.identityPoolId : undefined;
-            inputs["roleMappings"] = args ? args.roleMappings : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
+            inputs.identityPoolId = args.identityPoolId;
+            inputs.roleMappings = args.roleMappings;
+            inputs.roles = args.roles;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(IdentityPoolRoleAttachment.__pulumiType, name, inputs, opts);
     }
 }

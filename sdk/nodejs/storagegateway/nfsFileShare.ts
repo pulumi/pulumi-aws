@@ -120,63 +120,57 @@ export class NfsFileShare extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NfsFileShareArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NfsFileShareArgs | NfsFileShareState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NfsFileShareState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["clientLists"] = state ? state.clientLists : undefined;
-            inputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
-            inputs["fileshareId"] = state ? state.fileshareId : undefined;
-            inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
-            inputs["guessMimeTypeEnabled"] = state ? state.guessMimeTypeEnabled : undefined;
-            inputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["locationArn"] = state ? state.locationArn : undefined;
-            inputs["nfsFileShareDefaults"] = state ? state.nfsFileShareDefaults : undefined;
-            inputs["objectAcl"] = state ? state.objectAcl : undefined;
-            inputs["readOnly"] = state ? state.readOnly : undefined;
-            inputs["requesterPays"] = state ? state.requesterPays : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["squash"] = state ? state.squash : undefined;
+    constructor(name: string, args: NfsFileShareArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: NfsFileShareArgs | NfsFileShareState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as NfsFileShareState;
+            inputs.arn = state.arn;
+            inputs.clientLists = state.clientLists;
+            inputs.defaultStorageClass = state.defaultStorageClass;
+            inputs.fileshareId = state.fileshareId;
+            inputs.gatewayArn = state.gatewayArn;
+            inputs.guessMimeTypeEnabled = state.guessMimeTypeEnabled;
+            inputs.kmsEncrypted = state.kmsEncrypted;
+            inputs.kmsKeyArn = state.kmsKeyArn;
+            inputs.locationArn = state.locationArn;
+            inputs.nfsFileShareDefaults = state.nfsFileShareDefaults;
+            inputs.objectAcl = state.objectAcl;
+            inputs.readOnly = state.readOnly;
+            inputs.requesterPays = state.requesterPays;
+            inputs.roleArn = state.roleArn;
+            inputs.squash = state.squash;
         } else {
-            const args = argsOrState as NfsFileShareArgs | undefined;
-            if (!args || args.clientLists === undefined) {
+            const args = argsOrState as NfsFileShareArgs;
+            if (args.clientLists === undefined) {
                 throw new Error("Missing required property 'clientLists'");
             }
-            if (!args || args.gatewayArn === undefined) {
+            if (args.gatewayArn === undefined) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            if (!args || args.locationArn === undefined) {
+            if (args.locationArn === undefined) {
                 throw new Error("Missing required property 'locationArn'");
             }
-            if (!args || args.roleArn === undefined) {
+            if (args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["clientLists"] = args ? args.clientLists : undefined;
-            inputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
-            inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
-            inputs["guessMimeTypeEnabled"] = args ? args.guessMimeTypeEnabled : undefined;
-            inputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["locationArn"] = args ? args.locationArn : undefined;
-            inputs["nfsFileShareDefaults"] = args ? args.nfsFileShareDefaults : undefined;
-            inputs["objectAcl"] = args ? args.objectAcl : undefined;
-            inputs["readOnly"] = args ? args.readOnly : undefined;
-            inputs["requesterPays"] = args ? args.requesterPays : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["squash"] = args ? args.squash : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["fileshareId"] = undefined /*out*/;
+            inputs.clientLists = args.clientLists;
+            inputs.defaultStorageClass = args.defaultStorageClass;
+            inputs.gatewayArn = args.gatewayArn;
+            inputs.guessMimeTypeEnabled = args.guessMimeTypeEnabled;
+            inputs.kmsEncrypted = args.kmsEncrypted;
+            inputs.kmsKeyArn = args.kmsKeyArn;
+            inputs.locationArn = args.locationArn;
+            inputs.nfsFileShareDefaults = args.nfsFileShareDefaults;
+            inputs.objectAcl = args.objectAcl;
+            inputs.readOnly = args.readOnly;
+            inputs.requesterPays = args.requesterPays;
+            inputs.roleArn = args.roleArn;
+            inputs.squash = args.squash;
+            inputs.arn = undefined /*out*/;
+            inputs.fileshareId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(NfsFileShare.__pulumiType, name, inputs, opts);
     }
 }

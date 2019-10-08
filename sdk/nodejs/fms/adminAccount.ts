@@ -57,23 +57,17 @@ export class AdminAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AdminAccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AdminAccountArgs | AdminAccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AdminAccountState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
+    constructor(name: string, args?: AdminAccountArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AdminAccountArgs | AdminAccountState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AdminAccountState;
+            inputs.accountId = state.accountId;
         } else {
-            const args = argsOrState as AdminAccountArgs | undefined;
-            inputs["accountId"] = args ? args.accountId : undefined;
+            const args = argsOrState as AdminAccountArgs;
+            inputs.accountId = args.accountId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(AdminAccount.__pulumiType, name, inputs, opts);
     }
 }

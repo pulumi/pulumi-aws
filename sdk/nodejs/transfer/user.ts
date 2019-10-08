@@ -14,12 +14,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const fooServer = new aws.transfer.Server("foo", {
- *     identityProviderType: "SERVICE_MANAGED",
- *     tags: {
- *         NAME: "tf-acc-test-transfer-server",
- *     },
- * });
  * const fooRole = new aws.iam.Role("foo", {
  *     assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
@@ -34,6 +28,12 @@ import * as utilities from "../utilities";
  * 	]
  * }
  * `,
+ * });
+ * const fooServer = new aws.transfer.Server("foo", {
+ *     identityProviderType: "SERVICE_MANAGED",
+ *     tags: {
+ *         NAME: "tf-acc-test-transfer-server",
+ *     },
  * });
  * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
  *     policy: `{
@@ -124,44 +124,38 @@ export class User extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as UserState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["homeDirectory"] = state ? state.homeDirectory : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["userName"] = state ? state.userName : undefined;
+    constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: UserArgs | UserState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as UserState;
+            inputs.arn = state.arn;
+            inputs.homeDirectory = state.homeDirectory;
+            inputs.policy = state.policy;
+            inputs.role = state.role;
+            inputs.serverId = state.serverId;
+            inputs.tags = state.tags;
+            inputs.userName = state.userName;
         } else {
-            const args = argsOrState as UserArgs | undefined;
-            if (!args || args.role === undefined) {
+            const args = argsOrState as UserArgs;
+            if (args.role === undefined) {
                 throw new Error("Missing required property 'role'");
             }
-            if (!args || args.serverId === undefined) {
+            if (args.serverId === undefined) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if (!args || args.userName === undefined) {
+            if (args.userName === undefined) {
                 throw new Error("Missing required property 'userName'");
             }
-            inputs["homeDirectory"] = args ? args.homeDirectory : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.homeDirectory = args.homeDirectory;
+            inputs.policy = args.policy;
+            inputs.role = args.role;
+            inputs.serverId = args.serverId;
+            inputs.tags = args.tags;
+            inputs.userName = args.userName;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(User.__pulumiType, name, inputs, opts);
     }
 }

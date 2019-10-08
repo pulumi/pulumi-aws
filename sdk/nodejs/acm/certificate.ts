@@ -162,45 +162,39 @@ export class Certificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: CertificateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CertificateState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
-            inputs["certificateBody"] = state ? state.certificateBody : undefined;
-            inputs["certificateChain"] = state ? state.certificateChain : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["domainValidationOptions"] = state ? state.domainValidationOptions : undefined;
-            inputs["options"] = state ? state.options : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
-            inputs["subjectAlternativeNames"] = state ? state.subjectAlternativeNames : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["validationEmails"] = state ? state.validationEmails : undefined;
-            inputs["validationMethod"] = state ? state.validationMethod : undefined;
+    constructor(name: string, args?: CertificateArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: CertificateArgs | CertificateState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as CertificateState;
+            inputs.arn = state.arn;
+            inputs.certificateAuthorityArn = state.certificateAuthorityArn;
+            inputs.certificateBody = state.certificateBody;
+            inputs.certificateChain = state.certificateChain;
+            inputs.domainName = state.domainName;
+            inputs.domainValidationOptions = state.domainValidationOptions;
+            inputs.options = state.options;
+            inputs.privateKey = state.privateKey;
+            inputs.subjectAlternativeNames = state.subjectAlternativeNames;
+            inputs.tags = state.tags;
+            inputs.validationEmails = state.validationEmails;
+            inputs.validationMethod = state.validationMethod;
         } else {
-            const args = argsOrState as CertificateArgs | undefined;
-            inputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            inputs["certificateBody"] = args ? args.certificateBody : undefined;
-            inputs["certificateChain"] = args ? args.certificateChain : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["validationMethod"] = args ? args.validationMethod : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["domainValidationOptions"] = undefined /*out*/;
-            inputs["validationEmails"] = undefined /*out*/;
+            const args = argsOrState as CertificateArgs;
+            inputs.certificateAuthorityArn = args.certificateAuthorityArn;
+            inputs.certificateBody = args.certificateBody;
+            inputs.certificateChain = args.certificateChain;
+            inputs.domainName = args.domainName;
+            inputs.options = args.options;
+            inputs.privateKey = args.privateKey;
+            inputs.subjectAlternativeNames = args.subjectAlternativeNames;
+            inputs.tags = args.tags;
+            inputs.validationMethod = args.validationMethod;
+            inputs.arn = undefined /*out*/;
+            inputs.domainValidationOptions = undefined /*out*/;
+            inputs.validationEmails = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Certificate.__pulumiType, name, inputs, opts);
     }
 }

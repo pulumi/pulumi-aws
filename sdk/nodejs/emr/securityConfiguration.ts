@@ -89,32 +89,26 @@ export class SecurityConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SecurityConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SecurityConfigurationArgs | SecurityConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SecurityConfigurationState | undefined;
-            inputs["configuration"] = state ? state.configuration : undefined;
-            inputs["creationDate"] = state ? state.creationDate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
+    constructor(name: string, args: SecurityConfigurationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SecurityConfigurationArgs | SecurityConfigurationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SecurityConfigurationState;
+            inputs.configuration = state.configuration;
+            inputs.creationDate = state.creationDate;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
         } else {
-            const args = argsOrState as SecurityConfigurationArgs | undefined;
-            if (!args || args.configuration === undefined) {
+            const args = argsOrState as SecurityConfigurationArgs;
+            if (args.configuration === undefined) {
                 throw new Error("Missing required property 'configuration'");
             }
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["creationDate"] = undefined /*out*/;
+            inputs.configuration = args.configuration;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.creationDate = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SecurityConfiguration.__pulumiType, name, inputs, opts);
     }
 }

@@ -57,23 +57,17 @@ export class ConfigurationSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ConfigurationSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ConfigurationSetArgs | ConfigurationSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ConfigurationSetState | undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args?: ConfigurationSetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ConfigurationSetArgs | ConfigurationSetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ConfigurationSetState;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as ConfigurationSetArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
+            const args = argsOrState as ConfigurationSetArgs;
+            inputs.name = args.name;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         const aliasOpts = { aliases: [{ type: "aws:ses/confgurationSet:ConfgurationSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConfigurationSet.__pulumiType, name, inputs, opts);

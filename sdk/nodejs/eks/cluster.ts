@@ -64,12 +64,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const exampleCluster = new aws.eks.Cluster("example", {});
+ * const current = aws.getCallerIdentity({});
  * const exampleOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("example", {
  *     clientIdLists: ["sts.amazonaws.com"],
  *     thumbprintLists: [],
- *     url: exampleCluster.identities[0].oidcs[0].issuer,
+ *     url: exampleCluster.identities[0].oidc.0.issuer,
  * });
- * const current = aws.getCallerIdentity();
  * const exampleAssumeRolePolicy = pulumi.all([exampleOpenIdConnectProvider.url, exampleOpenIdConnectProvider.arn]).apply(([url, arn]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRoleWithWebIdentity"],
@@ -178,53 +178,47 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
-            inputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["identities"] = state ? state.identities : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["platformVersion"] = state ? state.platformVersion : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["version"] = state ? state.version : undefined;
-            inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ClusterArgs | ClusterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ClusterState;
+            inputs.arn = state.arn;
+            inputs.certificateAuthority = state.certificateAuthority;
+            inputs.createdAt = state.createdAt;
+            inputs.enabledClusterLogTypes = state.enabledClusterLogTypes;
+            inputs.endpoint = state.endpoint;
+            inputs.identities = state.identities;
+            inputs.name = state.name;
+            inputs.platformVersion = state.platformVersion;
+            inputs.roleArn = state.roleArn;
+            inputs.status = state.status;
+            inputs.tags = state.tags;
+            inputs.version = state.version;
+            inputs.vpcConfig = state.vpcConfig;
         } else {
-            const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.roleArn === undefined) {
+            const args = argsOrState as ClusterArgs;
+            if (args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if (!args || args.vpcConfig === undefined) {
+            if (args.vpcConfig === undefined) {
                 throw new Error("Missing required property 'vpcConfig'");
             }
-            inputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificateAuthority"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["identities"] = undefined /*out*/;
-            inputs["platformVersion"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            inputs.enabledClusterLogTypes = args.enabledClusterLogTypes;
+            inputs.name = args.name;
+            inputs.roleArn = args.roleArn;
+            inputs.tags = args.tags;
+            inputs.version = args.version;
+            inputs.vpcConfig = args.vpcConfig;
+            inputs.arn = undefined /*out*/;
+            inputs.certificateAuthority = undefined /*out*/;
+            inputs.createdAt = undefined /*out*/;
+            inputs.endpoint = undefined /*out*/;
+            inputs.identities = undefined /*out*/;
+            inputs.platformVersion = undefined /*out*/;
+            inputs.status = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

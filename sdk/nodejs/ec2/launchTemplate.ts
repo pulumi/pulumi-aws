@@ -175,81 +175,75 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: LaunchTemplateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LaunchTemplateArgs | LaunchTemplateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LaunchTemplateState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["blockDeviceMappings"] = state ? state.blockDeviceMappings : undefined;
-            inputs["capacityReservationSpecification"] = state ? state.capacityReservationSpecification : undefined;
-            inputs["creditSpecification"] = state ? state.creditSpecification : undefined;
-            inputs["defaultVersion"] = state ? state.defaultVersion : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["disableApiTermination"] = state ? state.disableApiTermination : undefined;
-            inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
-            inputs["elasticGpuSpecifications"] = state ? state.elasticGpuSpecifications : undefined;
-            inputs["elasticInferenceAccelerator"] = state ? state.elasticInferenceAccelerator : undefined;
-            inputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
-            inputs["imageId"] = state ? state.imageId : undefined;
-            inputs["instanceInitiatedShutdownBehavior"] = state ? state.instanceInitiatedShutdownBehavior : undefined;
-            inputs["instanceMarketOptions"] = state ? state.instanceMarketOptions : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["kernelId"] = state ? state.kernelId : undefined;
-            inputs["keyName"] = state ? state.keyName : undefined;
-            inputs["latestVersion"] = state ? state.latestVersion : undefined;
-            inputs["licenseSpecifications"] = state ? state.licenseSpecifications : undefined;
-            inputs["monitoring"] = state ? state.monitoring : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            inputs["placement"] = state ? state.placement : undefined;
-            inputs["ramDiskId"] = state ? state.ramDiskId : undefined;
-            inputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
-            inputs["tagSpecifications"] = state ? state.tagSpecifications : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["userData"] = state ? state.userData : undefined;
-            inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+    constructor(name: string, args?: LaunchTemplateArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LaunchTemplateArgs | LaunchTemplateState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LaunchTemplateState;
+            inputs.arn = state.arn;
+            inputs.blockDeviceMappings = state.blockDeviceMappings;
+            inputs.capacityReservationSpecification = state.capacityReservationSpecification;
+            inputs.creditSpecification = state.creditSpecification;
+            inputs.defaultVersion = state.defaultVersion;
+            inputs.description = state.description;
+            inputs.disableApiTermination = state.disableApiTermination;
+            inputs.ebsOptimized = state.ebsOptimized;
+            inputs.elasticGpuSpecifications = state.elasticGpuSpecifications;
+            inputs.elasticInferenceAccelerator = state.elasticInferenceAccelerator;
+            inputs.iamInstanceProfile = state.iamInstanceProfile;
+            inputs.imageId = state.imageId;
+            inputs.instanceInitiatedShutdownBehavior = state.instanceInitiatedShutdownBehavior;
+            inputs.instanceMarketOptions = state.instanceMarketOptions;
+            inputs.instanceType = state.instanceType;
+            inputs.kernelId = state.kernelId;
+            inputs.keyName = state.keyName;
+            inputs.latestVersion = state.latestVersion;
+            inputs.licenseSpecifications = state.licenseSpecifications;
+            inputs.monitoring = state.monitoring;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.networkInterfaces = state.networkInterfaces;
+            inputs.placement = state.placement;
+            inputs.ramDiskId = state.ramDiskId;
+            inputs.securityGroupNames = state.securityGroupNames;
+            inputs.tagSpecifications = state.tagSpecifications;
+            inputs.tags = state.tags;
+            inputs.userData = state.userData;
+            inputs.vpcSecurityGroupIds = state.vpcSecurityGroupIds;
         } else {
-            const args = argsOrState as LaunchTemplateArgs | undefined;
-            inputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
-            inputs["capacityReservationSpecification"] = args ? args.capacityReservationSpecification : undefined;
-            inputs["creditSpecification"] = args ? args.creditSpecification : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
-            inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            inputs["elasticGpuSpecifications"] = args ? args.elasticGpuSpecifications : undefined;
-            inputs["elasticInferenceAccelerator"] = args ? args.elasticInferenceAccelerator : undefined;
-            inputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
-            inputs["imageId"] = args ? args.imageId : undefined;
-            inputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
-            inputs["instanceMarketOptions"] = args ? args.instanceMarketOptions : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["kernelId"] = args ? args.kernelId : undefined;
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["licenseSpecifications"] = args ? args.licenseSpecifications : undefined;
-            inputs["monitoring"] = args ? args.monitoring : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
-            inputs["placement"] = args ? args.placement : undefined;
-            inputs["ramDiskId"] = args ? args.ramDiskId : undefined;
-            inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
-            inputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userData"] = args ? args.userData : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultVersion"] = undefined /*out*/;
-            inputs["latestVersion"] = undefined /*out*/;
+            const args = argsOrState as LaunchTemplateArgs;
+            inputs.blockDeviceMappings = args.blockDeviceMappings;
+            inputs.capacityReservationSpecification = args.capacityReservationSpecification;
+            inputs.creditSpecification = args.creditSpecification;
+            inputs.description = args.description;
+            inputs.disableApiTermination = args.disableApiTermination;
+            inputs.ebsOptimized = args.ebsOptimized;
+            inputs.elasticGpuSpecifications = args.elasticGpuSpecifications;
+            inputs.elasticInferenceAccelerator = args.elasticInferenceAccelerator;
+            inputs.iamInstanceProfile = args.iamInstanceProfile;
+            inputs.imageId = args.imageId;
+            inputs.instanceInitiatedShutdownBehavior = args.instanceInitiatedShutdownBehavior;
+            inputs.instanceMarketOptions = args.instanceMarketOptions;
+            inputs.instanceType = args.instanceType;
+            inputs.kernelId = args.kernelId;
+            inputs.keyName = args.keyName;
+            inputs.licenseSpecifications = args.licenseSpecifications;
+            inputs.monitoring = args.monitoring;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.networkInterfaces = args.networkInterfaces;
+            inputs.placement = args.placement;
+            inputs.ramDiskId = args.ramDiskId;
+            inputs.securityGroupNames = args.securityGroupNames;
+            inputs.tagSpecifications = args.tagSpecifications;
+            inputs.tags = args.tags;
+            inputs.userData = args.userData;
+            inputs.vpcSecurityGroupIds = args.vpcSecurityGroupIds;
+            inputs.arn = undefined /*out*/;
+            inputs.defaultVersion = undefined /*out*/;
+            inputs.latestVersion = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LaunchTemplate.__pulumiType, name, inputs, opts);
     }
 }

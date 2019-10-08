@@ -109,51 +109,45 @@ export class Fleet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as FleetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["buildId"] = state ? state.buildId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["ec2InboundPermissions"] = state ? state.ec2InboundPermissions : undefined;
-            inputs["ec2InstanceType"] = state ? state.ec2InstanceType : undefined;
-            inputs["logPaths"] = state ? state.logPaths : undefined;
-            inputs["metricGroups"] = state ? state.metricGroups : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["newGameSessionProtectionPolicy"] = state ? state.newGameSessionProtectionPolicy : undefined;
-            inputs["operatingSystem"] = state ? state.operatingSystem : undefined;
-            inputs["resourceCreationLimitPolicy"] = state ? state.resourceCreationLimitPolicy : undefined;
-            inputs["runtimeConfiguration"] = state ? state.runtimeConfiguration : undefined;
+    constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: FleetArgs | FleetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as FleetState;
+            inputs.arn = state.arn;
+            inputs.buildId = state.buildId;
+            inputs.description = state.description;
+            inputs.ec2InboundPermissions = state.ec2InboundPermissions;
+            inputs.ec2InstanceType = state.ec2InstanceType;
+            inputs.logPaths = state.logPaths;
+            inputs.metricGroups = state.metricGroups;
+            inputs.name = state.name;
+            inputs.newGameSessionProtectionPolicy = state.newGameSessionProtectionPolicy;
+            inputs.operatingSystem = state.operatingSystem;
+            inputs.resourceCreationLimitPolicy = state.resourceCreationLimitPolicy;
+            inputs.runtimeConfiguration = state.runtimeConfiguration;
         } else {
-            const args = argsOrState as FleetArgs | undefined;
-            if (!args || args.buildId === undefined) {
+            const args = argsOrState as FleetArgs;
+            if (args.buildId === undefined) {
                 throw new Error("Missing required property 'buildId'");
             }
-            if (!args || args.ec2InstanceType === undefined) {
+            if (args.ec2InstanceType === undefined) {
                 throw new Error("Missing required property 'ec2InstanceType'");
             }
-            inputs["buildId"] = args ? args.buildId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ec2InboundPermissions"] = args ? args.ec2InboundPermissions : undefined;
-            inputs["ec2InstanceType"] = args ? args.ec2InstanceType : undefined;
-            inputs["metricGroups"] = args ? args.metricGroups : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["newGameSessionProtectionPolicy"] = args ? args.newGameSessionProtectionPolicy : undefined;
-            inputs["resourceCreationLimitPolicy"] = args ? args.resourceCreationLimitPolicy : undefined;
-            inputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["logPaths"] = undefined /*out*/;
-            inputs["operatingSystem"] = undefined /*out*/;
+            inputs.buildId = args.buildId;
+            inputs.description = args.description;
+            inputs.ec2InboundPermissions = args.ec2InboundPermissions;
+            inputs.ec2InstanceType = args.ec2InstanceType;
+            inputs.metricGroups = args.metricGroups;
+            inputs.name = args.name;
+            inputs.newGameSessionProtectionPolicy = args.newGameSessionProtectionPolicy;
+            inputs.resourceCreationLimitPolicy = args.resourceCreationLimitPolicy;
+            inputs.runtimeConfiguration = args.runtimeConfiguration;
+            inputs.arn = undefined /*out*/;
+            inputs.logPaths = undefined /*out*/;
+            inputs.operatingSystem = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Fleet.__pulumiType, name, inputs, opts);
     }
 }

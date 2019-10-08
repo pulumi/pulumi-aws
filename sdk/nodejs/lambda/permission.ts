@@ -60,7 +60,6 @@ import {Function} from "./function";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const defaultTopic = new aws.sns.Topic("default", {});
  * const defaultRole = new aws.iam.Role("default", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -77,6 +76,7 @@ import {Function} from "./function";
  * }
  * `,
  * });
+ * const defaultTopic = new aws.sns.Topic("default", {});
  * const func = new aws.lambda.Function("func", {
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
  *     handler: "exports.handler",
@@ -195,48 +195,42 @@ export class Permission extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PermissionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PermissionArgs | PermissionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PermissionState | undefined;
-            inputs["action"] = state ? state.action : undefined;
-            inputs["eventSourceToken"] = state ? state.eventSourceToken : undefined;
-            inputs["function"] = state ? state.function : undefined;
-            inputs["principal"] = state ? state.principal : undefined;
-            inputs["qualifier"] = state ? state.qualifier : undefined;
-            inputs["sourceAccount"] = state ? state.sourceAccount : undefined;
-            inputs["sourceArn"] = state ? state.sourceArn : undefined;
-            inputs["statementId"] = state ? state.statementId : undefined;
-            inputs["statementIdPrefix"] = state ? state.statementIdPrefix : undefined;
+    constructor(name: string, args: PermissionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PermissionArgs | PermissionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PermissionState;
+            inputs.action = state.action;
+            inputs.eventSourceToken = state.eventSourceToken;
+            inputs.function = state.function;
+            inputs.principal = state.principal;
+            inputs.qualifier = state.qualifier;
+            inputs.sourceAccount = state.sourceAccount;
+            inputs.sourceArn = state.sourceArn;
+            inputs.statementId = state.statementId;
+            inputs.statementIdPrefix = state.statementIdPrefix;
         } else {
-            const args = argsOrState as PermissionArgs | undefined;
-            if (!args || args.action === undefined) {
+            const args = argsOrState as PermissionArgs;
+            if (args.action === undefined) {
                 throw new Error("Missing required property 'action'");
             }
-            if (!args || args.function === undefined) {
+            if (args.function === undefined) {
                 throw new Error("Missing required property 'function'");
             }
-            if (!args || args.principal === undefined) {
+            if (args.principal === undefined) {
                 throw new Error("Missing required property 'principal'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["eventSourceToken"] = args ? args.eventSourceToken : undefined;
-            inputs["function"] = args ? args.function : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["qualifier"] = args ? args.qualifier : undefined;
-            inputs["sourceAccount"] = args ? args.sourceAccount : undefined;
-            inputs["sourceArn"] = args ? args.sourceArn : undefined;
-            inputs["statementId"] = args ? args.statementId : undefined;
-            inputs["statementIdPrefix"] = args ? args.statementIdPrefix : undefined;
+            inputs.action = args.action;
+            inputs.eventSourceToken = args.eventSourceToken;
+            inputs.function = args.function;
+            inputs.principal = args.principal;
+            inputs.qualifier = args.qualifier;
+            inputs.sourceAccount = args.sourceAccount;
+            inputs.sourceArn = args.sourceArn;
+            inputs.statementId = args.statementId;
+            inputs.statementIdPrefix = args.statementIdPrefix;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Permission.__pulumiType, name, inputs, opts);
     }
 }

@@ -66,31 +66,25 @@ export class RouteTableAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RouteTableAssociationArgs | RouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RouteTableAssociationState | undefined;
-            inputs["routeTableId"] = state ? state.routeTableId : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+    constructor(name: string, args: RouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RouteTableAssociationArgs | RouteTableAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RouteTableAssociationState;
+            inputs.routeTableId = state.routeTableId;
+            inputs.subnetId = state.subnetId;
         } else {
-            const args = argsOrState as RouteTableAssociationArgs | undefined;
-            if (!args || args.routeTableId === undefined) {
+            const args = argsOrState as RouteTableAssociationArgs;
+            if (args.routeTableId === undefined) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            if (!args || args.subnetId === undefined) {
+            if (args.subnetId === undefined) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["routeTableId"] = args ? args.routeTableId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
+            inputs.routeTableId = args.routeTableId;
+            inputs.subnetId = args.subnetId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RouteTableAssociation.__pulumiType, name, inputs, opts);
     }
 }

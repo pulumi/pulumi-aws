@@ -68,29 +68,23 @@ export class ThingType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ThingTypeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ThingTypeArgs | ThingTypeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ThingTypeState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deprecated"] = state ? state.deprecated : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
+    constructor(name: string, args?: ThingTypeArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ThingTypeArgs | ThingTypeState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ThingTypeState;
+            inputs.arn = state.arn;
+            inputs.deprecated = state.deprecated;
+            inputs.name = state.name;
+            inputs.properties = state.properties;
         } else {
-            const args = argsOrState as ThingTypeArgs | undefined;
-            inputs["deprecated"] = args ? args.deprecated : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as ThingTypeArgs;
+            inputs.deprecated = args.deprecated;
+            inputs.name = args.name;
+            inputs.properties = args.properties;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ThingType.__pulumiType, name, inputs, opts);
     }
 }

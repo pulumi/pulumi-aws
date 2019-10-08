@@ -18,6 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const example = new aws.ebs.Volume("example", {
+ *     availabilityZone: "us-west-2a",
+ *     size: 1,
+ * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-21f78e11",
  *     availabilityZone: "us-west-2a",
@@ -25,10 +29,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Name: "HelloWorld",
  *     },
- * });
- * const example = new aws.ebs.Volume("example", {
- *     availabilityZone: "us-west-2a",
- *     size: 1,
  * });
  * const ebsAtt = new aws.ec2.VolumeAttachment("ebsAtt", {
  *     deviceName: "/dev/sdh",
@@ -102,40 +102,34 @@ export class VolumeAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VolumeAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VolumeAttachmentArgs | VolumeAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VolumeAttachmentState | undefined;
-            inputs["deviceName"] = state ? state.deviceName : undefined;
-            inputs["forceDetach"] = state ? state.forceDetach : undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["skipDestroy"] = state ? state.skipDestroy : undefined;
-            inputs["volumeId"] = state ? state.volumeId : undefined;
+    constructor(name: string, args: VolumeAttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VolumeAttachmentArgs | VolumeAttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VolumeAttachmentState;
+            inputs.deviceName = state.deviceName;
+            inputs.forceDetach = state.forceDetach;
+            inputs.instanceId = state.instanceId;
+            inputs.skipDestroy = state.skipDestroy;
+            inputs.volumeId = state.volumeId;
         } else {
-            const args = argsOrState as VolumeAttachmentArgs | undefined;
-            if (!args || args.deviceName === undefined) {
+            const args = argsOrState as VolumeAttachmentArgs;
+            if (args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if (!args || args.instanceId === undefined) {
+            if (args.instanceId === undefined) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if (!args || args.volumeId === undefined) {
+            if (args.volumeId === undefined) {
                 throw new Error("Missing required property 'volumeId'");
             }
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["forceDetach"] = args ? args.forceDetach : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["skipDestroy"] = args ? args.skipDestroy : undefined;
-            inputs["volumeId"] = args ? args.volumeId : undefined;
+            inputs.deviceName = args.deviceName;
+            inputs.forceDetach = args.forceDetach;
+            inputs.instanceId = args.instanceId;
+            inputs.skipDestroy = args.skipDestroy;
+            inputs.volumeId = args.volumeId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VolumeAttachment.__pulumiType, name, inputs, opts);
     }
 }

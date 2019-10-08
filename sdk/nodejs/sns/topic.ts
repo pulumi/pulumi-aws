@@ -178,61 +178,55 @@ export class Topic extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TopicArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TopicArgs | TopicState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as TopicState | undefined;
-            inputs["applicationFailureFeedbackRoleArn"] = state ? state.applicationFailureFeedbackRoleArn : undefined;
-            inputs["applicationSuccessFeedbackRoleArn"] = state ? state.applicationSuccessFeedbackRoleArn : undefined;
-            inputs["applicationSuccessFeedbackSampleRate"] = state ? state.applicationSuccessFeedbackSampleRate : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deliveryPolicy"] = state ? state.deliveryPolicy : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["httpFailureFeedbackRoleArn"] = state ? state.httpFailureFeedbackRoleArn : undefined;
-            inputs["httpSuccessFeedbackRoleArn"] = state ? state.httpSuccessFeedbackRoleArn : undefined;
-            inputs["httpSuccessFeedbackSampleRate"] = state ? state.httpSuccessFeedbackSampleRate : undefined;
-            inputs["kmsMasterKeyId"] = state ? state.kmsMasterKeyId : undefined;
-            inputs["lambdaFailureFeedbackRoleArn"] = state ? state.lambdaFailureFeedbackRoleArn : undefined;
-            inputs["lambdaSuccessFeedbackRoleArn"] = state ? state.lambdaSuccessFeedbackRoleArn : undefined;
-            inputs["lambdaSuccessFeedbackSampleRate"] = state ? state.lambdaSuccessFeedbackSampleRate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["sqsFailureFeedbackRoleArn"] = state ? state.sqsFailureFeedbackRoleArn : undefined;
-            inputs["sqsSuccessFeedbackRoleArn"] = state ? state.sqsSuccessFeedbackRoleArn : undefined;
-            inputs["sqsSuccessFeedbackSampleRate"] = state ? state.sqsSuccessFeedbackSampleRate : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: TopicArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: TopicArgs | TopicState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as TopicState;
+            inputs.applicationFailureFeedbackRoleArn = state.applicationFailureFeedbackRoleArn;
+            inputs.applicationSuccessFeedbackRoleArn = state.applicationSuccessFeedbackRoleArn;
+            inputs.applicationSuccessFeedbackSampleRate = state.applicationSuccessFeedbackSampleRate;
+            inputs.arn = state.arn;
+            inputs.deliveryPolicy = state.deliveryPolicy;
+            inputs.displayName = state.displayName;
+            inputs.httpFailureFeedbackRoleArn = state.httpFailureFeedbackRoleArn;
+            inputs.httpSuccessFeedbackRoleArn = state.httpSuccessFeedbackRoleArn;
+            inputs.httpSuccessFeedbackSampleRate = state.httpSuccessFeedbackSampleRate;
+            inputs.kmsMasterKeyId = state.kmsMasterKeyId;
+            inputs.lambdaFailureFeedbackRoleArn = state.lambdaFailureFeedbackRoleArn;
+            inputs.lambdaSuccessFeedbackRoleArn = state.lambdaSuccessFeedbackRoleArn;
+            inputs.lambdaSuccessFeedbackSampleRate = state.lambdaSuccessFeedbackSampleRate;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.policy = state.policy;
+            inputs.sqsFailureFeedbackRoleArn = state.sqsFailureFeedbackRoleArn;
+            inputs.sqsSuccessFeedbackRoleArn = state.sqsSuccessFeedbackRoleArn;
+            inputs.sqsSuccessFeedbackSampleRate = state.sqsSuccessFeedbackSampleRate;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as TopicArgs | undefined;
-            inputs["applicationFailureFeedbackRoleArn"] = args ? args.applicationFailureFeedbackRoleArn : undefined;
-            inputs["applicationSuccessFeedbackRoleArn"] = args ? args.applicationSuccessFeedbackRoleArn : undefined;
-            inputs["applicationSuccessFeedbackSampleRate"] = args ? args.applicationSuccessFeedbackSampleRate : undefined;
-            inputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["httpFailureFeedbackRoleArn"] = args ? args.httpFailureFeedbackRoleArn : undefined;
-            inputs["httpSuccessFeedbackRoleArn"] = args ? args.httpSuccessFeedbackRoleArn : undefined;
-            inputs["httpSuccessFeedbackSampleRate"] = args ? args.httpSuccessFeedbackSampleRate : undefined;
-            inputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
-            inputs["lambdaFailureFeedbackRoleArn"] = args ? args.lambdaFailureFeedbackRoleArn : undefined;
-            inputs["lambdaSuccessFeedbackRoleArn"] = args ? args.lambdaSuccessFeedbackRoleArn : undefined;
-            inputs["lambdaSuccessFeedbackSampleRate"] = args ? args.lambdaSuccessFeedbackSampleRate : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["sqsFailureFeedbackRoleArn"] = args ? args.sqsFailureFeedbackRoleArn : undefined;
-            inputs["sqsSuccessFeedbackRoleArn"] = args ? args.sqsSuccessFeedbackRoleArn : undefined;
-            inputs["sqsSuccessFeedbackSampleRate"] = args ? args.sqsSuccessFeedbackSampleRate : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as TopicArgs;
+            inputs.applicationFailureFeedbackRoleArn = args.applicationFailureFeedbackRoleArn;
+            inputs.applicationSuccessFeedbackRoleArn = args.applicationSuccessFeedbackRoleArn;
+            inputs.applicationSuccessFeedbackSampleRate = args.applicationSuccessFeedbackSampleRate;
+            inputs.deliveryPolicy = args.deliveryPolicy;
+            inputs.displayName = args.displayName;
+            inputs.httpFailureFeedbackRoleArn = args.httpFailureFeedbackRoleArn;
+            inputs.httpSuccessFeedbackRoleArn = args.httpSuccessFeedbackRoleArn;
+            inputs.httpSuccessFeedbackSampleRate = args.httpSuccessFeedbackSampleRate;
+            inputs.kmsMasterKeyId = args.kmsMasterKeyId;
+            inputs.lambdaFailureFeedbackRoleArn = args.lambdaFailureFeedbackRoleArn;
+            inputs.lambdaSuccessFeedbackRoleArn = args.lambdaSuccessFeedbackRoleArn;
+            inputs.lambdaSuccessFeedbackSampleRate = args.lambdaSuccessFeedbackSampleRate;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.policy = args.policy;
+            inputs.sqsFailureFeedbackRoleArn = args.sqsFailureFeedbackRoleArn;
+            inputs.sqsSuccessFeedbackRoleArn = args.sqsSuccessFeedbackRoleArn;
+            inputs.sqsSuccessFeedbackSampleRate = args.sqsSuccessFeedbackSampleRate;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Topic.__pulumiType, name, inputs, opts);
     }
 }

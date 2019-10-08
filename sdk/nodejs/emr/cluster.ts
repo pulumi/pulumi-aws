@@ -156,7 +156,7 @@ import * as utilities from "../utilities";
  *         },
  *         name: "Setup Hadoop Debugging",
  *     }],
- * }, {ignoreChanges: ["steps"]});
+ * });
  * ```
  * 
  * ### Multiple Node Master Instance Group
@@ -302,19 +302,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const mainVpc = new aws.ec2.Vpc("main", {
- *     cidrBlock: "168.31.0.0/16",
- *     enableDnsHostnames: true,
- *     tags: {
- *         name: "emrTest",
- *     },
- * });
- * const mainSubnet = new aws.ec2.Subnet("main", {
- *     cidrBlock: "168.31.0.0/20",
- *     tags: {
- *         name: "emrTest",
- *     },
- *     vpcId: mainVpc.id,
+ * // IAM Role for EC2 Instance Profile
+ * const iamEmrProfileRole = new aws.iam.Role("iamEmrProfileRole", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2008-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "ec2.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `,
  * });
  * // IAM role for EMR Service
  * const iamEmrServiceRole = new aws.iam.Role("iamEmrServiceRole", {
@@ -333,25 +336,22 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * // IAM Role for EC2 Instance Profile
- * const iamEmrProfileRole = new aws.iam.Role("iamEmrProfileRole", {
- *     assumeRolePolicy: `{
- *   "Version": "2008-10-17",
- *   "Statement": [
- *     {
- *       "Sid": "",
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "ec2.amazonaws.com"
- *       },
- *       "Action": "sts:AssumeRole"
- *     }
- *   ]
- * }
- * `,
+ * const mainVpc = new aws.ec2.Vpc("main", {
+ *     cidrBlock: "168.31.0.0/16",
+ *     enableDnsHostnames: true,
+ *     tags: {
+ *         name: "emrTest",
+ *     },
  * });
  * const emrProfile = new aws.iam.InstanceProfile("emrProfile", {
  *     roles: [iamEmrProfileRole.name],
+ * });
+ * const mainSubnet = new aws.ec2.Subnet("main", {
+ *     cidrBlock: "168.31.0.0/20",
+ *     tags: {
+ *         name: "emrTest",
+ *     },
+ *     vpcId: mainVpc.id,
  * });
  * const cluster = new aws.emr.Cluster("cluster", {
  *     applications: ["Spark"],
@@ -408,40 +408,40 @@ import * as utilities from "../utilities";
  *         role: "rolename",
  *     },
  * });
- * const allowAccess = new aws.ec2.SecurityGroup("allowAccess", {
- *     description: "Allow inbound traffic",
- *     egress: [{
- *         cidrBlocks: ["0.0.0.0/0"],
- *         fromPort: 0,
- *         protocol: "-1",
- *         toPort: 0,
- *     }],
- *     ingress: [{
- *         // we do not recommend opening your cluster to 0.0.0.0/0
- *         cidrBlocks: "", // add your IP address here
- *         // these ports should be locked down
- *         fromPort: 0,
- *         protocol: "-1",
- *         toPort: 0,
- *     }],
- *     tags: {
- *         name: "emrTest",
- *     },
- *     vpcId: mainVpc.id,
- * }, {dependsOn: [mainSubnet],ignoreChanges: ["egresses", "ingresses"]});
- * const gw = new aws.ec2.InternetGateway("gw", {
- *     vpcId: mainVpc.id,
- * });
- * const routeTable = new aws.ec2.RouteTable("r", {
- *     routes: [{
- *         cidrBlock: "0.0.0.0/0",
- *         gatewayId: gw.id,
- *     }],
- *     vpcId: mainVpc.id,
- * });
- * const mainRouteTableAssociation = new aws.ec2.MainRouteTableAssociation("a", {
- *     routeTableId: routeTable.id,
- *     vpcId: mainVpc.id,
+ * const iamEmrProfilePolicy = new aws.iam.RolePolicy("iamEmrProfilePolicy", {
+ *     policy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [{
+ *         "Effect": "Allow",
+ *         "Resource": "*",
+ *         "Action": [
+ *             "cloudwatch:*",
+ *             "dynamodb:*",
+ *             "ec2:Describe*",
+ *             "elasticmapreduce:Describe*",
+ *             "elasticmapreduce:ListBootstrapActions",
+ *             "elasticmapreduce:ListClusters",
+ *             "elasticmapreduce:ListInstanceGroups",
+ *             "elasticmapreduce:ListInstances",
+ *             "elasticmapreduce:ListSteps",
+ *             "kinesis:CreateStream",
+ *             "kinesis:DeleteStream",
+ *             "kinesis:DescribeStream",
+ *             "kinesis:GetRecords",
+ *             "kinesis:GetShardIterator",
+ *             "kinesis:MergeShards",
+ *             "kinesis:PutRecord",
+ *             "kinesis:SplitShard",
+ *             "rds:Describe*",
+ *             "s3:*",
+ *             "sdb:*",
+ *             "sns:*",
+ *             "sqs:*"
+ *         ]
+ *     }]
+ * }
+ * `,
+ *     role: iamEmrProfileRole.id,
  * });
  * const iamEmrServicePolicy = new aws.iam.RolePolicy("iamEmrServicePolicy", {
  *     policy: `{
@@ -509,41 +509,41 @@ import * as utilities from "../utilities";
  * `,
  *     role: iamEmrServiceRole.id,
  * });
- * const iamEmrProfilePolicy = new aws.iam.RolePolicy("iamEmrProfilePolicy", {
- *     policy: `{
- *     "Version": "2012-10-17",
- *     "Statement": [{
- *         "Effect": "Allow",
- *         "Resource": "*",
- *         "Action": [
- *             "cloudwatch:*",
- *             "dynamodb:*",
- *             "ec2:Describe*",
- *             "elasticmapreduce:Describe*",
- *             "elasticmapreduce:ListBootstrapActions",
- *             "elasticmapreduce:ListClusters",
- *             "elasticmapreduce:ListInstanceGroups",
- *             "elasticmapreduce:ListInstances",
- *             "elasticmapreduce:ListSteps",
- *             "kinesis:CreateStream",
- *             "kinesis:DeleteStream",
- *             "kinesis:DescribeStream",
- *             "kinesis:GetRecords",
- *             "kinesis:GetShardIterator",
- *             "kinesis:MergeShards",
- *             "kinesis:PutRecord",
- *             "kinesis:SplitShard",
- *             "rds:Describe*",
- *             "s3:*",
- *             "sdb:*",
- *             "sns:*",
- *             "sqs:*"
- *         ]
- *     }]
- * }
- * `,
- *     role: iamEmrProfileRole.id,
+ * const gw = new aws.ec2.InternetGateway("gw", {
+ *     vpcId: mainVpc.id,
  * });
+ * const routeTable = new aws.ec2.RouteTable("r", {
+ *     routes: [{
+ *         cidrBlock: "0.0.0.0/0",
+ *         gatewayId: gw.id,
+ *     }],
+ *     vpcId: mainVpc.id,
+ * });
+ * const mainRouteTableAssociation = new aws.ec2.MainRouteTableAssociation("a", {
+ *     routeTableId: routeTable.id,
+ *     vpcId: mainVpc.id,
+ * });
+ * const allowAccess = new aws.ec2.SecurityGroup("allowAccess", {
+ *     description: "Allow inbound traffic",
+ *     egress: [{
+ *         cidrBlocks: ["0.0.0.0/0"],
+ *         fromPort: 0,
+ *         protocol: "-1",
+ *         toPort: 0,
+ *     }],
+ *     ingress: [{
+ *         // we do not recommend opening your cluster to 0.0.0.0/0
+ *         cidrBlocks: "", // add your IP address here
+ *         // these ports should be locked down
+ *         fromPort: 0,
+ *         protocol: "-1",
+ *         toPort: 0,
+ *     }],
+ *     tags: {
+ *         name: "emrTest",
+ *     },
+ *     vpcId: mainVpc.id,
+ * }, {dependsOn: [mainSubnet]});
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.
@@ -697,85 +697,79 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
-            inputs["additionalInfo"] = state ? state.additionalInfo : undefined;
-            inputs["applications"] = state ? state.applications : undefined;
-            inputs["autoscalingRole"] = state ? state.autoscalingRole : undefined;
-            inputs["bootstrapActions"] = state ? state.bootstrapActions : undefined;
-            inputs["clusterState"] = state ? state.clusterState : undefined;
-            inputs["configurations"] = state ? state.configurations : undefined;
-            inputs["configurationsJson"] = state ? state.configurationsJson : undefined;
-            inputs["coreInstanceCount"] = state ? state.coreInstanceCount : undefined;
-            inputs["coreInstanceGroup"] = state ? state.coreInstanceGroup : undefined;
-            inputs["coreInstanceType"] = state ? state.coreInstanceType : undefined;
-            inputs["customAmiId"] = state ? state.customAmiId : undefined;
-            inputs["ebsRootVolumeSize"] = state ? state.ebsRootVolumeSize : undefined;
-            inputs["ec2Attributes"] = state ? state.ec2Attributes : undefined;
-            inputs["instanceGroups"] = state ? state.instanceGroups : undefined;
-            inputs["keepJobFlowAliveWhenNoSteps"] = state ? state.keepJobFlowAliveWhenNoSteps : undefined;
-            inputs["kerberosAttributes"] = state ? state.kerberosAttributes : undefined;
-            inputs["logUri"] = state ? state.logUri : undefined;
-            inputs["masterInstanceGroup"] = state ? state.masterInstanceGroup : undefined;
-            inputs["masterInstanceType"] = state ? state.masterInstanceType : undefined;
-            inputs["masterPublicDns"] = state ? state.masterPublicDns : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["releaseLabel"] = state ? state.releaseLabel : undefined;
-            inputs["scaleDownBehavior"] = state ? state.scaleDownBehavior : undefined;
-            inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
-            inputs["serviceRole"] = state ? state.serviceRole : undefined;
-            inputs["steps"] = state ? state.steps : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["terminationProtection"] = state ? state.terminationProtection : undefined;
-            inputs["visibleToAllUsers"] = state ? state.visibleToAllUsers : undefined;
+    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ClusterArgs | ClusterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ClusterState;
+            inputs.additionalInfo = state.additionalInfo;
+            inputs.applications = state.applications;
+            inputs.autoscalingRole = state.autoscalingRole;
+            inputs.bootstrapActions = state.bootstrapActions;
+            inputs.clusterState = state.clusterState;
+            inputs.configurations = state.configurations;
+            inputs.configurationsJson = state.configurationsJson;
+            inputs.coreInstanceCount = state.coreInstanceCount;
+            inputs.coreInstanceGroup = state.coreInstanceGroup;
+            inputs.coreInstanceType = state.coreInstanceType;
+            inputs.customAmiId = state.customAmiId;
+            inputs.ebsRootVolumeSize = state.ebsRootVolumeSize;
+            inputs.ec2Attributes = state.ec2Attributes;
+            inputs.instanceGroups = state.instanceGroups;
+            inputs.keepJobFlowAliveWhenNoSteps = state.keepJobFlowAliveWhenNoSteps;
+            inputs.kerberosAttributes = state.kerberosAttributes;
+            inputs.logUri = state.logUri;
+            inputs.masterInstanceGroup = state.masterInstanceGroup;
+            inputs.masterInstanceType = state.masterInstanceType;
+            inputs.masterPublicDns = state.masterPublicDns;
+            inputs.name = state.name;
+            inputs.releaseLabel = state.releaseLabel;
+            inputs.scaleDownBehavior = state.scaleDownBehavior;
+            inputs.securityConfiguration = state.securityConfiguration;
+            inputs.serviceRole = state.serviceRole;
+            inputs.steps = state.steps;
+            inputs.tags = state.tags;
+            inputs.terminationProtection = state.terminationProtection;
+            inputs.visibleToAllUsers = state.visibleToAllUsers;
         } else {
-            const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.releaseLabel === undefined) {
+            const args = argsOrState as ClusterArgs;
+            if (args.releaseLabel === undefined) {
                 throw new Error("Missing required property 'releaseLabel'");
             }
-            if (!args || args.serviceRole === undefined) {
+            if (args.serviceRole === undefined) {
                 throw new Error("Missing required property 'serviceRole'");
             }
-            inputs["additionalInfo"] = args ? args.additionalInfo : undefined;
-            inputs["applications"] = args ? args.applications : undefined;
-            inputs["autoscalingRole"] = args ? args.autoscalingRole : undefined;
-            inputs["bootstrapActions"] = args ? args.bootstrapActions : undefined;
-            inputs["configurations"] = args ? args.configurations : undefined;
-            inputs["configurationsJson"] = args ? args.configurationsJson : undefined;
-            inputs["coreInstanceCount"] = args ? args.coreInstanceCount : undefined;
-            inputs["coreInstanceGroup"] = args ? args.coreInstanceGroup : undefined;
-            inputs["coreInstanceType"] = args ? args.coreInstanceType : undefined;
-            inputs["customAmiId"] = args ? args.customAmiId : undefined;
-            inputs["ebsRootVolumeSize"] = args ? args.ebsRootVolumeSize : undefined;
-            inputs["ec2Attributes"] = args ? args.ec2Attributes : undefined;
-            inputs["instanceGroups"] = args ? args.instanceGroups : undefined;
-            inputs["keepJobFlowAliveWhenNoSteps"] = args ? args.keepJobFlowAliveWhenNoSteps : undefined;
-            inputs["kerberosAttributes"] = args ? args.kerberosAttributes : undefined;
-            inputs["logUri"] = args ? args.logUri : undefined;
-            inputs["masterInstanceGroup"] = args ? args.masterInstanceGroup : undefined;
-            inputs["masterInstanceType"] = args ? args.masterInstanceType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["releaseLabel"] = args ? args.releaseLabel : undefined;
-            inputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
-            inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
-            inputs["serviceRole"] = args ? args.serviceRole : undefined;
-            inputs["steps"] = args ? args.steps : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["terminationProtection"] = args ? args.terminationProtection : undefined;
-            inputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
-            inputs["clusterState"] = undefined /*out*/;
-            inputs["masterPublicDns"] = undefined /*out*/;
+            inputs.additionalInfo = args.additionalInfo;
+            inputs.applications = args.applications;
+            inputs.autoscalingRole = args.autoscalingRole;
+            inputs.bootstrapActions = args.bootstrapActions;
+            inputs.configurations = args.configurations;
+            inputs.configurationsJson = args.configurationsJson;
+            inputs.coreInstanceCount = args.coreInstanceCount;
+            inputs.coreInstanceGroup = args.coreInstanceGroup;
+            inputs.coreInstanceType = args.coreInstanceType;
+            inputs.customAmiId = args.customAmiId;
+            inputs.ebsRootVolumeSize = args.ebsRootVolumeSize;
+            inputs.ec2Attributes = args.ec2Attributes;
+            inputs.instanceGroups = args.instanceGroups;
+            inputs.keepJobFlowAliveWhenNoSteps = args.keepJobFlowAliveWhenNoSteps;
+            inputs.kerberosAttributes = args.kerberosAttributes;
+            inputs.logUri = args.logUri;
+            inputs.masterInstanceGroup = args.masterInstanceGroup;
+            inputs.masterInstanceType = args.masterInstanceType;
+            inputs.name = args.name;
+            inputs.releaseLabel = args.releaseLabel;
+            inputs.scaleDownBehavior = args.scaleDownBehavior;
+            inputs.securityConfiguration = args.securityConfiguration;
+            inputs.serviceRole = args.serviceRole;
+            inputs.steps = args.steps;
+            inputs.tags = args.tags;
+            inputs.terminationProtection = args.terminationProtection;
+            inputs.visibleToAllUsers = args.visibleToAllUsers;
+            inputs.clusterState = undefined /*out*/;
+            inputs.masterPublicDns = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

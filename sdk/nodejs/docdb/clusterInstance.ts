@@ -171,71 +171,65 @@ export class ClusterInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterInstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterInstanceArgs | ClusterInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterInstanceState | undefined;
-            inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
-            inputs["dbiResourceId"] = state ? state.dbiResourceId : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["identifier"] = state ? state.identifier : undefined;
-            inputs["identifierPrefix"] = state ? state.identifierPrefix : undefined;
-            inputs["instanceClass"] = state ? state.instanceClass : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
-            inputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
-            inputs["promotionTier"] = state ? state.promotionTier : undefined;
-            inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
-            inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["writer"] = state ? state.writer : undefined;
+    constructor(name: string, args: ClusterInstanceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ClusterInstanceArgs | ClusterInstanceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ClusterInstanceState;
+            inputs.applyImmediately = state.applyImmediately;
+            inputs.arn = state.arn;
+            inputs.autoMinorVersionUpgrade = state.autoMinorVersionUpgrade;
+            inputs.availabilityZone = state.availabilityZone;
+            inputs.clusterIdentifier = state.clusterIdentifier;
+            inputs.dbSubnetGroupName = state.dbSubnetGroupName;
+            inputs.dbiResourceId = state.dbiResourceId;
+            inputs.endpoint = state.endpoint;
+            inputs.engine = state.engine;
+            inputs.engineVersion = state.engineVersion;
+            inputs.identifier = state.identifier;
+            inputs.identifierPrefix = state.identifierPrefix;
+            inputs.instanceClass = state.instanceClass;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.port = state.port;
+            inputs.preferredBackupWindow = state.preferredBackupWindow;
+            inputs.preferredMaintenanceWindow = state.preferredMaintenanceWindow;
+            inputs.promotionTier = state.promotionTier;
+            inputs.publiclyAccessible = state.publiclyAccessible;
+            inputs.storageEncrypted = state.storageEncrypted;
+            inputs.tags = state.tags;
+            inputs.writer = state.writer;
         } else {
-            const args = argsOrState as ClusterInstanceArgs | undefined;
-            if (!args || args.clusterIdentifier === undefined) {
+            const args = argsOrState as ClusterInstanceArgs;
+            if (args.clusterIdentifier === undefined) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if (!args || args.instanceClass === undefined) {
+            if (args.instanceClass === undefined) {
                 throw new Error("Missing required property 'instanceClass'");
             }
-            inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["identifier"] = args ? args.identifier : undefined;
-            inputs["identifierPrefix"] = args ? args.identifierPrefix : undefined;
-            inputs["instanceClass"] = args ? args.instanceClass : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["promotionTier"] = args ? args.promotionTier : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dbSubnetGroupName"] = undefined /*out*/;
-            inputs["dbiResourceId"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["engineVersion"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["preferredBackupWindow"] = undefined /*out*/;
-            inputs["publiclyAccessible"] = undefined /*out*/;
-            inputs["storageEncrypted"] = undefined /*out*/;
-            inputs["writer"] = undefined /*out*/;
+            inputs.applyImmediately = args.applyImmediately;
+            inputs.autoMinorVersionUpgrade = args.autoMinorVersionUpgrade;
+            inputs.availabilityZone = args.availabilityZone;
+            inputs.clusterIdentifier = args.clusterIdentifier;
+            inputs.engine = args.engine;
+            inputs.identifier = args.identifier;
+            inputs.identifierPrefix = args.identifierPrefix;
+            inputs.instanceClass = args.instanceClass;
+            inputs.preferredMaintenanceWindow = args.preferredMaintenanceWindow;
+            inputs.promotionTier = args.promotionTier;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.dbSubnetGroupName = undefined /*out*/;
+            inputs.dbiResourceId = undefined /*out*/;
+            inputs.endpoint = undefined /*out*/;
+            inputs.engineVersion = undefined /*out*/;
+            inputs.kmsKeyId = undefined /*out*/;
+            inputs.port = undefined /*out*/;
+            inputs.preferredBackupWindow = undefined /*out*/;
+            inputs.publiclyAccessible = undefined /*out*/;
+            inputs.storageEncrypted = undefined /*out*/;
+            inputs.writer = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ClusterInstance.__pulumiType, name, inputs, opts);
     }
 }

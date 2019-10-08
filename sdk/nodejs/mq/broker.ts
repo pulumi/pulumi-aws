@@ -165,75 +165,69 @@ export class Broker extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BrokerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BrokerArgs | BrokerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as BrokerState | undefined;
-            inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
-            inputs["brokerName"] = state ? state.brokerName : undefined;
-            inputs["configuration"] = state ? state.configuration : undefined;
-            inputs["deploymentMode"] = state ? state.deploymentMode : undefined;
-            inputs["encryptionOptions"] = state ? state.encryptionOptions : undefined;
-            inputs["engineType"] = state ? state.engineType : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["hostInstanceType"] = state ? state.hostInstanceType : undefined;
-            inputs["instances"] = state ? state.instances : undefined;
-            inputs["logs"] = state ? state.logs : undefined;
-            inputs["maintenanceWindowStartTime"] = state ? state.maintenanceWindowStartTime : undefined;
-            inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["users"] = state ? state.users : undefined;
+    constructor(name: string, args: BrokerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: BrokerArgs | BrokerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as BrokerState;
+            inputs.applyImmediately = state.applyImmediately;
+            inputs.arn = state.arn;
+            inputs.autoMinorVersionUpgrade = state.autoMinorVersionUpgrade;
+            inputs.brokerName = state.brokerName;
+            inputs.configuration = state.configuration;
+            inputs.deploymentMode = state.deploymentMode;
+            inputs.encryptionOptions = state.encryptionOptions;
+            inputs.engineType = state.engineType;
+            inputs.engineVersion = state.engineVersion;
+            inputs.hostInstanceType = state.hostInstanceType;
+            inputs.instances = state.instances;
+            inputs.logs = state.logs;
+            inputs.maintenanceWindowStartTime = state.maintenanceWindowStartTime;
+            inputs.publiclyAccessible = state.publiclyAccessible;
+            inputs.securityGroups = state.securityGroups;
+            inputs.subnetIds = state.subnetIds;
+            inputs.tags = state.tags;
+            inputs.users = state.users;
         } else {
-            const args = argsOrState as BrokerArgs | undefined;
-            if (!args || args.brokerName === undefined) {
+            const args = argsOrState as BrokerArgs;
+            if (args.brokerName === undefined) {
                 throw new Error("Missing required property 'brokerName'");
             }
-            if (!args || args.engineType === undefined) {
+            if (args.engineType === undefined) {
                 throw new Error("Missing required property 'engineType'");
             }
-            if (!args || args.engineVersion === undefined) {
+            if (args.engineVersion === undefined) {
                 throw new Error("Missing required property 'engineVersion'");
             }
-            if (!args || args.hostInstanceType === undefined) {
+            if (args.hostInstanceType === undefined) {
                 throw new Error("Missing required property 'hostInstanceType'");
             }
-            if (!args || args.securityGroups === undefined) {
+            if (args.securityGroups === undefined) {
                 throw new Error("Missing required property 'securityGroups'");
             }
-            if (!args || args.users === undefined) {
+            if (args.users === undefined) {
                 throw new Error("Missing required property 'users'");
             }
-            inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            inputs["brokerName"] = args ? args.brokerName : undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["deploymentMode"] = args ? args.deploymentMode : undefined;
-            inputs["encryptionOptions"] = args ? args.encryptionOptions : undefined;
-            inputs["engineType"] = args ? args.engineType : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["hostInstanceType"] = args ? args.hostInstanceType : undefined;
-            inputs["logs"] = args ? args.logs : undefined;
-            inputs["maintenanceWindowStartTime"] = args ? args.maintenanceWindowStartTime : undefined;
-            inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["users"] = args ? args.users : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["instances"] = undefined /*out*/;
+            inputs.applyImmediately = args.applyImmediately;
+            inputs.autoMinorVersionUpgrade = args.autoMinorVersionUpgrade;
+            inputs.brokerName = args.brokerName;
+            inputs.configuration = args.configuration;
+            inputs.deploymentMode = args.deploymentMode;
+            inputs.encryptionOptions = args.encryptionOptions;
+            inputs.engineType = args.engineType;
+            inputs.engineVersion = args.engineVersion;
+            inputs.hostInstanceType = args.hostInstanceType;
+            inputs.logs = args.logs;
+            inputs.maintenanceWindowStartTime = args.maintenanceWindowStartTime;
+            inputs.publiclyAccessible = args.publiclyAccessible;
+            inputs.securityGroups = args.securityGroups;
+            inputs.subnetIds = args.subnetIds;
+            inputs.tags = args.tags;
+            inputs.users = args.users;
+            inputs.arn = undefined /*out*/;
+            inputs.instances = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Broker.__pulumiType, name, inputs, opts);
     }
 }

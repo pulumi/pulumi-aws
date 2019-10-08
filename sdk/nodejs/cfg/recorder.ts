@@ -89,30 +89,24 @@ export class Recorder extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RecorderArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RecorderArgs | RecorderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RecorderState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["recordingGroup"] = state ? state.recordingGroup : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
+    constructor(name: string, args: RecorderArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RecorderArgs | RecorderState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RecorderState;
+            inputs.name = state.name;
+            inputs.recordingGroup = state.recordingGroup;
+            inputs.roleArn = state.roleArn;
         } else {
-            const args = argsOrState as RecorderArgs | undefined;
-            if (!args || args.roleArn === undefined) {
+            const args = argsOrState as RecorderArgs;
+            if (args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["recordingGroup"] = args ? args.recordingGroup : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs.name = args.name;
+            inputs.recordingGroup = args.recordingGroup;
+            inputs.roleArn = args.roleArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Recorder.__pulumiType, name, inputs, opts);
     }
 }

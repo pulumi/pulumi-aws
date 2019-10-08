@@ -85,31 +85,25 @@ export class DomainPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainPolicyArgs | DomainPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DomainPolicyState | undefined;
-            inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
+    constructor(name: string, args: DomainPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DomainPolicyArgs | DomainPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DomainPolicyState;
+            inputs.accessPolicies = state.accessPolicies;
+            inputs.domainName = state.domainName;
         } else {
-            const args = argsOrState as DomainPolicyArgs | undefined;
-            if (!args || args.accessPolicies === undefined) {
+            const args = argsOrState as DomainPolicyArgs;
+            if (args.accessPolicies === undefined) {
                 throw new Error("Missing required property 'accessPolicies'");
             }
-            if (!args || args.domainName === undefined) {
+            if (args.domainName === undefined) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
+            inputs.accessPolicies = args.accessPolicies;
+            inputs.domainName = args.domainName;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DomainPolicy.__pulumiType, name, inputs, opts);
     }
 }

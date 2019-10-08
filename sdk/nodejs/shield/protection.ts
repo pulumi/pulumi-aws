@@ -16,14 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const available = aws.getAvailabilityZones();
- * const currentRegion = aws.getRegion();
- * const currentCallerIdentity = aws.getCallerIdentity();
  * const fooEip = new aws.ec2.Eip("foo", {
  *     vpc: true,
  * });
+ * const available = aws.getAvailabilityZones({});
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentRegion = aws.getRegion({});
  * const fooProtection = new aws.shield.Protection("foo", {
- *     resourceArn: pulumi.interpolate`arn:aws:ec2:${currentRegion.name!}:${currentCallerIdentity.accountId}:eip-allocation/${fooEip.id}`,
+ *     resourceArn: pulumi.interpolate`arn:aws:ec2:${currentRegion.name}:${currentCallerIdentity.accountId}:eip-allocation/${fooEip.id}`,
  * });
  * ```
  *
@@ -72,28 +72,22 @@ export class Protection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProtectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProtectionArgs | ProtectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ProtectionState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceArn"] = state ? state.resourceArn : undefined;
+    constructor(name: string, args: ProtectionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ProtectionArgs | ProtectionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ProtectionState;
+            inputs.name = state.name;
+            inputs.resourceArn = state.resourceArn;
         } else {
-            const args = argsOrState as ProtectionArgs | undefined;
-            if (!args || args.resourceArn === undefined) {
+            const args = argsOrState as ProtectionArgs;
+            if (args.resourceArn === undefined) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceArn"] = args ? args.resourceArn : undefined;
+            inputs.name = args.name;
+            inputs.resourceArn = args.resourceArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Protection.__pulumiType, name, inputs, opts);
     }
 }

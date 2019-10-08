@@ -72,32 +72,26 @@ export class SamlProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SamlProviderArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SamlProviderArgs | SamlProviderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SamlProviderState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["samlMetadataDocument"] = state ? state.samlMetadataDocument : undefined;
-            inputs["validUntil"] = state ? state.validUntil : undefined;
+    constructor(name: string, args: SamlProviderArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SamlProviderArgs | SamlProviderState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SamlProviderState;
+            inputs.arn = state.arn;
+            inputs.name = state.name;
+            inputs.samlMetadataDocument = state.samlMetadataDocument;
+            inputs.validUntil = state.validUntil;
         } else {
-            const args = argsOrState as SamlProviderArgs | undefined;
-            if (!args || args.samlMetadataDocument === undefined) {
+            const args = argsOrState as SamlProviderArgs;
+            if (args.samlMetadataDocument === undefined) {
                 throw new Error("Missing required property 'samlMetadataDocument'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["samlMetadataDocument"] = args ? args.samlMetadataDocument : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["validUntil"] = undefined /*out*/;
+            inputs.name = args.name;
+            inputs.samlMetadataDocument = args.samlMetadataDocument;
+            inputs.arn = undefined /*out*/;
+            inputs.validUntil = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SamlProvider.__pulumiType, name, inputs, opts);
     }
 }

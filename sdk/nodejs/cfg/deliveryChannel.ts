@@ -17,9 +17,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const bucket = new aws.s3.Bucket("b", {
- *     forceDestroy: true,
- * });
  * const role = new aws.iam.Role("r", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -35,6 +32,9 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ * });
+ * const bucket = new aws.s3.Bucket("b", {
+ *     forceDestroy: true,
  * });
  * const fooRecorder = new aws.cfg.Recorder("foo", {
  *     roleArn: role.arn,
@@ -120,34 +120,28 @@ export class DeliveryChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DeliveryChannelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DeliveryChannelArgs | DeliveryChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DeliveryChannelState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["s3BucketName"] = state ? state.s3BucketName : undefined;
-            inputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
-            inputs["snapshotDeliveryProperties"] = state ? state.snapshotDeliveryProperties : undefined;
-            inputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
+    constructor(name: string, args: DeliveryChannelArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DeliveryChannelArgs | DeliveryChannelState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DeliveryChannelState;
+            inputs.name = state.name;
+            inputs.s3BucketName = state.s3BucketName;
+            inputs.s3KeyPrefix = state.s3KeyPrefix;
+            inputs.snapshotDeliveryProperties = state.snapshotDeliveryProperties;
+            inputs.snsTopicArn = state.snsTopicArn;
         } else {
-            const args = argsOrState as DeliveryChannelArgs | undefined;
-            if (!args || args.s3BucketName === undefined) {
+            const args = argsOrState as DeliveryChannelArgs;
+            if (args.s3BucketName === undefined) {
                 throw new Error("Missing required property 's3BucketName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["s3BucketName"] = args ? args.s3BucketName : undefined;
-            inputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
-            inputs["snapshotDeliveryProperties"] = args ? args.snapshotDeliveryProperties : undefined;
-            inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            inputs.name = args.name;
+            inputs.s3BucketName = args.s3BucketName;
+            inputs.s3KeyPrefix = args.s3KeyPrefix;
+            inputs.snapshotDeliveryProperties = args.snapshotDeliveryProperties;
+            inputs.snsTopicArn = args.snsTopicArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DeliveryChannel.__pulumiType, name, inputs, opts);
     }
 }

@@ -199,62 +199,56 @@ export class HealthCheck extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: HealthCheckArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: HealthCheckArgs | HealthCheckState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as HealthCheckState | undefined;
-            inputs["childHealthThreshold"] = state ? state.childHealthThreshold : undefined;
-            inputs["childHealthchecks"] = state ? state.childHealthchecks : undefined;
-            inputs["cloudwatchAlarmName"] = state ? state.cloudwatchAlarmName : undefined;
-            inputs["cloudwatchAlarmRegion"] = state ? state.cloudwatchAlarmRegion : undefined;
-            inputs["enableSni"] = state ? state.enableSni : undefined;
-            inputs["failureThreshold"] = state ? state.failureThreshold : undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["insufficientDataHealthStatus"] = state ? state.insufficientDataHealthStatus : undefined;
-            inputs["invertHealthcheck"] = state ? state.invertHealthcheck : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["measureLatency"] = state ? state.measureLatency : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["referenceName"] = state ? state.referenceName : undefined;
-            inputs["regions"] = state ? state.regions : undefined;
-            inputs["requestInterval"] = state ? state.requestInterval : undefined;
-            inputs["resourcePath"] = state ? state.resourcePath : undefined;
-            inputs["searchString"] = state ? state.searchString : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: HealthCheckArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: HealthCheckArgs | HealthCheckState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as HealthCheckState;
+            inputs.childHealthThreshold = state.childHealthThreshold;
+            inputs.childHealthchecks = state.childHealthchecks;
+            inputs.cloudwatchAlarmName = state.cloudwatchAlarmName;
+            inputs.cloudwatchAlarmRegion = state.cloudwatchAlarmRegion;
+            inputs.enableSni = state.enableSni;
+            inputs.failureThreshold = state.failureThreshold;
+            inputs.fqdn = state.fqdn;
+            inputs.insufficientDataHealthStatus = state.insufficientDataHealthStatus;
+            inputs.invertHealthcheck = state.invertHealthcheck;
+            inputs.ipAddress = state.ipAddress;
+            inputs.measureLatency = state.measureLatency;
+            inputs.port = state.port;
+            inputs.referenceName = state.referenceName;
+            inputs.regions = state.regions;
+            inputs.requestInterval = state.requestInterval;
+            inputs.resourcePath = state.resourcePath;
+            inputs.searchString = state.searchString;
+            inputs.tags = state.tags;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as HealthCheckArgs | undefined;
-            if (!args || args.type === undefined) {
+            const args = argsOrState as HealthCheckArgs;
+            if (args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["childHealthThreshold"] = args ? args.childHealthThreshold : undefined;
-            inputs["childHealthchecks"] = args ? args.childHealthchecks : undefined;
-            inputs["cloudwatchAlarmName"] = args ? args.cloudwatchAlarmName : undefined;
-            inputs["cloudwatchAlarmRegion"] = args ? args.cloudwatchAlarmRegion : undefined;
-            inputs["enableSni"] = args ? args.enableSni : undefined;
-            inputs["failureThreshold"] = args ? args.failureThreshold : undefined;
-            inputs["fqdn"] = args ? args.fqdn : undefined;
-            inputs["insufficientDataHealthStatus"] = args ? args.insufficientDataHealthStatus : undefined;
-            inputs["invertHealthcheck"] = args ? args.invertHealthcheck : undefined;
-            inputs["ipAddress"] = args ? args.ipAddress : undefined;
-            inputs["measureLatency"] = args ? args.measureLatency : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["referenceName"] = args ? args.referenceName : undefined;
-            inputs["regions"] = args ? args.regions : undefined;
-            inputs["requestInterval"] = args ? args.requestInterval : undefined;
-            inputs["resourcePath"] = args ? args.resourcePath : undefined;
-            inputs["searchString"] = args ? args.searchString : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            inputs.childHealthThreshold = args.childHealthThreshold;
+            inputs.childHealthchecks = args.childHealthchecks;
+            inputs.cloudwatchAlarmName = args.cloudwatchAlarmName;
+            inputs.cloudwatchAlarmRegion = args.cloudwatchAlarmRegion;
+            inputs.enableSni = args.enableSni;
+            inputs.failureThreshold = args.failureThreshold;
+            inputs.fqdn = args.fqdn;
+            inputs.insufficientDataHealthStatus = args.insufficientDataHealthStatus;
+            inputs.invertHealthcheck = args.invertHealthcheck;
+            inputs.ipAddress = args.ipAddress;
+            inputs.measureLatency = args.measureLatency;
+            inputs.port = args.port;
+            inputs.referenceName = args.referenceName;
+            inputs.regions = args.regions;
+            inputs.requestInterval = args.requestInterval;
+            inputs.resourcePath = args.resourcePath;
+            inputs.searchString = args.searchString;
+            inputs.tags = args.tags;
+            inputs.type = args.type;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(HealthCheck.__pulumiType, name, inputs, opts);
     }
 }

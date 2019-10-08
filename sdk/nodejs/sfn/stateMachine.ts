@@ -91,39 +91,33 @@ export class StateMachine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StateMachineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StateMachineArgs | StateMachineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as StateMachineState | undefined;
-            inputs["creationDate"] = state ? state.creationDate : undefined;
-            inputs["definition"] = state ? state.definition : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: StateMachineArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: StateMachineArgs | StateMachineState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as StateMachineState;
+            inputs.creationDate = state.creationDate;
+            inputs.definition = state.definition;
+            inputs.name = state.name;
+            inputs.roleArn = state.roleArn;
+            inputs.status = state.status;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as StateMachineArgs | undefined;
-            if (!args || args.definition === undefined) {
+            const args = argsOrState as StateMachineArgs;
+            if (args.definition === undefined) {
                 throw new Error("Missing required property 'definition'");
             }
-            if (!args || args.roleArn === undefined) {
+            if (args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["definition"] = args ? args.definition : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            inputs.definition = args.definition;
+            inputs.name = args.name;
+            inputs.roleArn = args.roleArn;
+            inputs.tags = args.tags;
+            inputs.creationDate = undefined /*out*/;
+            inputs.status = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(StateMachine.__pulumiType, name, inputs, opts);
     }
 }

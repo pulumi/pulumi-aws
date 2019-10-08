@@ -110,33 +110,27 @@ export class UsagePlan extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: UsagePlanArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UsagePlanArgs | UsagePlanState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as UsagePlanState | undefined;
-            inputs["apiStages"] = state ? state.apiStages : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["productCode"] = state ? state.productCode : undefined;
-            inputs["quotaSettings"] = state ? state.quotaSettings : undefined;
-            inputs["throttleSettings"] = state ? state.throttleSettings : undefined;
+    constructor(name: string, args?: UsagePlanArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: UsagePlanArgs | UsagePlanState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as UsagePlanState;
+            inputs.apiStages = state.apiStages;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.productCode = state.productCode;
+            inputs.quotaSettings = state.quotaSettings;
+            inputs.throttleSettings = state.throttleSettings;
         } else {
-            const args = argsOrState as UsagePlanArgs | undefined;
-            inputs["apiStages"] = args ? args.apiStages : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["productCode"] = args ? args.productCode : undefined;
-            inputs["quotaSettings"] = args ? args.quotaSettings : undefined;
-            inputs["throttleSettings"] = args ? args.throttleSettings : undefined;
+            const args = argsOrState as UsagePlanArgs;
+            inputs.apiStages = args.apiStages;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.productCode = args.productCode;
+            inputs.quotaSettings = args.quotaSettings;
+            inputs.throttleSettings = args.throttleSettings;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(UsagePlan.__pulumiType, name, inputs, opts);
     }
 }

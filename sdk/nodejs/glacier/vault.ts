@@ -110,33 +110,27 @@ export class Vault extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VaultArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VaultArgs | VaultState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VaultState | undefined;
-            inputs["accessPolicy"] = state ? state.accessPolicy : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notifications"] = state ? state.notifications : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: VaultArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VaultArgs | VaultState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VaultState;
+            inputs.accessPolicy = state.accessPolicy;
+            inputs.arn = state.arn;
+            inputs.location = state.location;
+            inputs.name = state.name;
+            inputs.notifications = state.notifications;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as VaultArgs | undefined;
-            inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notifications"] = args ? args.notifications : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
+            const args = argsOrState as VaultArgs;
+            inputs.accessPolicy = args.accessPolicy;
+            inputs.name = args.name;
+            inputs.notifications = args.notifications;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.location = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Vault.__pulumiType, name, inputs, opts);
     }
 }

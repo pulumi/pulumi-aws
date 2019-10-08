@@ -92,35 +92,29 @@ export class BasePathMapping extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BasePathMappingArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BasePathMappingArgs | BasePathMappingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as BasePathMappingState | undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["basePath"] = state ? state.basePath : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["stageName"] = state ? state.stageName : undefined;
+    constructor(name: string, args: BasePathMappingArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: BasePathMappingArgs | BasePathMappingState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as BasePathMappingState;
+            inputs.restApi = state.restApi;
+            inputs.basePath = state.basePath;
+            inputs.domainName = state.domainName;
+            inputs.stageName = state.stageName;
         } else {
-            const args = argsOrState as BasePathMappingArgs | undefined;
-            if (!args || args.restApi === undefined) {
+            const args = argsOrState as BasePathMappingArgs;
+            if (args.restApi === undefined) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if (!args || args.domainName === undefined) {
+            if (args.domainName === undefined) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["basePath"] = args ? args.basePath : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["stageName"] = args ? args.stageName : undefined;
+            inputs.restApi = args.restApi;
+            inputs.basePath = args.basePath;
+            inputs.domainName = args.domainName;
+            inputs.stageName = args.stageName;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(BasePathMapping.__pulumiType, name, inputs, opts);
     }
 }

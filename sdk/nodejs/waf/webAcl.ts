@@ -130,39 +130,33 @@ export class WebAcl extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebAclArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WebAclArgs | WebAclState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as WebAclState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["defaultAction"] = state ? state.defaultAction : undefined;
-            inputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
-            inputs["metricName"] = state ? state.metricName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
+    constructor(name: string, args: WebAclArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: WebAclArgs | WebAclState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as WebAclState;
+            inputs.arn = state.arn;
+            inputs.defaultAction = state.defaultAction;
+            inputs.loggingConfiguration = state.loggingConfiguration;
+            inputs.metricName = state.metricName;
+            inputs.name = state.name;
+            inputs.rules = state.rules;
         } else {
-            const args = argsOrState as WebAclArgs | undefined;
-            if (!args || args.defaultAction === undefined) {
+            const args = argsOrState as WebAclArgs;
+            if (args.defaultAction === undefined) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if (!args || args.metricName === undefined) {
+            if (args.metricName === undefined) {
                 throw new Error("Missing required property 'metricName'");
             }
-            inputs["defaultAction"] = args ? args.defaultAction : undefined;
-            inputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
-            inputs["metricName"] = args ? args.metricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.defaultAction = args.defaultAction;
+            inputs.loggingConfiguration = args.loggingConfiguration;
+            inputs.metricName = args.metricName;
+            inputs.name = args.name;
+            inputs.rules = args.rules;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(WebAcl.__pulumiType, name, inputs, opts);
     }
 }

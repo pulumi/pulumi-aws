@@ -229,71 +229,65 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
-            inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["azMode"] = state ? state.azMode : undefined;
-            inputs["cacheNodes"] = state ? state.cacheNodes : undefined;
-            inputs["clusterAddress"] = state ? state.clusterAddress : undefined;
-            inputs["clusterId"] = state ? state.clusterId : undefined;
-            inputs["configurationEndpoint"] = state ? state.configurationEndpoint : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
-            inputs["nodeType"] = state ? state.nodeType : undefined;
-            inputs["notificationTopicArn"] = state ? state.notificationTopicArn : undefined;
-            inputs["numCacheNodes"] = state ? state.numCacheNodes : undefined;
-            inputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["preferredAvailabilityZones"] = state ? state.preferredAvailabilityZones : undefined;
-            inputs["replicationGroupId"] = state ? state.replicationGroupId : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
-            inputs["snapshotArns"] = state ? state.snapshotArns : undefined;
-            inputs["snapshotName"] = state ? state.snapshotName : undefined;
-            inputs["snapshotRetentionLimit"] = state ? state.snapshotRetentionLimit : undefined;
-            inputs["snapshotWindow"] = state ? state.snapshotWindow : undefined;
-            inputs["subnetGroupName"] = state ? state.subnetGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ClusterArgs | ClusterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ClusterState;
+            inputs.applyImmediately = state.applyImmediately;
+            inputs.availabilityZone = state.availabilityZone;
+            inputs.azMode = state.azMode;
+            inputs.cacheNodes = state.cacheNodes;
+            inputs.clusterAddress = state.clusterAddress;
+            inputs.clusterId = state.clusterId;
+            inputs.configurationEndpoint = state.configurationEndpoint;
+            inputs.engine = state.engine;
+            inputs.engineVersion = state.engineVersion;
+            inputs.maintenanceWindow = state.maintenanceWindow;
+            inputs.nodeType = state.nodeType;
+            inputs.notificationTopicArn = state.notificationTopicArn;
+            inputs.numCacheNodes = state.numCacheNodes;
+            inputs.parameterGroupName = state.parameterGroupName;
+            inputs.port = state.port;
+            inputs.preferredAvailabilityZones = state.preferredAvailabilityZones;
+            inputs.replicationGroupId = state.replicationGroupId;
+            inputs.securityGroupIds = state.securityGroupIds;
+            inputs.securityGroupNames = state.securityGroupNames;
+            inputs.snapshotArns = state.snapshotArns;
+            inputs.snapshotName = state.snapshotName;
+            inputs.snapshotRetentionLimit = state.snapshotRetentionLimit;
+            inputs.snapshotWindow = state.snapshotWindow;
+            inputs.subnetGroupName = state.subnetGroupName;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as ClusterArgs | undefined;
-            inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["azMode"] = args ? args.azMode : undefined;
-            inputs["clusterId"] = args ? args.clusterId : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            inputs["nodeType"] = args ? args.nodeType : undefined;
-            inputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
-            inputs["numCacheNodes"] = args ? args.numCacheNodes : undefined;
-            inputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["preferredAvailabilityZones"] = args ? args.preferredAvailabilityZones : undefined;
-            inputs["replicationGroupId"] = args ? args.replicationGroupId : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
-            inputs["snapshotArns"] = args ? args.snapshotArns : undefined;
-            inputs["snapshotName"] = args ? args.snapshotName : undefined;
-            inputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
-            inputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
-            inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["cacheNodes"] = undefined /*out*/;
-            inputs["clusterAddress"] = undefined /*out*/;
-            inputs["configurationEndpoint"] = undefined /*out*/;
+            const args = argsOrState as ClusterArgs;
+            inputs.applyImmediately = args.applyImmediately;
+            inputs.availabilityZone = args.availabilityZone;
+            inputs.azMode = args.azMode;
+            inputs.clusterId = args.clusterId;
+            inputs.engine = args.engine;
+            inputs.engineVersion = args.engineVersion;
+            inputs.maintenanceWindow = args.maintenanceWindow;
+            inputs.nodeType = args.nodeType;
+            inputs.notificationTopicArn = args.notificationTopicArn;
+            inputs.numCacheNodes = args.numCacheNodes;
+            inputs.parameterGroupName = args.parameterGroupName;
+            inputs.port = args.port;
+            inputs.preferredAvailabilityZones = args.preferredAvailabilityZones;
+            inputs.replicationGroupId = args.replicationGroupId;
+            inputs.securityGroupIds = args.securityGroupIds;
+            inputs.securityGroupNames = args.securityGroupNames;
+            inputs.snapshotArns = args.snapshotArns;
+            inputs.snapshotName = args.snapshotName;
+            inputs.snapshotRetentionLimit = args.snapshotRetentionLimit;
+            inputs.snapshotWindow = args.snapshotWindow;
+            inputs.subnetGroupName = args.subnetGroupName;
+            inputs.tags = args.tags;
+            inputs.cacheNodes = undefined /*out*/;
+            inputs.clusterAddress = undefined /*out*/;
+            inputs.configurationEndpoint = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

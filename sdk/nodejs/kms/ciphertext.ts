@@ -86,35 +86,29 @@ export class Ciphertext extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CiphertextArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CiphertextArgs | CiphertextState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CiphertextState | undefined;
-            inputs["ciphertextBlob"] = state ? state.ciphertextBlob : undefined;
-            inputs["context"] = state ? state.context : undefined;
-            inputs["keyId"] = state ? state.keyId : undefined;
-            inputs["plaintext"] = state ? state.plaintext : undefined;
+    constructor(name: string, args: CiphertextArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: CiphertextArgs | CiphertextState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as CiphertextState;
+            inputs.ciphertextBlob = state.ciphertextBlob;
+            inputs.context = state.context;
+            inputs.keyId = state.keyId;
+            inputs.plaintext = state.plaintext;
         } else {
-            const args = argsOrState as CiphertextArgs | undefined;
-            if (!args || args.keyId === undefined) {
+            const args = argsOrState as CiphertextArgs;
+            if (args.keyId === undefined) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if (!args || args.plaintext === undefined) {
+            if (args.plaintext === undefined) {
                 throw new Error("Missing required property 'plaintext'");
             }
-            inputs["context"] = args ? args.context : undefined;
-            inputs["keyId"] = args ? args.keyId : undefined;
-            inputs["plaintext"] = args ? args.plaintext : undefined;
-            inputs["ciphertextBlob"] = undefined /*out*/;
+            inputs.context = args.context;
+            inputs.keyId = args.keyId;
+            inputs.plaintext = args.plaintext;
+            inputs.ciphertextBlob = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Ciphertext.__pulumiType, name, inputs, opts);
     }
 }

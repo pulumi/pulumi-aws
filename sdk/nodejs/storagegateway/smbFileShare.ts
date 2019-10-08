@@ -140,60 +140,54 @@ export class SmbFileShare extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SmbFileShareArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SmbFileShareArgs | SmbFileShareState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SmbFileShareState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authentication"] = state ? state.authentication : undefined;
-            inputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
-            inputs["fileshareId"] = state ? state.fileshareId : undefined;
-            inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
-            inputs["guessMimeTypeEnabled"] = state ? state.guessMimeTypeEnabled : undefined;
-            inputs["invalidUserLists"] = state ? state.invalidUserLists : undefined;
-            inputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["locationArn"] = state ? state.locationArn : undefined;
-            inputs["objectAcl"] = state ? state.objectAcl : undefined;
-            inputs["readOnly"] = state ? state.readOnly : undefined;
-            inputs["requesterPays"] = state ? state.requesterPays : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["validUserLists"] = state ? state.validUserLists : undefined;
+    constructor(name: string, args: SmbFileShareArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SmbFileShareArgs | SmbFileShareState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SmbFileShareState;
+            inputs.arn = state.arn;
+            inputs.authentication = state.authentication;
+            inputs.defaultStorageClass = state.defaultStorageClass;
+            inputs.fileshareId = state.fileshareId;
+            inputs.gatewayArn = state.gatewayArn;
+            inputs.guessMimeTypeEnabled = state.guessMimeTypeEnabled;
+            inputs.invalidUserLists = state.invalidUserLists;
+            inputs.kmsEncrypted = state.kmsEncrypted;
+            inputs.kmsKeyArn = state.kmsKeyArn;
+            inputs.locationArn = state.locationArn;
+            inputs.objectAcl = state.objectAcl;
+            inputs.readOnly = state.readOnly;
+            inputs.requesterPays = state.requesterPays;
+            inputs.roleArn = state.roleArn;
+            inputs.validUserLists = state.validUserLists;
         } else {
-            const args = argsOrState as SmbFileShareArgs | undefined;
-            if (!args || args.gatewayArn === undefined) {
+            const args = argsOrState as SmbFileShareArgs;
+            if (args.gatewayArn === undefined) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            if (!args || args.locationArn === undefined) {
+            if (args.locationArn === undefined) {
                 throw new Error("Missing required property 'locationArn'");
             }
-            if (!args || args.roleArn === undefined) {
+            if (args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["authentication"] = args ? args.authentication : undefined;
-            inputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
-            inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
-            inputs["guessMimeTypeEnabled"] = args ? args.guessMimeTypeEnabled : undefined;
-            inputs["invalidUserLists"] = args ? args.invalidUserLists : undefined;
-            inputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["locationArn"] = args ? args.locationArn : undefined;
-            inputs["objectAcl"] = args ? args.objectAcl : undefined;
-            inputs["readOnly"] = args ? args.readOnly : undefined;
-            inputs["requesterPays"] = args ? args.requesterPays : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["validUserLists"] = args ? args.validUserLists : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["fileshareId"] = undefined /*out*/;
+            inputs.authentication = args.authentication;
+            inputs.defaultStorageClass = args.defaultStorageClass;
+            inputs.gatewayArn = args.gatewayArn;
+            inputs.guessMimeTypeEnabled = args.guessMimeTypeEnabled;
+            inputs.invalidUserLists = args.invalidUserLists;
+            inputs.kmsEncrypted = args.kmsEncrypted;
+            inputs.kmsKeyArn = args.kmsKeyArn;
+            inputs.locationArn = args.locationArn;
+            inputs.objectAcl = args.objectAcl;
+            inputs.readOnly = args.readOnly;
+            inputs.requesterPays = args.requesterPays;
+            inputs.roleArn = args.roleArn;
+            inputs.validUserLists = args.validUserLists;
+            inputs.arn = undefined /*out*/;
+            inputs.fileshareId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SmbFileShare.__pulumiType, name, inputs, opts);
     }
 }

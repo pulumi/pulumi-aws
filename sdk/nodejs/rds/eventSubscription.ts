@@ -123,44 +123,38 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventSubscriptionArgs | EventSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EventSubscriptionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["customerAwsId"] = state ? state.customerAwsId : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["eventCategories"] = state ? state.eventCategories : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["snsTopic"] = state ? state.snsTopic : undefined;
-            inputs["sourceIds"] = state ? state.sourceIds : undefined;
-            inputs["sourceType"] = state ? state.sourceType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EventSubscriptionArgs | EventSubscriptionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EventSubscriptionState;
+            inputs.arn = state.arn;
+            inputs.customerAwsId = state.customerAwsId;
+            inputs.enabled = state.enabled;
+            inputs.eventCategories = state.eventCategories;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.snsTopic = state.snsTopic;
+            inputs.sourceIds = state.sourceIds;
+            inputs.sourceType = state.sourceType;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as EventSubscriptionArgs | undefined;
-            if (!args || args.snsTopic === undefined) {
+            const args = argsOrState as EventSubscriptionArgs;
+            if (args.snsTopic === undefined) {
                 throw new Error("Missing required property 'snsTopic'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["eventCategories"] = args ? args.eventCategories : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["snsTopic"] = args ? args.snsTopic : undefined;
-            inputs["sourceIds"] = args ? args.sourceIds : undefined;
-            inputs["sourceType"] = args ? args.sourceType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["customerAwsId"] = undefined /*out*/;
+            inputs.enabled = args.enabled;
+            inputs.eventCategories = args.eventCategories;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.snsTopic = args.snsTopic;
+            inputs.sourceIds = args.sourceIds;
+            inputs.sourceType = args.sourceType;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.customerAwsId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EventSubscription.__pulumiType, name, inputs, opts);
     }
 }

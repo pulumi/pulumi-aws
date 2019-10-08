@@ -126,49 +126,43 @@ export class VpcEndpointService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpcEndpointServiceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcEndpointServiceArgs | VpcEndpointServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpcEndpointServiceState | undefined;
-            inputs["acceptanceRequired"] = state ? state.acceptanceRequired : undefined;
-            inputs["allowedPrincipals"] = state ? state.allowedPrincipals : undefined;
-            inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
-            inputs["baseEndpointDnsNames"] = state ? state.baseEndpointDnsNames : undefined;
-            inputs["managesVpcEndpoints"] = state ? state.managesVpcEndpoints : undefined;
-            inputs["networkLoadBalancerArns"] = state ? state.networkLoadBalancerArns : undefined;
-            inputs["privateDnsName"] = state ? state.privateDnsName : undefined;
-            inputs["serviceName"] = state ? state.serviceName : undefined;
-            inputs["serviceType"] = state ? state.serviceType : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: VpcEndpointServiceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VpcEndpointServiceArgs | VpcEndpointServiceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VpcEndpointServiceState;
+            inputs.acceptanceRequired = state.acceptanceRequired;
+            inputs.allowedPrincipals = state.allowedPrincipals;
+            inputs.availabilityZones = state.availabilityZones;
+            inputs.baseEndpointDnsNames = state.baseEndpointDnsNames;
+            inputs.managesVpcEndpoints = state.managesVpcEndpoints;
+            inputs.networkLoadBalancerArns = state.networkLoadBalancerArns;
+            inputs.privateDnsName = state.privateDnsName;
+            inputs.serviceName = state.serviceName;
+            inputs.serviceType = state.serviceType;
+            inputs.state = state.state;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as VpcEndpointServiceArgs | undefined;
-            if (!args || args.acceptanceRequired === undefined) {
+            const args = argsOrState as VpcEndpointServiceArgs;
+            if (args.acceptanceRequired === undefined) {
                 throw new Error("Missing required property 'acceptanceRequired'");
             }
-            if (!args || args.networkLoadBalancerArns === undefined) {
+            if (args.networkLoadBalancerArns === undefined) {
                 throw new Error("Missing required property 'networkLoadBalancerArns'");
             }
-            inputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
-            inputs["allowedPrincipals"] = args ? args.allowedPrincipals : undefined;
-            inputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["availabilityZones"] = undefined /*out*/;
-            inputs["baseEndpointDnsNames"] = undefined /*out*/;
-            inputs["managesVpcEndpoints"] = undefined /*out*/;
-            inputs["privateDnsName"] = undefined /*out*/;
-            inputs["serviceName"] = undefined /*out*/;
-            inputs["serviceType"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            inputs.acceptanceRequired = args.acceptanceRequired;
+            inputs.allowedPrincipals = args.allowedPrincipals;
+            inputs.networkLoadBalancerArns = args.networkLoadBalancerArns;
+            inputs.tags = args.tags;
+            inputs.availabilityZones = undefined /*out*/;
+            inputs.baseEndpointDnsNames = undefined /*out*/;
+            inputs.managesVpcEndpoints = undefined /*out*/;
+            inputs.privateDnsName = undefined /*out*/;
+            inputs.serviceName = undefined /*out*/;
+            inputs.serviceType = undefined /*out*/;
+            inputs.state = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VpcEndpointService.__pulumiType, name, inputs, opts);
     }
 }

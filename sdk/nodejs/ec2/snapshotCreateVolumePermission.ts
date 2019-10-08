@@ -73,31 +73,25 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SnapshotCreateVolumePermissionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SnapshotCreateVolumePermissionArgs | SnapshotCreateVolumePermissionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SnapshotCreateVolumePermissionState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["snapshotId"] = state ? state.snapshotId : undefined;
+    constructor(name: string, args: SnapshotCreateVolumePermissionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SnapshotCreateVolumePermissionArgs | SnapshotCreateVolumePermissionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SnapshotCreateVolumePermissionState;
+            inputs.accountId = state.accountId;
+            inputs.snapshotId = state.snapshotId;
         } else {
-            const args = argsOrState as SnapshotCreateVolumePermissionArgs | undefined;
-            if (!args || args.accountId === undefined) {
+            const args = argsOrState as SnapshotCreateVolumePermissionArgs;
+            if (args.accountId === undefined) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if (!args || args.snapshotId === undefined) {
+            if (args.snapshotId === undefined) {
                 throw new Error("Missing required property 'snapshotId'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["snapshotId"] = args ? args.snapshotId : undefined;
+            inputs.accountId = args.accountId;
+            inputs.snapshotId = args.snapshotId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SnapshotCreateVolumePermission.__pulumiType, name, inputs, opts);
     }
 }

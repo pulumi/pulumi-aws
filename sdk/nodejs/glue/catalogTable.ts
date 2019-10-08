@@ -160,48 +160,42 @@ export class CatalogTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CatalogTableArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CatalogTableArgs | CatalogTableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CatalogTableState | undefined;
-            inputs["catalogId"] = state ? state.catalogId : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["partitionKeys"] = state ? state.partitionKeys : undefined;
-            inputs["retention"] = state ? state.retention : undefined;
-            inputs["storageDescriptor"] = state ? state.storageDescriptor : undefined;
-            inputs["tableType"] = state ? state.tableType : undefined;
-            inputs["viewExpandedText"] = state ? state.viewExpandedText : undefined;
-            inputs["viewOriginalText"] = state ? state.viewOriginalText : undefined;
+    constructor(name: string, args: CatalogTableArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: CatalogTableArgs | CatalogTableState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as CatalogTableState;
+            inputs.catalogId = state.catalogId;
+            inputs.databaseName = state.databaseName;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.owner = state.owner;
+            inputs.parameters = state.parameters;
+            inputs.partitionKeys = state.partitionKeys;
+            inputs.retention = state.retention;
+            inputs.storageDescriptor = state.storageDescriptor;
+            inputs.tableType = state.tableType;
+            inputs.viewExpandedText = state.viewExpandedText;
+            inputs.viewOriginalText = state.viewOriginalText;
         } else {
-            const args = argsOrState as CatalogTableArgs | undefined;
-            if (!args || args.databaseName === undefined) {
+            const args = argsOrState as CatalogTableArgs;
+            if (args.databaseName === undefined) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["owner"] = args ? args.owner : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["partitionKeys"] = args ? args.partitionKeys : undefined;
-            inputs["retention"] = args ? args.retention : undefined;
-            inputs["storageDescriptor"] = args ? args.storageDescriptor : undefined;
-            inputs["tableType"] = args ? args.tableType : undefined;
-            inputs["viewExpandedText"] = args ? args.viewExpandedText : undefined;
-            inputs["viewOriginalText"] = args ? args.viewOriginalText : undefined;
+            inputs.catalogId = args.catalogId;
+            inputs.databaseName = args.databaseName;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.owner = args.owner;
+            inputs.parameters = args.parameters;
+            inputs.partitionKeys = args.partitionKeys;
+            inputs.retention = args.retention;
+            inputs.storageDescriptor = args.storageDescriptor;
+            inputs.tableType = args.tableType;
+            inputs.viewExpandedText = args.viewExpandedText;
+            inputs.viewOriginalText = args.viewOriginalText;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(CatalogTable.__pulumiType, name, inputs, opts);
     }
 }

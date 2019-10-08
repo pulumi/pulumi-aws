@@ -10,52 +10,6 @@ import * as utilities from "../utilities";
  * Provides a resource to manage a DynamoDB Global Table. These are layered on top of existing DynamoDB Tables.
  * 
  * > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const usEast1 = new aws.Provider("us-east-1", {
- *     region: "us-east-1",
- * });
- * const usWest2 = new aws.Provider("us-west-2", {
- *     region: "us-west-2",
- * });
- * const us_east_1Table = new aws.dynamodb.Table("us-east-1", {
- *     attributes: [{
- *         name: "myAttribute",
- *         type: "S",
- *     }],
- *     hashKey: "myAttribute",
- *     readCapacity: 1,
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
- *     writeCapacity: 1,
- * }, {provider: us_east_1});
- * const us_west_2Table = new aws.dynamodb.Table("us-west-2", {
- *     attributes: [{
- *         name: "myAttribute",
- *         type: "S",
- *     }],
- *     hashKey: "myAttribute",
- *     readCapacity: 1,
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
- *     writeCapacity: 1,
- * }, {provider: us_west_2});
- * const myTable = new aws.dynamodb.GlobalTable("myTable", {
- *     replicas: [
- *         {
- *             regionName: "us-east-1",
- *         },
- *         {
- *             regionName: "us-west-2",
- *         },
- *     ],
- * }, {provider: us_east_1,dependsOn: [us_east_1Table, us_west_2Table]});
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_global_table.html.markdown.
  */
@@ -106,30 +60,24 @@ export class GlobalTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GlobalTableArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GlobalTableArgs | GlobalTableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GlobalTableState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["replicas"] = state ? state.replicas : undefined;
+    constructor(name: string, args: GlobalTableArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GlobalTableArgs | GlobalTableState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GlobalTableState;
+            inputs.arn = state.arn;
+            inputs.name = state.name;
+            inputs.replicas = state.replicas;
         } else {
-            const args = argsOrState as GlobalTableArgs | undefined;
-            if (!args || args.replicas === undefined) {
+            const args = argsOrState as GlobalTableArgs;
+            if (args.replicas === undefined) {
                 throw new Error("Missing required property 'replicas'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["replicas"] = args ? args.replicas : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.name = args.name;
+            inputs.replicas = args.replicas;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(GlobalTable.__pulumiType, name, inputs, opts);
     }
 }

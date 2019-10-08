@@ -137,51 +137,45 @@ export class Function extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FunctionArgs | FunctionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as FunctionState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["dataSource"] = state ? state.dataSource : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["functionId"] = state ? state.functionId : undefined;
-            inputs["functionVersion"] = state ? state.functionVersion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["requestMappingTemplate"] = state ? state.requestMappingTemplate : undefined;
-            inputs["responseMappingTemplate"] = state ? state.responseMappingTemplate : undefined;
+    constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: FunctionArgs | FunctionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as FunctionState;
+            inputs.apiId = state.apiId;
+            inputs.arn = state.arn;
+            inputs.dataSource = state.dataSource;
+            inputs.description = state.description;
+            inputs.functionId = state.functionId;
+            inputs.functionVersion = state.functionVersion;
+            inputs.name = state.name;
+            inputs.requestMappingTemplate = state.requestMappingTemplate;
+            inputs.responseMappingTemplate = state.responseMappingTemplate;
         } else {
-            const args = argsOrState as FunctionArgs | undefined;
-            if (!args || args.apiId === undefined) {
+            const args = argsOrState as FunctionArgs;
+            if (args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.dataSource === undefined) {
+            if (args.dataSource === undefined) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            if (!args || args.requestMappingTemplate === undefined) {
+            if (args.requestMappingTemplate === undefined) {
                 throw new Error("Missing required property 'requestMappingTemplate'");
             }
-            if (!args || args.responseMappingTemplate === undefined) {
+            if (args.responseMappingTemplate === undefined) {
                 throw new Error("Missing required property 'responseMappingTemplate'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["dataSource"] = args ? args.dataSource : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["functionVersion"] = args ? args.functionVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
-            inputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["functionId"] = undefined /*out*/;
+            inputs.apiId = args.apiId;
+            inputs.dataSource = args.dataSource;
+            inputs.description = args.description;
+            inputs.functionVersion = args.functionVersion;
+            inputs.name = args.name;
+            inputs.requestMappingTemplate = args.requestMappingTemplate;
+            inputs.responseMappingTemplate = args.responseMappingTemplate;
+            inputs.arn = undefined /*out*/;
+            inputs.functionId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Function.__pulumiType, name, inputs, opts);
     }
 }

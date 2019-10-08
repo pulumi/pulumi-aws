@@ -72,25 +72,19 @@ export class SizeConstraintSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SizeConstraintSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SizeConstraintSetArgs | SizeConstraintSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SizeConstraintSetState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["sizeConstraints"] = state ? state.sizeConstraints : undefined;
+    constructor(name: string, args?: SizeConstraintSetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SizeConstraintSetArgs | SizeConstraintSetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SizeConstraintSetState;
+            inputs.name = state.name;
+            inputs.sizeConstraints = state.sizeConstraints;
         } else {
-            const args = argsOrState as SizeConstraintSetArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["sizeConstraints"] = args ? args.sizeConstraints : undefined;
+            const args = argsOrState as SizeConstraintSetArgs;
+            inputs.name = args.name;
+            inputs.sizeConstraints = args.sizeConstraints;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SizeConstraintSet.__pulumiType, name, inputs, opts);
     }
 }

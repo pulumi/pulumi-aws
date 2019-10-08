@@ -147,40 +147,34 @@ export class FlowLog extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FlowLogArgs | FlowLogState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as FlowLogState | undefined;
-            inputs["eniId"] = state ? state.eniId : undefined;
-            inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
-            inputs["logDestination"] = state ? state.logDestination : undefined;
-            inputs["logDestinationType"] = state ? state.logDestinationType : undefined;
-            inputs["logGroupName"] = state ? state.logGroupName : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["trafficType"] = state ? state.trafficType : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: FlowLogArgs | FlowLogState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as FlowLogState;
+            inputs.eniId = state.eniId;
+            inputs.iamRoleArn = state.iamRoleArn;
+            inputs.logDestination = state.logDestination;
+            inputs.logDestinationType = state.logDestinationType;
+            inputs.logGroupName = state.logGroupName;
+            inputs.subnetId = state.subnetId;
+            inputs.trafficType = state.trafficType;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as FlowLogArgs | undefined;
-            if (!args || args.trafficType === undefined) {
+            const args = argsOrState as FlowLogArgs;
+            if (args.trafficType === undefined) {
                 throw new Error("Missing required property 'trafficType'");
             }
-            inputs["eniId"] = args ? args.eniId : undefined;
-            inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            inputs["logDestination"] = args ? args.logDestination : undefined;
-            inputs["logDestinationType"] = args ? args.logDestinationType : undefined;
-            inputs["logGroupName"] = args ? args.logGroupName : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["trafficType"] = args ? args.trafficType : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs.eniId = args.eniId;
+            inputs.iamRoleArn = args.iamRoleArn;
+            inputs.logDestination = args.logDestination;
+            inputs.logDestinationType = args.logDestinationType;
+            inputs.logGroupName = args.logGroupName;
+            inputs.subnetId = args.subnetId;
+            inputs.trafficType = args.trafficType;
+            inputs.vpcId = args.vpcId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(FlowLog.__pulumiType, name, inputs, opts);
     }
 }

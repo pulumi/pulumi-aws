@@ -84,42 +84,36 @@ export class NfsLocation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NfsLocationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NfsLocationArgs | NfsLocationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NfsLocationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["onPremConfig"] = state ? state.onPremConfig : undefined;
-            inputs["serverHostname"] = state ? state.serverHostname : undefined;
-            inputs["subdirectory"] = state ? state.subdirectory : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
+    constructor(name: string, args: NfsLocationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: NfsLocationArgs | NfsLocationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as NfsLocationState;
+            inputs.arn = state.arn;
+            inputs.onPremConfig = state.onPremConfig;
+            inputs.serverHostname = state.serverHostname;
+            inputs.subdirectory = state.subdirectory;
+            inputs.tags = state.tags;
+            inputs.uri = state.uri;
         } else {
-            const args = argsOrState as NfsLocationArgs | undefined;
-            if (!args || args.onPremConfig === undefined) {
+            const args = argsOrState as NfsLocationArgs;
+            if (args.onPremConfig === undefined) {
                 throw new Error("Missing required property 'onPremConfig'");
             }
-            if (!args || args.serverHostname === undefined) {
+            if (args.serverHostname === undefined) {
                 throw new Error("Missing required property 'serverHostname'");
             }
-            if (!args || args.subdirectory === undefined) {
+            if (args.subdirectory === undefined) {
                 throw new Error("Missing required property 'subdirectory'");
             }
-            inputs["onPremConfig"] = args ? args.onPremConfig : undefined;
-            inputs["serverHostname"] = args ? args.serverHostname : undefined;
-            inputs["subdirectory"] = args ? args.subdirectory : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
+            inputs.onPremConfig = args.onPremConfig;
+            inputs.serverHostname = args.serverHostname;
+            inputs.subdirectory = args.subdirectory;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.uri = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(NfsLocation.__pulumiType, name, inputs, opts);
     }
 }

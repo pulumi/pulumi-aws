@@ -119,51 +119,45 @@ export class OrganizationCustomRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: OrganizationCustomRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OrganizationCustomRuleArgs | OrganizationCustomRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as OrganizationCustomRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["excludedAccounts"] = state ? state.excludedAccounts : undefined;
-            inputs["inputParameters"] = state ? state.inputParameters : undefined;
-            inputs["lambdaFunctionArn"] = state ? state.lambdaFunctionArn : undefined;
-            inputs["maximumExecutionFrequency"] = state ? state.maximumExecutionFrequency : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceIdScope"] = state ? state.resourceIdScope : undefined;
-            inputs["resourceTypesScopes"] = state ? state.resourceTypesScopes : undefined;
-            inputs["tagKeyScope"] = state ? state.tagKeyScope : undefined;
-            inputs["tagValueScope"] = state ? state.tagValueScope : undefined;
-            inputs["triggerTypes"] = state ? state.triggerTypes : undefined;
+    constructor(name: string, args: OrganizationCustomRuleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: OrganizationCustomRuleArgs | OrganizationCustomRuleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as OrganizationCustomRuleState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.excludedAccounts = state.excludedAccounts;
+            inputs.inputParameters = state.inputParameters;
+            inputs.lambdaFunctionArn = state.lambdaFunctionArn;
+            inputs.maximumExecutionFrequency = state.maximumExecutionFrequency;
+            inputs.name = state.name;
+            inputs.resourceIdScope = state.resourceIdScope;
+            inputs.resourceTypesScopes = state.resourceTypesScopes;
+            inputs.tagKeyScope = state.tagKeyScope;
+            inputs.tagValueScope = state.tagValueScope;
+            inputs.triggerTypes = state.triggerTypes;
         } else {
-            const args = argsOrState as OrganizationCustomRuleArgs | undefined;
-            if (!args || args.lambdaFunctionArn === undefined) {
+            const args = argsOrState as OrganizationCustomRuleArgs;
+            if (args.lambdaFunctionArn === undefined) {
                 throw new Error("Missing required property 'lambdaFunctionArn'");
             }
-            if (!args || args.triggerTypes === undefined) {
+            if (args.triggerTypes === undefined) {
                 throw new Error("Missing required property 'triggerTypes'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
-            inputs["inputParameters"] = args ? args.inputParameters : undefined;
-            inputs["lambdaFunctionArn"] = args ? args.lambdaFunctionArn : undefined;
-            inputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceIdScope"] = args ? args.resourceIdScope : undefined;
-            inputs["resourceTypesScopes"] = args ? args.resourceTypesScopes : undefined;
-            inputs["tagKeyScope"] = args ? args.tagKeyScope : undefined;
-            inputs["tagValueScope"] = args ? args.tagValueScope : undefined;
-            inputs["triggerTypes"] = args ? args.triggerTypes : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.description = args.description;
+            inputs.excludedAccounts = args.excludedAccounts;
+            inputs.inputParameters = args.inputParameters;
+            inputs.lambdaFunctionArn = args.lambdaFunctionArn;
+            inputs.maximumExecutionFrequency = args.maximumExecutionFrequency;
+            inputs.name = args.name;
+            inputs.resourceIdScope = args.resourceIdScope;
+            inputs.resourceTypesScopes = args.resourceTypesScopes;
+            inputs.tagKeyScope = args.tagKeyScope;
+            inputs.tagValueScope = args.tagValueScope;
+            inputs.triggerTypes = args.triggerTypes;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(OrganizationCustomRule.__pulumiType, name, inputs, opts);
     }
 }

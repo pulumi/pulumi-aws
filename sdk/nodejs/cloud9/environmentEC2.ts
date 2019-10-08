@@ -87,40 +87,34 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EnvironmentEC2Args, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EnvironmentEC2Args | EnvironmentEC2State, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EnvironmentEC2State | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["automaticStopTimeMinutes"] = state ? state.automaticStopTimeMinutes : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerArn"] = state ? state.ownerArn : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: EnvironmentEC2Args, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EnvironmentEC2Args | EnvironmentEC2State = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EnvironmentEC2State;
+            inputs.arn = state.arn;
+            inputs.automaticStopTimeMinutes = state.automaticStopTimeMinutes;
+            inputs.description = state.description;
+            inputs.instanceType = state.instanceType;
+            inputs.name = state.name;
+            inputs.ownerArn = state.ownerArn;
+            inputs.subnetId = state.subnetId;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as EnvironmentEC2Args | undefined;
-            if (!args || args.instanceType === undefined) {
+            const args = argsOrState as EnvironmentEC2Args;
+            if (args.instanceType === undefined) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["automaticStopTimeMinutes"] = args ? args.automaticStopTimeMinutes : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerArn"] = args ? args.ownerArn : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            inputs.automaticStopTimeMinutes = args.automaticStopTimeMinutes;
+            inputs.description = args.description;
+            inputs.instanceType = args.instanceType;
+            inputs.name = args.name;
+            inputs.ownerArn = args.ownerArn;
+            inputs.subnetId = args.subnetId;
+            inputs.arn = undefined /*out*/;
+            inputs.type = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EnvironmentEC2.__pulumiType, name, inputs, opts);
     }
 }

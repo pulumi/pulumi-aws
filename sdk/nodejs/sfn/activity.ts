@@ -65,27 +65,21 @@ export class Activity extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ActivityArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ActivityArgs | ActivityState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ActivityState | undefined;
-            inputs["creationDate"] = state ? state.creationDate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: ActivityArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ActivityArgs | ActivityState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ActivityState;
+            inputs.creationDate = state.creationDate;
+            inputs.name = state.name;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as ActivityArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["creationDate"] = undefined /*out*/;
+            const args = argsOrState as ActivityArgs;
+            inputs.name = args.name;
+            inputs.tags = args.tags;
+            inputs.creationDate = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Activity.__pulumiType, name, inputs, opts);
     }
 }

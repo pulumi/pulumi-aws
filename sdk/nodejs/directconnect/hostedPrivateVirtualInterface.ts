@@ -111,62 +111,56 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: HostedPrivateVirtualInterfaceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: HostedPrivateVirtualInterfaceArgs | HostedPrivateVirtualInterfaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as HostedPrivateVirtualInterfaceState | undefined;
-            inputs["addressFamily"] = state ? state.addressFamily : undefined;
-            inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["awsDevice"] = state ? state.awsDevice : undefined;
-            inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
-            inputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
-            inputs["connectionId"] = state ? state.connectionId : undefined;
-            inputs["customerAddress"] = state ? state.customerAddress : undefined;
-            inputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
-            inputs["mtu"] = state ? state.mtu : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
-            inputs["vlan"] = state ? state.vlan : undefined;
+    constructor(name: string, args: HostedPrivateVirtualInterfaceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: HostedPrivateVirtualInterfaceArgs | HostedPrivateVirtualInterfaceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as HostedPrivateVirtualInterfaceState;
+            inputs.addressFamily = state.addressFamily;
+            inputs.amazonAddress = state.amazonAddress;
+            inputs.arn = state.arn;
+            inputs.awsDevice = state.awsDevice;
+            inputs.bgpAsn = state.bgpAsn;
+            inputs.bgpAuthKey = state.bgpAuthKey;
+            inputs.connectionId = state.connectionId;
+            inputs.customerAddress = state.customerAddress;
+            inputs.jumboFrameCapable = state.jumboFrameCapable;
+            inputs.mtu = state.mtu;
+            inputs.name = state.name;
+            inputs.ownerAccountId = state.ownerAccountId;
+            inputs.vlan = state.vlan;
         } else {
-            const args = argsOrState as HostedPrivateVirtualInterfaceArgs | undefined;
-            if (!args || args.addressFamily === undefined) {
+            const args = argsOrState as HostedPrivateVirtualInterfaceArgs;
+            if (args.addressFamily === undefined) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if (!args || args.bgpAsn === undefined) {
+            if (args.bgpAsn === undefined) {
                 throw new Error("Missing required property 'bgpAsn'");
             }
-            if (!args || args.connectionId === undefined) {
+            if (args.connectionId === undefined) {
                 throw new Error("Missing required property 'connectionId'");
             }
-            if (!args || args.ownerAccountId === undefined) {
+            if (args.ownerAccountId === undefined) {
                 throw new Error("Missing required property 'ownerAccountId'");
             }
-            if (!args || args.vlan === undefined) {
+            if (args.vlan === undefined) {
                 throw new Error("Missing required property 'vlan'");
             }
-            inputs["addressFamily"] = args ? args.addressFamily : undefined;
-            inputs["amazonAddress"] = args ? args.amazonAddress : undefined;
-            inputs["bgpAsn"] = args ? args.bgpAsn : undefined;
-            inputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
-            inputs["connectionId"] = args ? args.connectionId : undefined;
-            inputs["customerAddress"] = args ? args.customerAddress : undefined;
-            inputs["mtu"] = args ? args.mtu : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerAccountId"] = args ? args.ownerAccountId : undefined;
-            inputs["vlan"] = args ? args.vlan : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["awsDevice"] = undefined /*out*/;
-            inputs["jumboFrameCapable"] = undefined /*out*/;
+            inputs.addressFamily = args.addressFamily;
+            inputs.amazonAddress = args.amazonAddress;
+            inputs.bgpAsn = args.bgpAsn;
+            inputs.bgpAuthKey = args.bgpAuthKey;
+            inputs.connectionId = args.connectionId;
+            inputs.customerAddress = args.customerAddress;
+            inputs.mtu = args.mtu;
+            inputs.name = args.name;
+            inputs.ownerAccountId = args.ownerAccountId;
+            inputs.vlan = args.vlan;
+            inputs.arn = undefined /*out*/;
+            inputs.awsDevice = undefined /*out*/;
+            inputs.jumboFrameCapable = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(HostedPrivateVirtualInterface.__pulumiType, name, inputs, opts);
     }
 }

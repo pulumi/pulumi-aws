@@ -42,12 +42,6 @@ import * as utilities from "../utilities";
  *     identifier: "test2",
  *     instanceClass: "db.t2.small",
  * });
- * const test3 = new aws.rds.ClusterInstance("test3", {
- *     applyImmediately: true,
- *     clusterIdentifier: defaultCluster.id,
- *     identifier: "test3",
- *     instanceClass: "db.t2.small",
- * });
  * const eligible = new aws.rds.ClusterEndpoint("eligible", {
  *     clusterEndpointIdentifier: "reader",
  *     clusterIdentifier: defaultCluster.id,
@@ -56,6 +50,12 @@ import * as utilities from "../utilities";
  *         test1.id,
  *         test2.id,
  *     ],
+ * });
+ * const test3 = new aws.rds.ClusterInstance("test3", {
+ *     applyImmediately: true,
+ *     clusterIdentifier: defaultCluster.id,
+ *     identifier: "test3",
+ *     instanceClass: "db.t2.small",
  * });
  * const static = new aws.rds.ClusterEndpoint("static", {
  *     clusterEndpointIdentifier: "static",
@@ -133,44 +133,38 @@ export class ClusterEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterEndpointArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterEndpointArgs | ClusterEndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterEndpointState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["clusterEndpointIdentifier"] = state ? state.clusterEndpointIdentifier : undefined;
-            inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            inputs["customEndpointType"] = state ? state.customEndpointType : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["excludedMembers"] = state ? state.excludedMembers : undefined;
-            inputs["staticMembers"] = state ? state.staticMembers : undefined;
+    constructor(name: string, args: ClusterEndpointArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ClusterEndpointArgs | ClusterEndpointState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ClusterEndpointState;
+            inputs.arn = state.arn;
+            inputs.clusterEndpointIdentifier = state.clusterEndpointIdentifier;
+            inputs.clusterIdentifier = state.clusterIdentifier;
+            inputs.customEndpointType = state.customEndpointType;
+            inputs.endpoint = state.endpoint;
+            inputs.excludedMembers = state.excludedMembers;
+            inputs.staticMembers = state.staticMembers;
         } else {
-            const args = argsOrState as ClusterEndpointArgs | undefined;
-            if (!args || args.clusterEndpointIdentifier === undefined) {
+            const args = argsOrState as ClusterEndpointArgs;
+            if (args.clusterEndpointIdentifier === undefined) {
                 throw new Error("Missing required property 'clusterEndpointIdentifier'");
             }
-            if (!args || args.clusterIdentifier === undefined) {
+            if (args.clusterIdentifier === undefined) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if (!args || args.customEndpointType === undefined) {
+            if (args.customEndpointType === undefined) {
                 throw new Error("Missing required property 'customEndpointType'");
             }
-            inputs["clusterEndpointIdentifier"] = args ? args.clusterEndpointIdentifier : undefined;
-            inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            inputs["customEndpointType"] = args ? args.customEndpointType : undefined;
-            inputs["excludedMembers"] = args ? args.excludedMembers : undefined;
-            inputs["staticMembers"] = args ? args.staticMembers : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
+            inputs.clusterEndpointIdentifier = args.clusterEndpointIdentifier;
+            inputs.clusterIdentifier = args.clusterIdentifier;
+            inputs.customEndpointType = args.customEndpointType;
+            inputs.excludedMembers = args.excludedMembers;
+            inputs.staticMembers = args.staticMembers;
+            inputs.arn = undefined /*out*/;
+            inputs.endpoint = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ClusterEndpoint.__pulumiType, name, inputs, opts);
     }
 }

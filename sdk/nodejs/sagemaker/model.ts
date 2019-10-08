@@ -106,40 +106,34 @@ export class Model extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ModelArgs | ModelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ModelState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["containers"] = state ? state.containers : undefined;
-            inputs["enableNetworkIsolation"] = state ? state.enableNetworkIsolation : undefined;
-            inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["primaryContainer"] = state ? state.primaryContainer : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+    constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ModelArgs | ModelState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ModelState;
+            inputs.arn = state.arn;
+            inputs.containers = state.containers;
+            inputs.enableNetworkIsolation = state.enableNetworkIsolation;
+            inputs.executionRoleArn = state.executionRoleArn;
+            inputs.name = state.name;
+            inputs.primaryContainer = state.primaryContainer;
+            inputs.tags = state.tags;
+            inputs.vpcConfig = state.vpcConfig;
         } else {
-            const args = argsOrState as ModelArgs | undefined;
-            if (!args || args.executionRoleArn === undefined) {
+            const args = argsOrState as ModelArgs;
+            if (args.executionRoleArn === undefined) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            inputs["containers"] = args ? args.containers : undefined;
-            inputs["enableNetworkIsolation"] = args ? args.enableNetworkIsolation : undefined;
-            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["primaryContainer"] = args ? args.primaryContainer : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.containers = args.containers;
+            inputs.enableNetworkIsolation = args.enableNetworkIsolation;
+            inputs.executionRoleArn = args.executionRoleArn;
+            inputs.name = args.name;
+            inputs.primaryContainer = args.primaryContainer;
+            inputs.tags = args.tags;
+            inputs.vpcConfig = args.vpcConfig;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Model.__pulumiType, name, inputs, opts);
     }
 }

@@ -87,40 +87,34 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServiceLinkedRoleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServiceLinkedRoleArgs | ServiceLinkedRoleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ServiceLinkedRoleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["awsServiceName"] = state ? state.awsServiceName : undefined;
-            inputs["createDate"] = state ? state.createDate : undefined;
-            inputs["customSuffix"] = state ? state.customSuffix : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["uniqueId"] = state ? state.uniqueId : undefined;
+    constructor(name: string, args: ServiceLinkedRoleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ServiceLinkedRoleArgs | ServiceLinkedRoleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ServiceLinkedRoleState;
+            inputs.arn = state.arn;
+            inputs.awsServiceName = state.awsServiceName;
+            inputs.createDate = state.createDate;
+            inputs.customSuffix = state.customSuffix;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.path = state.path;
+            inputs.uniqueId = state.uniqueId;
         } else {
-            const args = argsOrState as ServiceLinkedRoleArgs | undefined;
-            if (!args || args.awsServiceName === undefined) {
+            const args = argsOrState as ServiceLinkedRoleArgs;
+            if (args.awsServiceName === undefined) {
                 throw new Error("Missing required property 'awsServiceName'");
             }
-            inputs["awsServiceName"] = args ? args.awsServiceName : undefined;
-            inputs["customSuffix"] = args ? args.customSuffix : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["uniqueId"] = undefined /*out*/;
+            inputs.awsServiceName = args.awsServiceName;
+            inputs.customSuffix = args.customSuffix;
+            inputs.description = args.description;
+            inputs.arn = undefined /*out*/;
+            inputs.createDate = undefined /*out*/;
+            inputs.name = undefined /*out*/;
+            inputs.path = undefined /*out*/;
+            inputs.uniqueId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ServiceLinkedRole.__pulumiType, name, inputs, opts);
     }
 }

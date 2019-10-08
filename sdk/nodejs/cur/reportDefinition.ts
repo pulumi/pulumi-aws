@@ -105,60 +105,54 @@ export class ReportDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReportDefinitionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ReportDefinitionArgs | ReportDefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ReportDefinitionState | undefined;
-            inputs["additionalArtifacts"] = state ? state.additionalArtifacts : undefined;
-            inputs["additionalSchemaElements"] = state ? state.additionalSchemaElements : undefined;
-            inputs["compression"] = state ? state.compression : undefined;
-            inputs["format"] = state ? state.format : undefined;
-            inputs["reportName"] = state ? state.reportName : undefined;
-            inputs["s3Bucket"] = state ? state.s3Bucket : undefined;
-            inputs["s3Prefix"] = state ? state.s3Prefix : undefined;
-            inputs["s3Region"] = state ? state.s3Region : undefined;
-            inputs["timeUnit"] = state ? state.timeUnit : undefined;
+    constructor(name: string, args: ReportDefinitionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ReportDefinitionArgs | ReportDefinitionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ReportDefinitionState;
+            inputs.additionalArtifacts = state.additionalArtifacts;
+            inputs.additionalSchemaElements = state.additionalSchemaElements;
+            inputs.compression = state.compression;
+            inputs.format = state.format;
+            inputs.reportName = state.reportName;
+            inputs.s3Bucket = state.s3Bucket;
+            inputs.s3Prefix = state.s3Prefix;
+            inputs.s3Region = state.s3Region;
+            inputs.timeUnit = state.timeUnit;
         } else {
-            const args = argsOrState as ReportDefinitionArgs | undefined;
-            if (!args || args.additionalSchemaElements === undefined) {
+            const args = argsOrState as ReportDefinitionArgs;
+            if (args.additionalSchemaElements === undefined) {
                 throw new Error("Missing required property 'additionalSchemaElements'");
             }
-            if (!args || args.compression === undefined) {
+            if (args.compression === undefined) {
                 throw new Error("Missing required property 'compression'");
             }
-            if (!args || args.format === undefined) {
+            if (args.format === undefined) {
                 throw new Error("Missing required property 'format'");
             }
-            if (!args || args.reportName === undefined) {
+            if (args.reportName === undefined) {
                 throw new Error("Missing required property 'reportName'");
             }
-            if (!args || args.s3Bucket === undefined) {
+            if (args.s3Bucket === undefined) {
                 throw new Error("Missing required property 's3Bucket'");
             }
-            if (!args || args.s3Region === undefined) {
+            if (args.s3Region === undefined) {
                 throw new Error("Missing required property 's3Region'");
             }
-            if (!args || args.timeUnit === undefined) {
+            if (args.timeUnit === undefined) {
                 throw new Error("Missing required property 'timeUnit'");
             }
-            inputs["additionalArtifacts"] = args ? args.additionalArtifacts : undefined;
-            inputs["additionalSchemaElements"] = args ? args.additionalSchemaElements : undefined;
-            inputs["compression"] = args ? args.compression : undefined;
-            inputs["format"] = args ? args.format : undefined;
-            inputs["reportName"] = args ? args.reportName : undefined;
-            inputs["s3Bucket"] = args ? args.s3Bucket : undefined;
-            inputs["s3Prefix"] = args ? args.s3Prefix : undefined;
-            inputs["s3Region"] = args ? args.s3Region : undefined;
-            inputs["timeUnit"] = args ? args.timeUnit : undefined;
+            inputs.additionalArtifacts = args.additionalArtifacts;
+            inputs.additionalSchemaElements = args.additionalSchemaElements;
+            inputs.compression = args.compression;
+            inputs.format = args.format;
+            inputs.reportName = args.reportName;
+            inputs.s3Bucket = args.s3Bucket;
+            inputs.s3Prefix = args.s3Prefix;
+            inputs.s3Region = args.s3Region;
+            inputs.timeUnit = args.timeUnit;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ReportDefinition.__pulumiType, name, inputs, opts);
     }
 }

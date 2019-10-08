@@ -193,59 +193,53 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LoadBalancerState | undefined;
-            inputs["accessLogs"] = state ? state.accessLogs : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["enableCrossZoneLoadBalancing"] = state ? state.enableCrossZoneLoadBalancing : undefined;
-            inputs["enableDeletionProtection"] = state ? state.enableDeletionProtection : undefined;
-            inputs["enableHttp2"] = state ? state.enableHttp2 : undefined;
-            inputs["idleTimeout"] = state ? state.idleTimeout : undefined;
-            inputs["internal"] = state ? state.internal : undefined;
-            inputs["ipAddressType"] = state ? state.ipAddressType : undefined;
-            inputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["subnetMappings"] = state ? state.subnetMappings : undefined;
-            inputs["subnets"] = state ? state.subnets : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["zoneId"] = state ? state.zoneId : undefined;
+    constructor(name: string, args?: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LoadBalancerArgs | LoadBalancerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LoadBalancerState;
+            inputs.accessLogs = state.accessLogs;
+            inputs.arn = state.arn;
+            inputs.arnSuffix = state.arnSuffix;
+            inputs.dnsName = state.dnsName;
+            inputs.enableCrossZoneLoadBalancing = state.enableCrossZoneLoadBalancing;
+            inputs.enableDeletionProtection = state.enableDeletionProtection;
+            inputs.enableHttp2 = state.enableHttp2;
+            inputs.idleTimeout = state.idleTimeout;
+            inputs.internal = state.internal;
+            inputs.ipAddressType = state.ipAddressType;
+            inputs.loadBalancerType = state.loadBalancerType;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.securityGroups = state.securityGroups;
+            inputs.subnetMappings = state.subnetMappings;
+            inputs.subnets = state.subnets;
+            inputs.tags = state.tags;
+            inputs.vpcId = state.vpcId;
+            inputs.zoneId = state.zoneId;
         } else {
-            const args = argsOrState as LoadBalancerArgs | undefined;
-            inputs["accessLogs"] = args ? args.accessLogs : undefined;
-            inputs["enableCrossZoneLoadBalancing"] = args ? args.enableCrossZoneLoadBalancing : undefined;
-            inputs["enableDeletionProtection"] = args ? args.enableDeletionProtection : undefined;
-            inputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
-            inputs["idleTimeout"] = args ? args.idleTimeout : undefined;
-            inputs["internal"] = args ? args.internal : undefined;
-            inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            inputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["subnetMappings"] = args ? args.subnetMappings : undefined;
-            inputs["subnets"] = args ? args.subnets : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["arnSuffix"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
-            inputs["zoneId"] = undefined /*out*/;
+            const args = argsOrState as LoadBalancerArgs;
+            inputs.accessLogs = args.accessLogs;
+            inputs.enableCrossZoneLoadBalancing = args.enableCrossZoneLoadBalancing;
+            inputs.enableDeletionProtection = args.enableDeletionProtection;
+            inputs.enableHttp2 = args.enableHttp2;
+            inputs.idleTimeout = args.idleTimeout;
+            inputs.internal = args.internal;
+            inputs.ipAddressType = args.ipAddressType;
+            inputs.loadBalancerType = args.loadBalancerType;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.securityGroups = args.securityGroups;
+            inputs.subnetMappings = args.subnetMappings;
+            inputs.subnets = args.subnets;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.arnSuffix = undefined /*out*/;
+            inputs.dnsName = undefined /*out*/;
+            inputs.vpcId = undefined /*out*/;
+            inputs.zoneId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/loadBalancer:LoadBalancer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LoadBalancer.__pulumiType, name, inputs, opts);

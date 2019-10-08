@@ -55,14 +55,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ssmLifecycleTrust = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             identifiers: ["events.amazonaws.com"],
- *             type: "Service",
- *         }],
- *     }],
+ * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstances", {
+ *     description: "Stop instances nightly",
+ *     scheduleExpression: "cron(0 0 * * ? *)",
  * });
  * const stopInstance = new aws.ssm.Document("stopInstance", {
  *     content: `  {
@@ -85,6 +80,27 @@ import * as utilities from "../utilities";
  * `,
  *     documentType: "Command",
  * });
+ * const ssmLifecycleTrust = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             identifiers: ["events.amazonaws.com"],
+ *             type: "Service",
+ *         }],
+ *     }],
+ * });
+ * const ssmLifecycleRole = new aws.iam.Role("ssmLifecycle", {
+ *     assumeRolePolicy: ssmLifecycleTrust.json,
+ * });
+ * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stopInstances", {
+ *     arn: stopInstance.arn,
+ *     roleArn: ssmLifecycleRole.arn,
+ *     rule: stopInstancesEventRule.name,
+ *     runCommandTargets: [{
+ *         key: "tag:Terminate",
+ *         values: ["midnight"],
+ *     }],
+ * });
  * const ssmLifecyclePolicyDocument = stopInstance.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
@@ -104,24 +120,8 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * }));
- * const ssmLifecycleRole = new aws.iam.Role("ssmLifecycle", {
- *     assumeRolePolicy: ssmLifecycleTrust.json,
- * });
  * const ssmLifecyclePolicy = new aws.iam.Policy("ssmLifecycle", {
  *     policy: ssmLifecyclePolicyDocument.json,
- * });
- * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstances", {
- *     description: "Stop instances nightly",
- *     scheduleExpression: "cron(0 0 * * ? *)",
- * });
- * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stopInstances", {
- *     arn: stopInstance.arn,
- *     roleArn: ssmLifecycleRole.arn,
- *     rule: stopInstancesEventRule.name,
- *     runCommandTargets: [{
- *         key: "tag:Terminate",
- *         values: ["midnight"],
- *     }],
  * });
  * ```
  * 
@@ -169,25 +169,6 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const ecsEventsRunTaskWithAnyRole = new aws.iam.RolePolicy("ecsEventsRunTaskWithAnyRole", {
- *     policy: aws_ecs_task_definition_task_name.arn.apply(arn => `{
- *     "Version": "2012-10-17",
- *     "Statement": [
- *         {
- *             "Effect": "Allow",
- *             "Action": "iam:PassRole",
- *             "Resource": "*"
- *         },
- *         {
- *             "Effect": "Allow",
- *             "Action": "ecs:RunTask",
- *             "Resource": "${arn.replace(/:\d+$/, ":*")}"
- *         }
- *     ]
- * }
- * `),
- *     role: ecsEvents.id,
- * });
  * const ecsScheduledTask = new aws.cloudwatch.EventTarget("ecsScheduledTask", {
  *     arn: aws_ecs_cluster_cluster_name.arn,
  *     ecsTarget: {
@@ -205,6 +186,25 @@ import * as utilities from "../utilities";
  * `,
  *     roleArn: ecsEvents.arn,
  *     rule: aws_cloudwatch_event_rule_every_hour.name,
+ * });
+ * const ecsEventsRunTaskWithAnyRole = new aws.iam.RolePolicy("ecsEventsRunTaskWithAnyRole", {
+ *     policy: aws_ecs_task_definition_task_name.arn.apply(arn => `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ *         {
+ *             "Effect": "Allow",
+ *             "Action": "iam:PassRole",
+ *             "Resource": "*"
+ *         },
+ *         {
+ *             "Effect": "Allow",
+ *             "Action": "ecs:RunTask",
+ *             "Resource": "${arn.replace("/:\\d+$/", ":*")}"
+ *         }
+ *     ]
+ * }
+ * `),
+ *     role: ecsEvents.id,
  * });
  * ```
  *
@@ -294,51 +294,45 @@ export class EventTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventTargetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventTargetArgs | EventTargetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EventTargetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["batchTarget"] = state ? state.batchTarget : undefined;
-            inputs["ecsTarget"] = state ? state.ecsTarget : undefined;
-            inputs["input"] = state ? state.input : undefined;
-            inputs["inputPath"] = state ? state.inputPath : undefined;
-            inputs["inputTransformer"] = state ? state.inputTransformer : undefined;
-            inputs["kinesisTarget"] = state ? state.kinesisTarget : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["rule"] = state ? state.rule : undefined;
-            inputs["runCommandTargets"] = state ? state.runCommandTargets : undefined;
-            inputs["sqsTarget"] = state ? state.sqsTarget : undefined;
-            inputs["targetId"] = state ? state.targetId : undefined;
+    constructor(name: string, args: EventTargetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EventTargetArgs | EventTargetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EventTargetState;
+            inputs.arn = state.arn;
+            inputs.batchTarget = state.batchTarget;
+            inputs.ecsTarget = state.ecsTarget;
+            inputs.input = state.input;
+            inputs.inputPath = state.inputPath;
+            inputs.inputTransformer = state.inputTransformer;
+            inputs.kinesisTarget = state.kinesisTarget;
+            inputs.roleArn = state.roleArn;
+            inputs.rule = state.rule;
+            inputs.runCommandTargets = state.runCommandTargets;
+            inputs.sqsTarget = state.sqsTarget;
+            inputs.targetId = state.targetId;
         } else {
-            const args = argsOrState as EventTargetArgs | undefined;
-            if (!args || args.arn === undefined) {
+            const args = argsOrState as EventTargetArgs;
+            if (args.arn === undefined) {
                 throw new Error("Missing required property 'arn'");
             }
-            if (!args || args.rule === undefined) {
+            if (args.rule === undefined) {
                 throw new Error("Missing required property 'rule'");
             }
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["batchTarget"] = args ? args.batchTarget : undefined;
-            inputs["ecsTarget"] = args ? args.ecsTarget : undefined;
-            inputs["input"] = args ? args.input : undefined;
-            inputs["inputPath"] = args ? args.inputPath : undefined;
-            inputs["inputTransformer"] = args ? args.inputTransformer : undefined;
-            inputs["kinesisTarget"] = args ? args.kinesisTarget : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["rule"] = args ? args.rule : undefined;
-            inputs["runCommandTargets"] = args ? args.runCommandTargets : undefined;
-            inputs["sqsTarget"] = args ? args.sqsTarget : undefined;
-            inputs["targetId"] = args ? args.targetId : undefined;
+            inputs.arn = args.arn;
+            inputs.batchTarget = args.batchTarget;
+            inputs.ecsTarget = args.ecsTarget;
+            inputs.input = args.input;
+            inputs.inputPath = args.inputPath;
+            inputs.inputTransformer = args.inputTransformer;
+            inputs.kinesisTarget = args.kinesisTarget;
+            inputs.roleArn = args.roleArn;
+            inputs.rule = args.rule;
+            inputs.runCommandTargets = args.runCommandTargets;
+            inputs.sqsTarget = args.sqsTarget;
+            inputs.targetId = args.targetId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EventTarget.__pulumiType, name, inputs, opts);
     }
 }

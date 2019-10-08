@@ -84,42 +84,36 @@ export class S3Location extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: S3LocationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: S3LocationArgs | S3LocationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as S3LocationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
-            inputs["s3Config"] = state ? state.s3Config : undefined;
-            inputs["subdirectory"] = state ? state.subdirectory : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
+    constructor(name: string, args: S3LocationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: S3LocationArgs | S3LocationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as S3LocationState;
+            inputs.arn = state.arn;
+            inputs.s3BucketArn = state.s3BucketArn;
+            inputs.s3Config = state.s3Config;
+            inputs.subdirectory = state.subdirectory;
+            inputs.tags = state.tags;
+            inputs.uri = state.uri;
         } else {
-            const args = argsOrState as S3LocationArgs | undefined;
-            if (!args || args.s3BucketArn === undefined) {
+            const args = argsOrState as S3LocationArgs;
+            if (args.s3BucketArn === undefined) {
                 throw new Error("Missing required property 's3BucketArn'");
             }
-            if (!args || args.s3Config === undefined) {
+            if (args.s3Config === undefined) {
                 throw new Error("Missing required property 's3Config'");
             }
-            if (!args || args.subdirectory === undefined) {
+            if (args.subdirectory === undefined) {
                 throw new Error("Missing required property 'subdirectory'");
             }
-            inputs["s3BucketArn"] = args ? args.s3BucketArn : undefined;
-            inputs["s3Config"] = args ? args.s3Config : undefined;
-            inputs["subdirectory"] = args ? args.subdirectory : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
+            inputs.s3BucketArn = args.s3BucketArn;
+            inputs.s3Config = args.s3Config;
+            inputs.subdirectory = args.subdirectory;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.uri = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(S3Location.__pulumiType, name, inputs, opts);
     }
 }

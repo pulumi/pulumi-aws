@@ -151,61 +151,55 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ApplicationState | undefined;
-            inputs["appSources"] = state ? state.appSources : undefined;
-            inputs["autoBundleOnDeploy"] = state ? state.autoBundleOnDeploy : undefined;
-            inputs["awsFlowRubySettings"] = state ? state.awsFlowRubySettings : undefined;
-            inputs["dataSourceArn"] = state ? state.dataSourceArn : undefined;
-            inputs["dataSourceDatabaseName"] = state ? state.dataSourceDatabaseName : undefined;
-            inputs["dataSourceType"] = state ? state.dataSourceType : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["documentRoot"] = state ? state.documentRoot : undefined;
-            inputs["domains"] = state ? state.domains : undefined;
-            inputs["enableSsl"] = state ? state.enableSsl : undefined;
-            inputs["environments"] = state ? state.environments : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["railsEnv"] = state ? state.railsEnv : undefined;
-            inputs["shortName"] = state ? state.shortName : undefined;
-            inputs["sslConfigurations"] = state ? state.sslConfigurations : undefined;
-            inputs["stackId"] = state ? state.stackId : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ApplicationArgs | ApplicationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ApplicationState;
+            inputs.appSources = state.appSources;
+            inputs.autoBundleOnDeploy = state.autoBundleOnDeploy;
+            inputs.awsFlowRubySettings = state.awsFlowRubySettings;
+            inputs.dataSourceArn = state.dataSourceArn;
+            inputs.dataSourceDatabaseName = state.dataSourceDatabaseName;
+            inputs.dataSourceType = state.dataSourceType;
+            inputs.description = state.description;
+            inputs.documentRoot = state.documentRoot;
+            inputs.domains = state.domains;
+            inputs.enableSsl = state.enableSsl;
+            inputs.environments = state.environments;
+            inputs.name = state.name;
+            inputs.railsEnv = state.railsEnv;
+            inputs.shortName = state.shortName;
+            inputs.sslConfigurations = state.sslConfigurations;
+            inputs.stackId = state.stackId;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as ApplicationArgs | undefined;
-            if (!args || args.stackId === undefined) {
+            const args = argsOrState as ApplicationArgs;
+            if (args.stackId === undefined) {
                 throw new Error("Missing required property 'stackId'");
             }
-            if (!args || args.type === undefined) {
+            if (args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["appSources"] = args ? args.appSources : undefined;
-            inputs["autoBundleOnDeploy"] = args ? args.autoBundleOnDeploy : undefined;
-            inputs["awsFlowRubySettings"] = args ? args.awsFlowRubySettings : undefined;
-            inputs["dataSourceArn"] = args ? args.dataSourceArn : undefined;
-            inputs["dataSourceDatabaseName"] = args ? args.dataSourceDatabaseName : undefined;
-            inputs["dataSourceType"] = args ? args.dataSourceType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["documentRoot"] = args ? args.documentRoot : undefined;
-            inputs["domains"] = args ? args.domains : undefined;
-            inputs["enableSsl"] = args ? args.enableSsl : undefined;
-            inputs["environments"] = args ? args.environments : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["railsEnv"] = args ? args.railsEnv : undefined;
-            inputs["shortName"] = args ? args.shortName : undefined;
-            inputs["sslConfigurations"] = args ? args.sslConfigurations : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            inputs.appSources = args.appSources;
+            inputs.autoBundleOnDeploy = args.autoBundleOnDeploy;
+            inputs.awsFlowRubySettings = args.awsFlowRubySettings;
+            inputs.dataSourceArn = args.dataSourceArn;
+            inputs.dataSourceDatabaseName = args.dataSourceDatabaseName;
+            inputs.dataSourceType = args.dataSourceType;
+            inputs.description = args.description;
+            inputs.documentRoot = args.documentRoot;
+            inputs.domains = args.domains;
+            inputs.enableSsl = args.enableSsl;
+            inputs.environments = args.environments;
+            inputs.name = args.name;
+            inputs.railsEnv = args.railsEnv;
+            inputs.shortName = args.shortName;
+            inputs.sslConfigurations = args.sslConfigurations;
+            inputs.stackId = args.stackId;
+            inputs.type = args.type;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Application.__pulumiType, name, inputs, opts);
     }
 }

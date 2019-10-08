@@ -23,12 +23,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {});
  * const exampleCustomerGateway = new aws.ec2.CustomerGateway("example", {
  *     bgpAsn: 65000,
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {});
  * const exampleVpnConnection = new aws.ec2.VpnConnection("example", {
  *     customerGatewayId: exampleCustomerGateway.id,
  *     transitGatewayId: exampleTransitGateway.id,
@@ -42,16 +42,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const customerGateway = new aws.ec2.CustomerGateway("customerGateway", {
+ *     bgpAsn: 65000,
+ *     ipAddress: "172.0.0.1",
+ *     type: "ipsec.1",
+ * });
  * const vpc = new aws.ec2.Vpc("vpc", {
  *     cidrBlock: "10.0.0.0/16",
  * });
  * const vpnGateway = new aws.ec2.VpnGateway("vpnGateway", {
  *     vpcId: vpc.id,
- * });
- * const customerGateway = new aws.ec2.CustomerGateway("customerGateway", {
- *     bgpAsn: 65000,
- *     ipAddress: "172.0.0.1",
- *     type: "ipsec.1",
  * });
  * const main = new aws.ec2.VpnConnection("main", {
  *     customerGatewayId: customerGateway.id,
@@ -188,75 +188,69 @@ export class VpnConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpnConnectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpnConnectionArgs | VpnConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpnConnectionState | undefined;
-            inputs["customerGatewayConfiguration"] = state ? state.customerGatewayConfiguration : undefined;
-            inputs["customerGatewayId"] = state ? state.customerGatewayId : undefined;
-            inputs["routes"] = state ? state.routes : undefined;
-            inputs["staticRoutesOnly"] = state ? state.staticRoutesOnly : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
-            inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
-            inputs["tunnel1Address"] = state ? state.tunnel1Address : undefined;
-            inputs["tunnel1BgpAsn"] = state ? state.tunnel1BgpAsn : undefined;
-            inputs["tunnel1BgpHoldtime"] = state ? state.tunnel1BgpHoldtime : undefined;
-            inputs["tunnel1CgwInsideAddress"] = state ? state.tunnel1CgwInsideAddress : undefined;
-            inputs["tunnel1InsideCidr"] = state ? state.tunnel1InsideCidr : undefined;
-            inputs["tunnel1PresharedKey"] = state ? state.tunnel1PresharedKey : undefined;
-            inputs["tunnel1VgwInsideAddress"] = state ? state.tunnel1VgwInsideAddress : undefined;
-            inputs["tunnel2Address"] = state ? state.tunnel2Address : undefined;
-            inputs["tunnel2BgpAsn"] = state ? state.tunnel2BgpAsn : undefined;
-            inputs["tunnel2BgpHoldtime"] = state ? state.tunnel2BgpHoldtime : undefined;
-            inputs["tunnel2CgwInsideAddress"] = state ? state.tunnel2CgwInsideAddress : undefined;
-            inputs["tunnel2InsideCidr"] = state ? state.tunnel2InsideCidr : undefined;
-            inputs["tunnel2PresharedKey"] = state ? state.tunnel2PresharedKey : undefined;
-            inputs["tunnel2VgwInsideAddress"] = state ? state.tunnel2VgwInsideAddress : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["vgwTelemetries"] = state ? state.vgwTelemetries : undefined;
-            inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
+    constructor(name: string, args: VpnConnectionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VpnConnectionArgs | VpnConnectionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VpnConnectionState;
+            inputs.customerGatewayConfiguration = state.customerGatewayConfiguration;
+            inputs.customerGatewayId = state.customerGatewayId;
+            inputs.routes = state.routes;
+            inputs.staticRoutesOnly = state.staticRoutesOnly;
+            inputs.tags = state.tags;
+            inputs.transitGatewayAttachmentId = state.transitGatewayAttachmentId;
+            inputs.transitGatewayId = state.transitGatewayId;
+            inputs.tunnel1Address = state.tunnel1Address;
+            inputs.tunnel1BgpAsn = state.tunnel1BgpAsn;
+            inputs.tunnel1BgpHoldtime = state.tunnel1BgpHoldtime;
+            inputs.tunnel1CgwInsideAddress = state.tunnel1CgwInsideAddress;
+            inputs.tunnel1InsideCidr = state.tunnel1InsideCidr;
+            inputs.tunnel1PresharedKey = state.tunnel1PresharedKey;
+            inputs.tunnel1VgwInsideAddress = state.tunnel1VgwInsideAddress;
+            inputs.tunnel2Address = state.tunnel2Address;
+            inputs.tunnel2BgpAsn = state.tunnel2BgpAsn;
+            inputs.tunnel2BgpHoldtime = state.tunnel2BgpHoldtime;
+            inputs.tunnel2CgwInsideAddress = state.tunnel2CgwInsideAddress;
+            inputs.tunnel2InsideCidr = state.tunnel2InsideCidr;
+            inputs.tunnel2PresharedKey = state.tunnel2PresharedKey;
+            inputs.tunnel2VgwInsideAddress = state.tunnel2VgwInsideAddress;
+            inputs.type = state.type;
+            inputs.vgwTelemetries = state.vgwTelemetries;
+            inputs.vpnGatewayId = state.vpnGatewayId;
         } else {
-            const args = argsOrState as VpnConnectionArgs | undefined;
-            if (!args || args.customerGatewayId === undefined) {
+            const args = argsOrState as VpnConnectionArgs;
+            if (args.customerGatewayId === undefined) {
                 throw new Error("Missing required property 'customerGatewayId'");
             }
-            if (!args || args.type === undefined) {
+            if (args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["customerGatewayId"] = args ? args.customerGatewayId : undefined;
-            inputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            inputs["tunnel1InsideCidr"] = args ? args.tunnel1InsideCidr : undefined;
-            inputs["tunnel1PresharedKey"] = args ? args.tunnel1PresharedKey : undefined;
-            inputs["tunnel2InsideCidr"] = args ? args.tunnel2InsideCidr : undefined;
-            inputs["tunnel2PresharedKey"] = args ? args.tunnel2PresharedKey : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
-            inputs["customerGatewayConfiguration"] = undefined /*out*/;
-            inputs["routes"] = undefined /*out*/;
-            inputs["transitGatewayAttachmentId"] = undefined /*out*/;
-            inputs["tunnel1Address"] = undefined /*out*/;
-            inputs["tunnel1BgpAsn"] = undefined /*out*/;
-            inputs["tunnel1BgpHoldtime"] = undefined /*out*/;
-            inputs["tunnel1CgwInsideAddress"] = undefined /*out*/;
-            inputs["tunnel1VgwInsideAddress"] = undefined /*out*/;
-            inputs["tunnel2Address"] = undefined /*out*/;
-            inputs["tunnel2BgpAsn"] = undefined /*out*/;
-            inputs["tunnel2BgpHoldtime"] = undefined /*out*/;
-            inputs["tunnel2CgwInsideAddress"] = undefined /*out*/;
-            inputs["tunnel2VgwInsideAddress"] = undefined /*out*/;
-            inputs["vgwTelemetries"] = undefined /*out*/;
+            inputs.customerGatewayId = args.customerGatewayId;
+            inputs.staticRoutesOnly = args.staticRoutesOnly;
+            inputs.tags = args.tags;
+            inputs.transitGatewayId = args.transitGatewayId;
+            inputs.tunnel1InsideCidr = args.tunnel1InsideCidr;
+            inputs.tunnel1PresharedKey = args.tunnel1PresharedKey;
+            inputs.tunnel2InsideCidr = args.tunnel2InsideCidr;
+            inputs.tunnel2PresharedKey = args.tunnel2PresharedKey;
+            inputs.type = args.type;
+            inputs.vpnGatewayId = args.vpnGatewayId;
+            inputs.customerGatewayConfiguration = undefined /*out*/;
+            inputs.routes = undefined /*out*/;
+            inputs.transitGatewayAttachmentId = undefined /*out*/;
+            inputs.tunnel1Address = undefined /*out*/;
+            inputs.tunnel1BgpAsn = undefined /*out*/;
+            inputs.tunnel1BgpHoldtime = undefined /*out*/;
+            inputs.tunnel1CgwInsideAddress = undefined /*out*/;
+            inputs.tunnel1VgwInsideAddress = undefined /*out*/;
+            inputs.tunnel2Address = undefined /*out*/;
+            inputs.tunnel2BgpAsn = undefined /*out*/;
+            inputs.tunnel2BgpHoldtime = undefined /*out*/;
+            inputs.tunnel2CgwInsideAddress = undefined /*out*/;
+            inputs.tunnel2VgwInsideAddress = undefined /*out*/;
+            inputs.vgwTelemetries = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VpnConnection.__pulumiType, name, inputs, opts);
     }
 }

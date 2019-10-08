@@ -152,65 +152,59 @@ export class AmiCopy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AmiCopyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AmiCopyArgs | AmiCopyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AmiCopyState | undefined;
-            inputs["architecture"] = state ? state.architecture : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
-            inputs["enaSupport"] = state ? state.enaSupport : undefined;
-            inputs["encrypted"] = state ? state.encrypted : undefined;
-            inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
-            inputs["imageLocation"] = state ? state.imageLocation : undefined;
-            inputs["kernelId"] = state ? state.kernelId : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["manageEbsSnapshots"] = state ? state.manageEbsSnapshots : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ramdiskId"] = state ? state.ramdiskId : undefined;
-            inputs["rootDeviceName"] = state ? state.rootDeviceName : undefined;
-            inputs["rootSnapshotId"] = state ? state.rootSnapshotId : undefined;
-            inputs["sourceAmiId"] = state ? state.sourceAmiId : undefined;
-            inputs["sourceAmiRegion"] = state ? state.sourceAmiRegion : undefined;
-            inputs["sriovNetSupport"] = state ? state.sriovNetSupport : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
+    constructor(name: string, args: AmiCopyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AmiCopyArgs | AmiCopyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AmiCopyState;
+            inputs.architecture = state.architecture;
+            inputs.description = state.description;
+            inputs.ebsBlockDevices = state.ebsBlockDevices;
+            inputs.enaSupport = state.enaSupport;
+            inputs.encrypted = state.encrypted;
+            inputs.ephemeralBlockDevices = state.ephemeralBlockDevices;
+            inputs.imageLocation = state.imageLocation;
+            inputs.kernelId = state.kernelId;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.manageEbsSnapshots = state.manageEbsSnapshots;
+            inputs.name = state.name;
+            inputs.ramdiskId = state.ramdiskId;
+            inputs.rootDeviceName = state.rootDeviceName;
+            inputs.rootSnapshotId = state.rootSnapshotId;
+            inputs.sourceAmiId = state.sourceAmiId;
+            inputs.sourceAmiRegion = state.sourceAmiRegion;
+            inputs.sriovNetSupport = state.sriovNetSupport;
+            inputs.tags = state.tags;
+            inputs.virtualizationType = state.virtualizationType;
         } else {
-            const args = argsOrState as AmiCopyArgs | undefined;
-            if (!args || args.sourceAmiId === undefined) {
+            const args = argsOrState as AmiCopyArgs;
+            if (args.sourceAmiId === undefined) {
                 throw new Error("Missing required property 'sourceAmiId'");
             }
-            if (!args || args.sourceAmiRegion === undefined) {
+            if (args.sourceAmiRegion === undefined) {
                 throw new Error("Missing required property 'sourceAmiRegion'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
-            inputs["encrypted"] = args ? args.encrypted : undefined;
-            inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["sourceAmiId"] = args ? args.sourceAmiId : undefined;
-            inputs["sourceAmiRegion"] = args ? args.sourceAmiRegion : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["architecture"] = undefined /*out*/;
-            inputs["enaSupport"] = undefined /*out*/;
-            inputs["imageLocation"] = undefined /*out*/;
-            inputs["kernelId"] = undefined /*out*/;
-            inputs["manageEbsSnapshots"] = undefined /*out*/;
-            inputs["ramdiskId"] = undefined /*out*/;
-            inputs["rootDeviceName"] = undefined /*out*/;
-            inputs["rootSnapshotId"] = undefined /*out*/;
-            inputs["sriovNetSupport"] = undefined /*out*/;
-            inputs["virtualizationType"] = undefined /*out*/;
+            inputs.description = args.description;
+            inputs.ebsBlockDevices = args.ebsBlockDevices;
+            inputs.encrypted = args.encrypted;
+            inputs.ephemeralBlockDevices = args.ephemeralBlockDevices;
+            inputs.kmsKeyId = args.kmsKeyId;
+            inputs.name = args.name;
+            inputs.sourceAmiId = args.sourceAmiId;
+            inputs.sourceAmiRegion = args.sourceAmiRegion;
+            inputs.tags = args.tags;
+            inputs.architecture = undefined /*out*/;
+            inputs.enaSupport = undefined /*out*/;
+            inputs.imageLocation = undefined /*out*/;
+            inputs.kernelId = undefined /*out*/;
+            inputs.manageEbsSnapshots = undefined /*out*/;
+            inputs.ramdiskId = undefined /*out*/;
+            inputs.rootDeviceName = undefined /*out*/;
+            inputs.rootSnapshotId = undefined /*out*/;
+            inputs.sriovNetSupport = undefined /*out*/;
+            inputs.virtualizationType = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(AmiCopy.__pulumiType, name, inputs, opts);
     }
 }

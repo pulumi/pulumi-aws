@@ -17,6 +17,10 @@ import {ARN} from "../index";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
+ * const cert = new aws.iot.Certificate("cert", {
+ *     active: true,
+ *     csr: fs.readFileSync("csr.pem", "utf-8"),
+ * });
  * const pubsub = new aws.iot.Policy("pubsub", {
  *     policy: `{
  *   "Version": "2012-10-17",
@@ -31,10 +35,6 @@ import {ARN} from "../index";
  *   ]
  * }
  * `,
- * });
- * const cert = new aws.iot.Certificate("cert", {
- *     active: true,
- *     csr: fs.readFileSync("csr.pem", "utf-8"),
  * });
  * const att = new aws.iot.PolicyAttachment("att", {
  *     policy: pubsub.name,
@@ -87,31 +87,25 @@ export class PolicyAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyAttachmentArgs | PolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PolicyAttachmentState | undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["target"] = state ? state.target : undefined;
+    constructor(name: string, args: PolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PolicyAttachmentArgs | PolicyAttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PolicyAttachmentState;
+            inputs.policy = state.policy;
+            inputs.target = state.target;
         } else {
-            const args = argsOrState as PolicyAttachmentArgs | undefined;
-            if (!args || args.policy === undefined) {
+            const args = argsOrState as PolicyAttachmentArgs;
+            if (args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (!args || args.target === undefined) {
+            if (args.target === undefined) {
                 throw new Error("Missing required property 'target'");
             }
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["target"] = args ? args.target : undefined;
+            inputs.policy = args.policy;
+            inputs.target = args.target;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(PolicyAttachment.__pulumiType, name, inputs, opts);
     }
 }

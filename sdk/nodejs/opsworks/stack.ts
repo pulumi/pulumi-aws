@@ -165,78 +165,72 @@ export class Stack extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StackArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StackArgs | StackState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as StackState | undefined;
-            inputs["agentVersion"] = state ? state.agentVersion : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["berkshelfVersion"] = state ? state.berkshelfVersion : undefined;
-            inputs["color"] = state ? state.color : undefined;
-            inputs["configurationManagerName"] = state ? state.configurationManagerName : undefined;
-            inputs["configurationManagerVersion"] = state ? state.configurationManagerVersion : undefined;
-            inputs["customCookbooksSources"] = state ? state.customCookbooksSources : undefined;
-            inputs["customJson"] = state ? state.customJson : undefined;
-            inputs["defaultAvailabilityZone"] = state ? state.defaultAvailabilityZone : undefined;
-            inputs["defaultInstanceProfileArn"] = state ? state.defaultInstanceProfileArn : undefined;
-            inputs["defaultOs"] = state ? state.defaultOs : undefined;
-            inputs["defaultRootDeviceType"] = state ? state.defaultRootDeviceType : undefined;
-            inputs["defaultSshKeyName"] = state ? state.defaultSshKeyName : undefined;
-            inputs["defaultSubnetId"] = state ? state.defaultSubnetId : undefined;
-            inputs["hostnameTheme"] = state ? state.hostnameTheme : undefined;
-            inputs["manageBerkshelf"] = state ? state.manageBerkshelf : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["region"] = state ? state.region : undefined;
-            inputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
-            inputs["stackEndpoint"] = state ? state.stackEndpoint : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["useCustomCookbooks"] = state ? state.useCustomCookbooks : undefined;
-            inputs["useOpsworksSecurityGroups"] = state ? state.useOpsworksSecurityGroups : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: StackArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: StackArgs | StackState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as StackState;
+            inputs.agentVersion = state.agentVersion;
+            inputs.arn = state.arn;
+            inputs.berkshelfVersion = state.berkshelfVersion;
+            inputs.color = state.color;
+            inputs.configurationManagerName = state.configurationManagerName;
+            inputs.configurationManagerVersion = state.configurationManagerVersion;
+            inputs.customCookbooksSources = state.customCookbooksSources;
+            inputs.customJson = state.customJson;
+            inputs.defaultAvailabilityZone = state.defaultAvailabilityZone;
+            inputs.defaultInstanceProfileArn = state.defaultInstanceProfileArn;
+            inputs.defaultOs = state.defaultOs;
+            inputs.defaultRootDeviceType = state.defaultRootDeviceType;
+            inputs.defaultSshKeyName = state.defaultSshKeyName;
+            inputs.defaultSubnetId = state.defaultSubnetId;
+            inputs.hostnameTheme = state.hostnameTheme;
+            inputs.manageBerkshelf = state.manageBerkshelf;
+            inputs.name = state.name;
+            inputs.region = state.region;
+            inputs.serviceRoleArn = state.serviceRoleArn;
+            inputs.stackEndpoint = state.stackEndpoint;
+            inputs.tags = state.tags;
+            inputs.useCustomCookbooks = state.useCustomCookbooks;
+            inputs.useOpsworksSecurityGroups = state.useOpsworksSecurityGroups;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as StackArgs | undefined;
-            if (!args || args.defaultInstanceProfileArn === undefined) {
+            const args = argsOrState as StackArgs;
+            if (args.defaultInstanceProfileArn === undefined) {
                 throw new Error("Missing required property 'defaultInstanceProfileArn'");
             }
-            if (!args || args.region === undefined) {
+            if (args.region === undefined) {
                 throw new Error("Missing required property 'region'");
             }
-            if (!args || args.serviceRoleArn === undefined) {
+            if (args.serviceRoleArn === undefined) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
-            inputs["agentVersion"] = args ? args.agentVersion : undefined;
-            inputs["berkshelfVersion"] = args ? args.berkshelfVersion : undefined;
-            inputs["color"] = args ? args.color : undefined;
-            inputs["configurationManagerName"] = args ? args.configurationManagerName : undefined;
-            inputs["configurationManagerVersion"] = args ? args.configurationManagerVersion : undefined;
-            inputs["customCookbooksSources"] = args ? args.customCookbooksSources : undefined;
-            inputs["customJson"] = args ? args.customJson : undefined;
-            inputs["defaultAvailabilityZone"] = args ? args.defaultAvailabilityZone : undefined;
-            inputs["defaultInstanceProfileArn"] = args ? args.defaultInstanceProfileArn : undefined;
-            inputs["defaultOs"] = args ? args.defaultOs : undefined;
-            inputs["defaultRootDeviceType"] = args ? args.defaultRootDeviceType : undefined;
-            inputs["defaultSshKeyName"] = args ? args.defaultSshKeyName : undefined;
-            inputs["defaultSubnetId"] = args ? args.defaultSubnetId : undefined;
-            inputs["hostnameTheme"] = args ? args.hostnameTheme : undefined;
-            inputs["manageBerkshelf"] = args ? args.manageBerkshelf : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["region"] = args ? args.region : undefined;
-            inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["useCustomCookbooks"] = args ? args.useCustomCookbooks : undefined;
-            inputs["useOpsworksSecurityGroups"] = args ? args.useOpsworksSecurityGroups : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["stackEndpoint"] = undefined /*out*/;
+            inputs.agentVersion = args.agentVersion;
+            inputs.berkshelfVersion = args.berkshelfVersion;
+            inputs.color = args.color;
+            inputs.configurationManagerName = args.configurationManagerName;
+            inputs.configurationManagerVersion = args.configurationManagerVersion;
+            inputs.customCookbooksSources = args.customCookbooksSources;
+            inputs.customJson = args.customJson;
+            inputs.defaultAvailabilityZone = args.defaultAvailabilityZone;
+            inputs.defaultInstanceProfileArn = args.defaultInstanceProfileArn;
+            inputs.defaultOs = args.defaultOs;
+            inputs.defaultRootDeviceType = args.defaultRootDeviceType;
+            inputs.defaultSshKeyName = args.defaultSshKeyName;
+            inputs.defaultSubnetId = args.defaultSubnetId;
+            inputs.hostnameTheme = args.hostnameTheme;
+            inputs.manageBerkshelf = args.manageBerkshelf;
+            inputs.name = args.name;
+            inputs.region = args.region;
+            inputs.serviceRoleArn = args.serviceRoleArn;
+            inputs.tags = args.tags;
+            inputs.useCustomCookbooks = args.useCustomCookbooks;
+            inputs.useOpsworksSecurityGroups = args.useOpsworksSecurityGroups;
+            inputs.vpcId = args.vpcId;
+            inputs.arn = undefined /*out*/;
+            inputs.stackEndpoint = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Stack.__pulumiType, name, inputs, opts);
     }
 }

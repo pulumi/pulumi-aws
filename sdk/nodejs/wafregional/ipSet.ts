@@ -78,27 +78,21 @@ export class IpSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: IpSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IpSetArgs | IpSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as IpSetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["ipSetDescriptors"] = state ? state.ipSetDescriptors : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args?: IpSetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: IpSetArgs | IpSetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as IpSetState;
+            inputs.arn = state.arn;
+            inputs.ipSetDescriptors = state.ipSetDescriptors;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as IpSetArgs | undefined;
-            inputs["ipSetDescriptors"] = args ? args.ipSetDescriptors : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as IpSetArgs;
+            inputs.ipSetDescriptors = args.ipSetDescriptors;
+            inputs.name = args.name;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(IpSet.__pulumiType, name, inputs, opts);
     }
 }

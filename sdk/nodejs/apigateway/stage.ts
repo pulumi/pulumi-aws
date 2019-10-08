@@ -177,58 +177,52 @@ export class Stage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StageArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StageArgs | StageState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as StageState | undefined;
-            inputs["accessLogSettings"] = state ? state.accessLogSettings : undefined;
-            inputs["cacheClusterEnabled"] = state ? state.cacheClusterEnabled : undefined;
-            inputs["cacheClusterSize"] = state ? state.cacheClusterSize : undefined;
-            inputs["clientCertificateId"] = state ? state.clientCertificateId : undefined;
-            inputs["deployment"] = state ? state.deployment : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["documentationVersion"] = state ? state.documentationVersion : undefined;
-            inputs["executionArn"] = state ? state.executionArn : undefined;
-            inputs["invokeUrl"] = state ? state.invokeUrl : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["stageName"] = state ? state.stageName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["variables"] = state ? state.variables : undefined;
-            inputs["xrayTracingEnabled"] = state ? state.xrayTracingEnabled : undefined;
+    constructor(name: string, args: StageArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: StageArgs | StageState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as StageState;
+            inputs.accessLogSettings = state.accessLogSettings;
+            inputs.cacheClusterEnabled = state.cacheClusterEnabled;
+            inputs.cacheClusterSize = state.cacheClusterSize;
+            inputs.clientCertificateId = state.clientCertificateId;
+            inputs.deployment = state.deployment;
+            inputs.description = state.description;
+            inputs.documentationVersion = state.documentationVersion;
+            inputs.executionArn = state.executionArn;
+            inputs.invokeUrl = state.invokeUrl;
+            inputs.restApi = state.restApi;
+            inputs.stageName = state.stageName;
+            inputs.tags = state.tags;
+            inputs.variables = state.variables;
+            inputs.xrayTracingEnabled = state.xrayTracingEnabled;
         } else {
-            const args = argsOrState as StageArgs | undefined;
-            if (!args || args.deployment === undefined) {
+            const args = argsOrState as StageArgs;
+            if (args.deployment === undefined) {
                 throw new Error("Missing required property 'deployment'");
             }
-            if (!args || args.restApi === undefined) {
+            if (args.restApi === undefined) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if (!args || args.stageName === undefined) {
+            if (args.stageName === undefined) {
                 throw new Error("Missing required property 'stageName'");
             }
-            inputs["accessLogSettings"] = args ? args.accessLogSettings : undefined;
-            inputs["cacheClusterEnabled"] = args ? args.cacheClusterEnabled : undefined;
-            inputs["cacheClusterSize"] = args ? args.cacheClusterSize : undefined;
-            inputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
-            inputs["deployment"] = args ? args.deployment : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["documentationVersion"] = args ? args.documentationVersion : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["stageName"] = args ? args.stageName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["variables"] = args ? args.variables : undefined;
-            inputs["xrayTracingEnabled"] = args ? args.xrayTracingEnabled : undefined;
-            inputs["executionArn"] = undefined /*out*/;
-            inputs["invokeUrl"] = undefined /*out*/;
+            inputs.accessLogSettings = args.accessLogSettings;
+            inputs.cacheClusterEnabled = args.cacheClusterEnabled;
+            inputs.cacheClusterSize = args.cacheClusterSize;
+            inputs.clientCertificateId = args.clientCertificateId;
+            inputs.deployment = args.deployment;
+            inputs.description = args.description;
+            inputs.documentationVersion = args.documentationVersion;
+            inputs.restApi = args.restApi;
+            inputs.stageName = args.stageName;
+            inputs.tags = args.tags;
+            inputs.variables = args.variables;
+            inputs.xrayTracingEnabled = args.xrayTracingEnabled;
+            inputs.executionArn = undefined /*out*/;
+            inputs.invokeUrl = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Stage.__pulumiType, name, inputs, opts);
     }
 }

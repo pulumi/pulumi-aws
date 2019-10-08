@@ -17,9 +17,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const codepipelineBucket = new aws.s3.Bucket("codepipelineBucket", {
- *     acl: "private",
- * });
  * const codepipelineRole = new aws.iam.Role("codepipelineRole", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -35,35 +32,8 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const codepipelinePolicy = new aws.iam.RolePolicy("codepipelinePolicy", {
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect":"Allow",
- *       "Action": [
- *         "s3:GetObject",
- *         "s3:GetObjectVersion",
- *         "s3:GetBucketVersioning",
- *         "s3:PutObject"
- *       ],
- *       "Resource": [
- *         "${codepipelineBucket.arn}",
- *         "${codepipelineBucket.arn}/*"
- *       ]
- *     },
- *     {
- *       "Effect": "Allow",
- *       "Action": [
- *         "codebuild:BatchGetBuilds",
- *         "codebuild:StartBuild"
- *       ],
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `,
- *     role: codepipelineRole.id,
+ * const codepipelineBucket = new aws.s3.Bucket("codepipelineBucket", {
+ *     acl: "private",
  * });
  * const s3kmskey = aws.kms.getAlias({
  *     name: "alias/myKmsKey",
@@ -130,6 +100,36 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
+ * const codepipelinePolicy = new aws.iam.RolePolicy("codepipelinePolicy", {
+ *     policy: pulumi.interpolate`{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect":"Allow",
+ *       "Action": [
+ *         "s3:GetObject",
+ *         "s3:GetObjectVersion",
+ *         "s3:GetBucketVersioning",
+ *         "s3:PutObject"
+ *       ],
+ *       "Resource": [
+ *         "${codepipelineBucket.arn}",
+ *         "${codepipelineBucket.arn}/*"
+ *       ]
+ *     },
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "codebuild:BatchGetBuilds",
+ *         "codebuild:StartBuild"
+ *       ],
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `,
+ *     role: codepipelineRole.id,
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline.html.markdown.
@@ -191,42 +191,36 @@ export class Pipeline extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PipelineState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["artifactStore"] = state ? state.artifactStore : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["stages"] = state ? state.stages : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PipelineArgs | PipelineState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PipelineState;
+            inputs.arn = state.arn;
+            inputs.artifactStore = state.artifactStore;
+            inputs.name = state.name;
+            inputs.roleArn = state.roleArn;
+            inputs.stages = state.stages;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as PipelineArgs | undefined;
-            if (!args || args.artifactStore === undefined) {
+            const args = argsOrState as PipelineArgs;
+            if (args.artifactStore === undefined) {
                 throw new Error("Missing required property 'artifactStore'");
             }
-            if (!args || args.roleArn === undefined) {
+            if (args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if (!args || args.stages === undefined) {
+            if (args.stages === undefined) {
                 throw new Error("Missing required property 'stages'");
             }
-            inputs["artifactStore"] = args ? args.artifactStore : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["stages"] = args ? args.stages : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.artifactStore = args.artifactStore;
+            inputs.name = args.name;
+            inputs.roleArn = args.roleArn;
+            inputs.stages = args.stages;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Pipeline.__pulumiType, name, inputs, opts);
     }
 }

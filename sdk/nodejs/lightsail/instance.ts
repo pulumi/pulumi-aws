@@ -200,62 +200,56 @@ export class Instance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: InstanceArgs | InstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as InstanceState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["blueprintId"] = state ? state.blueprintId : undefined;
-            inputs["bundleId"] = state ? state.bundleId : undefined;
-            inputs["cpuCount"] = state ? state.cpuCount : undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
-            inputs["ipv6Address"] = state ? state.ipv6Address : undefined;
-            inputs["isStaticIp"] = state ? state.isStaticIp : undefined;
-            inputs["keyPairName"] = state ? state.keyPairName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
-            inputs["publicIpAddress"] = state ? state.publicIpAddress : undefined;
-            inputs["ramSize"] = state ? state.ramSize : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["userData"] = state ? state.userData : undefined;
-            inputs["username"] = state ? state.username : undefined;
+    constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: InstanceArgs | InstanceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as InstanceState;
+            inputs.arn = state.arn;
+            inputs.availabilityZone = state.availabilityZone;
+            inputs.blueprintId = state.blueprintId;
+            inputs.bundleId = state.bundleId;
+            inputs.cpuCount = state.cpuCount;
+            inputs.createdAt = state.createdAt;
+            inputs.ipv6Address = state.ipv6Address;
+            inputs.isStaticIp = state.isStaticIp;
+            inputs.keyPairName = state.keyPairName;
+            inputs.name = state.name;
+            inputs.privateIpAddress = state.privateIpAddress;
+            inputs.publicIpAddress = state.publicIpAddress;
+            inputs.ramSize = state.ramSize;
+            inputs.tags = state.tags;
+            inputs.userData = state.userData;
+            inputs.username = state.username;
         } else {
-            const args = argsOrState as InstanceArgs | undefined;
-            if (!args || args.availabilityZone === undefined) {
+            const args = argsOrState as InstanceArgs;
+            if (args.availabilityZone === undefined) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            if (!args || args.blueprintId === undefined) {
+            if (args.blueprintId === undefined) {
                 throw new Error("Missing required property 'blueprintId'");
             }
-            if (!args || args.bundleId === undefined) {
+            if (args.bundleId === undefined) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["blueprintId"] = args ? args.blueprintId : undefined;
-            inputs["bundleId"] = args ? args.bundleId : undefined;
-            inputs["keyPairName"] = args ? args.keyPairName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userData"] = args ? args.userData : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["cpuCount"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["ipv6Address"] = undefined /*out*/;
-            inputs["isStaticIp"] = undefined /*out*/;
-            inputs["privateIpAddress"] = undefined /*out*/;
-            inputs["publicIpAddress"] = undefined /*out*/;
-            inputs["ramSize"] = undefined /*out*/;
-            inputs["username"] = undefined /*out*/;
+            inputs.availabilityZone = args.availabilityZone;
+            inputs.blueprintId = args.blueprintId;
+            inputs.bundleId = args.bundleId;
+            inputs.keyPairName = args.keyPairName;
+            inputs.name = args.name;
+            inputs.tags = args.tags;
+            inputs.userData = args.userData;
+            inputs.arn = undefined /*out*/;
+            inputs.cpuCount = undefined /*out*/;
+            inputs.createdAt = undefined /*out*/;
+            inputs.ipv6Address = undefined /*out*/;
+            inputs.isStaticIp = undefined /*out*/;
+            inputs.privateIpAddress = undefined /*out*/;
+            inputs.publicIpAddress = undefined /*out*/;
+            inputs.ramSize = undefined /*out*/;
+            inputs.username = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Instance.__pulumiType, name, inputs, opts);
     }
 }

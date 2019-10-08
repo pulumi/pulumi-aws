@@ -146,76 +146,70 @@ export class RailsAppLayer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RailsAppLayerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RailsAppLayerArgs | RailsAppLayerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RailsAppLayerState | undefined;
-            inputs["appServer"] = state ? state.appServer : undefined;
-            inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
-            inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
-            inputs["autoHealing"] = state ? state.autoHealing : undefined;
-            inputs["bundlerVersion"] = state ? state.bundlerVersion : undefined;
-            inputs["customConfigureRecipes"] = state ? state.customConfigureRecipes : undefined;
-            inputs["customDeployRecipes"] = state ? state.customDeployRecipes : undefined;
-            inputs["customInstanceProfileArn"] = state ? state.customInstanceProfileArn : undefined;
-            inputs["customJson"] = state ? state.customJson : undefined;
-            inputs["customSecurityGroupIds"] = state ? state.customSecurityGroupIds : undefined;
-            inputs["customSetupRecipes"] = state ? state.customSetupRecipes : undefined;
-            inputs["customShutdownRecipes"] = state ? state.customShutdownRecipes : undefined;
-            inputs["customUndeployRecipes"] = state ? state.customUndeployRecipes : undefined;
-            inputs["drainElbOnShutdown"] = state ? state.drainElbOnShutdown : undefined;
-            inputs["ebsVolumes"] = state ? state.ebsVolumes : undefined;
-            inputs["elasticLoadBalancer"] = state ? state.elasticLoadBalancer : undefined;
-            inputs["installUpdatesOnBoot"] = state ? state.installUpdatesOnBoot : undefined;
-            inputs["instanceShutdownTimeout"] = state ? state.instanceShutdownTimeout : undefined;
-            inputs["manageBundler"] = state ? state.manageBundler : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["passengerVersion"] = state ? state.passengerVersion : undefined;
-            inputs["rubyVersion"] = state ? state.rubyVersion : undefined;
-            inputs["rubygemsVersion"] = state ? state.rubygemsVersion : undefined;
-            inputs["stackId"] = state ? state.stackId : undefined;
-            inputs["systemPackages"] = state ? state.systemPackages : undefined;
-            inputs["useEbsOptimizedInstances"] = state ? state.useEbsOptimizedInstances : undefined;
+    constructor(name: string, args: RailsAppLayerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RailsAppLayerArgs | RailsAppLayerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RailsAppLayerState;
+            inputs.appServer = state.appServer;
+            inputs.autoAssignElasticIps = state.autoAssignElasticIps;
+            inputs.autoAssignPublicIps = state.autoAssignPublicIps;
+            inputs.autoHealing = state.autoHealing;
+            inputs.bundlerVersion = state.bundlerVersion;
+            inputs.customConfigureRecipes = state.customConfigureRecipes;
+            inputs.customDeployRecipes = state.customDeployRecipes;
+            inputs.customInstanceProfileArn = state.customInstanceProfileArn;
+            inputs.customJson = state.customJson;
+            inputs.customSecurityGroupIds = state.customSecurityGroupIds;
+            inputs.customSetupRecipes = state.customSetupRecipes;
+            inputs.customShutdownRecipes = state.customShutdownRecipes;
+            inputs.customUndeployRecipes = state.customUndeployRecipes;
+            inputs.drainElbOnShutdown = state.drainElbOnShutdown;
+            inputs.ebsVolumes = state.ebsVolumes;
+            inputs.elasticLoadBalancer = state.elasticLoadBalancer;
+            inputs.installUpdatesOnBoot = state.installUpdatesOnBoot;
+            inputs.instanceShutdownTimeout = state.instanceShutdownTimeout;
+            inputs.manageBundler = state.manageBundler;
+            inputs.name = state.name;
+            inputs.passengerVersion = state.passengerVersion;
+            inputs.rubyVersion = state.rubyVersion;
+            inputs.rubygemsVersion = state.rubygemsVersion;
+            inputs.stackId = state.stackId;
+            inputs.systemPackages = state.systemPackages;
+            inputs.useEbsOptimizedInstances = state.useEbsOptimizedInstances;
         } else {
-            const args = argsOrState as RailsAppLayerArgs | undefined;
-            if (!args || args.stackId === undefined) {
+            const args = argsOrState as RailsAppLayerArgs;
+            if (args.stackId === undefined) {
                 throw new Error("Missing required property 'stackId'");
             }
-            inputs["appServer"] = args ? args.appServer : undefined;
-            inputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;
-            inputs["autoAssignPublicIps"] = args ? args.autoAssignPublicIps : undefined;
-            inputs["autoHealing"] = args ? args.autoHealing : undefined;
-            inputs["bundlerVersion"] = args ? args.bundlerVersion : undefined;
-            inputs["customConfigureRecipes"] = args ? args.customConfigureRecipes : undefined;
-            inputs["customDeployRecipes"] = args ? args.customDeployRecipes : undefined;
-            inputs["customInstanceProfileArn"] = args ? args.customInstanceProfileArn : undefined;
-            inputs["customJson"] = args ? args.customJson : undefined;
-            inputs["customSecurityGroupIds"] = args ? args.customSecurityGroupIds : undefined;
-            inputs["customSetupRecipes"] = args ? args.customSetupRecipes : undefined;
-            inputs["customShutdownRecipes"] = args ? args.customShutdownRecipes : undefined;
-            inputs["customUndeployRecipes"] = args ? args.customUndeployRecipes : undefined;
-            inputs["drainElbOnShutdown"] = args ? args.drainElbOnShutdown : undefined;
-            inputs["ebsVolumes"] = args ? args.ebsVolumes : undefined;
-            inputs["elasticLoadBalancer"] = args ? args.elasticLoadBalancer : undefined;
-            inputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
-            inputs["instanceShutdownTimeout"] = args ? args.instanceShutdownTimeout : undefined;
-            inputs["manageBundler"] = args ? args.manageBundler : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["passengerVersion"] = args ? args.passengerVersion : undefined;
-            inputs["rubyVersion"] = args ? args.rubyVersion : undefined;
-            inputs["rubygemsVersion"] = args ? args.rubygemsVersion : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
-            inputs["systemPackages"] = args ? args.systemPackages : undefined;
-            inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
+            inputs.appServer = args.appServer;
+            inputs.autoAssignElasticIps = args.autoAssignElasticIps;
+            inputs.autoAssignPublicIps = args.autoAssignPublicIps;
+            inputs.autoHealing = args.autoHealing;
+            inputs.bundlerVersion = args.bundlerVersion;
+            inputs.customConfigureRecipes = args.customConfigureRecipes;
+            inputs.customDeployRecipes = args.customDeployRecipes;
+            inputs.customInstanceProfileArn = args.customInstanceProfileArn;
+            inputs.customJson = args.customJson;
+            inputs.customSecurityGroupIds = args.customSecurityGroupIds;
+            inputs.customSetupRecipes = args.customSetupRecipes;
+            inputs.customShutdownRecipes = args.customShutdownRecipes;
+            inputs.customUndeployRecipes = args.customUndeployRecipes;
+            inputs.drainElbOnShutdown = args.drainElbOnShutdown;
+            inputs.ebsVolumes = args.ebsVolumes;
+            inputs.elasticLoadBalancer = args.elasticLoadBalancer;
+            inputs.installUpdatesOnBoot = args.installUpdatesOnBoot;
+            inputs.instanceShutdownTimeout = args.instanceShutdownTimeout;
+            inputs.manageBundler = args.manageBundler;
+            inputs.name = args.name;
+            inputs.passengerVersion = args.passengerVersion;
+            inputs.rubyVersion = args.rubyVersion;
+            inputs.rubygemsVersion = args.rubygemsVersion;
+            inputs.stackId = args.stackId;
+            inputs.systemPackages = args.systemPackages;
+            inputs.useEbsOptimizedInstances = args.useEbsOptimizedInstances;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RailsAppLayer.__pulumiType, name, inputs, opts);
     }
 }

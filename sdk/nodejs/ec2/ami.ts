@@ -138,51 +138,45 @@ export class Ami extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AmiArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AmiArgs | AmiState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AmiState | undefined;
-            inputs["architecture"] = state ? state.architecture : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
-            inputs["enaSupport"] = state ? state.enaSupport : undefined;
-            inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
-            inputs["imageLocation"] = state ? state.imageLocation : undefined;
-            inputs["kernelId"] = state ? state.kernelId : undefined;
-            inputs["manageEbsSnapshots"] = state ? state.manageEbsSnapshots : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ramdiskId"] = state ? state.ramdiskId : undefined;
-            inputs["rootDeviceName"] = state ? state.rootDeviceName : undefined;
-            inputs["rootSnapshotId"] = state ? state.rootSnapshotId : undefined;
-            inputs["sriovNetSupport"] = state ? state.sriovNetSupport : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
+    constructor(name: string, args?: AmiArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AmiArgs | AmiState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AmiState;
+            inputs.architecture = state.architecture;
+            inputs.description = state.description;
+            inputs.ebsBlockDevices = state.ebsBlockDevices;
+            inputs.enaSupport = state.enaSupport;
+            inputs.ephemeralBlockDevices = state.ephemeralBlockDevices;
+            inputs.imageLocation = state.imageLocation;
+            inputs.kernelId = state.kernelId;
+            inputs.manageEbsSnapshots = state.manageEbsSnapshots;
+            inputs.name = state.name;
+            inputs.ramdiskId = state.ramdiskId;
+            inputs.rootDeviceName = state.rootDeviceName;
+            inputs.rootSnapshotId = state.rootSnapshotId;
+            inputs.sriovNetSupport = state.sriovNetSupport;
+            inputs.tags = state.tags;
+            inputs.virtualizationType = state.virtualizationType;
         } else {
-            const args = argsOrState as AmiArgs | undefined;
-            inputs["architecture"] = args ? args.architecture : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
-            inputs["enaSupport"] = args ? args.enaSupport : undefined;
-            inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
-            inputs["imageLocation"] = args ? args.imageLocation : undefined;
-            inputs["kernelId"] = args ? args.kernelId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ramdiskId"] = args ? args.ramdiskId : undefined;
-            inputs["rootDeviceName"] = args ? args.rootDeviceName : undefined;
-            inputs["sriovNetSupport"] = args ? args.sriovNetSupport : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualizationType"] = args ? args.virtualizationType : undefined;
-            inputs["manageEbsSnapshots"] = undefined /*out*/;
-            inputs["rootSnapshotId"] = undefined /*out*/;
+            const args = argsOrState as AmiArgs;
+            inputs.architecture = args.architecture;
+            inputs.description = args.description;
+            inputs.ebsBlockDevices = args.ebsBlockDevices;
+            inputs.enaSupport = args.enaSupport;
+            inputs.ephemeralBlockDevices = args.ephemeralBlockDevices;
+            inputs.imageLocation = args.imageLocation;
+            inputs.kernelId = args.kernelId;
+            inputs.name = args.name;
+            inputs.ramdiskId = args.ramdiskId;
+            inputs.rootDeviceName = args.rootDeviceName;
+            inputs.sriovNetSupport = args.sriovNetSupport;
+            inputs.tags = args.tags;
+            inputs.virtualizationType = args.virtualizationType;
+            inputs.manageEbsSnapshots = undefined /*out*/;
+            inputs.rootSnapshotId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Ami.__pulumiType, name, inputs, opts);
     }
 }

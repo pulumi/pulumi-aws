@@ -31,32 +31,6 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const dlmLifecycle = new aws.iam.RolePolicy("dlmLifecycle", {
- *     policy: `{
- *    "Version": "2012-10-17",
- *    "Statement": [
- *       {
- *          "Effect": "Allow",
- *          "Action": [
- *             "ec2:CreateSnapshot",
- *             "ec2:DeleteSnapshot",
- *             "ec2:DescribeVolumes",
- *             "ec2:DescribeSnapshots"
- *          ],
- *          "Resource": "*"
- *       },
- *       {
- *          "Effect": "Allow",
- *          "Action": [
- *             "ec2:CreateTags"
- *          ],
- *          "Resource": "arn:aws:ec2:*::snapshot/*"
- *       }
- *    ]
- * }
- * `,
- *     role: dlmLifecycleRole.id,
- * });
  * const example = new aws.dlm.LifecyclePolicy("example", {
  *     description: "example DLM lifecycle policy",
  *     executionRoleArn: dlmLifecycleRole.arn,
@@ -82,6 +56,32 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     state: "ENABLED",
+ * });
+ * const dlmLifecycle = new aws.iam.RolePolicy("dlmLifecycle", {
+ *     policy: `{
+ *    "Version": "2012-10-17",
+ *    "Statement": [
+ *       {
+ *          "Effect": "Allow",
+ *          "Action": [
+ *             "ec2:CreateSnapshot",
+ *             "ec2:DeleteSnapshot",
+ *             "ec2:DescribeVolumes",
+ *             "ec2:DescribeSnapshots"
+ *          ],
+ *          "Resource": "*"
+ *       },
+ *       {
+ *          "Effect": "Allow",
+ *          "Action": [
+ *             "ec2:CreateTags"
+ *          ],
+ *          "Resource": "arn:aws:ec2:*::snapshot/*"
+ *       }
+ *    ]
+ * }
+ * `,
+ *     role: dlmLifecycleRole.id,
  * });
  * ```
  *
@@ -138,38 +138,32 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LifecyclePolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LifecyclePolicyArgs | LifecyclePolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LifecyclePolicyState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
-            inputs["policyDetails"] = state ? state.policyDetails : undefined;
-            inputs["state"] = state ? state.state : undefined;
+    constructor(name: string, args: LifecyclePolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LifecyclePolicyArgs | LifecyclePolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LifecyclePolicyState;
+            inputs.description = state.description;
+            inputs.executionRoleArn = state.executionRoleArn;
+            inputs.policyDetails = state.policyDetails;
+            inputs.state = state.state;
         } else {
-            const args = argsOrState as LifecyclePolicyArgs | undefined;
-            if (!args || args.description === undefined) {
+            const args = argsOrState as LifecyclePolicyArgs;
+            if (args.description === undefined) {
                 throw new Error("Missing required property 'description'");
             }
-            if (!args || args.executionRoleArn === undefined) {
+            if (args.executionRoleArn === undefined) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if (!args || args.policyDetails === undefined) {
+            if (args.policyDetails === undefined) {
                 throw new Error("Missing required property 'policyDetails'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            inputs["policyDetails"] = args ? args.policyDetails : undefined;
-            inputs["state"] = args ? args.state : undefined;
+            inputs.description = args.description;
+            inputs.executionRoleArn = args.executionRoleArn;
+            inputs.policyDetails = args.policyDetails;
+            inputs.state = args.state;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LifecyclePolicy.__pulumiType, name, inputs, opts);
     }
 }

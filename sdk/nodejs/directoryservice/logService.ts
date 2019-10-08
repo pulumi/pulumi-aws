@@ -87,31 +87,25 @@ export class LogService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LogServiceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LogServiceArgs | LogServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LogServiceState | undefined;
-            inputs["directoryId"] = state ? state.directoryId : undefined;
-            inputs["logGroupName"] = state ? state.logGroupName : undefined;
+    constructor(name: string, args: LogServiceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LogServiceArgs | LogServiceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LogServiceState;
+            inputs.directoryId = state.directoryId;
+            inputs.logGroupName = state.logGroupName;
         } else {
-            const args = argsOrState as LogServiceArgs | undefined;
-            if (!args || args.directoryId === undefined) {
+            const args = argsOrState as LogServiceArgs;
+            if (args.directoryId === undefined) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if (!args || args.logGroupName === undefined) {
+            if (args.logGroupName === undefined) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            inputs["directoryId"] = args ? args.directoryId : undefined;
-            inputs["logGroupName"] = args ? args.logGroupName : undefined;
+            inputs.directoryId = args.directoryId;
+            inputs.logGroupName = args.logGroupName;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LogService.__pulumiType, name, inputs, opts);
     }
 }

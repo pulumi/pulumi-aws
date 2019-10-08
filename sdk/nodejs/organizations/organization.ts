@@ -101,41 +101,35 @@ export class Organization extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: OrganizationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OrganizationArgs | OrganizationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as OrganizationState | undefined;
-            inputs["accounts"] = state ? state.accounts : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["awsServiceAccessPrincipals"] = state ? state.awsServiceAccessPrincipals : undefined;
-            inputs["enabledPolicyTypes"] = state ? state.enabledPolicyTypes : undefined;
-            inputs["featureSet"] = state ? state.featureSet : undefined;
-            inputs["masterAccountArn"] = state ? state.masterAccountArn : undefined;
-            inputs["masterAccountEmail"] = state ? state.masterAccountEmail : undefined;
-            inputs["masterAccountId"] = state ? state.masterAccountId : undefined;
-            inputs["nonMasterAccounts"] = state ? state.nonMasterAccounts : undefined;
-            inputs["roots"] = state ? state.roots : undefined;
+    constructor(name: string, args?: OrganizationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: OrganizationArgs | OrganizationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as OrganizationState;
+            inputs.accounts = state.accounts;
+            inputs.arn = state.arn;
+            inputs.awsServiceAccessPrincipals = state.awsServiceAccessPrincipals;
+            inputs.enabledPolicyTypes = state.enabledPolicyTypes;
+            inputs.featureSet = state.featureSet;
+            inputs.masterAccountArn = state.masterAccountArn;
+            inputs.masterAccountEmail = state.masterAccountEmail;
+            inputs.masterAccountId = state.masterAccountId;
+            inputs.nonMasterAccounts = state.nonMasterAccounts;
+            inputs.roots = state.roots;
         } else {
-            const args = argsOrState as OrganizationArgs | undefined;
-            inputs["awsServiceAccessPrincipals"] = args ? args.awsServiceAccessPrincipals : undefined;
-            inputs["enabledPolicyTypes"] = args ? args.enabledPolicyTypes : undefined;
-            inputs["featureSet"] = args ? args.featureSet : undefined;
-            inputs["accounts"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["masterAccountArn"] = undefined /*out*/;
-            inputs["masterAccountEmail"] = undefined /*out*/;
-            inputs["masterAccountId"] = undefined /*out*/;
-            inputs["nonMasterAccounts"] = undefined /*out*/;
-            inputs["roots"] = undefined /*out*/;
+            const args = argsOrState as OrganizationArgs;
+            inputs.awsServiceAccessPrincipals = args.awsServiceAccessPrincipals;
+            inputs.enabledPolicyTypes = args.enabledPolicyTypes;
+            inputs.featureSet = args.featureSet;
+            inputs.accounts = undefined /*out*/;
+            inputs.arn = undefined /*out*/;
+            inputs.masterAccountArn = undefined /*out*/;
+            inputs.masterAccountEmail = undefined /*out*/;
+            inputs.masterAccountId = undefined /*out*/;
+            inputs.nonMasterAccounts = undefined /*out*/;
+            inputs.roots = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Organization.__pulumiType, name, inputs, opts);
     }
 }

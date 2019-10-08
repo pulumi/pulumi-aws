@@ -80,33 +80,27 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MainRouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MainRouteTableAssociationArgs | MainRouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MainRouteTableAssociationState | undefined;
-            inputs["originalRouteTableId"] = state ? state.originalRouteTableId : undefined;
-            inputs["routeTableId"] = state ? state.routeTableId : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: MainRouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: MainRouteTableAssociationArgs | MainRouteTableAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as MainRouteTableAssociationState;
+            inputs.originalRouteTableId = state.originalRouteTableId;
+            inputs.routeTableId = state.routeTableId;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as MainRouteTableAssociationArgs | undefined;
-            if (!args || args.routeTableId === undefined) {
+            const args = argsOrState as MainRouteTableAssociationArgs;
+            if (args.routeTableId === undefined) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            if (!args || args.vpcId === undefined) {
+            if (args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["routeTableId"] = args ? args.routeTableId : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["originalRouteTableId"] = undefined /*out*/;
+            inputs.routeTableId = args.routeTableId;
+            inputs.vpcId = args.vpcId;
+            inputs.originalRouteTableId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(MainRouteTableAssociation.__pulumiType, name, inputs, opts);
     }
 }

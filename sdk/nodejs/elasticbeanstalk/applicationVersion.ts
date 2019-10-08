@@ -33,14 +33,14 @@ import {Application} from "./application";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const defaultApplication = new aws.elasticbeanstalk.Application("default", {
+ *     description: "tf-test-desc",
+ * });
  * const defaultBucket = new aws.s3.Bucket("default", {});
  * const defaultBucketObject = new aws.s3.BucketObject("default", {
  *     bucket: defaultBucket.id,
  *     key: "beanstalk/go-v1.zip",
  *     source: new pulumi.asset.FileAsset("go-v1.zip"),
- * });
- * const defaultApplication = new aws.elasticbeanstalk.Application("default", {
- *     description: "tf-test-desc",
  * });
  * const defaultApplicationVersion = new aws.elasticbeanstalk.ApplicationVersion("default", {
  *     application: "tf-test-name",
@@ -120,46 +120,40 @@ export class ApplicationVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationVersionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationVersionArgs | ApplicationVersionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ApplicationVersionState | undefined;
-            inputs["application"] = state ? state.application : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["forceDelete"] = state ? state.forceDelete : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: ApplicationVersionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ApplicationVersionArgs | ApplicationVersionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ApplicationVersionState;
+            inputs.application = state.application;
+            inputs.arn = state.arn;
+            inputs.bucket = state.bucket;
+            inputs.description = state.description;
+            inputs.forceDelete = state.forceDelete;
+            inputs.key = state.key;
+            inputs.name = state.name;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as ApplicationVersionArgs | undefined;
-            if (!args || args.application === undefined) {
+            const args = argsOrState as ApplicationVersionArgs;
+            if (args.application === undefined) {
                 throw new Error("Missing required property 'application'");
             }
-            if (!args || args.bucket === undefined) {
+            if (args.bucket === undefined) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if (!args || args.key === undefined) {
+            if (args.key === undefined) {
                 throw new Error("Missing required property 'key'");
             }
-            inputs["application"] = args ? args.application : undefined;
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["forceDelete"] = args ? args.forceDelete : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.application = args.application;
+            inputs.bucket = args.bucket;
+            inputs.description = args.description;
+            inputs.forceDelete = args.forceDelete;
+            inputs.key = args.key;
+            inputs.name = args.name;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ApplicationVersion.__pulumiType, name, inputs, opts);
     }
 }

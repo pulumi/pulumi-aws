@@ -76,31 +76,25 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SnapshotScheduleAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SnapshotScheduleAssociationArgs | SnapshotScheduleAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SnapshotScheduleAssociationState | undefined;
-            inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            inputs["scheduleIdentifier"] = state ? state.scheduleIdentifier : undefined;
+    constructor(name: string, args: SnapshotScheduleAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SnapshotScheduleAssociationArgs | SnapshotScheduleAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SnapshotScheduleAssociationState;
+            inputs.clusterIdentifier = state.clusterIdentifier;
+            inputs.scheduleIdentifier = state.scheduleIdentifier;
         } else {
-            const args = argsOrState as SnapshotScheduleAssociationArgs | undefined;
-            if (!args || args.clusterIdentifier === undefined) {
+            const args = argsOrState as SnapshotScheduleAssociationArgs;
+            if (args.clusterIdentifier === undefined) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if (!args || args.scheduleIdentifier === undefined) {
+            if (args.scheduleIdentifier === undefined) {
                 throw new Error("Missing required property 'scheduleIdentifier'");
             }
-            inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            inputs["scheduleIdentifier"] = args ? args.scheduleIdentifier : undefined;
+            inputs.clusterIdentifier = args.clusterIdentifier;
+            inputs.scheduleIdentifier = args.scheduleIdentifier;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SnapshotScheduleAssociation.__pulumiType, name, inputs, opts);
     }
 }

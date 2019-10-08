@@ -159,51 +159,45 @@ export class TargetGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TargetGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TargetGroupArgs | TargetGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as TargetGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
-            inputs["deregistrationDelay"] = state ? state.deregistrationDelay : undefined;
-            inputs["healthCheck"] = state ? state.healthCheck : undefined;
-            inputs["lambdaMultiValueHeadersEnabled"] = state ? state.lambdaMultiValueHeadersEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["proxyProtocolV2"] = state ? state.proxyProtocolV2 : undefined;
-            inputs["slowStart"] = state ? state.slowStart : undefined;
-            inputs["stickiness"] = state ? state.stickiness : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["targetType"] = state ? state.targetType : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args?: TargetGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: TargetGroupArgs | TargetGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as TargetGroupState;
+            inputs.arn = state.arn;
+            inputs.arnSuffix = state.arnSuffix;
+            inputs.deregistrationDelay = state.deregistrationDelay;
+            inputs.healthCheck = state.healthCheck;
+            inputs.lambdaMultiValueHeadersEnabled = state.lambdaMultiValueHeadersEnabled;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.port = state.port;
+            inputs.protocol = state.protocol;
+            inputs.proxyProtocolV2 = state.proxyProtocolV2;
+            inputs.slowStart = state.slowStart;
+            inputs.stickiness = state.stickiness;
+            inputs.tags = state.tags;
+            inputs.targetType = state.targetType;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as TargetGroupArgs | undefined;
-            inputs["deregistrationDelay"] = args ? args.deregistrationDelay : undefined;
-            inputs["healthCheck"] = args ? args.healthCheck : undefined;
-            inputs["lambdaMultiValueHeadersEnabled"] = args ? args.lambdaMultiValueHeadersEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["proxyProtocolV2"] = args ? args.proxyProtocolV2 : undefined;
-            inputs["slowStart"] = args ? args.slowStart : undefined;
-            inputs["stickiness"] = args ? args.stickiness : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetType"] = args ? args.targetType : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["arnSuffix"] = undefined /*out*/;
+            const args = argsOrState as TargetGroupArgs;
+            inputs.deregistrationDelay = args.deregistrationDelay;
+            inputs.healthCheck = args.healthCheck;
+            inputs.lambdaMultiValueHeadersEnabled = args.lambdaMultiValueHeadersEnabled;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.port = args.port;
+            inputs.protocol = args.protocol;
+            inputs.proxyProtocolV2 = args.proxyProtocolV2;
+            inputs.slowStart = args.slowStart;
+            inputs.stickiness = args.stickiness;
+            inputs.tags = args.tags;
+            inputs.targetType = args.targetType;
+            inputs.vpcId = args.vpcId;
+            inputs.arn = undefined /*out*/;
+            inputs.arnSuffix = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(TargetGroup.__pulumiType, name, inputs, opts);
     }
 }

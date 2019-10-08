@@ -81,32 +81,26 @@ export class KeyPair extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: KeyPairArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: KeyPairArgs | KeyPairState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as KeyPairState | undefined;
-            inputs["fingerprint"] = state ? state.fingerprint : undefined;
-            inputs["keyName"] = state ? state.keyName : undefined;
-            inputs["keyNamePrefix"] = state ? state.keyNamePrefix : undefined;
-            inputs["publicKey"] = state ? state.publicKey : undefined;
+    constructor(name: string, args: KeyPairArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: KeyPairArgs | KeyPairState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as KeyPairState;
+            inputs.fingerprint = state.fingerprint;
+            inputs.keyName = state.keyName;
+            inputs.keyNamePrefix = state.keyNamePrefix;
+            inputs.publicKey = state.publicKey;
         } else {
-            const args = argsOrState as KeyPairArgs | undefined;
-            if (!args || args.publicKey === undefined) {
+            const args = argsOrState as KeyPairArgs;
+            if (args.publicKey === undefined) {
                 throw new Error("Missing required property 'publicKey'");
             }
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["keyNamePrefix"] = args ? args.keyNamePrefix : undefined;
-            inputs["publicKey"] = args ? args.publicKey : undefined;
-            inputs["fingerprint"] = undefined /*out*/;
+            inputs.keyName = args.keyName;
+            inputs.keyNamePrefix = args.keyNamePrefix;
+            inputs.publicKey = args.publicKey;
+            inputs.fingerprint = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(KeyPair.__pulumiType, name, inputs, opts);
     }
 }

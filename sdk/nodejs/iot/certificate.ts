@@ -95,36 +95,30 @@ export class Certificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CertificateState | undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificatePem"] = state ? state.certificatePem : undefined;
-            inputs["csr"] = state ? state.csr : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
-            inputs["publicKey"] = state ? state.publicKey : undefined;
+    constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: CertificateArgs | CertificateState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as CertificateState;
+            inputs.active = state.active;
+            inputs.arn = state.arn;
+            inputs.certificatePem = state.certificatePem;
+            inputs.csr = state.csr;
+            inputs.privateKey = state.privateKey;
+            inputs.publicKey = state.publicKey;
         } else {
-            const args = argsOrState as CertificateArgs | undefined;
-            if (!args || args.active === undefined) {
+            const args = argsOrState as CertificateArgs;
+            if (args.active === undefined) {
                 throw new Error("Missing required property 'active'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["csr"] = args ? args.csr : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificatePem"] = undefined /*out*/;
-            inputs["privateKey"] = undefined /*out*/;
-            inputs["publicKey"] = undefined /*out*/;
+            inputs.active = args.active;
+            inputs.csr = args.csr;
+            inputs.arn = undefined /*out*/;
+            inputs.certificatePem = undefined /*out*/;
+            inputs.privateKey = undefined /*out*/;
+            inputs.publicKey = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Certificate.__pulumiType, name, inputs, opts);
     }
 }

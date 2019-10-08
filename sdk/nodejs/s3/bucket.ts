@@ -175,98 +175,6 @@ import {RoutingRule} from "./routingRules";
  * });
  * ```
  * 
- * ### Using replication configuration
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const central = new aws.Provider("central", {
- *     region: "eu-central-1",
- * });
- * const replicationRole = new aws.iam.Role("replication", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "s3.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- * });
- * const destination = new aws.s3.Bucket("destination", {
- *     region: "eu-west-1",
- *     versioning: {
- *         enabled: true,
- *     },
- * });
- * const bucket = new aws.s3.Bucket("bucket", {
- *     acl: "private",
- *     region: "eu-central-1",
- *     replicationConfiguration: {
- *         role: replicationRole.arn,
- *         rules: [{
- *             destination: {
- *                 bucket: destination.arn,
- *                 storageClass: "STANDARD",
- *             },
- *             id: "foobar",
- *             prefix: "foo",
- *             status: "Enabled",
- *         }],
- *     },
- *     versioning: {
- *         enabled: true,
- *     },
- * }, {provider: central});
- * const replicationPolicy = new aws.iam.Policy("replication", {
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "s3:GetReplicationConfiguration",
- *         "s3:ListBucket"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": [
- *         "${bucket.arn}"
- *       ]
- *     },
- *     {
- *       "Action": [
- *         "s3:GetObjectVersion",
- *         "s3:GetObjectVersionAcl"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": [
- *         "${bucket.arn}/*"
- *       ]
- *     },
- *     {
- *       "Action": [
- *         "s3:ReplicateObject",
- *         "s3:ReplicateDelete"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "${destination.arn}/*"
- *     }
- *   ]
- * }
- * `,
- * });
- * const replicationPolicyAttachment = new aws.iam.PolicyAttachment("replication", {
- *     policyArn: replicationPolicy.arn,
- *     roles: [replicationRole.name],
- * });
- * ```
- * 
  * ### Enable Default Server Side Encryption
  * 
  * ```typescript
@@ -422,67 +330,61 @@ export class Bucket extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: BucketArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BucketArgs | BucketState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as BucketState | undefined;
-            inputs["accelerationStatus"] = state ? state.accelerationStatus : undefined;
-            inputs["acl"] = state ? state.acl : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["bucketDomainName"] = state ? state.bucketDomainName : undefined;
-            inputs["bucketPrefix"] = state ? state.bucketPrefix : undefined;
-            inputs["bucketRegionalDomainName"] = state ? state.bucketRegionalDomainName : undefined;
-            inputs["corsRules"] = state ? state.corsRules : undefined;
-            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
-            inputs["lifecycleRules"] = state ? state.lifecycleRules : undefined;
-            inputs["loggings"] = state ? state.loggings : undefined;
-            inputs["objectLockConfiguration"] = state ? state.objectLockConfiguration : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["region"] = state ? state.region : undefined;
-            inputs["replicationConfiguration"] = state ? state.replicationConfiguration : undefined;
-            inputs["requestPayer"] = state ? state.requestPayer : undefined;
-            inputs["serverSideEncryptionConfiguration"] = state ? state.serverSideEncryptionConfiguration : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["versioning"] = state ? state.versioning : undefined;
-            inputs["website"] = state ? state.website : undefined;
-            inputs["websiteDomain"] = state ? state.websiteDomain : undefined;
-            inputs["websiteEndpoint"] = state ? state.websiteEndpoint : undefined;
+    constructor(name: string, args?: BucketArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: BucketArgs | BucketState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as BucketState;
+            inputs.accelerationStatus = state.accelerationStatus;
+            inputs.acl = state.acl;
+            inputs.arn = state.arn;
+            inputs.bucket = state.bucket;
+            inputs.bucketDomainName = state.bucketDomainName;
+            inputs.bucketPrefix = state.bucketPrefix;
+            inputs.bucketRegionalDomainName = state.bucketRegionalDomainName;
+            inputs.corsRules = state.corsRules;
+            inputs.forceDestroy = state.forceDestroy;
+            inputs.hostedZoneId = state.hostedZoneId;
+            inputs.lifecycleRules = state.lifecycleRules;
+            inputs.loggings = state.loggings;
+            inputs.objectLockConfiguration = state.objectLockConfiguration;
+            inputs.policy = state.policy;
+            inputs.region = state.region;
+            inputs.replicationConfiguration = state.replicationConfiguration;
+            inputs.requestPayer = state.requestPayer;
+            inputs.serverSideEncryptionConfiguration = state.serverSideEncryptionConfiguration;
+            inputs.tags = state.tags;
+            inputs.versioning = state.versioning;
+            inputs.website = state.website;
+            inputs.websiteDomain = state.websiteDomain;
+            inputs.websiteEndpoint = state.websiteEndpoint;
         } else {
-            const args = argsOrState as BucketArgs | undefined;
-            inputs["accelerationStatus"] = args ? args.accelerationStatus : undefined;
-            inputs["acl"] = args ? args.acl : undefined;
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["bucketPrefix"] = args ? args.bucketPrefix : undefined;
-            inputs["corsRules"] = args ? args.corsRules : undefined;
-            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            inputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
-            inputs["lifecycleRules"] = args ? args.lifecycleRules : undefined;
-            inputs["loggings"] = args ? args.loggings : undefined;
-            inputs["objectLockConfiguration"] = args ? args.objectLockConfiguration : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["region"] = args ? args.region : undefined;
-            inputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
-            inputs["requestPayer"] = args ? args.requestPayer : undefined;
-            inputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["versioning"] = args ? args.versioning : undefined;
-            inputs["website"] = args ? args.website : undefined;
-            inputs["websiteDomain"] = args ? args.websiteDomain : undefined;
-            inputs["websiteEndpoint"] = args ? args.websiteEndpoint : undefined;
-            inputs["bucketDomainName"] = undefined /*out*/;
-            inputs["bucketRegionalDomainName"] = undefined /*out*/;
+            const args = argsOrState as BucketArgs;
+            inputs.accelerationStatus = args.accelerationStatus;
+            inputs.acl = args.acl;
+            inputs.arn = args.arn;
+            inputs.bucket = args.bucket;
+            inputs.bucketPrefix = args.bucketPrefix;
+            inputs.corsRules = args.corsRules;
+            inputs.forceDestroy = args.forceDestroy;
+            inputs.hostedZoneId = args.hostedZoneId;
+            inputs.lifecycleRules = args.lifecycleRules;
+            inputs.loggings = args.loggings;
+            inputs.objectLockConfiguration = args.objectLockConfiguration;
+            inputs.policy = args.policy;
+            inputs.region = args.region;
+            inputs.replicationConfiguration = args.replicationConfiguration;
+            inputs.requestPayer = args.requestPayer;
+            inputs.serverSideEncryptionConfiguration = args.serverSideEncryptionConfiguration;
+            inputs.tags = args.tags;
+            inputs.versioning = args.versioning;
+            inputs.website = args.website;
+            inputs.websiteDomain = args.websiteDomain;
+            inputs.websiteEndpoint = args.websiteEndpoint;
+            inputs.bucketDomainName = undefined /*out*/;
+            inputs.bucketRegionalDomainName = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Bucket.__pulumiType, name, inputs, opts);
     }
 }

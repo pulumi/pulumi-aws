@@ -121,43 +121,37 @@ export class Secret extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SecretArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SecretArgs | SecretState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SecretState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["recoveryWindowInDays"] = state ? state.recoveryWindowInDays : undefined;
-            inputs["rotationEnabled"] = state ? state.rotationEnabled : undefined;
-            inputs["rotationLambdaArn"] = state ? state.rotationLambdaArn : undefined;
-            inputs["rotationRules"] = state ? state.rotationRules : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: SecretArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SecretArgs | SecretState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SecretState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.policy = state.policy;
+            inputs.recoveryWindowInDays = state.recoveryWindowInDays;
+            inputs.rotationEnabled = state.rotationEnabled;
+            inputs.rotationLambdaArn = state.rotationLambdaArn;
+            inputs.rotationRules = state.rotationRules;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as SecretArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["recoveryWindowInDays"] = args ? args.recoveryWindowInDays : undefined;
-            inputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
-            inputs["rotationRules"] = args ? args.rotationRules : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["rotationEnabled"] = undefined /*out*/;
+            const args = argsOrState as SecretArgs;
+            inputs.description = args.description;
+            inputs.kmsKeyId = args.kmsKeyId;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.policy = args.policy;
+            inputs.recoveryWindowInDays = args.recoveryWindowInDays;
+            inputs.rotationLambdaArn = args.rotationLambdaArn;
+            inputs.rotationRules = args.rotationRules;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.rotationEnabled = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Secret.__pulumiType, name, inputs, opts);
     }
 }

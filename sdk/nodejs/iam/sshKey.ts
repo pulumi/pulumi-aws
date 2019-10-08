@@ -84,42 +84,36 @@ export class SshKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SshKeyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SshKeyArgs | SshKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SshKeyState | undefined;
-            inputs["encoding"] = state ? state.encoding : undefined;
-            inputs["fingerprint"] = state ? state.fingerprint : undefined;
-            inputs["publicKey"] = state ? state.publicKey : undefined;
-            inputs["sshPublicKeyId"] = state ? state.sshPublicKeyId : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["username"] = state ? state.username : undefined;
+    constructor(name: string, args: SshKeyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SshKeyArgs | SshKeyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SshKeyState;
+            inputs.encoding = state.encoding;
+            inputs.fingerprint = state.fingerprint;
+            inputs.publicKey = state.publicKey;
+            inputs.sshPublicKeyId = state.sshPublicKeyId;
+            inputs.status = state.status;
+            inputs.username = state.username;
         } else {
-            const args = argsOrState as SshKeyArgs | undefined;
-            if (!args || args.encoding === undefined) {
+            const args = argsOrState as SshKeyArgs;
+            if (args.encoding === undefined) {
                 throw new Error("Missing required property 'encoding'");
             }
-            if (!args || args.publicKey === undefined) {
+            if (args.publicKey === undefined) {
                 throw new Error("Missing required property 'publicKey'");
             }
-            if (!args || args.username === undefined) {
+            if (args.username === undefined) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["encoding"] = args ? args.encoding : undefined;
-            inputs["publicKey"] = args ? args.publicKey : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["fingerprint"] = undefined /*out*/;
-            inputs["sshPublicKeyId"] = undefined /*out*/;
+            inputs.encoding = args.encoding;
+            inputs.publicKey = args.publicKey;
+            inputs.status = args.status;
+            inputs.username = args.username;
+            inputs.fingerprint = undefined /*out*/;
+            inputs.sshPublicKeyId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SshKey.__pulumiType, name, inputs, opts);
     }
 }

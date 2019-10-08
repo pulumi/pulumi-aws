@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *     records: [ptfeServiceVpcEndpoint.dnsEntries.apply(dnsEntries => (<any>dnsEntries[0])["dnsName"])],
  *     ttl: 300,
  *     type: "CNAME",
- *     zoneId: internal.zoneId!,
+ *     zoneId: internal.zoneId,
  * });
  * ```
  * 
@@ -195,61 +195,55 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpcEndpointArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcEndpointArgs | VpcEndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpcEndpointState | undefined;
-            inputs["autoAccept"] = state ? state.autoAccept : undefined;
-            inputs["cidrBlocks"] = state ? state.cidrBlocks : undefined;
-            inputs["dnsEntries"] = state ? state.dnsEntries : undefined;
-            inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["prefixListId"] = state ? state.prefixListId : undefined;
-            inputs["privateDnsEnabled"] = state ? state.privateDnsEnabled : undefined;
-            inputs["requesterManaged"] = state ? state.requesterManaged : undefined;
-            inputs["routeTableIds"] = state ? state.routeTableIds : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["serviceName"] = state ? state.serviceName : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcEndpointType"] = state ? state.vpcEndpointType : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: VpcEndpointArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VpcEndpointArgs | VpcEndpointState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VpcEndpointState;
+            inputs.autoAccept = state.autoAccept;
+            inputs.cidrBlocks = state.cidrBlocks;
+            inputs.dnsEntries = state.dnsEntries;
+            inputs.networkInterfaceIds = state.networkInterfaceIds;
+            inputs.ownerId = state.ownerId;
+            inputs.policy = state.policy;
+            inputs.prefixListId = state.prefixListId;
+            inputs.privateDnsEnabled = state.privateDnsEnabled;
+            inputs.requesterManaged = state.requesterManaged;
+            inputs.routeTableIds = state.routeTableIds;
+            inputs.securityGroupIds = state.securityGroupIds;
+            inputs.serviceName = state.serviceName;
+            inputs.state = state.state;
+            inputs.subnetIds = state.subnetIds;
+            inputs.tags = state.tags;
+            inputs.vpcEndpointType = state.vpcEndpointType;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as VpcEndpointArgs | undefined;
-            if (!args || args.serviceName === undefined) {
+            const args = argsOrState as VpcEndpointArgs;
+            if (args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.vpcId === undefined) {
+            if (args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["autoAccept"] = args ? args.autoAccept : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["privateDnsEnabled"] = args ? args.privateDnsEnabled : undefined;
-            inputs["routeTableIds"] = args ? args.routeTableIds : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcEndpointType"] = args ? args.vpcEndpointType : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["cidrBlocks"] = undefined /*out*/;
-            inputs["dnsEntries"] = undefined /*out*/;
-            inputs["networkInterfaceIds"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["prefixListId"] = undefined /*out*/;
-            inputs["requesterManaged"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            inputs.autoAccept = args.autoAccept;
+            inputs.policy = args.policy;
+            inputs.privateDnsEnabled = args.privateDnsEnabled;
+            inputs.routeTableIds = args.routeTableIds;
+            inputs.securityGroupIds = args.securityGroupIds;
+            inputs.serviceName = args.serviceName;
+            inputs.subnetIds = args.subnetIds;
+            inputs.tags = args.tags;
+            inputs.vpcEndpointType = args.vpcEndpointType;
+            inputs.vpcId = args.vpcId;
+            inputs.cidrBlocks = undefined /*out*/;
+            inputs.dnsEntries = undefined /*out*/;
+            inputs.networkInterfaceIds = undefined /*out*/;
+            inputs.ownerId = undefined /*out*/;
+            inputs.prefixListId = undefined /*out*/;
+            inputs.requesterManaged = undefined /*out*/;
+            inputs.state = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VpcEndpoint.__pulumiType, name, inputs, opts);
     }
 }

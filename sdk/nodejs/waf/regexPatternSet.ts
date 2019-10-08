@@ -68,25 +68,19 @@ export class RegexPatternSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RegexPatternSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RegexPatternSetArgs | RegexPatternSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RegexPatternSetState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["regexPatternStrings"] = state ? state.regexPatternStrings : undefined;
+    constructor(name: string, args?: RegexPatternSetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RegexPatternSetArgs | RegexPatternSetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RegexPatternSetState;
+            inputs.name = state.name;
+            inputs.regexPatternStrings = state.regexPatternStrings;
         } else {
-            const args = argsOrState as RegexPatternSetArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["regexPatternStrings"] = args ? args.regexPatternStrings : undefined;
+            const args = argsOrState as RegexPatternSetArgs;
+            inputs.name = args.name;
+            inputs.regexPatternStrings = args.regexPatternStrings;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RegexPatternSet.__pulumiType, name, inputs, opts);
     }
 }

@@ -158,42 +158,36 @@ export class GatewayAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GatewayAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GatewayAssociationArgs | GatewayAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GatewayAssociationState | undefined;
-            inputs["allowedPrefixes"] = state ? state.allowedPrefixes : undefined;
-            inputs["associatedGatewayId"] = state ? state.associatedGatewayId : undefined;
-            inputs["associatedGatewayOwnerAccountId"] = state ? state.associatedGatewayOwnerAccountId : undefined;
-            inputs["associatedGatewayType"] = state ? state.associatedGatewayType : undefined;
-            inputs["dxGatewayAssociationId"] = state ? state.dxGatewayAssociationId : undefined;
-            inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
-            inputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;
-            inputs["proposalId"] = state ? state.proposalId : undefined;
-            inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
+    constructor(name: string, args: GatewayAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GatewayAssociationArgs | GatewayAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GatewayAssociationState;
+            inputs.allowedPrefixes = state.allowedPrefixes;
+            inputs.associatedGatewayId = state.associatedGatewayId;
+            inputs.associatedGatewayOwnerAccountId = state.associatedGatewayOwnerAccountId;
+            inputs.associatedGatewayType = state.associatedGatewayType;
+            inputs.dxGatewayAssociationId = state.dxGatewayAssociationId;
+            inputs.dxGatewayId = state.dxGatewayId;
+            inputs.dxGatewayOwnerAccountId = state.dxGatewayOwnerAccountId;
+            inputs.proposalId = state.proposalId;
+            inputs.vpnGatewayId = state.vpnGatewayId;
         } else {
-            const args = argsOrState as GatewayAssociationArgs | undefined;
-            if (!args || args.dxGatewayId === undefined) {
+            const args = argsOrState as GatewayAssociationArgs;
+            if (args.dxGatewayId === undefined) {
                 throw new Error("Missing required property 'dxGatewayId'");
             }
-            inputs["allowedPrefixes"] = args ? args.allowedPrefixes : undefined;
-            inputs["associatedGatewayId"] = args ? args.associatedGatewayId : undefined;
-            inputs["associatedGatewayOwnerAccountId"] = args ? args.associatedGatewayOwnerAccountId : undefined;
-            inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
-            inputs["proposalId"] = args ? args.proposalId : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
-            inputs["associatedGatewayType"] = undefined /*out*/;
-            inputs["dxGatewayAssociationId"] = undefined /*out*/;
-            inputs["dxGatewayOwnerAccountId"] = undefined /*out*/;
+            inputs.allowedPrefixes = args.allowedPrefixes;
+            inputs.associatedGatewayId = args.associatedGatewayId;
+            inputs.associatedGatewayOwnerAccountId = args.associatedGatewayOwnerAccountId;
+            inputs.dxGatewayId = args.dxGatewayId;
+            inputs.proposalId = args.proposalId;
+            inputs.vpnGatewayId = args.vpnGatewayId;
+            inputs.associatedGatewayType = undefined /*out*/;
+            inputs.dxGatewayAssociationId = undefined /*out*/;
+            inputs.dxGatewayOwnerAccountId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(GatewayAssociation.__pulumiType, name, inputs, opts);
     }
 }

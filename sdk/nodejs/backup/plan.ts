@@ -81,34 +81,28 @@ export class Plan extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PlanArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PlanArgs | PlanState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PlanState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["version"] = state ? state.version : undefined;
+    constructor(name: string, args: PlanArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PlanArgs | PlanState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PlanState;
+            inputs.arn = state.arn;
+            inputs.name = state.name;
+            inputs.rules = state.rules;
+            inputs.tags = state.tags;
+            inputs.version = state.version;
         } else {
-            const args = argsOrState as PlanArgs | undefined;
-            if (!args || args.rules === undefined) {
+            const args = argsOrState as PlanArgs;
+            if (args.rules === undefined) {
                 throw new Error("Missing required property 'rules'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            inputs.name = args.name;
+            inputs.rules = args.rules;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.version = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Plan.__pulumiType, name, inputs, opts);
     }
 }

@@ -18,9 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const user1 = new aws.iam.User("user1", {});
  * const group1 = new aws.iam.Group("group1", {});
  * const group2 = new aws.iam.Group("group2", {});
+ * const group3 = new aws.iam.Group("group3", {});
+ * const user1 = new aws.iam.User("user1", {});
  * const example1 = new aws.iam.UserGroupMembership("example1", {
  *     groups: [
  *         group1.name,
@@ -28,7 +29,6 @@ import * as utilities from "../utilities";
  *     ],
  *     user: user1.name,
  * });
- * const group3 = new aws.iam.Group("group3", {});
  * const example2 = new aws.iam.UserGroupMembership("example2", {
  *     groups: [group3.name],
  *     user: user1.name,
@@ -80,31 +80,25 @@ export class UserGroupMembership extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserGroupMembershipArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserGroupMembershipArgs | UserGroupMembershipState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as UserGroupMembershipState | undefined;
-            inputs["groups"] = state ? state.groups : undefined;
-            inputs["user"] = state ? state.user : undefined;
+    constructor(name: string, args: UserGroupMembershipArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: UserGroupMembershipArgs | UserGroupMembershipState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as UserGroupMembershipState;
+            inputs.groups = state.groups;
+            inputs.user = state.user;
         } else {
-            const args = argsOrState as UserGroupMembershipArgs | undefined;
-            if (!args || args.groups === undefined) {
+            const args = argsOrState as UserGroupMembershipArgs;
+            if (args.groups === undefined) {
                 throw new Error("Missing required property 'groups'");
             }
-            if (!args || args.user === undefined) {
+            if (args.user === undefined) {
                 throw new Error("Missing required property 'user'");
             }
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["user"] = args ? args.user : undefined;
+            inputs.groups = args.groups;
+            inputs.user = args.user;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(UserGroupMembership.__pulumiType, name, inputs, opts);
     }
 }

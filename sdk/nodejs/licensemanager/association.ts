@@ -15,6 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("example", {
+ *     licenseCountingType: "Instance",
+ * });
  * const exampleAmi = aws.getAmi({
  *     filters: [{
  *         name: "name",
@@ -26,9 +29,6 @@ import * as utilities from "../utilities";
  * const exampleInstance = new aws.ec2.Instance("example", {
  *     ami: exampleAmi.id,
  *     instanceType: "t2.micro",
- * });
- * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("example", {
- *     licenseCountingType: "Instance",
  * });
  * const exampleAssociation = new aws.licensemanager.Association("example", {
  *     licenseConfigurationArn: exampleLicenseConfiguration.arn,
@@ -81,31 +81,25 @@ export class Association extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AssociationArgs | AssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AssociationState | undefined;
-            inputs["licenseConfigurationArn"] = state ? state.licenseConfigurationArn : undefined;
-            inputs["resourceArn"] = state ? state.resourceArn : undefined;
+    constructor(name: string, args: AssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AssociationArgs | AssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AssociationState;
+            inputs.licenseConfigurationArn = state.licenseConfigurationArn;
+            inputs.resourceArn = state.resourceArn;
         } else {
-            const args = argsOrState as AssociationArgs | undefined;
-            if (!args || args.licenseConfigurationArn === undefined) {
+            const args = argsOrState as AssociationArgs;
+            if (args.licenseConfigurationArn === undefined) {
                 throw new Error("Missing required property 'licenseConfigurationArn'");
             }
-            if (!args || args.resourceArn === undefined) {
+            if (args.resourceArn === undefined) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            inputs["licenseConfigurationArn"] = args ? args.licenseConfigurationArn : undefined;
-            inputs["resourceArn"] = args ? args.resourceArn : undefined;
+            inputs.licenseConfigurationArn = args.licenseConfigurationArn;
+            inputs.resourceArn = args.resourceArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Association.__pulumiType, name, inputs, opts);
     }
 }

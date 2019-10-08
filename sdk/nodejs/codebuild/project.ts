@@ -15,9 +15,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleBucket = new aws.s3.Bucket("example", {
- *     acl: "private",
- * });
  * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -33,66 +30,8 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Resource": [
- *         "*"
- *       ],
- *       "Action": [
- *         "logs:CreateLogGroup",
- *         "logs:CreateLogStream",
- *         "logs:PutLogEvents"
- *       ]
- *     },
- *     {
- *       "Effect": "Allow",
- *       "Action": [
- *         "ec2:CreateNetworkInterface",
- *         "ec2:DescribeDhcpOptions",
- *         "ec2:DescribeNetworkInterfaces",
- *         "ec2:DeleteNetworkInterface",
- *         "ec2:DescribeSubnets",
- *         "ec2:DescribeSecurityGroups",
- *         "ec2:DescribeVpcs"
- *       ],
- *       "Resource": "*"
- *     },
- *     {
- *       "Effect": "Allow",
- *       "Action": [
- *         "ec2:CreateNetworkInterfacePermission"
- *       ],
- *       "Resource": [
- *         "arn:aws:ec2:us-east-1:123456789012:network-interface/*"
- *       ]
- *       "Condition": {
- *         "StringEquals": {
- *           "ec2:Subnet": [
- *             "${aws_subnet_example1.arn}",
- *             "${aws_subnet_example2.arn}"
- *           ],
- *           "ec2:AuthorizedService": "codebuild.amazonaws.com"
- *         }
- *       }
- *     },
- *     {
- *       "Effect": "Allow",
- *       "Action": [
- *         "s3:*"
- *       ],
- *       "Resource": [
- *         "${exampleBucket.arn}",
- *         "${exampleBucket.arn}/*"
- *       ]
- *     }
- *   ]
- * }
- * `,
- *     role: exampleRole.name,
+ * const exampleBucket = new aws.s3.Bucket("example", {
+ *     acl: "private",
  * });
  * const exampleProject = new aws.codebuild.Project("example", {
  *     artifacts: {
@@ -184,6 +123,67 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Environment: "Test",
  *     },
+ * });
+ * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
+ *     policy: pulumi.interpolate`{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect": "Allow",
+ *       "Resource": [
+ *         "*"
+ *       ],
+ *       "Action": [
+ *         "logs:CreateLogGroup",
+ *         "logs:CreateLogStream",
+ *         "logs:PutLogEvents"
+ *       ]
+ *     },
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "ec2:CreateNetworkInterface",
+ *         "ec2:DescribeDhcpOptions",
+ *         "ec2:DescribeNetworkInterfaces",
+ *         "ec2:DeleteNetworkInterface",
+ *         "ec2:DescribeSubnets",
+ *         "ec2:DescribeSecurityGroups",
+ *         "ec2:DescribeVpcs"
+ *       ],
+ *       "Resource": "*"
+ *     },
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "ec2:CreateNetworkInterfacePermission"
+ *       ],
+ *       "Resource": [
+ *         "arn:aws:ec2:us-east-1:123456789012:network-interface/*"
+ *       ]
+ *       "Condition": {
+ *         "StringEquals": {
+ *           "ec2:Subnet": [
+ *             "${aws_subnet_example1.arn}",
+ *             "${aws_subnet_example2.arn}"
+ *           ],
+ *           "ec2:AuthorizedService": "codebuild.amazonaws.com"
+ *         }
+ *       }
+ *     },
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "s3:*"
+ *       ],
+ *       "Resource": [
+ *         "${exampleBucket.arn}",
+ *         "${exampleBucket.arn}/*"
+ *       ]
+ *     }
+ *   ]
+ * }
+ * `,
+ *     role: exampleRole.name,
  * });
  * ```
  *
@@ -292,67 +292,61 @@ export class Project extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProjectArgs | ProjectState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ProjectState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["artifacts"] = state ? state.artifacts : undefined;
-            inputs["badgeEnabled"] = state ? state.badgeEnabled : undefined;
-            inputs["badgeUrl"] = state ? state.badgeUrl : undefined;
-            inputs["buildTimeout"] = state ? state.buildTimeout : undefined;
-            inputs["cache"] = state ? state.cache : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["encryptionKey"] = state ? state.encryptionKey : undefined;
-            inputs["environment"] = state ? state.environment : undefined;
-            inputs["logsConfig"] = state ? state.logsConfig : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["secondaryArtifacts"] = state ? state.secondaryArtifacts : undefined;
-            inputs["secondarySources"] = state ? state.secondarySources : undefined;
-            inputs["serviceRole"] = state ? state.serviceRole : undefined;
-            inputs["source"] = state ? state.source : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+    constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ProjectArgs | ProjectState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ProjectState;
+            inputs.arn = state.arn;
+            inputs.artifacts = state.artifacts;
+            inputs.badgeEnabled = state.badgeEnabled;
+            inputs.badgeUrl = state.badgeUrl;
+            inputs.buildTimeout = state.buildTimeout;
+            inputs.cache = state.cache;
+            inputs.description = state.description;
+            inputs.encryptionKey = state.encryptionKey;
+            inputs.environment = state.environment;
+            inputs.logsConfig = state.logsConfig;
+            inputs.name = state.name;
+            inputs.secondaryArtifacts = state.secondaryArtifacts;
+            inputs.secondarySources = state.secondarySources;
+            inputs.serviceRole = state.serviceRole;
+            inputs.source = state.source;
+            inputs.tags = state.tags;
+            inputs.vpcConfig = state.vpcConfig;
         } else {
-            const args = argsOrState as ProjectArgs | undefined;
-            if (!args || args.artifacts === undefined) {
+            const args = argsOrState as ProjectArgs;
+            if (args.artifacts === undefined) {
                 throw new Error("Missing required property 'artifacts'");
             }
-            if (!args || args.environment === undefined) {
+            if (args.environment === undefined) {
                 throw new Error("Missing required property 'environment'");
             }
-            if (!args || args.serviceRole === undefined) {
+            if (args.serviceRole === undefined) {
                 throw new Error("Missing required property 'serviceRole'");
             }
-            if (!args || args.source === undefined) {
+            if (args.source === undefined) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["artifacts"] = args ? args.artifacts : undefined;
-            inputs["badgeEnabled"] = args ? args.badgeEnabled : undefined;
-            inputs["buildTimeout"] = args ? args.buildTimeout : undefined;
-            inputs["cache"] = args ? args.cache : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            inputs["environment"] = args ? args.environment : undefined;
-            inputs["logsConfig"] = args ? args.logsConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["secondaryArtifacts"] = args ? args.secondaryArtifacts : undefined;
-            inputs["secondarySources"] = args ? args.secondarySources : undefined;
-            inputs["serviceRole"] = args ? args.serviceRole : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["badgeUrl"] = undefined /*out*/;
+            inputs.artifacts = args.artifacts;
+            inputs.badgeEnabled = args.badgeEnabled;
+            inputs.buildTimeout = args.buildTimeout;
+            inputs.cache = args.cache;
+            inputs.description = args.description;
+            inputs.encryptionKey = args.encryptionKey;
+            inputs.environment = args.environment;
+            inputs.logsConfig = args.logsConfig;
+            inputs.name = args.name;
+            inputs.secondaryArtifacts = args.secondaryArtifacts;
+            inputs.secondarySources = args.secondarySources;
+            inputs.serviceRole = args.serviceRole;
+            inputs.source = args.source;
+            inputs.tags = args.tags;
+            inputs.vpcConfig = args.vpcConfig;
+            inputs.arn = undefined /*out*/;
+            inputs.badgeUrl = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Project.__pulumiType, name, inputs, opts);
     }
 }

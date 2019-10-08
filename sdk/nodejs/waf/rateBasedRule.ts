@@ -90,40 +90,34 @@ export class RateBasedRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RateBasedRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RateBasedRuleArgs | RateBasedRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RateBasedRuleState | undefined;
-            inputs["metricName"] = state ? state.metricName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["predicates"] = state ? state.predicates : undefined;
-            inputs["rateKey"] = state ? state.rateKey : undefined;
-            inputs["rateLimit"] = state ? state.rateLimit : undefined;
+    constructor(name: string, args: RateBasedRuleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RateBasedRuleArgs | RateBasedRuleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RateBasedRuleState;
+            inputs.metricName = state.metricName;
+            inputs.name = state.name;
+            inputs.predicates = state.predicates;
+            inputs.rateKey = state.rateKey;
+            inputs.rateLimit = state.rateLimit;
         } else {
-            const args = argsOrState as RateBasedRuleArgs | undefined;
-            if (!args || args.metricName === undefined) {
+            const args = argsOrState as RateBasedRuleArgs;
+            if (args.metricName === undefined) {
                 throw new Error("Missing required property 'metricName'");
             }
-            if (!args || args.rateKey === undefined) {
+            if (args.rateKey === undefined) {
                 throw new Error("Missing required property 'rateKey'");
             }
-            if (!args || args.rateLimit === undefined) {
+            if (args.rateLimit === undefined) {
                 throw new Error("Missing required property 'rateLimit'");
             }
-            inputs["metricName"] = args ? args.metricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["predicates"] = args ? args.predicates : undefined;
-            inputs["rateKey"] = args ? args.rateKey : undefined;
-            inputs["rateLimit"] = args ? args.rateLimit : undefined;
+            inputs.metricName = args.metricName;
+            inputs.name = args.name;
+            inputs.predicates = args.predicates;
+            inputs.rateKey = args.rateKey;
+            inputs.rateLimit = args.rateLimit;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RateBasedRule.__pulumiType, name, inputs, opts);
     }
 }

@@ -119,48 +119,42 @@ export class Policy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PolicyState | undefined;
-            inputs["adjustmentType"] = state ? state.adjustmentType : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
-            inputs["cooldown"] = state ? state.cooldown : undefined;
-            inputs["estimatedInstanceWarmup"] = state ? state.estimatedInstanceWarmup : undefined;
-            inputs["metricAggregationType"] = state ? state.metricAggregationType : undefined;
-            inputs["minAdjustmentMagnitude"] = state ? state.minAdjustmentMagnitude : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyType"] = state ? state.policyType : undefined;
-            inputs["scalingAdjustment"] = state ? state.scalingAdjustment : undefined;
-            inputs["stepAdjustments"] = state ? state.stepAdjustments : undefined;
-            inputs["targetTrackingConfiguration"] = state ? state.targetTrackingConfiguration : undefined;
+    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PolicyArgs | PolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PolicyState;
+            inputs.adjustmentType = state.adjustmentType;
+            inputs.arn = state.arn;
+            inputs.autoscalingGroupName = state.autoscalingGroupName;
+            inputs.cooldown = state.cooldown;
+            inputs.estimatedInstanceWarmup = state.estimatedInstanceWarmup;
+            inputs.metricAggregationType = state.metricAggregationType;
+            inputs.minAdjustmentMagnitude = state.minAdjustmentMagnitude;
+            inputs.name = state.name;
+            inputs.policyType = state.policyType;
+            inputs.scalingAdjustment = state.scalingAdjustment;
+            inputs.stepAdjustments = state.stepAdjustments;
+            inputs.targetTrackingConfiguration = state.targetTrackingConfiguration;
         } else {
-            const args = argsOrState as PolicyArgs | undefined;
-            if (!args || args.autoscalingGroupName === undefined) {
+            const args = argsOrState as PolicyArgs;
+            if (args.autoscalingGroupName === undefined) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            inputs["adjustmentType"] = args ? args.adjustmentType : undefined;
-            inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
-            inputs["cooldown"] = args ? args.cooldown : undefined;
-            inputs["estimatedInstanceWarmup"] = args ? args.estimatedInstanceWarmup : undefined;
-            inputs["metricAggregationType"] = args ? args.metricAggregationType : undefined;
-            inputs["minAdjustmentMagnitude"] = args ? args.minAdjustmentMagnitude : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyType"] = args ? args.policyType : undefined;
-            inputs["scalingAdjustment"] = args ? args.scalingAdjustment : undefined;
-            inputs["stepAdjustments"] = args ? args.stepAdjustments : undefined;
-            inputs["targetTrackingConfiguration"] = args ? args.targetTrackingConfiguration : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.adjustmentType = args.adjustmentType;
+            inputs.autoscalingGroupName = args.autoscalingGroupName;
+            inputs.cooldown = args.cooldown;
+            inputs.estimatedInstanceWarmup = args.estimatedInstanceWarmup;
+            inputs.metricAggregationType = args.metricAggregationType;
+            inputs.minAdjustmentMagnitude = args.minAdjustmentMagnitude;
+            inputs.name = args.name;
+            inputs.policyType = args.policyType;
+            inputs.scalingAdjustment = args.scalingAdjustment;
+            inputs.stepAdjustments = args.stepAdjustments;
+            inputs.targetTrackingConfiguration = args.targetTrackingConfiguration;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Policy.__pulumiType, name, inputs, opts);
     }
 }

@@ -105,45 +105,39 @@ export class TransitGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TransitGatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TransitGatewayArgs | TransitGatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as TransitGatewayState | undefined;
-            inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["associationDefaultRouteTableId"] = state ? state.associationDefaultRouteTableId : undefined;
-            inputs["autoAcceptSharedAttachments"] = state ? state.autoAcceptSharedAttachments : undefined;
-            inputs["defaultRouteTableAssociation"] = state ? state.defaultRouteTableAssociation : undefined;
-            inputs["defaultRouteTablePropagation"] = state ? state.defaultRouteTablePropagation : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dnsSupport"] = state ? state.dnsSupport : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["propagationDefaultRouteTableId"] = state ? state.propagationDefaultRouteTableId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpnEcmpSupport"] = state ? state.vpnEcmpSupport : undefined;
+    constructor(name: string, args?: TransitGatewayArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: TransitGatewayArgs | TransitGatewayState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as TransitGatewayState;
+            inputs.amazonSideAsn = state.amazonSideAsn;
+            inputs.arn = state.arn;
+            inputs.associationDefaultRouteTableId = state.associationDefaultRouteTableId;
+            inputs.autoAcceptSharedAttachments = state.autoAcceptSharedAttachments;
+            inputs.defaultRouteTableAssociation = state.defaultRouteTableAssociation;
+            inputs.defaultRouteTablePropagation = state.defaultRouteTablePropagation;
+            inputs.description = state.description;
+            inputs.dnsSupport = state.dnsSupport;
+            inputs.ownerId = state.ownerId;
+            inputs.propagationDefaultRouteTableId = state.propagationDefaultRouteTableId;
+            inputs.tags = state.tags;
+            inputs.vpnEcmpSupport = state.vpnEcmpSupport;
         } else {
-            const args = argsOrState as TransitGatewayArgs | undefined;
-            inputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
-            inputs["autoAcceptSharedAttachments"] = args ? args.autoAcceptSharedAttachments : undefined;
-            inputs["defaultRouteTableAssociation"] = args ? args.defaultRouteTableAssociation : undefined;
-            inputs["defaultRouteTablePropagation"] = args ? args.defaultRouteTablePropagation : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dnsSupport"] = args ? args.dnsSupport : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpnEcmpSupport"] = args ? args.vpnEcmpSupport : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["associationDefaultRouteTableId"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["propagationDefaultRouteTableId"] = undefined /*out*/;
+            const args = argsOrState as TransitGatewayArgs;
+            inputs.amazonSideAsn = args.amazonSideAsn;
+            inputs.autoAcceptSharedAttachments = args.autoAcceptSharedAttachments;
+            inputs.defaultRouteTableAssociation = args.defaultRouteTableAssociation;
+            inputs.defaultRouteTablePropagation = args.defaultRouteTablePropagation;
+            inputs.description = args.description;
+            inputs.dnsSupport = args.dnsSupport;
+            inputs.tags = args.tags;
+            inputs.vpnEcmpSupport = args.vpnEcmpSupport;
+            inputs.arn = undefined /*out*/;
+            inputs.associationDefaultRouteTableId = undefined /*out*/;
+            inputs.ownerId = undefined /*out*/;
+            inputs.propagationDefaultRouteTableId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(TransitGateway.__pulumiType, name, inputs, opts);
     }
 }

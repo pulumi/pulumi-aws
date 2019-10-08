@@ -70,30 +70,24 @@ export class LogStream extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LogStreamArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LogStreamArgs | LogStreamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LogStreamState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["logGroupName"] = state ? state.logGroupName : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args: LogStreamArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: LogStreamArgs | LogStreamState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as LogStreamState;
+            inputs.arn = state.arn;
+            inputs.logGroupName = state.logGroupName;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as LogStreamArgs | undefined;
-            if (!args || args.logGroupName === undefined) {
+            const args = argsOrState as LogStreamArgs;
+            if (args.logGroupName === undefined) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            inputs["logGroupName"] = args ? args.logGroupName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.logGroupName = args.logGroupName;
+            inputs.name = args.name;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(LogStream.__pulumiType, name, inputs, opts);
     }
 }

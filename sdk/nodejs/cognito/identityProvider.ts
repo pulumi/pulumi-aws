@@ -95,45 +95,39 @@ export class IdentityProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IdentityProviderArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IdentityProviderArgs | IdentityProviderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as IdentityProviderState | undefined;
-            inputs["attributeMapping"] = state ? state.attributeMapping : undefined;
-            inputs["idpIdentifiers"] = state ? state.idpIdentifiers : undefined;
-            inputs["providerDetails"] = state ? state.providerDetails : undefined;
-            inputs["providerName"] = state ? state.providerName : undefined;
-            inputs["providerType"] = state ? state.providerType : undefined;
-            inputs["userPoolId"] = state ? state.userPoolId : undefined;
+    constructor(name: string, args: IdentityProviderArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: IdentityProviderArgs | IdentityProviderState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as IdentityProviderState;
+            inputs.attributeMapping = state.attributeMapping;
+            inputs.idpIdentifiers = state.idpIdentifiers;
+            inputs.providerDetails = state.providerDetails;
+            inputs.providerName = state.providerName;
+            inputs.providerType = state.providerType;
+            inputs.userPoolId = state.userPoolId;
         } else {
-            const args = argsOrState as IdentityProviderArgs | undefined;
-            if (!args || args.providerDetails === undefined) {
+            const args = argsOrState as IdentityProviderArgs;
+            if (args.providerDetails === undefined) {
                 throw new Error("Missing required property 'providerDetails'");
             }
-            if (!args || args.providerName === undefined) {
+            if (args.providerName === undefined) {
                 throw new Error("Missing required property 'providerName'");
             }
-            if (!args || args.providerType === undefined) {
+            if (args.providerType === undefined) {
                 throw new Error("Missing required property 'providerType'");
             }
-            if (!args || args.userPoolId === undefined) {
+            if (args.userPoolId === undefined) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            inputs["attributeMapping"] = args ? args.attributeMapping : undefined;
-            inputs["idpIdentifiers"] = args ? args.idpIdentifiers : undefined;
-            inputs["providerDetails"] = args ? args.providerDetails : undefined;
-            inputs["providerName"] = args ? args.providerName : undefined;
-            inputs["providerType"] = args ? args.providerType : undefined;
-            inputs["userPoolId"] = args ? args.userPoolId : undefined;
+            inputs.attributeMapping = args.attributeMapping;
+            inputs.idpIdentifiers = args.idpIdentifiers;
+            inputs.providerDetails = args.providerDetails;
+            inputs.providerName = args.providerName;
+            inputs.providerType = args.providerType;
+            inputs.userPoolId = args.userPoolId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(IdentityProvider.__pulumiType, name, inputs, opts);
     }
 }

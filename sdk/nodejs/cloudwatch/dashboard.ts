@@ -103,33 +103,27 @@ export class Dashboard extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DashboardArgs | DashboardState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DashboardState | undefined;
-            inputs["dashboardArn"] = state ? state.dashboardArn : undefined;
-            inputs["dashboardBody"] = state ? state.dashboardBody : undefined;
-            inputs["dashboardName"] = state ? state.dashboardName : undefined;
+    constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DashboardArgs | DashboardState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DashboardState;
+            inputs.dashboardArn = state.dashboardArn;
+            inputs.dashboardBody = state.dashboardBody;
+            inputs.dashboardName = state.dashboardName;
         } else {
-            const args = argsOrState as DashboardArgs | undefined;
-            if (!args || args.dashboardBody === undefined) {
+            const args = argsOrState as DashboardArgs;
+            if (args.dashboardBody === undefined) {
                 throw new Error("Missing required property 'dashboardBody'");
             }
-            if (!args || args.dashboardName === undefined) {
+            if (args.dashboardName === undefined) {
                 throw new Error("Missing required property 'dashboardName'");
             }
-            inputs["dashboardBody"] = args ? args.dashboardBody : undefined;
-            inputs["dashboardName"] = args ? args.dashboardName : undefined;
-            inputs["dashboardArn"] = undefined /*out*/;
+            inputs.dashboardBody = args.dashboardBody;
+            inputs.dashboardName = args.dashboardName;
+            inputs.dashboardArn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Dashboard.__pulumiType, name, inputs, opts);
     }
 }

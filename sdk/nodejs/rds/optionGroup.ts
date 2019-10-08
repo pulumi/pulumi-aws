@@ -116,43 +116,37 @@ export class OptionGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: OptionGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OptionGroupArgs | OptionGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as OptionGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["engineName"] = state ? state.engineName : undefined;
-            inputs["majorEngineVersion"] = state ? state.majorEngineVersion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["options"] = state ? state.options : undefined;
-            inputs["optionGroupDescription"] = state ? state.optionGroupDescription : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: OptionGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: OptionGroupArgs | OptionGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as OptionGroupState;
+            inputs.arn = state.arn;
+            inputs.engineName = state.engineName;
+            inputs.majorEngineVersion = state.majorEngineVersion;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.options = state.options;
+            inputs.optionGroupDescription = state.optionGroupDescription;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as OptionGroupArgs | undefined;
-            if (!args || args.engineName === undefined) {
+            const args = argsOrState as OptionGroupArgs;
+            if (args.engineName === undefined) {
                 throw new Error("Missing required property 'engineName'");
             }
-            if (!args || args.majorEngineVersion === undefined) {
+            if (args.majorEngineVersion === undefined) {
                 throw new Error("Missing required property 'majorEngineVersion'");
             }
-            inputs["engineName"] = args ? args.engineName : undefined;
-            inputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["optionGroupDescription"] = (args ? args.optionGroupDescription : undefined) || "Managed by Pulumi";
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.engineName = args.engineName;
+            inputs.majorEngineVersion = args.majorEngineVersion;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.options = args.options;
+            inputs.optionGroupDescription = args.optionGroupDescription || "Managed by Pulumi";
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(OptionGroup.__pulumiType, name, inputs, opts);
     }
 }

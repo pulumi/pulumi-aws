@@ -24,14 +24,14 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const listenerArn = config.require("listenerArn");
  * 
- * const listener = aws.lb.getListener({
- *     arn: listenerArn,
- * });
  * const selected = aws.lb.getLoadBalancer({
  *     name: "default-public",
  * });
+ * const listener = aws.lb.getListener({
+ *     arn: listenerArn,
+ * });
  * const selected443 = aws.lb.getListener({
- *     loadBalancerArn: selected.arn!,
+ *     loadBalancerArn: selected.arn,
  *     port: 443,
  * });
  * ```

@@ -21,28 +21,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ecsInstanceRoleRole = new aws.iam.Role("ecsInstanceRole", {
- *     assumeRolePolicy: `{
- *     "Version": "2012-10-17",
- *     "Statement": [
- * 	{
- * 	    "Action": "sts:AssumeRole",
- * 	    "Effect": "Allow",
- * 	    "Principal": {
- * 		"Service": "ec2.amazonaws.com"
- * 	    }
- * 	}
- *     ]
- * }
- * `,
- * });
- * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecsInstanceRole", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
- *     role: ecsInstanceRoleRole.name,
- * });
- * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecsInstanceRole", {
- *     role: ecsInstanceRoleRole.name,
- * });
  * const awsBatchServiceRoleRole = new aws.iam.Role("awsBatchServiceRole", {
  *     assumeRolePolicy: `{
  *     "Version": "2012-10-17",
@@ -58,13 +36,31 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("awsBatchServiceRole", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
- *     role: awsBatchServiceRoleRole.name,
+ * const ecsInstanceRoleRole = new aws.iam.Role("ecsInstanceRole", {
+ *     assumeRolePolicy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ * 	{
+ * 	    "Action": "sts:AssumeRole",
+ * 	    "Effect": "Allow",
+ * 	    "Principal": {
+ * 		"Service": "ec2.amazonaws.com"
+ * 	    }
+ * 	}
+ *     ]
+ * }
+ * `,
  * });
  * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sample", {});
  * const sampleVpc = new aws.ec2.Vpc("sample", {
  *     cidrBlock: "10.1.0.0/16",
+ * });
+ * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecsInstanceRole", {
+ *     role: ecsInstanceRoleRole.name,
+ * });
+ * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("awsBatchServiceRole", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
+ *     role: awsBatchServiceRoleRole.name,
  * });
  * const sampleSubnet = new aws.ec2.Subnet("sample", {
  *     cidrBlock: "10.1.1.0/24",
@@ -84,6 +80,10 @@ import * as utilities from "../utilities";
  *     serviceRole: awsBatchServiceRoleRole.arn,
  *     type: "MANAGED",
  * }, {dependsOn: [awsBatchServiceRoleRolePolicyAttachment]});
+ * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecsInstanceRole", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
+ *     role: ecsInstanceRoleRole.name,
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_compute_environment.html.markdown.
@@ -159,48 +159,42 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ComputeEnvironmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ComputeEnvironmentArgs | ComputeEnvironmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ComputeEnvironmentState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["computeEnvironmentName"] = state ? state.computeEnvironmentName : undefined;
-            inputs["computeResources"] = state ? state.computeResources : undefined;
-            inputs["ecsClusterArn"] = state ? state.ecsClusterArn : undefined;
-            inputs["serviceRole"] = state ? state.serviceRole : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["statusReason"] = state ? state.statusReason : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: ComputeEnvironmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ComputeEnvironmentArgs | ComputeEnvironmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ComputeEnvironmentState;
+            inputs.arn = state.arn;
+            inputs.computeEnvironmentName = state.computeEnvironmentName;
+            inputs.computeResources = state.computeResources;
+            inputs.ecsClusterArn = state.ecsClusterArn;
+            inputs.serviceRole = state.serviceRole;
+            inputs.state = state.state;
+            inputs.status = state.status;
+            inputs.statusReason = state.statusReason;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as ComputeEnvironmentArgs | undefined;
-            if (!args || args.computeEnvironmentName === undefined) {
+            const args = argsOrState as ComputeEnvironmentArgs;
+            if (args.computeEnvironmentName === undefined) {
                 throw new Error("Missing required property 'computeEnvironmentName'");
             }
-            if (!args || args.serviceRole === undefined) {
+            if (args.serviceRole === undefined) {
                 throw new Error("Missing required property 'serviceRole'");
             }
-            if (!args || args.type === undefined) {
+            if (args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;
-            inputs["computeResources"] = args ? args.computeResources : undefined;
-            inputs["serviceRole"] = args ? args.serviceRole : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ecsClusterArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusReason"] = undefined /*out*/;
+            inputs.computeEnvironmentName = args.computeEnvironmentName;
+            inputs.computeResources = args.computeResources;
+            inputs.serviceRole = args.serviceRole;
+            inputs.state = args.state;
+            inputs.type = args.type;
+            inputs.arn = undefined /*out*/;
+            inputs.ecsClusterArn = undefined /*out*/;
+            inputs.status = undefined /*out*/;
+            inputs.statusReason = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ComputeEnvironment.__pulumiType, name, inputs, opts);
     }
 }

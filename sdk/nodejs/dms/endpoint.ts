@@ -143,64 +143,58 @@ export class Endpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EndpointState | undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["endpointArn"] = state ? state.endpointArn : undefined;
-            inputs["endpointId"] = state ? state.endpointId : undefined;
-            inputs["endpointType"] = state ? state.endpointType : undefined;
-            inputs["engineName"] = state ? state.engineName : undefined;
-            inputs["extraConnectionAttributes"] = state ? state.extraConnectionAttributes : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["mongodbSettings"] = state ? state.mongodbSettings : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["s3Settings"] = state ? state.s3Settings : undefined;
-            inputs["serverName"] = state ? state.serverName : undefined;
-            inputs["serviceAccessRole"] = state ? state.serviceAccessRole : undefined;
-            inputs["sslMode"] = state ? state.sslMode : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["username"] = state ? state.username : undefined;
+    constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EndpointArgs | EndpointState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EndpointState;
+            inputs.certificateArn = state.certificateArn;
+            inputs.databaseName = state.databaseName;
+            inputs.endpointArn = state.endpointArn;
+            inputs.endpointId = state.endpointId;
+            inputs.endpointType = state.endpointType;
+            inputs.engineName = state.engineName;
+            inputs.extraConnectionAttributes = state.extraConnectionAttributes;
+            inputs.kmsKeyArn = state.kmsKeyArn;
+            inputs.mongodbSettings = state.mongodbSettings;
+            inputs.password = state.password;
+            inputs.port = state.port;
+            inputs.s3Settings = state.s3Settings;
+            inputs.serverName = state.serverName;
+            inputs.serviceAccessRole = state.serviceAccessRole;
+            inputs.sslMode = state.sslMode;
+            inputs.tags = state.tags;
+            inputs.username = state.username;
         } else {
-            const args = argsOrState as EndpointArgs | undefined;
-            if (!args || args.endpointId === undefined) {
+            const args = argsOrState as EndpointArgs;
+            if (args.endpointId === undefined) {
                 throw new Error("Missing required property 'endpointId'");
             }
-            if (!args || args.endpointType === undefined) {
+            if (args.endpointType === undefined) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            if (!args || args.engineName === undefined) {
+            if (args.engineName === undefined) {
                 throw new Error("Missing required property 'engineName'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["endpointId"] = args ? args.endpointId : undefined;
-            inputs["endpointType"] = args ? args.endpointType : undefined;
-            inputs["engineName"] = args ? args.engineName : undefined;
-            inputs["extraConnectionAttributes"] = args ? args.extraConnectionAttributes : undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["mongodbSettings"] = args ? args.mongodbSettings : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["s3Settings"] = args ? args.s3Settings : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["serviceAccessRole"] = args ? args.serviceAccessRole : undefined;
-            inputs["sslMode"] = args ? args.sslMode : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["endpointArn"] = undefined /*out*/;
+            inputs.certificateArn = args.certificateArn;
+            inputs.databaseName = args.databaseName;
+            inputs.endpointId = args.endpointId;
+            inputs.endpointType = args.endpointType;
+            inputs.engineName = args.engineName;
+            inputs.extraConnectionAttributes = args.extraConnectionAttributes;
+            inputs.kmsKeyArn = args.kmsKeyArn;
+            inputs.mongodbSettings = args.mongodbSettings;
+            inputs.password = args.password;
+            inputs.port = args.port;
+            inputs.s3Settings = args.s3Settings;
+            inputs.serverName = args.serverName;
+            inputs.serviceAccessRole = args.serviceAccessRole;
+            inputs.sslMode = args.sslMode;
+            inputs.tags = args.tags;
+            inputs.username = args.username;
+            inputs.endpointArn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Endpoint.__pulumiType, name, inputs, opts);
     }
 }

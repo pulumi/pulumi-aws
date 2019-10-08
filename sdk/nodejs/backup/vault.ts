@@ -77,31 +77,25 @@ export class Vault extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VaultArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VaultArgs | VaultState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VaultState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["recoveryPoints"] = state ? state.recoveryPoints : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: VaultArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VaultArgs | VaultState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VaultState;
+            inputs.arn = state.arn;
+            inputs.kmsKeyArn = state.kmsKeyArn;
+            inputs.name = state.name;
+            inputs.recoveryPoints = state.recoveryPoints;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as VaultArgs | undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["recoveryPoints"] = undefined /*out*/;
+            const args = argsOrState as VaultArgs;
+            inputs.kmsKeyArn = args.kmsKeyArn;
+            inputs.name = args.name;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.recoveryPoints = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Vault.__pulumiType, name, inputs, opts);
     }
 }

@@ -59,26 +59,20 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ActiveReceiptRuleSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ActiveReceiptRuleSetArgs | ActiveReceiptRuleSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ActiveReceiptRuleSetState | undefined;
-            inputs["ruleSetName"] = state ? state.ruleSetName : undefined;
+    constructor(name: string, args: ActiveReceiptRuleSetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ActiveReceiptRuleSetArgs | ActiveReceiptRuleSetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ActiveReceiptRuleSetState;
+            inputs.ruleSetName = state.ruleSetName;
         } else {
-            const args = argsOrState as ActiveReceiptRuleSetArgs | undefined;
-            if (!args || args.ruleSetName === undefined) {
+            const args = argsOrState as ActiveReceiptRuleSetArgs;
+            if (args.ruleSetName === undefined) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
-            inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            inputs.ruleSetName = args.ruleSetName;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ActiveReceiptRuleSet.__pulumiType, name, inputs, opts);
     }
 }

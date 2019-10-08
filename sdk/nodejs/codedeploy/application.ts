@@ -88,27 +88,21 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ApplicationState | undefined;
-            inputs["computePlatform"] = state ? state.computePlatform : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["uniqueId"] = state ? state.uniqueId : undefined;
+    constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ApplicationArgs | ApplicationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ApplicationState;
+            inputs.computePlatform = state.computePlatform;
+            inputs.name = state.name;
+            inputs.uniqueId = state.uniqueId;
         } else {
-            const args = argsOrState as ApplicationArgs | undefined;
-            inputs["computePlatform"] = args ? args.computePlatform : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["uniqueId"] = args ? args.uniqueId : undefined;
+            const args = argsOrState as ApplicationArgs;
+            inputs.computePlatform = args.computePlatform;
+            inputs.name = args.name;
+            inputs.uniqueId = args.uniqueId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Application.__pulumiType, name, inputs, opts);
     }
 }

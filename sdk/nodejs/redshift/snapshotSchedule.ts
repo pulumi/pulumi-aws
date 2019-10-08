@@ -79,38 +79,32 @@ export class SnapshotSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SnapshotScheduleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SnapshotScheduleArgs | SnapshotScheduleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SnapshotScheduleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["definitions"] = state ? state.definitions : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            inputs["identifier"] = state ? state.identifier : undefined;
-            inputs["identifierPrefix"] = state ? state.identifierPrefix : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: SnapshotScheduleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SnapshotScheduleArgs | SnapshotScheduleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SnapshotScheduleState;
+            inputs.arn = state.arn;
+            inputs.definitions = state.definitions;
+            inputs.description = state.description;
+            inputs.forceDestroy = state.forceDestroy;
+            inputs.identifier = state.identifier;
+            inputs.identifierPrefix = state.identifierPrefix;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as SnapshotScheduleArgs | undefined;
-            if (!args || args.definitions === undefined) {
+            const args = argsOrState as SnapshotScheduleArgs;
+            if (args.definitions === undefined) {
                 throw new Error("Missing required property 'definitions'");
             }
-            inputs["definitions"] = args ? args.definitions : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            inputs["identifier"] = args ? args.identifier : undefined;
-            inputs["identifierPrefix"] = args ? args.identifierPrefix : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.definitions = args.definitions;
+            inputs.description = args.description;
+            inputs.forceDestroy = args.forceDestroy;
+            inputs.identifier = args.identifier;
+            inputs.identifierPrefix = args.identifierPrefix;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SnapshotSchedule.__pulumiType, name, inputs, opts);
     }
 }

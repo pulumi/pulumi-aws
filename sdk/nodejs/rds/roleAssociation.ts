@@ -76,36 +76,30 @@ export class RoleAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RoleAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RoleAssociationArgs | RoleAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RoleAssociationState | undefined;
-            inputs["dbInstanceIdentifier"] = state ? state.dbInstanceIdentifier : undefined;
-            inputs["featureName"] = state ? state.featureName : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
+    constructor(name: string, args: RoleAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RoleAssociationArgs | RoleAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RoleAssociationState;
+            inputs.dbInstanceIdentifier = state.dbInstanceIdentifier;
+            inputs.featureName = state.featureName;
+            inputs.roleArn = state.roleArn;
         } else {
-            const args = argsOrState as RoleAssociationArgs | undefined;
-            if (!args || args.dbInstanceIdentifier === undefined) {
+            const args = argsOrState as RoleAssociationArgs;
+            if (args.dbInstanceIdentifier === undefined) {
                 throw new Error("Missing required property 'dbInstanceIdentifier'");
             }
-            if (!args || args.featureName === undefined) {
+            if (args.featureName === undefined) {
                 throw new Error("Missing required property 'featureName'");
             }
-            if (!args || args.roleArn === undefined) {
+            if (args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
-            inputs["featureName"] = args ? args.featureName : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs.dbInstanceIdentifier = args.dbInstanceIdentifier;
+            inputs.featureName = args.featureName;
+            inputs.roleArn = args.roleArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RoleAssociation.__pulumiType, name, inputs, opts);
     }
 }

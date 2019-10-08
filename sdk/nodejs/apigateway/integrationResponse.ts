@@ -136,49 +136,43 @@ export class IntegrationResponse extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IntegrationResponseArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IntegrationResponseArgs | IntegrationResponseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as IntegrationResponseState | undefined;
-            inputs["contentHandling"] = state ? state.contentHandling : undefined;
-            inputs["httpMethod"] = state ? state.httpMethod : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["responseParameters"] = state ? state.responseParameters : undefined;
-            inputs["responseTemplates"] = state ? state.responseTemplates : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["selectionPattern"] = state ? state.selectionPattern : undefined;
-            inputs["statusCode"] = state ? state.statusCode : undefined;
+    constructor(name: string, args: IntegrationResponseArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: IntegrationResponseArgs | IntegrationResponseState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as IntegrationResponseState;
+            inputs.contentHandling = state.contentHandling;
+            inputs.httpMethod = state.httpMethod;
+            inputs.resourceId = state.resourceId;
+            inputs.responseParameters = state.responseParameters;
+            inputs.responseTemplates = state.responseTemplates;
+            inputs.restApi = state.restApi;
+            inputs.selectionPattern = state.selectionPattern;
+            inputs.statusCode = state.statusCode;
         } else {
-            const args = argsOrState as IntegrationResponseArgs | undefined;
-            if (!args || args.httpMethod === undefined) {
+            const args = argsOrState as IntegrationResponseArgs;
+            if (args.httpMethod === undefined) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if (!args || args.resourceId === undefined) {
+            if (args.resourceId === undefined) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (!args || args.restApi === undefined) {
+            if (args.restApi === undefined) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if (!args || args.statusCode === undefined) {
+            if (args.statusCode === undefined) {
                 throw new Error("Missing required property 'statusCode'");
             }
-            inputs["contentHandling"] = args ? args.contentHandling : undefined;
-            inputs["httpMethod"] = args ? args.httpMethod : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["responseParameters"] = args ? args.responseParameters : undefined;
-            inputs["responseTemplates"] = args ? args.responseTemplates : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["selectionPattern"] = args ? args.selectionPattern : undefined;
-            inputs["statusCode"] = args ? args.statusCode : undefined;
+            inputs.contentHandling = args.contentHandling;
+            inputs.httpMethod = args.httpMethod;
+            inputs.resourceId = args.resourceId;
+            inputs.responseParameters = args.responseParameters;
+            inputs.responseTemplates = args.responseTemplates;
+            inputs.restApi = args.restApi;
+            inputs.selectionPattern = args.selectionPattern;
+            inputs.statusCode = args.statusCode;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(IntegrationResponse.__pulumiType, name, inputs, opts);
     }
 }

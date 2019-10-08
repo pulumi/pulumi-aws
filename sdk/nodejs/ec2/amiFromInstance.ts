@@ -146,58 +146,52 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AmiFromInstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AmiFromInstanceArgs | AmiFromInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AmiFromInstanceState | undefined;
-            inputs["architecture"] = state ? state.architecture : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
-            inputs["enaSupport"] = state ? state.enaSupport : undefined;
-            inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
-            inputs["imageLocation"] = state ? state.imageLocation : undefined;
-            inputs["kernelId"] = state ? state.kernelId : undefined;
-            inputs["manageEbsSnapshots"] = state ? state.manageEbsSnapshots : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ramdiskId"] = state ? state.ramdiskId : undefined;
-            inputs["rootDeviceName"] = state ? state.rootDeviceName : undefined;
-            inputs["rootSnapshotId"] = state ? state.rootSnapshotId : undefined;
-            inputs["snapshotWithoutReboot"] = state ? state.snapshotWithoutReboot : undefined;
-            inputs["sourceInstanceId"] = state ? state.sourceInstanceId : undefined;
-            inputs["sriovNetSupport"] = state ? state.sriovNetSupport : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualizationType"] = state ? state.virtualizationType : undefined;
+    constructor(name: string, args: AmiFromInstanceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AmiFromInstanceArgs | AmiFromInstanceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AmiFromInstanceState;
+            inputs.architecture = state.architecture;
+            inputs.description = state.description;
+            inputs.ebsBlockDevices = state.ebsBlockDevices;
+            inputs.enaSupport = state.enaSupport;
+            inputs.ephemeralBlockDevices = state.ephemeralBlockDevices;
+            inputs.imageLocation = state.imageLocation;
+            inputs.kernelId = state.kernelId;
+            inputs.manageEbsSnapshots = state.manageEbsSnapshots;
+            inputs.name = state.name;
+            inputs.ramdiskId = state.ramdiskId;
+            inputs.rootDeviceName = state.rootDeviceName;
+            inputs.rootSnapshotId = state.rootSnapshotId;
+            inputs.snapshotWithoutReboot = state.snapshotWithoutReboot;
+            inputs.sourceInstanceId = state.sourceInstanceId;
+            inputs.sriovNetSupport = state.sriovNetSupport;
+            inputs.tags = state.tags;
+            inputs.virtualizationType = state.virtualizationType;
         } else {
-            const args = argsOrState as AmiFromInstanceArgs | undefined;
-            if (!args || args.sourceInstanceId === undefined) {
+            const args = argsOrState as AmiFromInstanceArgs;
+            if (args.sourceInstanceId === undefined) {
                 throw new Error("Missing required property 'sourceInstanceId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
-            inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["snapshotWithoutReboot"] = args ? args.snapshotWithoutReboot : undefined;
-            inputs["sourceInstanceId"] = args ? args.sourceInstanceId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["architecture"] = undefined /*out*/;
-            inputs["enaSupport"] = undefined /*out*/;
-            inputs["imageLocation"] = undefined /*out*/;
-            inputs["kernelId"] = undefined /*out*/;
-            inputs["manageEbsSnapshots"] = undefined /*out*/;
-            inputs["ramdiskId"] = undefined /*out*/;
-            inputs["rootDeviceName"] = undefined /*out*/;
-            inputs["rootSnapshotId"] = undefined /*out*/;
-            inputs["sriovNetSupport"] = undefined /*out*/;
-            inputs["virtualizationType"] = undefined /*out*/;
+            inputs.description = args.description;
+            inputs.ebsBlockDevices = args.ebsBlockDevices;
+            inputs.ephemeralBlockDevices = args.ephemeralBlockDevices;
+            inputs.name = args.name;
+            inputs.snapshotWithoutReboot = args.snapshotWithoutReboot;
+            inputs.sourceInstanceId = args.sourceInstanceId;
+            inputs.tags = args.tags;
+            inputs.architecture = undefined /*out*/;
+            inputs.enaSupport = undefined /*out*/;
+            inputs.imageLocation = undefined /*out*/;
+            inputs.kernelId = undefined /*out*/;
+            inputs.manageEbsSnapshots = undefined /*out*/;
+            inputs.ramdiskId = undefined /*out*/;
+            inputs.rootDeviceName = undefined /*out*/;
+            inputs.rootSnapshotId = undefined /*out*/;
+            inputs.sriovNetSupport = undefined /*out*/;
+            inputs.virtualizationType = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(AmiFromInstance.__pulumiType, name, inputs, opts);
     }
 }

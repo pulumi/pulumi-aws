@@ -91,35 +91,29 @@ export class GroupPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GroupPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GroupPolicyArgs | GroupPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GroupPolicyState | undefined;
-            inputs["group"] = state ? state.group : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+    constructor(name: string, args: GroupPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GroupPolicyArgs | GroupPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GroupPolicyState;
+            inputs.group = state.group;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.policy = state.policy;
         } else {
-            const args = argsOrState as GroupPolicyArgs | undefined;
-            if (!args || args.group === undefined) {
+            const args = argsOrState as GroupPolicyArgs;
+            if (args.group === undefined) {
                 throw new Error("Missing required property 'group'");
             }
-            if (!args || args.policy === undefined) {
+            if (args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["group"] = args ? args.group : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
+            inputs.group = args.group;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.policy = args.policy;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(GroupPolicy.__pulumiType, name, inputs, opts);
     }
 }

@@ -147,58 +147,52 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SecurityGroupRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SecurityGroupRuleArgs | SecurityGroupRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SecurityGroupRuleState | undefined;
-            inputs["cidrBlocks"] = state ? state.cidrBlocks : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["fromPort"] = state ? state.fromPort : undefined;
-            inputs["ipv6CidrBlocks"] = state ? state.ipv6CidrBlocks : undefined;
-            inputs["prefixListIds"] = state ? state.prefixListIds : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["securityGroupId"] = state ? state.securityGroupId : undefined;
-            inputs["self"] = state ? state.self : undefined;
-            inputs["sourceSecurityGroupId"] = state ? state.sourceSecurityGroupId : undefined;
-            inputs["toPort"] = state ? state.toPort : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: SecurityGroupRuleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SecurityGroupRuleArgs | SecurityGroupRuleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SecurityGroupRuleState;
+            inputs.cidrBlocks = state.cidrBlocks;
+            inputs.description = state.description;
+            inputs.fromPort = state.fromPort;
+            inputs.ipv6CidrBlocks = state.ipv6CidrBlocks;
+            inputs.prefixListIds = state.prefixListIds;
+            inputs.protocol = state.protocol;
+            inputs.securityGroupId = state.securityGroupId;
+            inputs.self = state.self;
+            inputs.sourceSecurityGroupId = state.sourceSecurityGroupId;
+            inputs.toPort = state.toPort;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as SecurityGroupRuleArgs | undefined;
-            if (!args || args.fromPort === undefined) {
+            const args = argsOrState as SecurityGroupRuleArgs;
+            if (args.fromPort === undefined) {
                 throw new Error("Missing required property 'fromPort'");
             }
-            if (!args || args.protocol === undefined) {
+            if (args.protocol === undefined) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if (!args || args.securityGroupId === undefined) {
+            if (args.securityGroupId === undefined) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
-            if (!args || args.toPort === undefined) {
+            if (args.toPort === undefined) {
                 throw new Error("Missing required property 'toPort'");
             }
-            if (!args || args.type === undefined) {
+            if (args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["cidrBlocks"] = args ? args.cidrBlocks : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["fromPort"] = args ? args.fromPort : undefined;
-            inputs["ipv6CidrBlocks"] = args ? args.ipv6CidrBlocks : undefined;
-            inputs["prefixListIds"] = args ? args.prefixListIds : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["securityGroupId"] = args ? args.securityGroupId : undefined;
-            inputs["self"] = args ? args.self : undefined;
-            inputs["sourceSecurityGroupId"] = args ? args.sourceSecurityGroupId : undefined;
-            inputs["toPort"] = args ? args.toPort : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            inputs.cidrBlocks = args.cidrBlocks;
+            inputs.description = args.description;
+            inputs.fromPort = args.fromPort;
+            inputs.ipv6CidrBlocks = args.ipv6CidrBlocks;
+            inputs.prefixListIds = args.prefixListIds;
+            inputs.protocol = args.protocol;
+            inputs.securityGroupId = args.securityGroupId;
+            inputs.self = args.self;
+            inputs.sourceSecurityGroupId = args.sourceSecurityGroupId;
+            inputs.toPort = args.toPort;
+            inputs.type = args.type;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SecurityGroupRule.__pulumiType, name, inputs, opts);
     }
 }

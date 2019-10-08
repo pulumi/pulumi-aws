@@ -15,10 +15,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const app = new aws.pinpoint.App("app", {});
- * const testStream = new aws.kinesis.Stream("testStream", {
- *     shardCount: 1,
- * });
  * const testRole = new aws.iam.Role("testRole", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -35,11 +31,10 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const stream = new aws.pinpoint.EventStream("stream", {
- *     applicationId: app.applicationId,
- *     destinationStreamArn: testStream.arn,
- *     roleArn: testRole.arn,
+ * const testStream = new aws.kinesis.Stream("testStream", {
+ *     shardCount: 1,
  * });
+ * const app = new aws.pinpoint.App("app", {});
  * const testRolePolicy = new aws.iam.RolePolicy("testRolePolicy", {
  *     policy: `{
  *   "Version": "2012-10-17",
@@ -56,6 +51,11 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     role: testRole.id,
+ * });
+ * const stream = new aws.pinpoint.EventStream("stream", {
+ *     applicationId: app.applicationId,
+ *     destinationStreamArn: testStream.arn,
+ *     roleArn: testRole.arn,
  * });
  * ```
  *
@@ -108,36 +108,30 @@ export class EventStream extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventStreamArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventStreamArgs | EventStreamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EventStreamState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["destinationStreamArn"] = state ? state.destinationStreamArn : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
+    constructor(name: string, args: EventStreamArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EventStreamArgs | EventStreamState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EventStreamState;
+            inputs.applicationId = state.applicationId;
+            inputs.destinationStreamArn = state.destinationStreamArn;
+            inputs.roleArn = state.roleArn;
         } else {
-            const args = argsOrState as EventStreamArgs | undefined;
-            if (!args || args.applicationId === undefined) {
+            const args = argsOrState as EventStreamArgs;
+            if (args.applicationId === undefined) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (!args || args.destinationStreamArn === undefined) {
+            if (args.destinationStreamArn === undefined) {
                 throw new Error("Missing required property 'destinationStreamArn'");
             }
-            if (!args || args.roleArn === undefined) {
+            if (args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["destinationStreamArn"] = args ? args.destinationStreamArn : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs.applicationId = args.applicationId;
+            inputs.destinationStreamArn = args.destinationStreamArn;
+            inputs.roleArn = args.roleArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EventStream.__pulumiType, name, inputs, opts);
     }
 }

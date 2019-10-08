@@ -88,38 +88,32 @@ export class Listener extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ListenerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ListenerArgs | ListenerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ListenerState | undefined;
-            inputs["acceleratorArn"] = state ? state.acceleratorArn : undefined;
-            inputs["clientAffinity"] = state ? state.clientAffinity : undefined;
-            inputs["portRanges"] = state ? state.portRanges : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
+    constructor(name: string, args: ListenerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ListenerArgs | ListenerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ListenerState;
+            inputs.acceleratorArn = state.acceleratorArn;
+            inputs.clientAffinity = state.clientAffinity;
+            inputs.portRanges = state.portRanges;
+            inputs.protocol = state.protocol;
         } else {
-            const args = argsOrState as ListenerArgs | undefined;
-            if (!args || args.acceleratorArn === undefined) {
+            const args = argsOrState as ListenerArgs;
+            if (args.acceleratorArn === undefined) {
                 throw new Error("Missing required property 'acceleratorArn'");
             }
-            if (!args || args.portRanges === undefined) {
+            if (args.portRanges === undefined) {
                 throw new Error("Missing required property 'portRanges'");
             }
-            if (!args || args.protocol === undefined) {
+            if (args.protocol === undefined) {
                 throw new Error("Missing required property 'protocol'");
             }
-            inputs["acceleratorArn"] = args ? args.acceleratorArn : undefined;
-            inputs["clientAffinity"] = args ? args.clientAffinity : undefined;
-            inputs["portRanges"] = args ? args.portRanges : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
+            inputs.acceleratorArn = args.acceleratorArn;
+            inputs.clientAffinity = args.clientAffinity;
+            inputs.portRanges = args.portRanges;
+            inputs.protocol = args.protocol;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Listener.__pulumiType, name, inputs, opts);
     }
 }

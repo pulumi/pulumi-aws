@@ -12,42 +12,6 @@ import * as utilities from "../utilities";
  * a permissive CloudWatch log resource policy must be in place, and
  * the Route53 hosted zone must be public.
  * See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const usEast1 = new aws.Provider("us-east-1", {
- *     region: "us-east-1",
- * });
- * const exampleComZone = new aws.route53.Zone("exampleCom", {});
- * const awsRoute53ExampleCom = new aws.cloudwatch.LogGroup("awsRoute53ExampleCom", {
- *     retentionInDays: 30,
- * }, {provider: us_east_1});
- * const route53_query_logging_policyPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: [
- *             "logs:CreateLogStream",
- *             "logs:PutLogEvents",
- *         ],
- *         principals: [{
- *             identifiers: ["route53.amazonaws.com"],
- *             type: "Service",
- *         }],
- *         resources: ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
- *     }],
- * });
- * const route53_query_logging_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy", {
- *     policyDocument: route53_query_logging_policyPolicyDocument.json,
- *     policyName: "route53-query-logging-policy",
- * }, {provider: us_east_1});
- * const exampleComQueryLog = new aws.route53.QueryLog("exampleCom", {
- *     cloudwatchLogGroupArn: awsRoute53ExampleCom.arn,
- *     zoneId: exampleComZone.zoneId,
- * }, {dependsOn: [route53_query_logging_policyLogResourcePolicy]});
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_query_log.html.markdown.
  */
@@ -94,31 +58,25 @@ export class QueryLog extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: QueryLogArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: QueryLogArgs | QueryLogState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as QueryLogState | undefined;
-            inputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
-            inputs["zoneId"] = state ? state.zoneId : undefined;
+    constructor(name: string, args: QueryLogArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: QueryLogArgs | QueryLogState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as QueryLogState;
+            inputs.cloudwatchLogGroupArn = state.cloudwatchLogGroupArn;
+            inputs.zoneId = state.zoneId;
         } else {
-            const args = argsOrState as QueryLogArgs | undefined;
-            if (!args || args.cloudwatchLogGroupArn === undefined) {
+            const args = argsOrState as QueryLogArgs;
+            if (args.cloudwatchLogGroupArn === undefined) {
                 throw new Error("Missing required property 'cloudwatchLogGroupArn'");
             }
-            if (!args || args.zoneId === undefined) {
+            if (args.zoneId === undefined) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            inputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
-            inputs["zoneId"] = args ? args.zoneId : undefined;
+            inputs.cloudwatchLogGroupArn = args.cloudwatchLogGroupArn;
+            inputs.zoneId = args.zoneId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(QueryLog.__pulumiType, name, inputs, opts);
     }
 }

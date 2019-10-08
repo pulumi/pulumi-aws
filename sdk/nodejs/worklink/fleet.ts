@@ -129,43 +129,37 @@ export class Fleet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: FleetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as FleetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["auditStreamArn"] = state ? state.auditStreamArn : undefined;
-            inputs["companyCode"] = state ? state.companyCode : undefined;
-            inputs["createdTime"] = state ? state.createdTime : undefined;
-            inputs["deviceCaCertificate"] = state ? state.deviceCaCertificate : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["identityProvider"] = state ? state.identityProvider : undefined;
-            inputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["network"] = state ? state.network : undefined;
-            inputs["optimizeForEndUserLocation"] = state ? state.optimizeForEndUserLocation : undefined;
+    constructor(name: string, args?: FleetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: FleetArgs | FleetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as FleetState;
+            inputs.arn = state.arn;
+            inputs.auditStreamArn = state.auditStreamArn;
+            inputs.companyCode = state.companyCode;
+            inputs.createdTime = state.createdTime;
+            inputs.deviceCaCertificate = state.deviceCaCertificate;
+            inputs.displayName = state.displayName;
+            inputs.identityProvider = state.identityProvider;
+            inputs.lastUpdatedTime = state.lastUpdatedTime;
+            inputs.name = state.name;
+            inputs.network = state.network;
+            inputs.optimizeForEndUserLocation = state.optimizeForEndUserLocation;
         } else {
-            const args = argsOrState as FleetArgs | undefined;
-            inputs["auditStreamArn"] = args ? args.auditStreamArn : undefined;
-            inputs["deviceCaCertificate"] = args ? args.deviceCaCertificate : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["identityProvider"] = args ? args.identityProvider : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["network"] = args ? args.network : undefined;
-            inputs["optimizeForEndUserLocation"] = args ? args.optimizeForEndUserLocation : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["companyCode"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
+            const args = argsOrState as FleetArgs;
+            inputs.auditStreamArn = args.auditStreamArn;
+            inputs.deviceCaCertificate = args.deviceCaCertificate;
+            inputs.displayName = args.displayName;
+            inputs.identityProvider = args.identityProvider;
+            inputs.name = args.name;
+            inputs.network = args.network;
+            inputs.optimizeForEndUserLocation = args.optimizeForEndUserLocation;
+            inputs.arn = undefined /*out*/;
+            inputs.companyCode = undefined /*out*/;
+            inputs.createdTime = undefined /*out*/;
+            inputs.lastUpdatedTime = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Fleet.__pulumiType, name, inputs, opts);
     }
 }

@@ -67,30 +67,24 @@ export class Gateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GatewayArgs | GatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GatewayState | undefined;
-            inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+    constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GatewayArgs | GatewayState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GatewayState;
+            inputs.amazonSideAsn = state.amazonSideAsn;
+            inputs.name = state.name;
+            inputs.ownerAccountId = state.ownerAccountId;
         } else {
-            const args = argsOrState as GatewayArgs | undefined;
-            if (!args || args.amazonSideAsn === undefined) {
+            const args = argsOrState as GatewayArgs;
+            if (args.amazonSideAsn === undefined) {
                 throw new Error("Missing required property 'amazonSideAsn'");
             }
-            inputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerAccountId"] = undefined /*out*/;
+            inputs.amazonSideAsn = args.amazonSideAsn;
+            inputs.name = args.name;
+            inputs.ownerAccountId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Gateway.__pulumiType, name, inputs, opts);
     }
 }

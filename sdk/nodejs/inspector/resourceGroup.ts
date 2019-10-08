@@ -66,28 +66,22 @@ export class ResourceGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResourceGroupArgs | ResourceGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ResourceGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ResourceGroupArgs | ResourceGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ResourceGroupState;
+            inputs.arn = state.arn;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as ResourceGroupArgs | undefined;
-            if (!args || args.tags === undefined) {
+            const args = argsOrState as ResourceGroupArgs;
+            if (args.tags === undefined) {
                 throw new Error("Missing required property 'tags'");
             }
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ResourceGroup.__pulumiType, name, inputs, opts);
     }
 }

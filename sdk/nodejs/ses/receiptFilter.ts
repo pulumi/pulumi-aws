@@ -70,33 +70,27 @@ export class ReceiptFilter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReceiptFilterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ReceiptFilterArgs | ReceiptFilterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ReceiptFilterState | undefined;
-            inputs["cidr"] = state ? state.cidr : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+    constructor(name: string, args: ReceiptFilterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ReceiptFilterArgs | ReceiptFilterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ReceiptFilterState;
+            inputs.cidr = state.cidr;
+            inputs.name = state.name;
+            inputs.policy = state.policy;
         } else {
-            const args = argsOrState as ReceiptFilterArgs | undefined;
-            if (!args || args.cidr === undefined) {
+            const args = argsOrState as ReceiptFilterArgs;
+            if (args.cidr === undefined) {
                 throw new Error("Missing required property 'cidr'");
             }
-            if (!args || args.policy === undefined) {
+            if (args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["cidr"] = args ? args.cidr : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
+            inputs.cidr = args.cidr;
+            inputs.name = args.name;
+            inputs.policy = args.policy;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ReceiptFilter.__pulumiType, name, inputs, opts);
     }
 }

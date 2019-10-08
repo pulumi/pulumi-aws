@@ -161,42 +161,36 @@ export class Rule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RuleArgs | RuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["inputParameters"] = state ? state.inputParameters : undefined;
-            inputs["maximumExecutionFrequency"] = state ? state.maximumExecutionFrequency : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ruleId"] = state ? state.ruleId : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
-            inputs["source"] = state ? state.source : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RuleArgs | RuleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RuleState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.inputParameters = state.inputParameters;
+            inputs.maximumExecutionFrequency = state.maximumExecutionFrequency;
+            inputs.name = state.name;
+            inputs.ruleId = state.ruleId;
+            inputs.scope = state.scope;
+            inputs.source = state.source;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as RuleArgs | undefined;
-            if (!args || args.source === undefined) {
+            const args = argsOrState as RuleArgs;
+            if (args.source === undefined) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["inputParameters"] = args ? args.inputParameters : undefined;
-            inputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ruleId"] = undefined /*out*/;
+            inputs.description = args.description;
+            inputs.inputParameters = args.inputParameters;
+            inputs.maximumExecutionFrequency = args.maximumExecutionFrequency;
+            inputs.name = args.name;
+            inputs.scope = args.scope;
+            inputs.source = args.source;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.ruleId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Rule.__pulumiType, name, inputs, opts);
     }
 }

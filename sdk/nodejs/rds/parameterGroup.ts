@@ -100,38 +100,32 @@ export class ParameterGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ParameterGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ParameterGroupArgs | ParameterGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ParameterGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["family"] = state ? state.family : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: ParameterGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ParameterGroupArgs | ParameterGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ParameterGroupState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.family = state.family;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.parameters = state.parameters;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as ParameterGroupArgs | undefined;
-            if (!args || args.family === undefined) {
+            const args = argsOrState as ParameterGroupArgs;
+            if (args.family === undefined) {
                 throw new Error("Missing required property 'family'");
             }
-            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
-            inputs["family"] = args ? args.family : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.description = args.description || "Managed by Pulumi";
+            inputs.family = args.family;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.parameters = args.parameters;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ParameterGroup.__pulumiType, name, inputs, opts);
     }
 }

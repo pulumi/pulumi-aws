@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  *     cluster: "clusterName",
  *     desiredCount: 2,
  *     taskDefinition: "taskDefinitionFamily:1",
- * }, {ignoreChanges: ["desiredCount"]});
+ * });
  * ```
  * 
  * ### Aurora Read Replica Autoscaling
@@ -206,48 +206,42 @@ export class Policy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PolicyState | undefined;
-            inputs["alarms"] = state ? state.alarms : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyType"] = state ? state.policyType : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["scalableDimension"] = state ? state.scalableDimension : undefined;
-            inputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
-            inputs["stepScalingPolicyConfiguration"] = state ? state.stepScalingPolicyConfiguration : undefined;
-            inputs["targetTrackingScalingPolicyConfiguration"] = state ? state.targetTrackingScalingPolicyConfiguration : undefined;
+    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PolicyArgs | PolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PolicyState;
+            inputs.alarms = state.alarms;
+            inputs.arn = state.arn;
+            inputs.name = state.name;
+            inputs.policyType = state.policyType;
+            inputs.resourceId = state.resourceId;
+            inputs.scalableDimension = state.scalableDimension;
+            inputs.serviceNamespace = state.serviceNamespace;
+            inputs.stepScalingPolicyConfiguration = state.stepScalingPolicyConfiguration;
+            inputs.targetTrackingScalingPolicyConfiguration = state.targetTrackingScalingPolicyConfiguration;
         } else {
-            const args = argsOrState as PolicyArgs | undefined;
-            if (!args || args.resourceId === undefined) {
+            const args = argsOrState as PolicyArgs;
+            if (args.resourceId === undefined) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (!args || args.scalableDimension === undefined) {
+            if (args.scalableDimension === undefined) {
                 throw new Error("Missing required property 'scalableDimension'");
             }
-            if (!args || args.serviceNamespace === undefined) {
+            if (args.serviceNamespace === undefined) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
-            inputs["alarms"] = args ? args.alarms : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyType"] = args ? args.policyType : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["scalableDimension"] = args ? args.scalableDimension : undefined;
-            inputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
-            inputs["stepScalingPolicyConfiguration"] = args ? args.stepScalingPolicyConfiguration : undefined;
-            inputs["targetTrackingScalingPolicyConfiguration"] = args ? args.targetTrackingScalingPolicyConfiguration : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.alarms = args.alarms;
+            inputs.name = args.name;
+            inputs.policyType = args.policyType;
+            inputs.resourceId = args.resourceId;
+            inputs.scalableDimension = args.scalableDimension;
+            inputs.serviceNamespace = args.serviceNamespace;
+            inputs.stepScalingPolicyConfiguration = args.stepScalingPolicyConfiguration;
+            inputs.targetTrackingScalingPolicyConfiguration = args.targetTrackingScalingPolicyConfiguration;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Policy.__pulumiType, name, inputs, opts);
     }
 }

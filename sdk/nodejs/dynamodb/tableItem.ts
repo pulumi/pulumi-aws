@@ -95,38 +95,32 @@ export class TableItem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TableItemArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TableItemArgs | TableItemState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as TableItemState | undefined;
-            inputs["hashKey"] = state ? state.hashKey : undefined;
-            inputs["item"] = state ? state.item : undefined;
-            inputs["rangeKey"] = state ? state.rangeKey : undefined;
-            inputs["tableName"] = state ? state.tableName : undefined;
+    constructor(name: string, args: TableItemArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: TableItemArgs | TableItemState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as TableItemState;
+            inputs.hashKey = state.hashKey;
+            inputs.item = state.item;
+            inputs.rangeKey = state.rangeKey;
+            inputs.tableName = state.tableName;
         } else {
-            const args = argsOrState as TableItemArgs | undefined;
-            if (!args || args.hashKey === undefined) {
+            const args = argsOrState as TableItemArgs;
+            if (args.hashKey === undefined) {
                 throw new Error("Missing required property 'hashKey'");
             }
-            if (!args || args.item === undefined) {
+            if (args.item === undefined) {
                 throw new Error("Missing required property 'item'");
             }
-            if (!args || args.tableName === undefined) {
+            if (args.tableName === undefined) {
                 throw new Error("Missing required property 'tableName'");
             }
-            inputs["hashKey"] = args ? args.hashKey : undefined;
-            inputs["item"] = args ? args.item : undefined;
-            inputs["rangeKey"] = args ? args.rangeKey : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
+            inputs.hashKey = args.hashKey;
+            inputs.item = args.item;
+            inputs.rangeKey = args.rangeKey;
+            inputs.tableName = args.tableName;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(TableItem.__pulumiType, name, inputs, opts);
     }
 }

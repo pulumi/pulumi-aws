@@ -73,32 +73,26 @@ export class OrganizationalUnit extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: OrganizationalUnitArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OrganizationalUnitArgs | OrganizationalUnitState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as OrganizationalUnitState | undefined;
-            inputs["accounts"] = state ? state.accounts : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parentId"] = state ? state.parentId : undefined;
+    constructor(name: string, args: OrganizationalUnitArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: OrganizationalUnitArgs | OrganizationalUnitState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as OrganizationalUnitState;
+            inputs.accounts = state.accounts;
+            inputs.arn = state.arn;
+            inputs.name = state.name;
+            inputs.parentId = state.parentId;
         } else {
-            const args = argsOrState as OrganizationalUnitArgs | undefined;
-            if (!args || args.parentId === undefined) {
+            const args = argsOrState as OrganizationalUnitArgs;
+            if (args.parentId === undefined) {
                 throw new Error("Missing required property 'parentId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parentId"] = args ? args.parentId : undefined;
-            inputs["accounts"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
+            inputs.name = args.name;
+            inputs.parentId = args.parentId;
+            inputs.accounts = undefined /*out*/;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(OrganizationalUnit.__pulumiType, name, inputs, opts);
     }
 }

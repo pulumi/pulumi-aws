@@ -172,52 +172,46 @@ export class CertificateAuthority extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CertificateAuthorityArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CertificateAuthorityArgs | CertificateAuthorityState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CertificateAuthorityState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["certificateAuthorityConfiguration"] = state ? state.certificateAuthorityConfiguration : undefined;
-            inputs["certificateChain"] = state ? state.certificateChain : undefined;
-            inputs["certificateSigningRequest"] = state ? state.certificateSigningRequest : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["notAfter"] = state ? state.notAfter : undefined;
-            inputs["notBefore"] = state ? state.notBefore : undefined;
-            inputs["permanentDeletionTimeInDays"] = state ? state.permanentDeletionTimeInDays : undefined;
-            inputs["revocationConfiguration"] = state ? state.revocationConfiguration : undefined;
-            inputs["serial"] = state ? state.serial : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: CertificateAuthorityArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: CertificateAuthorityArgs | CertificateAuthorityState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as CertificateAuthorityState;
+            inputs.arn = state.arn;
+            inputs.certificate = state.certificate;
+            inputs.certificateAuthorityConfiguration = state.certificateAuthorityConfiguration;
+            inputs.certificateChain = state.certificateChain;
+            inputs.certificateSigningRequest = state.certificateSigningRequest;
+            inputs.enabled = state.enabled;
+            inputs.notAfter = state.notAfter;
+            inputs.notBefore = state.notBefore;
+            inputs.permanentDeletionTimeInDays = state.permanentDeletionTimeInDays;
+            inputs.revocationConfiguration = state.revocationConfiguration;
+            inputs.serial = state.serial;
+            inputs.status = state.status;
+            inputs.tags = state.tags;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as CertificateAuthorityArgs | undefined;
-            if (!args || args.certificateAuthorityConfiguration === undefined) {
+            const args = argsOrState as CertificateAuthorityArgs;
+            if (args.certificateAuthorityConfiguration === undefined) {
                 throw new Error("Missing required property 'certificateAuthorityConfiguration'");
             }
-            inputs["certificateAuthorityConfiguration"] = args ? args.certificateAuthorityConfiguration : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["permanentDeletionTimeInDays"] = args ? args.permanentDeletionTimeInDays : undefined;
-            inputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificate"] = undefined /*out*/;
-            inputs["certificateChain"] = undefined /*out*/;
-            inputs["certificateSigningRequest"] = undefined /*out*/;
-            inputs["notAfter"] = undefined /*out*/;
-            inputs["notBefore"] = undefined /*out*/;
-            inputs["serial"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            inputs.certificateAuthorityConfiguration = args.certificateAuthorityConfiguration;
+            inputs.enabled = args.enabled;
+            inputs.permanentDeletionTimeInDays = args.permanentDeletionTimeInDays;
+            inputs.revocationConfiguration = args.revocationConfiguration;
+            inputs.tags = args.tags;
+            inputs.type = args.type;
+            inputs.arn = undefined /*out*/;
+            inputs.certificate = undefined /*out*/;
+            inputs.certificateChain = undefined /*out*/;
+            inputs.certificateSigningRequest = undefined /*out*/;
+            inputs.notAfter = undefined /*out*/;
+            inputs.notBefore = undefined /*out*/;
+            inputs.serial = undefined /*out*/;
+            inputs.status = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(CertificateAuthority.__pulumiType, name, inputs, opts);
     }
 }

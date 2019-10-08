@@ -81,33 +81,27 @@ export class GroupMembership extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GroupMembershipArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GroupMembershipArgs | GroupMembershipState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GroupMembershipState | undefined;
-            inputs["group"] = state ? state.group : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["users"] = state ? state.users : undefined;
+    constructor(name: string, args: GroupMembershipArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GroupMembershipArgs | GroupMembershipState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GroupMembershipState;
+            inputs.group = state.group;
+            inputs.name = state.name;
+            inputs.users = state.users;
         } else {
-            const args = argsOrState as GroupMembershipArgs | undefined;
-            if (!args || args.group === undefined) {
+            const args = argsOrState as GroupMembershipArgs;
+            if (args.group === undefined) {
                 throw new Error("Missing required property 'group'");
             }
-            if (!args || args.users === undefined) {
+            if (args.users === undefined) {
                 throw new Error("Missing required property 'users'");
             }
-            inputs["group"] = args ? args.group : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["users"] = args ? args.users : undefined;
+            inputs.group = args.group;
+            inputs.name = args.name;
+            inputs.users = args.users;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(GroupMembership.__pulumiType, name, inputs, opts);
     }
 }

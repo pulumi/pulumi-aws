@@ -177,63 +177,57 @@ export class Table extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TableArgs | TableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as TableState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["attributes"] = state ? state.attributes : undefined;
-            inputs["billingMode"] = state ? state.billingMode : undefined;
-            inputs["globalSecondaryIndexes"] = state ? state.globalSecondaryIndexes : undefined;
-            inputs["hashKey"] = state ? state.hashKey : undefined;
-            inputs["localSecondaryIndexes"] = state ? state.localSecondaryIndexes : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
-            inputs["rangeKey"] = state ? state.rangeKey : undefined;
-            inputs["readCapacity"] = state ? state.readCapacity : undefined;
-            inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
-            inputs["streamArn"] = state ? state.streamArn : undefined;
-            inputs["streamEnabled"] = state ? state.streamEnabled : undefined;
-            inputs["streamLabel"] = state ? state.streamLabel : undefined;
-            inputs["streamViewType"] = state ? state.streamViewType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["ttl"] = state ? state.ttl : undefined;
-            inputs["writeCapacity"] = state ? state.writeCapacity : undefined;
+    constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: TableArgs | TableState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as TableState;
+            inputs.arn = state.arn;
+            inputs.attributes = state.attributes;
+            inputs.billingMode = state.billingMode;
+            inputs.globalSecondaryIndexes = state.globalSecondaryIndexes;
+            inputs.hashKey = state.hashKey;
+            inputs.localSecondaryIndexes = state.localSecondaryIndexes;
+            inputs.name = state.name;
+            inputs.pointInTimeRecovery = state.pointInTimeRecovery;
+            inputs.rangeKey = state.rangeKey;
+            inputs.readCapacity = state.readCapacity;
+            inputs.serverSideEncryption = state.serverSideEncryption;
+            inputs.streamArn = state.streamArn;
+            inputs.streamEnabled = state.streamEnabled;
+            inputs.streamLabel = state.streamLabel;
+            inputs.streamViewType = state.streamViewType;
+            inputs.tags = state.tags;
+            inputs.ttl = state.ttl;
+            inputs.writeCapacity = state.writeCapacity;
         } else {
-            const args = argsOrState as TableArgs | undefined;
-            if (!args || args.attributes === undefined) {
+            const args = argsOrState as TableArgs;
+            if (args.attributes === undefined) {
                 throw new Error("Missing required property 'attributes'");
             }
-            if (!args || args.hashKey === undefined) {
+            if (args.hashKey === undefined) {
                 throw new Error("Missing required property 'hashKey'");
             }
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["billingMode"] = args ? args.billingMode : undefined;
-            inputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
-            inputs["hashKey"] = args ? args.hashKey : undefined;
-            inputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
-            inputs["rangeKey"] = args ? args.rangeKey : undefined;
-            inputs["readCapacity"] = args ? args.readCapacity : undefined;
-            inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
-            inputs["streamEnabled"] = args ? args.streamEnabled : undefined;
-            inputs["streamViewType"] = args ? args.streamViewType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["ttl"] = args ? args.ttl : undefined;
-            inputs["writeCapacity"] = args ? args.writeCapacity : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["streamArn"] = undefined /*out*/;
-            inputs["streamLabel"] = undefined /*out*/;
+            inputs.attributes = args.attributes;
+            inputs.billingMode = args.billingMode;
+            inputs.globalSecondaryIndexes = args.globalSecondaryIndexes;
+            inputs.hashKey = args.hashKey;
+            inputs.localSecondaryIndexes = args.localSecondaryIndexes;
+            inputs.name = args.name;
+            inputs.pointInTimeRecovery = args.pointInTimeRecovery;
+            inputs.rangeKey = args.rangeKey;
+            inputs.readCapacity = args.readCapacity;
+            inputs.serverSideEncryption = args.serverSideEncryption;
+            inputs.streamEnabled = args.streamEnabled;
+            inputs.streamViewType = args.streamViewType;
+            inputs.tags = args.tags;
+            inputs.ttl = args.ttl;
+            inputs.writeCapacity = args.writeCapacity;
+            inputs.arn = undefined /*out*/;
+            inputs.streamArn = undefined /*out*/;
+            inputs.streamLabel = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Table.__pulumiType, name, inputs, opts);
     }
 }

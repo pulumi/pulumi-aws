@@ -85,38 +85,32 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AppCookieStickinessPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AppCookieStickinessPolicyArgs | AppCookieStickinessPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AppCookieStickinessPolicyState | undefined;
-            inputs["cookieName"] = state ? state.cookieName : undefined;
-            inputs["lbPort"] = state ? state.lbPort : undefined;
-            inputs["loadBalancer"] = state ? state.loadBalancer : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args: AppCookieStickinessPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AppCookieStickinessPolicyArgs | AppCookieStickinessPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AppCookieStickinessPolicyState;
+            inputs.cookieName = state.cookieName;
+            inputs.lbPort = state.lbPort;
+            inputs.loadBalancer = state.loadBalancer;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as AppCookieStickinessPolicyArgs | undefined;
-            if (!args || args.cookieName === undefined) {
+            const args = argsOrState as AppCookieStickinessPolicyArgs;
+            if (args.cookieName === undefined) {
                 throw new Error("Missing required property 'cookieName'");
             }
-            if (!args || args.lbPort === undefined) {
+            if (args.lbPort === undefined) {
                 throw new Error("Missing required property 'lbPort'");
             }
-            if (!args || args.loadBalancer === undefined) {
+            if (args.loadBalancer === undefined) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
-            inputs["cookieName"] = args ? args.cookieName : undefined;
-            inputs["lbPort"] = args ? args.lbPort : undefined;
-            inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs.cookieName = args.cookieName;
+            inputs.lbPort = args.lbPort;
+            inputs.loadBalancer = args.loadBalancer;
+            inputs.name = args.name;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(AppCookieStickinessPolicy.__pulumiType, name, inputs, opts);
     }
 }

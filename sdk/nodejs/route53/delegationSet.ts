@@ -71,25 +71,19 @@ export class DelegationSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DelegationSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DelegationSetArgs | DelegationSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DelegationSetState | undefined;
-            inputs["nameServers"] = state ? state.nameServers : undefined;
-            inputs["referenceName"] = state ? state.referenceName : undefined;
+    constructor(name: string, args?: DelegationSetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DelegationSetArgs | DelegationSetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DelegationSetState;
+            inputs.nameServers = state.nameServers;
+            inputs.referenceName = state.referenceName;
         } else {
-            const args = argsOrState as DelegationSetArgs | undefined;
-            inputs["referenceName"] = args ? args.referenceName : undefined;
-            inputs["nameServers"] = undefined /*out*/;
+            const args = argsOrState as DelegationSetArgs;
+            inputs.referenceName = args.referenceName;
+            inputs.nameServers = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DelegationSet.__pulumiType, name, inputs, opts);
     }
 }

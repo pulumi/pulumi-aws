@@ -247,54 +247,48 @@ export class DomainName extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainNameArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainNameArgs | DomainNameState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DomainNameState | undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["certificateBody"] = state ? state.certificateBody : undefined;
-            inputs["certificateChain"] = state ? state.certificateChain : undefined;
-            inputs["certificateName"] = state ? state.certificateName : undefined;
-            inputs["certificatePrivateKey"] = state ? state.certificatePrivateKey : undefined;
-            inputs["certificateUploadDate"] = state ? state.certificateUploadDate : undefined;
-            inputs["cloudfrontDomainName"] = state ? state.cloudfrontDomainName : undefined;
-            inputs["cloudfrontZoneId"] = state ? state.cloudfrontZoneId : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["endpointConfiguration"] = state ? state.endpointConfiguration : undefined;
-            inputs["regionalCertificateArn"] = state ? state.regionalCertificateArn : undefined;
-            inputs["regionalCertificateName"] = state ? state.regionalCertificateName : undefined;
-            inputs["regionalDomainName"] = state ? state.regionalDomainName : undefined;
-            inputs["regionalZoneId"] = state ? state.regionalZoneId : undefined;
-            inputs["securityPolicy"] = state ? state.securityPolicy : undefined;
+    constructor(name: string, args: DomainNameArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DomainNameArgs | DomainNameState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DomainNameState;
+            inputs.certificateArn = state.certificateArn;
+            inputs.certificateBody = state.certificateBody;
+            inputs.certificateChain = state.certificateChain;
+            inputs.certificateName = state.certificateName;
+            inputs.certificatePrivateKey = state.certificatePrivateKey;
+            inputs.certificateUploadDate = state.certificateUploadDate;
+            inputs.cloudfrontDomainName = state.cloudfrontDomainName;
+            inputs.cloudfrontZoneId = state.cloudfrontZoneId;
+            inputs.domainName = state.domainName;
+            inputs.endpointConfiguration = state.endpointConfiguration;
+            inputs.regionalCertificateArn = state.regionalCertificateArn;
+            inputs.regionalCertificateName = state.regionalCertificateName;
+            inputs.regionalDomainName = state.regionalDomainName;
+            inputs.regionalZoneId = state.regionalZoneId;
+            inputs.securityPolicy = state.securityPolicy;
         } else {
-            const args = argsOrState as DomainNameArgs | undefined;
-            if (!args || args.domainName === undefined) {
+            const args = argsOrState as DomainNameArgs;
+            if (args.domainName === undefined) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["certificateBody"] = args ? args.certificateBody : undefined;
-            inputs["certificateChain"] = args ? args.certificateChain : undefined;
-            inputs["certificateName"] = args ? args.certificateName : undefined;
-            inputs["certificatePrivateKey"] = args ? args.certificatePrivateKey : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            inputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
-            inputs["regionalCertificateName"] = args ? args.regionalCertificateName : undefined;
-            inputs["securityPolicy"] = args ? args.securityPolicy : undefined;
-            inputs["certificateUploadDate"] = undefined /*out*/;
-            inputs["cloudfrontDomainName"] = undefined /*out*/;
-            inputs["cloudfrontZoneId"] = undefined /*out*/;
-            inputs["regionalDomainName"] = undefined /*out*/;
-            inputs["regionalZoneId"] = undefined /*out*/;
+            inputs.certificateArn = args.certificateArn;
+            inputs.certificateBody = args.certificateBody;
+            inputs.certificateChain = args.certificateChain;
+            inputs.certificateName = args.certificateName;
+            inputs.certificatePrivateKey = args.certificatePrivateKey;
+            inputs.domainName = args.domainName;
+            inputs.endpointConfiguration = args.endpointConfiguration;
+            inputs.regionalCertificateArn = args.regionalCertificateArn;
+            inputs.regionalCertificateName = args.regionalCertificateName;
+            inputs.securityPolicy = args.securityPolicy;
+            inputs.certificateUploadDate = undefined /*out*/;
+            inputs.cloudfrontDomainName = undefined /*out*/;
+            inputs.cloudfrontZoneId = undefined /*out*/;
+            inputs.regionalDomainName = undefined /*out*/;
+            inputs.regionalZoneId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DomainName.__pulumiType, name, inputs, opts);
     }
 }

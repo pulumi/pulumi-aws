@@ -178,57 +178,51 @@ export class Crawler extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CrawlerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CrawlerArgs | CrawlerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CrawlerState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["catalogTargets"] = state ? state.catalogTargets : undefined;
-            inputs["classifiers"] = state ? state.classifiers : undefined;
-            inputs["configuration"] = state ? state.configuration : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dynamodbTargets"] = state ? state.dynamodbTargets : undefined;
-            inputs["jdbcTargets"] = state ? state.jdbcTargets : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["s3Targets"] = state ? state.s3Targets : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
-            inputs["schemaChangePolicy"] = state ? state.schemaChangePolicy : undefined;
-            inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
-            inputs["tablePrefix"] = state ? state.tablePrefix : undefined;
+    constructor(name: string, args: CrawlerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: CrawlerArgs | CrawlerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as CrawlerState;
+            inputs.arn = state.arn;
+            inputs.catalogTargets = state.catalogTargets;
+            inputs.classifiers = state.classifiers;
+            inputs.configuration = state.configuration;
+            inputs.databaseName = state.databaseName;
+            inputs.description = state.description;
+            inputs.dynamodbTargets = state.dynamodbTargets;
+            inputs.jdbcTargets = state.jdbcTargets;
+            inputs.name = state.name;
+            inputs.role = state.role;
+            inputs.s3Targets = state.s3Targets;
+            inputs.schedule = state.schedule;
+            inputs.schemaChangePolicy = state.schemaChangePolicy;
+            inputs.securityConfiguration = state.securityConfiguration;
+            inputs.tablePrefix = state.tablePrefix;
         } else {
-            const args = argsOrState as CrawlerArgs | undefined;
-            if (!args || args.databaseName === undefined) {
+            const args = argsOrState as CrawlerArgs;
+            if (args.databaseName === undefined) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.role === undefined) {
+            if (args.role === undefined) {
                 throw new Error("Missing required property 'role'");
             }
-            inputs["catalogTargets"] = args ? args.catalogTargets : undefined;
-            inputs["classifiers"] = args ? args.classifiers : undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dynamodbTargets"] = args ? args.dynamodbTargets : undefined;
-            inputs["jdbcTargets"] = args ? args.jdbcTargets : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["s3Targets"] = args ? args.s3Targets : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["schemaChangePolicy"] = args ? args.schemaChangePolicy : undefined;
-            inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
-            inputs["tablePrefix"] = args ? args.tablePrefix : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.catalogTargets = args.catalogTargets;
+            inputs.classifiers = args.classifiers;
+            inputs.configuration = args.configuration;
+            inputs.databaseName = args.databaseName;
+            inputs.description = args.description;
+            inputs.dynamodbTargets = args.dynamodbTargets;
+            inputs.jdbcTargets = args.jdbcTargets;
+            inputs.name = args.name;
+            inputs.role = args.role;
+            inputs.s3Targets = args.s3Targets;
+            inputs.schedule = args.schedule;
+            inputs.schemaChangePolicy = args.schemaChangePolicy;
+            inputs.securityConfiguration = args.securityConfiguration;
+            inputs.tablePrefix = args.tablePrefix;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Crawler.__pulumiType, name, inputs, opts);
     }
 }

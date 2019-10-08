@@ -97,42 +97,36 @@ export class Volume extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VolumeArgs | VolumeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VolumeState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["encrypted"] = state ? state.encrypted : undefined;
-            inputs["iops"] = state ? state.iops : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["size"] = state ? state.size : undefined;
-            inputs["snapshotId"] = state ? state.snapshotId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VolumeArgs | VolumeState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VolumeState;
+            inputs.arn = state.arn;
+            inputs.availabilityZone = state.availabilityZone;
+            inputs.encrypted = state.encrypted;
+            inputs.iops = state.iops;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.size = state.size;
+            inputs.snapshotId = state.snapshotId;
+            inputs.tags = state.tags;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as VolumeArgs | undefined;
-            if (!args || args.availabilityZone === undefined) {
+            const args = argsOrState as VolumeArgs;
+            if (args.availabilityZone === undefined) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["encrypted"] = args ? args.encrypted : undefined;
-            inputs["iops"] = args ? args.iops : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["size"] = args ? args.size : undefined;
-            inputs["snapshotId"] = args ? args.snapshotId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.availabilityZone = args.availabilityZone;
+            inputs.encrypted = args.encrypted;
+            inputs.iops = args.iops;
+            inputs.kmsKeyId = args.kmsKeyId;
+            inputs.size = args.size;
+            inputs.snapshotId = args.snapshotId;
+            inputs.tags = args.tags;
+            inputs.type = args.type;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Volume.__pulumiType, name, inputs, opts);
     }
 }

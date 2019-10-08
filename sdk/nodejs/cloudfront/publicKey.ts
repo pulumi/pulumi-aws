@@ -83,36 +83,30 @@ export class PublicKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PublicKeyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PublicKeyArgs | PublicKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PublicKeyState | undefined;
-            inputs["callerReference"] = state ? state.callerReference : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["encodedKey"] = state ? state.encodedKey : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
+    constructor(name: string, args: PublicKeyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PublicKeyArgs | PublicKeyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PublicKeyState;
+            inputs.callerReference = state.callerReference;
+            inputs.comment = state.comment;
+            inputs.encodedKey = state.encodedKey;
+            inputs.etag = state.etag;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
         } else {
-            const args = argsOrState as PublicKeyArgs | undefined;
-            if (!args || args.encodedKey === undefined) {
+            const args = argsOrState as PublicKeyArgs;
+            if (args.encodedKey === undefined) {
                 throw new Error("Missing required property 'encodedKey'");
             }
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["encodedKey"] = args ? args.encodedKey : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["callerReference"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
+            inputs.comment = args.comment;
+            inputs.encodedKey = args.encodedKey;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.callerReference = undefined /*out*/;
+            inputs.etag = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(PublicKey.__pulumiType, name, inputs, opts);
     }
 }

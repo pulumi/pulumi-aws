@@ -148,60 +148,54 @@ export class Budget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BudgetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BudgetArgs | BudgetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as BudgetState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["budgetType"] = state ? state.budgetType : undefined;
-            inputs["costFilters"] = state ? state.costFilters : undefined;
-            inputs["costTypes"] = state ? state.costTypes : undefined;
-            inputs["limitAmount"] = state ? state.limitAmount : undefined;
-            inputs["limitUnit"] = state ? state.limitUnit : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["notifications"] = state ? state.notifications : undefined;
-            inputs["timePeriodEnd"] = state ? state.timePeriodEnd : undefined;
-            inputs["timePeriodStart"] = state ? state.timePeriodStart : undefined;
-            inputs["timeUnit"] = state ? state.timeUnit : undefined;
+    constructor(name: string, args: BudgetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: BudgetArgs | BudgetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as BudgetState;
+            inputs.accountId = state.accountId;
+            inputs.budgetType = state.budgetType;
+            inputs.costFilters = state.costFilters;
+            inputs.costTypes = state.costTypes;
+            inputs.limitAmount = state.limitAmount;
+            inputs.limitUnit = state.limitUnit;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.notifications = state.notifications;
+            inputs.timePeriodEnd = state.timePeriodEnd;
+            inputs.timePeriodStart = state.timePeriodStart;
+            inputs.timeUnit = state.timeUnit;
         } else {
-            const args = argsOrState as BudgetArgs | undefined;
-            if (!args || args.budgetType === undefined) {
+            const args = argsOrState as BudgetArgs;
+            if (args.budgetType === undefined) {
                 throw new Error("Missing required property 'budgetType'");
             }
-            if (!args || args.limitAmount === undefined) {
+            if (args.limitAmount === undefined) {
                 throw new Error("Missing required property 'limitAmount'");
             }
-            if (!args || args.limitUnit === undefined) {
+            if (args.limitUnit === undefined) {
                 throw new Error("Missing required property 'limitUnit'");
             }
-            if (!args || args.timePeriodStart === undefined) {
+            if (args.timePeriodStart === undefined) {
                 throw new Error("Missing required property 'timePeriodStart'");
             }
-            if (!args || args.timeUnit === undefined) {
+            if (args.timeUnit === undefined) {
                 throw new Error("Missing required property 'timeUnit'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["budgetType"] = args ? args.budgetType : undefined;
-            inputs["costFilters"] = args ? args.costFilters : undefined;
-            inputs["costTypes"] = args ? args.costTypes : undefined;
-            inputs["limitAmount"] = args ? args.limitAmount : undefined;
-            inputs["limitUnit"] = args ? args.limitUnit : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["notifications"] = args ? args.notifications : undefined;
-            inputs["timePeriodEnd"] = args ? args.timePeriodEnd : undefined;
-            inputs["timePeriodStart"] = args ? args.timePeriodStart : undefined;
-            inputs["timeUnit"] = args ? args.timeUnit : undefined;
+            inputs.accountId = args.accountId;
+            inputs.budgetType = args.budgetType;
+            inputs.costFilters = args.costFilters;
+            inputs.costTypes = args.costTypes;
+            inputs.limitAmount = args.limitAmount;
+            inputs.limitUnit = args.limitUnit;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.notifications = args.notifications;
+            inputs.timePeriodEnd = args.timePeriodEnd;
+            inputs.timePeriodStart = args.timePeriodStart;
+            inputs.timeUnit = args.timeUnit;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Budget.__pulumiType, name, inputs, opts);
     }
 }

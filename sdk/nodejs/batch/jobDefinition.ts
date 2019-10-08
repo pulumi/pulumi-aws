@@ -135,40 +135,34 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: JobDefinitionArgs | JobDefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as JobDefinitionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["containerProperties"] = state ? state.containerProperties : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["retryStrategy"] = state ? state.retryStrategy : undefined;
-            inputs["revision"] = state ? state.revision : undefined;
-            inputs["timeout"] = state ? state.timeout : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: JobDefinitionArgs | JobDefinitionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as JobDefinitionState;
+            inputs.arn = state.arn;
+            inputs.containerProperties = state.containerProperties;
+            inputs.name = state.name;
+            inputs.parameters = state.parameters;
+            inputs.retryStrategy = state.retryStrategy;
+            inputs.revision = state.revision;
+            inputs.timeout = state.timeout;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as JobDefinitionArgs | undefined;
-            if (!args || args.type === undefined) {
+            const args = argsOrState as JobDefinitionArgs;
+            if (args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["containerProperties"] = args ? args.containerProperties : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["retryStrategy"] = args ? args.retryStrategy : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["revision"] = undefined /*out*/;
+            inputs.containerProperties = args.containerProperties;
+            inputs.name = args.name;
+            inputs.parameters = args.parameters;
+            inputs.retryStrategy = args.retryStrategy;
+            inputs.timeout = args.timeout;
+            inputs.type = args.type;
+            inputs.arn = undefined /*out*/;
+            inputs.revision = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(JobDefinition.__pulumiType, name, inputs, opts);
     }
 }

@@ -101,43 +101,37 @@ export class ExternalKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ExternalKeyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ExternalKeyArgs | ExternalKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ExternalKeyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["expirationModel"] = state ? state.expirationModel : undefined;
-            inputs["keyMaterialBase64"] = state ? state.keyMaterialBase64 : undefined;
-            inputs["keyState"] = state ? state.keyState : undefined;
-            inputs["keyUsage"] = state ? state.keyUsage : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["validTo"] = state ? state.validTo : undefined;
+    constructor(name: string, args?: ExternalKeyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ExternalKeyArgs | ExternalKeyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ExternalKeyState;
+            inputs.arn = state.arn;
+            inputs.deletionWindowInDays = state.deletionWindowInDays;
+            inputs.description = state.description;
+            inputs.enabled = state.enabled;
+            inputs.expirationModel = state.expirationModel;
+            inputs.keyMaterialBase64 = state.keyMaterialBase64;
+            inputs.keyState = state.keyState;
+            inputs.keyUsage = state.keyUsage;
+            inputs.policy = state.policy;
+            inputs.tags = state.tags;
+            inputs.validTo = state.validTo;
         } else {
-            const args = argsOrState as ExternalKeyArgs | undefined;
-            inputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["keyMaterialBase64"] = args ? args.keyMaterialBase64 : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["validTo"] = args ? args.validTo : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["expirationModel"] = undefined /*out*/;
-            inputs["keyState"] = undefined /*out*/;
-            inputs["keyUsage"] = undefined /*out*/;
+            const args = argsOrState as ExternalKeyArgs;
+            inputs.deletionWindowInDays = args.deletionWindowInDays;
+            inputs.description = args.description;
+            inputs.enabled = args.enabled;
+            inputs.keyMaterialBase64 = args.keyMaterialBase64;
+            inputs.policy = args.policy;
+            inputs.tags = args.tags;
+            inputs.validTo = args.validTo;
+            inputs.arn = undefined /*out*/;
+            inputs.expirationModel = undefined /*out*/;
+            inputs.keyState = undefined /*out*/;
+            inputs.keyUsage = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ExternalKey.__pulumiType, name, inputs, opts);
     }
 }

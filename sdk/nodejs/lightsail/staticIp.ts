@@ -71,29 +71,23 @@ export class StaticIp extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: StaticIpArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StaticIpArgs | StaticIpState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as StaticIpState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["supportCode"] = state ? state.supportCode : undefined;
+    constructor(name: string, args?: StaticIpArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: StaticIpArgs | StaticIpState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as StaticIpState;
+            inputs.arn = state.arn;
+            inputs.ipAddress = state.ipAddress;
+            inputs.name = state.name;
+            inputs.supportCode = state.supportCode;
         } else {
-            const args = argsOrState as StaticIpArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ipAddress"] = undefined /*out*/;
-            inputs["supportCode"] = undefined /*out*/;
+            const args = argsOrState as StaticIpArgs;
+            inputs.name = args.name;
+            inputs.arn = undefined /*out*/;
+            inputs.ipAddress = undefined /*out*/;
+            inputs.supportCode = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(StaticIp.__pulumiType, name, inputs, opts);
     }
 }

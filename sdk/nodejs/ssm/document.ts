@@ -159,63 +159,57 @@ export class Document extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DocumentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DocumentArgs | DocumentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DocumentState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["defaultVersion"] = state ? state.defaultVersion : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["documentFormat"] = state ? state.documentFormat : undefined;
-            inputs["documentType"] = state ? state.documentType : undefined;
-            inputs["hash"] = state ? state.hash : undefined;
-            inputs["hashType"] = state ? state.hashType : undefined;
-            inputs["latestVersion"] = state ? state.latestVersion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["permissions"] = state ? state.permissions : undefined;
-            inputs["platformTypes"] = state ? state.platformTypes : undefined;
-            inputs["schemaVersion"] = state ? state.schemaVersion : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: DocumentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DocumentArgs | DocumentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DocumentState;
+            inputs.arn = state.arn;
+            inputs.content = state.content;
+            inputs.createdDate = state.createdDate;
+            inputs.defaultVersion = state.defaultVersion;
+            inputs.description = state.description;
+            inputs.documentFormat = state.documentFormat;
+            inputs.documentType = state.documentType;
+            inputs.hash = state.hash;
+            inputs.hashType = state.hashType;
+            inputs.latestVersion = state.latestVersion;
+            inputs.name = state.name;
+            inputs.owner = state.owner;
+            inputs.parameters = state.parameters;
+            inputs.permissions = state.permissions;
+            inputs.platformTypes = state.platformTypes;
+            inputs.schemaVersion = state.schemaVersion;
+            inputs.status = state.status;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as DocumentArgs | undefined;
-            if (!args || args.content === undefined) {
+            const args = argsOrState as DocumentArgs;
+            if (args.content === undefined) {
                 throw new Error("Missing required property 'content'");
             }
-            if (!args || args.documentType === undefined) {
+            if (args.documentType === undefined) {
                 throw new Error("Missing required property 'documentType'");
             }
-            inputs["content"] = args ? args.content : undefined;
-            inputs["documentFormat"] = args ? args.documentFormat : undefined;
-            inputs["documentType"] = args ? args.documentType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["defaultVersion"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["hash"] = undefined /*out*/;
-            inputs["hashType"] = undefined /*out*/;
-            inputs["latestVersion"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["platformTypes"] = undefined /*out*/;
-            inputs["schemaVersion"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            inputs.content = args.content;
+            inputs.documentFormat = args.documentFormat;
+            inputs.documentType = args.documentType;
+            inputs.name = args.name;
+            inputs.permissions = args.permissions;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.createdDate = undefined /*out*/;
+            inputs.defaultVersion = undefined /*out*/;
+            inputs.description = undefined /*out*/;
+            inputs.hash = undefined /*out*/;
+            inputs.hashType = undefined /*out*/;
+            inputs.latestVersion = undefined /*out*/;
+            inputs.owner = undefined /*out*/;
+            inputs.parameters = undefined /*out*/;
+            inputs.platformTypes = undefined /*out*/;
+            inputs.schemaVersion = undefined /*out*/;
+            inputs.status = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Document.__pulumiType, name, inputs, opts);
     }
 }

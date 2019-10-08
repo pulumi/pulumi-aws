@@ -15,36 +15,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const dmsAssumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             identifiers: ["dms.amazonaws.com"],
- *             type: "Service",
- *         }],
- *     }],
- * });
- * const dmsAccessForEndpoint = new aws.iam.Role("dms-access-for-endpoint", {
- *     assumeRolePolicy: dmsAssumeRole.json,
- * });
- * const dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new aws.iam.RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role",
- *     role: dms_access_for_endpoint.name,
- * });
- * const dmsCloudwatchLogsRole = new aws.iam.Role("dms-cloudwatch-logs-role", {
- *     assumeRolePolicy: dmsAssumeRole.json,
- * });
- * const dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new aws.iam.RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole",
- *     role: dms_cloudwatch_logs_role.name,
- * });
- * const dmsVpcRole = new aws.iam.Role("dms-vpc-role", {
- *     assumeRolePolicy: dmsAssumeRole.json,
- * });
- * const dms_vpc_role_AmazonDMSVPCManagementRole = new aws.iam.RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
- *     role: dms_vpc_role.name,
- * });
  * // Create a new replication instance
  * const test = new aws.dms.ReplicationInstance("test", {
  *     allocatedStorage: 20,
@@ -63,6 +33,36 @@ import * as utilities from "../utilities";
  *         Name: "test",
  *     },
  *     vpcSecurityGroupIds: ["sg-12345678"],
+ * });
+ * const dmsAssumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             identifiers: ["dms.amazonaws.com"],
+ *             type: "Service",
+ *         }],
+ *     }],
+ * });
+ * const dmsAccessForEndpoint = new aws.iam.Role("dms-access-for-endpoint", {
+ *     assumeRolePolicy: dmsAssumeRole.json,
+ * });
+ * const dmsCloudwatchLogsRole = new aws.iam.Role("dms-cloudwatch-logs-role", {
+ *     assumeRolePolicy: dmsAssumeRole.json,
+ * });
+ * const dmsVpcRole = new aws.iam.Role("dms-vpc-role", {
+ *     assumeRolePolicy: dmsAssumeRole.json,
+ * });
+ * const dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new aws.iam.RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role",
+ *     role: dms_access_for_endpoint.name,
+ * });
+ * const dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new aws.iam.RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole",
+ *     role: dms_cloudwatch_logs_role.name,
+ * });
+ * const dms_vpc_role_AmazonDMSVPCManagementRole = new aws.iam.RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
+ *     role: dms_vpc_role.name,
  * });
  * ```
  *
@@ -171,61 +171,55 @@ export class ReplicationInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReplicationInstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ReplicationInstanceArgs | ReplicationInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ReplicationInstanceState | undefined;
-            inputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
-            inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["multiAz"] = state ? state.multiAz : undefined;
-            inputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
-            inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
-            inputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
-            inputs["replicationInstanceClass"] = state ? state.replicationInstanceClass : undefined;
-            inputs["replicationInstanceId"] = state ? state.replicationInstanceId : undefined;
-            inputs["replicationInstancePrivateIps"] = state ? state.replicationInstancePrivateIps : undefined;
-            inputs["replicationInstancePublicIps"] = state ? state.replicationInstancePublicIps : undefined;
-            inputs["replicationSubnetGroupId"] = state ? state.replicationSubnetGroupId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+    constructor(name: string, args: ReplicationInstanceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ReplicationInstanceArgs | ReplicationInstanceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ReplicationInstanceState;
+            inputs.allocatedStorage = state.allocatedStorage;
+            inputs.applyImmediately = state.applyImmediately;
+            inputs.autoMinorVersionUpgrade = state.autoMinorVersionUpgrade;
+            inputs.availabilityZone = state.availabilityZone;
+            inputs.engineVersion = state.engineVersion;
+            inputs.kmsKeyArn = state.kmsKeyArn;
+            inputs.multiAz = state.multiAz;
+            inputs.preferredMaintenanceWindow = state.preferredMaintenanceWindow;
+            inputs.publiclyAccessible = state.publiclyAccessible;
+            inputs.replicationInstanceArn = state.replicationInstanceArn;
+            inputs.replicationInstanceClass = state.replicationInstanceClass;
+            inputs.replicationInstanceId = state.replicationInstanceId;
+            inputs.replicationInstancePrivateIps = state.replicationInstancePrivateIps;
+            inputs.replicationInstancePublicIps = state.replicationInstancePublicIps;
+            inputs.replicationSubnetGroupId = state.replicationSubnetGroupId;
+            inputs.tags = state.tags;
+            inputs.vpcSecurityGroupIds = state.vpcSecurityGroupIds;
         } else {
-            const args = argsOrState as ReplicationInstanceArgs | undefined;
-            if (!args || args.replicationInstanceClass === undefined) {
+            const args = argsOrState as ReplicationInstanceArgs;
+            if (args.replicationInstanceClass === undefined) {
                 throw new Error("Missing required property 'replicationInstanceClass'");
             }
-            if (!args || args.replicationInstanceId === undefined) {
+            if (args.replicationInstanceId === undefined) {
                 throw new Error("Missing required property 'replicationInstanceId'");
             }
-            inputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;
-            inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["multiAz"] = args ? args.multiAz : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            inputs["replicationInstanceClass"] = args ? args.replicationInstanceClass : undefined;
-            inputs["replicationInstanceId"] = args ? args.replicationInstanceId : undefined;
-            inputs["replicationSubnetGroupId"] = args ? args.replicationSubnetGroupId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            inputs["replicationInstanceArn"] = undefined /*out*/;
-            inputs["replicationInstancePrivateIps"] = undefined /*out*/;
-            inputs["replicationInstancePublicIps"] = undefined /*out*/;
+            inputs.allocatedStorage = args.allocatedStorage;
+            inputs.applyImmediately = args.applyImmediately;
+            inputs.autoMinorVersionUpgrade = args.autoMinorVersionUpgrade;
+            inputs.availabilityZone = args.availabilityZone;
+            inputs.engineVersion = args.engineVersion;
+            inputs.kmsKeyArn = args.kmsKeyArn;
+            inputs.multiAz = args.multiAz;
+            inputs.preferredMaintenanceWindow = args.preferredMaintenanceWindow;
+            inputs.publiclyAccessible = args.publiclyAccessible;
+            inputs.replicationInstanceClass = args.replicationInstanceClass;
+            inputs.replicationInstanceId = args.replicationInstanceId;
+            inputs.replicationSubnetGroupId = args.replicationSubnetGroupId;
+            inputs.tags = args.tags;
+            inputs.vpcSecurityGroupIds = args.vpcSecurityGroupIds;
+            inputs.replicationInstanceArn = undefined /*out*/;
+            inputs.replicationInstancePrivateIps = undefined /*out*/;
+            inputs.replicationInstancePublicIps = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ReplicationInstance.__pulumiType, name, inputs, opts);
     }
 }

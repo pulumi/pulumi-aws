@@ -79,37 +79,31 @@ export class NetworkAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkAssociationArgs | NetworkAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NetworkAssociationState | undefined;
-            inputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: NetworkAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: NetworkAssociationArgs | NetworkAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as NetworkAssociationState;
+            inputs.clientVpnEndpointId = state.clientVpnEndpointId;
+            inputs.securityGroups = state.securityGroups;
+            inputs.status = state.status;
+            inputs.subnetId = state.subnetId;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as NetworkAssociationArgs | undefined;
-            if (!args || args.clientVpnEndpointId === undefined) {
+            const args = argsOrState as NetworkAssociationArgs;
+            if (args.clientVpnEndpointId === undefined) {
                 throw new Error("Missing required property 'clientVpnEndpointId'");
             }
-            if (!args || args.subnetId === undefined) {
+            if (args.subnetId === undefined) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["securityGroups"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            inputs.clientVpnEndpointId = args.clientVpnEndpointId;
+            inputs.subnetId = args.subnetId;
+            inputs.securityGroups = undefined /*out*/;
+            inputs.status = undefined /*out*/;
+            inputs.vpcId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(NetworkAssociation.__pulumiType, name, inputs, opts);
     }
 }

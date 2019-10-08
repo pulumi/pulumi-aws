@@ -69,29 +69,23 @@ export class Container extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ContainerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ContainerArgs | ContainerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ContainerState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: ContainerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ContainerArgs | ContainerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ContainerState;
+            inputs.arn = state.arn;
+            inputs.endpoint = state.endpoint;
+            inputs.name = state.name;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as ContainerArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
+            const args = argsOrState as ContainerArgs;
+            inputs.name = args.name;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.endpoint = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Container.__pulumiType, name, inputs, opts);
     }
 }

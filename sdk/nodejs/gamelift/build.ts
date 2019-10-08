@@ -62,35 +62,29 @@ export class Build extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BuildArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BuildArgs | BuildState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as BuildState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["operatingSystem"] = state ? state.operatingSystem : undefined;
-            inputs["storageLocation"] = state ? state.storageLocation : undefined;
-            inputs["version"] = state ? state.version : undefined;
+    constructor(name: string, args: BuildArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: BuildArgs | BuildState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as BuildState;
+            inputs.name = state.name;
+            inputs.operatingSystem = state.operatingSystem;
+            inputs.storageLocation = state.storageLocation;
+            inputs.version = state.version;
         } else {
-            const args = argsOrState as BuildArgs | undefined;
-            if (!args || args.operatingSystem === undefined) {
+            const args = argsOrState as BuildArgs;
+            if (args.operatingSystem === undefined) {
                 throw new Error("Missing required property 'operatingSystem'");
             }
-            if (!args || args.storageLocation === undefined) {
+            if (args.storageLocation === undefined) {
                 throw new Error("Missing required property 'storageLocation'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            inputs["storageLocation"] = args ? args.storageLocation : undefined;
-            inputs["version"] = args ? args.version : undefined;
+            inputs.name = args.name;
+            inputs.operatingSystem = args.operatingSystem;
+            inputs.storageLocation = args.storageLocation;
+            inputs.version = args.version;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Build.__pulumiType, name, inputs, opts);
     }
 }

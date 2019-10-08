@@ -76,36 +76,30 @@ export class DocumentationPart extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DocumentationPartArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DocumentationPartArgs | DocumentationPartState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DocumentationPartState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["restApiId"] = state ? state.restApiId : undefined;
+    constructor(name: string, args: DocumentationPartArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DocumentationPartArgs | DocumentationPartState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DocumentationPartState;
+            inputs.location = state.location;
+            inputs.properties = state.properties;
+            inputs.restApiId = state.restApiId;
         } else {
-            const args = argsOrState as DocumentationPartArgs | undefined;
-            if (!args || args.location === undefined) {
+            const args = argsOrState as DocumentationPartArgs;
+            if (args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.properties === undefined) {
+            if (args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
             }
-            if (!args || args.restApiId === undefined) {
+            if (args.restApiId === undefined) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
+            inputs.location = args.location;
+            inputs.properties = args.properties;
+            inputs.restApiId = args.restApiId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DocumentationPart.__pulumiType, name, inputs, opts);
     }
 }

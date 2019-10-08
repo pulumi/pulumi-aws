@@ -105,42 +105,36 @@ export class Stream extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StreamArgs | StreamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as StreamState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["encryptionType"] = state ? state.encryptionType : undefined;
-            inputs["enforceConsumerDeletion"] = state ? state.enforceConsumerDeletion : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
-            inputs["shardCount"] = state ? state.shardCount : undefined;
-            inputs["shardLevelMetrics"] = state ? state.shardLevelMetrics : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: StreamArgs | StreamState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as StreamState;
+            inputs.arn = state.arn;
+            inputs.encryptionType = state.encryptionType;
+            inputs.enforceConsumerDeletion = state.enforceConsumerDeletion;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.name = state.name;
+            inputs.retentionPeriod = state.retentionPeriod;
+            inputs.shardCount = state.shardCount;
+            inputs.shardLevelMetrics = state.shardLevelMetrics;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as StreamArgs | undefined;
-            if (!args || args.shardCount === undefined) {
+            const args = argsOrState as StreamArgs;
+            if (args.shardCount === undefined) {
                 throw new Error("Missing required property 'shardCount'");
             }
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["encryptionType"] = args ? args.encryptionType : undefined;
-            inputs["enforceConsumerDeletion"] = args ? args.enforceConsumerDeletion : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            inputs["shardCount"] = args ? args.shardCount : undefined;
-            inputs["shardLevelMetrics"] = args ? args.shardLevelMetrics : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            inputs.arn = args.arn;
+            inputs.encryptionType = args.encryptionType;
+            inputs.enforceConsumerDeletion = args.enforceConsumerDeletion;
+            inputs.kmsKeyId = args.kmsKeyId;
+            inputs.name = args.name;
+            inputs.retentionPeriod = args.retentionPeriod;
+            inputs.shardCount = args.shardCount;
+            inputs.shardLevelMetrics = args.shardLevelMetrics;
+            inputs.tags = args.tags;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Stream.__pulumiType, name, inputs, opts);
     }
 }

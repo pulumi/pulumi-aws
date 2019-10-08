@@ -15,11 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const kms = new aws.kms.Key("kms", {
+ *     description: "example",
+ * });
  * const vpc = new aws.ec2.Vpc("vpc", {
  *     cidrBlock: "192.168.0.0/22",
  * });
  * const azs = aws.getAvailabilityZones({
  *     state: "available",
+ * });
+ * const sg = new aws.ec2.SecurityGroup("sg", {
+ *     vpcId: vpc.id,
  * });
  * const subnetAz1 = new aws.ec2.Subnet("subnetAz1", {
  *     availabilityZone: azs.names[0],
@@ -35,12 +41,6 @@ import * as utilities from "../utilities";
  *     availabilityZone: azs.names[2],
  *     cidrBlock: "192.168.2.0/24",
  *     vpcId: vpc.id,
- * });
- * const sg = new aws.ec2.SecurityGroup("sg", {
- *     vpcId: vpc.id,
- * });
- * const kms = new aws.kms.Key("kms", {
- *     description: "example",
  * });
  * const example = new aws.msk.Cluster("example", {
  *     brokerNodeGroupInfo: {
@@ -64,9 +64,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * 
- * export const zookeeperConnectString = example.zookeeperConnectString;
  * export const bootstrapBrokers = example.bootstrapBrokers;
  * export const bootstrapBrokersTls = example.bootstrapBrokersTls;
+ * export const zookeeperConnectString = example.zookeeperConnectString;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_cluster.html.markdown.
@@ -163,61 +163,55 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["bootstrapBrokers"] = state ? state.bootstrapBrokers : undefined;
-            inputs["bootstrapBrokersTls"] = state ? state.bootstrapBrokersTls : undefined;
-            inputs["brokerNodeGroupInfo"] = state ? state.brokerNodeGroupInfo : undefined;
-            inputs["clientAuthentication"] = state ? state.clientAuthentication : undefined;
-            inputs["clusterName"] = state ? state.clusterName : undefined;
-            inputs["configurationInfo"] = state ? state.configurationInfo : undefined;
-            inputs["currentVersion"] = state ? state.currentVersion : undefined;
-            inputs["encryptionInfo"] = state ? state.encryptionInfo : undefined;
-            inputs["enhancedMonitoring"] = state ? state.enhancedMonitoring : undefined;
-            inputs["kafkaVersion"] = state ? state.kafkaVersion : undefined;
-            inputs["numberOfBrokerNodes"] = state ? state.numberOfBrokerNodes : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["zookeeperConnectString"] = state ? state.zookeeperConnectString : undefined;
+    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ClusterArgs | ClusterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ClusterState;
+            inputs.arn = state.arn;
+            inputs.bootstrapBrokers = state.bootstrapBrokers;
+            inputs.bootstrapBrokersTls = state.bootstrapBrokersTls;
+            inputs.brokerNodeGroupInfo = state.brokerNodeGroupInfo;
+            inputs.clientAuthentication = state.clientAuthentication;
+            inputs.clusterName = state.clusterName;
+            inputs.configurationInfo = state.configurationInfo;
+            inputs.currentVersion = state.currentVersion;
+            inputs.encryptionInfo = state.encryptionInfo;
+            inputs.enhancedMonitoring = state.enhancedMonitoring;
+            inputs.kafkaVersion = state.kafkaVersion;
+            inputs.numberOfBrokerNodes = state.numberOfBrokerNodes;
+            inputs.tags = state.tags;
+            inputs.zookeeperConnectString = state.zookeeperConnectString;
         } else {
-            const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.brokerNodeGroupInfo === undefined) {
+            const args = argsOrState as ClusterArgs;
+            if (args.brokerNodeGroupInfo === undefined) {
                 throw new Error("Missing required property 'brokerNodeGroupInfo'");
             }
-            if (!args || args.clusterName === undefined) {
+            if (args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.kafkaVersion === undefined) {
+            if (args.kafkaVersion === undefined) {
                 throw new Error("Missing required property 'kafkaVersion'");
             }
-            if (!args || args.numberOfBrokerNodes === undefined) {
+            if (args.numberOfBrokerNodes === undefined) {
                 throw new Error("Missing required property 'numberOfBrokerNodes'");
             }
-            inputs["brokerNodeGroupInfo"] = args ? args.brokerNodeGroupInfo : undefined;
-            inputs["clientAuthentication"] = args ? args.clientAuthentication : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["configurationInfo"] = args ? args.configurationInfo : undefined;
-            inputs["encryptionInfo"] = args ? args.encryptionInfo : undefined;
-            inputs["enhancedMonitoring"] = args ? args.enhancedMonitoring : undefined;
-            inputs["kafkaVersion"] = args ? args.kafkaVersion : undefined;
-            inputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["bootstrapBrokers"] = undefined /*out*/;
-            inputs["bootstrapBrokersTls"] = undefined /*out*/;
-            inputs["currentVersion"] = undefined /*out*/;
-            inputs["zookeeperConnectString"] = undefined /*out*/;
+            inputs.brokerNodeGroupInfo = args.brokerNodeGroupInfo;
+            inputs.clientAuthentication = args.clientAuthentication;
+            inputs.clusterName = args.clusterName;
+            inputs.configurationInfo = args.configurationInfo;
+            inputs.encryptionInfo = args.encryptionInfo;
+            inputs.enhancedMonitoring = args.enhancedMonitoring;
+            inputs.kafkaVersion = args.kafkaVersion;
+            inputs.numberOfBrokerNodes = args.numberOfBrokerNodes;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.bootstrapBrokers = undefined /*out*/;
+            inputs.bootstrapBrokersTls = undefined /*out*/;
+            inputs.currentVersion = undefined /*out*/;
+            inputs.zookeeperConnectString = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

@@ -79,30 +79,24 @@ export class RuleGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RuleGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RuleGroupArgs | RuleGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RuleGroupState | undefined;
-            inputs["activatedRules"] = state ? state.activatedRules : undefined;
-            inputs["metricName"] = state ? state.metricName : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args: RuleGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RuleGroupArgs | RuleGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RuleGroupState;
+            inputs.activatedRules = state.activatedRules;
+            inputs.metricName = state.metricName;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as RuleGroupArgs | undefined;
-            if (!args || args.metricName === undefined) {
+            const args = argsOrState as RuleGroupArgs;
+            if (args.metricName === undefined) {
                 throw new Error("Missing required property 'metricName'");
             }
-            inputs["activatedRules"] = args ? args.activatedRules : undefined;
-            inputs["metricName"] = args ? args.metricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs.activatedRules = args.activatedRules;
+            inputs.metricName = args.metricName;
+            inputs.name = args.name;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RuleGroup.__pulumiType, name, inputs, opts);
     }
 }

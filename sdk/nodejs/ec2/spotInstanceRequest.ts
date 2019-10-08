@@ -299,127 +299,121 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SpotInstanceRequestArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SpotInstanceRequestArgs | SpotInstanceRequestState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SpotInstanceRequestState | undefined;
-            inputs["ami"] = state ? state.ami : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["blockDurationMinutes"] = state ? state.blockDurationMinutes : undefined;
-            inputs["cpuCoreCount"] = state ? state.cpuCoreCount : undefined;
-            inputs["cpuThreadsPerCore"] = state ? state.cpuThreadsPerCore : undefined;
-            inputs["creditSpecification"] = state ? state.creditSpecification : undefined;
-            inputs["disableApiTermination"] = state ? state.disableApiTermination : undefined;
-            inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
-            inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
-            inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
-            inputs["getPasswordData"] = state ? state.getPasswordData : undefined;
-            inputs["hostId"] = state ? state.hostId : undefined;
-            inputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
-            inputs["instanceInitiatedShutdownBehavior"] = state ? state.instanceInitiatedShutdownBehavior : undefined;
-            inputs["instanceInterruptionBehaviour"] = state ? state.instanceInterruptionBehaviour : undefined;
-            inputs["instanceState"] = state ? state.instanceState : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["ipv6AddressCount"] = state ? state.ipv6AddressCount : undefined;
-            inputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
-            inputs["keyName"] = state ? state.keyName : undefined;
-            inputs["launchGroup"] = state ? state.launchGroup : undefined;
-            inputs["monitoring"] = state ? state.monitoring : undefined;
-            inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            inputs["passwordData"] = state ? state.passwordData : undefined;
-            inputs["placementGroup"] = state ? state.placementGroup : undefined;
-            inputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
-            inputs["privateDns"] = state ? state.privateDns : undefined;
-            inputs["privateIp"] = state ? state.privateIp : undefined;
-            inputs["publicDns"] = state ? state.publicDns : undefined;
-            inputs["publicIp"] = state ? state.publicIp : undefined;
-            inputs["rootBlockDevice"] = state ? state.rootBlockDevice : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["sourceDestCheck"] = state ? state.sourceDestCheck : undefined;
-            inputs["spotBidStatus"] = state ? state.spotBidStatus : undefined;
-            inputs["spotInstanceId"] = state ? state.spotInstanceId : undefined;
-            inputs["spotPrice"] = state ? state.spotPrice : undefined;
-            inputs["spotRequestState"] = state ? state.spotRequestState : undefined;
-            inputs["spotType"] = state ? state.spotType : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tenancy"] = state ? state.tenancy : undefined;
-            inputs["userData"] = state ? state.userData : undefined;
-            inputs["userDataBase64"] = state ? state.userDataBase64 : undefined;
-            inputs["validFrom"] = state ? state.validFrom : undefined;
-            inputs["validUntil"] = state ? state.validUntil : undefined;
-            inputs["volumeTags"] = state ? state.volumeTags : undefined;
-            inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
-            inputs["waitForFulfillment"] = state ? state.waitForFulfillment : undefined;
+    constructor(name: string, args: SpotInstanceRequestArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SpotInstanceRequestArgs | SpotInstanceRequestState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SpotInstanceRequestState;
+            inputs.ami = state.ami;
+            inputs.arn = state.arn;
+            inputs.associatePublicIpAddress = state.associatePublicIpAddress;
+            inputs.availabilityZone = state.availabilityZone;
+            inputs.blockDurationMinutes = state.blockDurationMinutes;
+            inputs.cpuCoreCount = state.cpuCoreCount;
+            inputs.cpuThreadsPerCore = state.cpuThreadsPerCore;
+            inputs.creditSpecification = state.creditSpecification;
+            inputs.disableApiTermination = state.disableApiTermination;
+            inputs.ebsBlockDevices = state.ebsBlockDevices;
+            inputs.ebsOptimized = state.ebsOptimized;
+            inputs.ephemeralBlockDevices = state.ephemeralBlockDevices;
+            inputs.getPasswordData = state.getPasswordData;
+            inputs.hostId = state.hostId;
+            inputs.iamInstanceProfile = state.iamInstanceProfile;
+            inputs.instanceInitiatedShutdownBehavior = state.instanceInitiatedShutdownBehavior;
+            inputs.instanceInterruptionBehaviour = state.instanceInterruptionBehaviour;
+            inputs.instanceState = state.instanceState;
+            inputs.instanceType = state.instanceType;
+            inputs.ipv6AddressCount = state.ipv6AddressCount;
+            inputs.ipv6Addresses = state.ipv6Addresses;
+            inputs.keyName = state.keyName;
+            inputs.launchGroup = state.launchGroup;
+            inputs.monitoring = state.monitoring;
+            inputs.networkInterfaces = state.networkInterfaces;
+            inputs.passwordData = state.passwordData;
+            inputs.placementGroup = state.placementGroup;
+            inputs.primaryNetworkInterfaceId = state.primaryNetworkInterfaceId;
+            inputs.privateDns = state.privateDns;
+            inputs.privateIp = state.privateIp;
+            inputs.publicDns = state.publicDns;
+            inputs.publicIp = state.publicIp;
+            inputs.rootBlockDevice = state.rootBlockDevice;
+            inputs.securityGroups = state.securityGroups;
+            inputs.sourceDestCheck = state.sourceDestCheck;
+            inputs.spotBidStatus = state.spotBidStatus;
+            inputs.spotInstanceId = state.spotInstanceId;
+            inputs.spotPrice = state.spotPrice;
+            inputs.spotRequestState = state.spotRequestState;
+            inputs.spotType = state.spotType;
+            inputs.subnetId = state.subnetId;
+            inputs.tags = state.tags;
+            inputs.tenancy = state.tenancy;
+            inputs.userData = state.userData;
+            inputs.userDataBase64 = state.userDataBase64;
+            inputs.validFrom = state.validFrom;
+            inputs.validUntil = state.validUntil;
+            inputs.volumeTags = state.volumeTags;
+            inputs.vpcSecurityGroupIds = state.vpcSecurityGroupIds;
+            inputs.waitForFulfillment = state.waitForFulfillment;
         } else {
-            const args = argsOrState as SpotInstanceRequestArgs | undefined;
-            if (!args || args.ami === undefined) {
+            const args = argsOrState as SpotInstanceRequestArgs;
+            if (args.ami === undefined) {
                 throw new Error("Missing required property 'ami'");
             }
-            if (!args || args.instanceType === undefined) {
+            if (args.instanceType === undefined) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["ami"] = args ? args.ami : undefined;
-            inputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["blockDurationMinutes"] = args ? args.blockDurationMinutes : undefined;
-            inputs["cpuCoreCount"] = args ? args.cpuCoreCount : undefined;
-            inputs["cpuThreadsPerCore"] = args ? args.cpuThreadsPerCore : undefined;
-            inputs["creditSpecification"] = args ? args.creditSpecification : undefined;
-            inputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
-            inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
-            inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
-            inputs["getPasswordData"] = args ? args.getPasswordData : undefined;
-            inputs["hostId"] = args ? args.hostId : undefined;
-            inputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
-            inputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
-            inputs["instanceInterruptionBehaviour"] = args ? args.instanceInterruptionBehaviour : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
-            inputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["launchGroup"] = args ? args.launchGroup : undefined;
-            inputs["monitoring"] = args ? args.monitoring : undefined;
-            inputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
-            inputs["placementGroup"] = args ? args.placementGroup : undefined;
-            inputs["privateIp"] = args ? args.privateIp : undefined;
-            inputs["rootBlockDevice"] = args ? args.rootBlockDevice : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
-            inputs["spotPrice"] = args ? args.spotPrice : undefined;
-            inputs["spotType"] = args ? args.spotType : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tenancy"] = args ? args.tenancy : undefined;
-            inputs["userData"] = args ? args.userData : undefined;
-            inputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
-            inputs["validFrom"] = args ? args.validFrom : undefined;
-            inputs["validUntil"] = args ? args.validUntil : undefined;
-            inputs["volumeTags"] = args ? args.volumeTags : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            inputs["waitForFulfillment"] = args ? args.waitForFulfillment : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["instanceState"] = undefined /*out*/;
-            inputs["passwordData"] = undefined /*out*/;
-            inputs["primaryNetworkInterfaceId"] = undefined /*out*/;
-            inputs["privateDns"] = undefined /*out*/;
-            inputs["publicDns"] = undefined /*out*/;
-            inputs["publicIp"] = undefined /*out*/;
-            inputs["spotBidStatus"] = undefined /*out*/;
-            inputs["spotInstanceId"] = undefined /*out*/;
-            inputs["spotRequestState"] = undefined /*out*/;
+            inputs.ami = args.ami;
+            inputs.associatePublicIpAddress = args.associatePublicIpAddress;
+            inputs.availabilityZone = args.availabilityZone;
+            inputs.blockDurationMinutes = args.blockDurationMinutes;
+            inputs.cpuCoreCount = args.cpuCoreCount;
+            inputs.cpuThreadsPerCore = args.cpuThreadsPerCore;
+            inputs.creditSpecification = args.creditSpecification;
+            inputs.disableApiTermination = args.disableApiTermination;
+            inputs.ebsBlockDevices = args.ebsBlockDevices;
+            inputs.ebsOptimized = args.ebsOptimized;
+            inputs.ephemeralBlockDevices = args.ephemeralBlockDevices;
+            inputs.getPasswordData = args.getPasswordData;
+            inputs.hostId = args.hostId;
+            inputs.iamInstanceProfile = args.iamInstanceProfile;
+            inputs.instanceInitiatedShutdownBehavior = args.instanceInitiatedShutdownBehavior;
+            inputs.instanceInterruptionBehaviour = args.instanceInterruptionBehaviour;
+            inputs.instanceType = args.instanceType;
+            inputs.ipv6AddressCount = args.ipv6AddressCount;
+            inputs.ipv6Addresses = args.ipv6Addresses;
+            inputs.keyName = args.keyName;
+            inputs.launchGroup = args.launchGroup;
+            inputs.monitoring = args.monitoring;
+            inputs.networkInterfaces = args.networkInterfaces;
+            inputs.placementGroup = args.placementGroup;
+            inputs.privateIp = args.privateIp;
+            inputs.rootBlockDevice = args.rootBlockDevice;
+            inputs.securityGroups = args.securityGroups;
+            inputs.sourceDestCheck = args.sourceDestCheck;
+            inputs.spotPrice = args.spotPrice;
+            inputs.spotType = args.spotType;
+            inputs.subnetId = args.subnetId;
+            inputs.tags = args.tags;
+            inputs.tenancy = args.tenancy;
+            inputs.userData = args.userData;
+            inputs.userDataBase64 = args.userDataBase64;
+            inputs.validFrom = args.validFrom;
+            inputs.validUntil = args.validUntil;
+            inputs.volumeTags = args.volumeTags;
+            inputs.vpcSecurityGroupIds = args.vpcSecurityGroupIds;
+            inputs.waitForFulfillment = args.waitForFulfillment;
+            inputs.arn = undefined /*out*/;
+            inputs.instanceState = undefined /*out*/;
+            inputs.passwordData = undefined /*out*/;
+            inputs.primaryNetworkInterfaceId = undefined /*out*/;
+            inputs.privateDns = undefined /*out*/;
+            inputs.publicDns = undefined /*out*/;
+            inputs.publicIp = undefined /*out*/;
+            inputs.spotBidStatus = undefined /*out*/;
+            inputs.spotInstanceId = undefined /*out*/;
+            inputs.spotRequestState = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SpotInstanceRequest.__pulumiType, name, inputs, opts);
     }
 }

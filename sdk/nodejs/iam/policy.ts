@@ -96,36 +96,30 @@ export class Policy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PolicyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PolicyArgs | PolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PolicyState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.path = state.path;
+            inputs.policy = state.policy;
         } else {
-            const args = argsOrState as PolicyArgs | undefined;
-            if (!args || args.policy === undefined) {
+            const args = argsOrState as PolicyArgs;
+            if (args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.path = args.path;
+            inputs.policy = args.policy;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Policy.__pulumiType, name, inputs, opts);
     }
 }

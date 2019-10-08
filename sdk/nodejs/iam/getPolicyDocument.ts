@@ -110,6 +110,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const override = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["s3:*"],
+ *         resources: ["*"],
+ *         sid: "SidToOverwrite",
+ *     }],
+ * });
  * const source = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
@@ -122,24 +129,6 @@ import * as utilities from "../utilities";
  *             sid: "SidToOverwrite",
  *         },
  *     ],
- * });
- * const sourceJsonExample = aws.iam.getPolicyDocument({
- *     sourceJson: source.json,
- *     statements: [{
- *         actions: ["s3:*"],
- *         resources: [
- *             "arn:aws:s3:::somebucket",
- *             "arn:aws:s3:::somebucket/*",
- *         ],
- *         sid: "SidToOverwrite",
- *     }],
- * });
- * const override = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["s3:*"],
- *         resources: ["*"],
- *         sid: "SidToOverwrite",
- *     }],
  * });
  * const overrideJsonExample = aws.iam.getPolicyDocument({
  *     overrideJson: override.json,
@@ -157,6 +146,17 @@ import * as utilities from "../utilities";
  *             sid: "SidToOverwrite",
  *         },
  *     ],
+ * });
+ * const sourceJsonExample = aws.iam.getPolicyDocument({
+ *     sourceJson: source.json,
+ *     statements: [{
+ *         actions: ["s3:*"],
+ *         resources: [
+ *             "arn:aws:s3:::somebucket",
+ *             "arn:aws:s3:::somebucket/*",
+ *         ],
+ *         sid: "SidToOverwrite",
+ *     }],
  * });
  * ```
  * 
@@ -182,16 +182,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const source = aws.iam.getPolicyDocument({
+ * const override = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["ec2:DescribeAccountAttributes"],
+ *         actions: ["s3:GetObject"],
  *         resources: ["*"],
  *         sid: "OverridePlaceholder",
  *     }],
  * });
- * const override = aws.iam.getPolicyDocument({
+ * const source = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["s3:GetObject"],
+ *         actions: ["ec2:DescribeAccountAttributes"],
  *         resources: ["*"],
  *         sid: "OverridePlaceholder",
  *     }],

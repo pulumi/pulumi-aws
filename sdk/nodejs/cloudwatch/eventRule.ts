@@ -122,39 +122,33 @@ export class EventRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: EventRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventRuleArgs | EventRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EventRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["eventPattern"] = state ? state.eventPattern : undefined;
-            inputs["isEnabled"] = state ? state.isEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: EventRuleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EventRuleArgs | EventRuleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EventRuleState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.eventPattern = state.eventPattern;
+            inputs.isEnabled = state.isEnabled;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.roleArn = state.roleArn;
+            inputs.scheduleExpression = state.scheduleExpression;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as EventRuleArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["eventPattern"] = args ? args.eventPattern : undefined;
-            inputs["isEnabled"] = args ? args.isEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as EventRuleArgs;
+            inputs.description = args.description;
+            inputs.eventPattern = args.eventPattern;
+            inputs.isEnabled = args.isEnabled;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.roleArn = args.roleArn;
+            inputs.scheduleExpression = args.scheduleExpression;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EventRule.__pulumiType, name, inputs, opts);
     }
 }

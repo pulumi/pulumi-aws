@@ -61,26 +61,20 @@ export class MemberAccountAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MemberAccountAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MemberAccountAssociationArgs | MemberAccountAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MemberAccountAssociationState | undefined;
-            inputs["memberAccountId"] = state ? state.memberAccountId : undefined;
+    constructor(name: string, args: MemberAccountAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: MemberAccountAssociationArgs | MemberAccountAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as MemberAccountAssociationState;
+            inputs.memberAccountId = state.memberAccountId;
         } else {
-            const args = argsOrState as MemberAccountAssociationArgs | undefined;
-            if (!args || args.memberAccountId === undefined) {
+            const args = argsOrState as MemberAccountAssociationArgs;
+            if (args.memberAccountId === undefined) {
                 throw new Error("Missing required property 'memberAccountId'");
             }
-            inputs["memberAccountId"] = args ? args.memberAccountId : undefined;
+            inputs.memberAccountId = args.memberAccountId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(MemberAccountAssociation.__pulumiType, name, inputs, opts);
     }
 }

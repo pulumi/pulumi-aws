@@ -96,52 +96,46 @@ export class Route extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RouteState | undefined;
-            inputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
-            inputs["destinationIpv6CidrBlock"] = state ? state.destinationIpv6CidrBlock : undefined;
-            inputs["destinationPrefixListId"] = state ? state.destinationPrefixListId : undefined;
-            inputs["egressOnlyGatewayId"] = state ? state.egressOnlyGatewayId : undefined;
-            inputs["gatewayId"] = state ? state.gatewayId : undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["instanceOwnerId"] = state ? state.instanceOwnerId : undefined;
-            inputs["natGatewayId"] = state ? state.natGatewayId : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            inputs["origin"] = state ? state.origin : undefined;
-            inputs["routeTableId"] = state ? state.routeTableId : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
-            inputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
+    constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RouteArgs | RouteState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RouteState;
+            inputs.destinationCidrBlock = state.destinationCidrBlock;
+            inputs.destinationIpv6CidrBlock = state.destinationIpv6CidrBlock;
+            inputs.destinationPrefixListId = state.destinationPrefixListId;
+            inputs.egressOnlyGatewayId = state.egressOnlyGatewayId;
+            inputs.gatewayId = state.gatewayId;
+            inputs.instanceId = state.instanceId;
+            inputs.instanceOwnerId = state.instanceOwnerId;
+            inputs.natGatewayId = state.natGatewayId;
+            inputs.networkInterfaceId = state.networkInterfaceId;
+            inputs.origin = state.origin;
+            inputs.routeTableId = state.routeTableId;
+            inputs.state = state.state;
+            inputs.transitGatewayId = state.transitGatewayId;
+            inputs.vpcPeeringConnectionId = state.vpcPeeringConnectionId;
         } else {
-            const args = argsOrState as RouteArgs | undefined;
-            if (!args || args.routeTableId === undefined) {
+            const args = argsOrState as RouteArgs;
+            if (args.routeTableId === undefined) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            inputs["destinationIpv6CidrBlock"] = args ? args.destinationIpv6CidrBlock : undefined;
-            inputs["egressOnlyGatewayId"] = args ? args.egressOnlyGatewayId : undefined;
-            inputs["gatewayId"] = args ? args.gatewayId : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["natGatewayId"] = args ? args.natGatewayId : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["routeTableId"] = args ? args.routeTableId : undefined;
-            inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            inputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
-            inputs["destinationPrefixListId"] = undefined /*out*/;
-            inputs["instanceOwnerId"] = undefined /*out*/;
-            inputs["origin"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            inputs.destinationCidrBlock = args.destinationCidrBlock;
+            inputs.destinationIpv6CidrBlock = args.destinationIpv6CidrBlock;
+            inputs.egressOnlyGatewayId = args.egressOnlyGatewayId;
+            inputs.gatewayId = args.gatewayId;
+            inputs.instanceId = args.instanceId;
+            inputs.natGatewayId = args.natGatewayId;
+            inputs.networkInterfaceId = args.networkInterfaceId;
+            inputs.routeTableId = args.routeTableId;
+            inputs.transitGatewayId = args.transitGatewayId;
+            inputs.vpcPeeringConnectionId = args.vpcPeeringConnectionId;
+            inputs.destinationPrefixListId = undefined /*out*/;
+            inputs.instanceOwnerId = undefined /*out*/;
+            inputs.origin = undefined /*out*/;
+            inputs.state = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Route.__pulumiType, name, inputs, opts);
     }
 }

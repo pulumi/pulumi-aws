@@ -95,37 +95,31 @@ export class App extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AppArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AppArgs | AppState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AppState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["campaignHook"] = state ? state.campaignHook : undefined;
-            inputs["limits"] = state ? state.limits : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["quietTime"] = state ? state.quietTime : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: AppArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AppArgs | AppState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AppState;
+            inputs.applicationId = state.applicationId;
+            inputs.arn = state.arn;
+            inputs.campaignHook = state.campaignHook;
+            inputs.limits = state.limits;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.quietTime = state.quietTime;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as AppArgs | undefined;
-            inputs["campaignHook"] = args ? args.campaignHook : undefined;
-            inputs["limits"] = args ? args.limits : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["quietTime"] = args ? args.quietTime : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as AppArgs;
+            inputs.campaignHook = args.campaignHook;
+            inputs.limits = args.limits;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.quietTime = args.quietTime;
+            inputs.tags = args.tags;
+            inputs.applicationId = undefined /*out*/;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(App.__pulumiType, name, inputs, opts);
     }
 }

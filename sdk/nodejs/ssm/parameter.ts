@@ -137,49 +137,43 @@ export class Parameter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ParameterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ParameterArgs | ParameterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ParameterState | undefined;
-            inputs["allowedPattern"] = state ? state.allowedPattern : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["keyId"] = state ? state.keyId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["overwrite"] = state ? state.overwrite : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tier"] = state ? state.tier : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["value"] = state ? state.value : undefined;
-            inputs["version"] = state ? state.version : undefined;
+    constructor(name: string, args: ParameterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ParameterArgs | ParameterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ParameterState;
+            inputs.allowedPattern = state.allowedPattern;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.keyId = state.keyId;
+            inputs.name = state.name;
+            inputs.overwrite = state.overwrite;
+            inputs.tags = state.tags;
+            inputs.tier = state.tier;
+            inputs.type = state.type;
+            inputs.value = state.value;
+            inputs.version = state.version;
         } else {
-            const args = argsOrState as ParameterArgs | undefined;
-            if (!args || args.type === undefined) {
+            const args = argsOrState as ParameterArgs;
+            if (args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            if (!args || args.value === undefined) {
+            if (args.value === undefined) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["allowedPattern"] = args ? args.allowedPattern : undefined;
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["keyId"] = args ? args.keyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["overwrite"] = args ? args.overwrite : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tier"] = args ? args.tier : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["version"] = undefined /*out*/;
+            inputs.allowedPattern = args.allowedPattern;
+            inputs.arn = args.arn;
+            inputs.description = args.description;
+            inputs.keyId = args.keyId;
+            inputs.name = args.name;
+            inputs.overwrite = args.overwrite;
+            inputs.tags = args.tags;
+            inputs.tier = args.tier;
+            inputs.type = args.type;
+            inputs.value = args.value;
+            inputs.version = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Parameter.__pulumiType, name, inputs, opts);
     }
 }

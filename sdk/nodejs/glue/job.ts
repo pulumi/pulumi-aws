@@ -127,51 +127,45 @@ export class Job extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as JobState | undefined;
-            inputs["allocatedCapacity"] = state ? state.allocatedCapacity : undefined;
-            inputs["command"] = state ? state.command : undefined;
-            inputs["connections"] = state ? state.connections : undefined;
-            inputs["defaultArguments"] = state ? state.defaultArguments : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["executionProperty"] = state ? state.executionProperty : undefined;
-            inputs["maxCapacity"] = state ? state.maxCapacity : undefined;
-            inputs["maxRetries"] = state ? state.maxRetries : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
-            inputs["timeout"] = state ? state.timeout : undefined;
+    constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: JobArgs | JobState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as JobState;
+            inputs.allocatedCapacity = state.allocatedCapacity;
+            inputs.command = state.command;
+            inputs.connections = state.connections;
+            inputs.defaultArguments = state.defaultArguments;
+            inputs.description = state.description;
+            inputs.executionProperty = state.executionProperty;
+            inputs.maxCapacity = state.maxCapacity;
+            inputs.maxRetries = state.maxRetries;
+            inputs.name = state.name;
+            inputs.roleArn = state.roleArn;
+            inputs.securityConfiguration = state.securityConfiguration;
+            inputs.timeout = state.timeout;
         } else {
-            const args = argsOrState as JobArgs | undefined;
-            if (!args || args.command === undefined) {
+            const args = argsOrState as JobArgs;
+            if (args.command === undefined) {
                 throw new Error("Missing required property 'command'");
             }
-            if (!args || args.roleArn === undefined) {
+            if (args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["allocatedCapacity"] = args ? args.allocatedCapacity : undefined;
-            inputs["command"] = args ? args.command : undefined;
-            inputs["connections"] = args ? args.connections : undefined;
-            inputs["defaultArguments"] = args ? args.defaultArguments : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["executionProperty"] = args ? args.executionProperty : undefined;
-            inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            inputs["maxRetries"] = args ? args.maxRetries : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
+            inputs.allocatedCapacity = args.allocatedCapacity;
+            inputs.command = args.command;
+            inputs.connections = args.connections;
+            inputs.defaultArguments = args.defaultArguments;
+            inputs.description = args.description;
+            inputs.executionProperty = args.executionProperty;
+            inputs.maxCapacity = args.maxCapacity;
+            inputs.maxRetries = args.maxRetries;
+            inputs.name = args.name;
+            inputs.roleArn = args.roleArn;
+            inputs.securityConfiguration = args.securityConfiguration;
+            inputs.timeout = args.timeout;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Job.__pulumiType, name, inputs, opts);
     }
 }

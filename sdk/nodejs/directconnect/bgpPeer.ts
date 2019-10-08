@@ -95,48 +95,42 @@ export class BgpPeer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BgpPeerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BgpPeerArgs | BgpPeerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as BgpPeerState | undefined;
-            inputs["addressFamily"] = state ? state.addressFamily : undefined;
-            inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
-            inputs["awsDevice"] = state ? state.awsDevice : undefined;
-            inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
-            inputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
-            inputs["bgpPeerId"] = state ? state.bgpPeerId : undefined;
-            inputs["bgpStatus"] = state ? state.bgpStatus : undefined;
-            inputs["customerAddress"] = state ? state.customerAddress : undefined;
-            inputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
+    constructor(name: string, args: BgpPeerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: BgpPeerArgs | BgpPeerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as BgpPeerState;
+            inputs.addressFamily = state.addressFamily;
+            inputs.amazonAddress = state.amazonAddress;
+            inputs.awsDevice = state.awsDevice;
+            inputs.bgpAsn = state.bgpAsn;
+            inputs.bgpAuthKey = state.bgpAuthKey;
+            inputs.bgpPeerId = state.bgpPeerId;
+            inputs.bgpStatus = state.bgpStatus;
+            inputs.customerAddress = state.customerAddress;
+            inputs.virtualInterfaceId = state.virtualInterfaceId;
         } else {
-            const args = argsOrState as BgpPeerArgs | undefined;
-            if (!args || args.addressFamily === undefined) {
+            const args = argsOrState as BgpPeerArgs;
+            if (args.addressFamily === undefined) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if (!args || args.bgpAsn === undefined) {
+            if (args.bgpAsn === undefined) {
                 throw new Error("Missing required property 'bgpAsn'");
             }
-            if (!args || args.virtualInterfaceId === undefined) {
+            if (args.virtualInterfaceId === undefined) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
-            inputs["addressFamily"] = args ? args.addressFamily : undefined;
-            inputs["amazonAddress"] = args ? args.amazonAddress : undefined;
-            inputs["bgpAsn"] = args ? args.bgpAsn : undefined;
-            inputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
-            inputs["customerAddress"] = args ? args.customerAddress : undefined;
-            inputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
-            inputs["awsDevice"] = undefined /*out*/;
-            inputs["bgpPeerId"] = undefined /*out*/;
-            inputs["bgpStatus"] = undefined /*out*/;
+            inputs.addressFamily = args.addressFamily;
+            inputs.amazonAddress = args.amazonAddress;
+            inputs.bgpAsn = args.bgpAsn;
+            inputs.bgpAuthKey = args.bgpAuthKey;
+            inputs.customerAddress = args.customerAddress;
+            inputs.virtualInterfaceId = args.virtualInterfaceId;
+            inputs.awsDevice = undefined /*out*/;
+            inputs.bgpPeerId = undefined /*out*/;
+            inputs.bgpStatus = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(BgpPeer.__pulumiType, name, inputs, opts);
     }
 }

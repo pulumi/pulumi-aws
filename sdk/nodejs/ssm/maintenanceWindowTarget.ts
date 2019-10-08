@@ -92,42 +92,36 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MaintenanceWindowTargetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MaintenanceWindowTargetArgs | MaintenanceWindowTargetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MaintenanceWindowTargetState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerInformation"] = state ? state.ownerInformation : undefined;
-            inputs["resourceType"] = state ? state.resourceType : undefined;
-            inputs["targets"] = state ? state.targets : undefined;
-            inputs["windowId"] = state ? state.windowId : undefined;
+    constructor(name: string, args: MaintenanceWindowTargetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: MaintenanceWindowTargetArgs | MaintenanceWindowTargetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as MaintenanceWindowTargetState;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.ownerInformation = state.ownerInformation;
+            inputs.resourceType = state.resourceType;
+            inputs.targets = state.targets;
+            inputs.windowId = state.windowId;
         } else {
-            const args = argsOrState as MaintenanceWindowTargetArgs | undefined;
-            if (!args || args.resourceType === undefined) {
+            const args = argsOrState as MaintenanceWindowTargetArgs;
+            if (args.resourceType === undefined) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if (!args || args.targets === undefined) {
+            if (args.targets === undefined) {
                 throw new Error("Missing required property 'targets'");
             }
-            if (!args || args.windowId === undefined) {
+            if (args.windowId === undefined) {
                 throw new Error("Missing required property 'windowId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerInformation"] = args ? args.ownerInformation : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
-            inputs["windowId"] = args ? args.windowId : undefined;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.ownerInformation = args.ownerInformation;
+            inputs.resourceType = args.resourceType;
+            inputs.targets = args.targets;
+            inputs.windowId = args.windowId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(MaintenanceWindowTarget.__pulumiType, name, inputs, opts);
     }
 }

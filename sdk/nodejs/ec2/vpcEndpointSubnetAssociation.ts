@@ -74,31 +74,25 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpcEndpointSubnetAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcEndpointSubnetAssociationArgs | VpcEndpointSubnetAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpcEndpointSubnetAssociationState | undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
+    constructor(name: string, args: VpcEndpointSubnetAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VpcEndpointSubnetAssociationArgs | VpcEndpointSubnetAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VpcEndpointSubnetAssociationState;
+            inputs.subnetId = state.subnetId;
+            inputs.vpcEndpointId = state.vpcEndpointId;
         } else {
-            const args = argsOrState as VpcEndpointSubnetAssociationArgs | undefined;
-            if (!args || args.subnetId === undefined) {
+            const args = argsOrState as VpcEndpointSubnetAssociationArgs;
+            if (args.subnetId === undefined) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if (!args || args.vpcEndpointId === undefined) {
+            if (args.vpcEndpointId === undefined) {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            inputs.subnetId = args.subnetId;
+            inputs.vpcEndpointId = args.vpcEndpointId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VpcEndpointSubnetAssociation.__pulumiType, name, inputs, opts);
     }
 }

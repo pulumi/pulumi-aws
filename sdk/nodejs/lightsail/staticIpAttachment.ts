@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testStaticIp = new aws.lightsail.StaticIp("test", {});
  * const testInstance = new aws.lightsail.Instance("test", {
  *     availabilityZone: "us-east-1b",
  *     blueprintId: "string",
  *     bundleId: "string",
  *     keyPairName: "someKeyName",
  * });
+ * const testStaticIp = new aws.lightsail.StaticIp("test", {});
  * const testStaticIpAttachment = new aws.lightsail.StaticIpAttachment("test", {
  *     instanceName: testInstance.name,
  *     staticIpName: testStaticIp.name,
@@ -77,33 +77,27 @@ export class StaticIpAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StaticIpAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StaticIpAttachmentArgs | StaticIpAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as StaticIpAttachmentState | undefined;
-            inputs["instanceName"] = state ? state.instanceName : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["staticIpName"] = state ? state.staticIpName : undefined;
+    constructor(name: string, args: StaticIpAttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: StaticIpAttachmentArgs | StaticIpAttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as StaticIpAttachmentState;
+            inputs.instanceName = state.instanceName;
+            inputs.ipAddress = state.ipAddress;
+            inputs.staticIpName = state.staticIpName;
         } else {
-            const args = argsOrState as StaticIpAttachmentArgs | undefined;
-            if (!args || args.instanceName === undefined) {
+            const args = argsOrState as StaticIpAttachmentArgs;
+            if (args.instanceName === undefined) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if (!args || args.staticIpName === undefined) {
+            if (args.staticIpName === undefined) {
                 throw new Error("Missing required property 'staticIpName'");
             }
-            inputs["instanceName"] = args ? args.instanceName : undefined;
-            inputs["staticIpName"] = args ? args.staticIpName : undefined;
-            inputs["ipAddress"] = undefined /*out*/;
+            inputs.instanceName = args.instanceName;
+            inputs.staticIpName = args.staticIpName;
+            inputs.ipAddress = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(StaticIpAttachment.__pulumiType, name, inputs, opts);
     }
 }

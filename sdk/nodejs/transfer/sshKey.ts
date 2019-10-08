@@ -14,12 +14,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const fooServer = new aws.transfer.Server("foo", {
- *     identityProviderType: "SERVICE_MANAGED",
- *     tags: {
- *         NAME: "tf-acc-test-transfer-server",
- *     },
- * });
  * const fooRole = new aws.iam.Role("foo", {
  *     assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
@@ -34,6 +28,12 @@ import * as utilities from "../utilities";
  * 	]
  * }
  * `,
+ * });
+ * const fooServer = new aws.transfer.Server("foo", {
+ *     identityProviderType: "SERVICE_MANAGED",
+ *     tags: {
+ *         NAME: "tf-acc-test-transfer-server",
+ *     },
  * });
  * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
  *     policy: `{
@@ -116,36 +116,30 @@ export class SshKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SshKeyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SshKeyArgs | SshKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SshKeyState | undefined;
-            inputs["body"] = state ? state.body : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
-            inputs["userName"] = state ? state.userName : undefined;
+    constructor(name: string, args: SshKeyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SshKeyArgs | SshKeyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SshKeyState;
+            inputs.body = state.body;
+            inputs.serverId = state.serverId;
+            inputs.userName = state.userName;
         } else {
-            const args = argsOrState as SshKeyArgs | undefined;
-            if (!args || args.body === undefined) {
+            const args = argsOrState as SshKeyArgs;
+            if (args.body === undefined) {
                 throw new Error("Missing required property 'body'");
             }
-            if (!args || args.serverId === undefined) {
+            if (args.serverId === undefined) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if (!args || args.userName === undefined) {
+            if (args.userName === undefined) {
                 throw new Error("Missing required property 'userName'");
             }
-            inputs["body"] = args ? args.body : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
+            inputs.body = args.body;
+            inputs.serverId = args.serverId;
+            inputs.userName = args.userName;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SshKey.__pulumiType, name, inputs, opts);
     }
 }

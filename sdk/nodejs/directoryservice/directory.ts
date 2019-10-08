@@ -23,14 +23,14 @@ import * as utilities from "../utilities";
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const foo = new aws.ec2.Subnet("foo", {
- *     availabilityZone: "us-west-2a",
- *     cidrBlock: "10.0.1.0/24",
- *     vpcId: main.id,
- * });
  * const barSubnet = new aws.ec2.Subnet("bar", {
  *     availabilityZone: "us-west-2b",
  *     cidrBlock: "10.0.2.0/24",
+ *     vpcId: main.id,
+ * });
+ * const foo = new aws.ec2.Subnet("foo", {
+ *     availabilityZone: "us-west-2a",
+ *     cidrBlock: "10.0.1.0/24",
  *     vpcId: main.id,
  * });
  * const barDirectory = new aws.directoryservice.Directory("bar", {
@@ -58,14 +58,14 @@ import * as utilities from "../utilities";
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const foo = new aws.ec2.Subnet("foo", {
- *     availabilityZone: "us-west-2a",
- *     cidrBlock: "10.0.1.0/24",
- *     vpcId: main.id,
- * });
  * const barSubnet = new aws.ec2.Subnet("bar", {
  *     availabilityZone: "us-west-2b",
  *     cidrBlock: "10.0.2.0/24",
+ *     vpcId: main.id,
+ * });
+ * const foo = new aws.ec2.Subnet("foo", {
+ *     availabilityZone: "us-west-2a",
+ *     cidrBlock: "10.0.1.0/24",
  *     vpcId: main.id,
  * });
  * const barDirectory = new aws.directoryservice.Directory("bar", {
@@ -94,14 +94,14 @@ import * as utilities from "../utilities";
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const foo = new aws.ec2.Subnet("foo", {
- *     availabilityZone: "us-west-2a",
- *     cidrBlock: "10.0.1.0/24",
- *     vpcId: main.id,
- * });
  * const bar = new aws.ec2.Subnet("bar", {
  *     availabilityZone: "us-west-2b",
  *     cidrBlock: "10.0.2.0/24",
+ *     vpcId: main.id,
+ * });
+ * const foo = new aws.ec2.Subnet("foo", {
+ *     availabilityZone: "us-west-2a",
+ *     cidrBlock: "10.0.1.0/24",
  *     vpcId: main.id,
  * });
  * const connector = new aws.directoryservice.Directory("connector", {
@@ -217,54 +217,48 @@ export class Directory extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DirectoryArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DirectoryArgs | DirectoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DirectoryState | undefined;
-            inputs["accessUrl"] = state ? state.accessUrl : undefined;
-            inputs["alias"] = state ? state.alias : undefined;
-            inputs["connectSettings"] = state ? state.connectSettings : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dnsIpAddresses"] = state ? state.dnsIpAddresses : undefined;
-            inputs["edition"] = state ? state.edition : undefined;
-            inputs["enableSso"] = state ? state.enableSso : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["securityGroupId"] = state ? state.securityGroupId : undefined;
-            inputs["shortName"] = state ? state.shortName : undefined;
-            inputs["size"] = state ? state.size : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["vpcSettings"] = state ? state.vpcSettings : undefined;
+    constructor(name: string, args: DirectoryArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DirectoryArgs | DirectoryState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DirectoryState;
+            inputs.accessUrl = state.accessUrl;
+            inputs.alias = state.alias;
+            inputs.connectSettings = state.connectSettings;
+            inputs.description = state.description;
+            inputs.dnsIpAddresses = state.dnsIpAddresses;
+            inputs.edition = state.edition;
+            inputs.enableSso = state.enableSso;
+            inputs.name = state.name;
+            inputs.password = state.password;
+            inputs.securityGroupId = state.securityGroupId;
+            inputs.shortName = state.shortName;
+            inputs.size = state.size;
+            inputs.tags = state.tags;
+            inputs.type = state.type;
+            inputs.vpcSettings = state.vpcSettings;
         } else {
-            const args = argsOrState as DirectoryArgs | undefined;
-            if (!args || args.password === undefined) {
+            const args = argsOrState as DirectoryArgs;
+            if (args.password === undefined) {
                 throw new Error("Missing required property 'password'");
             }
-            inputs["alias"] = args ? args.alias : undefined;
-            inputs["connectSettings"] = args ? args.connectSettings : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["edition"] = args ? args.edition : undefined;
-            inputs["enableSso"] = args ? args.enableSso : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["shortName"] = args ? args.shortName : undefined;
-            inputs["size"] = args ? args.size : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vpcSettings"] = args ? args.vpcSettings : undefined;
-            inputs["accessUrl"] = undefined /*out*/;
-            inputs["dnsIpAddresses"] = undefined /*out*/;
-            inputs["securityGroupId"] = undefined /*out*/;
+            inputs.alias = args.alias;
+            inputs.connectSettings = args.connectSettings;
+            inputs.description = args.description;
+            inputs.edition = args.edition;
+            inputs.enableSso = args.enableSso;
+            inputs.name = args.name;
+            inputs.password = args.password;
+            inputs.shortName = args.shortName;
+            inputs.size = args.size;
+            inputs.tags = args.tags;
+            inputs.type = args.type;
+            inputs.vpcSettings = args.vpcSettings;
+            inputs.accessUrl = undefined /*out*/;
+            inputs.dnsIpAddresses = undefined /*out*/;
+            inputs.securityGroupId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Directory.__pulumiType, name, inputs, opts);
     }
 }

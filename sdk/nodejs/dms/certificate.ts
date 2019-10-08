@@ -76,32 +76,26 @@ export class Certificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CertificateState | undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["certificateId"] = state ? state.certificateId : undefined;
-            inputs["certificatePem"] = state ? state.certificatePem : undefined;
-            inputs["certificateWallet"] = state ? state.certificateWallet : undefined;
+    constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: CertificateArgs | CertificateState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as CertificateState;
+            inputs.certificateArn = state.certificateArn;
+            inputs.certificateId = state.certificateId;
+            inputs.certificatePem = state.certificatePem;
+            inputs.certificateWallet = state.certificateWallet;
         } else {
-            const args = argsOrState as CertificateArgs | undefined;
-            if (!args || args.certificateId === undefined) {
+            const args = argsOrState as CertificateArgs;
+            if (args.certificateId === undefined) {
                 throw new Error("Missing required property 'certificateId'");
             }
-            inputs["certificateId"] = args ? args.certificateId : undefined;
-            inputs["certificatePem"] = args ? args.certificatePem : undefined;
-            inputs["certificateWallet"] = args ? args.certificateWallet : undefined;
-            inputs["certificateArn"] = undefined /*out*/;
+            inputs.certificateId = args.certificateId;
+            inputs.certificatePem = args.certificatePem;
+            inputs.certificateWallet = args.certificateWallet;
+            inputs.certificateArn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Certificate.__pulumiType, name, inputs, opts);
     }
 }

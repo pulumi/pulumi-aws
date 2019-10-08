@@ -90,31 +90,25 @@ export class GameSessionQueue extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: GameSessionQueueArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GameSessionQueueArgs | GameSessionQueueState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GameSessionQueueState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["destinations"] = state ? state.destinations : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["playerLatencyPolicies"] = state ? state.playerLatencyPolicies : undefined;
-            inputs["timeoutInSeconds"] = state ? state.timeoutInSeconds : undefined;
+    constructor(name: string, args?: GameSessionQueueArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GameSessionQueueArgs | GameSessionQueueState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GameSessionQueueState;
+            inputs.arn = state.arn;
+            inputs.destinations = state.destinations;
+            inputs.name = state.name;
+            inputs.playerLatencyPolicies = state.playerLatencyPolicies;
+            inputs.timeoutInSeconds = state.timeoutInSeconds;
         } else {
-            const args = argsOrState as GameSessionQueueArgs | undefined;
-            inputs["destinations"] = args ? args.destinations : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["playerLatencyPolicies"] = args ? args.playerLatencyPolicies : undefined;
-            inputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as GameSessionQueueArgs;
+            inputs.destinations = args.destinations;
+            inputs.name = args.name;
+            inputs.playerLatencyPolicies = args.playerLatencyPolicies;
+            inputs.timeoutInSeconds = args.timeoutInSeconds;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(GameSessionQueue.__pulumiType, name, inputs, opts);
     }
 }

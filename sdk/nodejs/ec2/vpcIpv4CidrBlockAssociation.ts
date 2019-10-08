@@ -72,31 +72,25 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpcIpv4CidrBlockAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcIpv4CidrBlockAssociationArgs | VpcIpv4CidrBlockAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpcIpv4CidrBlockAssociationState | undefined;
-            inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+    constructor(name: string, args: VpcIpv4CidrBlockAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VpcIpv4CidrBlockAssociationArgs | VpcIpv4CidrBlockAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VpcIpv4CidrBlockAssociationState;
+            inputs.cidrBlock = state.cidrBlock;
+            inputs.vpcId = state.vpcId;
         } else {
-            const args = argsOrState as VpcIpv4CidrBlockAssociationArgs | undefined;
-            if (!args || args.cidrBlock === undefined) {
+            const args = argsOrState as VpcIpv4CidrBlockAssociationArgs;
+            if (args.cidrBlock === undefined) {
                 throw new Error("Missing required property 'cidrBlock'");
             }
-            if (!args || args.vpcId === undefined) {
+            if (args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs.cidrBlock = args.cidrBlock;
+            inputs.vpcId = args.vpcId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VpcIpv4CidrBlockAssociation.__pulumiType, name, inputs, opts);
     }
 }

@@ -120,55 +120,49 @@ export class NetworkAclRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkAclRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkAclRuleArgs | NetworkAclRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NetworkAclRuleState | undefined;
-            inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
-            inputs["egress"] = state ? state.egress : undefined;
-            inputs["fromPort"] = state ? state.fromPort : undefined;
-            inputs["icmpCode"] = state ? state.icmpCode : undefined;
-            inputs["icmpType"] = state ? state.icmpType : undefined;
-            inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
-            inputs["networkAclId"] = state ? state.networkAclId : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["ruleAction"] = state ? state.ruleAction : undefined;
-            inputs["ruleNumber"] = state ? state.ruleNumber : undefined;
-            inputs["toPort"] = state ? state.toPort : undefined;
+    constructor(name: string, args: NetworkAclRuleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: NetworkAclRuleArgs | NetworkAclRuleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as NetworkAclRuleState;
+            inputs.cidrBlock = state.cidrBlock;
+            inputs.egress = state.egress;
+            inputs.fromPort = state.fromPort;
+            inputs.icmpCode = state.icmpCode;
+            inputs.icmpType = state.icmpType;
+            inputs.ipv6CidrBlock = state.ipv6CidrBlock;
+            inputs.networkAclId = state.networkAclId;
+            inputs.protocol = state.protocol;
+            inputs.ruleAction = state.ruleAction;
+            inputs.ruleNumber = state.ruleNumber;
+            inputs.toPort = state.toPort;
         } else {
-            const args = argsOrState as NetworkAclRuleArgs | undefined;
-            if (!args || args.networkAclId === undefined) {
+            const args = argsOrState as NetworkAclRuleArgs;
+            if (args.networkAclId === undefined) {
                 throw new Error("Missing required property 'networkAclId'");
             }
-            if (!args || args.protocol === undefined) {
+            if (args.protocol === undefined) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if (!args || args.ruleAction === undefined) {
+            if (args.ruleAction === undefined) {
                 throw new Error("Missing required property 'ruleAction'");
             }
-            if (!args || args.ruleNumber === undefined) {
+            if (args.ruleNumber === undefined) {
                 throw new Error("Missing required property 'ruleNumber'");
             }
-            inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            inputs["egress"] = args ? args.egress : undefined;
-            inputs["fromPort"] = args ? args.fromPort : undefined;
-            inputs["icmpCode"] = args ? args.icmpCode : undefined;
-            inputs["icmpType"] = args ? args.icmpType : undefined;
-            inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            inputs["networkAclId"] = args ? args.networkAclId : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["ruleAction"] = args ? args.ruleAction : undefined;
-            inputs["ruleNumber"] = args ? args.ruleNumber : undefined;
-            inputs["toPort"] = args ? args.toPort : undefined;
+            inputs.cidrBlock = args.cidrBlock;
+            inputs.egress = args.egress;
+            inputs.fromPort = args.fromPort;
+            inputs.icmpCode = args.icmpCode;
+            inputs.icmpType = args.icmpType;
+            inputs.ipv6CidrBlock = args.ipv6CidrBlock;
+            inputs.networkAclId = args.networkAclId;
+            inputs.protocol = args.protocol;
+            inputs.ruleAction = args.ruleAction;
+            inputs.ruleNumber = args.ruleNumber;
+            inputs.toPort = args.toPort;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(NetworkAclRule.__pulumiType, name, inputs, opts);
     }
 }

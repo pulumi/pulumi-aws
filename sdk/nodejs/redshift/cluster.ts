@@ -216,99 +216,93 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
-            inputs["allowVersionUpgrade"] = state ? state.allowVersionUpgrade : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["automatedSnapshotRetentionPeriod"] = state ? state.automatedSnapshotRetentionPeriod : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            inputs["clusterParameterGroupName"] = state ? state.clusterParameterGroupName : undefined;
-            inputs["clusterPublicKey"] = state ? state.clusterPublicKey : undefined;
-            inputs["clusterRevisionNumber"] = state ? state.clusterRevisionNumber : undefined;
-            inputs["clusterSecurityGroups"] = state ? state.clusterSecurityGroups : undefined;
-            inputs["clusterSubnetGroupName"] = state ? state.clusterSubnetGroupName : undefined;
-            inputs["clusterType"] = state ? state.clusterType : undefined;
-            inputs["clusterVersion"] = state ? state.clusterVersion : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["elasticIp"] = state ? state.elasticIp : undefined;
-            inputs["encrypted"] = state ? state.encrypted : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["enhancedVpcRouting"] = state ? state.enhancedVpcRouting : undefined;
-            inputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
-            inputs["iamRoles"] = state ? state.iamRoles : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["logging"] = state ? state.logging : undefined;
-            inputs["masterPassword"] = state ? state.masterPassword : undefined;
-            inputs["masterUsername"] = state ? state.masterUsername : undefined;
-            inputs["nodeType"] = state ? state.nodeType : undefined;
-            inputs["numberOfNodes"] = state ? state.numberOfNodes : undefined;
-            inputs["ownerAccount"] = state ? state.ownerAccount : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
-            inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
-            inputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
-            inputs["snapshotClusterIdentifier"] = state ? state.snapshotClusterIdentifier : undefined;
-            inputs["snapshotCopy"] = state ? state.snapshotCopy : undefined;
-            inputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
+    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ClusterArgs | ClusterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ClusterState;
+            inputs.allowVersionUpgrade = state.allowVersionUpgrade;
+            inputs.arn = state.arn;
+            inputs.automatedSnapshotRetentionPeriod = state.automatedSnapshotRetentionPeriod;
+            inputs.availabilityZone = state.availabilityZone;
+            inputs.clusterIdentifier = state.clusterIdentifier;
+            inputs.clusterParameterGroupName = state.clusterParameterGroupName;
+            inputs.clusterPublicKey = state.clusterPublicKey;
+            inputs.clusterRevisionNumber = state.clusterRevisionNumber;
+            inputs.clusterSecurityGroups = state.clusterSecurityGroups;
+            inputs.clusterSubnetGroupName = state.clusterSubnetGroupName;
+            inputs.clusterType = state.clusterType;
+            inputs.clusterVersion = state.clusterVersion;
+            inputs.databaseName = state.databaseName;
+            inputs.dnsName = state.dnsName;
+            inputs.elasticIp = state.elasticIp;
+            inputs.encrypted = state.encrypted;
+            inputs.endpoint = state.endpoint;
+            inputs.enhancedVpcRouting = state.enhancedVpcRouting;
+            inputs.finalSnapshotIdentifier = state.finalSnapshotIdentifier;
+            inputs.iamRoles = state.iamRoles;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.logging = state.logging;
+            inputs.masterPassword = state.masterPassword;
+            inputs.masterUsername = state.masterUsername;
+            inputs.nodeType = state.nodeType;
+            inputs.numberOfNodes = state.numberOfNodes;
+            inputs.ownerAccount = state.ownerAccount;
+            inputs.port = state.port;
+            inputs.preferredMaintenanceWindow = state.preferredMaintenanceWindow;
+            inputs.publiclyAccessible = state.publiclyAccessible;
+            inputs.skipFinalSnapshot = state.skipFinalSnapshot;
+            inputs.snapshotClusterIdentifier = state.snapshotClusterIdentifier;
+            inputs.snapshotCopy = state.snapshotCopy;
+            inputs.snapshotIdentifier = state.snapshotIdentifier;
+            inputs.tags = state.tags;
+            inputs.vpcSecurityGroupIds = state.vpcSecurityGroupIds;
         } else {
-            const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.clusterIdentifier === undefined) {
+            const args = argsOrState as ClusterArgs;
+            if (args.clusterIdentifier === undefined) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if (!args || args.nodeType === undefined) {
+            if (args.nodeType === undefined) {
                 throw new Error("Missing required property 'nodeType'");
             }
-            inputs["allowVersionUpgrade"] = args ? args.allowVersionUpgrade : undefined;
-            inputs["automatedSnapshotRetentionPeriod"] = args ? args.automatedSnapshotRetentionPeriod : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            inputs["clusterParameterGroupName"] = args ? args.clusterParameterGroupName : undefined;
-            inputs["clusterPublicKey"] = args ? args.clusterPublicKey : undefined;
-            inputs["clusterRevisionNumber"] = args ? args.clusterRevisionNumber : undefined;
-            inputs["clusterSecurityGroups"] = args ? args.clusterSecurityGroups : undefined;
-            inputs["clusterSubnetGroupName"] = args ? args.clusterSubnetGroupName : undefined;
-            inputs["clusterType"] = args ? args.clusterType : undefined;
-            inputs["clusterVersion"] = args ? args.clusterVersion : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["elasticIp"] = args ? args.elasticIp : undefined;
-            inputs["encrypted"] = args ? args.encrypted : undefined;
-            inputs["endpoint"] = args ? args.endpoint : undefined;
-            inputs["enhancedVpcRouting"] = args ? args.enhancedVpcRouting : undefined;
-            inputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
-            inputs["iamRoles"] = args ? args.iamRoles : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["logging"] = args ? args.logging : undefined;
-            inputs["masterPassword"] = args ? args.masterPassword : undefined;
-            inputs["masterUsername"] = args ? args.masterUsername : undefined;
-            inputs["nodeType"] = args ? args.nodeType : undefined;
-            inputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
-            inputs["ownerAccount"] = args ? args.ownerAccount : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            inputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
-            inputs["snapshotClusterIdentifier"] = args ? args.snapshotClusterIdentifier : undefined;
-            inputs["snapshotCopy"] = args ? args.snapshotCopy : undefined;
-            inputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
+            inputs.allowVersionUpgrade = args.allowVersionUpgrade;
+            inputs.automatedSnapshotRetentionPeriod = args.automatedSnapshotRetentionPeriod;
+            inputs.availabilityZone = args.availabilityZone;
+            inputs.clusterIdentifier = args.clusterIdentifier;
+            inputs.clusterParameterGroupName = args.clusterParameterGroupName;
+            inputs.clusterPublicKey = args.clusterPublicKey;
+            inputs.clusterRevisionNumber = args.clusterRevisionNumber;
+            inputs.clusterSecurityGroups = args.clusterSecurityGroups;
+            inputs.clusterSubnetGroupName = args.clusterSubnetGroupName;
+            inputs.clusterType = args.clusterType;
+            inputs.clusterVersion = args.clusterVersion;
+            inputs.databaseName = args.databaseName;
+            inputs.elasticIp = args.elasticIp;
+            inputs.encrypted = args.encrypted;
+            inputs.endpoint = args.endpoint;
+            inputs.enhancedVpcRouting = args.enhancedVpcRouting;
+            inputs.finalSnapshotIdentifier = args.finalSnapshotIdentifier;
+            inputs.iamRoles = args.iamRoles;
+            inputs.kmsKeyId = args.kmsKeyId;
+            inputs.logging = args.logging;
+            inputs.masterPassword = args.masterPassword;
+            inputs.masterUsername = args.masterUsername;
+            inputs.nodeType = args.nodeType;
+            inputs.numberOfNodes = args.numberOfNodes;
+            inputs.ownerAccount = args.ownerAccount;
+            inputs.port = args.port;
+            inputs.preferredMaintenanceWindow = args.preferredMaintenanceWindow;
+            inputs.publiclyAccessible = args.publiclyAccessible;
+            inputs.skipFinalSnapshot = args.skipFinalSnapshot;
+            inputs.snapshotClusterIdentifier = args.snapshotClusterIdentifier;
+            inputs.snapshotCopy = args.snapshotCopy;
+            inputs.snapshotIdentifier = args.snapshotIdentifier;
+            inputs.tags = args.tags;
+            inputs.vpcSecurityGroupIds = args.vpcSecurityGroupIds;
+            inputs.arn = undefined /*out*/;
+            inputs.dnsName = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

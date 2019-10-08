@@ -127,35 +127,29 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ServiceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ServiceState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dnsConfig"] = state ? state.dnsConfig : undefined;
-            inputs["healthCheckConfig"] = state ? state.healthCheckConfig : undefined;
-            inputs["healthCheckCustomConfig"] = state ? state.healthCheckCustomConfig : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namespaceId"] = state ? state.namespaceId : undefined;
+    constructor(name: string, args?: ServiceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ServiceArgs | ServiceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ServiceState;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.dnsConfig = state.dnsConfig;
+            inputs.healthCheckConfig = state.healthCheckConfig;
+            inputs.healthCheckCustomConfig = state.healthCheckCustomConfig;
+            inputs.name = state.name;
+            inputs.namespaceId = state.namespaceId;
         } else {
-            const args = argsOrState as ServiceArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
-            inputs["healthCheckConfig"] = args ? args.healthCheckConfig : undefined;
-            inputs["healthCheckCustomConfig"] = args ? args.healthCheckCustomConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceId"] = args ? args.namespaceId : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as ServiceArgs;
+            inputs.description = args.description;
+            inputs.dnsConfig = args.dnsConfig;
+            inputs.healthCheckConfig = args.healthCheckConfig;
+            inputs.healthCheckCustomConfig = args.healthCheckCustomConfig;
+            inputs.name = args.name;
+            inputs.namespaceId = args.namespaceId;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Service.__pulumiType, name, inputs, opts);
     }
 }

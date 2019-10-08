@@ -99,45 +99,39 @@ export class NotebookInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NotebookInstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NotebookInstanceArgs | NotebookInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NotebookInstanceState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["lifecycleConfigName"] = state ? state.lifecycleConfigName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: NotebookInstanceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: NotebookInstanceArgs | NotebookInstanceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as NotebookInstanceState;
+            inputs.arn = state.arn;
+            inputs.instanceType = state.instanceType;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.lifecycleConfigName = state.lifecycleConfigName;
+            inputs.name = state.name;
+            inputs.roleArn = state.roleArn;
+            inputs.securityGroups = state.securityGroups;
+            inputs.subnetId = state.subnetId;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as NotebookInstanceArgs | undefined;
-            if (!args || args.instanceType === undefined) {
+            const args = argsOrState as NotebookInstanceArgs;
+            if (args.instanceType === undefined) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            if (!args || args.roleArn === undefined) {
+            if (args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["lifecycleConfigName"] = args ? args.lifecycleConfigName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.instanceType = args.instanceType;
+            inputs.kmsKeyId = args.kmsKeyId;
+            inputs.lifecycleConfigName = args.lifecycleConfigName;
+            inputs.name = args.name;
+            inputs.roleArn = args.roleArn;
+            inputs.securityGroups = args.securityGroups;
+            inputs.subnetId = args.subnetId;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(NotebookInstance.__pulumiType, name, inputs, opts);
     }
 }

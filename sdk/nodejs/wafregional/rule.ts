@@ -92,30 +92,24 @@ export class Rule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RuleArgs | RuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RuleState | undefined;
-            inputs["metricName"] = state ? state.metricName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["predicates"] = state ? state.predicates : undefined;
+    constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RuleArgs | RuleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RuleState;
+            inputs.metricName = state.metricName;
+            inputs.name = state.name;
+            inputs.predicates = state.predicates;
         } else {
-            const args = argsOrState as RuleArgs | undefined;
-            if (!args || args.metricName === undefined) {
+            const args = argsOrState as RuleArgs;
+            if (args.metricName === undefined) {
                 throw new Error("Missing required property 'metricName'");
             }
-            inputs["metricName"] = args ? args.metricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["predicates"] = args ? args.predicates : undefined;
+            inputs.metricName = args.metricName;
+            inputs.name = args.name;
+            inputs.predicates = args.predicates;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Rule.__pulumiType, name, inputs, opts);
     }
 }

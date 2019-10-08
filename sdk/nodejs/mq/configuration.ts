@@ -104,46 +104,40 @@ export class Configuration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ConfigurationArgs | ConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ConfigurationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["data"] = state ? state.data : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["engineType"] = state ? state.engineType : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["latestRevision"] = state ? state.latestRevision : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: ConfigurationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ConfigurationArgs | ConfigurationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ConfigurationState;
+            inputs.arn = state.arn;
+            inputs.data = state.data;
+            inputs.description = state.description;
+            inputs.engineType = state.engineType;
+            inputs.engineVersion = state.engineVersion;
+            inputs.latestRevision = state.latestRevision;
+            inputs.name = state.name;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as ConfigurationArgs | undefined;
-            if (!args || args.data === undefined) {
+            const args = argsOrState as ConfigurationArgs;
+            if (args.data === undefined) {
                 throw new Error("Missing required property 'data'");
             }
-            if (!args || args.engineType === undefined) {
+            if (args.engineType === undefined) {
                 throw new Error("Missing required property 'engineType'");
             }
-            if (!args || args.engineVersion === undefined) {
+            if (args.engineVersion === undefined) {
                 throw new Error("Missing required property 'engineVersion'");
             }
-            inputs["data"] = args ? args.data : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["engineType"] = args ? args.engineType : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["latestRevision"] = undefined /*out*/;
+            inputs.data = args.data;
+            inputs.description = args.description;
+            inputs.engineType = args.engineType;
+            inputs.engineVersion = args.engineVersion;
+            inputs.name = args.name;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
+            inputs.latestRevision = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Configuration.__pulumiType, name, inputs, opts);
     }
 }

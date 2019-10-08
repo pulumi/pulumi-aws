@@ -15,6 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "API_KEY",
+ * });
  * const exampleTable = new aws.dynamodb.Table("example", {
  *     attributes: [{
  *         name: "UserId",
@@ -39,6 +42,14 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
+ * const exampleDataSource = new aws.appsync.DataSource("example", {
+ *     apiId: exampleGraphQLApi.id,
+ *     dynamodbConfig: {
+ *         tableName: exampleTable.name,
+ *     },
+ *     serviceRoleArn: exampleRole.arn,
+ *     type: "AMAZON_DYNAMODB",
+ * });
  * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
@@ -56,17 +67,6 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     role: exampleRole.id,
- * });
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "API_KEY",
- * });
- * const exampleDataSource = new aws.appsync.DataSource("example", {
- *     apiId: exampleGraphQLApi.id,
- *     dynamodbConfig: {
- *         tableName: exampleTable.name,
- *     },
- *     serviceRoleArn: exampleRole.arn,
- *     type: "AMAZON_DYNAMODB",
  * });
  * ```
  *
@@ -147,47 +147,41 @@ export class DataSource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DataSourceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DataSourceArgs | DataSourceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DataSourceState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dynamodbConfig"] = state ? state.dynamodbConfig : undefined;
-            inputs["elasticsearchConfig"] = state ? state.elasticsearchConfig : undefined;
-            inputs["httpConfig"] = state ? state.httpConfig : undefined;
-            inputs["lambdaConfig"] = state ? state.lambdaConfig : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
-            inputs["type"] = state ? state.type : undefined;
+    constructor(name: string, args: DataSourceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DataSourceArgs | DataSourceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DataSourceState;
+            inputs.apiId = state.apiId;
+            inputs.arn = state.arn;
+            inputs.description = state.description;
+            inputs.dynamodbConfig = state.dynamodbConfig;
+            inputs.elasticsearchConfig = state.elasticsearchConfig;
+            inputs.httpConfig = state.httpConfig;
+            inputs.lambdaConfig = state.lambdaConfig;
+            inputs.name = state.name;
+            inputs.serviceRoleArn = state.serviceRoleArn;
+            inputs.type = state.type;
         } else {
-            const args = argsOrState as DataSourceArgs | undefined;
-            if (!args || args.apiId === undefined) {
+            const args = argsOrState as DataSourceArgs;
+            if (args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.type === undefined) {
+            if (args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dynamodbConfig"] = args ? args.dynamodbConfig : undefined;
-            inputs["elasticsearchConfig"] = args ? args.elasticsearchConfig : undefined;
-            inputs["httpConfig"] = args ? args.httpConfig : undefined;
-            inputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.apiId = args.apiId;
+            inputs.description = args.description;
+            inputs.dynamodbConfig = args.dynamodbConfig;
+            inputs.elasticsearchConfig = args.elasticsearchConfig;
+            inputs.httpConfig = args.httpConfig;
+            inputs.lambdaConfig = args.lambdaConfig;
+            inputs.name = args.name;
+            inputs.serviceRoleArn = args.serviceRoleArn;
+            inputs.type = args.type;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(DataSource.__pulumiType, name, inputs, opts);
     }
 }

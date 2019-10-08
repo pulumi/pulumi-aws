@@ -99,50 +99,44 @@ export class MaintenanceWindow extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MaintenanceWindowArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MaintenanceWindowArgs | MaintenanceWindowState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MaintenanceWindowState | undefined;
-            inputs["allowUnassociatedTargets"] = state ? state.allowUnassociatedTargets : undefined;
-            inputs["cutoff"] = state ? state.cutoff : undefined;
-            inputs["duration"] = state ? state.duration : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["endDate"] = state ? state.endDate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
-            inputs["scheduleTimezone"] = state ? state.scheduleTimezone : undefined;
-            inputs["startDate"] = state ? state.startDate : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args: MaintenanceWindowArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: MaintenanceWindowArgs | MaintenanceWindowState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as MaintenanceWindowState;
+            inputs.allowUnassociatedTargets = state.allowUnassociatedTargets;
+            inputs.cutoff = state.cutoff;
+            inputs.duration = state.duration;
+            inputs.enabled = state.enabled;
+            inputs.endDate = state.endDate;
+            inputs.name = state.name;
+            inputs.schedule = state.schedule;
+            inputs.scheduleTimezone = state.scheduleTimezone;
+            inputs.startDate = state.startDate;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as MaintenanceWindowArgs | undefined;
-            if (!args || args.cutoff === undefined) {
+            const args = argsOrState as MaintenanceWindowArgs;
+            if (args.cutoff === undefined) {
                 throw new Error("Missing required property 'cutoff'");
             }
-            if (!args || args.duration === undefined) {
+            if (args.duration === undefined) {
                 throw new Error("Missing required property 'duration'");
             }
-            if (!args || args.schedule === undefined) {
+            if (args.schedule === undefined) {
                 throw new Error("Missing required property 'schedule'");
             }
-            inputs["allowUnassociatedTargets"] = args ? args.allowUnassociatedTargets : undefined;
-            inputs["cutoff"] = args ? args.cutoff : undefined;
-            inputs["duration"] = args ? args.duration : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["endDate"] = args ? args.endDate : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["scheduleTimezone"] = args ? args.scheduleTimezone : undefined;
-            inputs["startDate"] = args ? args.startDate : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            inputs.allowUnassociatedTargets = args.allowUnassociatedTargets;
+            inputs.cutoff = args.cutoff;
+            inputs.duration = args.duration;
+            inputs.enabled = args.enabled;
+            inputs.endDate = args.endDate;
+            inputs.name = args.name;
+            inputs.schedule = args.schedule;
+            inputs.scheduleTimezone = args.scheduleTimezone;
+            inputs.startDate = args.startDate;
+            inputs.tags = args.tags;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(MaintenanceWindow.__pulumiType, name, inputs, opts);
     }
 }

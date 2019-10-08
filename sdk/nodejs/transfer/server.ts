@@ -133,41 +133,35 @@ export class Server extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ServerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServerArgs | ServerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ServerState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["endpointDetails"] = state ? state.endpointDetails : undefined;
-            inputs["endpointType"] = state ? state.endpointType : undefined;
-            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            inputs["identityProviderType"] = state ? state.identityProviderType : undefined;
-            inputs["invocationRole"] = state ? state.invocationRole : undefined;
-            inputs["loggingRole"] = state ? state.loggingRole : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["url"] = state ? state.url : undefined;
+    constructor(name: string, args?: ServerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ServerArgs | ServerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ServerState;
+            inputs.arn = state.arn;
+            inputs.endpoint = state.endpoint;
+            inputs.endpointDetails = state.endpointDetails;
+            inputs.endpointType = state.endpointType;
+            inputs.forceDestroy = state.forceDestroy;
+            inputs.identityProviderType = state.identityProviderType;
+            inputs.invocationRole = state.invocationRole;
+            inputs.loggingRole = state.loggingRole;
+            inputs.tags = state.tags;
+            inputs.url = state.url;
         } else {
-            const args = argsOrState as ServerArgs | undefined;
-            inputs["endpointDetails"] = args ? args.endpointDetails : undefined;
-            inputs["endpointType"] = args ? args.endpointType : undefined;
-            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            inputs["identityProviderType"] = args ? args.identityProviderType : undefined;
-            inputs["invocationRole"] = args ? args.invocationRole : undefined;
-            inputs["loggingRole"] = args ? args.loggingRole : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
+            const args = argsOrState as ServerArgs;
+            inputs.endpointDetails = args.endpointDetails;
+            inputs.endpointType = args.endpointType;
+            inputs.forceDestroy = args.forceDestroy;
+            inputs.identityProviderType = args.identityProviderType;
+            inputs.invocationRole = args.invocationRole;
+            inputs.loggingRole = args.loggingRole;
+            inputs.tags = args.tags;
+            inputs.url = args.url;
+            inputs.arn = undefined /*out*/;
+            inputs.endpoint = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Server.__pulumiType, name, inputs, opts);
     }
 }

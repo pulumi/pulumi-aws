@@ -17,19 +17,45 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const pool = new aws.cognito.UserPool("pool", {});
+ * const client = new aws.cognito.UserPoolClient("client", {});
+ * const domain = new aws.cognito.UserPoolDomain("domain", {});
  * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
  * const frontEndListener = new aws.lb.Listener("frontEnd", {});
- * const static = new aws.lb.ListenerRule("static", {
+ * const admin = new aws.lb.ListenerRule("admin", {
+ *     actions: [
+ *         {
+ *             authenticateOidc: {
+ *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
+ *                 clientId: "clientId",
+ *                 clientSecret: "clientSecret",
+ *                 issuer: "https://example.com",
+ *                 tokenEndpoint: "https://example.com/token_endpoint",
+ *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
+ *             },
+ *             type: "authenticate-oidc",
+ *         },
+ *         {
+ *             targetGroupArn: aws_lb_target_group_static.arn,
+ *             type: "forward",
+ *         },
+ *     ],
+ *     listenerArn: frontEndListener.arn,
+ * });
+ * const healthCheck = new aws.lb.ListenerRule("healthCheck", {
  *     actions: [{
- *         targetGroupArn: aws_lb_target_group_static.arn,
- *         type: "forward",
+ *         fixedResponse: {
+ *             contentType: "text/plain",
+ *             messageBody: "HEALTHY",
+ *             statusCode: "200",
+ *         },
+ *         type: "fixed-response",
  *     }],
  *     conditions: [{
  *         field: "path-pattern",
- *         values: "/static/*",
+ *         values: "/health",
  *     }],
  *     listenerArn: frontEndListener.arn,
- *     priority: 100,
  * });
  * const hostBasedRouting = new aws.lb.ListenerRule("hostBasedRouting", {
  *     actions: [{
@@ -58,43 +84,17 @@ import * as utilities from "../utilities";
  *     }],
  *     listenerArn: frontEndListener.arn,
  * });
- * const healthCheck = new aws.lb.ListenerRule("healthCheck", {
+ * const static = new aws.lb.ListenerRule("static", {
  *     actions: [{
- *         fixedResponse: {
- *             contentType: "text/plain",
- *             messageBody: "HEALTHY",
- *             statusCode: "200",
- *         },
- *         type: "fixed-response",
+ *         targetGroupArn: aws_lb_target_group_static.arn,
+ *         type: "forward",
  *     }],
  *     conditions: [{
  *         field: "path-pattern",
- *         values: "/health",
+ *         values: "/static/*",
  *     }],
  *     listenerArn: frontEndListener.arn,
- * });
- * const pool = new aws.cognito.UserPool("pool", {});
- * const client = new aws.cognito.UserPoolClient("client", {});
- * const domain = new aws.cognito.UserPoolDomain("domain", {});
- * const admin = new aws.lb.ListenerRule("admin", {
- *     actions: [
- *         {
- *             authenticateOidc: {
- *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
- *                 clientId: "clientId",
- *                 clientSecret: "clientSecret",
- *                 issuer: "https://example.com",
- *                 tokenEndpoint: "https://example.com/token_endpoint",
- *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
- *             },
- *             type: "authenticate-oidc",
- *         },
- *         {
- *             targetGroupArn: aws_lb_target_group_static.arn,
- *             type: "forward",
- *         },
- *     ],
- *     listenerArn: frontEndListener.arn,
+ *     priority: 100,
  * });
  * ```
  *
@@ -155,40 +155,34 @@ export class ListenerRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ListenerRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ListenerRuleArgs | ListenerRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ListenerRuleState | undefined;
-            inputs["actions"] = state ? state.actions : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["conditions"] = state ? state.conditions : undefined;
-            inputs["listenerArn"] = state ? state.listenerArn : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
+    constructor(name: string, args: ListenerRuleArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ListenerRuleArgs | ListenerRuleState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ListenerRuleState;
+            inputs.actions = state.actions;
+            inputs.arn = state.arn;
+            inputs.conditions = state.conditions;
+            inputs.listenerArn = state.listenerArn;
+            inputs.priority = state.priority;
         } else {
-            const args = argsOrState as ListenerRuleArgs | undefined;
-            if (!args || args.actions === undefined) {
+            const args = argsOrState as ListenerRuleArgs;
+            if (args.actions === undefined) {
                 throw new Error("Missing required property 'actions'");
             }
-            if (!args || args.conditions === undefined) {
+            if (args.conditions === undefined) {
                 throw new Error("Missing required property 'conditions'");
             }
-            if (!args || args.listenerArn === undefined) {
+            if (args.listenerArn === undefined) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["conditions"] = args ? args.conditions : undefined;
-            inputs["listenerArn"] = args ? args.listenerArn : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.actions = args.actions;
+            inputs.conditions = args.conditions;
+            inputs.listenerArn = args.listenerArn;
+            inputs.priority = args.priority;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/listenerRule:ListenerRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ListenerRule.__pulumiType, name, inputs, opts);

@@ -59,23 +59,12 @@ import {RestApi} from "./restApi";
  * import * as aws from "@pulumi/aws";
  * 
  * const config = new pulumi.Config();
+ * const accountId = config.require("accountId");
  * // Variables
  * const myregion = config.require("myregion");
- * const accountId = config.require("accountId");
  * 
  * // API Gateway
  * const api = new aws.apigateway.RestApi("api", {});
- * const resource = new aws.apigateway.Resource("resource", {
- *     parentId: api.rootResourceId,
- *     pathPart: "resource",
- *     restApi: api.id,
- * });
- * const method = new aws.apigateway.Method("method", {
- *     authorization: "NONE",
- *     httpMethod: "GET",
- *     resourceId: resource.id,
- *     restApi: api.id,
- * });
  * // IAM
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
@@ -92,6 +81,17 @@ import {RestApi} from "./restApi";
  *   ]
  * }
  * `,
+ * });
+ * const resource = new aws.apigateway.Resource("resource", {
+ *     parentId: api.rootResourceId,
+ *     pathPart: "resource",
+ *     restApi: api.id,
+ * });
+ * const method = new aws.apigateway.Method("method", {
+ *     authorization: "NONE",
+ *     httpMethod: "GET",
+ *     resourceId: resource.id,
+ *     restApi: api.id,
  * });
  * const lambda = new aws.lambda.Function("lambda", {
  *     code: new pulumi.asset.FileArchive("lambda.zip"),
@@ -126,14 +126,6 @@ import {RestApi} from "./restApi";
  * const name = config.require("name");
  * const subnetId = config.require("subnetId");
  * 
- * const testLoadBalancer = new aws.lb.LoadBalancer("test", {
- *     internal: true,
- *     loadBalancerType: "network",
- *     subnets: [subnetId],
- * });
- * const testVpcLink = new aws.apigateway.VpcLink("test", {
- *     targetArn: testLoadBalancer.arn,
- * });
  * const testRestApi = new aws.apigateway.RestApi("test", {});
  * const testResource = new aws.apigateway.Resource("test", {
  *     parentId: testRestApi.rootResourceId,
@@ -148,6 +140,14 @@ import {RestApi} from "./restApi";
  *     },
  *     resourceId: testResource.id,
  *     restApi: testRestApi.id,
+ * });
+ * const testLoadBalancer = new aws.lb.LoadBalancer("test", {
+ *     internal: true,
+ *     loadBalancerType: "network",
+ *     subnets: [subnetId],
+ * });
+ * const testVpcLink = new aws.apigateway.VpcLink("test", {
+ *     targetArn: testLoadBalancer.arn,
  * });
  * const testIntegration = new aws.apigateway.Integration("test", {
  *     connectionId: testVpcLink.id,
@@ -281,65 +281,59 @@ export class Integration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as IntegrationState | undefined;
-            inputs["cacheKeyParameters"] = state ? state.cacheKeyParameters : undefined;
-            inputs["cacheNamespace"] = state ? state.cacheNamespace : undefined;
-            inputs["connectionId"] = state ? state.connectionId : undefined;
-            inputs["connectionType"] = state ? state.connectionType : undefined;
-            inputs["contentHandling"] = state ? state.contentHandling : undefined;
-            inputs["credentials"] = state ? state.credentials : undefined;
-            inputs["httpMethod"] = state ? state.httpMethod : undefined;
-            inputs["integrationHttpMethod"] = state ? state.integrationHttpMethod : undefined;
-            inputs["passthroughBehavior"] = state ? state.passthroughBehavior : undefined;
-            inputs["requestParameters"] = state ? state.requestParameters : undefined;
-            inputs["requestTemplates"] = state ? state.requestTemplates : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["timeoutMilliseconds"] = state ? state.timeoutMilliseconds : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
+    constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: IntegrationArgs | IntegrationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as IntegrationState;
+            inputs.cacheKeyParameters = state.cacheKeyParameters;
+            inputs.cacheNamespace = state.cacheNamespace;
+            inputs.connectionId = state.connectionId;
+            inputs.connectionType = state.connectionType;
+            inputs.contentHandling = state.contentHandling;
+            inputs.credentials = state.credentials;
+            inputs.httpMethod = state.httpMethod;
+            inputs.integrationHttpMethod = state.integrationHttpMethod;
+            inputs.passthroughBehavior = state.passthroughBehavior;
+            inputs.requestParameters = state.requestParameters;
+            inputs.requestTemplates = state.requestTemplates;
+            inputs.resourceId = state.resourceId;
+            inputs.restApi = state.restApi;
+            inputs.timeoutMilliseconds = state.timeoutMilliseconds;
+            inputs.type = state.type;
+            inputs.uri = state.uri;
         } else {
-            const args = argsOrState as IntegrationArgs | undefined;
-            if (!args || args.httpMethod === undefined) {
+            const args = argsOrState as IntegrationArgs;
+            if (args.httpMethod === undefined) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if (!args || args.resourceId === undefined) {
+            if (args.resourceId === undefined) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (!args || args.restApi === undefined) {
+            if (args.restApi === undefined) {
                 throw new Error("Missing required property 'restApi'");
             }
-            if (!args || args.type === undefined) {
+            if (args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["cacheKeyParameters"] = args ? args.cacheKeyParameters : undefined;
-            inputs["cacheNamespace"] = args ? args.cacheNamespace : undefined;
-            inputs["connectionId"] = args ? args.connectionId : undefined;
-            inputs["connectionType"] = args ? args.connectionType : undefined;
-            inputs["contentHandling"] = args ? args.contentHandling : undefined;
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["httpMethod"] = args ? args.httpMethod : undefined;
-            inputs["integrationHttpMethod"] = args ? args.integrationHttpMethod : undefined;
-            inputs["passthroughBehavior"] = args ? args.passthroughBehavior : undefined;
-            inputs["requestParameters"] = args ? args.requestParameters : undefined;
-            inputs["requestTemplates"] = args ? args.requestTemplates : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["timeoutMilliseconds"] = args ? args.timeoutMilliseconds : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["uri"] = args ? args.uri : undefined;
+            inputs.cacheKeyParameters = args.cacheKeyParameters;
+            inputs.cacheNamespace = args.cacheNamespace;
+            inputs.connectionId = args.connectionId;
+            inputs.connectionType = args.connectionType;
+            inputs.contentHandling = args.contentHandling;
+            inputs.credentials = args.credentials;
+            inputs.httpMethod = args.httpMethod;
+            inputs.integrationHttpMethod = args.integrationHttpMethod;
+            inputs.passthroughBehavior = args.passthroughBehavior;
+            inputs.requestParameters = args.requestParameters;
+            inputs.requestTemplates = args.requestTemplates;
+            inputs.resourceId = args.resourceId;
+            inputs.restApi = args.restApi;
+            inputs.timeoutMilliseconds = args.timeoutMilliseconds;
+            inputs.type = args.type;
+            inputs.uri = args.uri;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Integration.__pulumiType, name, inputs, opts);
     }
 }

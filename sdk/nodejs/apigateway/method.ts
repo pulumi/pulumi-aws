@@ -42,19 +42,19 @@ import {RestApi} from "./restApi";
  * const config = new pulumi.Config();
  * const cognitoUserPoolName = config.require("cognitoUserPoolName");
  * 
+ * const thisRestApi = new aws.apigateway.RestApi("this", {});
  * const thisUserPools = aws.cognito.getUserPools({
  *     name: cognitoUserPoolName,
- * });
- * const thisRestApi = new aws.apigateway.RestApi("this", {});
- * const thisResource = new aws.apigateway.Resource("this", {
- *     parentId: thisRestApi.rootResourceId,
- *     pathPart: "{proxy+}",
- *     restApi: thisRestApi.id,
  * });
  * const thisAuthorizer = new aws.apigateway.Authorizer("this", {
  *     providerArns: thisUserPools.arns,
  *     restApi: thisRestApi.id,
  *     type: "COGNITO_USER_POOLS",
+ * });
+ * const thisResource = new aws.apigateway.Resource("this", {
+ *     parentId: thisRestApi.rootResourceId,
+ *     pathPart: "{proxy+}",
+ *     restApi: thisRestApi.id,
  * });
  * const any = new aws.apigateway.Method("any", {
  *     authorization: "COGNITO_USER_POOLS",
@@ -148,53 +148,47 @@ export class Method extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MethodArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MethodArgs | MethodState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MethodState | undefined;
-            inputs["apiKeyRequired"] = state ? state.apiKeyRequired : undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["authorizationScopes"] = state ? state.authorizationScopes : undefined;
-            inputs["authorizerId"] = state ? state.authorizerId : undefined;
-            inputs["httpMethod"] = state ? state.httpMethod : undefined;
-            inputs["requestModels"] = state ? state.requestModels : undefined;
-            inputs["requestParameters"] = state ? state.requestParameters : undefined;
-            inputs["requestValidatorId"] = state ? state.requestValidatorId : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
+    constructor(name: string, args: MethodArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: MethodArgs | MethodState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as MethodState;
+            inputs.apiKeyRequired = state.apiKeyRequired;
+            inputs.authorization = state.authorization;
+            inputs.authorizationScopes = state.authorizationScopes;
+            inputs.authorizerId = state.authorizerId;
+            inputs.httpMethod = state.httpMethod;
+            inputs.requestModels = state.requestModels;
+            inputs.requestParameters = state.requestParameters;
+            inputs.requestValidatorId = state.requestValidatorId;
+            inputs.resourceId = state.resourceId;
+            inputs.restApi = state.restApi;
         } else {
-            const args = argsOrState as MethodArgs | undefined;
-            if (!args || args.authorization === undefined) {
+            const args = argsOrState as MethodArgs;
+            if (args.authorization === undefined) {
                 throw new Error("Missing required property 'authorization'");
             }
-            if (!args || args.httpMethod === undefined) {
+            if (args.httpMethod === undefined) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if (!args || args.resourceId === undefined) {
+            if (args.resourceId === undefined) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (!args || args.restApi === undefined) {
+            if (args.restApi === undefined) {
                 throw new Error("Missing required property 'restApi'");
             }
-            inputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["authorizationScopes"] = args ? args.authorizationScopes : undefined;
-            inputs["authorizerId"] = args ? args.authorizerId : undefined;
-            inputs["httpMethod"] = args ? args.httpMethod : undefined;
-            inputs["requestModels"] = args ? args.requestModels : undefined;
-            inputs["requestParameters"] = args ? args.requestParameters : undefined;
-            inputs["requestValidatorId"] = args ? args.requestValidatorId : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
+            inputs.apiKeyRequired = args.apiKeyRequired;
+            inputs.authorization = args.authorization;
+            inputs.authorizationScopes = args.authorizationScopes;
+            inputs.authorizerId = args.authorizerId;
+            inputs.httpMethod = args.httpMethod;
+            inputs.requestModels = args.requestModels;
+            inputs.requestParameters = args.requestParameters;
+            inputs.requestValidatorId = args.requestValidatorId;
+            inputs.resourceId = args.resourceId;
+            inputs.restApi = args.restApi;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Method.__pulumiType, name, inputs, opts);
     }
 }

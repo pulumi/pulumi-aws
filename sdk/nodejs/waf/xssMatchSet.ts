@@ -78,25 +78,19 @@ export class XssMatchSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: XssMatchSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: XssMatchSetArgs | XssMatchSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as XssMatchSetState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["xssMatchTuples"] = state ? state.xssMatchTuples : undefined;
+    constructor(name: string, args?: XssMatchSetArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: XssMatchSetArgs | XssMatchSetState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as XssMatchSetState;
+            inputs.name = state.name;
+            inputs.xssMatchTuples = state.xssMatchTuples;
         } else {
-            const args = argsOrState as XssMatchSetArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["xssMatchTuples"] = args ? args.xssMatchTuples : undefined;
+            const args = argsOrState as XssMatchSetArgs;
+            inputs.name = args.name;
+            inputs.xssMatchTuples = args.xssMatchTuples;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(XssMatchSet.__pulumiType, name, inputs, opts);
     }
 }

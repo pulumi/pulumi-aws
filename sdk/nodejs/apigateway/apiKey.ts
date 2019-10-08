@@ -83,33 +83,27 @@ export class ApiKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ApiKeyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApiKeyArgs | ApiKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ApiKeyState | undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["value"] = state ? state.value : undefined;
+    constructor(name: string, args?: ApiKeyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ApiKeyArgs | ApiKeyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ApiKeyState;
+            inputs.createdDate = state.createdDate;
+            inputs.description = state.description;
+            inputs.enabled = state.enabled;
+            inputs.lastUpdatedDate = state.lastUpdatedDate;
+            inputs.name = state.name;
+            inputs.value = state.value;
         } else {
-            const args = argsOrState as ApiKeyArgs | undefined;
-            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["lastUpdatedDate"] = undefined /*out*/;
+            const args = argsOrState as ApiKeyArgs;
+            inputs.description = args.description || "Managed by Pulumi";
+            inputs.enabled = args.enabled;
+            inputs.name = args.name;
+            inputs.value = args.value;
+            inputs.createdDate = undefined /*out*/;
+            inputs.lastUpdatedDate = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ApiKey.__pulumiType, name, inputs, opts);
     }
 }

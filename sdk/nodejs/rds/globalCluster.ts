@@ -12,41 +12,6 @@ import * as utilities from "../utilities";
  * More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
  * 
  * > **NOTE:** RDS only supports the `aurora` engine (MySQL 5.6 compatible) for Global Clusters at this time.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const primary = new aws.Provider("primary", {
- *     region: "us-east-2",
- * });
- * const secondary = new aws.Provider("secondary", {
- *     region: "us-west-2",
- * });
- * const example = new aws.rds.GlobalCluster("example", {
- *     globalClusterIdentifier: "example",
- * }, {provider: primary});
- * const primaryCluster = new aws.rds.Cluster("primary", {
- *     // ... other configuration ...
- *     engineMode: "global",
- *     globalClusterIdentifier: example.id,
- * }, {provider: primary});
- * const primaryClusterInstance = new aws.rds.ClusterInstance("primary", {
- *     // ... other configuration ...
- *     clusterIdentifier: primaryCluster.id,
- * }, {provider: primary});
- * const secondaryCluster = new aws.rds.Cluster("secondary", {
- *     // ... other configuration ...
- *     engineMode: "global",
- *     globalClusterIdentifier: example.id,
- * }, {provider: secondary,dependsOn: [primaryClusterInstance]});
- * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondary", {
- *     // ... other configuration ...
- *     clusterIdentifier: secondaryCluster.id,
- * }, {provider: secondary});
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_global_cluster.html.markdown.
  */
@@ -117,40 +82,34 @@ export class GlobalCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GlobalClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GlobalClusterArgs | GlobalClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GlobalClusterState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
-            inputs["globalClusterResourceId"] = state ? state.globalClusterResourceId : undefined;
-            inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+    constructor(name: string, args: GlobalClusterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GlobalClusterArgs | GlobalClusterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GlobalClusterState;
+            inputs.arn = state.arn;
+            inputs.databaseName = state.databaseName;
+            inputs.deletionProtection = state.deletionProtection;
+            inputs.engine = state.engine;
+            inputs.engineVersion = state.engineVersion;
+            inputs.globalClusterIdentifier = state.globalClusterIdentifier;
+            inputs.globalClusterResourceId = state.globalClusterResourceId;
+            inputs.storageEncrypted = state.storageEncrypted;
         } else {
-            const args = argsOrState as GlobalClusterArgs | undefined;
-            if (!args || args.globalClusterIdentifier === undefined) {
+            const args = argsOrState as GlobalClusterArgs;
+            if (args.globalClusterIdentifier === undefined) {
                 throw new Error("Missing required property 'globalClusterIdentifier'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
-            inputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["globalClusterResourceId"] = undefined /*out*/;
+            inputs.databaseName = args.databaseName;
+            inputs.deletionProtection = args.deletionProtection;
+            inputs.engine = args.engine;
+            inputs.engineVersion = args.engineVersion;
+            inputs.globalClusterIdentifier = args.globalClusterIdentifier;
+            inputs.storageEncrypted = args.storageEncrypted;
+            inputs.arn = undefined /*out*/;
+            inputs.globalClusterResourceId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(GlobalCluster.__pulumiType, name, inputs, opts);
     }
 }

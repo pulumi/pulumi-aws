@@ -105,34 +105,28 @@ export class UserGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserGroupArgs | UserGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as UserGroupState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["precedence"] = state ? state.precedence : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["userPoolId"] = state ? state.userPoolId : undefined;
+    constructor(name: string, args: UserGroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: UserGroupArgs | UserGroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as UserGroupState;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.precedence = state.precedence;
+            inputs.roleArn = state.roleArn;
+            inputs.userPoolId = state.userPoolId;
         } else {
-            const args = argsOrState as UserGroupArgs | undefined;
-            if (!args || args.userPoolId === undefined) {
+            const args = argsOrState as UserGroupArgs;
+            if (args.userPoolId === undefined) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["precedence"] = args ? args.precedence : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["userPoolId"] = args ? args.userPoolId : undefined;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.precedence = args.precedence;
+            inputs.roleArn = args.roleArn;
+            inputs.userPoolId = args.userPoolId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(UserGroup.__pulumiType, name, inputs, opts);
     }
 }

@@ -161,39 +161,33 @@ export class PatchBaseline extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PatchBaselineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PatchBaselineArgs | PatchBaselineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PatchBaselineState | undefined;
-            inputs["approvalRules"] = state ? state.approvalRules : undefined;
-            inputs["approvedPatches"] = state ? state.approvedPatches : undefined;
-            inputs["approvedPatchesComplianceLevel"] = state ? state.approvedPatchesComplianceLevel : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["globalFilters"] = state ? state.globalFilters : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["operatingSystem"] = state ? state.operatingSystem : undefined;
-            inputs["rejectedPatches"] = state ? state.rejectedPatches : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: PatchBaselineArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: PatchBaselineArgs | PatchBaselineState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as PatchBaselineState;
+            inputs.approvalRules = state.approvalRules;
+            inputs.approvedPatches = state.approvedPatches;
+            inputs.approvedPatchesComplianceLevel = state.approvedPatchesComplianceLevel;
+            inputs.description = state.description;
+            inputs.globalFilters = state.globalFilters;
+            inputs.name = state.name;
+            inputs.operatingSystem = state.operatingSystem;
+            inputs.rejectedPatches = state.rejectedPatches;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as PatchBaselineArgs | undefined;
-            inputs["approvalRules"] = args ? args.approvalRules : undefined;
-            inputs["approvedPatches"] = args ? args.approvedPatches : undefined;
-            inputs["approvedPatchesComplianceLevel"] = args ? args.approvedPatchesComplianceLevel : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["globalFilters"] = args ? args.globalFilters : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            inputs["rejectedPatches"] = args ? args.rejectedPatches : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            const args = argsOrState as PatchBaselineArgs;
+            inputs.approvalRules = args.approvalRules;
+            inputs.approvedPatches = args.approvedPatches;
+            inputs.approvedPatchesComplianceLevel = args.approvedPatchesComplianceLevel;
+            inputs.description = args.description;
+            inputs.globalFilters = args.globalFilters;
+            inputs.name = args.name;
+            inputs.operatingSystem = args.operatingSystem;
+            inputs.rejectedPatches = args.rejectedPatches;
+            inputs.tags = args.tags;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(PatchBaseline.__pulumiType, name, inputs, opts);
     }
 }

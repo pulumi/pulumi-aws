@@ -75,32 +75,26 @@ export class ApiKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApiKeyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApiKeyArgs | ApiKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ApiKeyState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["expires"] = state ? state.expires : undefined;
-            inputs["key"] = state ? state.key : undefined;
+    constructor(name: string, args: ApiKeyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ApiKeyArgs | ApiKeyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ApiKeyState;
+            inputs.apiId = state.apiId;
+            inputs.description = state.description;
+            inputs.expires = state.expires;
+            inputs.key = state.key;
         } else {
-            const args = argsOrState as ApiKeyArgs | undefined;
-            if (!args || args.apiId === undefined) {
+            const args = argsOrState as ApiKeyArgs;
+            if (args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["expires"] = args ? args.expires : undefined;
-            inputs["key"] = undefined /*out*/;
+            inputs.apiId = args.apiId;
+            inputs.description = args.description;
+            inputs.expires = args.expires;
+            inputs.key = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ApiKey.__pulumiType, name, inputs, opts);
     }
 }

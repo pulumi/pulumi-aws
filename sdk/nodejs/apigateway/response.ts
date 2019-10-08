@@ -86,37 +86,31 @@ export class Response extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResponseArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResponseArgs | ResponseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ResponseState | undefined;
-            inputs["responseParameters"] = state ? state.responseParameters : undefined;
-            inputs["responseTemplates"] = state ? state.responseTemplates : undefined;
-            inputs["responseType"] = state ? state.responseType : undefined;
-            inputs["restApiId"] = state ? state.restApiId : undefined;
-            inputs["statusCode"] = state ? state.statusCode : undefined;
+    constructor(name: string, args: ResponseArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ResponseArgs | ResponseState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ResponseState;
+            inputs.responseParameters = state.responseParameters;
+            inputs.responseTemplates = state.responseTemplates;
+            inputs.responseType = state.responseType;
+            inputs.restApiId = state.restApiId;
+            inputs.statusCode = state.statusCode;
         } else {
-            const args = argsOrState as ResponseArgs | undefined;
-            if (!args || args.responseType === undefined) {
+            const args = argsOrState as ResponseArgs;
+            if (args.responseType === undefined) {
                 throw new Error("Missing required property 'responseType'");
             }
-            if (!args || args.restApiId === undefined) {
+            if (args.restApiId === undefined) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            inputs["responseParameters"] = args ? args.responseParameters : undefined;
-            inputs["responseTemplates"] = args ? args.responseTemplates : undefined;
-            inputs["responseType"] = args ? args.responseType : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
-            inputs["statusCode"] = args ? args.statusCode : undefined;
+            inputs.responseParameters = args.responseParameters;
+            inputs.responseTemplates = args.responseTemplates;
+            inputs.responseType = args.responseType;
+            inputs.restApiId = args.restApiId;
+            inputs.statusCode = args.statusCode;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Response.__pulumiType, name, inputs, opts);
     }
 }

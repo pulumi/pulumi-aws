@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     vpcs: [{
  *         vpcId: primary.id,
  *     }],
- * }, {ignoreChanges: ["vpcId", "vpcRegion", "vpcs"]});
+ * });
  * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondary", {
  *     vpcId: secondaryVpc.id,
  *     zoneId: example.zoneId,
@@ -94,33 +94,27 @@ export class ZoneAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ZoneAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ZoneAssociationArgs | ZoneAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ZoneAssociationState | undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["vpcRegion"] = state ? state.vpcRegion : undefined;
-            inputs["zoneId"] = state ? state.zoneId : undefined;
+    constructor(name: string, args: ZoneAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ZoneAssociationArgs | ZoneAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ZoneAssociationState;
+            inputs.vpcId = state.vpcId;
+            inputs.vpcRegion = state.vpcRegion;
+            inputs.zoneId = state.zoneId;
         } else {
-            const args = argsOrState as ZoneAssociationArgs | undefined;
-            if (!args || args.vpcId === undefined) {
+            const args = argsOrState as ZoneAssociationArgs;
+            if (args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            if (!args || args.zoneId === undefined) {
+            if (args.zoneId === undefined) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["vpcRegion"] = args ? args.vpcRegion : undefined;
-            inputs["zoneId"] = args ? args.zoneId : undefined;
+            inputs.vpcId = args.vpcId;
+            inputs.vpcRegion = args.vpcRegion;
+            inputs.zoneId = args.zoneId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ZoneAssociation.__pulumiType, name, inputs, opts);
     }
 }

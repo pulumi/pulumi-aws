@@ -52,31 +52,25 @@ export class InviteAccepter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: InviteAccepterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: InviteAccepterArgs | InviteAccepterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as InviteAccepterState | undefined;
-            inputs["detectorId"] = state ? state.detectorId : undefined;
-            inputs["masterAccountId"] = state ? state.masterAccountId : undefined;
+    constructor(name: string, args: InviteAccepterArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: InviteAccepterArgs | InviteAccepterState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as InviteAccepterState;
+            inputs.detectorId = state.detectorId;
+            inputs.masterAccountId = state.masterAccountId;
         } else {
-            const args = argsOrState as InviteAccepterArgs | undefined;
-            if (!args || args.detectorId === undefined) {
+            const args = argsOrState as InviteAccepterArgs;
+            if (args.detectorId === undefined) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if (!args || args.masterAccountId === undefined) {
+            if (args.masterAccountId === undefined) {
                 throw new Error("Missing required property 'masterAccountId'");
             }
-            inputs["detectorId"] = args ? args.detectorId : undefined;
-            inputs["masterAccountId"] = args ? args.masterAccountId : undefined;
+            inputs.detectorId = args.detectorId;
+            inputs.masterAccountId = args.masterAccountId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(InviteAccepter.__pulumiType, name, inputs, opts);
     }
 }

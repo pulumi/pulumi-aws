@@ -69,28 +69,22 @@ export class Domain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DomainState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
+    constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DomainArgs | DomainState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DomainState;
+            inputs.arn = state.arn;
+            inputs.domainName = state.domainName;
         } else {
-            const args = argsOrState as DomainArgs | undefined;
-            if (!args || args.domainName === undefined) {
+            const args = argsOrState as DomainArgs;
+            if (args.domainName === undefined) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.domainName = args.domainName;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Domain.__pulumiType, name, inputs, opts);
     }
 }

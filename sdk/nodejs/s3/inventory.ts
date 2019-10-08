@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testBucket = new aws.s3.Bucket("test", {});
  * const inventory = new aws.s3.Bucket("inventory", {});
+ * const testBucket = new aws.s3.Bucket("test", {});
  * const testInventory = new aws.s3.Inventory("test", {
  *     bucket: testBucket.id,
  *     destination: {
@@ -40,8 +40,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const test = new aws.s3.Bucket("test", {});
  * const inventory = new aws.s3.Bucket("inventory", {});
+ * const test = new aws.s3.Bucket("test", {});
  * const testPrefix = new aws.s3.Inventory("test-prefix", {
  *     bucket: test.id,
  *     destination: {
@@ -130,49 +130,43 @@ export class Inventory extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: InventoryArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: InventoryArgs | InventoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as InventoryState | undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["destination"] = state ? state.destination : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["filter"] = state ? state.filter : undefined;
-            inputs["includedObjectVersions"] = state ? state.includedObjectVersions : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["optionalFields"] = state ? state.optionalFields : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
+    constructor(name: string, args: InventoryArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: InventoryArgs | InventoryState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as InventoryState;
+            inputs.bucket = state.bucket;
+            inputs.destination = state.destination;
+            inputs.enabled = state.enabled;
+            inputs.filter = state.filter;
+            inputs.includedObjectVersions = state.includedObjectVersions;
+            inputs.name = state.name;
+            inputs.optionalFields = state.optionalFields;
+            inputs.schedule = state.schedule;
         } else {
-            const args = argsOrState as InventoryArgs | undefined;
-            if (!args || args.bucket === undefined) {
+            const args = argsOrState as InventoryArgs;
+            if (args.bucket === undefined) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if (!args || args.destination === undefined) {
+            if (args.destination === undefined) {
                 throw new Error("Missing required property 'destination'");
             }
-            if (!args || args.includedObjectVersions === undefined) {
+            if (args.includedObjectVersions === undefined) {
                 throw new Error("Missing required property 'includedObjectVersions'");
             }
-            if (!args || args.schedule === undefined) {
+            if (args.schedule === undefined) {
                 throw new Error("Missing required property 'schedule'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["includedObjectVersions"] = args ? args.includedObjectVersions : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["optionalFields"] = args ? args.optionalFields : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
+            inputs.bucket = args.bucket;
+            inputs.destination = args.destination;
+            inputs.enabled = args.enabled;
+            inputs.filter = args.filter;
+            inputs.includedObjectVersions = args.includedObjectVersions;
+            inputs.name = args.name;
+            inputs.optionalFields = args.optionalFields;
+            inputs.schedule = args.schedule;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Inventory.__pulumiType, name, inputs, opts);
     }
 }

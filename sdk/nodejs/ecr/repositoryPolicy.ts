@@ -99,33 +99,27 @@ export class RepositoryPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RepositoryPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RepositoryPolicyArgs | RepositoryPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RepositoryPolicyState | undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["registryId"] = state ? state.registryId : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
+    constructor(name: string, args: RepositoryPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RepositoryPolicyArgs | RepositoryPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RepositoryPolicyState;
+            inputs.policy = state.policy;
+            inputs.registryId = state.registryId;
+            inputs.repository = state.repository;
         } else {
-            const args = argsOrState as RepositoryPolicyArgs | undefined;
-            if (!args || args.policy === undefined) {
+            const args = argsOrState as RepositoryPolicyArgs;
+            if (args.policy === undefined) {
                 throw new Error("Missing required property 'policy'");
             }
-            if (!args || args.repository === undefined) {
+            if (args.repository === undefined) {
                 throw new Error("Missing required property 'repository'");
             }
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["registryId"] = undefined /*out*/;
+            inputs.policy = args.policy;
+            inputs.repository = args.repository;
+            inputs.registryId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(RepositoryPolicy.__pulumiType, name, inputs, opts);
     }
 }

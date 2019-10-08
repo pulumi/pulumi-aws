@@ -88,35 +88,29 @@ export class Route extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RouteState | undefined;
-            inputs["blackhole"] = state ? state.blackhole : undefined;
-            inputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
-            inputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
-            inputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
+    constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: RouteArgs | RouteState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as RouteState;
+            inputs.blackhole = state.blackhole;
+            inputs.destinationCidrBlock = state.destinationCidrBlock;
+            inputs.transitGatewayAttachmentId = state.transitGatewayAttachmentId;
+            inputs.transitGatewayRouteTableId = state.transitGatewayRouteTableId;
         } else {
-            const args = argsOrState as RouteArgs | undefined;
-            if (!args || args.destinationCidrBlock === undefined) {
+            const args = argsOrState as RouteArgs;
+            if (args.destinationCidrBlock === undefined) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if (!args || args.transitGatewayRouteTableId === undefined) {
+            if (args.transitGatewayRouteTableId === undefined) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
-            inputs["blackhole"] = args ? args.blackhole : undefined;
-            inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
-            inputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
+            inputs.blackhole = args.blackhole;
+            inputs.destinationCidrBlock = args.destinationCidrBlock;
+            inputs.transitGatewayAttachmentId = args.transitGatewayAttachmentId;
+            inputs.transitGatewayRouteTableId = args.transitGatewayRouteTableId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Route.__pulumiType, name, inputs, opts);
     }
 }

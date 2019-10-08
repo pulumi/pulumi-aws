@@ -139,33 +139,27 @@ export class ListenerPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ListenerPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ListenerPolicyArgs | ListenerPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ListenerPolicyState | undefined;
-            inputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
-            inputs["loadBalancerPort"] = state ? state.loadBalancerPort : undefined;
-            inputs["policyNames"] = state ? state.policyNames : undefined;
+    constructor(name: string, args: ListenerPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ListenerPolicyArgs | ListenerPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ListenerPolicyState;
+            inputs.loadBalancerName = state.loadBalancerName;
+            inputs.loadBalancerPort = state.loadBalancerPort;
+            inputs.policyNames = state.policyNames;
         } else {
-            const args = argsOrState as ListenerPolicyArgs | undefined;
-            if (!args || args.loadBalancerName === undefined) {
+            const args = argsOrState as ListenerPolicyArgs;
+            if (args.loadBalancerName === undefined) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if (!args || args.loadBalancerPort === undefined) {
+            if (args.loadBalancerPort === undefined) {
                 throw new Error("Missing required property 'loadBalancerPort'");
             }
-            inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            inputs["loadBalancerPort"] = args ? args.loadBalancerPort : undefined;
-            inputs["policyNames"] = args ? args.policyNames : undefined;
+            inputs.loadBalancerName = args.loadBalancerName;
+            inputs.loadBalancerPort = args.loadBalancerPort;
+            inputs.policyNames = args.policyNames;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ListenerPolicy.__pulumiType, name, inputs, opts);
     }
 }

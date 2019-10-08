@@ -109,37 +109,31 @@ export class InstanceProfile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: InstanceProfileArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: InstanceProfileArgs | InstanceProfileState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as InstanceProfileState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["createDate"] = state ? state.createDate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
-            inputs["uniqueId"] = state ? state.uniqueId : undefined;
+    constructor(name: string, args?: InstanceProfileArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: InstanceProfileArgs | InstanceProfileState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as InstanceProfileState;
+            inputs.arn = state.arn;
+            inputs.createDate = state.createDate;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.path = state.path;
+            inputs.role = state.role;
+            inputs.roles = state.roles;
+            inputs.uniqueId = state.uniqueId;
         } else {
-            const args = argsOrState as InstanceProfileArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createDate"] = undefined /*out*/;
-            inputs["uniqueId"] = undefined /*out*/;
+            const args = argsOrState as InstanceProfileArgs;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.path = args.path;
+            inputs.role = args.role;
+            inputs.roles = args.roles;
+            inputs.arn = undefined /*out*/;
+            inputs.createDate = undefined /*out*/;
+            inputs.uniqueId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(InstanceProfile.__pulumiType, name, inputs, opts);
     }
 }

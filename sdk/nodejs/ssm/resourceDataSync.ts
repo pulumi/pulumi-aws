@@ -113,28 +113,22 @@ export class ResourceDataSync extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceDataSyncArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResourceDataSyncArgs | ResourceDataSyncState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ResourceDataSyncState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["s3Destination"] = state ? state.s3Destination : undefined;
+    constructor(name: string, args: ResourceDataSyncArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ResourceDataSyncArgs | ResourceDataSyncState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ResourceDataSyncState;
+            inputs.name = state.name;
+            inputs.s3Destination = state.s3Destination;
         } else {
-            const args = argsOrState as ResourceDataSyncArgs | undefined;
-            if (!args || args.s3Destination === undefined) {
+            const args = argsOrState as ResourceDataSyncArgs;
+            if (args.s3Destination === undefined) {
                 throw new Error("Missing required property 's3Destination'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["s3Destination"] = args ? args.s3Destination : undefined;
+            inputs.name = args.name;
+            inputs.s3Destination = args.s3Destination;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ResourceDataSync.__pulumiType, name, inputs, opts);
     }
 }

@@ -75,33 +75,27 @@ export class Trigger extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TriggerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TriggerArgs | TriggerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as TriggerState | undefined;
-            inputs["configurationId"] = state ? state.configurationId : undefined;
-            inputs["repositoryName"] = state ? state.repositoryName : undefined;
-            inputs["triggers"] = state ? state.triggers : undefined;
+    constructor(name: string, args: TriggerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: TriggerArgs | TriggerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as TriggerState;
+            inputs.configurationId = state.configurationId;
+            inputs.repositoryName = state.repositoryName;
+            inputs.triggers = state.triggers;
         } else {
-            const args = argsOrState as TriggerArgs | undefined;
-            if (!args || args.repositoryName === undefined) {
+            const args = argsOrState as TriggerArgs;
+            if (args.repositoryName === undefined) {
                 throw new Error("Missing required property 'repositoryName'");
             }
-            if (!args || args.triggers === undefined) {
+            if (args.triggers === undefined) {
                 throw new Error("Missing required property 'triggers'");
             }
-            inputs["repositoryName"] = args ? args.repositoryName : undefined;
-            inputs["triggers"] = args ? args.triggers : undefined;
-            inputs["configurationId"] = undefined /*out*/;
+            inputs.repositoryName = args.repositoryName;
+            inputs.triggers = args.triggers;
+            inputs.configurationId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Trigger.__pulumiType, name, inputs, opts);
     }
 }

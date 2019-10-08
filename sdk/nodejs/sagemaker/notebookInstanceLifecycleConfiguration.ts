@@ -62,29 +62,23 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: NotebookInstanceLifecycleConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NotebookInstanceLifecycleConfigurationArgs | NotebookInstanceLifecycleConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NotebookInstanceLifecycleConfigurationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["onCreate"] = state ? state.onCreate : undefined;
-            inputs["onStart"] = state ? state.onStart : undefined;
+    constructor(name: string, args?: NotebookInstanceLifecycleConfigurationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: NotebookInstanceLifecycleConfigurationArgs | NotebookInstanceLifecycleConfigurationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as NotebookInstanceLifecycleConfigurationState;
+            inputs.arn = state.arn;
+            inputs.name = state.name;
+            inputs.onCreate = state.onCreate;
+            inputs.onStart = state.onStart;
         } else {
-            const args = argsOrState as NotebookInstanceLifecycleConfigurationArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["onCreate"] = args ? args.onCreate : undefined;
-            inputs["onStart"] = args ? args.onStart : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as NotebookInstanceLifecycleConfigurationArgs;
+            inputs.name = args.name;
+            inputs.onCreate = args.onCreate;
+            inputs.onStart = args.onStart;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(NotebookInstanceLifecycleConfiguration.__pulumiType, name, inputs, opts);
     }
 }

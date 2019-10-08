@@ -91,30 +91,24 @@ export class BucketMetric extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BucketMetricArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BucketMetricArgs | BucketMetricState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as BucketMetricState | undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["filter"] = state ? state.filter : undefined;
-            inputs["name"] = state ? state.name : undefined;
+    constructor(name: string, args: BucketMetricArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: BucketMetricArgs | BucketMetricState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as BucketMetricState;
+            inputs.bucket = state.bucket;
+            inputs.filter = state.filter;
+            inputs.name = state.name;
         } else {
-            const args = argsOrState as BucketMetricArgs | undefined;
-            if (!args || args.bucket === undefined) {
+            const args = argsOrState as BucketMetricArgs;
+            if (args.bucket === undefined) {
                 throw new Error("Missing required property 'bucket'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs.bucket = args.bucket;
+            inputs.filter = args.filter;
+            inputs.name = args.name;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(BucketMetric.__pulumiType, name, inputs, opts);
     }
 }

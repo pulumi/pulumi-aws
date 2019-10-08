@@ -121,39 +121,33 @@ export class KeyPair extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: KeyPairArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: KeyPairArgs | KeyPairState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as KeyPairState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["encryptedFingerprint"] = state ? state.encryptedFingerprint : undefined;
-            inputs["encryptedPrivateKey"] = state ? state.encryptedPrivateKey : undefined;
-            inputs["fingerprint"] = state ? state.fingerprint : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["pgpKey"] = state ? state.pgpKey : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
-            inputs["publicKey"] = state ? state.publicKey : undefined;
+    constructor(name: string, args?: KeyPairArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: KeyPairArgs | KeyPairState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as KeyPairState;
+            inputs.arn = state.arn;
+            inputs.encryptedFingerprint = state.encryptedFingerprint;
+            inputs.encryptedPrivateKey = state.encryptedPrivateKey;
+            inputs.fingerprint = state.fingerprint;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.pgpKey = state.pgpKey;
+            inputs.privateKey = state.privateKey;
+            inputs.publicKey = state.publicKey;
         } else {
-            const args = argsOrState as KeyPairArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["pgpKey"] = args ? args.pgpKey : undefined;
-            inputs["publicKey"] = args ? args.publicKey : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["encryptedFingerprint"] = undefined /*out*/;
-            inputs["encryptedPrivateKey"] = undefined /*out*/;
-            inputs["fingerprint"] = undefined /*out*/;
-            inputs["privateKey"] = undefined /*out*/;
+            const args = argsOrState as KeyPairArgs;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.pgpKey = args.pgpKey;
+            inputs.publicKey = args.publicKey;
+            inputs.arn = undefined /*out*/;
+            inputs.encryptedFingerprint = undefined /*out*/;
+            inputs.encryptedPrivateKey = undefined /*out*/;
+            inputs.fingerprint = undefined /*out*/;
+            inputs.privateKey = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(KeyPair.__pulumiType, name, inputs, opts);
     }
 }

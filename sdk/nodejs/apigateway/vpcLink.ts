@@ -77,30 +77,24 @@ export class VpcLink extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpcLinkArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcLinkArgs | VpcLinkState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpcLinkState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["targetArn"] = state ? state.targetArn : undefined;
+    constructor(name: string, args: VpcLinkArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VpcLinkArgs | VpcLinkState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VpcLinkState;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.targetArn = state.targetArn;
         } else {
-            const args = argsOrState as VpcLinkArgs | undefined;
-            if (!args || args.targetArn === undefined) {
+            const args = argsOrState as VpcLinkArgs;
+            if (args.targetArn === undefined) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["targetArn"] = args ? args.targetArn : undefined;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.targetArn = args.targetArn;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VpcLink.__pulumiType, name, inputs, opts);
     }
 }

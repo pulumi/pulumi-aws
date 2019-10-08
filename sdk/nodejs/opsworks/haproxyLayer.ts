@@ -147,79 +147,73 @@ export class HaproxyLayer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: HaproxyLayerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: HaproxyLayerArgs | HaproxyLayerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as HaproxyLayerState | undefined;
-            inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
-            inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
-            inputs["autoHealing"] = state ? state.autoHealing : undefined;
-            inputs["customConfigureRecipes"] = state ? state.customConfigureRecipes : undefined;
-            inputs["customDeployRecipes"] = state ? state.customDeployRecipes : undefined;
-            inputs["customInstanceProfileArn"] = state ? state.customInstanceProfileArn : undefined;
-            inputs["customJson"] = state ? state.customJson : undefined;
-            inputs["customSecurityGroupIds"] = state ? state.customSecurityGroupIds : undefined;
-            inputs["customSetupRecipes"] = state ? state.customSetupRecipes : undefined;
-            inputs["customShutdownRecipes"] = state ? state.customShutdownRecipes : undefined;
-            inputs["customUndeployRecipes"] = state ? state.customUndeployRecipes : undefined;
-            inputs["drainElbOnShutdown"] = state ? state.drainElbOnShutdown : undefined;
-            inputs["ebsVolumes"] = state ? state.ebsVolumes : undefined;
-            inputs["elasticLoadBalancer"] = state ? state.elasticLoadBalancer : undefined;
-            inputs["healthcheckMethod"] = state ? state.healthcheckMethod : undefined;
-            inputs["healthcheckUrl"] = state ? state.healthcheckUrl : undefined;
-            inputs["installUpdatesOnBoot"] = state ? state.installUpdatesOnBoot : undefined;
-            inputs["instanceShutdownTimeout"] = state ? state.instanceShutdownTimeout : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["stackId"] = state ? state.stackId : undefined;
-            inputs["statsEnabled"] = state ? state.statsEnabled : undefined;
-            inputs["statsPassword"] = state ? state.statsPassword : undefined;
-            inputs["statsUrl"] = state ? state.statsUrl : undefined;
-            inputs["statsUser"] = state ? state.statsUser : undefined;
-            inputs["systemPackages"] = state ? state.systemPackages : undefined;
-            inputs["useEbsOptimizedInstances"] = state ? state.useEbsOptimizedInstances : undefined;
+    constructor(name: string, args: HaproxyLayerArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: HaproxyLayerArgs | HaproxyLayerState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as HaproxyLayerState;
+            inputs.autoAssignElasticIps = state.autoAssignElasticIps;
+            inputs.autoAssignPublicIps = state.autoAssignPublicIps;
+            inputs.autoHealing = state.autoHealing;
+            inputs.customConfigureRecipes = state.customConfigureRecipes;
+            inputs.customDeployRecipes = state.customDeployRecipes;
+            inputs.customInstanceProfileArn = state.customInstanceProfileArn;
+            inputs.customJson = state.customJson;
+            inputs.customSecurityGroupIds = state.customSecurityGroupIds;
+            inputs.customSetupRecipes = state.customSetupRecipes;
+            inputs.customShutdownRecipes = state.customShutdownRecipes;
+            inputs.customUndeployRecipes = state.customUndeployRecipes;
+            inputs.drainElbOnShutdown = state.drainElbOnShutdown;
+            inputs.ebsVolumes = state.ebsVolumes;
+            inputs.elasticLoadBalancer = state.elasticLoadBalancer;
+            inputs.healthcheckMethod = state.healthcheckMethod;
+            inputs.healthcheckUrl = state.healthcheckUrl;
+            inputs.installUpdatesOnBoot = state.installUpdatesOnBoot;
+            inputs.instanceShutdownTimeout = state.instanceShutdownTimeout;
+            inputs.name = state.name;
+            inputs.stackId = state.stackId;
+            inputs.statsEnabled = state.statsEnabled;
+            inputs.statsPassword = state.statsPassword;
+            inputs.statsUrl = state.statsUrl;
+            inputs.statsUser = state.statsUser;
+            inputs.systemPackages = state.systemPackages;
+            inputs.useEbsOptimizedInstances = state.useEbsOptimizedInstances;
         } else {
-            const args = argsOrState as HaproxyLayerArgs | undefined;
-            if (!args || args.stackId === undefined) {
+            const args = argsOrState as HaproxyLayerArgs;
+            if (args.stackId === undefined) {
                 throw new Error("Missing required property 'stackId'");
             }
-            if (!args || args.statsPassword === undefined) {
+            if (args.statsPassword === undefined) {
                 throw new Error("Missing required property 'statsPassword'");
             }
-            inputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;
-            inputs["autoAssignPublicIps"] = args ? args.autoAssignPublicIps : undefined;
-            inputs["autoHealing"] = args ? args.autoHealing : undefined;
-            inputs["customConfigureRecipes"] = args ? args.customConfigureRecipes : undefined;
-            inputs["customDeployRecipes"] = args ? args.customDeployRecipes : undefined;
-            inputs["customInstanceProfileArn"] = args ? args.customInstanceProfileArn : undefined;
-            inputs["customJson"] = args ? args.customJson : undefined;
-            inputs["customSecurityGroupIds"] = args ? args.customSecurityGroupIds : undefined;
-            inputs["customSetupRecipes"] = args ? args.customSetupRecipes : undefined;
-            inputs["customShutdownRecipes"] = args ? args.customShutdownRecipes : undefined;
-            inputs["customUndeployRecipes"] = args ? args.customUndeployRecipes : undefined;
-            inputs["drainElbOnShutdown"] = args ? args.drainElbOnShutdown : undefined;
-            inputs["ebsVolumes"] = args ? args.ebsVolumes : undefined;
-            inputs["elasticLoadBalancer"] = args ? args.elasticLoadBalancer : undefined;
-            inputs["healthcheckMethod"] = args ? args.healthcheckMethod : undefined;
-            inputs["healthcheckUrl"] = args ? args.healthcheckUrl : undefined;
-            inputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
-            inputs["instanceShutdownTimeout"] = args ? args.instanceShutdownTimeout : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
-            inputs["statsEnabled"] = args ? args.statsEnabled : undefined;
-            inputs["statsPassword"] = args ? args.statsPassword : undefined;
-            inputs["statsUrl"] = args ? args.statsUrl : undefined;
-            inputs["statsUser"] = args ? args.statsUser : undefined;
-            inputs["systemPackages"] = args ? args.systemPackages : undefined;
-            inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
+            inputs.autoAssignElasticIps = args.autoAssignElasticIps;
+            inputs.autoAssignPublicIps = args.autoAssignPublicIps;
+            inputs.autoHealing = args.autoHealing;
+            inputs.customConfigureRecipes = args.customConfigureRecipes;
+            inputs.customDeployRecipes = args.customDeployRecipes;
+            inputs.customInstanceProfileArn = args.customInstanceProfileArn;
+            inputs.customJson = args.customJson;
+            inputs.customSecurityGroupIds = args.customSecurityGroupIds;
+            inputs.customSetupRecipes = args.customSetupRecipes;
+            inputs.customShutdownRecipes = args.customShutdownRecipes;
+            inputs.customUndeployRecipes = args.customUndeployRecipes;
+            inputs.drainElbOnShutdown = args.drainElbOnShutdown;
+            inputs.ebsVolumes = args.ebsVolumes;
+            inputs.elasticLoadBalancer = args.elasticLoadBalancer;
+            inputs.healthcheckMethod = args.healthcheckMethod;
+            inputs.healthcheckUrl = args.healthcheckUrl;
+            inputs.installUpdatesOnBoot = args.installUpdatesOnBoot;
+            inputs.instanceShutdownTimeout = args.instanceShutdownTimeout;
+            inputs.name = args.name;
+            inputs.stackId = args.stackId;
+            inputs.statsEnabled = args.statsEnabled;
+            inputs.statsPassword = args.statsPassword;
+            inputs.statsUrl = args.statsUrl;
+            inputs.statsUser = args.statsUser;
+            inputs.systemPackages = args.systemPackages;
+            inputs.useEbsOptimizedInstances = args.useEbsOptimizedInstances;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(HaproxyLayer.__pulumiType, name, inputs, opts);
     }
 }

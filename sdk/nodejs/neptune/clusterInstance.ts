@@ -174,75 +174,69 @@ export class ClusterInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterInstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterInstanceArgs | ClusterInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterInstanceState | undefined;
-            inputs["address"] = state ? state.address : undefined;
-            inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            inputs["dbiResourceId"] = state ? state.dbiResourceId : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["identifier"] = state ? state.identifier : undefined;
-            inputs["identifierPrefix"] = state ? state.identifierPrefix : undefined;
-            inputs["instanceClass"] = state ? state.instanceClass : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["neptuneParameterGroupName"] = state ? state.neptuneParameterGroupName : undefined;
-            inputs["neptuneSubnetGroupName"] = state ? state.neptuneSubnetGroupName : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
-            inputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
-            inputs["promotionTier"] = state ? state.promotionTier : undefined;
-            inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
-            inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["writer"] = state ? state.writer : undefined;
+    constructor(name: string, args: ClusterInstanceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ClusterInstanceArgs | ClusterInstanceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ClusterInstanceState;
+            inputs.address = state.address;
+            inputs.applyImmediately = state.applyImmediately;
+            inputs.arn = state.arn;
+            inputs.autoMinorVersionUpgrade = state.autoMinorVersionUpgrade;
+            inputs.availabilityZone = state.availabilityZone;
+            inputs.clusterIdentifier = state.clusterIdentifier;
+            inputs.dbiResourceId = state.dbiResourceId;
+            inputs.endpoint = state.endpoint;
+            inputs.engine = state.engine;
+            inputs.engineVersion = state.engineVersion;
+            inputs.identifier = state.identifier;
+            inputs.identifierPrefix = state.identifierPrefix;
+            inputs.instanceClass = state.instanceClass;
+            inputs.kmsKeyArn = state.kmsKeyArn;
+            inputs.neptuneParameterGroupName = state.neptuneParameterGroupName;
+            inputs.neptuneSubnetGroupName = state.neptuneSubnetGroupName;
+            inputs.port = state.port;
+            inputs.preferredBackupWindow = state.preferredBackupWindow;
+            inputs.preferredMaintenanceWindow = state.preferredMaintenanceWindow;
+            inputs.promotionTier = state.promotionTier;
+            inputs.publiclyAccessible = state.publiclyAccessible;
+            inputs.storageEncrypted = state.storageEncrypted;
+            inputs.tags = state.tags;
+            inputs.writer = state.writer;
         } else {
-            const args = argsOrState as ClusterInstanceArgs | undefined;
-            if (!args || args.clusterIdentifier === undefined) {
+            const args = argsOrState as ClusterInstanceArgs;
+            if (args.clusterIdentifier === undefined) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if (!args || args.instanceClass === undefined) {
+            if (args.instanceClass === undefined) {
                 throw new Error("Missing required property 'instanceClass'");
             }
-            inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
-            inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["identifier"] = args ? args.identifier : undefined;
-            inputs["identifierPrefix"] = args ? args.identifierPrefix : undefined;
-            inputs["instanceClass"] = args ? args.instanceClass : undefined;
-            inputs["neptuneParameterGroupName"] = args ? args.neptuneParameterGroupName : undefined;
-            inputs["neptuneSubnetGroupName"] = args ? args.neptuneSubnetGroupName : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            inputs["promotionTier"] = args ? args.promotionTier : undefined;
-            inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["address"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dbiResourceId"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["kmsKeyArn"] = undefined /*out*/;
-            inputs["storageEncrypted"] = undefined /*out*/;
-            inputs["writer"] = undefined /*out*/;
+            inputs.applyImmediately = args.applyImmediately;
+            inputs.autoMinorVersionUpgrade = args.autoMinorVersionUpgrade;
+            inputs.availabilityZone = args.availabilityZone;
+            inputs.clusterIdentifier = args.clusterIdentifier;
+            inputs.engine = args.engine;
+            inputs.engineVersion = args.engineVersion;
+            inputs.identifier = args.identifier;
+            inputs.identifierPrefix = args.identifierPrefix;
+            inputs.instanceClass = args.instanceClass;
+            inputs.neptuneParameterGroupName = args.neptuneParameterGroupName;
+            inputs.neptuneSubnetGroupName = args.neptuneSubnetGroupName;
+            inputs.port = args.port;
+            inputs.preferredBackupWindow = args.preferredBackupWindow;
+            inputs.preferredMaintenanceWindow = args.preferredMaintenanceWindow;
+            inputs.promotionTier = args.promotionTier;
+            inputs.publiclyAccessible = args.publiclyAccessible;
+            inputs.tags = args.tags;
+            inputs.address = undefined /*out*/;
+            inputs.arn = undefined /*out*/;
+            inputs.dbiResourceId = undefined /*out*/;
+            inputs.endpoint = undefined /*out*/;
+            inputs.kmsKeyArn = undefined /*out*/;
+            inputs.storageEncrypted = undefined /*out*/;
+            inputs.writer = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ClusterInstance.__pulumiType, name, inputs, opts);
     }
 }

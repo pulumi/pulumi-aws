@@ -80,38 +80,32 @@ export class Resource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResourceArgs | ResourceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ResourceState | undefined;
-            inputs["parentId"] = state ? state.parentId : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["pathPart"] = state ? state.pathPart : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
+    constructor(name: string, args: ResourceArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ResourceArgs | ResourceState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ResourceState;
+            inputs.parentId = state.parentId;
+            inputs.path = state.path;
+            inputs.pathPart = state.pathPart;
+            inputs.restApi = state.restApi;
         } else {
-            const args = argsOrState as ResourceArgs | undefined;
-            if (!args || args.parentId === undefined) {
+            const args = argsOrState as ResourceArgs;
+            if (args.parentId === undefined) {
                 throw new Error("Missing required property 'parentId'");
             }
-            if (!args || args.pathPart === undefined) {
+            if (args.pathPart === undefined) {
                 throw new Error("Missing required property 'pathPart'");
             }
-            if (!args || args.restApi === undefined) {
+            if (args.restApi === undefined) {
                 throw new Error("Missing required property 'restApi'");
             }
-            inputs["parentId"] = args ? args.parentId : undefined;
-            inputs["pathPart"] = args ? args.pathPart : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["path"] = undefined /*out*/;
+            inputs.parentId = args.parentId;
+            inputs.pathPart = args.pathPart;
+            inputs.restApi = args.restApi;
+            inputs.path = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Resource.__pulumiType, name, inputs, opts);
     }
 }

@@ -74,33 +74,27 @@ export class GcmChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GcmChannelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GcmChannelArgs | GcmChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as GcmChannelState | undefined;
-            inputs["apiKey"] = state ? state.apiKey : undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
+    constructor(name: string, args: GcmChannelArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: GcmChannelArgs | GcmChannelState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as GcmChannelState;
+            inputs.apiKey = state.apiKey;
+            inputs.applicationId = state.applicationId;
+            inputs.enabled = state.enabled;
         } else {
-            const args = argsOrState as GcmChannelArgs | undefined;
-            if (!args || args.apiKey === undefined) {
+            const args = argsOrState as GcmChannelArgs;
+            if (args.apiKey === undefined) {
                 throw new Error("Missing required property 'apiKey'");
             }
-            if (!args || args.applicationId === undefined) {
+            if (args.applicationId === undefined) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            inputs["apiKey"] = args ? args.apiKey : undefined;
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
+            inputs.apiKey = args.apiKey;
+            inputs.applicationId = args.applicationId;
+            inputs.enabled = args.enabled;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(GcmChannel.__pulumiType, name, inputs, opts);
     }
 }

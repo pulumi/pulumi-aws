@@ -44,8 +44,8 @@ import {PolicyDocument} from "../iam/documents";
  * const config = new pulumi.Config();
  * const domain = config.get("domain") || "tf-test";
  * 
- * const currentRegion = aws.getRegion();
- * const currentCallerIdentity = aws.getCallerIdentity();
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentRegion = aws.getRegion({});
  * const example = new aws.elasticsearch.Domain("example", {
  *     accessPolicies: `{
  *   "Version": "2012-10-17",
@@ -54,7 +54,7 @@ import {PolicyDocument} from "../iam/documents";
  *       "Action": "es:*",
  *       "Principal": "*",
  *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:${currentRegion.name!}:${currentCallerIdentity.accountId}:domain/${domain}/*",
+ *       "Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*",
  *       "Condition": {
  *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
  *       }
@@ -107,9 +107,14 @@ import {PolicyDocument} from "../iam/documents";
  * import * as aws from "@pulumi/aws";
  * 
  * const config = new pulumi.Config();
- * const vpc = config.require("vpc");
  * const domain = config.get("domain") || "tf-test";
+ * const vpc = config.require("vpc");
  * 
+ * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("es", {
+ *     awsServiceName: "es.amazonaws.com",
+ * });
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentRegion = aws.getRegion({});
  * const selectedVpc = aws.ec2.getVpc({
  *     tags: {
  *         Name: vpc,
@@ -119,22 +124,7 @@ import {PolicyDocument} from "../iam/documents";
  *     tags: {
  *         Tier: "private",
  *     },
- *     vpcId: selectedVpc.id!,
- * });
- * const currentRegion = aws.getRegion();
- * const currentCallerIdentity = aws.getCallerIdentity();
- * const esSecurityGroup = new aws.ec2.SecurityGroup("es", {
- *     description: "Managed by Pulumi",
- *     ingress: [{
- *         cidrBlocks: [selectedVpc.cidrBlocks],
- *         fromPort: 443,
- *         protocol: "tcp",
- *         toPort: 443,
- *     }],
- *     vpcId: selectedVpc.id!,
- * });
- * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("es", {
- *     awsServiceName: "es.amazonaws.com",
+ *     vpcId: selectedVpc.id,
  * });
  * const esDomain = new aws.elasticsearch.Domain("es", {
  *     accessPolicies: `{
@@ -144,7 +134,7 @@ import {PolicyDocument} from "../iam/documents";
  * 			"Action": "es:*",
  * 			"Principal": "*",
  * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:${currentRegion.name!}:${currentCallerIdentity.accountId}:domain/${domain}/*"
+ * 			"Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*"
  * 		}
  * 	]
  * }
@@ -170,6 +160,16 @@ import {PolicyDocument} from "../iam/documents";
  *         ],
  *     },
  * }, {dependsOn: [esServiceLinkedRole]});
+ * const esSecurityGroup = new aws.ec2.SecurityGroup("es", {
+ *     description: "Managed by Pulumi",
+ *     ingress: [{
+ *         cidrBlocks: [selectedVpc.cidrBlocks],
+ *         fromPort: 443,
+ *         protocol: "tcp",
+ *         toPort: 443,
+ *     }],
+ *     vpcId: selectedVpc.id,
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticsearch_domain.html.markdown.
@@ -279,55 +279,49 @@ export class Domain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DomainArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DomainState | undefined;
-            inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
-            inputs["advancedOptions"] = state ? state.advancedOptions : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["clusterConfig"] = state ? state.clusterConfig : undefined;
-            inputs["cognitoOptions"] = state ? state.cognitoOptions : undefined;
-            inputs["domainId"] = state ? state.domainId : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["ebsOptions"] = state ? state.ebsOptions : undefined;
-            inputs["elasticsearchVersion"] = state ? state.elasticsearchVersion : undefined;
-            inputs["encryptAtRest"] = state ? state.encryptAtRest : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["kibanaEndpoint"] = state ? state.kibanaEndpoint : undefined;
-            inputs["logPublishingOptions"] = state ? state.logPublishingOptions : undefined;
-            inputs["nodeToNodeEncryption"] = state ? state.nodeToNodeEncryption : undefined;
-            inputs["snapshotOptions"] = state ? state.snapshotOptions : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vpcOptions"] = state ? state.vpcOptions : undefined;
+    constructor(name: string, args?: DomainArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DomainArgs | DomainState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DomainState;
+            inputs.accessPolicies = state.accessPolicies;
+            inputs.advancedOptions = state.advancedOptions;
+            inputs.arn = state.arn;
+            inputs.clusterConfig = state.clusterConfig;
+            inputs.cognitoOptions = state.cognitoOptions;
+            inputs.domainId = state.domainId;
+            inputs.domainName = state.domainName;
+            inputs.ebsOptions = state.ebsOptions;
+            inputs.elasticsearchVersion = state.elasticsearchVersion;
+            inputs.encryptAtRest = state.encryptAtRest;
+            inputs.endpoint = state.endpoint;
+            inputs.kibanaEndpoint = state.kibanaEndpoint;
+            inputs.logPublishingOptions = state.logPublishingOptions;
+            inputs.nodeToNodeEncryption = state.nodeToNodeEncryption;
+            inputs.snapshotOptions = state.snapshotOptions;
+            inputs.tags = state.tags;
+            inputs.vpcOptions = state.vpcOptions;
         } else {
-            const args = argsOrState as DomainArgs | undefined;
-            inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
-            inputs["advancedOptions"] = args ? args.advancedOptions : undefined;
-            inputs["clusterConfig"] = args ? args.clusterConfig : undefined;
-            inputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["ebsOptions"] = args ? args.ebsOptions : undefined;
-            inputs["elasticsearchVersion"] = args ? args.elasticsearchVersion : undefined;
-            inputs["encryptAtRest"] = args ? args.encryptAtRest : undefined;
-            inputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
-            inputs["nodeToNodeEncryption"] = args ? args.nodeToNodeEncryption : undefined;
-            inputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcOptions"] = args ? args.vpcOptions : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["domainId"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["kibanaEndpoint"] = undefined /*out*/;
+            const args = argsOrState as DomainArgs;
+            inputs.accessPolicies = args.accessPolicies;
+            inputs.advancedOptions = args.advancedOptions;
+            inputs.clusterConfig = args.clusterConfig;
+            inputs.cognitoOptions = args.cognitoOptions;
+            inputs.domainName = args.domainName;
+            inputs.ebsOptions = args.ebsOptions;
+            inputs.elasticsearchVersion = args.elasticsearchVersion;
+            inputs.encryptAtRest = args.encryptAtRest;
+            inputs.logPublishingOptions = args.logPublishingOptions;
+            inputs.nodeToNodeEncryption = args.nodeToNodeEncryption;
+            inputs.snapshotOptions = args.snapshotOptions;
+            inputs.tags = args.tags;
+            inputs.vpcOptions = args.vpcOptions;
+            inputs.arn = undefined /*out*/;
+            inputs.domainId = undefined /*out*/;
+            inputs.endpoint = undefined /*out*/;
+            inputs.kibanaEndpoint = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Domain.__pulumiType, name, inputs, opts);
     }
 }

@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const customerGateway = new aws.ec2.CustomerGateway("customerGateway", {
+ *     bgpAsn: 65000,
+ *     ipAddress: "172.0.0.1",
+ *     type: "ipsec.1",
+ * });
  * const vpc = new aws.ec2.Vpc("vpc", {
  *     cidrBlock: "10.0.0.0/16",
  * });
  * const vpnGateway = new aws.ec2.VpnGateway("vpnGateway", {
  *     vpcId: vpc.id,
- * });
- * const customerGateway = new aws.ec2.CustomerGateway("customerGateway", {
- *     bgpAsn: 65000,
- *     ipAddress: "172.0.0.1",
- *     type: "ipsec.1",
  * });
  * const main = new aws.ec2.VpnConnection("main", {
  *     customerGatewayId: customerGateway.id,
@@ -83,31 +83,25 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpnConnectionRouteArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpnConnectionRouteArgs | VpnConnectionRouteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpnConnectionRouteState | undefined;
-            inputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
-            inputs["vpnConnectionId"] = state ? state.vpnConnectionId : undefined;
+    constructor(name: string, args: VpnConnectionRouteArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: VpnConnectionRouteArgs | VpnConnectionRouteState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as VpnConnectionRouteState;
+            inputs.destinationCidrBlock = state.destinationCidrBlock;
+            inputs.vpnConnectionId = state.vpnConnectionId;
         } else {
-            const args = argsOrState as VpnConnectionRouteArgs | undefined;
-            if (!args || args.destinationCidrBlock === undefined) {
+            const args = argsOrState as VpnConnectionRouteArgs;
+            if (args.destinationCidrBlock === undefined) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if (!args || args.vpnConnectionId === undefined) {
+            if (args.vpnConnectionId === undefined) {
                 throw new Error("Missing required property 'vpnConnectionId'");
             }
-            inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            inputs["vpnConnectionId"] = args ? args.vpnConnectionId : undefined;
+            inputs.destinationCidrBlock = args.destinationCidrBlock;
+            inputs.vpnConnectionId = args.vpnConnectionId;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(VpnConnectionRoute.__pulumiType, name, inputs, opts);
     }
 }

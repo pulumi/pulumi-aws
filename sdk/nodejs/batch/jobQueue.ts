@@ -86,40 +86,34 @@ export class JobQueue extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: JobQueueArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: JobQueueArgs | JobQueueState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as JobQueueState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["computeEnvironments"] = state ? state.computeEnvironments : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["state"] = state ? state.state : undefined;
+    constructor(name: string, args: JobQueueArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: JobQueueArgs | JobQueueState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as JobQueueState;
+            inputs.arn = state.arn;
+            inputs.computeEnvironments = state.computeEnvironments;
+            inputs.name = state.name;
+            inputs.priority = state.priority;
+            inputs.state = state.state;
         } else {
-            const args = argsOrState as JobQueueArgs | undefined;
-            if (!args || args.computeEnvironments === undefined) {
+            const args = argsOrState as JobQueueArgs;
+            if (args.computeEnvironments === undefined) {
                 throw new Error("Missing required property 'computeEnvironments'");
             }
-            if (!args || args.priority === undefined) {
+            if (args.priority === undefined) {
                 throw new Error("Missing required property 'priority'");
             }
-            if (!args || args.state === undefined) {
+            if (args.state === undefined) {
                 throw new Error("Missing required property 'state'");
             }
-            inputs["computeEnvironments"] = args ? args.computeEnvironments : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.computeEnvironments = args.computeEnvironments;
+            inputs.name = args.name;
+            inputs.priority = args.priority;
+            inputs.state = args.state;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(JobQueue.__pulumiType, name, inputs, opts);
     }
 }

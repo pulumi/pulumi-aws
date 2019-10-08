@@ -72,36 +72,30 @@ export class ConditionalForwader extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConditionalForwaderArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ConditionalForwaderArgs | ConditionalForwaderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ConditionalForwaderState | undefined;
-            inputs["directoryId"] = state ? state.directoryId : undefined;
-            inputs["dnsIps"] = state ? state.dnsIps : undefined;
-            inputs["remoteDomainName"] = state ? state.remoteDomainName : undefined;
+    constructor(name: string, args: ConditionalForwaderArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: ConditionalForwaderArgs | ConditionalForwaderState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as ConditionalForwaderState;
+            inputs.directoryId = state.directoryId;
+            inputs.dnsIps = state.dnsIps;
+            inputs.remoteDomainName = state.remoteDomainName;
         } else {
-            const args = argsOrState as ConditionalForwaderArgs | undefined;
-            if (!args || args.directoryId === undefined) {
+            const args = argsOrState as ConditionalForwaderArgs;
+            if (args.directoryId === undefined) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if (!args || args.dnsIps === undefined) {
+            if (args.dnsIps === undefined) {
                 throw new Error("Missing required property 'dnsIps'");
             }
-            if (!args || args.remoteDomainName === undefined) {
+            if (args.remoteDomainName === undefined) {
                 throw new Error("Missing required property 'remoteDomainName'");
             }
-            inputs["directoryId"] = args ? args.directoryId : undefined;
-            inputs["dnsIps"] = args ? args.dnsIps : undefined;
-            inputs["remoteDomainName"] = args ? args.remoteDomainName : undefined;
+            inputs.directoryId = args.directoryId;
+            inputs.dnsIps = args.dnsIps;
+            inputs.remoteDomainName = args.remoteDomainName;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(ConditionalForwader.__pulumiType, name, inputs, opts);
     }
 }

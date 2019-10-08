@@ -27,13 +27,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const s3OriginId = "myS3Origin";
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "private",
  *     tags: {
  *         Name: "My bucket",
  *     },
  * });
- * const s3OriginId = "myS3Origin";
  * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
  *     aliases: [
  *         "mysite.example.com",
@@ -389,92 +389,86 @@ export class Distribution extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DistributionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DistributionArgs | DistributionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DistributionState | undefined;
-            inputs["activeTrustedSigners"] = state ? state.activeTrustedSigners : undefined;
-            inputs["aliases"] = state ? state.aliases : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["callerReference"] = state ? state.callerReference : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["customErrorResponses"] = state ? state.customErrorResponses : undefined;
-            inputs["defaultCacheBehavior"] = state ? state.defaultCacheBehavior : undefined;
-            inputs["defaultRootObject"] = state ? state.defaultRootObject : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
-            inputs["httpVersion"] = state ? state.httpVersion : undefined;
-            inputs["inProgressValidationBatches"] = state ? state.inProgressValidationBatches : undefined;
-            inputs["isIpv6Enabled"] = state ? state.isIpv6Enabled : undefined;
-            inputs["lastModifiedTime"] = state ? state.lastModifiedTime : undefined;
-            inputs["loggingConfig"] = state ? state.loggingConfig : undefined;
-            inputs["orderedCacheBehaviors"] = state ? state.orderedCacheBehaviors : undefined;
-            inputs["origins"] = state ? state.origins : undefined;
-            inputs["originGroups"] = state ? state.originGroups : undefined;
-            inputs["priceClass"] = state ? state.priceClass : undefined;
-            inputs["restrictions"] = state ? state.restrictions : undefined;
-            inputs["retainOnDelete"] = state ? state.retainOnDelete : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["viewerCertificate"] = state ? state.viewerCertificate : undefined;
-            inputs["waitForDeployment"] = state ? state.waitForDeployment : undefined;
-            inputs["webAclId"] = state ? state.webAclId : undefined;
+    constructor(name: string, args: DistributionArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: DistributionArgs | DistributionState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as DistributionState;
+            inputs.activeTrustedSigners = state.activeTrustedSigners;
+            inputs.aliases = state.aliases;
+            inputs.arn = state.arn;
+            inputs.callerReference = state.callerReference;
+            inputs.comment = state.comment;
+            inputs.customErrorResponses = state.customErrorResponses;
+            inputs.defaultCacheBehavior = state.defaultCacheBehavior;
+            inputs.defaultRootObject = state.defaultRootObject;
+            inputs.domainName = state.domainName;
+            inputs.enabled = state.enabled;
+            inputs.etag = state.etag;
+            inputs.hostedZoneId = state.hostedZoneId;
+            inputs.httpVersion = state.httpVersion;
+            inputs.inProgressValidationBatches = state.inProgressValidationBatches;
+            inputs.isIpv6Enabled = state.isIpv6Enabled;
+            inputs.lastModifiedTime = state.lastModifiedTime;
+            inputs.loggingConfig = state.loggingConfig;
+            inputs.orderedCacheBehaviors = state.orderedCacheBehaviors;
+            inputs.origins = state.origins;
+            inputs.originGroups = state.originGroups;
+            inputs.priceClass = state.priceClass;
+            inputs.restrictions = state.restrictions;
+            inputs.retainOnDelete = state.retainOnDelete;
+            inputs.status = state.status;
+            inputs.tags = state.tags;
+            inputs.viewerCertificate = state.viewerCertificate;
+            inputs.waitForDeployment = state.waitForDeployment;
+            inputs.webAclId = state.webAclId;
         } else {
-            const args = argsOrState as DistributionArgs | undefined;
-            if (!args || args.defaultCacheBehavior === undefined) {
+            const args = argsOrState as DistributionArgs;
+            if (args.defaultCacheBehavior === undefined) {
                 throw new Error("Missing required property 'defaultCacheBehavior'");
             }
-            if (!args || args.enabled === undefined) {
+            if (args.enabled === undefined) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if (!args || args.origins === undefined) {
+            if (args.origins === undefined) {
                 throw new Error("Missing required property 'origins'");
             }
-            if (!args || args.restrictions === undefined) {
+            if (args.restrictions === undefined) {
                 throw new Error("Missing required property 'restrictions'");
             }
-            if (!args || args.viewerCertificate === undefined) {
+            if (args.viewerCertificate === undefined) {
                 throw new Error("Missing required property 'viewerCertificate'");
             }
-            inputs["aliases"] = args ? args.aliases : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["customErrorResponses"] = args ? args.customErrorResponses : undefined;
-            inputs["defaultCacheBehavior"] = args ? args.defaultCacheBehavior : undefined;
-            inputs["defaultRootObject"] = args ? args.defaultRootObject : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["httpVersion"] = args ? args.httpVersion : undefined;
-            inputs["isIpv6Enabled"] = args ? args.isIpv6Enabled : undefined;
-            inputs["loggingConfig"] = args ? args.loggingConfig : undefined;
-            inputs["orderedCacheBehaviors"] = args ? args.orderedCacheBehaviors : undefined;
-            inputs["origins"] = args ? args.origins : undefined;
-            inputs["originGroups"] = args ? args.originGroups : undefined;
-            inputs["priceClass"] = args ? args.priceClass : undefined;
-            inputs["restrictions"] = args ? args.restrictions : undefined;
-            inputs["retainOnDelete"] = args ? args.retainOnDelete : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["viewerCertificate"] = args ? args.viewerCertificate : undefined;
-            inputs["waitForDeployment"] = args ? args.waitForDeployment : undefined;
-            inputs["webAclId"] = args ? args.webAclId : undefined;
-            inputs["activeTrustedSigners"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["callerReference"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["hostedZoneId"] = undefined /*out*/;
-            inputs["inProgressValidationBatches"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            inputs.aliases = args.aliases;
+            inputs.comment = args.comment;
+            inputs.customErrorResponses = args.customErrorResponses;
+            inputs.defaultCacheBehavior = args.defaultCacheBehavior;
+            inputs.defaultRootObject = args.defaultRootObject;
+            inputs.enabled = args.enabled;
+            inputs.httpVersion = args.httpVersion;
+            inputs.isIpv6Enabled = args.isIpv6Enabled;
+            inputs.loggingConfig = args.loggingConfig;
+            inputs.orderedCacheBehaviors = args.orderedCacheBehaviors;
+            inputs.origins = args.origins;
+            inputs.originGroups = args.originGroups;
+            inputs.priceClass = args.priceClass;
+            inputs.restrictions = args.restrictions;
+            inputs.retainOnDelete = args.retainOnDelete;
+            inputs.tags = args.tags;
+            inputs.viewerCertificate = args.viewerCertificate;
+            inputs.waitForDeployment = args.waitForDeployment;
+            inputs.webAclId = args.webAclId;
+            inputs.activeTrustedSigners = undefined /*out*/;
+            inputs.arn = undefined /*out*/;
+            inputs.callerReference = undefined /*out*/;
+            inputs.domainName = undefined /*out*/;
+            inputs.etag = undefined /*out*/;
+            inputs.hostedZoneId = undefined /*out*/;
+            inputs.inProgressValidationBatches = undefined /*out*/;
+            inputs.lastModifiedTime = undefined /*out*/;
+            inputs.status = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Distribution.__pulumiType, name, inputs, opts);
     }
 }

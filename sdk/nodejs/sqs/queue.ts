@@ -144,51 +144,45 @@ export class Queue extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: QueueArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: QueueArgs | QueueState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as QueueState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["contentBasedDeduplication"] = state ? state.contentBasedDeduplication : undefined;
-            inputs["delaySeconds"] = state ? state.delaySeconds : undefined;
-            inputs["fifoQueue"] = state ? state.fifoQueue : undefined;
-            inputs["kmsDataKeyReusePeriodSeconds"] = state ? state.kmsDataKeyReusePeriodSeconds : undefined;
-            inputs["kmsMasterKeyId"] = state ? state.kmsMasterKeyId : undefined;
-            inputs["maxMessageSize"] = state ? state.maxMessageSize : undefined;
-            inputs["messageRetentionSeconds"] = state ? state.messageRetentionSeconds : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["receiveWaitTimeSeconds"] = state ? state.receiveWaitTimeSeconds : undefined;
-            inputs["redrivePolicy"] = state ? state.redrivePolicy : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["visibilityTimeoutSeconds"] = state ? state.visibilityTimeoutSeconds : undefined;
+    constructor(name: string, args?: QueueArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: QueueArgs | QueueState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as QueueState;
+            inputs.arn = state.arn;
+            inputs.contentBasedDeduplication = state.contentBasedDeduplication;
+            inputs.delaySeconds = state.delaySeconds;
+            inputs.fifoQueue = state.fifoQueue;
+            inputs.kmsDataKeyReusePeriodSeconds = state.kmsDataKeyReusePeriodSeconds;
+            inputs.kmsMasterKeyId = state.kmsMasterKeyId;
+            inputs.maxMessageSize = state.maxMessageSize;
+            inputs.messageRetentionSeconds = state.messageRetentionSeconds;
+            inputs.name = state.name;
+            inputs.namePrefix = state.namePrefix;
+            inputs.policy = state.policy;
+            inputs.receiveWaitTimeSeconds = state.receiveWaitTimeSeconds;
+            inputs.redrivePolicy = state.redrivePolicy;
+            inputs.tags = state.tags;
+            inputs.visibilityTimeoutSeconds = state.visibilityTimeoutSeconds;
         } else {
-            const args = argsOrState as QueueArgs | undefined;
-            inputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
-            inputs["delaySeconds"] = args ? args.delaySeconds : undefined;
-            inputs["fifoQueue"] = args ? args.fifoQueue : undefined;
-            inputs["kmsDataKeyReusePeriodSeconds"] = args ? args.kmsDataKeyReusePeriodSeconds : undefined;
-            inputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
-            inputs["maxMessageSize"] = args ? args.maxMessageSize : undefined;
-            inputs["messageRetentionSeconds"] = args ? args.messageRetentionSeconds : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["receiveWaitTimeSeconds"] = args ? args.receiveWaitTimeSeconds : undefined;
-            inputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["visibilityTimeoutSeconds"] = args ? args.visibilityTimeoutSeconds : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as QueueArgs;
+            inputs.contentBasedDeduplication = args.contentBasedDeduplication;
+            inputs.delaySeconds = args.delaySeconds;
+            inputs.fifoQueue = args.fifoQueue;
+            inputs.kmsDataKeyReusePeriodSeconds = args.kmsDataKeyReusePeriodSeconds;
+            inputs.kmsMasterKeyId = args.kmsMasterKeyId;
+            inputs.maxMessageSize = args.maxMessageSize;
+            inputs.messageRetentionSeconds = args.messageRetentionSeconds;
+            inputs.name = args.name;
+            inputs.namePrefix = args.namePrefix;
+            inputs.policy = args.policy;
+            inputs.receiveWaitTimeSeconds = args.receiveWaitTimeSeconds;
+            inputs.redrivePolicy = args.redrivePolicy;
+            inputs.tags = args.tags;
+            inputs.visibilityTimeoutSeconds = args.visibilityTimeoutSeconds;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Queue.__pulumiType, name, inputs, opts);
     }
 }

@@ -93,40 +93,34 @@ export class SourceCredential extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SourceCredentialArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SourceCredentialArgs | SourceCredentialState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SourceCredentialState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authType"] = state ? state.authType : undefined;
-            inputs["serverType"] = state ? state.serverType : undefined;
-            inputs["token"] = state ? state.token : undefined;
-            inputs["userName"] = state ? state.userName : undefined;
+    constructor(name: string, args: SourceCredentialArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: SourceCredentialArgs | SourceCredentialState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as SourceCredentialState;
+            inputs.arn = state.arn;
+            inputs.authType = state.authType;
+            inputs.serverType = state.serverType;
+            inputs.token = state.token;
+            inputs.userName = state.userName;
         } else {
-            const args = argsOrState as SourceCredentialArgs | undefined;
-            if (!args || args.authType === undefined) {
+            const args = argsOrState as SourceCredentialArgs;
+            if (args.authType === undefined) {
                 throw new Error("Missing required property 'authType'");
             }
-            if (!args || args.serverType === undefined) {
+            if (args.serverType === undefined) {
                 throw new Error("Missing required property 'serverType'");
             }
-            if (!args || args.token === undefined) {
+            if (args.token === undefined) {
                 throw new Error("Missing required property 'token'");
             }
-            inputs["authType"] = args ? args.authType : undefined;
-            inputs["serverType"] = args ? args.serverType : undefined;
-            inputs["token"] = args ? args.token : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["arn"] = undefined /*out*/;
+            inputs.authType = args.authType;
+            inputs.serverType = args.serverType;
+            inputs.token = args.token;
+            inputs.userName = args.userName;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(SourceCredential.__pulumiType, name, inputs, opts);
     }
 }

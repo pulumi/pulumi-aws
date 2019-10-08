@@ -21,6 +21,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const example = new aws.ec2.Eip("example", {
+ *     vpc: true,
+ * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-21f78e11",
  *     availabilityZone: "us-west-2a",
@@ -28,9 +31,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Name: "HelloWorld",
  *     },
- * });
- * const example = new aws.ec2.Eip("example", {
- *     vpc: true,
  * });
  * const eipAssoc = new aws.ec2.EipAssociation("eipAssoc", {
  *     allocationId: example.id,
@@ -108,33 +108,27 @@ export class EipAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: EipAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EipAssociationArgs | EipAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EipAssociationState | undefined;
-            inputs["allocationId"] = state ? state.allocationId : undefined;
-            inputs["allowReassociation"] = state ? state.allowReassociation : undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            inputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
-            inputs["publicIp"] = state ? state.publicIp : undefined;
+    constructor(name: string, args?: EipAssociationArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: EipAssociationArgs | EipAssociationState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as EipAssociationState;
+            inputs.allocationId = state.allocationId;
+            inputs.allowReassociation = state.allowReassociation;
+            inputs.instanceId = state.instanceId;
+            inputs.networkInterfaceId = state.networkInterfaceId;
+            inputs.privateIpAddress = state.privateIpAddress;
+            inputs.publicIp = state.publicIp;
         } else {
-            const args = argsOrState as EipAssociationArgs | undefined;
-            inputs["allocationId"] = args ? args.allocationId : undefined;
-            inputs["allowReassociation"] = args ? args.allowReassociation : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
-            inputs["publicIp"] = args ? args.publicIp : undefined;
+            const args = argsOrState as EipAssociationArgs;
+            inputs.allocationId = args.allocationId;
+            inputs.allowReassociation = args.allowReassociation;
+            inputs.instanceId = args.instanceId;
+            inputs.networkInterfaceId = args.networkInterfaceId;
+            inputs.privateIpAddress = args.privateIpAddress;
+            inputs.publicIp = args.publicIp;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(EipAssociation.__pulumiType, name, inputs, opts);
     }
 }

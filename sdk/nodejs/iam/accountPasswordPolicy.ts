@@ -107,41 +107,35 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AccountPasswordPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AccountPasswordPolicyArgs | AccountPasswordPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AccountPasswordPolicyState | undefined;
-            inputs["allowUsersToChangePassword"] = state ? state.allowUsersToChangePassword : undefined;
-            inputs["expirePasswords"] = state ? state.expirePasswords : undefined;
-            inputs["hardExpiry"] = state ? state.hardExpiry : undefined;
-            inputs["maxPasswordAge"] = state ? state.maxPasswordAge : undefined;
-            inputs["minimumPasswordLength"] = state ? state.minimumPasswordLength : undefined;
-            inputs["passwordReusePrevention"] = state ? state.passwordReusePrevention : undefined;
-            inputs["requireLowercaseCharacters"] = state ? state.requireLowercaseCharacters : undefined;
-            inputs["requireNumbers"] = state ? state.requireNumbers : undefined;
-            inputs["requireSymbols"] = state ? state.requireSymbols : undefined;
-            inputs["requireUppercaseCharacters"] = state ? state.requireUppercaseCharacters : undefined;
+    constructor(name: string, args?: AccountPasswordPolicyArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AccountPasswordPolicyArgs | AccountPasswordPolicyState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AccountPasswordPolicyState;
+            inputs.allowUsersToChangePassword = state.allowUsersToChangePassword;
+            inputs.expirePasswords = state.expirePasswords;
+            inputs.hardExpiry = state.hardExpiry;
+            inputs.maxPasswordAge = state.maxPasswordAge;
+            inputs.minimumPasswordLength = state.minimumPasswordLength;
+            inputs.passwordReusePrevention = state.passwordReusePrevention;
+            inputs.requireLowercaseCharacters = state.requireLowercaseCharacters;
+            inputs.requireNumbers = state.requireNumbers;
+            inputs.requireSymbols = state.requireSymbols;
+            inputs.requireUppercaseCharacters = state.requireUppercaseCharacters;
         } else {
-            const args = argsOrState as AccountPasswordPolicyArgs | undefined;
-            inputs["allowUsersToChangePassword"] = args ? args.allowUsersToChangePassword : undefined;
-            inputs["hardExpiry"] = args ? args.hardExpiry : undefined;
-            inputs["maxPasswordAge"] = args ? args.maxPasswordAge : undefined;
-            inputs["minimumPasswordLength"] = args ? args.minimumPasswordLength : undefined;
-            inputs["passwordReusePrevention"] = args ? args.passwordReusePrevention : undefined;
-            inputs["requireLowercaseCharacters"] = args ? args.requireLowercaseCharacters : undefined;
-            inputs["requireNumbers"] = args ? args.requireNumbers : undefined;
-            inputs["requireSymbols"] = args ? args.requireSymbols : undefined;
-            inputs["requireUppercaseCharacters"] = args ? args.requireUppercaseCharacters : undefined;
-            inputs["expirePasswords"] = undefined /*out*/;
+            const args = argsOrState as AccountPasswordPolicyArgs;
+            inputs.allowUsersToChangePassword = args.allowUsersToChangePassword;
+            inputs.hardExpiry = args.hardExpiry;
+            inputs.maxPasswordAge = args.maxPasswordAge;
+            inputs.minimumPasswordLength = args.minimumPasswordLength;
+            inputs.passwordReusePrevention = args.passwordReusePrevention;
+            inputs.requireLowercaseCharacters = args.requireLowercaseCharacters;
+            inputs.requireNumbers = args.requireNumbers;
+            inputs.requireSymbols = args.requireSymbols;
+            inputs.requireUppercaseCharacters = args.requireUppercaseCharacters;
+            inputs.expirePasswords = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(AccountPasswordPolicy.__pulumiType, name, inputs, opts);
     }
 }

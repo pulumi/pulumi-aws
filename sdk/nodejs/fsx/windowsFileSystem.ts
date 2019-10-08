@@ -164,66 +164,60 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WindowsFileSystemArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WindowsFileSystemArgs | WindowsFileSystemState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as WindowsFileSystemState | undefined;
-            inputs["activeDirectoryId"] = state ? state.activeDirectoryId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
-            inputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
-            inputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["selfManagedActiveDirectory"] = state ? state.selfManagedActiveDirectory : undefined;
-            inputs["skipFinalBackup"] = state ? state.skipFinalBackup : undefined;
-            inputs["storageCapacity"] = state ? state.storageCapacity : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
+    constructor(name: string, args: WindowsFileSystemArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: WindowsFileSystemArgs | WindowsFileSystemState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as WindowsFileSystemState;
+            inputs.activeDirectoryId = state.activeDirectoryId;
+            inputs.arn = state.arn;
+            inputs.automaticBackupRetentionDays = state.automaticBackupRetentionDays;
+            inputs.copyTagsToBackups = state.copyTagsToBackups;
+            inputs.dailyAutomaticBackupStartTime = state.dailyAutomaticBackupStartTime;
+            inputs.dnsName = state.dnsName;
+            inputs.kmsKeyId = state.kmsKeyId;
+            inputs.networkInterfaceIds = state.networkInterfaceIds;
+            inputs.ownerId = state.ownerId;
+            inputs.securityGroupIds = state.securityGroupIds;
+            inputs.selfManagedActiveDirectory = state.selfManagedActiveDirectory;
+            inputs.skipFinalBackup = state.skipFinalBackup;
+            inputs.storageCapacity = state.storageCapacity;
+            inputs.subnetIds = state.subnetIds;
+            inputs.tags = state.tags;
+            inputs.throughputCapacity = state.throughputCapacity;
+            inputs.vpcId = state.vpcId;
+            inputs.weeklyMaintenanceStartTime = state.weeklyMaintenanceStartTime;
         } else {
-            const args = argsOrState as WindowsFileSystemArgs | undefined;
-            if (!args || args.storageCapacity === undefined) {
+            const args = argsOrState as WindowsFileSystemArgs;
+            if (args.storageCapacity === undefined) {
                 throw new Error("Missing required property 'storageCapacity'");
             }
-            if (!args || args.subnetIds === undefined) {
+            if (args.subnetIds === undefined) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if (!args || args.throughputCapacity === undefined) {
+            if (args.throughputCapacity === undefined) {
                 throw new Error("Missing required property 'throughputCapacity'");
             }
-            inputs["activeDirectoryId"] = args ? args.activeDirectoryId : undefined;
-            inputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
-            inputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
-            inputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["selfManagedActiveDirectory"] = args ? args.selfManagedActiveDirectory : undefined;
-            inputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
-            inputs["storageCapacity"] = args ? args.storageCapacity : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
-            inputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["networkInterfaceIds"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            inputs.activeDirectoryId = args.activeDirectoryId;
+            inputs.automaticBackupRetentionDays = args.automaticBackupRetentionDays;
+            inputs.copyTagsToBackups = args.copyTagsToBackups;
+            inputs.dailyAutomaticBackupStartTime = args.dailyAutomaticBackupStartTime;
+            inputs.kmsKeyId = args.kmsKeyId;
+            inputs.securityGroupIds = args.securityGroupIds;
+            inputs.selfManagedActiveDirectory = args.selfManagedActiveDirectory;
+            inputs.skipFinalBackup = args.skipFinalBackup;
+            inputs.storageCapacity = args.storageCapacity;
+            inputs.subnetIds = args.subnetIds;
+            inputs.tags = args.tags;
+            inputs.throughputCapacity = args.throughputCapacity;
+            inputs.weeklyMaintenanceStartTime = args.weeklyMaintenanceStartTime;
+            inputs.arn = undefined /*out*/;
+            inputs.dnsName = undefined /*out*/;
+            inputs.networkInterfaceIds = undefined /*out*/;
+            inputs.ownerId = undefined /*out*/;
+            inputs.vpcId = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(WindowsFileSystem.__pulumiType, name, inputs, opts);
     }
 }

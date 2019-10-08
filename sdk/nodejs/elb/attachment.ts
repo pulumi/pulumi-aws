@@ -74,31 +74,25 @@ export class Attachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AttachmentArgs | AttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AttachmentState | undefined;
-            inputs["elb"] = state ? state.elb : undefined;
-            inputs["instance"] = state ? state.instance : undefined;
+    constructor(name: string, args: AttachmentArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: AttachmentArgs | AttachmentState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as AttachmentState;
+            inputs.elb = state.elb;
+            inputs.instance = state.instance;
         } else {
-            const args = argsOrState as AttachmentArgs | undefined;
-            if (!args || args.elb === undefined) {
+            const args = argsOrState as AttachmentArgs;
+            if (args.elb === undefined) {
                 throw new Error("Missing required property 'elb'");
             }
-            if (!args || args.instance === undefined) {
+            if (args.instance === undefined) {
                 throw new Error("Missing required property 'instance'");
             }
-            inputs["elb"] = args ? args.elb : undefined;
-            inputs["instance"] = args ? args.instance : undefined;
+            inputs.elb = args.elb;
+            inputs.instance = args.instance;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/attachment:Attachment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Attachment.__pulumiType, name, inputs, opts);

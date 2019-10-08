@@ -91,33 +91,27 @@ export class Workgroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: WorkgroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WorkgroupArgs | WorkgroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as WorkgroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["configuration"] = state ? state.configuration : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+    constructor(name: string, args?: WorkgroupArgs, opts?: pulumi.CustomResourceOptions);
+    constructor(name: string, argsOrState: WorkgroupArgs | WorkgroupState = {}, opts: pulumi.CustomResourceOptions = {}) {
+        const inputs: pulumi.Inputs = {};
+        if (opts.id) {
+            const state = argsOrState as WorkgroupState;
+            inputs.arn = state.arn;
+            inputs.configuration = state.configuration;
+            inputs.description = state.description;
+            inputs.name = state.name;
+            inputs.state = state.state;
+            inputs.tags = state.tags;
         } else {
-            const args = argsOrState as WorkgroupArgs | undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
+            const args = argsOrState as WorkgroupArgs;
+            inputs.configuration = args.configuration;
+            inputs.description = args.description;
+            inputs.name = args.name;
+            inputs.state = args.state;
+            inputs.tags = args.tags;
+            inputs.arn = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
+        opts.version = opts.version || utilities.getVersion();
         super(Workgroup.__pulumiType, name, inputs, opts);
     }
 }
