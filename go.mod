@@ -13,7 +13,7 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pkg/errors v0.8.1
 	github.com/pulumi/pulumi v1.0.0
-	github.com/pulumi/pulumi-terraform v0.18.4-0.20190905205929-ed0b5c29edd1
+	github.com/pulumi/pulumi-terraform v0.18.4-0.20191008205225-9db6126b0421
 	github.com/stretchr/testify v1.4.0
 	github.com/terraform-providers/terraform-provider-aws v0.0.0-20190406034810-72b780bca0d3
 )
@@ -27,3 +27,5 @@ replace (
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 	github.com/terraform-providers/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v0.0.0-20191003151636-122b5969558d
 )
+
+replace github.com/pulumi/pulumi-terraform => ../pulumi-terraform/
