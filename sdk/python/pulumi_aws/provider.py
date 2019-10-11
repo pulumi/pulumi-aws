@@ -122,6 +122,7 @@ class Provider(pulumi.ProviderResource):
           * `personalize` (`pulumi.Input[str]`)
           * `pinpoint` (`pulumi.Input[str]`)
           * `pricing` (`pulumi.Input[str]`)
+          * `qldb` (`pulumi.Input[str]`)
           * `quicksight` (`pulumi.Input[str]`)
           * `r53` (`pulumi.Input[str]`)
           * `ram` (`pulumi.Input[str]`)
