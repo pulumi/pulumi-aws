@@ -69,6 +69,10 @@ export class InstanceGroup extends pulumi.CustomResource {
      */
     public readonly clusterId!: pulumi.Output<string>;
     /**
+     * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     */
+    public readonly configurationsJson!: pulumi.Output<string | undefined>;
+    /**
      * One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly ebsConfigs!: pulumi.Output<outputs.emr.InstanceGroupEbsConfig[]>;
@@ -106,6 +110,7 @@ export class InstanceGroup extends pulumi.CustomResource {
             inputs["autoscalingPolicy"] = state ? state.autoscalingPolicy : undefined;
             inputs["bidPrice"] = state ? state.bidPrice : undefined;
             inputs["clusterId"] = state ? state.clusterId : undefined;
+            inputs["configurationsJson"] = state ? state.configurationsJson : undefined;
             inputs["ebsConfigs"] = state ? state.ebsConfigs : undefined;
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
             inputs["instanceCount"] = state ? state.instanceCount : undefined;
@@ -124,6 +129,7 @@ export class InstanceGroup extends pulumi.CustomResource {
             inputs["autoscalingPolicy"] = args ? args.autoscalingPolicy : undefined;
             inputs["bidPrice"] = args ? args.bidPrice : undefined;
             inputs["clusterId"] = args ? args.clusterId : undefined;
+            inputs["configurationsJson"] = args ? args.configurationsJson : undefined;
             inputs["ebsConfigs"] = args ? args.ebsConfigs : undefined;
             inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
             inputs["instanceCount"] = args ? args.instanceCount : undefined;
@@ -159,6 +165,10 @@ export interface InstanceGroupState {
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
     readonly clusterId?: pulumi.Input<string>;
+    /**
+     * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     */
+    readonly configurationsJson?: pulumi.Input<string>;
     /**
      * One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      */
@@ -199,6 +209,10 @@ export interface InstanceGroupArgs {
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
     readonly clusterId: pulumi.Input<string>;
+    /**
+     * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     */
+    readonly configurationsJson?: pulumi.Input<string>;
     /**
      * One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      */

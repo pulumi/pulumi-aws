@@ -34,6 +34,7 @@ func NewInstanceGroup(ctx *pulumi.Context,
 		inputs["autoscalingPolicy"] = nil
 		inputs["bidPrice"] = nil
 		inputs["clusterId"] = nil
+		inputs["configurationsJson"] = nil
 		inputs["ebsConfigs"] = nil
 		inputs["ebsOptimized"] = nil
 		inputs["instanceCount"] = nil
@@ -43,6 +44,7 @@ func NewInstanceGroup(ctx *pulumi.Context,
 		inputs["autoscalingPolicy"] = args.AutoscalingPolicy
 		inputs["bidPrice"] = args.BidPrice
 		inputs["clusterId"] = args.ClusterId
+		inputs["configurationsJson"] = args.ConfigurationsJson
 		inputs["ebsConfigs"] = args.EbsConfigs
 		inputs["ebsOptimized"] = args.EbsOptimized
 		inputs["instanceCount"] = args.InstanceCount
@@ -67,6 +69,7 @@ func GetInstanceGroup(ctx *pulumi.Context,
 		inputs["autoscalingPolicy"] = state.AutoscalingPolicy
 		inputs["bidPrice"] = state.BidPrice
 		inputs["clusterId"] = state.ClusterId
+		inputs["configurationsJson"] = state.ConfigurationsJson
 		inputs["ebsConfigs"] = state.EbsConfigs
 		inputs["ebsOptimized"] = state.EbsOptimized
 		inputs["instanceCount"] = state.InstanceCount
@@ -105,6 +108,11 @@ func (r *InstanceGroup) BidPrice() *pulumi.StringOutput {
 // ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 func (r *InstanceGroup) ClusterId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterId"])
+}
+
+// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+func (r *InstanceGroup) ConfigurationsJson() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["configurationsJson"])
 }
 
 // One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
@@ -148,6 +156,8 @@ type InstanceGroupState struct {
 	BidPrice interface{}
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId interface{}
+	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+	ConfigurationsJson interface{}
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs interface{}
 	// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
@@ -170,6 +180,8 @@ type InstanceGroupArgs struct {
 	BidPrice interface{}
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId interface{}
+	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+	ConfigurationsJson interface{}
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs interface{}
 	// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.

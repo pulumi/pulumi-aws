@@ -136,6 +136,7 @@ export interface ProviderEndpoint {
     personalize?: pulumi.Input<string>;
     pinpoint?: pulumi.Input<string>;
     pricing?: pulumi.Input<string>;
+    qldb?: pulumi.Input<string>;
     quicksight?: pulumi.Input<string>;
     r53?: pulumi.Input<string>;
     ram?: pulumi.Input<string>;
