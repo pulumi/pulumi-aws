@@ -12,7 +12,8 @@ before_install:
 install:
     - source ${PULUMI_SCRIPTS}/ci/install-common-toolchain.sh
     # Install Pulumi
-    - curl -L https://get.pulumi.com/ | bash
+    - curl -L https://get.pulumi.com/ | bash -s -- --version 1.4.0-alpha.1570831407
+    - aws s3 cp s3://eng.pulumi.com/releases/pulumi/linux/amd64/features/synchronousInvokes2.tgz synchronousInvokes2.tgz
     - export PATH=$HOME/.pulumi/bin:$PATH
 before_script:
     - ${PULUMI_SCRIPTS}/ci/ensure-dependencies
