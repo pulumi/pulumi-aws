@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.32.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 1.6.0 (2019-10-11)
+* Upgrade to v2.32.0 of the AWS Terraform Provider
 
 ## 1.5.0 (2019-10-03)
 * Regenerate SDK against tf2pulumi 0.6.0
