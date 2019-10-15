@@ -12,7 +12,7 @@ before_install:
 install:
     - source ${PULUMI_SCRIPTS}/ci/install-common-toolchain.sh
     # Install Pulumi
-    - curl -L https://get.pulumi.com/ | bash -s -- --version 1.4.0-alpha.1571099193
+    - curl -L https://get.pulumi.com/ | bash -s -- --version 1.4.0-alpha.1571158911
     - export PATH=$HOME/.pulumi/bin:$PATH
 before_script:
     - ${PULUMI_SCRIPTS}/ci/ensure-dependencies
