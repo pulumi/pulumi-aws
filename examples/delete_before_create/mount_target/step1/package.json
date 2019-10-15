@@ -7,7 +7,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "feature-synchronousInvokes2",
+        "@pulumi/pulumi": "dev",
         "@pulumi/aws": "latest"
     },
     "devDependencies": {
