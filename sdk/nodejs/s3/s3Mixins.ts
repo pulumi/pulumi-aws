@@ -114,7 +114,7 @@ interface SubscriptionInfo {
     lambdaFunctionArn: pulumi.Output<string>;
     permission: lambda.Permission;
 
-    provider: pulumi.ProviderResourceOrRef;
+    provider: pulumi.ProviderResource;
 }
 
 let bucketSubscriptionInfos = new Map<Bucket, SubscriptionInfo[]>();
