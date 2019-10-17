@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.33.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 1.7.0 (2019-10-17)
+* Upgrade to v2.33.0 of the AWS Terraform Provider
 
 ## 1.6.0 (2019-10-11)
 * Upgrade to v2.32.0 of the AWS Terraform Provider
