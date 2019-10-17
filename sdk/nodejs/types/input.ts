@@ -7247,6 +7247,33 @@ export namespace glue {
         sortOrder: pulumi.Input<number>;
     }
 
+    export interface ClassifierCsvClassifier {
+        /**
+         * Enables the processing of files that contain only one column.
+         */
+        allowSingleColumn?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
+         */
+        containsHeader?: pulumi.Input<string>;
+        /**
+         * The delimiter used in the Csv to separate columns.
+         */
+        delimiter?: pulumi.Input<string>;
+        /**
+         * Specifies whether to trim column values. 
+         */
+        disableValueTrimming?: pulumi.Input<boolean>;
+        /**
+         * A list of strings representing column names.
+         */
+        headers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+         */
+        quoteSymbol?: pulumi.Input<string>;
+    }
+
     export interface ClassifierGrokClassifier {
         /**
          * An identifier of the data format that the classifier matches.

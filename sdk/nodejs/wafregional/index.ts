@@ -5,6 +5,7 @@
 export * from "./byteMatchSet";
 export * from "./geoMatchSet";
 export * from "./getIpset";
+export * from "./getRateBasedMod";
 export * from "./getRule";
 export * from "./getWebAcl";
 export * from "./ipSet";

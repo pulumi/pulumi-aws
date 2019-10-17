@@ -25,7 +25,7 @@ class Provider(pulumi.ProviderResource):
           * `externalId` (`pulumi.Input[str]`)
           * `policy` (`pulumi.Input[str]`)
           * `role_arn` (`pulumi.Input[str]`)
-          * `sessionName` (`pulumi.Input[str]`)
+          * `session_name` (`pulumi.Input[str]`)
         
         The **endpoints** object supports the following:
         

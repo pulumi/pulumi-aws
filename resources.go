@@ -1762,6 +1762,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_datapipeline_pipeline": {Tok: awsResource(datapipelineMod, "Pipeline")},
 			// Quicksight
 			"aws_quicksight_group": {Tok: awsResource(quicksightMod, "Group")},
+			"aws_quicksight_user":  {Tok: awsResource(quicksightMod, "User")},
 			// Service Quotas
 			"aws_servicequotas_service_quota": {Tok: awsResource(servicequotasMod, "ServiceQuota")},
 			// FMS
@@ -1959,13 +1960,15 @@ func Provider() tfbridge.ProviderInfo {
 			// MSK
 			"aws_msk_configuration": {Tok: awsDataSource(mskMod, "getConfiguration")},
 			// WAF
-			"aws_waf_rule":    {Tok: awsDataSource(wafMod, "getRule")},
-			"aws_waf_web_acl": {Tok: awsDataSource(wafMod, "getWebAcl")},
-			"aws_waf_ipset":   {Tok: awsDataSource(wafMod, "getIpset")},
+			"aws_waf_rule":            {Tok: awsDataSource(wafMod, "getRule")},
+			"aws_waf_web_acl":         {Tok: awsDataSource(wafMod, "getWebAcl")},
+			"aws_waf_ipset":           {Tok: awsDataSource(wafMod, "getIpset")},
+			"aws_waf_rate_based_rule": {Tok: awsDataSource(wafMod, "getRateBasedRule")},
 			// WAF Regional
-			"aws_wafregional_rule":    {Tok: awsDataSource(wafregionalMod, "getRule")},
-			"aws_wafregional_web_acl": {Tok: awsDataSource(wafregionalMod, "getWebAcl")},
-			"aws_wafregional_ipset":   {Tok: awsDataSource(wafregionalMod, "getIpset")},
+			"aws_wafregional_rule":            {Tok: awsDataSource(wafregionalMod, "getRule")},
+			"aws_wafregional_web_acl":         {Tok: awsDataSource(wafregionalMod, "getWebAcl")},
+			"aws_wafregional_ipset":           {Tok: awsDataSource(wafregionalMod, "getIpset")},
+			"aws_wafregional_rate_based_rule": {Tok: awsDataSource(wafregionalMod, "getRateBasedMod")},
 			// Organizations
 			"aws_organizations_organization": {Tok: awsDataSource(organizationsMod, "getOrganization")},
 			// ElasticSearch

@@ -9,7 +9,7 @@ import (
 
 // Provides a Glue Classifier resource.
 // 
-// > **NOTE:** It is only valid to create one type of classifier (grok, JSON, or XML). Changing classifier types will recreate the classifier.
+// > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_classifier.html.markdown.
 type Classifier struct {
@@ -21,11 +21,13 @@ func NewClassifier(ctx *pulumi.Context,
 	name string, args *ClassifierArgs, opts ...pulumi.ResourceOpt) (*Classifier, error) {
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["csvClassifier"] = nil
 		inputs["grokClassifier"] = nil
 		inputs["jsonClassifier"] = nil
 		inputs["name"] = nil
 		inputs["xmlClassifier"] = nil
 	} else {
+		inputs["csvClassifier"] = args.CsvClassifier
 		inputs["grokClassifier"] = args.GrokClassifier
 		inputs["jsonClassifier"] = args.JsonClassifier
 		inputs["name"] = args.Name
@@ -44,6 +46,7 @@ func GetClassifier(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ClassifierState, opts ...pulumi.ResourceOpt) (*Classifier, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["csvClassifier"] = state.CsvClassifier
 		inputs["grokClassifier"] = state.GrokClassifier
 		inputs["jsonClassifier"] = state.JsonClassifier
 		inputs["name"] = state.Name
@@ -64,6 +67,11 @@ func (r *Classifier) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Classifier) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// A classifier for Csv content. Defined below.
+func (r *Classifier) CsvClassifier() *pulumi.Output {
+	return r.s.State["csvClassifier"]
 }
 
 // A classifier that uses grok patterns. Defined below.
@@ -88,6 +96,8 @@ func (r *Classifier) XmlClassifier() *pulumi.Output {
 
 // Input properties used for looking up and filtering Classifier resources.
 type ClassifierState struct {
+	// A classifier for Csv content. Defined below.
+	CsvClassifier interface{}
 	// A classifier that uses grok patterns. Defined below.
 	GrokClassifier interface{}
 	// A classifier for JSON content. Defined below.
@@ -100,6 +110,8 @@ type ClassifierState struct {
 
 // The set of arguments for constructing a Classifier resource.
 type ClassifierArgs struct {
+	// A classifier for Csv content. Defined below.
+	CsvClassifier interface{}
 	// A classifier that uses grok patterns. Defined below.
 	GrokClassifier interface{}
 	// A classifier for JSON content. Defined below.
