@@ -29,7 +29,11 @@ class Rule(pulumi.CustomResource):
         If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
       * `type` (`str`) - The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
     """
-    def __init__(__self__, resource_name, opts=None, metric_name=None, name=None, predicates=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, metric_name=None, name=None, predicates=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a WAF Rule Resource
         
@@ -38,6 +42,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
         :param pulumi.Input[str] name: The name or description of the rule.
         :param pulumi.Input[list] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **predicates** object supports the following:
         
@@ -72,6 +77,7 @@ class Rule(pulumi.CustomResource):
             __props__['metric_name'] = metric_name
             __props__['name'] = name
             __props__['predicates'] = predicates
+            __props__['tags'] = tags
         super(Rule, __self__).__init__(
             'aws:waf/rule:Rule',
             resource_name,
@@ -79,7 +85,7 @@ class Rule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, metric_name=None, name=None, predicates=None):
+    def get(resource_name, id, opts=None, metric_name=None, name=None, predicates=None, tags=None):
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -90,6 +96,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
         :param pulumi.Input[str] name: The name or description of the rule.
         :param pulumi.Input[list] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **predicates** object supports the following:
         
@@ -108,6 +115,7 @@ class Rule(pulumi.CustomResource):
         __props__["metric_name"] = metric_name
         __props__["name"] = name
         __props__["predicates"] = predicates
+        __props__["tags"] = tags
         return Rule(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

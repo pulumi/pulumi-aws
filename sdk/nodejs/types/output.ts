@@ -8040,6 +8040,33 @@ export namespace glue {
         sortOrder: number;
     }
 
+    export interface ClassifierCsvClassifier {
+        /**
+         * Enables the processing of files that contain only one column.
+         */
+        allowSingleColumn?: boolean;
+        /**
+         * Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
+         */
+        containsHeader?: string;
+        /**
+         * The delimiter used in the Csv to separate columns.
+         */
+        delimiter?: string;
+        /**
+         * Specifies whether to trim column values. 
+         */
+        disableValueTrimming?: boolean;
+        /**
+         * A list of strings representing column names.
+         */
+        headers?: string[];
+        /**
+         * A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+         */
+        quoteSymbol?: string;
+    }
+
     export interface ClassifierGrokClassifier {
         /**
          * An identifier of the data format that the classifier matches.

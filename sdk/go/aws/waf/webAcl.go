@@ -31,12 +31,14 @@ func NewWebAcl(ctx *pulumi.Context,
 		inputs["metricName"] = nil
 		inputs["name"] = nil
 		inputs["rules"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["defaultAction"] = args.DefaultAction
 		inputs["loggingConfiguration"] = args.LoggingConfiguration
 		inputs["metricName"] = args.MetricName
 		inputs["name"] = args.Name
 		inputs["rules"] = args.Rules
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:waf/webAcl:WebAcl", name, true, inputs, opts...)
@@ -58,6 +60,7 @@ func GetWebAcl(ctx *pulumi.Context,
 		inputs["metricName"] = state.MetricName
 		inputs["name"] = state.Name
 		inputs["rules"] = state.Rules
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:waf/webAcl:WebAcl", name, id, inputs, opts...)
 	if err != nil {
@@ -105,6 +108,11 @@ func (r *WebAcl) Rules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["rules"])
 }
 
+// Key-value mapping of resource tags
+func (r *WebAcl) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering WebAcl resources.
 type WebAclState struct {
 	Arn interface{}
@@ -118,6 +126,8 @@ type WebAclState struct {
 	Name interface{}
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a WebAcl resource.
@@ -132,4 +142,6 @@ type WebAclArgs struct {
 	Name interface{}
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

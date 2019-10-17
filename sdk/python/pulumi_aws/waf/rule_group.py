@@ -30,7 +30,11 @@ class RuleGroup(pulumi.CustomResource):
     """
     A friendly name of the rule group
     """
-    def __init__(__self__, resource_name, opts=None, activated_rules=None, metric_name=None, name=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, activated_rules=None, metric_name=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a WAF Rule Group Resource
         
@@ -39,6 +43,7 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[list] activated_rules: A list of activated rules, see below
         :param pulumi.Input[str] metric_name: A friendly name for the metrics from the rule group
         :param pulumi.Input[str] name: A friendly name of the rule group
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **activated_rules** object supports the following:
         
@@ -74,6 +79,7 @@ class RuleGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'metric_name'")
             __props__['metric_name'] = metric_name
             __props__['name'] = name
+            __props__['tags'] = tags
         super(RuleGroup, __self__).__init__(
             'aws:waf/ruleGroup:RuleGroup',
             resource_name,
@@ -81,7 +87,7 @@ class RuleGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, activated_rules=None, metric_name=None, name=None):
+    def get(resource_name, id, opts=None, activated_rules=None, metric_name=None, name=None, tags=None):
         """
         Get an existing RuleGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -92,6 +98,7 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[list] activated_rules: A list of activated rules, see below
         :param pulumi.Input[str] metric_name: A friendly name for the metrics from the rule group
         :param pulumi.Input[str] name: A friendly name of the rule group
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **activated_rules** object supports the following:
         
@@ -111,6 +118,7 @@ class RuleGroup(pulumi.CustomResource):
         __props__["activated_rules"] = activated_rules
         __props__["metric_name"] = metric_name
         __props__["name"] = name
+        __props__["tags"] = tags
         return RuleGroup(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -9,9 +9,30 @@ import * as utilities from "../utilities";
 /**
  * Provides a Glue Classifier resource.
  * 
- * > **NOTE:** It is only valid to create one type of classifier (grok, JSON, or XML). Changing classifier types will recreate the classifier.
+ * > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
  * 
  * ## Example Usage
+ * 
+ * ### Csv Classifier
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.glue.Classifier("example", {
+ *     csvClassifier: {
+ *         allowSingleColumn: false,
+ *         containsHeader: "PRESENT",
+ *         delimiter: ",",
+ *         disableValueTrimming: false,
+ *         headers: [
+ *             "example1",
+ *             "example2",
+ *         ],
+ *         quoteSymbol: "'",
+ *     },
+ * });
+ * ```
  * 
  * ### Grok Classifier
  * 
@@ -84,6 +105,10 @@ export class Classifier extends pulumi.CustomResource {
     }
 
     /**
+     * A classifier for Csv content. Defined below.
+     */
+    public readonly csvClassifier!: pulumi.Output<outputs.glue.ClassifierCsvClassifier | undefined>;
+    /**
      * A classifier that uses grok patterns. Defined below.
      */
     public readonly grokClassifier!: pulumi.Output<outputs.glue.ClassifierGrokClassifier | undefined>;
@@ -112,12 +137,14 @@ export class Classifier extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ClassifierState | undefined;
+            inputs["csvClassifier"] = state ? state.csvClassifier : undefined;
             inputs["grokClassifier"] = state ? state.grokClassifier : undefined;
             inputs["jsonClassifier"] = state ? state.jsonClassifier : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["xmlClassifier"] = state ? state.xmlClassifier : undefined;
         } else {
             const args = argsOrState as ClassifierArgs | undefined;
+            inputs["csvClassifier"] = args ? args.csvClassifier : undefined;
             inputs["grokClassifier"] = args ? args.grokClassifier : undefined;
             inputs["jsonClassifier"] = args ? args.jsonClassifier : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -138,6 +165,10 @@ export class Classifier extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Classifier resources.
  */
 export interface ClassifierState {
+    /**
+     * A classifier for Csv content. Defined below.
+     */
+    readonly csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier>;
     /**
      * A classifier that uses grok patterns. Defined below.
      */
@@ -160,6 +191,10 @@ export interface ClassifierState {
  * The set of arguments for constructing a Classifier resource.
  */
 export interface ClassifierArgs {
+    /**
+     * A classifier for Csv content. Defined below.
+     */
+    readonly csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier>;
     /**
      * A classifier that uses grok patterns. Defined below.
      */

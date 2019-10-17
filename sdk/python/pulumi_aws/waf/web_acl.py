@@ -54,7 +54,11 @@ class WebAcl(pulumi.CustomResource):
       * `rule_id` (`str`) - ID of the associated WAF (Global) rule (e.g. [`waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
       * `type` (`str`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
     """
-    def __init__(__self__, resource_name, opts=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a WAF Web ACL Resource
         
@@ -65,6 +69,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[str] name: The name or description of the web ACL.
         :param pulumi.Input[list] rules: Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **default_action** object supports the following:
         
@@ -123,6 +128,7 @@ class WebAcl(pulumi.CustomResource):
             __props__['metric_name'] = metric_name
             __props__['name'] = name
             __props__['rules'] = rules
+            __props__['tags'] = tags
             __props__['arn'] = None
         super(WebAcl, __self__).__init__(
             'aws:waf/webAcl:WebAcl',
@@ -131,7 +137,7 @@ class WebAcl(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None):
+    def get(resource_name, id, opts=None, arn=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None, tags=None):
         """
         Get an existing WebAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -144,6 +150,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[str] name: The name or description of the web ACL.
         :param pulumi.Input[list] rules: Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **default_action** object supports the following:
         
@@ -185,6 +192,7 @@ class WebAcl(pulumi.CustomResource):
         __props__["metric_name"] = metric_name
         __props__["name"] = name
         __props__["rules"] = rules
+        __props__["tags"] = tags
         return WebAcl(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -26,10 +26,12 @@ func NewRule(ctx *pulumi.Context,
 		inputs["metricName"] = nil
 		inputs["name"] = nil
 		inputs["predicates"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["metricName"] = args.MetricName
 		inputs["name"] = args.Name
 		inputs["predicates"] = args.Predicates
+		inputs["tags"] = args.Tags
 	}
 	s, err := ctx.RegisterResource("aws:waf/rule:Rule", name, true, inputs, opts...)
 	if err != nil {
@@ -47,6 +49,7 @@ func GetRule(ctx *pulumi.Context,
 		inputs["metricName"] = state.MetricName
 		inputs["name"] = state.Name
 		inputs["predicates"] = state.Predicates
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:waf/rule:Rule", name, id, inputs, opts...)
 	if err != nil {
@@ -80,6 +83,11 @@ func (r *Rule) Predicates() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["predicates"])
 }
 
+// Key-value mapping of resource tags
+func (r *Rule) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Rule resources.
 type RuleState struct {
 	// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
@@ -88,6 +96,8 @@ type RuleState struct {
 	Name interface{}
 	// The objects to include in a rule (documented below).
 	Predicates interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Rule resource.
@@ -98,4 +108,6 @@ type RuleArgs struct {
 	Name interface{}
 	// The objects to include in a rule (documented below).
 	Predicates interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

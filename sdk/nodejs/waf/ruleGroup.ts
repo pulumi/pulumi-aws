@@ -71,6 +71,10 @@ export class RuleGroup extends pulumi.CustomResource {
      * A friendly name of the rule group
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -87,6 +91,7 @@ export class RuleGroup extends pulumi.CustomResource {
             inputs["activatedRules"] = state ? state.activatedRules : undefined;
             inputs["metricName"] = state ? state.metricName : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RuleGroupArgs | undefined;
             if (!args || args.metricName === undefined) {
@@ -95,6 +100,7 @@ export class RuleGroup extends pulumi.CustomResource {
             inputs["activatedRules"] = args ? args.activatedRules : undefined;
             inputs["metricName"] = args ? args.metricName : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts) {
             opts = {}
@@ -123,6 +129,10 @@ export interface RuleGroupState {
      * A friendly name of the rule group
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -141,4 +151,8 @@ export interface RuleGroupArgs {
      * A friendly name of the rule group
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

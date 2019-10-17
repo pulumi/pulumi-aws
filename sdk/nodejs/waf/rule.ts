@@ -72,6 +72,10 @@ export class Rule extends pulumi.CustomResource {
      * The objects to include in a rule (documented below).
      */
     public readonly predicates!: pulumi.Output<outputs.waf.RulePredicate[] | undefined>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -88,6 +92,7 @@ export class Rule extends pulumi.CustomResource {
             inputs["metricName"] = state ? state.metricName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["predicates"] = state ? state.predicates : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RuleArgs | undefined;
             if (!args || args.metricName === undefined) {
@@ -96,6 +101,7 @@ export class Rule extends pulumi.CustomResource {
             inputs["metricName"] = args ? args.metricName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["predicates"] = args ? args.predicates : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts) {
             opts = {}
@@ -124,6 +130,10 @@ export interface RuleState {
      * The objects to include in a rule (documented below).
      */
     readonly predicates?: pulumi.Input<pulumi.Input<inputs.waf.RulePredicate>[]>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -142,4 +152,8 @@ export interface RuleArgs {
      * The objects to include in a rule (documented below).
      */
     readonly predicates?: pulumi.Input<pulumi.Input<inputs.waf.RulePredicate>[]>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
