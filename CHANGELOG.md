@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Update default `descriptions` to `Managed by Pulumi`. This may cause a diff for users.
 
 ---
 

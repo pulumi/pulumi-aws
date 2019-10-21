@@ -65,6 +65,8 @@ class SubnetGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if description is None:
+                description = 'Managed by Pulumi'
             __props__['description'] = description
             __props__['name'] = name
             __props__['name_prefix'] = name_prefix
