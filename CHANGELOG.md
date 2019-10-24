@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Update default `descriptions` for several resources to `Managed by Pulumi`.
 
 ---
 

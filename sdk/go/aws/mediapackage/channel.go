@@ -22,9 +22,9 @@ func NewChannel(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'ChannelId'")
 	}
 	inputs := make(map[string]interface{})
+	inputs["description"] = "Managed by Pulumi"
 	if args == nil {
 		inputs["channelId"] = nil
-		inputs["description"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["channelId"] = args.ChannelId

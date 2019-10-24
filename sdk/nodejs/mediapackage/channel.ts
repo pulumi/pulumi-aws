@@ -61,7 +61,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * A description of the channel
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * A single item list of HLS ingest information
      */
@@ -94,7 +94,7 @@ export class Channel extends pulumi.CustomResource {
                 throw new Error("Missing required property 'channelId'");
             }
             inputs["channelId"] = args ? args.channelId : undefined;
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["hlsIngests"] = undefined /*out*/;

@@ -22,9 +22,9 @@ func NewApiKey(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
 	inputs := make(map[string]interface{})
+	inputs["description"] = "Managed by Pulumi"
 	if args == nil {
 		inputs["apiId"] = nil
-		inputs["description"] = nil
 		inputs["expires"] = nil
 	} else {
 		inputs["apiId"] = args.ApiId

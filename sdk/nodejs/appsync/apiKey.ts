@@ -58,7 +58,7 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * The API key description. Defaults to "Managed by Pulumi".
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
      */
@@ -90,7 +90,7 @@ export class ApiKey extends pulumi.CustomResource {
                 throw new Error("Missing required property 'apiId'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
             inputs["expires"] = args ? args.expires : undefined;
             inputs["key"] = undefined /*out*/;
         }

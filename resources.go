@@ -239,7 +239,14 @@ func Provider() tfbridge.ProviderInfo {
 			// AWS Private Certificate Authority
 			"aws_acmpca_certificate_authority": {Tok: awsResource(acmpcaMod, "CertificateAuthority")},
 			// AppSync
-			"aws_appsync_api_key":     {Tok: awsResource(appsyncMod, "ApiKey")},
+			"aws_appsync_api_key": {
+				Tok: awsResource(appsyncMod, "ApiKey"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
 			"aws_appsync_function":    {Tok: awsResource(appsyncMod, "Function")},
 			"aws_appsync_graphql_api": {Tok: awsResource(appsyncMod, "GraphQLApi")},
 			"aws_appsync_datasource":  {Tok: awsResource(appsyncMod, "DataSource")},
@@ -638,7 +645,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_docdb_cluster_instance":        {Tok: awsResource(docdbMod, "ClusterInstance")},
 			"aws_docdb_cluster_parameter_group": {Tok: awsResource(docdbMod, "ClusterParameterGroup")},
 			"aws_docdb_cluster_snapshot":        {Tok: awsResource(docdbMod, "ClusterSnapshot")},
-			"aws_docdb_subnet_group":            {Tok: awsResource(docdbMod, "SubnetGroup")},
+			"aws_docdb_subnet_group": {
+				Tok: awsResource(docdbMod, "SubnetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
 			// Direct Connect
 			"aws_dx_bgp_peer":                         {Tok: awsResource(dxMod, "BgpPeer")},
 			"aws_dx_connection":                       {Tok: awsResource(dxMod, "Connection")},
@@ -1332,7 +1346,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_macie_member_account_association": {Tok: awsResource(macieMod, "MemberAccountAssociation")},
 			"aws_macie_s3_bucket_association":      {Tok: awsResource(macieMod, "S3BucketAssociation")},
 			// Elemental MediaPackage
-			"aws_media_package_channel": {Tok: awsResource(mediapackageMod, "Channel")},
+			"aws_media_package_channel": {
+				Tok: awsResource(mediapackageMod, "Channel"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
 			// Elemental MediaStore
 			"aws_media_store_container":        {Tok: awsResource(mediastoreMod, "Container")},
 			"aws_media_store_container_policy": {Tok: awsResource(mediastoreMod, "ContainerPolicy")},
@@ -1346,7 +1367,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_neptune_cluster_snapshot":        {Tok: awsResource(neptuneMod, "ClusterSnapshot")},
 			"aws_neptune_event_subscription":      {Tok: awsResource(neptuneMod, "EventSubscription")},
 			"aws_neptune_parameter_group":         {Tok: awsResource(neptuneMod, "ParameterGroup")},
-			"aws_neptune_subnet_group":            {Tok: awsResource(neptuneMod, "SubnetGroup")},
+			"aws_neptune_subnet_group": {
+				Tok: awsResource(neptuneMod, "SubnetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
 			// OpsWorks
 			"aws_opsworks_application":      {Tok: awsResource(opsworksMod, "Application")},
 			"aws_opsworks_stack":            {Tok: awsResource(opsworksMod, "Stack")},
@@ -1478,8 +1506,15 @@ func Provider() tfbridge.ProviderInfo {
 					"ingress": {Name: "ingress"},
 				},
 			},
-			"aws_db_snapshot":     {Tok: awsResource(rdsMod, "Snapshot")},
-			"aws_db_subnet_group": {Tok: awsResource(rdsMod, "SubnetGroup")},
+			"aws_db_snapshot": {Tok: awsResource(rdsMod, "Snapshot")},
+			"aws_db_subnet_group": {
+				Tok: awsResource(rdsMod, "SubnetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
 			// RedShift
 			"aws_redshift_cluster":            {Tok: awsResource(redshiftMod, "Cluster")},
 			"aws_redshift_event_subscription": {Tok: awsResource(redshiftMod, "EventSubscription")},
