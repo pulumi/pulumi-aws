@@ -32,12 +32,7 @@ build:: provider tfgen install_plugins
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 	cd ${PACKDIR}/python/ && \
-		if [ $$(command -v pandoc) ]; then \
-			pandoc --from=markdown-smart --to=rst-smart --output=README.rst ../../README.md; \
-		else \
-			echo "warning: pandoc not found, not generating README.rst"; \
-			echo "" > README.rst; \
-		fi && \
+		cp ../../README.md . && \
 		$(PYTHON) setup.py clean --all 2>/dev/null && \
 		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
 		sed -i.bak -e "s/\$${VERSION}/$(PYPI_VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \

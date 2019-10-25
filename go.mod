@@ -13,7 +13,7 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pkg/errors v0.8.1
 	github.com/pulumi/pulumi v1.3.1
-	github.com/pulumi/pulumi-terraform-bridge v1.0.0
+	github.com/pulumi/pulumi-terraform-bridge v1.1.0
 	github.com/stretchr/testify v1.4.0
 	github.com/terraform-providers/terraform-provider-aws v0.0.0-20191010190908-1261a98537f2
 )
