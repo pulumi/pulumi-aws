@@ -16,19 +16,19 @@ class Provider(pulumi.ProviderResource):
         settings, however an explicit `Provider` instance may be created and passed during resource
         construction to achieve fine-grained programmatic control over provider settings. See the
         [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
-        
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+
         The **assume_role** object supports the following:
-        
+
           * `externalId` (`pulumi.Input[str]`)
           * `policy` (`pulumi.Input[str]`)
           * `role_arn` (`pulumi.Input[str]`)
           * `session_name` (`pulumi.Input[str]`)
-        
+
         The **endpoints** object supports the following:
-        
+
           * `acm` (`pulumi.Input[str]`)
           * `acmpca` (`pulumi.Input[str]`)
           * `amplify` (`pulumi.Input[str]`)
@@ -209,7 +209,7 @@ class Provider(pulumi.ProviderResource):
         """
         Get an existing Provider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,3 +226,53 @@ class Provider(pulumi.ProviderResource):
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
+
+class LocalStackProvider(Provider):
+    def __init__(__self__, resource_name, opts=None, access_key=None, insecure=None, max_retries=None, profile=None, region=None, secret_key=None, shared_credentials_file=None, token=None, __props__=None):
+        """
+        An alternative provider for the aws package that uses [localstack](https://github.com/localstack/localstack).
+
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+
+        endpoints = [tables._LOCALSTACK_ENDPOINTS_TABLE]
+
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
+        if opts.version is None:
+            opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['access_key'] = access_key
+            __props__['allowed_account_ids'] = None
+            __props__['assume_role'] = None
+            __props__['endpoints'] = pulumi.Output.from_input(endpoints).apply(json.dumps)
+            __props__['forbidden_account_ids'] = None
+            __props__['insecure'] = pulumi.Output.from_input(insecure).apply(json.dumps) if insecure is not None else None
+            __props__['max_retries'] = pulumi.Output.from_input(max_retries).apply(json.dumps) if max_retries is not None else None
+            if profile is None:
+                profile = utilities.get_env('AWS_PROFILE')
+            __props__['profile'] = profile
+            if region is None:
+                region = utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
+            __props__['region'] = region
+            __props__['s3_force_path_style'] = pulumi.Output.from_input(True).apply(json.dumps)
+            __props__['secret_key'] = secret_key
+            __props__['shared_credentials_file'] = shared_credentials_file
+            __props__['skip_credentials_validation'] = pulumi.Output.from_input(True).apply(json.dumps)
+            __props__['skip_get_ec2_platforms'] = pulumi.Output.from_input(True).apply(json.dumps)
+            __props__['skip_metadata_api_check'] = pulumi.Output.from_input(True).apply(json.dumps)
+            __props__['skip_region_validation'] = pulumi.Output.from_input(True).apply(json.dumps)
+            __props__['skip_requesting_account_id'] = pulumi.Output.from_input(True).apply(json.dumps)
+            __props__['token'] = token
+        super(Provider, __self__).__init__(
+            'aws',
+            resource_name,
+            __props__,
+            opts)
