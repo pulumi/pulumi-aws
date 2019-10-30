@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Pulumi Corp.</Authors>
+    <Company>Pulumi Corp.</Company>
+    <Description>A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.</Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://pulumi.io</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/pulumi/pulumi-aws</RepositoryUrl>
+
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1701;1702;1591;8604;8625</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="version.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pulumi" Version="1.5.0-*" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.6.0" />
+  </ItemGroup>
+
+</Project>

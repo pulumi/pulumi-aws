@@ -23,6 +23,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
 	homedir "github.com/mitchellh/go-homedir"
+	"github.com/pulumi/pulumi-aws/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/resource"
 	"github.com/pulumi/pulumi/pkg/tokens"
@@ -218,6 +219,7 @@ func Provider() tfbridge.ProviderInfo {
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-aws",
+		Version:     version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
 				Type: awsType("region", "Region"),
@@ -307,7 +309,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_api_gateway_documentation_part":    {Tok: awsResource(apigatewayMod, "DocumentationPart")},
 			"aws_api_gateway_documentation_version": {Tok: awsResource(apigatewayMod, "DocumentationVersion")},
-			"aws_api_gateway_domain_name":           {Tok: awsResource(apigatewayMod, "DomainName")},
+			"aws_api_gateway_domain_name": {
+				Tok: awsResource(apigatewayMod, "DomainName"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"domain_name": {
+						CSharpName: "Domain",
+					},
+				},
+			},
 			"aws_api_gateway_integration": {
 				Tok: awsResource(apigatewayMod, "Integration"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -489,8 +498,22 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudformation_stack_set":          {Tok: awsResource(cloudformationMod, "StackSet")},
 			"aws_cloudformation_stack_set_instance": {Tok: awsResource(cloudformationMod, "StackSetInstance")},
 			// CloudHSM
-			"aws_cloudhsm_v2_cluster": {Tok: awsResource(cloudhsmv2Mod, "Cluster")},
-			"aws_cloudhsm_v2_hsm":     {Tok: awsResource(cloudhsmv2Mod, "Hsm")},
+			"aws_cloudhsm_v2_cluster": {
+				Tok: awsResource(cloudhsmv2Mod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"cluster_state": {
+						CSharpName: "State",
+					},
+				},
+			},
+			"aws_cloudhsm_v2_hsm": {
+				Tok: awsResource(cloudhsmv2Mod, "Hsm"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"hsm_state": {
+						CSharpName: "State",
+					},
+				},
+			},
 			// CloudFront
 			"aws_cloudfront_distribution":           {Tok: awsResource(cloudfrontMod, "Distribution")},
 			"aws_cloudfront_public_key":             {Tok: awsResource(cloudfrontMod, "PublicKey")},
@@ -785,6 +808,9 @@ func Provider() tfbridge.ProviderInfo {
 					"instance_type": {
 						Type: awsType(ec2Mod+"/instanceType", "InstanceType"),
 					},
+					"instance_state": {
+						CSharpName: "State",
+					},
 				},
 			},
 			"aws_internet_gateway": {Tok: awsResource(ec2Mod, "InternetGateway")},
@@ -1036,7 +1062,14 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Elastic MapReduce
-			"aws_emr_cluster":                {Tok: awsResource(emrMod, "Cluster")},
+			"aws_emr_cluster": {
+				Tok: awsResource(emrMod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"cluster_state": {
+						CSharpName: "State",
+					},
+				},
+			},
 			"aws_emr_instance_group":         {Tok: awsResource(emrMod, "InstanceGroup")},
 			"aws_emr_security_configuration": {Tok: awsResource(emrMod, "SecurityConfiguration")},
 			// FSX
@@ -1070,8 +1103,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_guardduty_member":          {Tok: awsResource(guarddutyMod, "Member")},
 			"aws_guardduty_threatintelset":  {Tok: awsResource(guarddutyMod, "ThreatIntelSet")},
 			// Identity and Access Management (IAM)
-			"aws_iam_access_key":              {Tok: awsResource(iamMod, "AccessKey")},
-			"aws_iam_account_alias":           {Tok: awsResource(iamMod, "AccountAlias")},
+			"aws_iam_access_key": {Tok: awsResource(iamMod, "AccessKey")},
+			"aws_iam_account_alias": {
+				Tok: awsResource(iamMod, "AccountAlias"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_alias": {
+						CSharpName: "Alias",
+					},
+				},
+			},
 			"aws_iam_account_password_policy": {Tok: awsResource(iamMod, "AccountPasswordPolicy")},
 			"aws_iam_group_policy": {
 				Tok: awsResource(iamMod, "GroupPolicy"),
@@ -1118,9 +1158,10 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(iamMod, "Policy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
-						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
-						Transform: tfbridge.TransformJSONDocument,
+						Type:       "string",
+						AltTypes:   []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform:  tfbridge.TransformJSONDocument,
+						CSharpName: "PolicyDocument",
 					},
 				},
 			},
@@ -1225,6 +1266,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iot_policy": {
 				Tok:      awsResource(iotMod, "Policy"),
 				IDFields: []string{"name"},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						CSharpName: "PolicyDocument",
+					},
+				},
 			},
 			"aws_iot_policy_attachment": {
 				Tok: awsResource(iotMod, "PolicyAttachment"),
@@ -1689,7 +1735,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ssm_maintenance_window_target": {Tok: awsResource(ssmMod, "MaintenanceWindowTarget")},
 			"aws_ssm_maintenance_window_task":   {Tok: awsResource(ssmMod, "MaintenanceWindowTask")},
 			"aws_ssm_patch_baseline":            {Tok: awsResource(ssmMod, "PatchBaseline")},
-			"aws_ssm_patch_group":               {Tok: awsResource(ssmMod, "PatchGroup")},
+			"aws_ssm_patch_group": {
+				Tok: awsResource(ssmMod, "PatchGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"patch_group": {
+						CSharpName: "PatchGroupName",
+					},
+				},
+			},
 			"aws_ssm_parameter": {
 				Tok: awsResource(ssmMod, "Parameter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2151,6 +2204,12 @@ func Provider() tfbridge.ProviderInfo {
 				"pulumi": ">=1.0.0,<2.0.0",
 			},
 		},
+		CSharp: &tfbridge.CSharpInfo{
+			PackageReferences: map[string]string{
+				"Pulumi":                       "1.5.0-*",
+				"System.Collections.Immutable": "1.6.0",
+			},
+		},
 	}
 
 	updateLegacyModuleNames(&prov)
@@ -2171,6 +2230,9 @@ func Provider() tfbridge.ProviderInfo {
 			}
 		}
 	}
+
+	// Add a CSharp-specific override for aws_s3_bucket.bucket.
+	prov.Resources["aws_s3_bucket"].Fields["bucket"].CSharpName = "BucketName"
 
 	return prov
 }
