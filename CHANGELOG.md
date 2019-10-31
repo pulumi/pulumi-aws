@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Update default `descriptions` for several resources to `Managed by Pulumi`.
+* Add a **preview** .NET SDK.
 
 ---
 
