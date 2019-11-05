@@ -794,6 +794,8 @@ github.com/pulumi/pulumi-terraform-bridge v1.1.0/go.mod h1:ianA0rIQLTbcHTZhQ/vzP
 github.com/pulumi/pulumi-terraform-bridge v1.2.0 h1:sWw0WBvzgMgthSTND9QL6MfqK0Mmzdsm1SXz29DDY8I=
 github.com/pulumi/pulumi-terraform-bridge v1.2.1-0.20191030115615-68f8d85120cb h1:8z23W0EddiSQD086MwVEi1SLJWhZ/ZsuK/85yZ3SXNA=
 github.com/pulumi/pulumi-terraform-bridge v1.2.1-0.20191030115615-68f8d85120cb/go.mod h1:ianA0rIQLTbcHTZhQ/vzPyQE71M+aRbH8QHpN9HsErQ=
+github.com/pulumi/pulumi-terraform-bridge v1.2.1-0.20191105194756-471a3ad76865 h1:fmG9C/JEpiOyMM3/qS3Lu6MyshOi7472FTYlzR7aSFI=
+github.com/pulumi/pulumi-terraform-bridge v1.2.1-0.20191105194756-471a3ad76865/go.mod h1:ianA0rIQLTbcHTZhQ/vzPyQE71M+aRbH8QHpN9HsErQ=
 github.com/pulumi/terraform-provider-aws v0.0.0-20191010193810-2fa92d532624 h1:e3ORPbWKgyDMutuB2rdUApeBLS98boqsMzq/jgg3row=
 github.com/pulumi/terraform-provider-aws v0.0.0-20191010193810-2fa92d532624/go.mod h1:zIXqcyUvJSpWRGXf+x6knh3NIZLjVqjH954yShO3YPE=
 github.com/pulumi/terraform-provider-aws v0.0.0-20191011105310-d69fff282652 h1:QGejHQrWMQM5UA3Aal4sWEUYJD5Mxy/e4b9OhFhTu7U=
