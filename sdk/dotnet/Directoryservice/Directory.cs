@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Directoryservice
+namespace Pulumi.Aws.DirectoryService
 {
     /// <summary>
     /// Provides a Simple or Managed Microsoft directory in AWS Directory Service.

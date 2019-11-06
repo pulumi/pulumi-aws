@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Devicefarm
+namespace Pulumi.Aws.DeviceFarm
 {
     /// <summary>
     /// Provides a resource to manage AWS Device Farm Projects. 

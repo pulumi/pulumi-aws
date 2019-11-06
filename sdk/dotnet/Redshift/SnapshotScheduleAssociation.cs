@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Redshift
+namespace Pulumi.Aws.RedShift
 {
     public partial class SnapshotScheduleAssociation : Pulumi.CustomResource
     {

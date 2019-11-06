@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Guardduty
+namespace Pulumi.Aws.GuardDuty
 {
     /// <summary>
     /// Provides a resource to manage a GuardDuty ThreatIntelSet.

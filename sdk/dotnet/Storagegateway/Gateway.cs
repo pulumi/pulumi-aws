@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Storagegateway
+namespace Pulumi.Aws.StorageGateway
 {
     /// <summary>
     /// Manages an AWS Storage Gateway file, tape, or volume gateway in the provider region.

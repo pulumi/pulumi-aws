@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Directconnect
+namespace Pulumi.Aws.DirectConnect
 {
     /// <summary>
     /// Provides a Direct Connect LAG. Connections can be added to the LAG via the [`aws.directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) and [`aws.directconnect.ConnectionAssociation`](https://www.terraform.io/docs/providers/aws/r/dx_connection_association.html) resources.

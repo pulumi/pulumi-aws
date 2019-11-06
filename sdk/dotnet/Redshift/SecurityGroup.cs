@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Redshift
+namespace Pulumi.Aws.RedShift
 {
     /// <summary>
     /// Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters

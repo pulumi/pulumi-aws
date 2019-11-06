@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Mediapackage
+namespace Pulumi.Aws.MediaPackage
 {
     /// <summary>
     /// Provides an AWS Elemental MediaPackage Channel.

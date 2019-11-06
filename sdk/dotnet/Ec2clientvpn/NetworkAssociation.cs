@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Ec2clientvpn
+namespace Pulumi.Aws.Ec2ClientVpn
 {
     /// <summary>
     /// Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the 

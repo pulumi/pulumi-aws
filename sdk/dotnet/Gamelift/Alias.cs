@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Gamelift
+namespace Pulumi.Aws.GameLift
 {
     /// <summary>
     /// Provides a Gamelift Alias resource.

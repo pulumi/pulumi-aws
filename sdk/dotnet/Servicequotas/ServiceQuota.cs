@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Servicequotas
+namespace Pulumi.Aws.ServiceQuotas
 {
     /// <summary>
     /// Manages an individual Service Quota.

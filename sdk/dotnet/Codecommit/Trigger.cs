@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Codecommit
+namespace Pulumi.Aws.CodeCommit
 {
     /// <summary>
     /// Provides a CodeCommit Trigger Resource.

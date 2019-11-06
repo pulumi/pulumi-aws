@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Lightsail
+namespace Pulumi.Aws.LightSail
 {
     /// <summary>
     /// Provides a Lightsail Instance. Amazon Lightsail is a service to provide easy virtual private servers

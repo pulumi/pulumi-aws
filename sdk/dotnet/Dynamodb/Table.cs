@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Dynamodb
+namespace Pulumi.Aws.DynamoDB
 {
     /// <summary>
     /// Provides a DynamoDB table resource

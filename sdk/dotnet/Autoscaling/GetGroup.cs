@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Autoscaling
+namespace Pulumi.Aws.AutoScaling
 {
     public static partial class Invokes
     {

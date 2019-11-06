@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Wafregional
+namespace Pulumi.Aws.WafRegional
 {
     /// <summary>
     /// Provides a WAF Regional IPSet Resource for use with Application Load Balancer.

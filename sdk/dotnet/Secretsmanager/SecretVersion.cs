@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Secretsmanager
+namespace Pulumi.Aws.SecretsManager
 {
     /// <summary>
     /// Provides a resource to manage AWS Secrets Manager secret version including its secret value. To manage secret metadata, see the [`aws.secretsmanager.Secret` resource](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret.html).

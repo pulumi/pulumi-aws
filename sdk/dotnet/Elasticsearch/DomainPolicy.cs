@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Elasticsearch
+namespace Pulumi.Aws.ElasticSearch
 {
     /// <summary>
     /// Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)

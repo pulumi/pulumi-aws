@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Dynamodb
+namespace Pulumi.Aws.DynamoDB
 {
     /// <summary>
     /// Provides a resource to manage a DynamoDB Global Table. These are layered on top of existing DynamoDB Tables.

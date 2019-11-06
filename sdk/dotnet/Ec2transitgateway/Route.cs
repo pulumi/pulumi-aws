@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Ec2transitgateway
+namespace Pulumi.Aws.Ec2TransitGateway
 {
     /// <summary>
     /// Manages an EC2 Transit Gateway Route.

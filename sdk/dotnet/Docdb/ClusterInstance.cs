@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Docdb
+namespace Pulumi.Aws.DocDB
 {
     /// <summary>
     /// Provides an DocDB Cluster Resource Instance. A Cluster Instance Resource defines

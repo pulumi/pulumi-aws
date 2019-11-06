@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Apigateway
+namespace Pulumi.Aws.ApiGateway
 {
     /// <summary>
     /// Connects a custom domain name registered via `aws.apigateway.DomainName`

@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Worklink
+namespace Pulumi.Aws.WorkLink
 {
     public partial class WebsiteCertificateAuthorityAssociation : Pulumi.CustomResource
     {

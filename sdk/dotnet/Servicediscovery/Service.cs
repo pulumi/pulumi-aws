@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Servicediscovery
+namespace Pulumi.Aws.ServiceDiscovery
 {
     /// <summary>
     /// Provides a Service Discovery Service resource.

@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Opsworks
+namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
     /// Provides an OpsWorks static web server layer resource.

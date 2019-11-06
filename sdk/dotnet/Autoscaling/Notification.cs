@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Autoscaling
+namespace Pulumi.Aws.AutoScaling
 {
     /// <summary>
     /// Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
