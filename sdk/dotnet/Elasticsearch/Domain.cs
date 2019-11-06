@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Elasticsearch
+namespace Pulumi.Aws.ElasticSearch
 {
     /// <summary>
     /// Manages an AWS Elasticsearch Domain.

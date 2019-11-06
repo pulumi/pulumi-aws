@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Appautoscaling
+namespace Pulumi.Aws.AppAutoScaling
 {
     /// <summary>
     /// Provides an Application AutoScaling ScheduledAction resource.

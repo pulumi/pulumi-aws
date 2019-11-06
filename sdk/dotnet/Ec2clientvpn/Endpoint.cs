@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Ec2clientvpn
+namespace Pulumi.Aws.Ec2ClientVpn
 {
     /// <summary>
     /// Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the

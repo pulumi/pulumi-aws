@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Servicecatalog
+namespace Pulumi.Aws.ServiceCatalog
 {
     /// <summary>
     /// Provides a resource to create a Service Catalog Portfolio.

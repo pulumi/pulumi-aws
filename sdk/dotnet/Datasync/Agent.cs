@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Datasync
+namespace Pulumi.Aws.DataSync
 {
     /// <summary>
     /// Manages an AWS DataSync Agent deployed on premises.

@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Elasticache
+namespace Pulumi.Aws.ElastiCache
 {
     /// <summary>
     /// Provides an ElastiCache Security Group to control access to one or more cache

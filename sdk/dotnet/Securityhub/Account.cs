@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Securityhub
+namespace Pulumi.Aws.SecurityHub
 {
     /// <summary>
     /// Enables Security Hub for this AWS account.

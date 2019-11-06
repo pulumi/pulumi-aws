@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Lightsail
+namespace Pulumi.Aws.LightSail
 {
     /// <summary>
     /// Creates a domain resource for the specified domain (e.g., example.com).

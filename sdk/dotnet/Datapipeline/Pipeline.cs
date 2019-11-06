@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Datapipeline
+namespace Pulumi.Aws.DataPipeline
 {
     /// <summary>
     /// Provides a Data Pipeline resource.

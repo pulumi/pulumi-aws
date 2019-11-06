@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Codepipeline
+namespace Pulumi.Aws.CodePipeline
 {
     /// <summary>
     /// Provides a CodePipeline Webhook.

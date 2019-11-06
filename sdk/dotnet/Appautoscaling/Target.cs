@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Appautoscaling
+namespace Pulumi.Aws.AppAutoScaling
 {
     /// <summary>
     /// Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the [`aws.appautoscaling.Policy` resource](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html).

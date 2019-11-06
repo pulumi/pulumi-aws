@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Elasticbeanstalk
+namespace Pulumi.Aws.ElasticBeanstalk
 {
     /// <summary>
     /// Provides an Elastic Beanstalk Environment Resource. Elastic Beanstalk allows

@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Ec2transitgateway
+namespace Pulumi.Aws.Ec2TransitGateway
 {
     /// <summary>
     /// Manages the accepter's side of an EC2 Transit Gateway VPC Attachment.

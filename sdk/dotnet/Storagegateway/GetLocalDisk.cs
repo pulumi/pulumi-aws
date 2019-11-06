@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Storagegateway
+namespace Pulumi.Aws.StorageGateway
 {
     public static partial class Invokes
     {

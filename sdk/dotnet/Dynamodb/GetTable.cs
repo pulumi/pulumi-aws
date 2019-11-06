@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Dynamodb
+namespace Pulumi.Aws.DynamoDB
 {
     public static partial class Invokes
     {

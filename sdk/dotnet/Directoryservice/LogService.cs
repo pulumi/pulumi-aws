@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Directoryservice
+namespace Pulumi.Aws.DirectoryService
 {
     /// <summary>
     /// Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.

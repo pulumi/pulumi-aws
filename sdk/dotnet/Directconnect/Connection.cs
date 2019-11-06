@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Directconnect
+namespace Pulumi.Aws.DirectConnect
 {
     /// <summary>
     /// Provides a Connection of Direct Connect.

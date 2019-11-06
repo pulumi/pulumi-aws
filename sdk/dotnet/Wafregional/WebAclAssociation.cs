@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Wafregional
+namespace Pulumi.Aws.WafRegional
 {
     /// <summary>
     /// Manages an association with WAF Regional Web ACL.

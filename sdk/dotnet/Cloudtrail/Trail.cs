@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Cloudtrail
+namespace Pulumi.Aws.CloudTrail
 {
     /// <summary>
     /// Provides a CloudTrail resource.

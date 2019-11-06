@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Lightsail
+namespace Pulumi.Aws.LightSail
 {
     /// <summary>
     /// Provides a Lightsail Key Pair, for use with Lightsail Instances. These key pairs

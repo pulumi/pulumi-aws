@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Cloudwatch
+namespace Pulumi.Aws.CloudWatch
 {
     /// <summary>
     /// Provides a resource to create a CloudWatch Events permission to support cross-account events in the current account default event bus.

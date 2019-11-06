@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Lightsail
+namespace Pulumi.Aws.LightSail
 {
     /// <summary>
     /// Provides a static IP address attachment - relationship between a Lightsail static IP &amp; Lightsail instance.

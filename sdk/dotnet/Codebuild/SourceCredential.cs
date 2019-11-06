@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Codebuild
+namespace Pulumi.Aws.CodeBuild
 {
     /// <summary>
     /// Provides a CodeBuild Source Credentials Resource.

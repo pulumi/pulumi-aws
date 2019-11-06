@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Ec2transitgateway
+namespace Pulumi.Aws.Ec2TransitGateway
 {
     public static partial class Invokes
     {

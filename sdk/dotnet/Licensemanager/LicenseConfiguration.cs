@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Licensemanager
+namespace Pulumi.Aws.LicenseManager
 {
     /// <summary>
     /// Provides a License Manager license configuration resource.

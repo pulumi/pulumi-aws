@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Simpledb
+namespace Pulumi.Aws.SimpleDB
 {
     /// <summary>
     /// Provides a SimpleDB domain resource

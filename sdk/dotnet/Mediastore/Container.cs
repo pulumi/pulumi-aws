@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Mediastore
+namespace Pulumi.Aws.MediaStore
 {
     /// <summary>
     /// Provides a MediaStore Container.

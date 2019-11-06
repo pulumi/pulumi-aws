@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Globalaccelerator
+namespace Pulumi.Aws.GlobalAccelerator
 {
     /// <summary>
     /// Provides a Global Accelerator endpoint group.

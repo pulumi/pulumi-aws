@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Lb
+namespace Pulumi.Aws.LB
 {
     /// <summary>
     /// Provides a Load Balancer Listener Certificate resource.

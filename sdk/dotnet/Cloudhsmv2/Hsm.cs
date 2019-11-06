@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Cloudhsmv2
+namespace Pulumi.Aws.CloudHsmV2
 {
     /// <summary>
     /// Creates an HSM module in Amazon CloudHSM v2 cluster.

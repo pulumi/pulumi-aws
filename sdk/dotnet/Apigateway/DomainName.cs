@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Apigateway
+namespace Pulumi.Aws.ApiGateway
 {
     /// <summary>
     /// Registers a custom domain name for use with AWS API Gateway. Additional information about this functionality

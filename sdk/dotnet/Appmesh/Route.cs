@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Appmesh
+namespace Pulumi.Aws.AppMesh
 {
     /// <summary>
     /// Provides an AWS App Mesh route resource.
