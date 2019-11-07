@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update default `descriptions` for several resources to `Managed by Pulumi`.
-* Add a **preview** .NET SDK.
+_(none)_
 
 ---
+
+## 1.8.0 (2019-11-07)
+* Update default `descriptions` for several resources to `Managed by Pulumi`.
+* Add a **preview** .NET SDK.
 
 ## 1.7.0 (2019-10-17)
 * Upgrade to v2.33.0 of the AWS Terraform Provider
