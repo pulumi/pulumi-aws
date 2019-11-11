@@ -25,12 +25,15 @@ func NewVpcLink(ctx *pulumi.Context,
 	if args == nil {
 		inputs["description"] = nil
 		inputs["name"] = nil
+		inputs["tags"] = nil
 		inputs["targetArn"] = nil
 	} else {
 		inputs["description"] = args.Description
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 		inputs["targetArn"] = args.TargetArn
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:apigateway/vpcLink:VpcLink", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -44,8 +47,10 @@ func GetVpcLink(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *VpcLinkState, opts ...pulumi.ResourceOpt) (*VpcLink, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["description"] = state.Description
 		inputs["name"] = state.Name
+		inputs["tags"] = state.Tags
 		inputs["targetArn"] = state.TargetArn
 	}
 	s, err := ctx.ReadResource("aws:apigateway/vpcLink:VpcLink", name, id, inputs, opts...)
@@ -65,6 +70,10 @@ func (r *VpcLink) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+func (r *VpcLink) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // The description of the VPC link.
 func (r *VpcLink) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
@@ -75,6 +84,11 @@ func (r *VpcLink) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// Key-value mapping of resource tags
+func (r *VpcLink) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 func (r *VpcLink) TargetArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["targetArn"])
@@ -82,10 +96,13 @@ func (r *VpcLink) TargetArn() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering VpcLink resources.
 type VpcLinkState struct {
+	Arn interface{}
 	// The description of the VPC link.
 	Description interface{}
 	// The name used to label and identify the VPC link.
 	Name interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn interface{}
 }
@@ -96,6 +113,8 @@ type VpcLinkArgs struct {
 	Description interface{}
 	// The name used to label and identify the VPC link.
 	Name interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn interface{}
 }

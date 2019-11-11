@@ -111,6 +111,7 @@ const (
 	organizationsMod     = "organizations"     // Organizations
 	pinpointMod          = "pinpoint"          // Pinpoint
 	pricingMod           = "pricing"           // Pricing
+	qldbMod              = "qldb"              // QLDB
 	quicksightMod        = "quicksight"        // Quicksight
 	ramMod               = "ram"               // Resource Access Manager
 	rdsMod               = "rds"               // Relational Database Service (RDS)
@@ -1855,6 +1856,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_servicequotas_service_quota": {Tok: awsResource(servicequotasMod, "ServiceQuota")},
 			// FMS
 			"aws_fms_admin_account": {Tok: awsResource(fmsMod, "AdminAccount")},
+			// QLDB
+			"aws_qldb_ledger": {Tok: awsResource(qldbMod, "Ledger")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
@@ -2061,6 +2064,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_organizations_organization": {Tok: awsDataSource(organizationsMod, "getOrganization")},
 			// ElasticSearch
 			"aws_elasticsearch_domain": {Tok: awsDataSource(elasticsearchMod, "getDomain")},
+			// QLDB
+			"aws_qldb_ledger": {Tok: awsDataSource(qldbMod, "getLedger")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

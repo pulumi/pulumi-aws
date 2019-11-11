@@ -166,6 +166,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
+     * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
+     */
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
      * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -275,6 +279,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["configurationEndpointAddress"] = state ? state.configurationEndpointAddress : undefined;
             inputs["engine"] = state ? state.engine : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
+            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             inputs["memberClusters"] = state ? state.memberClusters : undefined;
             inputs["nodeType"] = state ? state.nodeType : undefined;
@@ -308,6 +313,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["clusterMode"] = args ? args.clusterMode : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
+            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             inputs["nodeType"] = args ? args.nodeType : undefined;
             inputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
@@ -384,6 +390,10 @@ export interface ReplicationGroupState {
      * The version number of the cache engine to be used for the cache clusters in this replication group.
      */
     readonly engineVersion?: pulumi.Input<string>;
+    /**
+     * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
+     */
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
@@ -513,6 +523,10 @@ export interface ReplicationGroupArgs {
      * The version number of the cache engine to be used for the cache clusters in this replication group.
      */
     readonly engineVersion?: pulumi.Input<string>;
+    /**
+     * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
+     */
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).

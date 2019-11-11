@@ -32,6 +32,7 @@ func NewJob(ctx *pulumi.Context,
 		inputs["defaultArguments"] = nil
 		inputs["description"] = nil
 		inputs["executionProperty"] = nil
+		inputs["glueVersion"] = nil
 		inputs["maxCapacity"] = nil
 		inputs["maxRetries"] = nil
 		inputs["name"] = nil
@@ -45,6 +46,7 @@ func NewJob(ctx *pulumi.Context,
 		inputs["defaultArguments"] = args.DefaultArguments
 		inputs["description"] = args.Description
 		inputs["executionProperty"] = args.ExecutionProperty
+		inputs["glueVersion"] = args.GlueVersion
 		inputs["maxCapacity"] = args.MaxCapacity
 		inputs["maxRetries"] = args.MaxRetries
 		inputs["name"] = args.Name
@@ -71,6 +73,7 @@ func GetJob(ctx *pulumi.Context,
 		inputs["defaultArguments"] = state.DefaultArguments
 		inputs["description"] = state.Description
 		inputs["executionProperty"] = state.ExecutionProperty
+		inputs["glueVersion"] = state.GlueVersion
 		inputs["maxCapacity"] = state.MaxCapacity
 		inputs["maxRetries"] = state.MaxRetries
 		inputs["name"] = state.Name
@@ -125,6 +128,11 @@ func (r *Job) ExecutionProperty() *pulumi.Output {
 	return r.s.State["executionProperty"]
 }
 
+// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+func (r *Job) GlueVersion() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["glueVersion"])
+}
+
 // The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
 func (r *Job) MaxCapacity() *pulumi.Float64Output {
 	return (*pulumi.Float64Output)(r.s.State["maxCapacity"])
@@ -169,6 +177,8 @@ type JobState struct {
 	Description interface{}
 	// Execution property of the job. Defined below.
 	ExecutionProperty interface{}
+	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+	GlueVersion interface{}
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
 	MaxCapacity interface{}
 	// The maximum number of times to retry this job if it fails.
@@ -197,6 +207,8 @@ type JobArgs struct {
 	Description interface{}
 	// Execution property of the job. Defined below.
 	ExecutionProperty interface{}
+	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+	GlueVersion interface{}
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
 	MaxCapacity interface{}
 	// The maximum number of times to retry this job if it fails.

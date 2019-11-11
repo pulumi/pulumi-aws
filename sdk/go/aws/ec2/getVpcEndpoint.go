@@ -14,6 +14,7 @@ import (
 func LookupVpcEndpoint(ctx *pulumi.Context, args *GetVpcEndpointArgs) (*GetVpcEndpointResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
+		inputs["filters"] = args.Filters
 		inputs["id"] = args.Id
 		inputs["serviceName"] = args.ServiceName
 		inputs["state"] = args.State
@@ -27,6 +28,7 @@ func LookupVpcEndpoint(ctx *pulumi.Context, args *GetVpcEndpointArgs) (*GetVpcEn
 	return &GetVpcEndpointResult{
 		CidrBlocks: outputs["cidrBlocks"],
 		DnsEntries: outputs["dnsEntries"],
+		Filters: outputs["filters"],
 		Id: outputs["id"],
 		NetworkInterfaceIds: outputs["networkInterfaceIds"],
 		OwnerId: outputs["ownerId"],
@@ -47,12 +49,16 @@ func LookupVpcEndpoint(ctx *pulumi.Context, args *GetVpcEndpointArgs) (*GetVpcEn
 
 // A collection of arguments for invoking getVpcEndpoint.
 type GetVpcEndpointArgs struct {
+	// Custom filter block as described below.
+	Filters interface{}
 	// The ID of the specific VPC Endpoint to retrieve.
 	Id interface{}
 	// The AWS service name of the specific VPC Endpoint to retrieve.
 	ServiceName interface{}
 	// The state of the specific VPC Endpoint to retrieve.
 	State interface{}
+	// A mapping of tags, each pair of which must exactly match
+	// a pair on the specific VPC Endpoint to retrieve.
 	Tags interface{}
 	// The ID of the VPC in which the specific VPC Endpoint is used.
 	VpcId interface{}
@@ -64,6 +70,7 @@ type GetVpcEndpointResult struct {
 	CidrBlocks interface{}
 	// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
 	DnsEntries interface{}
+	Filters interface{}
 	Id interface{}
 	// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
 	NetworkInterfaceIds interface{}
@@ -85,7 +92,6 @@ type GetVpcEndpointResult struct {
 	State interface{}
 	// One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
 	SubnetIds interface{}
-	// A mapping of tags assigned to the resource.
 	Tags interface{}
 	// The VPC Endpoint type, `Gateway` or `Interface`.
 	VpcEndpointType interface{}

@@ -99,6 +99,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         /// </summary>
         [Output("validUserLists")]
@@ -228,6 +234,18 @@ namespace Pulumi.Aws.StorageGateway
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         [Input("validUserLists")]
         private InputList<string>? _validUserLists;
 
@@ -336,6 +354,18 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         [Input("validUserLists")]
         private InputList<string>? _validUserLists;

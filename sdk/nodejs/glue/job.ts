@@ -96,6 +96,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly executionProperty!: pulumi.Output<outputs.glue.JobExecutionProperty>;
     /**
+     * The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     */
+    public readonly glueVersion!: pulumi.Output<string>;
+    /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
      */
     public readonly maxCapacity!: pulumi.Output<number>;
@@ -138,6 +142,7 @@ export class Job extends pulumi.CustomResource {
             inputs["defaultArguments"] = state ? state.defaultArguments : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["executionProperty"] = state ? state.executionProperty : undefined;
+            inputs["glueVersion"] = state ? state.glueVersion : undefined;
             inputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             inputs["maxRetries"] = state ? state.maxRetries : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -158,6 +163,7 @@ export class Job extends pulumi.CustomResource {
             inputs["defaultArguments"] = args ? args.defaultArguments : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["executionProperty"] = args ? args.executionProperty : undefined;
+            inputs["glueVersion"] = args ? args.glueVersion : undefined;
             inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             inputs["maxRetries"] = args ? args.maxRetries : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -204,6 +210,10 @@ export interface JobState {
      * Execution property of the job. Defined below.
      */
     readonly executionProperty?: pulumi.Input<inputs.glue.JobExecutionProperty>;
+    /**
+     * The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     */
+    readonly glueVersion?: pulumi.Input<string>;
     /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
      */
@@ -258,6 +268,10 @@ export interface JobArgs {
      * Execution property of the job. Defined below.
      */
     readonly executionProperty?: pulumi.Input<inputs.glue.JobExecutionProperty>;
+    /**
+     * The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     */
+    readonly glueVersion?: pulumi.Input<string>;
     /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
      */

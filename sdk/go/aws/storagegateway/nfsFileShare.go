@@ -45,6 +45,7 @@ func NewNfsFileShare(ctx *pulumi.Context,
 		inputs["requesterPays"] = nil
 		inputs["roleArn"] = nil
 		inputs["squash"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["clientLists"] = args.ClientLists
 		inputs["defaultStorageClass"] = args.DefaultStorageClass
@@ -59,6 +60,7 @@ func NewNfsFileShare(ctx *pulumi.Context,
 		inputs["requesterPays"] = args.RequesterPays
 		inputs["roleArn"] = args.RoleArn
 		inputs["squash"] = args.Squash
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	inputs["fileshareId"] = nil
@@ -90,6 +92,7 @@ func GetNfsFileShare(ctx *pulumi.Context,
 		inputs["requesterPays"] = state.RequesterPays
 		inputs["roleArn"] = state.RoleArn
 		inputs["squash"] = state.Squash
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:storagegateway/nfsFileShare:NfsFileShare", name, id, inputs, opts...)
 	if err != nil {
@@ -183,6 +186,11 @@ func (r *NfsFileShare) Squash() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["squash"])
 }
 
+// Key-value mapping of resource tags
+func (r *NfsFileShare) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering NfsFileShare resources.
 type NfsFileShareState struct {
 	// Amazon Resource Name (ARN) of the NFS File Share.
@@ -215,6 +223,8 @@ type NfsFileShareState struct {
 	RoleArn interface{}
 	// Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
 	Squash interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a NfsFileShare resource.
@@ -245,4 +255,6 @@ type NfsFileShareArgs struct {
 	RoleArn interface{}
 	// Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
 	Squash interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

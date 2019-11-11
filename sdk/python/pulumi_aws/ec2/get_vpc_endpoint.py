@@ -13,7 +13,7 @@ class GetVpcEndpointResult:
     """
     A collection of values returned by getVpcEndpoint.
     """
-    def __init__(__self__, cidr_blocks=None, dns_entries=None, id=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
+    def __init__(__self__, cidr_blocks=None, dns_entries=None, filters=None, id=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
         if cidr_blocks and not isinstance(cidr_blocks, list):
             raise TypeError("Expected argument 'cidr_blocks' to be a list")
         __self__.cidr_blocks = cidr_blocks
@@ -26,6 +26,9 @@ class GetVpcEndpointResult:
         """
         The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         """
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        __self__.filters = filters
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -92,9 +95,6 @@ class GetVpcEndpointResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
-        """
-        A mapping of tags assigned to the resource.
-        """
         if vpc_endpoint_type and not isinstance(vpc_endpoint_type, str):
             raise TypeError("Expected argument 'vpc_endpoint_type' to be a str")
         __self__.vpc_endpoint_type = vpc_endpoint_type
@@ -112,6 +112,7 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
         return GetVpcEndpointResult(
             cidr_blocks=self.cidr_blocks,
             dns_entries=self.dns_entries,
+            filters=self.filters,
             id=self.id,
             network_interface_ids=self.network_interface_ids,
             owner_id=self.owner_id,
@@ -128,20 +129,31 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
             vpc_endpoint_type=self.vpc_endpoint_type,
             vpc_id=self.vpc_id)
 
-def get_vpc_endpoint(id=None,service_name=None,state=None,tags=None,vpc_id=None,opts=None):
+def get_vpc_endpoint(filters=None,id=None,service_name=None,state=None,tags=None,vpc_id=None,opts=None):
     """
     The VPC Endpoint data source provides details about
     a specific VPC endpoint.
     
+    :param list filters: Custom filter block as described below.
     :param str id: The ID of the specific VPC Endpoint to retrieve.
     :param str service_name: The AWS service name of the specific VPC Endpoint to retrieve.
     :param str state: The state of the specific VPC Endpoint to retrieve.
+    :param dict tags: A mapping of tags, each pair of which must exactly match
+           a pair on the specific VPC Endpoint to retrieve.
     :param str vpc_id: The ID of the VPC in which the specific VPC Endpoint is used.
+    
+    The **filters** object supports the following:
+    
+      * `name` (`str`) - The name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+      * `values` (`list`) - Set of values that are accepted for the given field.
+        A VPC Endpoint will be selected if any one of the given values matches.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
     """
     __args__ = dict()
 
+    __args__['filters'] = filters
     __args__['id'] = id
     __args__['serviceName'] = service_name
     __args__['state'] = state
@@ -156,6 +168,7 @@ def get_vpc_endpoint(id=None,service_name=None,state=None,tags=None,vpc_id=None,
     return AwaitableGetVpcEndpointResult(
         cidr_blocks=__ret__.get('cidrBlocks'),
         dns_entries=__ret__.get('dnsEntries'),
+        filters=__ret__.get('filters'),
         id=__ret__.get('id'),
         network_interface_ids=__ret__.get('networkInterfaceIds'),
         owner_id=__ret__.get('ownerId'),

@@ -21,7 +21,7 @@ namespace Pulumi.Aws.WafRegional
     public sealed class GetWebAclArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the WAF Web ACL.
+        /// The name of the WAF Regional Web ACL.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

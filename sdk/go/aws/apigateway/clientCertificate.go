@@ -20,9 +20,12 @@ func NewClientCertificate(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["description"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["description"] = args.Description
+		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	inputs["createdDate"] = nil
 	inputs["expirationDate"] = nil
 	inputs["pemEncodedCertificate"] = nil
@@ -39,10 +42,12 @@ func GetClientCertificate(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ClientCertificateState, opts ...pulumi.ResourceOpt) (*ClientCertificate, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["createdDate"] = state.CreatedDate
 		inputs["description"] = state.Description
 		inputs["expirationDate"] = state.ExpirationDate
 		inputs["pemEncodedCertificate"] = state.PemEncodedCertificate
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:apigateway/clientCertificate:ClientCertificate", name, id, inputs, opts...)
 	if err != nil {
@@ -59,6 +64,11 @@ func (r *ClientCertificate) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *ClientCertificate) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// Amazon Resource Name (ARN)
+func (r *ClientCertificate) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The date when the client certificate was created.
@@ -81,8 +91,15 @@ func (r *ClientCertificate) PemEncodedCertificate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["pemEncodedCertificate"])
 }
 
+// Key-value mapping of resource tags
+func (r *ClientCertificate) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering ClientCertificate resources.
 type ClientCertificateState struct {
+	// Amazon Resource Name (ARN)
+	Arn interface{}
 	// The date when the client certificate was created.
 	CreatedDate interface{}
 	// The description of the client certificate.
@@ -91,10 +108,14 @@ type ClientCertificateState struct {
 	ExpirationDate interface{}
 	// The PEM-encoded public key of the client certificate.
 	PemEncodedCertificate interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a ClientCertificate resource.
 type ClientCertificateArgs struct {
 	// The description of the client certificate.
 	Description interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

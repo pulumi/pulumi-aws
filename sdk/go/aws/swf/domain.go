@@ -26,13 +26,16 @@ func NewDomain(ctx *pulumi.Context,
 		inputs["description"] = nil
 		inputs["name"] = nil
 		inputs["namePrefix"] = nil
+		inputs["tags"] = nil
 		inputs["workflowExecutionRetentionPeriodInDays"] = nil
 	} else {
 		inputs["description"] = args.Description
 		inputs["name"] = args.Name
 		inputs["namePrefix"] = args.NamePrefix
+		inputs["tags"] = args.Tags
 		inputs["workflowExecutionRetentionPeriodInDays"] = args.WorkflowExecutionRetentionPeriodInDays
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:swf/domain:Domain", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -46,9 +49,11 @@ func GetDomain(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *DomainState, opts ...pulumi.ResourceOpt) (*Domain, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["description"] = state.Description
 		inputs["name"] = state.Name
 		inputs["namePrefix"] = state.NamePrefix
+		inputs["tags"] = state.Tags
 		inputs["workflowExecutionRetentionPeriodInDays"] = state.WorkflowExecutionRetentionPeriodInDays
 	}
 	s, err := ctx.ReadResource("aws:swf/domain:Domain", name, id, inputs, opts...)
@@ -68,6 +73,11 @@ func (r *Domain) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// Amazon Resource Name (ARN)
+func (r *Domain) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // The domain description.
 func (r *Domain) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
@@ -83,6 +93,11 @@ func (r *Domain) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
+// Key-value mapping of resource tags
+func (r *Domain) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
 func (r *Domain) WorkflowExecutionRetentionPeriodInDays() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["workflowExecutionRetentionPeriodInDays"])
@@ -90,12 +105,16 @@ func (r *Domain) WorkflowExecutionRetentionPeriodInDays() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Domain resources.
 type DomainState struct {
+	// Amazon Resource Name (ARN)
+	Arn interface{}
 	// The domain description.
 	Description interface{}
 	// The name of the domain. If omitted, this provider will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
 	WorkflowExecutionRetentionPeriodInDays interface{}
 }
@@ -108,6 +127,8 @@ type DomainArgs struct {
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
 	WorkflowExecutionRetentionPeriodInDays interface{}
 }

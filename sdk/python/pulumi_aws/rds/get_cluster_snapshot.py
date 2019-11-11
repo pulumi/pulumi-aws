@@ -13,7 +13,7 @@ class GetClusterSnapshotResult:
     """
     A collection of values returned by getClusterSnapshot.
     """
-    def __init__(__self__, allocated_storage=None, availability_zones=None, db_cluster_identifier=None, db_cluster_snapshot_arn=None, db_cluster_snapshot_identifier=None, engine=None, engine_version=None, include_public=None, include_shared=None, kms_key_id=None, license_model=None, most_recent=None, port=None, snapshot_create_time=None, snapshot_type=None, source_db_cluster_snapshot_arn=None, status=None, storage_encrypted=None, vpc_id=None, id=None):
+    def __init__(__self__, allocated_storage=None, availability_zones=None, db_cluster_identifier=None, db_cluster_snapshot_arn=None, db_cluster_snapshot_identifier=None, engine=None, engine_version=None, include_public=None, include_shared=None, kms_key_id=None, license_model=None, most_recent=None, port=None, snapshot_create_time=None, snapshot_type=None, source_db_cluster_snapshot_arn=None, status=None, storage_encrypted=None, tags=None, vpc_id=None, id=None):
         if allocated_storage and not isinstance(allocated_storage, float):
             raise TypeError("Expected argument 'allocated_storage' to be a float")
         __self__.allocated_storage = allocated_storage
@@ -104,6 +104,12 @@ class GetClusterSnapshotResult:
         """
         Specifies whether the DB cluster snapshot is encrypted.
         """
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        __self__.tags = tags
+        """
+        A mapping of tags for the resource.
+        """
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
@@ -140,10 +146,11 @@ class AwaitableGetClusterSnapshotResult(GetClusterSnapshotResult):
             source_db_cluster_snapshot_arn=self.source_db_cluster_snapshot_arn,
             status=self.status,
             storage_encrypted=self.storage_encrypted,
+            tags=self.tags,
             vpc_id=self.vpc_id,
             id=self.id)
 
-def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifier=None,include_public=None,include_shared=None,most_recent=None,snapshot_type=None,opts=None):
+def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifier=None,include_public=None,include_shared=None,most_recent=None,snapshot_type=None,tags=None,opts=None):
     """
     Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
     
@@ -172,6 +179,7 @@ def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifi
     __args__['includeShared'] = include_shared
     __args__['mostRecent'] = most_recent
     __args__['snapshotType'] = snapshot_type
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -197,5 +205,6 @@ def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifi
         source_db_cluster_snapshot_arn=__ret__.get('sourceDbClusterSnapshotArn'),
         status=__ret__.get('status'),
         storage_encrypted=__ret__.get('storageEncrypted'),
+        tags=__ret__.get('tags'),
         vpc_id=__ret__.get('vpcId'),
         id=__ret__.get('id'))

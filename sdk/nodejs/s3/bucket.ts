@@ -261,9 +261,9 @@ import {RoutingRule} from "./routingRules";
  * }
  * `,
  * });
- * const replicationPolicyAttachment = new aws.iam.PolicyAttachment("replication", {
+ * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replication", {
  *     policyArn: replicationPolicy.arn,
- *     roles: [replicationRole.name],
+ *     role: replicationRole.name,
  * });
  * ```
  * 

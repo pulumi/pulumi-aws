@@ -143,7 +143,7 @@ import * as utilities from "../utilities";
  *     vpcConfig: {
  *         securityGroupIds: [
  *             aws_security_group_example1.id,
- *             aws_security_gorup_example2.id,
+ *             aws_security_group_example2.id,
  *         ],
  *         subnets: [
  *             aws_subnet_example1.id,

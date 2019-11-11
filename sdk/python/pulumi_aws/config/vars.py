@@ -24,6 +24,16 @@ endpoints = __config__.get('endpoints')
 
 forbidden_account_ids = __config__.get('forbiddenAccountIds')
 
+ignore_tag_prefixes = __config__.get('ignoreTagPrefixes')
+"""
+Resource tag key prefixes to ignore across all resources.
+"""
+
+ignore_tags = __config__.get('ignoreTags')
+"""
+Resource tag keys to ignore across all resources.
+"""
+
 insecure = __config__.get('insecure')
 """
 Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`

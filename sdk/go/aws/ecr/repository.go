@@ -19,10 +19,12 @@ func NewRepository(ctx *pulumi.Context,
 	name string, args *RepositoryArgs, opts ...pulumi.ResourceOpt) (*Repository, error) {
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["imageScanningConfiguration"] = nil
 		inputs["imageTagMutability"] = nil
 		inputs["name"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["imageScanningConfiguration"] = args.ImageScanningConfiguration
 		inputs["imageTagMutability"] = args.ImageTagMutability
 		inputs["name"] = args.Name
 		inputs["tags"] = args.Tags
@@ -44,6 +46,7 @@ func GetRepository(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["arn"] = state.Arn
+		inputs["imageScanningConfiguration"] = state.ImageScanningConfiguration
 		inputs["imageTagMutability"] = state.ImageTagMutability
 		inputs["name"] = state.Name
 		inputs["registryId"] = state.RegistryId
@@ -70,6 +73,11 @@ func (r *Repository) ID() *pulumi.IDOutput {
 // Full ARN of the repository.
 func (r *Repository) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
+// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+func (r *Repository) ImageScanningConfiguration() *pulumi.Output {
+	return r.s.State["imageScanningConfiguration"]
 }
 
 // The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
@@ -101,6 +109,8 @@ func (r *Repository) Tags() *pulumi.MapOutput {
 type RepositoryState struct {
 	// Full ARN of the repository.
 	Arn interface{}
+	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+	ImageScanningConfiguration interface{}
 	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
 	ImageTagMutability interface{}
 	// Name of the repository.
@@ -115,6 +125,8 @@ type RepositoryState struct {
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
+	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+	ImageScanningConfiguration interface{}
 	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
 	ImageTagMutability interface{}
 	// Name of the repository.

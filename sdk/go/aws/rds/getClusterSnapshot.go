@@ -22,6 +22,7 @@ func LookupClusterSnapshot(ctx *pulumi.Context, args *GetClusterSnapshotArgs) (*
 		inputs["includeShared"] = args.IncludeShared
 		inputs["mostRecent"] = args.MostRecent
 		inputs["snapshotType"] = args.SnapshotType
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", inputs)
 	if err != nil {
@@ -46,6 +47,7 @@ func LookupClusterSnapshot(ctx *pulumi.Context, args *GetClusterSnapshotArgs) (*
 		SourceDbClusterSnapshotArn: outputs["sourceDbClusterSnapshotArn"],
 		Status: outputs["status"],
 		StorageEncrypted: outputs["storageEncrypted"],
+		Tags: outputs["tags"],
 		VpcId: outputs["vpcId"],
 		Id: outputs["id"],
 	}, nil
@@ -70,6 +72,7 @@ type GetClusterSnapshotArgs struct {
 	// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared` and `public`.
 	SnapshotType interface{}
+	Tags interface{}
 }
 
 // A collection of values returned by getClusterSnapshot.
@@ -104,6 +107,8 @@ type GetClusterSnapshotResult struct {
 	Status interface{}
 	// Specifies whether the DB cluster snapshot is encrypted.
 	StorageEncrypted interface{}
+	// A mapping of tags for the resource.
+	Tags interface{}
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId interface{}
 	// id is the provider-assigned unique ID for this managed resource.

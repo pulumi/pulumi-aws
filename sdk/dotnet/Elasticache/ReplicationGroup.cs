@@ -85,6 +85,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
+        /// </summary>
+        [Output("kmsKeyId")]
+        public Output<string?> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the weekly time range for when maintenance
         /// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
         /// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -316,6 +322,12 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
+        /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
         /// Specifies the weekly time range for when maintenance
         /// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
         /// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -524,6 +536,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// Specifies the weekly time range for when maintenance

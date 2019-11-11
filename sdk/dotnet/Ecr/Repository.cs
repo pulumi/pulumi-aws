@@ -21,6 +21,12 @@ namespace Pulumi.Aws.Ecr
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+        /// </summary>
+        [Output("imageScanningConfiguration")]
+        public Output<Outputs.RepositoryImageScanningConfiguration?> ImageScanningConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         /// </summary>
         [Output("imageTagMutability")]
@@ -97,6 +103,12 @@ namespace Pulumi.Aws.Ecr
     public sealed class RepositoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+        /// </summary>
+        [Input("imageScanningConfiguration")]
+        public Input<Inputs.RepositoryImageScanningConfigurationArgs>? ImageScanningConfiguration { get; set; }
+
+        /// <summary>
         /// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         /// </summary>
         [Input("imageTagMutability")]
@@ -132,6 +144,12 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+        /// </summary>
+        [Input("imageScanningConfiguration")]
+        public Input<Inputs.RepositoryImageScanningConfigurationGetArgs>? ImageScanningConfiguration { get; set; }
 
         /// <summary>
         /// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
@@ -172,5 +190,54 @@ namespace Pulumi.Aws.Ecr
         public RepositoryState()
         {
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class RepositoryImageScanningConfigurationArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
+        /// </summary>
+        [Input("scanOnPush", required: true)]
+        public Input<bool> ScanOnPush { get; set; } = null!;
+
+        public RepositoryImageScanningConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class RepositoryImageScanningConfigurationGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
+        /// </summary>
+        [Input("scanOnPush", required: true)]
+        public Input<bool> ScanOnPush { get; set; } = null!;
+
+        public RepositoryImageScanningConfigurationGetArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class RepositoryImageScanningConfiguration
+    {
+        /// <summary>
+        /// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
+        /// </summary>
+        public readonly bool ScanOnPush;
+
+        [OutputConstructor]
+        private RepositoryImageScanningConfiguration(bool scanOnPush)
+        {
+            ScanOnPush = scanOnPush;
+        }
+    }
     }
 }

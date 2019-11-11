@@ -10,6 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 class VpcLink(pulumi.CustomResource):
+    arn: pulumi.Output[str]
     description: pulumi.Output[str]
     """
     The description of the VPC link.
@@ -18,11 +19,15 @@ class VpcLink(pulumi.CustomResource):
     """
     The name used to label and identify the VPC link.
     """
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
     target_arn: pulumi.Output[str]
     """
     The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, name=None, target_arn=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, name=None, tags=None, target_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway VPC Link.
         
@@ -30,6 +35,7 @@ class VpcLink(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the VPC link.
         :param pulumi.Input[str] name: The name used to label and identify the VPC link.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] target_arn: The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_vpc_link.html.markdown.
@@ -53,9 +59,11 @@ class VpcLink(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['name'] = name
+            __props__['tags'] = tags
             if target_arn is None:
                 raise TypeError("Missing required property 'target_arn'")
             __props__['target_arn'] = target_arn
+            __props__['arn'] = None
         super(VpcLink, __self__).__init__(
             'aws:apigateway/vpcLink:VpcLink',
             resource_name,
@@ -63,7 +71,7 @@ class VpcLink(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, name=None, target_arn=None):
+    def get(resource_name, id, opts=None, arn=None, description=None, name=None, tags=None, target_arn=None):
         """
         Get an existing VpcLink resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -73,6 +81,7 @@ class VpcLink(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the VPC link.
         :param pulumi.Input[str] name: The name used to label and identify the VPC link.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] target_arn: The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_vpc_link.html.markdown.
@@ -80,8 +89,10 @@ class VpcLink(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["arn"] = arn
         __props__["description"] = description
         __props__["name"] = name
+        __props__["tags"] = tags
         __props__["target_arn"] = target_arn
         return VpcLink(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

@@ -27,7 +27,7 @@ func LookupWebAcl(ctx *pulumi.Context, args *GetWebAclArgs) (*GetWebAclResult, e
 
 // A collection of arguments for invoking getWebAcl.
 type GetWebAclArgs struct {
-	// The name of the WAF Web ACL.
+	// The name of the WAF Regional Web ACL.
 	Name interface{}
 }
 

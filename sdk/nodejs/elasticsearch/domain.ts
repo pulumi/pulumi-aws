@@ -126,7 +126,7 @@ import {PolicyDocument} from "../iam/documents";
  * const esSecurityGroup = new aws.ec2.SecurityGroup("es", {
  *     description: "Managed by Pulumi",
  *     ingress: [{
- *         cidrBlocks: [selectedVpc.cidrBlocks],
+ *         cidrBlocks: [selectedVpc.cidrBlock!],
  *         fromPort: 443,
  *         protocol: "tcp",
  *         toPort: 443,

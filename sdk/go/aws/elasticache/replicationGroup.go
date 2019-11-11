@@ -42,6 +42,7 @@ func NewReplicationGroup(ctx *pulumi.Context,
 		inputs["clusterMode"] = nil
 		inputs["engine"] = nil
 		inputs["engineVersion"] = nil
+		inputs["kmsKeyId"] = nil
 		inputs["maintenanceWindow"] = nil
 		inputs["nodeType"] = nil
 		inputs["notificationTopicArn"] = nil
@@ -69,6 +70,7 @@ func NewReplicationGroup(ctx *pulumi.Context,
 		inputs["clusterMode"] = args.ClusterMode
 		inputs["engine"] = args.Engine
 		inputs["engineVersion"] = args.EngineVersion
+		inputs["kmsKeyId"] = args.KmsKeyId
 		inputs["maintenanceWindow"] = args.MaintenanceWindow
 		inputs["nodeType"] = args.NodeType
 		inputs["notificationTopicArn"] = args.NotificationTopicArn
@@ -113,6 +115,7 @@ func GetReplicationGroup(ctx *pulumi.Context,
 		inputs["configurationEndpointAddress"] = state.ConfigurationEndpointAddress
 		inputs["engine"] = state.Engine
 		inputs["engineVersion"] = state.EngineVersion
+		inputs["kmsKeyId"] = state.KmsKeyId
 		inputs["maintenanceWindow"] = state.MaintenanceWindow
 		inputs["memberClusters"] = state.MemberClusters
 		inputs["nodeType"] = state.NodeType
@@ -198,6 +201,11 @@ func (r *ReplicationGroup) Engine() *pulumi.StringOutput {
 // The version number of the cache engine to be used for the cache clusters in this replication group.
 func (r *ReplicationGroup) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
+}
+
+// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
+func (r *ReplicationGroup) KmsKeyId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // Specifies the weekly time range for when maintenance
@@ -328,6 +336,8 @@ type ReplicationGroupState struct {
 	Engine interface{}
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion interface{}
+	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
+	KmsKeyId interface{}
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -399,6 +409,8 @@ type ReplicationGroupArgs struct {
 	Engine interface{}
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
 	EngineVersion interface{}
+	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
+	KmsKeyId interface{}
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`

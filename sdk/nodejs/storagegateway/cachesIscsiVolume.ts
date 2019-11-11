@@ -121,6 +121,10 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      */
     public readonly sourceVolumeArn!: pulumi.Output<string | undefined>;
     /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
     public /*out*/ readonly targetArn!: pulumi.Output<string>;
@@ -161,6 +165,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             inputs["networkInterfacePort"] = state ? state.networkInterfacePort : undefined;
             inputs["snapshotId"] = state ? state.snapshotId : undefined;
             inputs["sourceVolumeArn"] = state ? state.sourceVolumeArn : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["targetArn"] = state ? state.targetArn : undefined;
             inputs["targetName"] = state ? state.targetName : undefined;
             inputs["volumeArn"] = state ? state.volumeArn : undefined;
@@ -184,6 +189,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
             inputs["sourceVolumeArn"] = args ? args.sourceVolumeArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["targetName"] = args ? args.targetName : undefined;
             inputs["volumeSizeInBytes"] = args ? args.volumeSizeInBytes : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -242,6 +248,10 @@ export interface CachesIscsiVolumeState {
      */
     readonly sourceVolumeArn?: pulumi.Input<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
     readonly targetArn?: pulumi.Input<string>;
@@ -283,6 +293,10 @@ export interface CachesIscsiVolumeArgs {
      * The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
      */
     readonly sourceVolumeArn?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      */

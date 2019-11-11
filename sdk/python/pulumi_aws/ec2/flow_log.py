@@ -26,6 +26,10 @@ class FlowLog(pulumi.CustomResource):
     """
     The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
     """
+    log_format: pulumi.Output[str]
+    """
+    The fields to include in the flow log record, in the order in which they should appear.
+    """
     log_group_name: pulumi.Output[str]
     """
     *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
@@ -42,7 +46,7 @@ class FlowLog(pulumi.CustomResource):
     """
     VPC ID to attach to
     """
-    def __init__(__self__, resource_name, opts=None, eni_id=None, iam_role_arn=None, log_destination=None, log_destination_type=None, log_group_name=None, subnet_id=None, traffic_type=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, eni_id=None, iam_role_arn=None, log_destination=None, log_destination_type=None, log_format=None, log_group_name=None, subnet_id=None, traffic_type=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
         interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
@@ -53,6 +57,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+        :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
         :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
@@ -81,6 +86,7 @@ class FlowLog(pulumi.CustomResource):
             __props__['iam_role_arn'] = iam_role_arn
             __props__['log_destination'] = log_destination
             __props__['log_destination_type'] = log_destination_type
+            __props__['log_format'] = log_format
             __props__['log_group_name'] = log_group_name
             __props__['subnet_id'] = subnet_id
             if traffic_type is None:
@@ -94,7 +100,7 @@ class FlowLog(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, eni_id=None, iam_role_arn=None, log_destination=None, log_destination_type=None, log_group_name=None, subnet_id=None, traffic_type=None, vpc_id=None):
+    def get(resource_name, id, opts=None, eni_id=None, iam_role_arn=None, log_destination=None, log_destination_type=None, log_format=None, log_group_name=None, subnet_id=None, traffic_type=None, vpc_id=None):
         """
         Get an existing FlowLog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -106,6 +112,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+        :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
         :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
@@ -120,6 +127,7 @@ class FlowLog(pulumi.CustomResource):
         __props__["iam_role_arn"] = iam_role_arn
         __props__["log_destination"] = log_destination
         __props__["log_destination_type"] = log_destination_type
+        __props__["log_format"] = log_format
         __props__["log_group_name"] = log_group_name
         __props__["subnet_id"] = subnet_id
         __props__["traffic_type"] = traffic_type

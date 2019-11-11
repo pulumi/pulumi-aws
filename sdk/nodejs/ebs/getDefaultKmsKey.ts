@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     encrypted: true,
- *     kmsKeyId: current.keyId,
+ *     kmsKeyId: current.keyArn,
  * });
  * ```
  *

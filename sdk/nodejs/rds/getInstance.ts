@@ -32,6 +32,7 @@ export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions):
     }
     const promise: Promise<GetInstanceResult> = pulumi.runtime.invoke("aws:rds/getInstance:getInstance", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
+        "tags": args.tags,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -45,6 +46,7 @@ export interface GetInstanceArgs {
      * The name of the RDS instance
      */
     readonly dbInstanceIdentifier: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -192,6 +194,7 @@ export interface GetInstanceResult {
      * Specifies the storage type associated with DB instance.
      */
     readonly storageType: string;
+    readonly tags: {[key: string]: any};
     /**
      * The time zone of the DB instance.
      */

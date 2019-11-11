@@ -102,7 +102,7 @@ class AwaitableGetStackResult(GetStackResult):
             timeout_in_minutes=self.timeout_in_minutes,
             id=self.id)
 
-def get_stack(name=None,opts=None):
+def get_stack(name=None,tags=None,opts=None):
     """
     The CloudFormation Stack data source allows access to stack
     outputs and other useful data including the template body.
@@ -114,6 +114,7 @@ def get_stack(name=None,opts=None):
     __args__ = dict()
 
     __args__['name'] = name
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

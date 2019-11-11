@@ -51,6 +51,12 @@ namespace Pulumi.Aws.Glue
         public Output<Outputs.JobExecutionProperty> ExecutionProperty { get; private set; } = null!;
 
         /// <summary>
+        /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        /// </summary>
+        [Output("glueVersion")]
+        public Output<string> GlueVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
         /// </summary>
         [Output("maxCapacity")]
@@ -181,6 +187,12 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.JobExecutionPropertyArgs>? ExecutionProperty { get; set; }
 
         /// <summary>
+        /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        /// </summary>
+        [Input("glueVersion")]
+        public Input<string>? GlueVersion { get; set; }
+
+        /// <summary>
         /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
         /// </summary>
         [Input("maxCapacity")]
@@ -270,6 +282,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("executionProperty")]
         public Input<Inputs.JobExecutionPropertyGetArgs>? ExecutionProperty { get; set; }
+
+        /// <summary>
+        /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        /// </summary>
+        [Input("glueVersion")]
+        public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
         /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.

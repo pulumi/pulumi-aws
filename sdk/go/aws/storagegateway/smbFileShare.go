@@ -41,6 +41,7 @@ func NewSmbFileShare(ctx *pulumi.Context,
 		inputs["readOnly"] = nil
 		inputs["requesterPays"] = nil
 		inputs["roleArn"] = nil
+		inputs["tags"] = nil
 		inputs["validUserLists"] = nil
 	} else {
 		inputs["authentication"] = args.Authentication
@@ -55,6 +56,7 @@ func NewSmbFileShare(ctx *pulumi.Context,
 		inputs["readOnly"] = args.ReadOnly
 		inputs["requesterPays"] = args.RequesterPays
 		inputs["roleArn"] = args.RoleArn
+		inputs["tags"] = args.Tags
 		inputs["validUserLists"] = args.ValidUserLists
 	}
 	inputs["arn"] = nil
@@ -86,6 +88,7 @@ func GetSmbFileShare(ctx *pulumi.Context,
 		inputs["readOnly"] = state.ReadOnly
 		inputs["requesterPays"] = state.RequesterPays
 		inputs["roleArn"] = state.RoleArn
+		inputs["tags"] = state.Tags
 		inputs["validUserLists"] = state.ValidUserLists
 	}
 	s, err := ctx.ReadResource("aws:storagegateway/smbFileShare:SmbFileShare", name, id, inputs, opts...)
@@ -175,6 +178,11 @@ func (r *SmbFileShare) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
+// Key-value mapping of resource tags
+func (r *SmbFileShare) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 func (r *SmbFileShare) ValidUserLists() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["validUserLists"])
@@ -210,6 +218,8 @@ type SmbFileShareState struct {
 	RequesterPays interface{}
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
 	RoleArn interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists interface{}
 }
@@ -240,6 +250,8 @@ type SmbFileShareArgs struct {
 	RequesterPays interface{}
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
 	RoleArn interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists interface{}
 }

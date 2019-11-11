@@ -112,6 +112,10 @@ export class NfsFileShare extends pulumi.CustomResource {
      * Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
      */
     public readonly squash!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a NfsFileShare resource with the given unique name, arguments, and options.
@@ -140,6 +144,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             inputs["requesterPays"] = state ? state.requesterPays : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["squash"] = state ? state.squash : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as NfsFileShareArgs | undefined;
             if (!args || args.clientLists === undefined) {
@@ -167,6 +172,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             inputs["requesterPays"] = args ? args.requesterPays : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["squash"] = args ? args.squash : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["fileshareId"] = undefined /*out*/;
         }
@@ -245,6 +251,10 @@ export interface NfsFileShareState {
      * Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
      */
     readonly squash?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -303,4 +313,8 @@ export interface NfsFileShareArgs {
      * Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
      */
     readonly squash?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

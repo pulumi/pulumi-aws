@@ -51,6 +51,10 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN)
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The domain description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -62,6 +66,10 @@ export class Domain extends pulumi.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
      */
@@ -79,9 +87,11 @@ export class Domain extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DomainState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["workflowExecutionRetentionPeriodInDays"] = state ? state.workflowExecutionRetentionPeriodInDays : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
@@ -91,7 +101,9 @@ export class Domain extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["workflowExecutionRetentionPeriodInDays"] = args ? args.workflowExecutionRetentionPeriodInDays : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -109,6 +121,10 @@ export class Domain extends pulumi.CustomResource {
  */
 export interface DomainState {
     /**
+     * Amazon Resource Name (ARN)
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The domain description.
      */
     readonly description?: pulumi.Input<string>;
@@ -120,6 +136,10 @@ export interface DomainState {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
      */
@@ -142,6 +162,10 @@ export interface DomainArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
      */

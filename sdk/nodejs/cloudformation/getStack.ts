@@ -39,6 +39,7 @@ export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promi
     }
     const promise: Promise<GetStackResult> = pulumi.runtime.invoke("aws:cloudformation/getStack:getStack", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -52,6 +53,7 @@ export interface GetStackArgs {
      * The name of the stack
      */
     readonly name: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**

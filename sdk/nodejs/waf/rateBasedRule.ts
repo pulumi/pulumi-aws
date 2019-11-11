@@ -63,6 +63,10 @@ export class RateBasedRule extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN)
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */
     public readonly metricName!: pulumi.Output<string>;
@@ -82,6 +86,10 @@ export class RateBasedRule extends pulumi.CustomResource {
      * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
      */
     public readonly rateLimit!: pulumi.Output<number>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a RateBasedRule resource with the given unique name, arguments, and options.
@@ -95,11 +103,13 @@ export class RateBasedRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as RateBasedRuleState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["metricName"] = state ? state.metricName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["predicates"] = state ? state.predicates : undefined;
             inputs["rateKey"] = state ? state.rateKey : undefined;
             inputs["rateLimit"] = state ? state.rateLimit : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RateBasedRuleArgs | undefined;
             if (!args || args.metricName === undefined) {
@@ -116,6 +126,8 @@ export class RateBasedRule extends pulumi.CustomResource {
             inputs["predicates"] = args ? args.predicates : undefined;
             inputs["rateKey"] = args ? args.rateKey : undefined;
             inputs["rateLimit"] = args ? args.rateLimit : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -132,6 +144,10 @@ export class RateBasedRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RateBasedRule resources.
  */
 export interface RateBasedRuleState {
+    /**
+     * Amazon Resource Name (ARN)
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */
@@ -152,6 +168,10 @@ export interface RateBasedRuleState {
      * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
      */
     readonly rateLimit?: pulumi.Input<number>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -178,4 +198,8 @@ export interface RateBasedRuleArgs {
      * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
      */
     readonly rateLimit: pulumi.Input<number>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

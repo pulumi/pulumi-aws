@@ -27,6 +27,14 @@ namespace Pulumi.Aws.CloudFormation
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public GetStackArgs()
         {
         }

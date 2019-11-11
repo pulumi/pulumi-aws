@@ -13,7 +13,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_type=None, timezone=None, vpc_security_groups=None, id=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None, id=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         __self__.address = address
@@ -227,6 +227,9 @@ class GetInstanceResult:
         """
         Specifies the storage type associated with DB instance.
         """
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        __self__.tags = tags
         if timezone and not isinstance(timezone, str):
             raise TypeError("Expected argument 'timezone' to be a str")
         __self__.timezone = timezone
@@ -287,11 +290,12 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             resource_id=self.resource_id,
             storage_encrypted=self.storage_encrypted,
             storage_type=self.storage_type,
+            tags=self.tags,
             timezone=self.timezone,
             vpc_security_groups=self.vpc_security_groups,
             id=self.id)
 
-def get_instance(db_instance_identifier=None,opts=None):
+def get_instance(db_instance_identifier=None,tags=None,opts=None):
     """
     Use this data source to get information about an RDS instance
     
@@ -302,6 +306,7 @@ def get_instance(db_instance_identifier=None,opts=None):
     __args__ = dict()
 
     __args__['dbInstanceIdentifier'] = db_instance_identifier
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -345,6 +350,7 @@ def get_instance(db_instance_identifier=None,opts=None):
         resource_id=__ret__.get('resourceId'),
         storage_encrypted=__ret__.get('storageEncrypted'),
         storage_type=__ret__.get('storageType'),
+        tags=__ret__.get('tags'),
         timezone=__ret__.get('timezone'),
         vpc_security_groups=__ret__.get('vpcSecurityGroups'),
         id=__ret__.get('id'))

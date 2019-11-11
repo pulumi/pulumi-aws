@@ -34,7 +34,7 @@ class AwaitableGetWebAclResult(GetWebAclResult):
 
 def get_web_acl(name=None,opts=None):
     """
-    `waf.Rule` Retrieves a WAF Web ACL Resource Id.
+    `waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
     
     :param str name: The name of the WAF Web ACL.
 

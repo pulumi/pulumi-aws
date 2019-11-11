@@ -24,6 +24,16 @@ namespace Pulumi.Aws.Config
         public static ImmutableArray<string> ForbiddenAccountIds { get; set; } = __config.GetObject<ImmutableArray<string>>("forbiddenAccountIds");
 
         /// <summary>
+        /// Resource tag key prefixes to ignore across all resources.
+        /// </summary>
+        public static ImmutableArray<string> IgnoreTagPrefixes { get; set; } = __config.GetObject<ImmutableArray<string>>("ignoreTagPrefixes");
+
+        /// <summary>
+        /// Resource tag keys to ignore across all resources.
+        /// </summary>
+        public static ImmutableArray<string> IgnoreTags { get; set; } = __config.GetObject<ImmutableArray<string>>("ignoreTags");
+
+        /// <summary>
         /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
         /// </summary>
         public static bool? Insecure { get; set; } = __config.GetBoolean("insecure");

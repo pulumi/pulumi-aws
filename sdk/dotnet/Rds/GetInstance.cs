@@ -26,6 +26,14 @@ namespace Pulumi.Aws.Rds
         [Input("dbInstanceIdentifier", required: true)]
         public Input<string> DbInstanceIdentifier { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public GetInstanceArgs()
         {
         }
@@ -175,6 +183,7 @@ namespace Pulumi.Aws.Rds
         /// Specifies the storage type associated with DB instance.
         /// </summary>
         public readonly string StorageType;
+        public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>
         /// The time zone of the DB instance.
         /// </summary>
@@ -226,6 +235,7 @@ namespace Pulumi.Aws.Rds
             string resourceId,
             bool storageEncrypted,
             string storageType,
+            ImmutableDictionary<string, object> tags,
             string timezone,
             ImmutableArray<string> vpcSecurityGroups,
             string id)
@@ -266,6 +276,7 @@ namespace Pulumi.Aws.Rds
             ResourceId = resourceId;
             StorageEncrypted = storageEncrypted;
             StorageType = storageType;
+            Tags = tags;
             Timezone = timezone;
             VpcSecurityGroups = vpcSecurityGroups;
             Id = id;

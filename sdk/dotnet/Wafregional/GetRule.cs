@@ -21,7 +21,7 @@ namespace Pulumi.Aws.WafRegional
     public sealed class GetRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the WAF rule.
+        /// The name of the WAF Regional rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

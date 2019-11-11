@@ -27,7 +27,7 @@ func LookupRule(ctx *pulumi.Context, args *GetRuleArgs) (*GetRuleResult, error) 
 
 // A collection of arguments for invoking getRule.
 type GetRuleArgs struct {
-	// The name of the WAF rule.
+	// The name of the WAF Regional rule.
 	Name interface{}
 }
 

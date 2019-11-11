@@ -44,6 +44,7 @@ func NewCachesIscsiVolume(ctx *pulumi.Context,
 		inputs["networkInterfaceId"] = nil
 		inputs["snapshotId"] = nil
 		inputs["sourceVolumeArn"] = nil
+		inputs["tags"] = nil
 		inputs["targetName"] = nil
 		inputs["volumeSizeInBytes"] = nil
 	} else {
@@ -51,6 +52,7 @@ func NewCachesIscsiVolume(ctx *pulumi.Context,
 		inputs["networkInterfaceId"] = args.NetworkInterfaceId
 		inputs["snapshotId"] = args.SnapshotId
 		inputs["sourceVolumeArn"] = args.SourceVolumeArn
+		inputs["tags"] = args.Tags
 		inputs["targetName"] = args.TargetName
 		inputs["volumeSizeInBytes"] = args.VolumeSizeInBytes
 	}
@@ -82,6 +84,7 @@ func GetCachesIscsiVolume(ctx *pulumi.Context,
 		inputs["networkInterfacePort"] = state.NetworkInterfacePort
 		inputs["snapshotId"] = state.SnapshotId
 		inputs["sourceVolumeArn"] = state.SourceVolumeArn
+		inputs["tags"] = state.Tags
 		inputs["targetArn"] = state.TargetArn
 		inputs["targetName"] = state.TargetName
 		inputs["volumeArn"] = state.VolumeArn
@@ -145,6 +148,11 @@ func (r *CachesIscsiVolume) SourceVolumeArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceVolumeArn"])
 }
 
+// Key-value mapping of resource tags
+func (r *CachesIscsiVolume) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 func (r *CachesIscsiVolume) TargetArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["targetArn"])
@@ -188,6 +196,8 @@ type CachesIscsiVolumeState struct {
 	SnapshotId interface{}
 	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 	SourceVolumeArn interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn interface{}
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
@@ -210,6 +220,8 @@ type CachesIscsiVolumeArgs struct {
 	SnapshotId interface{}
 	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 	SourceVolumeArn interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
 	TargetName interface{}
 	// The size of the volume in bytes.

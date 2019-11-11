@@ -192,14 +192,14 @@ namespace Pulumi.Aws.Backup
         public Input<PlanRulesLifecycleArgs>? Lifecycle { get; set; }
 
         [Input("recoveryPointTags")]
-        private InputMap<string>? _recoveryPointTags;
+        private InputMap<object>? _recoveryPointTags;
 
         /// <summary>
         /// Metadata that you can assign to help organize the resources that you create.
         /// </summary>
-        public InputMap<string> RecoveryPointTags
+        public InputMap<object> RecoveryPointTags
         {
-            get => _recoveryPointTags ?? (_recoveryPointTags = new InputMap<string>());
+            get => _recoveryPointTags ?? (_recoveryPointTags = new InputMap<object>());
             set => _recoveryPointTags = value;
         }
 
@@ -247,14 +247,14 @@ namespace Pulumi.Aws.Backup
         public Input<PlanRulesLifecycleGetArgs>? Lifecycle { get; set; }
 
         [Input("recoveryPointTags")]
-        private InputMap<string>? _recoveryPointTags;
+        private InputMap<object>? _recoveryPointTags;
 
         /// <summary>
         /// Metadata that you can assign to help organize the resources that you create.
         /// </summary>
-        public InputMap<string> RecoveryPointTags
+        public InputMap<object> RecoveryPointTags
         {
-            get => _recoveryPointTags ?? (_recoveryPointTags = new InputMap<string>());
+            get => _recoveryPointTags ?? (_recoveryPointTags = new InputMap<object>());
             set => _recoveryPointTags = value;
         }
 
@@ -343,7 +343,7 @@ namespace Pulumi.Aws.Backup
         /// <summary>
         /// Metadata that you can assign to help organize the resources that you create.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? RecoveryPointTags;
+        public readonly ImmutableDictionary<string, object>? RecoveryPointTags;
         /// <summary>
         /// An display name for a backup rule.
         /// </summary>
@@ -365,7 +365,7 @@ namespace Pulumi.Aws.Backup
         private PlanRules(
             int? completionWindow,
             PlanRulesLifecycle? lifecycle,
-            ImmutableDictionary<string, string>? recoveryPointTags,
+            ImmutableDictionary<string, object>? recoveryPointTags,
             string ruleName,
             string? schedule,
             int? startWindow,

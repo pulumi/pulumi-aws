@@ -78,6 +78,30 @@ namespace Pulumi.Aws
             set => _forbiddenAccountIds = value;
         }
 
+        [Input("ignoreTagPrefixes", json: true)]
+        private InputList<string>? _ignoreTagPrefixes;
+
+        /// <summary>
+        /// Resource tag key prefixes to ignore across all resources.
+        /// </summary>
+        public InputList<string> IgnoreTagPrefixes
+        {
+            get => _ignoreTagPrefixes ?? (_ignoreTagPrefixes = new InputList<string>());
+            set => _ignoreTagPrefixes = value;
+        }
+
+        [Input("ignoreTags", json: true)]
+        private InputList<string>? _ignoreTags;
+
+        /// <summary>
+        /// Resource tag keys to ignore across all resources.
+        /// </summary>
+        public InputList<string> IgnoreTags
+        {
+            get => _ignoreTags ?? (_ignoreTags = new InputList<string>());
+            set => _ignoreTags = value;
+        }
+
         /// <summary>
         /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
         /// </summary>

@@ -15,6 +15,12 @@ namespace Pulumi.Aws.ApiGateway
     public partial class ClientCertificate : Pulumi.CustomResource
     {
         /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The date when the client certificate was created.
         /// </summary>
         [Output("createdDate")]
@@ -37,6 +43,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Output("pemEncodedCertificate")]
         public Output<string> PemEncodedCertificate { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -90,6 +102,18 @@ namespace Pulumi.Aws.ApiGateway
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public ClientCertificateArgs()
         {
         }
@@ -97,6 +121,12 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class ClientCertificateState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The date when the client certificate was created.
         /// </summary>
@@ -120,6 +150,18 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("pemEncodedCertificate")]
         public Input<string>? PemEncodedCertificate { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         public ClientCertificateState()
         {

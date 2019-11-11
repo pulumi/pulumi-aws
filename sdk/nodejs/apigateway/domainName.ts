@@ -169,6 +169,10 @@ export class DomainName extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN)
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
      */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
@@ -239,6 +243,10 @@ export class DomainName extends pulumi.CustomResource {
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
      */
     public readonly securityPolicy!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -252,6 +260,7 @@ export class DomainName extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DomainNameState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["certificateBody"] = state ? state.certificateBody : undefined;
             inputs["certificateChain"] = state ? state.certificateChain : undefined;
@@ -267,6 +276,7 @@ export class DomainName extends pulumi.CustomResource {
             inputs["regionalDomainName"] = state ? state.regionalDomainName : undefined;
             inputs["regionalZoneId"] = state ? state.regionalZoneId : undefined;
             inputs["securityPolicy"] = state ? state.securityPolicy : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DomainNameArgs | undefined;
             if (!args || args.domainName === undefined) {
@@ -282,6 +292,8 @@ export class DomainName extends pulumi.CustomResource {
             inputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
             inputs["regionalCertificateName"] = args ? args.regionalCertificateName : undefined;
             inputs["securityPolicy"] = args ? args.securityPolicy : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["certificateUploadDate"] = undefined /*out*/;
             inputs["cloudfrontDomainName"] = undefined /*out*/;
             inputs["cloudfrontZoneId"] = undefined /*out*/;
@@ -303,6 +315,10 @@ export class DomainName extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainName resources.
  */
 export interface DomainNameState {
+    /**
+     * Amazon Resource Name (ARN)
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
      */
@@ -374,6 +390,10 @@ export interface DomainNameState {
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
      */
     readonly securityPolicy?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -429,4 +449,8 @@ export interface DomainNameArgs {
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
      */
     readonly securityPolicy?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

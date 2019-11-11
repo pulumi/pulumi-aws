@@ -40,6 +40,10 @@ class Job(pulumi.CustomResource):
     
       * `maxConcurrentRuns` (`float`) - The maximum number of concurrent runs allowed for a job. The default is 1.
     """
+    glue_version: pulumi.Output[str]
+    """
+    The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+    """
     max_capacity: pulumi.Output[float]
     """
     The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
@@ -64,7 +68,7 @@ class Job(pulumi.CustomResource):
     """
     The job timeout in minutes. The default is 2880 minutes (48 hours).
     """
-    def __init__(__self__, resource_name, opts=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, max_capacity=None, max_retries=None, name=None, role_arn=None, security_configuration=None, timeout=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, role_arn=None, security_configuration=None, timeout=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Glue Job resource.
         
@@ -76,6 +80,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[dict] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         :param pulumi.Input[str] description: Description of the job.
         :param pulumi.Input[dict] execution_property: Execution property of the job. Defined below.
+        :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
         :param pulumi.Input[float] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`
@@ -120,6 +125,7 @@ class Job(pulumi.CustomResource):
             __props__['default_arguments'] = default_arguments
             __props__['description'] = description
             __props__['execution_property'] = execution_property
+            __props__['glue_version'] = glue_version
             __props__['max_capacity'] = max_capacity
             __props__['max_retries'] = max_retries
             __props__['name'] = name
@@ -135,7 +141,7 @@ class Job(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, max_capacity=None, max_retries=None, name=None, role_arn=None, security_configuration=None, timeout=None):
+    def get(resource_name, id, opts=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, role_arn=None, security_configuration=None, timeout=None):
         """
         Get an existing Job resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -149,6 +155,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[dict] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         :param pulumi.Input[str] description: Description of the job.
         :param pulumi.Input[dict] execution_property: Execution property of the job. Defined below.
+        :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
         :param pulumi.Input[float] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`
@@ -177,6 +184,7 @@ class Job(pulumi.CustomResource):
         __props__["default_arguments"] = default_arguments
         __props__["description"] = description
         __props__["execution_property"] = execution_property
+        __props__["glue_version"] = glue_version
         __props__["max_capacity"] = max_capacity
         __props__["max_retries"] = max_retries
         __props__["name"] = name

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const exampleDomainIdentity = new aws.ses.DomainIdentity("example", {
  *     domain: "example.com",
  * });
- * const examplePolicyDocument = aws_ses_domain_identity_test.arn.apply(arn => aws.iam.getPolicyDocument({
+ * const examplePolicyDocument = exampleDomainIdentity.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "SES:SendEmail",
