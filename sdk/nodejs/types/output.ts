@@ -8348,6 +8348,25 @@ export namespace glue {
 }
 
 export namespace iam {
+    export interface GetGroupUser {
+        /**
+         * The Amazon Resource Name (ARN) specifying the iam user.
+         */
+        arn: string;
+        /**
+         * The path to the iam user.
+         */
+        path: string;
+        /**
+         * The stable and unique string identifying the iam user.
+         */
+        userId: string;
+        /**
+         * The name of the iam user.
+         */
+        userName: string;
+    }
+
     export interface GetPolicyDocumentStatement {
         /**
          * A list of actions that this statement either allows

@@ -79,6 +79,7 @@ func (r *WebAcl) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The ARN of the WAF WebACL.
 func (r *WebAcl) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
@@ -115,6 +116,7 @@ func (r *WebAcl) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering WebAcl resources.
 type WebAclState struct {
+	// The ARN of the WAF WebACL.
 	Arn interface{}
 	// Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
 	DefaultAction interface{}

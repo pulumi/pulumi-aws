@@ -20,9 +20,6 @@ namespace Pulumi.Aws.MediaStore
         [Output("containerName")]
         public Output<string> ContainerName { get; private set; } = null!;
 
-        /// <summary>
-        /// The contents of the policy.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -78,9 +75,6 @@ namespace Pulumi.Aws.MediaStore
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
-        /// <summary>
-        /// The contents of the policy.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
@@ -97,9 +91,6 @@ namespace Pulumi.Aws.MediaStore
         [Input("containerName")]
         public Input<string>? ContainerName { get; set; }
 
-        /// <summary>
-        /// The contents of the policy.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

@@ -42,9 +42,6 @@ class Key(pulumi.CustomResource):
     Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
     """
     policy: pulumi.Output[str]
-    """
-    A valid policy JSON document.
-    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the object.
@@ -63,7 +60,6 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[bool] is_enabled: Specifies whether the key is enabled. Defaults to true.
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key.
                Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
-        :param pulumi.Input[str] policy: A valid policy JSON document.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_key.html.markdown.
@@ -119,7 +115,6 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] key_id: The globally unique identifier for the key.
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key.
                Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
-        :param pulumi.Input[str] policy: A valid policy JSON document.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_key.html.markdown.

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -52,7 +53,7 @@ export interface GetGroupArgs {
  */
 export interface GetGroupResult {
     /**
-     * The Amazon Resource Name (ARN) specifying the group.
+     * The Amazon Resource Name (ARN) specifying the iam user.
      */
     readonly arn: string;
     /**
@@ -61,9 +62,13 @@ export interface GetGroupResult {
     readonly groupId: string;
     readonly groupName: string;
     /**
-     * The path to the group.
+     * The path to the iam user.
      */
     readonly path: string;
+    /**
+     * List of objects containing group member information. See supported fields below.
+     */
+    readonly users: outputs.iam.GetGroupUser[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

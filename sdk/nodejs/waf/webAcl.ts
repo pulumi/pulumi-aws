@@ -101,6 +101,9 @@ export class WebAcl extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAcl.__pulumiType;
     }
 
+    /**
+     * The ARN of the WAF WebACL.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
@@ -177,6 +180,9 @@ export class WebAcl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebAcl resources.
  */
 export interface WebAclState {
+    /**
+     * The ARN of the WAF WebACL.
+     */
     readonly arn?: pulumi.Input<string>;
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.

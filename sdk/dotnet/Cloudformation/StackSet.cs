@@ -70,7 +70,7 @@ namespace Pulumi.Aws.CloudFormation
         /// Key-value map of tags to associate with this Stack Set and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
@@ -179,14 +179,14 @@ namespace Pulumi.Aws.CloudFormation
         }
 
         [Input("tags")]
-        private InputMap<string>? _tags;
+        private InputMap<object>? _tags;
 
         /// <summary>
         /// Key-value map of tags to associate with this Stack Set and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
         /// </summary>
-        public InputMap<string> Tags
+        public InputMap<object> Tags
         {
-            get => _tags ?? (_tags = new InputMap<string>());
+            get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
 
@@ -270,14 +270,14 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? StackSetId { get; set; }
 
         [Input("tags")]
-        private InputMap<string>? _tags;
+        private InputMap<object>? _tags;
 
         /// <summary>
         /// Key-value map of tags to associate with this Stack Set and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
         /// </summary>
-        public InputMap<string> Tags
+        public InputMap<object> Tags
         {
-            get => _tags ?? (_tags = new InputMap<string>());
+            get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
 

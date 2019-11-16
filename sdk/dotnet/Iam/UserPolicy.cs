@@ -26,9 +26,6 @@ namespace Pulumi.Aws.Iam
         [Output("namePrefix")]
         public Output<string?> NamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -96,9 +93,6 @@ namespace Pulumi.Aws.Iam
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
@@ -127,9 +121,6 @@ namespace Pulumi.Aws.Iam
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

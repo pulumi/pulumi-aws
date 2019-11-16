@@ -135,7 +135,6 @@ func (r *VpcEndpoint) OwnerId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
-// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 func (r *VpcEndpoint) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -208,7 +207,6 @@ type VpcEndpointState struct {
 	NetworkInterfaceIds interface{}
 	// The ID of the AWS account that owns the VPC endpoint.
 	OwnerId interface{}
-	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 	Policy interface{}
 	// The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	PrefixListId interface{}
@@ -239,7 +237,6 @@ type VpcEndpointState struct {
 type VpcEndpointArgs struct {
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept interface{}
-	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 	Policy interface{}
 	// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
 	// Defaults to `false`.

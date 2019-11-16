@@ -55,6 +55,7 @@ func NewStage(ctx *pulumi.Context,
 		inputs["variables"] = args.Variables
 		inputs["xrayTracingEnabled"] = args.XrayTracingEnabled
 	}
+	inputs["arn"] = nil
 	inputs["executionArn"] = nil
 	inputs["invokeUrl"] = nil
 	s, err := ctx.RegisterResource("aws:apigateway/stage:Stage", name, true, inputs, opts...)
@@ -71,6 +72,7 @@ func GetStage(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["accessLogSettings"] = state.AccessLogSettings
+		inputs["arn"] = state.Arn
 		inputs["cacheClusterEnabled"] = state.CacheClusterEnabled
 		inputs["cacheClusterSize"] = state.CacheClusterSize
 		inputs["clientCertificateId"] = state.ClientCertificateId
@@ -105,6 +107,11 @@ func (r *Stage) ID() *pulumi.IDOutput {
 // Enables access logs for the API stage. Detailed below.
 func (r *Stage) AccessLogSettings() *pulumi.Output {
 	return r.s.State["accessLogSettings"]
+}
+
+// Amazon Resource Name (ARN)
+func (r *Stage) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Specifies whether a cache cluster is enabled for the stage
@@ -180,6 +187,8 @@ func (r *Stage) XrayTracingEnabled() *pulumi.BoolOutput {
 type StageState struct {
 	// Enables access logs for the API stage. Detailed below.
 	AccessLogSettings interface{}
+	// Amazon Resource Name (ARN)
+	Arn interface{}
 	// Specifies whether a cache cluster is enabled for the stage
 	CacheClusterEnabled interface{}
 	// The size of the cache cluster for the stage, if enabled.

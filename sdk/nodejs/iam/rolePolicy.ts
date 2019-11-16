@@ -89,9 +89,6 @@ export class RolePolicy extends pulumi.CustomResource {
      * prefix. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
-    /**
-     * The policy document. This is a JSON formatted string.
-     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The IAM role to attach to the policy.
@@ -152,9 +149,6 @@ export interface RolePolicyState {
      * prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    /**
-     * The policy document. This is a JSON formatted string.
-     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The IAM role to attach to the policy.
@@ -176,9 +170,6 @@ export interface RolePolicyArgs {
      * prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    /**
-     * The policy document. This is a JSON formatted string.
-     */
     readonly policy: pulumi.Input<string | PolicyDocument>;
     /**
      * The IAM role to attach to the policy.

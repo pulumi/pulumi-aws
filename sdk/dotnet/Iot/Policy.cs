@@ -32,9 +32,6 @@ namespace Pulumi.Aws.Iot
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
-        /// </summary>
         [Output("policy")]
         public Output<string> PolicyDocument { get; private set; } = null!;
 
@@ -90,9 +87,6 @@ namespace Pulumi.Aws.Iot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> PolicyDocument { get; set; } = null!;
 
@@ -121,9 +115,6 @@ namespace Pulumi.Aws.Iot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
-        /// </summary>
         [Input("policy")]
         public Input<string>? PolicyDocument { get; set; }
 

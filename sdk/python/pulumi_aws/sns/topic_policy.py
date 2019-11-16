@@ -15,9 +15,6 @@ class TopicPolicy(pulumi.CustomResource):
     The ARN of the SNS topic
     """
     policy: pulumi.Output[str]
-    """
-    The fully-formed AWS policy as JSON.
-    """
     def __init__(__self__, resource_name, opts=None, arn=None, policy=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SNS topic policy resource
@@ -27,7 +24,6 @@ class TopicPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the SNS topic
-        :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_policy.html.markdown.
         """
@@ -70,7 +66,6 @@ class TopicPolicy(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the SNS topic
-        :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_policy.html.markdown.
         """

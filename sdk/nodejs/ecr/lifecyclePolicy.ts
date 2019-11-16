@@ -104,9 +104,6 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LifecyclePolicy.__pulumiType;
     }
 
-    /**
-     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The registry ID where the repository was created.
@@ -159,9 +156,6 @@ export class LifecyclePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LifecyclePolicy resources.
  */
 export interface LifecyclePolicyState {
-    /**
-     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-     */
     readonly policy?: pulumi.Input<string | LifecyclePolicyDocument>;
     /**
      * The registry ID where the repository was created.
@@ -177,9 +171,6 @@ export interface LifecyclePolicyState {
  * The set of arguments for constructing a LifecyclePolicy resource.
  */
 export interface LifecyclePolicyArgs {
-    /**
-     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-     */
     readonly policy: pulumi.Input<string | LifecyclePolicyDocument>;
     /**
      * Name of the repository to apply the policy.

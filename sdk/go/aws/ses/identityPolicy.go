@@ -78,7 +78,6 @@ func (r *IdentityPolicy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// JSON string of the policy.
 func (r *IdentityPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -89,7 +88,6 @@ type IdentityPolicyState struct {
 	Identity interface{}
 	// Name of the policy.
 	Name interface{}
-	// JSON string of the policy.
 	Policy interface{}
 }
 
@@ -99,6 +97,5 @@ type IdentityPolicyArgs struct {
 	Identity interface{}
 	// Name of the policy.
 	Name interface{}
-	// JSON string of the policy.
 	Policy interface{}
 }

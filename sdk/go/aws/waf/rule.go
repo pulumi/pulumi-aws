@@ -33,6 +33,7 @@ func NewRule(ctx *pulumi.Context,
 		inputs["predicates"] = args.Predicates
 		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:waf/rule:Rule", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -46,6 +47,7 @@ func GetRule(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *RuleState, opts ...pulumi.ResourceOpt) (*Rule, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["metricName"] = state.MetricName
 		inputs["name"] = state.Name
 		inputs["predicates"] = state.Predicates
@@ -66,6 +68,11 @@ func (r *Rule) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Rule) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The ARN of the WAF rule.
+func (r *Rule) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
@@ -90,6 +97,8 @@ func (r *Rule) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Rule resources.
 type RuleState struct {
+	// The ARN of the WAF rule.
+	Arn interface{}
 	// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
 	MetricName interface{}
 	// The name or description of the rule.

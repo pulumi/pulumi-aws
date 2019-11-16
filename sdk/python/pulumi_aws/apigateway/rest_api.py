@@ -51,9 +51,6 @@ class RestApi(pulumi.CustomResource):
     The name of the REST API
     """
     policy: pulumi.Output[str]
-    """
-    JSON formatted policy document that controls access to the API Gateway.
-    """
     root_resource_id: pulumi.Output[str]
     """
     The resource ID of the REST API's root
@@ -71,7 +68,6 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[dict] endpoint_configuration: Nested argument defining API endpoint configuration including endpoint type. Defined below.
         :param pulumi.Input[float] minimum_compression_size: Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
         :param pulumi.Input[str] name: The name of the REST API
-        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
         
         The **endpoint_configuration** object supports the following:
         
@@ -133,7 +129,6 @@ class RestApi(pulumi.CustomResource):
                e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         :param pulumi.Input[float] minimum_compression_size: Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
         :param pulumi.Input[str] name: The name of the REST API
-        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
         :param pulumi.Input[str] root_resource_id: The resource ID of the REST API's root
         
         The **endpoint_configuration** object supports the following:

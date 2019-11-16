@@ -190,7 +190,6 @@ func (r *Topic) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-// The fully-formed AWS policy as JSON.
 func (r *Topic) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -247,7 +246,6 @@ type TopicState struct {
 	Name interface{}
 	// The friendly name for the SNS topic. Conflicts with `name`.
 	NamePrefix interface{}
-	// The fully-formed AWS policy as JSON.
 	Policy interface{}
 	// IAM role for failure feedback
 	SqsFailureFeedbackRoleArn interface{}
@@ -289,7 +287,6 @@ type TopicArgs struct {
 	Name interface{}
 	// The friendly name for the SNS topic. Conflicts with `name`.
 	NamePrefix interface{}
-	// The fully-formed AWS policy as JSON.
 	Policy interface{}
 	// IAM role for failure feedback
 	SqsFailureFeedbackRoleArn interface{}

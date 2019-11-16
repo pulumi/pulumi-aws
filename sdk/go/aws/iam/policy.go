@@ -99,7 +99,6 @@ func (r *Policy) Path() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["path"])
 }
 
-// The policy document. This is a JSON formatted string.
 func (r *Policy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -117,7 +116,6 @@ type PolicyState struct {
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path interface{}
-	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 }
 
@@ -132,6 +130,5 @@ type PolicyArgs struct {
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path interface{}
-	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 }

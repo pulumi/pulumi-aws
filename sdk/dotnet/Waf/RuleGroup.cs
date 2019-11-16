@@ -21,6 +21,12 @@ namespace Pulumi.Aws.Waf
         public Output<ImmutableArray<Outputs.RuleGroupActivatedRules>> ActivatedRules { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the WAF rule group.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// A friendly name for the metrics from the rule group
         /// </summary>
         [Output("metricName")]
@@ -138,6 +144,12 @@ namespace Pulumi.Aws.Waf
             get => _activatedRules ?? (_activatedRules = new InputList<Inputs.RuleGroupActivatedRulesGetArgs>());
             set => _activatedRules = value;
         }
+
+        /// <summary>
+        /// The ARN of the WAF rule group.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// A friendly name for the metrics from the rule group

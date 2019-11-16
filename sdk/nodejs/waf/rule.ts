@@ -61,6 +61,10 @@ export class Rule extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the WAF rule.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
      */
     public readonly metricName!: pulumi.Output<string>;
@@ -89,6 +93,7 @@ export class Rule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as RuleState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["metricName"] = state ? state.metricName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["predicates"] = state ? state.predicates : undefined;
@@ -102,6 +107,7 @@ export class Rule extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["predicates"] = args ? args.predicates : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -118,6 +124,10 @@ export class Rule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Rule resources.
  */
 export interface RuleState {
+    /**
+     * The ARN of the WAF rule.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
      */

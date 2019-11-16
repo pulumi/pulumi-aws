@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetGroupResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the group.
+        /// The Amazon Resource Name (ARN) specifying the iam user.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -46,9 +46,13 @@ namespace Pulumi.Aws.Iam
         public readonly string GroupId;
         public readonly string GroupName;
         /// <summary>
-        /// The path to the group.
+        /// The path to the iam user.
         /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// List of objects containing group member information. See supported fields below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetGroupUsersResult> Users;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -60,13 +64,53 @@ namespace Pulumi.Aws.Iam
             string groupId,
             string groupName,
             string path,
+            ImmutableArray<Outputs.GetGroupUsersResult> users,
             string id)
         {
             Arn = arn;
             GroupId = groupId;
             GroupName = groupName;
             Path = path;
+            Users = users;
             Id = id;
         }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class GetGroupUsersResult
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) specifying the iam user.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
+        /// The path to the iam user.
+        /// </summary>
+        public readonly string Path;
+        /// <summary>
+        /// The stable and unique string identifying the iam user.
+        /// </summary>
+        public readonly string UserId;
+        /// <summary>
+        /// The name of the iam user.
+        /// </summary>
+        public readonly string UserName;
+
+        [OutputConstructor]
+        private GetGroupUsersResult(
+            string arn,
+            string path,
+            string userId,
+            string userName)
+        {
+            Arn = arn;
+            Path = path;
+            UserId = userId;
+            UserName = userName;
+        }
+    }
     }
 }

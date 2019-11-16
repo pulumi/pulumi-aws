@@ -116,9 +116,6 @@ export class Queue extends pulumi.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
-    /**
-     * The JSON policy for the SQS queue.
-     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
@@ -237,9 +234,6 @@ export interface QueueState {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    /**
-     * The JSON policy for the SQS queue.
-     */
     readonly policy?: pulumi.Input<string>;
     /**
      * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
@@ -299,9 +293,6 @@ export interface QueueArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    /**
-     * The JSON policy for the SQS queue.
-     */
     readonly policy?: pulumi.Input<string>;
     /**
      * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.

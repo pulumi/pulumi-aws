@@ -15,6 +15,12 @@ namespace Pulumi.Aws.Waf
     public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the WAF rule.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
         /// </summary>
         [Output("metricName")]
@@ -127,6 +133,12 @@ namespace Pulumi.Aws.Waf
 
     public sealed class RuleState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the WAF rule.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
         /// </summary>
