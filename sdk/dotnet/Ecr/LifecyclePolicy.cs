@@ -18,9 +18,6 @@ namespace Pulumi.Aws.Ecr
     /// </summary>
     public partial class LifecyclePolicy : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -82,9 +79,6 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class LifecyclePolicyArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
@@ -101,9 +95,6 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class LifecyclePolicyState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

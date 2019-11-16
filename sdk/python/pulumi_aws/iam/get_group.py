@@ -13,12 +13,12 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, arn=None, group_id=None, group_name=None, path=None, id=None):
+    def __init__(__self__, arn=None, group_id=None, group_name=None, path=None, users=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
-        The Amazon Resource Name (ARN) specifying the group.
+        The Amazon Resource Name (ARN) specifying the iam user.
         """
         if group_id and not isinstance(group_id, str):
             raise TypeError("Expected argument 'group_id' to be a str")
@@ -33,7 +33,13 @@ class GetGroupResult:
             raise TypeError("Expected argument 'path' to be a str")
         __self__.path = path
         """
-        The path to the group.
+        The path to the iam user.
+        """
+        if users and not isinstance(users, list):
+            raise TypeError("Expected argument 'users' to be a list")
+        __self__.users = users
+        """
+        List of objects containing group member information. See supported fields below.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -51,6 +57,7 @@ class AwaitableGetGroupResult(GetGroupResult):
             group_id=self.group_id,
             group_name=self.group_name,
             path=self.path,
+            users=self.users,
             id=self.id)
 
 def get_group(group_name=None,opts=None):
@@ -77,4 +84,5 @@ def get_group(group_name=None,opts=None):
         group_id=__ret__.get('groupId'),
         group_name=__ret__.get('groupName'),
         path=__ret__.get('path'),
+        users=__ret__.get('users'),
         id=__ret__.get('id'))

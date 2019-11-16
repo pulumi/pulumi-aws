@@ -74,9 +74,6 @@ export class IdentityPolicy extends pulumi.CustomResource {
      * Name of the policy.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * JSON string of the policy.
-     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -129,9 +126,6 @@ export interface IdentityPolicyState {
      * Name of the policy.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * JSON string of the policy.
-     */
     readonly policy?: pulumi.Input<string>;
 }
 
@@ -147,8 +141,5 @@ export interface IdentityPolicyArgs {
      * Name of the policy.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * JSON string of the policy.
-     */
     readonly policy: pulumi.Input<string>;
 }

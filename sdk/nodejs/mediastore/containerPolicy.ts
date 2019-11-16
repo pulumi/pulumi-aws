@@ -68,9 +68,6 @@ export class ContainerPolicy extends pulumi.CustomResource {
      * The name of the container.
      */
     public readonly containerName!: pulumi.Output<string>;
-    /**
-     * The contents of the policy.
-     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -117,9 +114,6 @@ export interface ContainerPolicyState {
      * The name of the container.
      */
     readonly containerName?: pulumi.Input<string>;
-    /**
-     * The contents of the policy.
-     */
     readonly policy?: pulumi.Input<string>;
 }
 
@@ -131,8 +125,5 @@ export interface ContainerPolicyArgs {
      * The name of the container.
      */
     readonly containerName: pulumi.Input<string>;
-    /**
-     * The contents of the policy.
-     */
     readonly policy: pulumi.Input<string>;
 }

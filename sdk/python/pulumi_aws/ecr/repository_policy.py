@@ -11,9 +11,6 @@ from .. import utilities, tables
 
 class RepositoryPolicy(pulumi.CustomResource):
     policy: pulumi.Output[str]
-    """
-    The policy document. This is a JSON formatted string.
-    """
     registry_id: pulumi.Output[str]
     """
     The registry ID where the repository was created.
@@ -30,7 +27,6 @@ class RepositoryPolicy(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] repository: Name of the repository to apply the policy.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository_policy.html.markdown.
@@ -74,7 +70,6 @@ class RepositoryPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository: Name of the repository to apply the policy.
 

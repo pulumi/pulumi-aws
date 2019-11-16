@@ -21,6 +21,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<Outputs.StageAccessLogSettings?> AccessLogSettings { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether a cache cluster is enabled for the stage
         /// </summary>
         [Output("cacheClusterEnabled")]
@@ -245,6 +251,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("accessLogSettings")]
         public Input<Inputs.StageAccessLogSettingsGetArgs>? AccessLogSettings { get; set; }
+
+        /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// Specifies whether a cache cluster is enabled for the stage

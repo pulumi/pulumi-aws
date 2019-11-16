@@ -25,9 +25,6 @@ class GroupPolicy(pulumi.CustomResource):
     prefix. Conflicts with `name`.
     """
     policy: pulumi.Output[str]
-    """
-    The policy document. This is a JSON formatted string.
-    """
     def __init__(__self__, resource_name, opts=None, group=None, name=None, name_prefix=None, policy=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an IAM policy attached to a group.
@@ -39,7 +36,6 @@ class GroupPolicy(pulumi.CustomResource):
                assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy.html.markdown.
         """
@@ -88,7 +84,6 @@ class GroupPolicy(pulumi.CustomResource):
                assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy.html.markdown.
         """

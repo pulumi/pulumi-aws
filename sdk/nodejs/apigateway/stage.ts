@@ -114,6 +114,10 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly accessLogSettings!: pulumi.Output<outputs.apigateway.StageAccessLogSettings | undefined>;
     /**
+     * Amazon Resource Name (ARN)
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Specifies whether a cache cluster is enabled for the stage
      */
     public readonly cacheClusterEnabled!: pulumi.Output<boolean | undefined>;
@@ -183,6 +187,7 @@ export class Stage extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as StageState | undefined;
             inputs["accessLogSettings"] = state ? state.accessLogSettings : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["cacheClusterEnabled"] = state ? state.cacheClusterEnabled : undefined;
             inputs["cacheClusterSize"] = state ? state.cacheClusterSize : undefined;
             inputs["clientCertificateId"] = state ? state.clientCertificateId : undefined;
@@ -219,6 +224,7 @@ export class Stage extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["variables"] = args ? args.variables : undefined;
             inputs["xrayTracingEnabled"] = args ? args.xrayTracingEnabled : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["executionArn"] = undefined /*out*/;
             inputs["invokeUrl"] = undefined /*out*/;
         }
@@ -241,6 +247,10 @@ export interface StageState {
      * Enables access logs for the API stage. Detailed below.
      */
     readonly accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
+    /**
+     * Amazon Resource Name (ARN)
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Specifies whether a cache cluster is enabled for the stage
      */

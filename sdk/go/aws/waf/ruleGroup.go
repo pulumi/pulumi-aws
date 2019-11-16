@@ -33,6 +33,7 @@ func NewRuleGroup(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:waf/ruleGroup:RuleGroup", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -47,6 +48,7 @@ func GetRuleGroup(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["activatedRules"] = state.ActivatedRules
+		inputs["arn"] = state.Arn
 		inputs["metricName"] = state.MetricName
 		inputs["name"] = state.Name
 		inputs["tags"] = state.Tags
@@ -73,6 +75,11 @@ func (r *RuleGroup) ActivatedRules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["activatedRules"])
 }
 
+// The ARN of the WAF rule group.
+func (r *RuleGroup) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // A friendly name for the metrics from the rule group
 func (r *RuleGroup) MetricName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["metricName"])
@@ -92,6 +99,8 @@ func (r *RuleGroup) Tags() *pulumi.MapOutput {
 type RuleGroupState struct {
 	// A list of activated rules, see below
 	ActivatedRules interface{}
+	// The ARN of the WAF rule group.
+	Arn interface{}
 	// A friendly name for the metrics from the rule group
 	MetricName interface{}
 	// A friendly name of the rule group

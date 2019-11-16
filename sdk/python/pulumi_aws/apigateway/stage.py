@@ -18,6 +18,10 @@ class Stage(pulumi.CustomResource):
       * `format` (`str`) - The formatting and values recorded in the logs. 
         For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
     """
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN)
+    """
     cache_cluster_enabled: pulumi.Output[bool]
     """
     Specifies whether a cache cluster is enabled for the stage
@@ -137,6 +141,7 @@ class Stage(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['variables'] = variables
             __props__['xray_tracing_enabled'] = xray_tracing_enabled
+            __props__['arn'] = None
             __props__['execution_arn'] = None
             __props__['invoke_url'] = None
         super(Stage, __self__).__init__(
@@ -146,7 +151,7 @@ class Stage(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_log_settings=None, cache_cluster_enabled=None, cache_cluster_size=None, client_certificate_id=None, deployment=None, description=None, documentation_version=None, execution_arn=None, invoke_url=None, rest_api=None, stage_name=None, tags=None, variables=None, xray_tracing_enabled=None):
+    def get(resource_name, id, opts=None, access_log_settings=None, arn=None, cache_cluster_enabled=None, cache_cluster_size=None, client_certificate_id=None, deployment=None, description=None, documentation_version=None, execution_arn=None, invoke_url=None, rest_api=None, stage_name=None, tags=None, variables=None, xray_tracing_enabled=None):
         """
         Get an existing Stage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -155,6 +160,7 @@ class Stage(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] access_log_settings: Enables access logs for the API stage. Detailed below.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
         :param pulumi.Input[bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage
         :param pulumi.Input[str] cache_cluster_size: The size of the cache cluster for the stage, if enabled.
                Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
@@ -185,6 +191,7 @@ class Stage(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["access_log_settings"] = access_log_settings
+        __props__["arn"] = arn
         __props__["cache_cluster_enabled"] = cache_cluster_enabled
         __props__["cache_cluster_size"] = cache_cluster_size
         __props__["client_certificate_id"] = client_certificate_id

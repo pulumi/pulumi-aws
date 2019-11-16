@@ -11,6 +11,9 @@ from .. import utilities, tables
 
 class WebAcl(pulumi.CustomResource):
     arn: pulumi.Output[str]
+    """
+    The ARN of the WAF WebACL.
+    """
     default_action: pulumi.Output[dict]
     """
     Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
@@ -145,6 +148,7 @@ class WebAcl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the WAF WebACL.
         :param pulumi.Input[dict] default_action: Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
         :param pulumi.Input[dict] logging_configuration: Configuration block to enable WAF logging. Detailed below.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.

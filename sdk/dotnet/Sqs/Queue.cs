@@ -69,9 +69,6 @@ namespace Pulumi.Aws.Sqs
         [Output("namePrefix")]
         public Output<string?> NamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// The JSON policy for the SQS queue.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -199,9 +196,6 @@ namespace Pulumi.Aws.Sqs
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// The JSON policy for the SQS queue.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
@@ -302,9 +296,6 @@ namespace Pulumi.Aws.Sqs
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// The JSON policy for the SQS queue.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

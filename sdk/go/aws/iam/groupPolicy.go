@@ -88,7 +88,6 @@ func (r *GroupPolicy) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-// The policy document. This is a JSON formatted string.
 func (r *GroupPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -103,7 +102,6 @@ type GroupPolicyState struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 }
 
@@ -117,6 +115,5 @@ type GroupPolicyArgs struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 }

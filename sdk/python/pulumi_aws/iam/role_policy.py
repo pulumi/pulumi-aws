@@ -21,9 +21,6 @@ class RolePolicy(pulumi.CustomResource):
     prefix. Conflicts with `name`.
     """
     policy: pulumi.Output[str]
-    """
-    The policy document. This is a JSON formatted string.
-    """
     role: pulumi.Output[str]
     """
     The IAM role to attach to the policy.
@@ -38,7 +35,6 @@ class RolePolicy(pulumi.CustomResource):
                assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] role: The IAM role to attach to the policy.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy.html.markdown.
@@ -87,7 +83,6 @@ class RolePolicy(pulumi.CustomResource):
                assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] role: The IAM role to attach to the policy.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy.html.markdown.

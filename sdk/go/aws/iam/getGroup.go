@@ -26,6 +26,7 @@ func LookupGroup(ctx *pulumi.Context, args *GetGroupArgs) (*GetGroupResult, erro
 		GroupId: outputs["groupId"],
 		GroupName: outputs["groupName"],
 		Path: outputs["path"],
+		Users: outputs["users"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -38,13 +39,15 @@ type GetGroupArgs struct {
 
 // A collection of values returned by getGroup.
 type GetGroupResult struct {
-	// The Amazon Resource Name (ARN) specifying the group.
+	// The Amazon Resource Name (ARN) specifying the iam user.
 	Arn interface{}
 	// The stable and unique string identifying the group.
 	GroupId interface{}
 	GroupName interface{}
-	// The path to the group.
+	// The path to the iam user.
 	Path interface{}
+	// List of objects containing group member information. See supported fields below.
+	Users interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

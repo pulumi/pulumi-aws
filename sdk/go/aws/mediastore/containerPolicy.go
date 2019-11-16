@@ -70,7 +70,6 @@ func (r *ContainerPolicy) ContainerName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["containerName"])
 }
 
-// The contents of the policy.
 func (r *ContainerPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -79,7 +78,6 @@ func (r *ContainerPolicy) Policy() *pulumi.StringOutput {
 type ContainerPolicyState struct {
 	// The name of the container.
 	ContainerName interface{}
-	// The contents of the policy.
 	Policy interface{}
 }
 
@@ -87,6 +85,5 @@ type ContainerPolicyState struct {
 type ContainerPolicyArgs struct {
 	// The name of the container.
 	ContainerName interface{}
-	// The contents of the policy.
 	Policy interface{}
 }

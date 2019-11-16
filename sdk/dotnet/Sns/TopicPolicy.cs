@@ -22,9 +22,6 @@ namespace Pulumi.Aws.Sns
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The fully-formed AWS policy as JSON.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -80,9 +77,6 @@ namespace Pulumi.Aws.Sns
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// The fully-formed AWS policy as JSON.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
@@ -99,9 +93,6 @@ namespace Pulumi.Aws.Sns
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The fully-formed AWS policy as JSON.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class Rule(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the WAF rule.
+    """
     metric_name: pulumi.Output[str]
     """
     The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
@@ -78,6 +82,7 @@ class Rule(pulumi.CustomResource):
             __props__['name'] = name
             __props__['predicates'] = predicates
             __props__['tags'] = tags
+            __props__['arn'] = None
         super(Rule, __self__).__init__(
             'aws:waf/rule:Rule',
             resource_name,
@@ -85,7 +90,7 @@ class Rule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, metric_name=None, name=None, predicates=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, metric_name=None, name=None, predicates=None, tags=None):
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -93,6 +98,7 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the WAF rule.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
         :param pulumi.Input[str] name: The name or description of the rule.
         :param pulumi.Input[list] predicates: The objects to include in a rule (documented below).
@@ -112,6 +118,7 @@ class Rule(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["arn"] = arn
         __props__["metric_name"] = metric_name
         __props__["name"] = name
         __props__["predicates"] = predicates

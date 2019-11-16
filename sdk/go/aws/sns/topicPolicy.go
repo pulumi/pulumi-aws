@@ -72,7 +72,6 @@ func (r *TopicPolicy) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The fully-formed AWS policy as JSON.
 func (r *TopicPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -81,7 +80,6 @@ func (r *TopicPolicy) Policy() *pulumi.StringOutput {
 type TopicPolicyState struct {
 	// The ARN of the SNS topic
 	Arn interface{}
-	// The fully-formed AWS policy as JSON.
 	Policy interface{}
 }
 
@@ -89,6 +87,5 @@ type TopicPolicyState struct {
 type TopicPolicyArgs struct {
 	// The ARN of the SNS topic
 	Arn interface{}
-	// The fully-formed AWS policy as JSON.
 	Policy interface{}
 }

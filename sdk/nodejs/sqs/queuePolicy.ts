@@ -68,9 +68,6 @@ export class QueuePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === QueuePolicy.__pulumiType;
     }
 
-    /**
-     * The JSON policy for the SQS queue.
-     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The URL of the SQS Queue to which to attach the policy
@@ -117,9 +114,6 @@ export class QueuePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering QueuePolicy resources.
  */
 export interface QueuePolicyState {
-    /**
-     * The JSON policy for the SQS queue.
-     */
     readonly policy?: pulumi.Input<string>;
     /**
      * The URL of the SQS Queue to which to attach the policy
@@ -131,9 +125,6 @@ export interface QueuePolicyState {
  * The set of arguments for constructing a QueuePolicy resource.
  */
 export interface QueuePolicyArgs {
-    /**
-     * The JSON policy for the SQS queue.
-     */
     readonly policy: pulumi.Input<string>;
     /**
      * The URL of the SQS Queue to which to attach the policy

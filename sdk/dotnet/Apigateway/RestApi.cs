@@ -70,9 +70,6 @@ namespace Pulumi.Aws.ApiGateway
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway.
-        /// </summary>
         [Output("policy")]
         public Output<string?> Policy { get; private set; } = null!;
 
@@ -176,9 +173,6 @@ namespace Pulumi.Aws.ApiGateway
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
@@ -251,9 +245,6 @@ namespace Pulumi.Aws.ApiGateway
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

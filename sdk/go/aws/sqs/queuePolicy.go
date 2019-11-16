@@ -66,7 +66,6 @@ func (r *QueuePolicy) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The JSON policy for the SQS queue.
 func (r *QueuePolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -78,7 +77,6 @@ func (r *QueuePolicy) QueueUrl() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering QueuePolicy resources.
 type QueuePolicyState struct {
-	// The JSON policy for the SQS queue.
 	Policy interface{}
 	// The URL of the SQS Queue to which to attach the policy
 	QueueUrl interface{}
@@ -86,7 +84,6 @@ type QueuePolicyState struct {
 
 // The set of arguments for constructing a QueuePolicy resource.
 type QueuePolicyArgs struct {
-	// The JSON policy for the SQS queue.
 	Policy interface{}
 	// The URL of the SQS Queue to which to attach the policy
 	QueueUrl interface{}

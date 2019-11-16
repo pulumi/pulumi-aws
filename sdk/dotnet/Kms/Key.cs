@@ -59,9 +59,6 @@ namespace Pulumi.Aws.Kms
         [Output("keyUsage")]
         public Output<string> KeyUsage { get; private set; } = null!;
 
-        /// <summary>
-        /// A valid policy JSON document.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -150,9 +147,6 @@ namespace Pulumi.Aws.Kms
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }
 
-        /// <summary>
-        /// A valid policy JSON document.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
@@ -220,9 +214,6 @@ namespace Pulumi.Aws.Kms
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }
 
-        /// <summary>
-        /// A valid policy JSON document.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

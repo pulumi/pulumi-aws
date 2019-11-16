@@ -14,6 +14,9 @@ namespace Pulumi.Aws.Waf
     /// </summary>
     public partial class WebAcl : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the WAF WebACL.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -154,6 +157,9 @@ namespace Pulumi.Aws.Waf
 
     public sealed class WebAclState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the WAF WebACL.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

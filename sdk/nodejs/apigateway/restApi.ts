@@ -102,9 +102,6 @@ export class RestApi extends pulumi.CustomResource {
      * The name of the REST API
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * JSON formatted policy document that controls access to the API Gateway.
-     */
     public readonly policy!: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the REST API's root
@@ -201,9 +198,6 @@ export interface RestApiState {
      * The name of the REST API
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * JSON formatted policy document that controls access to the API Gateway.
-     */
     readonly policy?: pulumi.Input<string>;
     /**
      * The resource ID of the REST API's root
@@ -243,8 +237,5 @@ export interface RestApiArgs {
      * The name of the REST API
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * JSON formatted policy document that controls access to the API Gateway.
-     */
     readonly policy?: pulumi.Input<string>;
 }

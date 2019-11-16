@@ -81,7 +81,6 @@ func (r *UserPolicy) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-// The policy document. This is a JSON formatted string.
 func (r *UserPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -97,7 +96,6 @@ type UserPolicyState struct {
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 	// IAM user to which to attach this policy.
 	User interface{}
@@ -109,7 +107,6 @@ type UserPolicyArgs struct {
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 	// IAM user to which to attach this policy.
 	User interface{}

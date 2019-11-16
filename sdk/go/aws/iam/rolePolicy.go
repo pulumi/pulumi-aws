@@ -83,7 +83,6 @@ func (r *RolePolicy) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-// The policy document. This is a JSON formatted string.
 func (r *RolePolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -101,7 +100,6 @@ type RolePolicyState struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 	// The IAM role to attach to the policy.
 	Role interface{}
@@ -115,7 +113,6 @@ type RolePolicyArgs struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 	// The IAM role to attach to the policy.
 	Role interface{}
