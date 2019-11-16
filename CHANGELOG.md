@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.36.0 of the AWS Terraform Provider
-
+_(none)_
 
 ---
+
+## 1.9.0 (2019-11-16)
+* Upgrade to v2.36.0 of the AWS Terraform Provider
+* Upgrade to support go 1.13.x
 
 ## 1.8.0 (2019-11-07)
 * Update default `descriptions` for several resources to `Managed by Pulumi`.
