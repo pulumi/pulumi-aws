@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = aws.wafregional.getWebAcl({
- *     name: "tfWAFRule",
+ *     name: "tfWAFRegionalWebACL",
  * });
  * ```
  *
@@ -42,7 +42,7 @@ export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetWebAclArgs {
     /**
-     * The name of the WAF Web ACL.
+     * The name of the WAF Regional Web ACL.
      */
     readonly name: string;
 }

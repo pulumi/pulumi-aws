@@ -99,6 +99,10 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
+     * A mapping of tags to assign to the DB cluster.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The VPC ID associated with the DB cluster snapshot.
      */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
@@ -129,6 +133,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             inputs["sourceDbClusterSnapshotArn"] = state ? state.sourceDbClusterSnapshotArn : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ClusterSnapshotArgs | undefined;
@@ -140,6 +145,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             }
             inputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
             inputs["dbClusterSnapshotIdentifier"] = args ? args.dbClusterSnapshotIdentifier : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["allocatedStorage"] = undefined /*out*/;
             inputs["availabilityZones"] = undefined /*out*/;
             inputs["dbClusterSnapshotArn"] = undefined /*out*/;
@@ -220,6 +226,10 @@ export interface ClusterSnapshotState {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
+     * A mapping of tags to assign to the DB cluster.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The VPC ID associated with the DB cluster snapshot.
      */
     readonly vpcId?: pulumi.Input<string>;
@@ -237,4 +247,8 @@ export interface ClusterSnapshotArgs {
      * The Identifier for the snapshot.
      */
     readonly dbClusterSnapshotIdentifier: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the DB cluster.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

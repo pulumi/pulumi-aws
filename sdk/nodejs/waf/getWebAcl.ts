@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * `aws.waf.Rule` Retrieves a WAF Web ACL Resource Id.
+ * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
  * 
  * ## Example Usage
  * 
@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = aws.waf.getWebAcl({
- *     name: "tfWAFRule",
+ *     name: "tfWAFWebACL",
  * });
  * ```
  *

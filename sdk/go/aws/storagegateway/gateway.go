@@ -36,6 +36,7 @@ func NewGateway(ctx *pulumi.Context,
 		inputs["mediumChangerType"] = nil
 		inputs["smbActiveDirectorySettings"] = nil
 		inputs["smbGuestPassword"] = nil
+		inputs["tags"] = nil
 		inputs["tapeDriveType"] = nil
 	} else {
 		inputs["activationKey"] = args.ActivationKey
@@ -46,6 +47,7 @@ func NewGateway(ctx *pulumi.Context,
 		inputs["mediumChangerType"] = args.MediumChangerType
 		inputs["smbActiveDirectorySettings"] = args.SmbActiveDirectorySettings
 		inputs["smbGuestPassword"] = args.SmbGuestPassword
+		inputs["tags"] = args.Tags
 		inputs["tapeDriveType"] = args.TapeDriveType
 	}
 	inputs["arn"] = nil
@@ -73,6 +75,7 @@ func GetGateway(ctx *pulumi.Context,
 		inputs["mediumChangerType"] = state.MediumChangerType
 		inputs["smbActiveDirectorySettings"] = state.SmbActiveDirectorySettings
 		inputs["smbGuestPassword"] = state.SmbGuestPassword
+		inputs["tags"] = state.Tags
 		inputs["tapeDriveType"] = state.TapeDriveType
 	}
 	s, err := ctx.ReadResource("aws:storagegateway/gateway:Gateway", name, id, inputs, opts...)
@@ -141,6 +144,11 @@ func (r *Gateway) SmbGuestPassword() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["smbGuestPassword"])
 }
 
+// Key-value mapping of resource tags
+func (r *Gateway) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 func (r *Gateway) TapeDriveType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tapeDriveType"])
@@ -167,6 +175,8 @@ type GatewayState struct {
 	SmbActiveDirectorySettings interface{}
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType interface{}
 }
@@ -188,6 +198,8 @@ type GatewayArgs struct {
 	SmbActiveDirectorySettings interface{}
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType interface{}
 }

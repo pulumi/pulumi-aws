@@ -138,6 +138,10 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly smbGuestPassword!: pulumi.Output<string | undefined>;
     /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */
     public readonly tapeDriveType!: pulumi.Output<string | undefined>;
@@ -164,6 +168,7 @@ export class Gateway extends pulumi.CustomResource {
             inputs["mediumChangerType"] = state ? state.mediumChangerType : undefined;
             inputs["smbActiveDirectorySettings"] = state ? state.smbActiveDirectorySettings : undefined;
             inputs["smbGuestPassword"] = state ? state.smbGuestPassword : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["tapeDriveType"] = state ? state.tapeDriveType : undefined;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
@@ -181,6 +186,7 @@ export class Gateway extends pulumi.CustomResource {
             inputs["mediumChangerType"] = args ? args.mediumChangerType : undefined;
             inputs["smbActiveDirectorySettings"] = args ? args.smbActiveDirectorySettings : undefined;
             inputs["smbGuestPassword"] = args ? args.smbGuestPassword : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["tapeDriveType"] = args ? args.tapeDriveType : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["gatewayId"] = undefined /*out*/;
@@ -238,6 +244,10 @@ export interface GatewayState {
      */
     readonly smbGuestPassword?: pulumi.Input<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */
     readonly tapeDriveType?: pulumi.Input<string>;
@@ -276,6 +286,10 @@ export interface GatewayArgs {
      * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
      */
     readonly smbGuestPassword?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */

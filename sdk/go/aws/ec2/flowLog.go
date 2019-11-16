@@ -28,6 +28,7 @@ func NewFlowLog(ctx *pulumi.Context,
 		inputs["iamRoleArn"] = nil
 		inputs["logDestination"] = nil
 		inputs["logDestinationType"] = nil
+		inputs["logFormat"] = nil
 		inputs["logGroupName"] = nil
 		inputs["subnetId"] = nil
 		inputs["trafficType"] = nil
@@ -37,6 +38,7 @@ func NewFlowLog(ctx *pulumi.Context,
 		inputs["iamRoleArn"] = args.IamRoleArn
 		inputs["logDestination"] = args.LogDestination
 		inputs["logDestinationType"] = args.LogDestinationType
+		inputs["logFormat"] = args.LogFormat
 		inputs["logGroupName"] = args.LogGroupName
 		inputs["subnetId"] = args.SubnetId
 		inputs["trafficType"] = args.TrafficType
@@ -59,6 +61,7 @@ func GetFlowLog(ctx *pulumi.Context,
 		inputs["iamRoleArn"] = state.IamRoleArn
 		inputs["logDestination"] = state.LogDestination
 		inputs["logDestinationType"] = state.LogDestinationType
+		inputs["logFormat"] = state.LogFormat
 		inputs["logGroupName"] = state.LogGroupName
 		inputs["subnetId"] = state.SubnetId
 		inputs["trafficType"] = state.TrafficType
@@ -101,6 +104,11 @@ func (r *FlowLog) LogDestinationType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["logDestinationType"])
 }
 
+// The fields to include in the flow log record, in the order in which they should appear.
+func (r *FlowLog) LogFormat() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["logFormat"])
+}
+
 // *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
 func (r *FlowLog) LogGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["logGroupName"])
@@ -131,6 +139,8 @@ type FlowLogState struct {
 	LogDestination interface{}
 	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
 	LogDestinationType interface{}
+	// The fields to include in the flow log record, in the order in which they should appear.
+	LogFormat interface{}
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
 	LogGroupName interface{}
 	// Subnet ID to attach to
@@ -151,6 +161,8 @@ type FlowLogArgs struct {
 	LogDestination interface{}
 	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
 	LogDestinationType interface{}
+	// The fields to include in the flow log record, in the order in which they should appear.
+	LogFormat interface{}
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
 	LogGroupName interface{}
 	// Subnet ID to attach to

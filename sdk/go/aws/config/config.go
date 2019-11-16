@@ -29,6 +29,16 @@ func GetForbiddenAccountIds(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:forbiddenAccountIds")
 }
 
+// Resource tag key prefixes to ignore across all resources.
+func GetIgnoreTagPrefixes(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:ignoreTagPrefixes")
+}
+
+// Resource tag keys to ignore across all resources.
+func GetIgnoreTags(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:ignoreTags")
+}
+
 // Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
 func GetInsecure(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "aws:insecure")

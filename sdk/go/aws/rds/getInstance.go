@@ -14,6 +14,7 @@ func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceRes
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["dbInstanceIdentifier"] = args.DbInstanceIdentifier
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:rds/getInstance:getInstance", inputs)
 	if err != nil {
@@ -56,6 +57,7 @@ func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceRes
 		ResourceId: outputs["resourceId"],
 		StorageEncrypted: outputs["storageEncrypted"],
 		StorageType: outputs["storageType"],
+		Tags: outputs["tags"],
 		Timezone: outputs["timezone"],
 		VpcSecurityGroups: outputs["vpcSecurityGroups"],
 		Id: outputs["id"],
@@ -66,6 +68,7 @@ func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceRes
 type GetInstanceArgs struct {
 	// The name of the RDS instance
 	DbInstanceIdentifier interface{}
+	Tags interface{}
 }
 
 // A collection of values returned by getInstance.
@@ -141,6 +144,7 @@ type GetInstanceResult struct {
 	StorageEncrypted interface{}
 	// Specifies the storage type associated with DB instance.
 	StorageType interface{}
+	Tags interface{}
 	// The time zone of the DB instance.
 	Timezone interface{}
 	// Provides a list of VPC security group elements that the DB instance belongs to.

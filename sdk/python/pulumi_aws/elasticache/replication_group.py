@@ -53,6 +53,10 @@ class ReplicationGroup(pulumi.CustomResource):
     """
     The version number of the cache engine to be used for the cache clusters in this replication group.
     """
+    kms_key_id: pulumi.Output[str]
+    """
+    The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
+    """
     maintenance_window: pulumi.Output[str]
     """
     Specifies the weekly time range for when maintenance
@@ -140,7 +144,7 @@ class ReplicationGroup(pulumi.CustomResource):
     """
     Whether to enable encryption in transit.
     """
-    def __init__(__self__, resource_name, opts=None, apply_immediately=None, at_rest_encryption_enabled=None, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, availability_zones=None, cluster_mode=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, number_cache_clusters=None, parameter_group_name=None, port=None, replication_group_description=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None, transit_encryption_enabled=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, apply_immediately=None, at_rest_encryption_enabled=None, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, availability_zones=None, cluster_mode=None, engine=None, engine_version=None, kms_key_id=None, maintenance_window=None, node_type=None, notification_topic_arn=None, number_cache_clusters=None, parameter_group_name=None, port=None, replication_group_description=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None, transit_encryption_enabled=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an ElastiCache Replication Group resource.
         For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
@@ -165,6 +169,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[dict] cluster_mode: Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
         :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group.
+        :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -227,6 +232,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__['cluster_mode'] = cluster_mode
             __props__['engine'] = engine
             __props__['engine_version'] = engine_version
+            __props__['kms_key_id'] = kms_key_id
             __props__['maintenance_window'] = maintenance_window
             __props__['node_type'] = node_type
             __props__['notification_topic_arn'] = notification_topic_arn
@@ -256,7 +262,7 @@ class ReplicationGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, apply_immediately=None, at_rest_encryption_enabled=None, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, availability_zones=None, cluster_mode=None, configuration_endpoint_address=None, engine=None, engine_version=None, maintenance_window=None, member_clusters=None, node_type=None, notification_topic_arn=None, number_cache_clusters=None, parameter_group_name=None, port=None, primary_endpoint_address=None, replication_group_description=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None, transit_encryption_enabled=None):
+    def get(resource_name, id, opts=None, apply_immediately=None, at_rest_encryption_enabled=None, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, availability_zones=None, cluster_mode=None, configuration_endpoint_address=None, engine=None, engine_version=None, kms_key_id=None, maintenance_window=None, member_clusters=None, node_type=None, notification_topic_arn=None, number_cache_clusters=None, parameter_group_name=None, port=None, primary_endpoint_address=None, replication_group_description=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None, transit_encryption_enabled=None):
         """
         Get an existing ReplicationGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -274,6 +280,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] configuration_endpoint_address: The address of the replication group configuration endpoint when cluster mode is enabled.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
         :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group.
+        :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
@@ -325,6 +332,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__["configuration_endpoint_address"] = configuration_endpoint_address
         __props__["engine"] = engine
         __props__["engine_version"] = engine_version
+        __props__["kms_key_id"] = kms_key_id
         __props__["maintenance_window"] = maintenance_window
         __props__["member_clusters"] = member_clusters
         __props__["node_type"] = node_type

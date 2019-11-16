@@ -21,6 +21,18 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetVpcEndpointArgs : Pulumi.ResourceArgs
     {
+        [Input("filters")]
+        private InputList<Inputs.GetVpcEndpointFiltersArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
+        public InputList<Inputs.GetVpcEndpointFiltersArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetVpcEndpointFiltersArgs>());
+            set => _filters = value;
+        }
+
         /// <summary>
         /// The ID of the specific VPC Endpoint to retrieve.
         /// </summary>
@@ -41,6 +53,11 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags, each pair of which must exactly match
+        /// a pair on the specific VPC Endpoint to retrieve.
+        /// </summary>
         public InputMap<object> Tags
         {
             get => _tags ?? (_tags = new InputMap<object>());
@@ -69,6 +86,7 @@ namespace Pulumi.Aws.Ec2
         /// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcEndpointDnsEntriesResult> DnsEntries;
+        public readonly ImmutableArray<Outputs.GetVpcEndpointFiltersResult> Filters;
         public readonly string Id;
         /// <summary>
         /// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
@@ -108,9 +126,6 @@ namespace Pulumi.Aws.Ec2
         /// One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// A mapping of tags assigned to the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>
         /// The VPC Endpoint type, `Gateway` or `Interface`.
@@ -122,6 +137,7 @@ namespace Pulumi.Aws.Ec2
         private GetVpcEndpointResult(
             ImmutableArray<string> cidrBlocks,
             ImmutableArray<Outputs.GetVpcEndpointDnsEntriesResult> dnsEntries,
+            ImmutableArray<Outputs.GetVpcEndpointFiltersResult> filters,
             string id,
             ImmutableArray<string> networkInterfaceIds,
             string ownerId,
@@ -140,6 +156,7 @@ namespace Pulumi.Aws.Ec2
         {
             CidrBlocks = cidrBlocks;
             DnsEntries = dnsEntries;
+            Filters = filters;
             Id = id;
             NetworkInterfaceIds = networkInterfaceIds;
             OwnerId = ownerId;
@@ -156,6 +173,37 @@ namespace Pulumi.Aws.Ec2
             VpcEndpointType = vpcEndpointType;
             VpcId = vpcId;
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class GetVpcEndpointFiltersArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The name of the field to filter by, as defined by
+        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("values", required: true)]
+        private InputList<string>? _values;
+
+        /// <summary>
+        /// Set of values that are accepted for the given field.
+        /// A VPC Endpoint will be selected if any one of the given values matches.
+        /// </summary>
+        public InputList<string> Values
+        {
+            get => _values ?? (_values = new InputList<string>());
+            set => _values = value;
+        }
+
+        public GetVpcEndpointFiltersArgs()
+        {
+        }
+    }
     }
 
     namespace Outputs
@@ -180,6 +228,30 @@ namespace Pulumi.Aws.Ec2
         {
             DnsName = dnsName;
             HostedZoneId = hostedZoneId;
+        }
+    }
+
+    [OutputType]
+    public sealed class GetVpcEndpointFiltersResult
+    {
+        /// <summary>
+        /// The name of the field to filter by, as defined by
+        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// Set of values that are accepted for the given field.
+        /// A VPC Endpoint will be selected if any one of the given values matches.
+        /// </summary>
+        public readonly ImmutableArray<string> Values;
+
+        [OutputConstructor]
+        private GetVpcEndpointFiltersResult(
+            string name,
+            ImmutableArray<string> values)
+        {
+            Name = name;
+            Values = values;
         }
     }
     }

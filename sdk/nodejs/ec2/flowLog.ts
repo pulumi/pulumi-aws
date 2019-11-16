@@ -124,6 +124,10 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly logDestinationType!: pulumi.Output<string | undefined>;
     /**
+     * The fields to include in the flow log record, in the order in which they should appear.
+     */
+    public readonly logFormat!: pulumi.Output<string>;
+    /**
      * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
      */
     public readonly logGroupName!: pulumi.Output<string>;
@@ -156,6 +160,7 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
             inputs["logDestination"] = state ? state.logDestination : undefined;
             inputs["logDestinationType"] = state ? state.logDestinationType : undefined;
+            inputs["logFormat"] = state ? state.logFormat : undefined;
             inputs["logGroupName"] = state ? state.logGroupName : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["trafficType"] = state ? state.trafficType : undefined;
@@ -169,6 +174,7 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
             inputs["logDestination"] = args ? args.logDestination : undefined;
             inputs["logDestinationType"] = args ? args.logDestinationType : undefined;
+            inputs["logFormat"] = args ? args.logFormat : undefined;
             inputs["logGroupName"] = args ? args.logGroupName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["trafficType"] = args ? args.trafficType : undefined;
@@ -205,6 +211,10 @@ export interface FlowLogState {
      * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
      */
     readonly logDestinationType?: pulumi.Input<string>;
+    /**
+     * The fields to include in the flow log record, in the order in which they should appear.
+     */
+    readonly logFormat?: pulumi.Input<string>;
     /**
      * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
      */
@@ -243,6 +253,10 @@ export interface FlowLogArgs {
      * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
      */
     readonly logDestinationType?: pulumi.Input<string>;
+    /**
+     * The fields to include in the flow log record, in the order in which they should appear.
+     */
+    readonly logFormat?: pulumi.Input<string>;
     /**
      * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
      */

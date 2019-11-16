@@ -129,6 +129,10 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
     public readonly validUserLists!: pulumi.Output<string[] | undefined>;
@@ -159,6 +163,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["readOnly"] = state ? state.readOnly : undefined;
             inputs["requesterPays"] = state ? state.requesterPays : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["validUserLists"] = state ? state.validUserLists : undefined;
         } else {
             const args = argsOrState as SmbFileShareArgs | undefined;
@@ -183,6 +188,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["readOnly"] = args ? args.readOnly : undefined;
             inputs["requesterPays"] = args ? args.requesterPays : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["validUserLists"] = args ? args.validUserLists : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["fileshareId"] = undefined /*out*/;
@@ -259,6 +265,10 @@ export interface SmbFileShareState {
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
     readonly validUserLists?: pulumi.Input<pulumi.Input<string>[]>;
@@ -316,6 +326,10 @@ export interface SmbFileShareArgs {
      * The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
      */
     readonly roleArn: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */

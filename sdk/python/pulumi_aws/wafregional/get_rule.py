@@ -36,7 +36,7 @@ def get_rule(name=None,opts=None):
     """
     `wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
     
-    :param str name: The name of the WAF rule.
+    :param str name: The name of the WAF Regional rule.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rule.html.markdown.
     """

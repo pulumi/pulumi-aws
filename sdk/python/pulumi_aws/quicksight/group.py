@@ -32,7 +32,7 @@ class Group(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, aws_account_id=None, description=None, group_name=None, namespace=None, __props__=None, __name__=None, __opts__=None):
         """
-        Resource for managing Quick Sight Group
+        Resource for managing QuickSight Group
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

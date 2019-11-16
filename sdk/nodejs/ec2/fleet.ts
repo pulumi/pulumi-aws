@@ -81,7 +81,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
@@ -178,7 +178,7 @@ export interface FleetState {
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
@@ -224,7 +224,7 @@ export interface FleetArgs {
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */

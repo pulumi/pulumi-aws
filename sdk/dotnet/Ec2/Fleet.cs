@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Ec2
         /// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Nested argument containing target capacity configurations. Defined below.
@@ -151,14 +151,14 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.FleetSpotOptionsArgs>? SpotOptions { get; set; }
 
         [Input("tags")]
-        private InputMap<string>? _tags;
+        private InputMap<object>? _tags;
 
         /// <summary>
         /// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
         /// </summary>
-        public InputMap<string> Tags
+        public InputMap<object> Tags
         {
-            get => _tags ?? (_tags = new InputMap<string>());
+            get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
 
@@ -224,14 +224,14 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.FleetSpotOptionsGetArgs>? SpotOptions { get; set; }
 
         [Input("tags")]
-        private InputMap<string>? _tags;
+        private InputMap<object>? _tags;
 
         /// <summary>
         /// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
         /// </summary>
-        public InputMap<string> Tags
+        public InputMap<object> Tags
         {
-            get => _tags ?? (_tags = new InputMap<string>());
+            get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
 

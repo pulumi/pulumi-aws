@@ -14,6 +14,9 @@ namespace Pulumi.Aws.ApiGateway
     /// </summary>
     public partial class VpcLink : Pulumi.CustomResource
     {
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// The description of the VPC link.
         /// </summary>
@@ -25,6 +28,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
@@ -90,6 +99,18 @@ namespace Pulumi.Aws.ApiGateway
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         /// </summary>
@@ -103,6 +124,9 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class VpcLinkState : Pulumi.ResourceArgs
     {
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The description of the VPC link.
         /// </summary>
@@ -114,6 +138,18 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.

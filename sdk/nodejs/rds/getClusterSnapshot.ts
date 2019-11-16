@@ -54,6 +54,7 @@ export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.
         "includeShared": args.includeShared,
         "mostRecent": args.mostRecent,
         "snapshotType": args.snapshotType,
+        "tags": args.tags,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -92,6 +93,7 @@ export interface GetClusterSnapshotArgs {
      * included in the returned results by default. Possible values are, `automated`, `manual`, `shared` and `public`.
      */
     readonly snapshotType?: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -152,6 +154,10 @@ export interface GetClusterSnapshotResult {
      * Specifies whether the DB cluster snapshot is encrypted.
      */
     readonly storageEncrypted: boolean;
+    /**
+     * A mapping of tags for the resource.
+     */
+    readonly tags: {[key: string]: any};
     /**
      * The VPC ID associated with the DB cluster snapshot.
      */

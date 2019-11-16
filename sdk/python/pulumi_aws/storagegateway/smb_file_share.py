@@ -66,11 +66,15 @@ class SmbFileShare(pulumi.CustomResource):
     """
     The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
     """
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
     valid_user_lists: pulumi.Output[list]
     """
     A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
     """
-    def __init__(__self__, resource_name, opts=None, authentication=None, default_storage_class=None, gateway_arn=None, guess_mime_type_enabled=None, invalid_user_lists=None, kms_encrypted=None, kms_key_arn=None, location_arn=None, object_acl=None, read_only=None, requester_pays=None, role_arn=None, valid_user_lists=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication=None, default_storage_class=None, gateway_arn=None, guess_mime_type_enabled=None, invalid_user_lists=None, kms_encrypted=None, kms_key_arn=None, location_arn=None, object_acl=None, read_only=None, requester_pays=None, role_arn=None, tags=None, valid_user_lists=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an AWS Storage Gateway SMB File Share.
         
@@ -88,6 +92,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[list] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_smb_file_share.html.markdown.
@@ -127,6 +132,7 @@ class SmbFileShare(pulumi.CustomResource):
             if role_arn is None:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
+            __props__['tags'] = tags
             __props__['valid_user_lists'] = valid_user_lists
             __props__['arn'] = None
             __props__['fileshare_id'] = None
@@ -137,7 +143,7 @@ class SmbFileShare(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, authentication=None, default_storage_class=None, fileshare_id=None, gateway_arn=None, guess_mime_type_enabled=None, invalid_user_lists=None, kms_encrypted=None, kms_key_arn=None, location_arn=None, object_acl=None, read_only=None, requester_pays=None, role_arn=None, valid_user_lists=None):
+    def get(resource_name, id, opts=None, arn=None, authentication=None, default_storage_class=None, fileshare_id=None, gateway_arn=None, guess_mime_type_enabled=None, invalid_user_lists=None, kms_encrypted=None, kms_key_arn=None, location_arn=None, object_acl=None, read_only=None, requester_pays=None, role_arn=None, tags=None, valid_user_lists=None):
         """
         Get an existing SmbFileShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -159,6 +165,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[list] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_smb_file_share.html.markdown.
@@ -180,6 +187,7 @@ class SmbFileShare(pulumi.CustomResource):
         __props__["read_only"] = read_only
         __props__["requester_pays"] = requester_pays
         __props__["role_arn"] = role_arn
+        __props__["tags"] = tags
         __props__["valid_user_lists"] = valid_user_lists
         return SmbFileShare(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

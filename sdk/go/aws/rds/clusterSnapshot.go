@@ -28,9 +28,11 @@ func NewClusterSnapshot(ctx *pulumi.Context,
 	if args == nil {
 		inputs["dbClusterIdentifier"] = nil
 		inputs["dbClusterSnapshotIdentifier"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["dbClusterIdentifier"] = args.DbClusterIdentifier
 		inputs["dbClusterSnapshotIdentifier"] = args.DbClusterSnapshotIdentifier
+		inputs["tags"] = args.Tags
 	}
 	inputs["allocatedStorage"] = nil
 	inputs["availabilityZones"] = nil
@@ -72,6 +74,7 @@ func GetClusterSnapshot(ctx *pulumi.Context,
 		inputs["sourceDbClusterSnapshotArn"] = state.SourceDbClusterSnapshotArn
 		inputs["status"] = state.Status
 		inputs["storageEncrypted"] = state.StorageEncrypted
+		inputs["tags"] = state.Tags
 		inputs["vpcId"] = state.VpcId
 	}
 	s, err := ctx.ReadResource("aws:rds/clusterSnapshot:ClusterSnapshot", name, id, inputs, opts...)
@@ -159,6 +162,11 @@ func (r *ClusterSnapshot) StorageEncrypted() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["storageEncrypted"])
 }
 
+// A mapping of tags to assign to the DB cluster.
+func (r *ClusterSnapshot) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The VPC ID associated with the DB cluster snapshot.
 func (r *ClusterSnapshot) VpcId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpcId"])
@@ -192,6 +200,8 @@ type ClusterSnapshotState struct {
 	Status interface{}
 	// Specifies whether the DB cluster snapshot is encrypted.
 	StorageEncrypted interface{}
+	// A mapping of tags to assign to the DB cluster.
+	Tags interface{}
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId interface{}
 }
@@ -202,4 +212,6 @@ type ClusterSnapshotArgs struct {
 	DbClusterIdentifier interface{}
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier interface{}
+	// A mapping of tags to assign to the DB cluster.
+	Tags interface{}
 }

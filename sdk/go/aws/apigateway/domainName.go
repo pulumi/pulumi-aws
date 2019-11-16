@@ -55,6 +55,7 @@ func NewDomainName(ctx *pulumi.Context,
 		inputs["regionalCertificateArn"] = nil
 		inputs["regionalCertificateName"] = nil
 		inputs["securityPolicy"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["certificateArn"] = args.CertificateArn
 		inputs["certificateBody"] = args.CertificateBody
@@ -66,7 +67,9 @@ func NewDomainName(ctx *pulumi.Context,
 		inputs["regionalCertificateArn"] = args.RegionalCertificateArn
 		inputs["regionalCertificateName"] = args.RegionalCertificateName
 		inputs["securityPolicy"] = args.SecurityPolicy
+		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	inputs["certificateUploadDate"] = nil
 	inputs["cloudfrontDomainName"] = nil
 	inputs["cloudfrontZoneId"] = nil
@@ -85,6 +88,7 @@ func GetDomainName(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *DomainNameState, opts ...pulumi.ResourceOpt) (*DomainName, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["certificateArn"] = state.CertificateArn
 		inputs["certificateBody"] = state.CertificateBody
 		inputs["certificateChain"] = state.CertificateChain
@@ -100,6 +104,7 @@ func GetDomainName(ctx *pulumi.Context,
 		inputs["regionalDomainName"] = state.RegionalDomainName
 		inputs["regionalZoneId"] = state.RegionalZoneId
 		inputs["securityPolicy"] = state.SecurityPolicy
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:apigateway/domainName:DomainName", name, id, inputs, opts...)
 	if err != nil {
@@ -116,6 +121,11 @@ func (r *DomainName) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *DomainName) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// Amazon Resource Name (ARN)
+func (r *DomainName) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
@@ -204,8 +214,15 @@ func (r *DomainName) SecurityPolicy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["securityPolicy"])
 }
 
+// Key-value mapping of resource tags
+func (r *DomainName) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering DomainName resources.
 type DomainNameState struct {
+	// Amazon Resource Name (ARN)
+	Arn interface{}
 	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
 	CertificateArn interface{}
 	// The certificate issued for the domain name
@@ -247,6 +264,8 @@ type DomainNameState struct {
 	RegionalZoneId interface{}
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a DomainName resource.
@@ -280,4 +299,6 @@ type DomainNameArgs struct {
 	RegionalCertificateName interface{}
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

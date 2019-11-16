@@ -39,6 +39,7 @@ export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOp
         opts.version = utilities.getVersion();
     }
     const promise: Promise<GetVpcEndpointResult> = pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
+        "filters": args.filters,
         "id": args.id,
         "serviceName": args.serviceName,
         "state": args.state,
@@ -54,6 +55,10 @@ export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOp
  */
 export interface GetVpcEndpointArgs {
     /**
+     * Custom filter block as described below.
+     */
+    readonly filters?: inputs.ec2.GetVpcEndpointFilter[];
+    /**
      * The ID of the specific VPC Endpoint to retrieve.
      */
     readonly id?: string;
@@ -65,6 +70,10 @@ export interface GetVpcEndpointArgs {
      * The state of the specific VPC Endpoint to retrieve.
      */
     readonly state?: string;
+    /**
+     * A mapping of tags, each pair of which must exactly match
+     * a pair on the specific VPC Endpoint to retrieve.
+     */
     readonly tags?: {[key: string]: any};
     /**
      * The ID of the VPC in which the specific VPC Endpoint is used.
@@ -84,6 +93,7 @@ export interface GetVpcEndpointResult {
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
     readonly dnsEntries: outputs.ec2.GetVpcEndpointDnsEntry[];
+    readonly filters?: outputs.ec2.GetVpcEndpointFilter[];
     readonly id: string;
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
@@ -123,9 +133,6 @@ export interface GetVpcEndpointResult {
      * One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
      */
     readonly subnetIds: string[];
-    /**
-     * A mapping of tags assigned to the resource.
-     */
     readonly tags: {[key: string]: any};
     /**
      * The VPC Endpoint type, `Gateway` or `Interface`.

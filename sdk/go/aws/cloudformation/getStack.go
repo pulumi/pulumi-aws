@@ -15,6 +15,7 @@ func LookupStack(ctx *pulumi.Context, args *GetStackArgs) (*GetStackResult, erro
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:cloudformation/getStack:getStack", inputs)
 	if err != nil {
@@ -40,6 +41,7 @@ func LookupStack(ctx *pulumi.Context, args *GetStackArgs) (*GetStackResult, erro
 type GetStackArgs struct {
 	// The name of the stack
 	Name interface{}
+	Tags interface{}
 }
 
 // A collection of values returned by getStack.

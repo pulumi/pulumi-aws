@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = aws.wafregional.getRule({
- *     name: "tfWAFRule",
+ *     name: "tfWAFRegionalRule",
  * });
  * ```
  *
@@ -42,7 +42,7 @@ export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetRuleArgs {
     /**
-     * The name of the WAF rule.
+     * The name of the WAF Regional rule.
      */
     readonly name: string;
 }

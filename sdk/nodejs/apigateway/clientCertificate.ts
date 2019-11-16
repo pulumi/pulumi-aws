@@ -50,6 +50,10 @@ export class ClientCertificate extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN)
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The date when the client certificate was created.
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
@@ -65,6 +69,10 @@ export class ClientCertificate extends pulumi.CustomResource {
      * The PEM-encoded public key of the client certificate.
      */
     public /*out*/ readonly pemEncodedCertificate!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a ClientCertificate resource with the given unique name, arguments, and options.
@@ -78,13 +86,17 @@ export class ClientCertificate extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ClientCertificateState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["expirationDate"] = state ? state.expirationDate : undefined;
             inputs["pemEncodedCertificate"] = state ? state.pemEncodedCertificate : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ClientCertificateArgs | undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["expirationDate"] = undefined /*out*/;
             inputs["pemEncodedCertificate"] = undefined /*out*/;
@@ -105,6 +117,10 @@ export class ClientCertificate extends pulumi.CustomResource {
  */
 export interface ClientCertificateState {
     /**
+     * Amazon Resource Name (ARN)
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The date when the client certificate was created.
      */
     readonly createdDate?: pulumi.Input<string>;
@@ -120,6 +136,10 @@ export interface ClientCertificateState {
      * The PEM-encoded public key of the client certificate.
      */
     readonly pemEncodedCertificate?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -130,4 +150,8 @@ export interface ClientCertificateArgs {
      * The description of the client certificate.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

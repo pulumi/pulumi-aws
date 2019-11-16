@@ -2011,7 +2011,7 @@ export namespace backup {
         /**
          * Metadata that you can assign to help organize the resources that you create.
          */
-        recoveryPointTags?: {[key: string]: string};
+        recoveryPointTags?: {[key: string]: any};
         /**
          * An display name for a backup rule.
          */
@@ -5190,6 +5190,19 @@ export namespace ec2 {
         hostedZoneId: string;
     }
 
+    export interface GetVpcEndpointFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A VPC Endpoint will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
     export interface GetVpcFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -6032,6 +6045,15 @@ export namespace ec2transitgateway {
          * List of one or more values for the filter.
          */
         values: string[];
+    }
+}
+
+export namespace ecr {
+    export interface RepositoryImageScanningConfiguration {
+        /**
+         * Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
+         */
+        scanOnPush: boolean;
     }
 }
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing Quick Sight Group
+ * Resource for managing QuickSight Group
  * 
  * ## Example Usage
  * 

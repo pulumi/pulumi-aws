@@ -10,7 +10,7 @@ namespace Pulumi.Aws.Waf
     public static partial class Invokes
     {
         /// <summary>
-        /// `aws.waf.Rule` Retrieves a WAF Web ACL Resource Id.
+        /// `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_web_acl.html.markdown.
         /// </summary>

@@ -64,6 +64,14 @@ namespace Pulumi.Aws.Rds
         [Input("snapshotType")]
         public Input<string>? SnapshotType { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public GetClusterSnapshotArgs()
         {
         }
@@ -127,6 +135,10 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly bool StorageEncrypted;
         /// <summary>
+        /// A mapping of tags for the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Tags;
+        /// <summary>
         /// The VPC ID associated with the DB cluster snapshot.
         /// </summary>
         public readonly string VpcId;
@@ -155,6 +167,7 @@ namespace Pulumi.Aws.Rds
             string sourceDbClusterSnapshotArn,
             string status,
             bool storageEncrypted,
+            ImmutableDictionary<string, object> tags,
             string vpcId,
             string id)
         {
@@ -176,6 +189,7 @@ namespace Pulumi.Aws.Rds
             SourceDbClusterSnapshotArn = sourceDbClusterSnapshotArn;
             Status = status;
             StorageEncrypted = storageEncrypted;
+            Tags = tags;
             VpcId = vpcId;
             Id = id;
         }
