@@ -19,7 +19,7 @@
 export interface ContainerDefinition {
     command?: string[];
     cpu?: number;
-    dependsOn?: string;
+    dependsOn?: ContainerDependency[];
     disableNetworking?: boolean;
     dnsSearchDomains?: string[];
     dnsServers?: string[];
@@ -29,6 +29,7 @@ export interface ContainerDefinition {
     environment?: KeyValuePair[];
     essential?: boolean;
     extraHosts?: HostEntry[];
+    firelensConfiguration?: FirelensConfiguration;
     healthCheck?: HealthCheck;
     hostname?: string;
     image?: string;
@@ -56,10 +57,22 @@ export interface ContainerDefinition {
     workingDirectory?: string;
 }
 
+// https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDependency.html
+export interface ContainerDependency {
+    containerName?: string;
+    condition?: string;
+}
+
 // https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KeyValuePair.html
 export interface KeyValuePair {
     name: string;
     value: string;
+}
+
+// https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_FirelensConfiguration.html
+export interface FirelensConfiguration {
+    options?: { [key: string]: string};
+    type: string;
 }
 
 /**
