@@ -15,6 +15,12 @@ namespace Pulumi.Aws.WafRegional
     public partial class RateBasedRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the WAF Regional Rate Based Rule.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this rule.
         /// </summary>
         [Output("metricName")]
@@ -43,6 +49,12 @@ namespace Pulumi.Aws.WafRegional
         /// </summary>
         [Output("rateLimit")]
         public Output<int> RateLimit { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,6 +138,18 @@ namespace Pulumi.Aws.WafRegional
         [Input("rateLimit", required: true)]
         public Input<int> RateLimit { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public RateBasedRuleArgs()
         {
         }
@@ -133,6 +157,12 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class RateBasedRuleState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the WAF Regional Rate Based Rule.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this rule.
         /// </summary>
@@ -168,6 +198,18 @@ namespace Pulumi.Aws.WafRegional
         /// </summary>
         [Input("rateLimit")]
         public Input<int>? RateLimit { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         public RateBasedRuleState()
         {

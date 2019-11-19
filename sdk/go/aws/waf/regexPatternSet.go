@@ -25,6 +25,7 @@ func NewRegexPatternSet(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["regexPatternStrings"] = args.RegexPatternStrings
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:waf/regexPatternSet:RegexPatternSet", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -38,6 +39,7 @@ func GetRegexPatternSet(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *RegexPatternSetState, opts ...pulumi.ResourceOpt) (*RegexPatternSet, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["name"] = state.Name
 		inputs["regexPatternStrings"] = state.RegexPatternStrings
 	}
@@ -58,6 +60,11 @@ func (r *RegexPatternSet) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// Amazon Resource Name (ARN)
+func (r *RegexPatternSet) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // The name or description of the Regex Pattern Set.
 func (r *RegexPatternSet) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -70,6 +77,8 @@ func (r *RegexPatternSet) RegexPatternStrings() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering RegexPatternSet resources.
 type RegexPatternSetState struct {
+	// Amazon Resource Name (ARN)
+	Arn interface{}
 	// The name or description of the Regex Pattern Set.
 	Name interface{}
 	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.

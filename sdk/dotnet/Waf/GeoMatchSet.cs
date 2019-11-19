@@ -15,6 +15,12 @@ namespace Pulumi.Aws.Waf
     public partial class GeoMatchSet : Pulumi.CustomResource
     {
         /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
         /// </summary>
         [Output("geoMatchConstraints")]
@@ -97,6 +103,12 @@ namespace Pulumi.Aws.Waf
 
     public sealed class GeoMatchSetState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("geoMatchConstraints")]
         private InputList<Inputs.GeoMatchSetGeoMatchConstraintsGetArgs>? _geoMatchConstraints;
 

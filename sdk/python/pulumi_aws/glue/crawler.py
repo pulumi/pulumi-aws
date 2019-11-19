@@ -79,7 +79,11 @@ class Crawler(pulumi.CustomResource):
     """
     The table prefix used for catalog tables that are created.
     """
-    def __init__(__self__, resource_name, opts=None, catalog_targets=None, classifiers=None, configuration=None, database_name=None, description=None, dynamodb_targets=None, jdbc_targets=None, name=None, role=None, s3_targets=None, schedule=None, schema_change_policy=None, security_configuration=None, table_prefix=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, catalog_targets=None, classifiers=None, configuration=None, database_name=None, description=None, dynamodb_targets=None, jdbc_targets=None, name=None, role=None, s3_targets=None, schedule=None, schema_change_policy=None, security_configuration=None, table_prefix=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
         
@@ -98,6 +102,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[dict] schema_change_policy: Policy for the crawler's update and deletion behavior.
         :param pulumi.Input[str] security_configuration: The name of Security Configuration to be used by the crawler
         :param pulumi.Input[str] table_prefix: The table prefix used for catalog tables that are created.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **catalog_targets** object supports the following:
         
@@ -161,6 +166,7 @@ class Crawler(pulumi.CustomResource):
             __props__['schema_change_policy'] = schema_change_policy
             __props__['security_configuration'] = security_configuration
             __props__['table_prefix'] = table_prefix
+            __props__['tags'] = tags
             __props__['arn'] = None
         super(Crawler, __self__).__init__(
             'aws:glue/crawler:Crawler',
@@ -169,7 +175,7 @@ class Crawler(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, catalog_targets=None, classifiers=None, configuration=None, database_name=None, description=None, dynamodb_targets=None, jdbc_targets=None, name=None, role=None, s3_targets=None, schedule=None, schema_change_policy=None, security_configuration=None, table_prefix=None):
+    def get(resource_name, id, opts=None, arn=None, catalog_targets=None, classifiers=None, configuration=None, database_name=None, description=None, dynamodb_targets=None, jdbc_targets=None, name=None, role=None, s3_targets=None, schedule=None, schema_change_policy=None, security_configuration=None, table_prefix=None, tags=None):
         """
         Get an existing Crawler resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -191,6 +197,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[dict] schema_change_policy: Policy for the crawler's update and deletion behavior.
         :param pulumi.Input[str] security_configuration: The name of Security Configuration to be used by the crawler
         :param pulumi.Input[str] table_prefix: The table prefix used for catalog tables that are created.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **catalog_targets** object supports the following:
         
@@ -237,6 +244,7 @@ class Crawler(pulumi.CustomResource):
         __props__["schema_change_policy"] = schema_change_policy
         __props__["security_configuration"] = security_configuration
         __props__["table_prefix"] = table_prefix
+        __props__["tags"] = tags
         return Crawler(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

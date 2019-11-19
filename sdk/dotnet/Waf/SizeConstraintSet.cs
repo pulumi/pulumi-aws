@@ -15,6 +15,12 @@ namespace Pulumi.Aws.Waf
     public partial class SizeConstraintSet : Pulumi.CustomResource
     {
         /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The name or description of the Size Constraint Set.
         /// </summary>
         [Output("name")]
@@ -97,6 +103,12 @@ namespace Pulumi.Aws.Waf
 
     public sealed class SizeConstraintSetState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The name or description of the Size Constraint Set.
         /// </summary>

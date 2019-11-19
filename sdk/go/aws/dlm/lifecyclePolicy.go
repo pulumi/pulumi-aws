@@ -33,12 +33,15 @@ func NewLifecyclePolicy(ctx *pulumi.Context,
 		inputs["executionRoleArn"] = nil
 		inputs["policyDetails"] = nil
 		inputs["state"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["description"] = args.Description
 		inputs["executionRoleArn"] = args.ExecutionRoleArn
 		inputs["policyDetails"] = args.PolicyDetails
 		inputs["state"] = args.State
+		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -52,10 +55,12 @@ func GetLifecyclePolicy(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *LifecyclePolicyState, opts ...pulumi.ResourceOpt) (*LifecyclePolicy, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["description"] = state.Description
 		inputs["executionRoleArn"] = state.ExecutionRoleArn
 		inputs["policyDetails"] = state.PolicyDetails
 		inputs["state"] = state.State
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, id, inputs, opts...)
 	if err != nil {
@@ -72,6 +77,11 @@ func (r *LifecyclePolicy) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *LifecyclePolicy) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+func (r *LifecyclePolicy) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A description for the DLM lifecycle policy.
@@ -94,8 +104,15 @@ func (r *LifecyclePolicy) State() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["state"])
 }
 
+// Key-value mapping of resource tags.
+func (r *LifecyclePolicy) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering LifecyclePolicy resources.
 type LifecyclePolicyState struct {
+	// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+	Arn interface{}
 	// A description for the DLM lifecycle policy.
 	Description interface{}
 	// The ARN of an IAM role that is able to be assumed by the DLM service.
@@ -104,6 +121,8 @@ type LifecyclePolicyState struct {
 	PolicyDetails interface{}
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State interface{}
+	// Key-value mapping of resource tags.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a LifecyclePolicy resource.
@@ -116,4 +135,6 @@ type LifecyclePolicyArgs struct {
 	PolicyDetails interface{}
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State interface{}
+	// Key-value mapping of resource tags.
+	Tags interface{}
 }

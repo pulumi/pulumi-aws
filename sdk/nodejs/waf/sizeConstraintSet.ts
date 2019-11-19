@@ -57,6 +57,10 @@ export class SizeConstraintSet extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN)
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The name or description of the Size Constraint Set.
      */
     public readonly name!: pulumi.Output<string>;
@@ -77,12 +81,14 @@ export class SizeConstraintSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SizeConstraintSetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["sizeConstraints"] = state ? state.sizeConstraints : undefined;
         } else {
             const args = argsOrState as SizeConstraintSetArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["sizeConstraints"] = args ? args.sizeConstraints : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -99,6 +105,10 @@ export class SizeConstraintSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SizeConstraintSet resources.
  */
 export interface SizeConstraintSetState {
+    /**
+     * Amazon Resource Name (ARN)
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The name or description of the Size Constraint Set.
      */

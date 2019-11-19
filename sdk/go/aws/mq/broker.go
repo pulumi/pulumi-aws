@@ -179,7 +179,7 @@ func (r *Broker) EngineType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineType"])
 }
 
-// The version of the broker engine. Currently, See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
+// The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
 func (r *Broker) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
@@ -256,7 +256,7 @@ type BrokerState struct {
 	EncryptionOptions interface{}
 	// The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
 	EngineType interface{}
-	// The version of the broker engine. Currently, See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
+	// The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
 	EngineVersion interface{}
 	// The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
 	HostInstanceType interface{}
@@ -303,7 +303,7 @@ type BrokerArgs struct {
 	EncryptionOptions interface{}
 	// The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
 	EngineType interface{}
-	// The version of the broker engine. Currently, See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
+	// The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
 	EngineVersion interface{}
 	// The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
 	HostInstanceType interface{}

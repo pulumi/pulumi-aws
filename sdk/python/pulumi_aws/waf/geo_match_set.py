@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class GeoMatchSet(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN)
+    """
     geo_match_constraints: pulumi.Output[list]
     """
     The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
@@ -60,6 +64,7 @@ class GeoMatchSet(pulumi.CustomResource):
 
             __props__['geo_match_constraints'] = geo_match_constraints
             __props__['name'] = name
+            __props__['arn'] = None
         super(GeoMatchSet, __self__).__init__(
             'aws:waf/geoMatchSet:GeoMatchSet',
             resource_name,
@@ -67,7 +72,7 @@ class GeoMatchSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, geo_match_constraints=None, name=None):
+    def get(resource_name, id, opts=None, arn=None, geo_match_constraints=None, name=None):
         """
         Get an existing GeoMatchSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -75,6 +80,7 @@ class GeoMatchSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
         :param pulumi.Input[list] geo_match_constraints: The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[str] name: The name or description of the GeoMatchSet.
         
@@ -90,6 +96,7 @@ class GeoMatchSet(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["arn"] = arn
         __props__["geo_match_constraints"] = geo_match_constraints
         __props__["name"] = name
         return GeoMatchSet(resource_name, opts=opts, __props__=__props__)

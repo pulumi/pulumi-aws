@@ -95,7 +95,7 @@ export class Inventory extends pulumi.CustomResource {
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * Destination bucket where inventory list files are written (documented below).
+     * Contains information about where to publish the inventory results (documented below).
      */
     public readonly destination!: pulumi.Output<outputs.s3.InventoryDestination>;
     /**
@@ -103,11 +103,11 @@ export class Inventory extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Object filtering that accepts a prefix (documented below).
+     * Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
      */
     public readonly filter!: pulumi.Output<outputs.s3.InventoryFilter | undefined>;
     /**
-     * Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
+     * Object versions to include in the inventory list. Valid values: `All`, `Current`.
      */
     public readonly includedObjectVersions!: pulumi.Output<string>;
     /**
@@ -115,11 +115,12 @@ export class Inventory extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Contains the optional fields that are included in the inventory results.
+     * List of optional fields that are included in the inventory results.
+     * Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
      */
     public readonly optionalFields!: pulumi.Output<string[] | undefined>;
     /**
-     * Contains the frequency for generating inventory results (documented below).
+     * Specifies the schedule for generating inventory results (documented below).
      */
     public readonly schedule!: pulumi.Output<outputs.s3.InventorySchedule>;
 
@@ -186,7 +187,7 @@ export interface InventoryState {
      */
     readonly bucket?: pulumi.Input<string>;
     /**
-     * Destination bucket where inventory list files are written (documented below).
+     * Contains information about where to publish the inventory results (documented below).
      */
     readonly destination?: pulumi.Input<inputs.s3.InventoryDestination>;
     /**
@@ -194,11 +195,11 @@ export interface InventoryState {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * Object filtering that accepts a prefix (documented below).
+     * Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
      */
     readonly filter?: pulumi.Input<inputs.s3.InventoryFilter>;
     /**
-     * Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
+     * Object versions to include in the inventory list. Valid values: `All`, `Current`.
      */
     readonly includedObjectVersions?: pulumi.Input<string>;
     /**
@@ -206,11 +207,12 @@ export interface InventoryState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Contains the optional fields that are included in the inventory results.
+     * List of optional fields that are included in the inventory results.
+     * Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
      */
     readonly optionalFields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Contains the frequency for generating inventory results (documented below).
+     * Specifies the schedule for generating inventory results (documented below).
      */
     readonly schedule?: pulumi.Input<inputs.s3.InventorySchedule>;
 }
@@ -224,7 +226,7 @@ export interface InventoryArgs {
      */
     readonly bucket: pulumi.Input<string>;
     /**
-     * Destination bucket where inventory list files are written (documented below).
+     * Contains information about where to publish the inventory results (documented below).
      */
     readonly destination: pulumi.Input<inputs.s3.InventoryDestination>;
     /**
@@ -232,11 +234,11 @@ export interface InventoryArgs {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * Object filtering that accepts a prefix (documented below).
+     * Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
      */
     readonly filter?: pulumi.Input<inputs.s3.InventoryFilter>;
     /**
-     * Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
+     * Object versions to include in the inventory list. Valid values: `All`, `Current`.
      */
     readonly includedObjectVersions: pulumi.Input<string>;
     /**
@@ -244,11 +246,12 @@ export interface InventoryArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Contains the optional fields that are included in the inventory results.
+     * List of optional fields that are included in the inventory results.
+     * Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
      */
     readonly optionalFields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Contains the frequency for generating inventory results (documented below).
+     * Specifies the schedule for generating inventory results (documented below).
      */
     readonly schedule: pulumi.Input<inputs.s3.InventorySchedule>;
 }

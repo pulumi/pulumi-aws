@@ -148,6 +148,10 @@ export class WebAcl extends pulumi.CustomResource {
      * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
     public readonly rules!: pulumi.Output<outputs.wafregional.WebAclRule[] | undefined>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a WebAcl resource with the given unique name, arguments, and options.
@@ -167,6 +171,7 @@ export class WebAcl extends pulumi.CustomResource {
             inputs["metricName"] = state ? state.metricName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["rules"] = state ? state.rules : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as WebAclArgs | undefined;
             if (!args || args.defaultAction === undefined) {
@@ -180,6 +185,7 @@ export class WebAcl extends pulumi.CustomResource {
             inputs["metricName"] = args ? args.metricName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["rules"] = args ? args.rules : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -221,6 +227,10 @@ export interface WebAclState {
      * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.wafregional.WebAclRule>[]>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -247,4 +257,8 @@ export interface WebAclArgs {
      * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.wafregional.WebAclRule>[]>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

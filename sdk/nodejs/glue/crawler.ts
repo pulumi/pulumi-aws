@@ -170,6 +170,10 @@ export class Crawler extends pulumi.CustomResource {
      * The table prefix used for catalog tables that are created.
      */
     public readonly tablePrefix!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Crawler resource with the given unique name, arguments, and options.
@@ -198,6 +202,7 @@ export class Crawler extends pulumi.CustomResource {
             inputs["schemaChangePolicy"] = state ? state.schemaChangePolicy : undefined;
             inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
             inputs["tablePrefix"] = state ? state.tablePrefix : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as CrawlerArgs | undefined;
             if (!args || args.databaseName === undefined) {
@@ -220,6 +225,7 @@ export class Crawler extends pulumi.CustomResource {
             inputs["schemaChangePolicy"] = args ? args.schemaChangePolicy : undefined;
             inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             inputs["tablePrefix"] = args ? args.tablePrefix : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -294,6 +300,10 @@ export interface CrawlerState {
      * The table prefix used for catalog tables that are created.
      */
     readonly tablePrefix?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -353,4 +363,8 @@ export interface CrawlerArgs {
      * The table prefix used for catalog tables that are created.
      */
     readonly tablePrefix?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

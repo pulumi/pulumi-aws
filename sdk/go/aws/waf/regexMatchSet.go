@@ -25,6 +25,7 @@ func NewRegexMatchSet(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["regexMatchTuples"] = args.RegexMatchTuples
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:waf/regexMatchSet:RegexMatchSet", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -38,6 +39,7 @@ func GetRegexMatchSet(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *RegexMatchSetState, opts ...pulumi.ResourceOpt) (*RegexMatchSet, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["name"] = state.Name
 		inputs["regexMatchTuples"] = state.RegexMatchTuples
 	}
@@ -58,6 +60,11 @@ func (r *RegexMatchSet) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// Amazon Resource Name (ARN)
+func (r *RegexMatchSet) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // The name or description of the Regex Match Set.
 func (r *RegexMatchSet) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -71,6 +78,8 @@ func (r *RegexMatchSet) RegexMatchTuples() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering RegexMatchSet resources.
 type RegexMatchSetState struct {
+	// Amazon Resource Name (ARN)
+	Arn interface{}
 	// The name or description of the Regex Match Set.
 	Name interface{}
 	// The regular expression pattern that you want AWS WAF to search for in web requests,

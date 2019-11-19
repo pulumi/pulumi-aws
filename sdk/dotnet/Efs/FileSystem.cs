@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Efs
     public sealed class FileSystemLifecyclePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+        /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
         /// </summary>
         [Input("transitionToIa")]
         public Input<string>? TransitionToIa { get; set; }
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.Efs
     public sealed class FileSystemLifecyclePolicyGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+        /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
         /// </summary>
         [Input("transitionToIa")]
         public Input<string>? TransitionToIa { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Efs
     public sealed class FileSystemLifecyclePolicy
     {
         /// <summary>
-        /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+        /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
         /// </summary>
         public readonly string? TransitionToIa;
 

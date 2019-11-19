@@ -1021,7 +1021,8 @@ func Provider() tfbridge.ProviderInfo {
 				DeleteBeforeReplace: true, // only 1 mount target per AZ.
 			},
 			// ECS for Kubernetes
-			"aws_eks_cluster": {Tok: awsResource(eksMod, "Cluster")},
+			"aws_eks_cluster":    {Tok: awsResource(eksMod, "Cluster")},
+			"aws_eks_node_group": {Tok: awsResource(eksMod, "NodeGroup")},
 			// Elastic Search
 			"aws_elasticsearch_domain": {
 				Tok: awsResource(elasticsearchMod, "Domain"),

@@ -25,6 +25,7 @@ func NewSizeConstraintSet(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["sizeConstraints"] = args.SizeConstraints
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:wafregional/sizeConstraintSet:SizeConstraintSet", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -38,6 +39,7 @@ func GetSizeConstraintSet(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *SizeConstraintSetState, opts ...pulumi.ResourceOpt) (*SizeConstraintSet, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["name"] = state.Name
 		inputs["sizeConstraints"] = state.SizeConstraints
 	}
@@ -58,6 +60,10 @@ func (r *SizeConstraintSet) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+func (r *SizeConstraintSet) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // The name or description of the Size Constraint Set.
 func (r *SizeConstraintSet) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -70,6 +76,7 @@ func (r *SizeConstraintSet) SizeConstraints() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering SizeConstraintSet resources.
 type SizeConstraintSetState struct {
+	Arn interface{}
 	// The name or description of the Size Constraint Set.
 	Name interface{}
 	// Specifies the parts of web requests that you want to inspect the size of.

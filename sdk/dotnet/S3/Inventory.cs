@@ -21,7 +21,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// Destination bucket where inventory list files are written (documented below).
+        /// Contains information about where to publish the inventory results (documented below).
         /// </summary>
         [Output("destination")]
         public Output<Outputs.InventoryDestination> Destination { get; private set; } = null!;
@@ -33,13 +33,13 @@ namespace Pulumi.Aws.S3
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Object filtering that accepts a prefix (documented below).
+        /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         /// </summary>
         [Output("filter")]
         public Output<Outputs.InventoryFilter?> Filter { get; private set; } = null!;
 
         /// <summary>
-        /// Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
+        /// Object versions to include in the inventory list. Valid values: `All`, `Current`.
         /// </summary>
         [Output("includedObjectVersions")]
         public Output<string> IncludedObjectVersions { get; private set; } = null!;
@@ -51,13 +51,14 @@ namespace Pulumi.Aws.S3
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Contains the optional fields that are included in the inventory results.
+        /// List of optional fields that are included in the inventory results.
+        /// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
         /// </summary>
         [Output("optionalFields")]
         public Output<ImmutableArray<string>> OptionalFields { get; private set; } = null!;
 
         /// <summary>
-        /// Contains the frequency for generating inventory results (documented below).
+        /// Specifies the schedule for generating inventory results (documented below).
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.InventorySchedule> Schedule { get; private set; } = null!;
@@ -115,7 +116,7 @@ namespace Pulumi.Aws.S3
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Destination bucket where inventory list files are written (documented below).
+        /// Contains information about where to publish the inventory results (documented below).
         /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.InventoryDestinationArgs> Destination { get; set; } = null!;
@@ -127,13 +128,13 @@ namespace Pulumi.Aws.S3
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Object filtering that accepts a prefix (documented below).
+        /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         /// </summary>
         [Input("filter")]
         public Input<Inputs.InventoryFilterArgs>? Filter { get; set; }
 
         /// <summary>
-        /// Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
+        /// Object versions to include in the inventory list. Valid values: `All`, `Current`.
         /// </summary>
         [Input("includedObjectVersions", required: true)]
         public Input<string> IncludedObjectVersions { get; set; } = null!;
@@ -148,7 +149,8 @@ namespace Pulumi.Aws.S3
         private InputList<string>? _optionalFields;
 
         /// <summary>
-        /// Contains the optional fields that are included in the inventory results.
+        /// List of optional fields that are included in the inventory results.
+        /// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
         /// </summary>
         public InputList<string> OptionalFields
         {
@@ -157,7 +159,7 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// Contains the frequency for generating inventory results (documented below).
+        /// Specifies the schedule for generating inventory results (documented below).
         /// </summary>
         [Input("schedule", required: true)]
         public Input<Inputs.InventoryScheduleArgs> Schedule { get; set; } = null!;
@@ -176,7 +178,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// Destination bucket where inventory list files are written (documented below).
+        /// Contains information about where to publish the inventory results (documented below).
         /// </summary>
         [Input("destination")]
         public Input<Inputs.InventoryDestinationGetArgs>? Destination { get; set; }
@@ -188,13 +190,13 @@ namespace Pulumi.Aws.S3
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Object filtering that accepts a prefix (documented below).
+        /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         /// </summary>
         [Input("filter")]
         public Input<Inputs.InventoryFilterGetArgs>? Filter { get; set; }
 
         /// <summary>
-        /// Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
+        /// Object versions to include in the inventory list. Valid values: `All`, `Current`.
         /// </summary>
         [Input("includedObjectVersions")]
         public Input<string>? IncludedObjectVersions { get; set; }
@@ -209,7 +211,8 @@ namespace Pulumi.Aws.S3
         private InputList<string>? _optionalFields;
 
         /// <summary>
-        /// Contains the optional fields that are included in the inventory results.
+        /// List of optional fields that are included in the inventory results.
+        /// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
         /// </summary>
         public InputList<string> OptionalFields
         {
@@ -218,7 +221,7 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// Contains the frequency for generating inventory results (documented below).
+        /// Specifies the schedule for generating inventory results (documented below).
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.InventoryScheduleGetArgs>? Schedule { get; set; }
@@ -438,7 +441,7 @@ namespace Pulumi.Aws.S3
     public sealed class InventoryScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how frequently inventory results are produced. Can be `Daily` or `Weekly`.
+        /// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
         /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
@@ -451,7 +454,7 @@ namespace Pulumi.Aws.S3
     public sealed class InventoryScheduleGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how frequently inventory results are produced. Can be `Daily` or `Weekly`.
+        /// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
         /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
@@ -585,7 +588,7 @@ namespace Pulumi.Aws.S3
     public sealed class InventorySchedule
     {
         /// <summary>
-        /// Specifies how frequently inventory results are produced. Can be `Daily` or `Weekly`.
+        /// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
         /// </summary>
         public readonly string Frequency;
 

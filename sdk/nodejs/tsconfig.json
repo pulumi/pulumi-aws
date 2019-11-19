@@ -388,6 +388,7 @@
         "eks/getCluster.ts",
         "eks/getClusterAuth.ts",
         "eks/index.ts",
+        "eks/nodeGroup.ts",
         "elasticache/cluster.ts",
         "elasticache/getCluster.ts",
         "elasticache/getReplicationGroup.ts",

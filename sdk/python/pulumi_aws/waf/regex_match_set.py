@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class RegexMatchSet(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN)
+    """
     name: pulumi.Output[str]
     """
     The name or description of the Regex Match Set.
@@ -82,6 +86,7 @@ class RegexMatchSet(pulumi.CustomResource):
 
             __props__['name'] = name
             __props__['regex_match_tuples'] = regex_match_tuples
+            __props__['arn'] = None
         super(RegexMatchSet, __self__).__init__(
             'aws:waf/regexMatchSet:RegexMatchSet',
             resource_name,
@@ -89,7 +94,7 @@ class RegexMatchSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, regex_match_tuples=None):
+    def get(resource_name, id, opts=None, arn=None, name=None, regex_match_tuples=None):
         """
         Get an existing RegexMatchSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -97,6 +102,7 @@ class RegexMatchSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
         :param pulumi.Input[str] name: The name or description of the Regex Match Set.
         :param pulumi.Input[list] regex_match_tuples: The regular expression pattern that you want AWS WAF to search for in web requests,
                the location in requests that you want AWS WAF to search, and other settings. See below.
@@ -123,6 +129,7 @@ class RegexMatchSet(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["arn"] = arn
         __props__["name"] = name
         __props__["regex_match_tuples"] = regex_match_tuples
         return RegexMatchSet(resource_name, opts=opts, __props__=__props__)

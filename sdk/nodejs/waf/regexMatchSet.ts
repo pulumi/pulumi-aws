@@ -63,6 +63,10 @@ export class RegexMatchSet extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN)
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The name or description of the Regex Match Set.
      */
     public readonly name!: pulumi.Output<string>;
@@ -84,12 +88,14 @@ export class RegexMatchSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as RegexMatchSetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["regexMatchTuples"] = state ? state.regexMatchTuples : undefined;
         } else {
             const args = argsOrState as RegexMatchSetArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["regexMatchTuples"] = args ? args.regexMatchTuples : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -106,6 +112,10 @@ export class RegexMatchSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RegexMatchSet resources.
  */
 export interface RegexMatchSetState {
+    /**
+     * Amazon Resource Name (ARN)
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The name or description of the Regex Match Set.
      */

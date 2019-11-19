@@ -27,6 +27,12 @@ namespace Pulumi.Aws.WafRegional
     public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the WAF Regional Rule.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this rule.
         /// </summary>
         [Output("metricName")]
@@ -43,6 +49,12 @@ namespace Pulumi.Aws.WafRegional
         /// </summary>
         [Output("predicates")]
         public Output<ImmutableArray<Outputs.RulePredicates>> Predicates { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -114,6 +126,18 @@ namespace Pulumi.Aws.WafRegional
             set => _predicates = value;
         }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public RuleArgs()
         {
         }
@@ -121,6 +145,12 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class RuleState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the WAF Regional Rule.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this rule.
         /// </summary>
@@ -143,6 +173,18 @@ namespace Pulumi.Aws.WafRegional
         {
             get => _predicates ?? (_predicates = new InputList<Inputs.RulePredicatesGetArgs>());
             set => _predicates = value;
+        }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
         }
 
         public RuleState()

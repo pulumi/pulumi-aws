@@ -94,7 +94,7 @@ func (r *Inventory) Bucket() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["bucket"])
 }
 
-// Destination bucket where inventory list files are written (documented below).
+// Contains information about where to publish the inventory results (documented below).
 func (r *Inventory) Destination() *pulumi.Output {
 	return r.s.State["destination"]
 }
@@ -104,12 +104,12 @@ func (r *Inventory) Enabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
-// Object filtering that accepts a prefix (documented below).
+// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
 func (r *Inventory) Filter() *pulumi.Output {
 	return r.s.State["filter"]
 }
 
-// Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
+// Object versions to include in the inventory list. Valid values: `All`, `Current`.
 func (r *Inventory) IncludedObjectVersions() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["includedObjectVersions"])
 }
@@ -119,12 +119,13 @@ func (r *Inventory) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// Contains the optional fields that are included in the inventory results.
+// List of optional fields that are included in the inventory results.
+// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
 func (r *Inventory) OptionalFields() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["optionalFields"])
 }
 
-// Contains the frequency for generating inventory results (documented below).
+// Specifies the schedule for generating inventory results (documented below).
 func (r *Inventory) Schedule() *pulumi.Output {
 	return r.s.State["schedule"]
 }
@@ -133,19 +134,20 @@ func (r *Inventory) Schedule() *pulumi.Output {
 type InventoryState struct {
 	// The S3 bucket configuration where inventory results are published (documented below).
 	Bucket interface{}
-	// Destination bucket where inventory list files are written (documented below).
+	// Contains information about where to publish the inventory results (documented below).
 	Destination interface{}
 	// Specifies whether the inventory is enabled or disabled.
 	Enabled interface{}
-	// Object filtering that accepts a prefix (documented below).
+	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
 	Filter interface{}
-	// Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
+	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
 	IncludedObjectVersions interface{}
 	// Unique identifier of the inventory configuration for the bucket.
 	Name interface{}
-	// Contains the optional fields that are included in the inventory results.
+	// List of optional fields that are included in the inventory results.
+	// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
 	OptionalFields interface{}
-	// Contains the frequency for generating inventory results (documented below).
+	// Specifies the schedule for generating inventory results (documented below).
 	Schedule interface{}
 }
 
@@ -153,18 +155,19 @@ type InventoryState struct {
 type InventoryArgs struct {
 	// The S3 bucket configuration where inventory results are published (documented below).
 	Bucket interface{}
-	// Destination bucket where inventory list files are written (documented below).
+	// Contains information about where to publish the inventory results (documented below).
 	Destination interface{}
 	// Specifies whether the inventory is enabled or disabled.
 	Enabled interface{}
-	// Object filtering that accepts a prefix (documented below).
+	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
 	Filter interface{}
-	// Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
+	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
 	IncludedObjectVersions interface{}
 	// Unique identifier of the inventory configuration for the bucket.
 	Name interface{}
-	// Contains the optional fields that are included in the inventory results.
+	// List of optional fields that are included in the inventory results.
+	// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
 	OptionalFields interface{}
-	// Contains the frequency for generating inventory results (documented below).
+	// Specifies the schedule for generating inventory results (documented below).
 	Schedule interface{}
 }

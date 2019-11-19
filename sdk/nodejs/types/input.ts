@@ -104,6 +104,7 @@ export interface ProviderEndpoint {
     glacier?: pulumi.Input<string>;
     globalaccelerator?: pulumi.Input<string>;
     glue?: pulumi.Input<string>;
+    greengrass?: pulumi.Input<string>;
     guardduty?: pulumi.Input<string>;
     iam?: pulumi.Input<string>;
     inspector?: pulumi.Input<string>;
@@ -5726,7 +5727,7 @@ export namespace ecs {
 export namespace efs {
     export interface FileSystemLifecyclePolicy {
         /**
-         * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+         * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
          */
         transitionToIa?: pulumi.Input<string>;
     }
@@ -5775,6 +5776,50 @@ export namespace eks {
          * The VPC associated with your cluster.
          */
         vpcId?: pulumi.Input<string>;
+    }
+
+    export interface NodeGroupRemoteAccess {
+        /**
+         * EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
+         */
+        ec2SshKey?: pulumi.Input<string>;
+        /**
+         * Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2SshKey`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
+         */
+        sourceSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface NodeGroupResource {
+        /**
+         * List of objects containing information about AutoScaling Groups.
+         */
+        autoscalingGroups?: pulumi.Input<pulumi.Input<inputs.eks.NodeGroupResourceAutoscalingGroup>[]>;
+        /**
+         * Identifier of the remote access EC2 Security Group.
+         */
+        remoteAccessSecurityGroupId?: pulumi.Input<string>;
+    }
+
+    export interface NodeGroupResourceAutoscalingGroup {
+        /**
+         * Name of the AutoScaling Group.
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface NodeGroupScalingConfig {
+        /**
+         * Desired number of worker nodes.
+         */
+        desiredSize: pulumi.Input<number>;
+        /**
+         * Maximum number of worker nodes.
+         */
+        maxSize: pulumi.Input<number>;
+        /**
+         * Minimum number of worker nodes.
+         */
+        minSize: pulumi.Input<number>;
     }
 }
 
@@ -10552,7 +10597,7 @@ export namespace s3 {
 
     export interface InventorySchedule {
         /**
-         * Specifies how frequently inventory results are produced. Can be `Daily` or `Weekly`.
+         * Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
          */
         frequency: pulumi.Input<string>;
     }

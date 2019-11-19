@@ -59,6 +59,10 @@ export class GeoMatchSet extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN)
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
      */
     public readonly geoMatchConstraints!: pulumi.Output<outputs.waf.GeoMatchSetGeoMatchConstraint[] | undefined>;
@@ -79,12 +83,14 @@ export class GeoMatchSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as GeoMatchSetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["geoMatchConstraints"] = state ? state.geoMatchConstraints : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as GeoMatchSetArgs | undefined;
             inputs["geoMatchConstraints"] = args ? args.geoMatchConstraints : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -101,6 +107,10 @@ export class GeoMatchSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GeoMatchSet resources.
  */
 export interface GeoMatchSetState {
+    /**
+     * Amazon Resource Name (ARN)
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
      */

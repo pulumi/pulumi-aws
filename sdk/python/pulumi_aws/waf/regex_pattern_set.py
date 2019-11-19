@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class RegexPatternSet(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN)
+    """
     name: pulumi.Output[str]
     """
     The name or description of the Regex Pattern Set.
@@ -48,6 +52,7 @@ class RegexPatternSet(pulumi.CustomResource):
 
             __props__['name'] = name
             __props__['regex_pattern_strings'] = regex_pattern_strings
+            __props__['arn'] = None
         super(RegexPatternSet, __self__).__init__(
             'aws:waf/regexPatternSet:RegexPatternSet',
             resource_name,
@@ -55,7 +60,7 @@ class RegexPatternSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, regex_pattern_strings=None):
+    def get(resource_name, id, opts=None, arn=None, name=None, regex_pattern_strings=None):
         """
         Get an existing RegexPatternSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -63,6 +68,7 @@ class RegexPatternSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
         :param pulumi.Input[str] name: The name or description of the Regex Pattern Set.
         :param pulumi.Input[list] regex_pattern_strings: A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
 
@@ -71,6 +77,7 @@ class RegexPatternSet(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["arn"] = arn
         __props__["name"] = name
         __props__["regex_pattern_strings"] = regex_pattern_strings
         return RegexPatternSet(resource_name, opts=opts, __props__=__props__)
