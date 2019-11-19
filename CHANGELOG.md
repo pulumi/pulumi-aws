@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.38.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 1.10.0 (2019-11-19)
+* Upgrade to v2.38.0 of the AWS Terraform Provider
 
 ## 1.9.0 (2019-11-16)
 * Upgrade to v2.36.0 of the AWS Terraform Provider
