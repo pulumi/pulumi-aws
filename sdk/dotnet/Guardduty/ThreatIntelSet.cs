@@ -55,7 +55,7 @@ namespace Pulumi.Aws.GuardDuty
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ThreatIntelSet(string name, ThreatIntelSetArgs args, CustomResourceOptions? options = null)
-            : base("aws:guardduty/threatIntelSet:ThreatIntelSet", name, args, MakeResourceOptions(options, ""))
+            : base("aws:guardduty/threatIntelSet:ThreatIntelSet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

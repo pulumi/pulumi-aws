@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Waf
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rate_based_rule.html.markdown.
         /// </summary>
         public static Task<GetRateBasedRuleResult> GetRateBasedRule(GetRateBasedRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedRuleResult>("aws:waf/getRateBasedRule:getRateBasedRule", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedRuleResult>("aws:waf/getRateBasedRule:getRateBasedRule", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetRateBasedRuleArgs : Pulumi.ResourceArgs

@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Applicationloadbalancing
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ListenerRule(string name, ListenerRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:applicationloadbalancing/listenerRule:ListenerRule", name, args, MakeResourceOptions(options, ""))
+            : base("aws:applicationloadbalancing/listenerRule:ListenerRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

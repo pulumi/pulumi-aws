@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Parameter(string name, ParameterArgs args, CustomResourceOptions? options = null)
-            : base("aws:ssm/parameter:Parameter", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ssm/parameter:Parameter", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

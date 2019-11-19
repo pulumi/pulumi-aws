@@ -15,7 +15,7 @@ namespace Pulumi.Aws
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
         /// </summary>
         public static Task<GetPartitionResult> GetPartition(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws:index/getPartition:getPartition", null, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws:index/getPartition:getPartition", ResourceArgs.Empty, options.WithVersion());
     }
 
     [OutputType]

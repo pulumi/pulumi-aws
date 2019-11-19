@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Permission(string name, PermissionArgs args, CustomResourceOptions? options = null)
-            : base("aws:lambda/permission:Permission", name, args, MakeResourceOptions(options, ""))
+            : base("aws:lambda/permission:Permission", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

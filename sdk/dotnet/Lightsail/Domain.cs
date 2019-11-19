@@ -41,7 +41,7 @@ namespace Pulumi.Aws.LightSail
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
-            : base("aws:lightsail/domain:Domain", name, args, MakeResourceOptions(options, ""))
+            : base("aws:lightsail/domain:Domain", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

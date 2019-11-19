@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Xray
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SamplingRule(string name, SamplingRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:xray/samplingRule:SamplingRule", name, args, MakeResourceOptions(options, ""))
+            : base("aws:xray/samplingRule:SamplingRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

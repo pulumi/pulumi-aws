@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Efs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MountTarget(string name, MountTargetArgs args, CustomResourceOptions? options = null)
-            : base("aws:efs/mountTarget:MountTarget", name, args, MakeResourceOptions(options, ""))
+            : base("aws:efs/mountTarget:MountTarget", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

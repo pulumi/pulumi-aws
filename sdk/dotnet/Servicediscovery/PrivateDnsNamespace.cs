@@ -53,7 +53,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateDnsNamespace(string name, PrivateDnsNamespaceArgs args, CustomResourceOptions? options = null)
-            : base("aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace", name, args, MakeResourceOptions(options, ""))
+            : base("aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

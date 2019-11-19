@@ -94,7 +94,7 @@ namespace Pulumi.Aws.StorageGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Gateway(string name, GatewayArgs args, CustomResourceOptions? options = null)
-            : base("aws:storagegateway/gateway:Gateway", name, args, MakeResourceOptions(options, ""))
+            : base("aws:storagegateway/gateway:Gateway", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Sqs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public QueuePolicy(string name, QueuePolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:sqs/queuePolicy:QueuePolicy", name, args, MakeResourceOptions(options, ""))
+            : base("aws:sqs/queuePolicy:QueuePolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

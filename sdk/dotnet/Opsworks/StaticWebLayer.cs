@@ -125,7 +125,7 @@ namespace Pulumi.Aws.OpsWorks
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StaticWebLayer(string name, StaticWebLayerArgs args, CustomResourceOptions? options = null)
-            : base("aws:opsworks/staticWebLayer:StaticWebLayer", name, args, MakeResourceOptions(options, ""))
+            : base("aws:opsworks/staticWebLayer:StaticWebLayer", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

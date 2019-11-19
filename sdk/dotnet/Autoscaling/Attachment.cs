@@ -48,7 +48,7 @@ namespace Pulumi.Aws.AutoScaling
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Attachment(string name, AttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:autoscaling/attachment:Attachment", name, args, MakeResourceOptions(options, ""))
+            : base("aws:autoscaling/attachment:Attachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

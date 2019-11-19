@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Batch
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
         /// </summary>
         public static Task<GetComputeEnvironmentResult> GetComputeEnvironment(GetComputeEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetComputeEnvironmentArgs : Pulumi.ResourceArgs

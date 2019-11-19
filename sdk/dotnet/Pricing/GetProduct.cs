@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Pricing
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
         /// </summary>
         public static Task<GetProductResult> GetProduct(GetProductArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:pricing/getProduct:getProduct", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:pricing/getProduct:getProduct", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetProductArgs : Pulumi.ResourceArgs

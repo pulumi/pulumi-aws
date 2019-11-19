@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Fms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AdminAccount(string name, AdminAccountArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:fms/adminAccount:AdminAccount", name, args, MakeResourceOptions(options, ""))
+            : base("aws:fms/adminAccount:AdminAccount", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -15,7 +15,7 @@ namespace Pulumi.Aws
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
         /// </summary>
         public static Task<GetArnResult> GetArn(GetArnArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArnResult>("aws:index/getArn:getArn", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetArnResult>("aws:index/getArn:getArn", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetArnArgs : Pulumi.ResourceArgs

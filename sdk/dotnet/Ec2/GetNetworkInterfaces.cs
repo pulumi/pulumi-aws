@@ -10,7 +10,7 @@ namespace Pulumi.Aws.Ec2
     public static partial class Invokes
     {
         public static Task<GetNetworkInterfacesResult> GetNetworkInterfaces(GetNetworkInterfacesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfacesResult>("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfacesResult>("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetNetworkInterfacesArgs : Pulumi.ResourceArgs

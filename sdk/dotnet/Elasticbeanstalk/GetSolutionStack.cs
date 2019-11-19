@@ -15,7 +15,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_solution_stack.html.markdown.
         /// </summary>
         public static Task<GetSolutionStackResult> GetSolutionStack(GetSolutionStackArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetSolutionStackArgs : Pulumi.ResourceArgs

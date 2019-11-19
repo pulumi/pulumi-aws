@@ -47,7 +47,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PublicDnsNamespace(string name, PublicDnsNamespaceArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, args, MakeResourceOptions(options, ""))
+            : base("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

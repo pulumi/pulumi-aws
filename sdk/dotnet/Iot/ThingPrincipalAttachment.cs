@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ThingPrincipalAttachment(string name, ThingPrincipalAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment", name, args, MakeResourceOptions(options, ""))
+            : base("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

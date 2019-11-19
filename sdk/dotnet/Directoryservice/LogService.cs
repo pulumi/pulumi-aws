@@ -35,7 +35,7 @@ namespace Pulumi.Aws.DirectoryService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogService(string name, LogServiceArgs args, CustomResourceOptions? options = null)
-            : base("aws:directoryservice/logService:LogService", name, args, MakeResourceOptions(options, ""))
+            : base("aws:directoryservice/logService:LogService", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

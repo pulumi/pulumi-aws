@@ -10,7 +10,7 @@ namespace Pulumi.Aws.Ec2
     public static partial class Invokes
     {
         public static Task<GetNetworkAclsResult> GetNetworkAcls(GetNetworkAclsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAclsResult>("aws:ec2/getNetworkAcls:getNetworkAcls", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAclsResult>("aws:ec2/getNetworkAcls:getNetworkAcls", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetNetworkAclsArgs : Pulumi.ResourceArgs

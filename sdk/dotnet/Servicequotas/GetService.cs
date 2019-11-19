@@ -15,7 +15,7 @@ namespace Pulumi.Aws.ServiceQuotas
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service.html.markdown.
         /// </summary>
         public static Task<GetServiceResult> GetService(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:servicequotas/getService:getService", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:servicequotas/getService:getService", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetServiceArgs : Pulumi.ResourceArgs

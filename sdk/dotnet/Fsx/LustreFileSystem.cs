@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Fsx
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LustreFileSystem(string name, LustreFileSystemArgs args, CustomResourceOptions? options = null)
-            : base("aws:fsx/lustreFileSystem:LustreFileSystem", name, args, MakeResourceOptions(options, ""))
+            : base("aws:fsx/lustreFileSystem:LustreFileSystem", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

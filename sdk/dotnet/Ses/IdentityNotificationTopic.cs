@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IdentityNotificationTopic(string name, IdentityNotificationTopicArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_group.html.markdown.
         /// </summary>
         public static Task<GetSecurityGroupResult> GetSecurityGroup(GetSecurityGroupArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupResult>("aws:ec2/getSecurityGroup:getSecurityGroup", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupResult>("aws:ec2/getSecurityGroup:getSecurityGroup", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetSecurityGroupArgs : Pulumi.ResourceArgs

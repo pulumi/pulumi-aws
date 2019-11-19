@@ -15,7 +15,7 @@ namespace Pulumi.Aws.WafRegional
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rate_based_rule.html.markdown.
         /// </summary>
         public static Task<GetRateBasedModResult> GetRateBasedMod(GetRateBasedModArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedModResult>("aws:wafregional/getRateBasedMod:getRateBasedMod", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedModResult>("aws:wafregional/getRateBasedMod:getRateBasedMod", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetRateBasedModArgs : Pulumi.ResourceArgs

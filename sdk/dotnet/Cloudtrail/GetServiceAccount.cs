@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CloudTrail
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudtrail_service_account.html.markdown.
         /// </summary>
         public static Task<GetServiceAccountResult> GetServiceAccount(GetServiceAccountArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:cloudtrail/getServiceAccount:getServiceAccount", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:cloudtrail/getServiceAccount:getServiceAccount", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetServiceAccountArgs : Pulumi.ResourceArgs

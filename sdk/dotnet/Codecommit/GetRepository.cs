@@ -15,7 +15,7 @@ namespace Pulumi.Aws.CodeCommit
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/codecommit_repository.html.markdown.
         /// </summary>
         public static Task<GetRepositoryResult> GetRepository(GetRepositoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:codecommit/getRepository:getRepository", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:codecommit/getRepository:getRepository", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetRepositoryArgs : Pulumi.ResourceArgs

@@ -78,8 +78,8 @@ import * as utilities from "../utilities";
  * 
  * [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
  * [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
- * [3]: /docs/providers/aws/r/cloudfront_distribution.html
- * [4]: /docs/providers/aws/r/s3_bucket.html
+ * [3]: https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html
+ * [4]: https://www.terraform.io/docs/providers/aws/r/s3_bucket.html
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_origin_access_identity.html.markdown.
  */

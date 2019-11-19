@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventSourceMapping(string name, EventSourceMappingArgs args, CustomResourceOptions? options = null)
-            : base("aws:lambda/eventSourceMapping:EventSourceMapping", name, args, MakeResourceOptions(options, ""))
+            : base("aws:lambda/eventSourceMapping:EventSourceMapping", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

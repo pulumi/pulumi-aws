@@ -25,7 +25,7 @@ namespace Pulumi.Aws
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
         /// </summary>
         public static Task<GetAvailabilityZoneResult> GetAvailabilityZone(GetAvailabilityZoneArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAvailabilityZoneArgs : Pulumi.ResourceArgs

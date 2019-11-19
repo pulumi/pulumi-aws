@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ecs
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_task_definition.html.markdown.
         /// </summary>
         public static Task<GetTaskDefinitionResult> GetTaskDefinition(GetTaskDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskDefinitionResult>("aws:ecs/getTaskDefinition:getTaskDefinition", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskDefinitionResult>("aws:ecs/getTaskDefinition:getTaskDefinition", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetTaskDefinitionArgs : Pulumi.ResourceArgs

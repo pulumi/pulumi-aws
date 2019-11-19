@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Thing(string name, ThingArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:iot/thing:Thing", name, args, MakeResourceOptions(options, ""))
+            : base("aws:iot/thing:Thing", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

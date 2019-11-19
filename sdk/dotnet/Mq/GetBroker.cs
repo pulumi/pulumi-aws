@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Mq
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/mq_broker.html.markdown.
         /// </summary>
         public static Task<GetBrokerResult> GetBroker(GetBrokerArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBrokerResult>("aws:mq/getBroker:getBroker", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBrokerResult>("aws:mq/getBroker:getBroker", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetBrokerArgs : Pulumi.ResourceArgs

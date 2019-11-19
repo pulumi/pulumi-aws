@@ -15,7 +15,7 @@ namespace Pulumi.Aws.CloudWatch
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudwatch_log_group.html.markdown.
         /// </summary>
         public static Task<GetLogGroupResult> GetLogGroup(GetLogGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupResult>("aws:cloudwatch/getLogGroup:getLogGroup", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupResult>("aws:cloudwatch/getLogGroup:getLogGroup", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetLogGroupArgs : Pulumi.ResourceArgs

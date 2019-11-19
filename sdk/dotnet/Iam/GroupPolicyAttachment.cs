@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GroupPolicyAttachment(string name, GroupPolicyAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, args, MakeResourceOptions(options, ""))
+            : base("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

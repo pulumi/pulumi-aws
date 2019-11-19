@@ -35,7 +35,7 @@ namespace Pulumi.Aws.WafRegional
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public XssMatchSet(string name, XssMatchSetArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:wafregional/xssMatchSet:XssMatchSet", name, args, MakeResourceOptions(options, ""))
+            : base("aws:wafregional/xssMatchSet:XssMatchSet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Lambda
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
         /// </summary>
         public static Task<GetInvocationResult> GetInvocation(GetInvocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetInvocationArgs : Pulumi.ResourceArgs

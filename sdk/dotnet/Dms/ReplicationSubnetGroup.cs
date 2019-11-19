@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Dms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationSubnetGroup(string name, ReplicationSubnetGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", name, args, MakeResourceOptions(options, ""))
+            : base("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

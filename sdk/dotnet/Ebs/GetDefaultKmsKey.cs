@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ebs
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_default_kms_key.html.markdown.
         /// </summary>
         public static Task<GetDefaultKmsKeyResult> GetDefaultKmsKey(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultKmsKeyResult>("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", null, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultKmsKeyResult>("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", ResourceArgs.Empty, options.WithVersion());
     }
 
     [OutputType]

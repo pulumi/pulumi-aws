@@ -58,7 +58,7 @@ namespace Pulumi.Aws.DataSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NfsLocation(string name, NfsLocationArgs args, CustomResourceOptions? options = null)
-            : base("aws:datasync/nfsLocation:NfsLocation", name, args, MakeResourceOptions(options, ""))
+            : base("aws:datasync/nfsLocation:NfsLocation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

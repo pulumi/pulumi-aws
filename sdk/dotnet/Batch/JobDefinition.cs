@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Batch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobDefinition(string name, JobDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("aws:batch/jobDefinition:JobDefinition", name, args, MakeResourceOptions(options, ""))
+            : base("aws:batch/jobDefinition:JobDefinition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

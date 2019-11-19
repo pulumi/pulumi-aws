@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Budgets
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Budget(string name, BudgetArgs args, CustomResourceOptions? options = null)
-            : base("aws:budgets/budget:Budget", name, args, MakeResourceOptions(options, ""))
+            : base("aws:budgets/budget:Budget", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

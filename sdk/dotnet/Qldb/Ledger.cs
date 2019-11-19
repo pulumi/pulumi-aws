@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Qldb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Ledger(string name, LedgerArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:qldb/ledger:Ledger", name, args, MakeResourceOptions(options, ""))
+            : base("aws:qldb/ledger:Ledger", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

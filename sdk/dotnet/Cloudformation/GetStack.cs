@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CloudFormation
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_stack.html.markdown.
         /// </summary>
         public static Task<GetStackResult> GetStack(GetStackArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws:cloudformation/getStack:getStack", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws:cloudformation/getStack:getStack", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetStackArgs : Pulumi.ResourceArgs

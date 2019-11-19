@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Inspector
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AssessmentTemplate(string name, AssessmentTemplateArgs args, CustomResourceOptions? options = null)
-            : base("aws:inspector/assessmentTemplate:AssessmentTemplate", name, args, MakeResourceOptions(options, ""))
+            : base("aws:inspector/assessmentTemplate:AssessmentTemplate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

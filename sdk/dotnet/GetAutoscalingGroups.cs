@@ -16,7 +16,7 @@ namespace Pulumi.Aws
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_groups.html.markdown.
         /// </summary>
         public static Task<GetAutoscalingGroupsResult> GetAutoscalingGroups(GetAutoscalingGroupsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAutoscalingGroupsResult>("aws:index/getAutoscalingGroups:getAutoscalingGroups", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAutoscalingGroupsResult>("aws:index/getAutoscalingGroups:getAutoscalingGroups", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAutoscalingGroupsArgs : Pulumi.ResourceArgs

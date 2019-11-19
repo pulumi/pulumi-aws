@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ec2
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
         /// </summary>
         public static Task<GetVpnGatewayResult> GetVpnGateway(GetVpnGatewayArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnGatewayResult>("aws:ec2/getVpnGateway:getVpnGateway", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnGatewayResult>("aws:ec2/getVpnGateway:getVpnGateway", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetVpnGatewayArgs : Pulumi.ResourceArgs

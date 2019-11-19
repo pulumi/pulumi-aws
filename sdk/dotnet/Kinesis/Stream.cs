@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Kinesis
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Stream(string name, StreamArgs args, CustomResourceOptions? options = null)
-            : base("aws:kinesis/stream:Stream", name, args, MakeResourceOptions(options, ""))
+            : base("aws:kinesis/stream:Stream", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

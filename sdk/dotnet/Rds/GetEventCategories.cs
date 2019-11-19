@@ -10,7 +10,7 @@ namespace Pulumi.Aws.Rds
     public static partial class Invokes
     {
         public static Task<GetEventCategoriesResult> GetEventCategories(GetEventCategoriesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventCategoriesResult>("aws:rds/getEventCategories:getEventCategories", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventCategoriesResult>("aws:rds/getEventCategories:getEventCategories", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetEventCategoriesArgs : Pulumi.ResourceArgs

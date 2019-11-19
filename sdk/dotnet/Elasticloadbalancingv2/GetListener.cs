@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Elasticloadbalancingv2
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener_legacy.html.markdown.
         /// </summary>
         public static Task<GetListenerResult> GetListener(GetListenerArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:elasticloadbalancingv2/getListener:getListener", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:elasticloadbalancingv2/getListener:getListener", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetListenerArgs : Pulumi.ResourceArgs

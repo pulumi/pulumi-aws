@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ec2
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
         /// </summary>
         public static Task<GetVpcEndpointServiceResult> GetVpcEndpointService(GetVpcEndpointServiceArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointServiceResult>("aws:ec2/getVpcEndpointService:getVpcEndpointService", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointServiceResult>("aws:ec2/getVpcEndpointService:getVpcEndpointService", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetVpcEndpointServiceArgs : Pulumi.ResourceArgs

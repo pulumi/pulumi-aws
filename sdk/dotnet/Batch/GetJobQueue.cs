@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Batch
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_job_queue.html.markdown.
         /// </summary>
         public static Task<GetJobQueueResult> GetJobQueue(GetJobQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetJobQueueArgs : Pulumi.ResourceArgs

@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RouteTableAssociation(string name, RouteTableAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

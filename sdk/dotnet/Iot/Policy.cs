@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Policy(string name, PolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:iot/policy:Policy", name, args, MakeResourceOptions(options, ""))
+            : base("aws:iot/policy:Policy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

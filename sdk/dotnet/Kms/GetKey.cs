@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Kms
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
         /// </summary>
         public static Task<GetKeyResult> GetKey(GetKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws:kms/getKey:getKey", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws:kms/getKey:getKey", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetKeyArgs : Pulumi.ResourceArgs

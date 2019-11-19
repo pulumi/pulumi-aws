@@ -87,7 +87,7 @@ namespace Pulumi.Aws.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Authorizer(string name, AuthorizerArgs args, CustomResourceOptions? options = null)
-            : base("aws:apigateway/authorizer:Authorizer", name, args, MakeResourceOptions(options, ""))
+            : base("aws:apigateway/authorizer:Authorizer", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -21,7 +21,7 @@ namespace Pulumi.Aws
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/prefix_list.html.markdown.
         /// </summary>
         public static Task<GetPrefixListResult> GetPrefixList(GetPrefixListArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixListResult>("aws:index/getPrefixList:getPrefixList", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixListResult>("aws:index/getPrefixList:getPrefixList", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetPrefixListArgs : Pulumi.ResourceArgs

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ebs
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_encryption_by_default.html.markdown.
         /// </summary>
         public static Task<GetEncryptionByDefaultResult> GetEncryptionByDefault(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", null, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", ResourceArgs.Empty, options.WithVersion());
     }
 
     [OutputType]

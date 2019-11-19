@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Waf
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegexMatchSet(string name, RegexMatchSetArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:waf/regexMatchSet:RegexMatchSet", name, args, MakeResourceOptions(options, ""))
+            : base("aws:waf/regexMatchSet:RegexMatchSet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

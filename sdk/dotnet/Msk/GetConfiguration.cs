@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Msk
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_configuration.html.markdown.
         /// </summary>
         public static Task<GetConfigurationResult> GetConfiguration(GetConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("aws:msk/getConfiguration:getConfiguration", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("aws:msk/getConfiguration:getConfiguration", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetConfigurationArgs : Pulumi.ResourceArgs

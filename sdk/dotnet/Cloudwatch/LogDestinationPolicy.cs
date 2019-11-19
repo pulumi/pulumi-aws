@@ -35,7 +35,7 @@ namespace Pulumi.Aws.CloudWatch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogDestinationPolicy(string name, LogDestinationPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

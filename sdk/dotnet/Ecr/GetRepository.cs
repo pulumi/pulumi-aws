@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ecr
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_repository.html.markdown.
         /// </summary>
         public static Task<GetRepositoryResult> GetRepository(GetRepositoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:ecr/getRepository:getRepository", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:ecr/getRepository:getRepository", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetRepositoryArgs : Pulumi.ResourceArgs

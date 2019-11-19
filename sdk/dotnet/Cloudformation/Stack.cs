@@ -112,7 +112,7 @@ namespace Pulumi.Aws.CloudFormation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Stack(string name, StackArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:cloudformation/stack:Stack", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cloudformation/stack:Stack", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

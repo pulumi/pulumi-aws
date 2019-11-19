@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Elasticloadbalancing
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SslNegotiationPolicy(string name, SslNegotiationPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy", name, args, MakeResourceOptions(options, ""))
+            : base("aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Transfer
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/transfer_server.html.markdown.
         /// </summary>
         public static Task<GetServerResult> GetServer(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("aws:transfer/getServer:getServer", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("aws:transfer/getServer:getServer", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetServerArgs : Pulumi.ResourceArgs

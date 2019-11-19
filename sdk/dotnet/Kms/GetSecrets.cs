@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Kms
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_secrets.html.markdown.
         /// </summary>
         public static Task<GetSecretsResult> GetSecrets(GetSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("aws:kms/getSecrets:getSecrets", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("aws:kms/getSecrets:getSecrets", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetSecretsArgs : Pulumi.ResourceArgs

@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BaiduChannel(string name, BaiduChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws:pinpoint/baiduChannel:BaiduChannel", name, args, MakeResourceOptions(options, ""))
+            : base("aws:pinpoint/baiduChannel:BaiduChannel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

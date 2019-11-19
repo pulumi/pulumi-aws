@@ -16,7 +16,7 @@ namespace Pulumi.Aws
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/canonical_user_id.html.markdown.
         /// </summary>
         public static Task<GetCanonicalUserIdResult> GetCanonicalUserId(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCanonicalUserIdResult>("aws:index/getCanonicalUserId:getCanonicalUserId", null, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCanonicalUserIdResult>("aws:index/getCanonicalUserId:getCanonicalUserId", ResourceArgs.Empty, options.WithVersion());
     }
 
     [OutputType]

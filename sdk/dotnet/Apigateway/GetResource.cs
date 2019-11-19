@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ApiGateway
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.
         /// </summary>
         public static Task<GetResourceResult> GetResource(GetResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("aws:apigateway/getResource:getResource", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("aws:apigateway/getResource:getResource", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetResourceArgs : Pulumi.ResourceArgs

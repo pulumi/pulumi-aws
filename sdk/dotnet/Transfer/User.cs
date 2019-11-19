@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Transfer
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public User(string name, UserArgs args, CustomResourceOptions? options = null)
-            : base("aws:transfer/user:User", name, args, MakeResourceOptions(options, ""))
+            : base("aws:transfer/user:User", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

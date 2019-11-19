@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Organizations
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organization.html.markdown.
         /// </summary>
         public static Task<GetOrganizationResult> GetOrganization(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", null, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", ResourceArgs.Empty, options.WithVersion());
     }
 
     [OutputType]

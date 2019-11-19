@@ -20,7 +20,7 @@ namespace Pulumi.Aws
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.
         /// </summary>
         public static Task<GetRegionResult> GetRegion(GetRegionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegionResult>("aws:index/getRegion:getRegion", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegionResult>("aws:index/getRegion:getRegion", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetRegionArgs : Pulumi.ResourceArgs

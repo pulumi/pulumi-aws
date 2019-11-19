@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Cur
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cur_report_definition.html.markdown.
         /// </summary>
         public static Task<GetReportDefinitionResult> GetReportDefinition(GetReportDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetReportDefinitionArgs : Pulumi.ResourceArgs

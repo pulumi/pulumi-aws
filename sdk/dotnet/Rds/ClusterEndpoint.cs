@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClusterEndpoint(string name, ClusterEndpointArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/clusterEndpoint:ClusterEndpoint", name, args, MakeResourceOptions(options, ""))
+            : base("aws:rds/clusterEndpoint:ClusterEndpoint", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

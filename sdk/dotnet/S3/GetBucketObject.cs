@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_object.html.markdown.
         /// </summary>
         public static Task<GetBucketObjectResult> GetBucketObject(GetBucketObjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectResult>("aws:s3/getBucketObject:getBucketObject", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectResult>("aws:s3/getBucketObject:getBucketObject", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetBucketObjectArgs : Pulumi.ResourceArgs

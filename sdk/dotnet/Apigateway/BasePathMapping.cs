@@ -49,7 +49,7 @@ namespace Pulumi.Aws.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BasePathMapping(string name, BasePathMappingArgs args, CustomResourceOptions? options = null)
-            : base("aws:apigateway/basePathMapping:BasePathMapping", name, args, MakeResourceOptions(options, ""))
+            : base("aws:apigateway/basePathMapping:BasePathMapping", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Route53
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rule.html.markdown.
         /// </summary>
         public static Task<GetResolverRuleResult> GetResolverRule(GetResolverRuleArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleResult>("aws:route53/getResolverRule:getResolverRule", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleResult>("aws:route53/getResolverRule:getResolverRule", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetResolverRuleArgs : Pulumi.ResourceArgs

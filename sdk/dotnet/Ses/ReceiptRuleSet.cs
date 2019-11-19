@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReceiptRuleSet(string name, ReceiptRuleSetArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/receiptRuleSet:ReceiptRuleSet", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ses/receiptRuleSet:ReceiptRuleSet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

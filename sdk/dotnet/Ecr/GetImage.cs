@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ecr
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.
         /// </summary>
         public static Task<GetImageResult> GetImage(GetImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws:ecr/getImage:getImage", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws:ecr/getImage:getImage", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetImageArgs : Pulumi.ResourceArgs

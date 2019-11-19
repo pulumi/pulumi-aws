@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Dlm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LifecyclePolicy(string name, LifecyclePolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, args, MakeResourceOptions(options, ""))
+            : base("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.StorageGateway
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/storagegateway_local_disk.html.markdown.
         /// </summary>
         public static Task<GetLocalDiskResult> GetLocalDisk(GetLocalDiskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocalDiskResult>("aws:storagegateway/getLocalDisk:getLocalDisk", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLocalDiskResult>("aws:storagegateway/getLocalDisk:getLocalDisk", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetLocalDiskArgs : Pulumi.ResourceArgs

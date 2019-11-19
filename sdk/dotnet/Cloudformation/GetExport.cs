@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CloudFormation
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_export.html.markdown.
         /// </summary>
         public static Task<GetExportResult> GetExport(GetExportArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:cloudformation/getExport:getExport", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:cloudformation/getExport:getExport", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetExportArgs : Pulumi.ResourceArgs

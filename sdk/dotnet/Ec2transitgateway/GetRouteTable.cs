@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_route_table.html.markdown.
         /// </summary>
         public static Task<GetRouteTableResult> GetRouteTable(GetRouteTableArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("aws:ec2transitgateway/getRouteTable:getRouteTable", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("aws:ec2transitgateway/getRouteTable:getRouteTable", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetRouteTableArgs : Pulumi.ResourceArgs

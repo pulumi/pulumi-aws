@@ -127,7 +127,7 @@ namespace Pulumi.Aws.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Integration(string name, IntegrationArgs args, CustomResourceOptions? options = null)
-            : base("aws:apigateway/integration:Integration", name, args, MakeResourceOptions(options, ""))
+            : base("aws:apigateway/integration:Integration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

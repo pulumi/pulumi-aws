@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Elb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AppCookieStickinessPolicy(string name, AppCookieStickinessPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy", name, args, MakeResourceOptions(options, ""))
+            : base("aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

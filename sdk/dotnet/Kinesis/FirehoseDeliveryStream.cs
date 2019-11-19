@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Kinesis
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirehoseDeliveryStream(string name, FirehoseDeliveryStreamArgs args, CustomResourceOptions? options = null)
-            : base("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", name, args, MakeResourceOptions(options, ""))
+            : base("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

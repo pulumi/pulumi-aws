@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Backup
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Selection(string name, SelectionArgs args, CustomResourceOptions? options = null)
-            : base("aws:backup/selection:Selection", name, args, MakeResourceOptions(options, ""))
+            : base("aws:backup/selection:Selection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

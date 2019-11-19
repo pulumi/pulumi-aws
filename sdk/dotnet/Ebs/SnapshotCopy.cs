@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ebs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SnapshotCopy(string name, SnapshotCopyArgs args, CustomResourceOptions? options = null)
-            : base("aws:ebs/snapshotCopy:SnapshotCopy", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ebs/snapshotCopy:SnapshotCopy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

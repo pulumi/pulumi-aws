@@ -15,7 +15,7 @@ namespace Pulumi.Aws.DynamoDB
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
         /// </summary>
         public static Task<GetTableResult> GetTable(GetTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws:dynamodb/getTable:getTable", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws:dynamodb/getTable:getTable", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetTableArgs : Pulumi.ResourceArgs

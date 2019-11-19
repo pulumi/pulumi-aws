@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Acmpca
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
         /// </summary>
         public static Task<GetCertificateAuthorityResult> GetCertificateAuthority(GetCertificateAuthorityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityResult>("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityResult>("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetCertificateAuthorityArgs : Pulumi.ResourceArgs

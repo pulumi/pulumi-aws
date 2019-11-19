@@ -53,7 +53,7 @@ namespace Pulumi.Aws.CodeDeploy
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeploymentConfig(string name, DeploymentConfigArgs args, CustomResourceOptions? options = null)
-            : base("aws:codedeploy/deploymentConfig:DeploymentConfig", name, args, MakeResourceOptions(options, ""))
+            : base("aws:codedeploy/deploymentConfig:DeploymentConfig", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

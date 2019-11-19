@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Fleet(string name, FleetArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/fleet:Fleet", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ec2/fleet:Fleet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

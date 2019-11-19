@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Cloud9
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EnvironmentEC2(string name, EnvironmentEC2Args args, CustomResourceOptions? options = null)
-            : base("aws:cloud9/environmentEC2:EnvironmentEC2", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cloud9/environmentEC2:EnvironmentEC2", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

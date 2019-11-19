@@ -36,7 +36,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HttpNamespace(string name, HttpNamespaceArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:servicediscovery/httpNamespace:HttpNamespace", name, args, MakeResourceOptions(options, ""))
+            : base("aws:servicediscovery/httpNamespace:HttpNamespace", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ApiGateway
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
         /// </summary>
         public static Task<GetRestApiResult> GetRestApi(GetRestApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetRestApiArgs : Pulumi.ResourceArgs

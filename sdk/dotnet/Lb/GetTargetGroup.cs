@@ -21,7 +21,7 @@ namespace Pulumi.Aws.LB
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group.html.markdown.
         /// </summary>
         public static Task<GetTargetGroupResult> GetTargetGroup(GetTargetGroupArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTargetGroupResult>("aws:lb/getTargetGroup:getTargetGroup", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTargetGroupResult>("aws:lb/getTargetGroup:getTargetGroup", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetTargetGroupArgs : Pulumi.ResourceArgs

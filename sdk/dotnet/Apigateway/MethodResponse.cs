@@ -61,7 +61,7 @@ namespace Pulumi.Aws.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MethodResponse(string name, MethodResponseArgs args, CustomResourceOptions? options = null)
-            : base("aws:apigateway/methodResponse:MethodResponse", name, args, MakeResourceOptions(options, ""))
+            : base("aws:apigateway/methodResponse:MethodResponse", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -15,7 +15,7 @@ namespace Pulumi.Aws
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ip_ranges.html.markdown.
         /// </summary>
         public static Task<GetIpRangesResult> GetIpRanges(GetIpRangesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetIpRangesArgs : Pulumi.ResourceArgs

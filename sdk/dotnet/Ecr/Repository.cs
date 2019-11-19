@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ecr
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Repository(string name, RepositoryArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ecr/repository:Repository", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ecr/repository:Repository", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 
