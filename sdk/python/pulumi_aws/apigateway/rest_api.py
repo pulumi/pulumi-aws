@@ -14,6 +14,10 @@ class RestApi(pulumi.CustomResource):
     """
     The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
     """
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN)
+    """
     binary_media_types: pulumi.Output[list]
     """
     The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
@@ -55,7 +59,11 @@ class RestApi(pulumi.CustomResource):
     """
     The resource ID of the REST API's root
     """
-    def __init__(__self__, resource_name, opts=None, api_key_source=None, binary_media_types=None, body=None, description=None, endpoint_configuration=None, minimum_compression_size=None, name=None, policy=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, api_key_source=None, binary_media_types=None, body=None, description=None, endpoint_configuration=None, minimum_compression_size=None, name=None, policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway REST API.
         
@@ -68,6 +76,7 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[dict] endpoint_configuration: Nested argument defining API endpoint configuration including endpoint type. Defined below.
         :param pulumi.Input[float] minimum_compression_size: Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
         :param pulumi.Input[str] name: The name of the REST API
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **endpoint_configuration** object supports the following:
         
@@ -100,6 +109,8 @@ class RestApi(pulumi.CustomResource):
             __props__['minimum_compression_size'] = minimum_compression_size
             __props__['name'] = name
             __props__['policy'] = policy
+            __props__['tags'] = tags
+            __props__['arn'] = None
             __props__['created_date'] = None
             __props__['execution_arn'] = None
             __props__['root_resource_id'] = None
@@ -110,7 +121,7 @@ class RestApi(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_key_source=None, binary_media_types=None, body=None, created_date=None, description=None, endpoint_configuration=None, execution_arn=None, minimum_compression_size=None, name=None, policy=None, root_resource_id=None):
+    def get(resource_name, id, opts=None, api_key_source=None, arn=None, binary_media_types=None, body=None, created_date=None, description=None, endpoint_configuration=None, execution_arn=None, minimum_compression_size=None, name=None, policy=None, root_resource_id=None, tags=None):
         """
         Get an existing RestApi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -119,6 +130,7 @@ class RestApi(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_key_source: The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
         :param pulumi.Input[list] binary_media_types: The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
         :param pulumi.Input[str] body: An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
         :param pulumi.Input[str] created_date: The creation date of the REST API
@@ -130,6 +142,7 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[float] minimum_compression_size: Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
         :param pulumi.Input[str] name: The name of the REST API
         :param pulumi.Input[str] root_resource_id: The resource ID of the REST API's root
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **endpoint_configuration** object supports the following:
         
@@ -141,6 +154,7 @@ class RestApi(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["api_key_source"] = api_key_source
+        __props__["arn"] = arn
         __props__["binary_media_types"] = binary_media_types
         __props__["body"] = body
         __props__["created_date"] = created_date
@@ -151,6 +165,7 @@ class RestApi(pulumi.CustomResource):
         __props__["name"] = name
         __props__["policy"] = policy
         __props__["root_resource_id"] = root_resource_id
+        __props__["tags"] = tags
         return RestApi(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

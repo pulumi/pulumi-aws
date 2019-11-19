@@ -34,13 +34,16 @@ func NewRateBasedRule(ctx *pulumi.Context,
 		inputs["predicates"] = nil
 		inputs["rateKey"] = nil
 		inputs["rateLimit"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["metricName"] = args.MetricName
 		inputs["name"] = args.Name
 		inputs["predicates"] = args.Predicates
 		inputs["rateKey"] = args.RateKey
 		inputs["rateLimit"] = args.RateLimit
+		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:wafregional/rateBasedRule:RateBasedRule", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -54,11 +57,13 @@ func GetRateBasedRule(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *RateBasedRuleState, opts ...pulumi.ResourceOpt) (*RateBasedRule, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["metricName"] = state.MetricName
 		inputs["name"] = state.Name
 		inputs["predicates"] = state.Predicates
 		inputs["rateKey"] = state.RateKey
 		inputs["rateLimit"] = state.RateLimit
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:wafregional/rateBasedRule:RateBasedRule", name, id, inputs, opts...)
 	if err != nil {
@@ -75,6 +80,11 @@ func (r *RateBasedRule) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *RateBasedRule) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The ARN of the WAF Regional Rate Based Rule.
+func (r *RateBasedRule) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name or description for the Amazon CloudWatch metric of this rule.
@@ -102,8 +112,15 @@ func (r *RateBasedRule) RateLimit() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["rateLimit"])
 }
 
+// Key-value mapping of resource tags
+func (r *RateBasedRule) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering RateBasedRule resources.
 type RateBasedRuleState struct {
+	// The ARN of the WAF Regional Rate Based Rule.
+	Arn interface{}
 	// The name or description for the Amazon CloudWatch metric of this rule.
 	MetricName interface{}
 	// The name or description of the rule.
@@ -114,6 +131,8 @@ type RateBasedRuleState struct {
 	RateKey interface{}
 	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
 	RateLimit interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a RateBasedRule resource.
@@ -128,4 +147,6 @@ type RateBasedRuleArgs struct {
 	RateKey interface{}
 	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
 	RateLimit interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

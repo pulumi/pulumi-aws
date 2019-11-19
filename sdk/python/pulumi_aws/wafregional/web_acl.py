@@ -57,7 +57,11 @@ class WebAcl(pulumi.CustomResource):
       * `rule_id` (`str`) - ID of the associated WAF (Regional) rule (e.g. [`wafregional.Rule`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)). WAF (Global) rules cannot be used.
       * `type` (`str`) - Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
     """
-    def __init__(__self__, resource_name, opts=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
         
@@ -68,6 +72,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[str] name: The name or description of the web ACL.
         :param pulumi.Input[list] rules: Set of configuration blocks containing rules for the web ACL. Detailed below.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **default_action** object supports the following:
         
@@ -126,6 +131,7 @@ class WebAcl(pulumi.CustomResource):
             __props__['metric_name'] = metric_name
             __props__['name'] = name
             __props__['rules'] = rules
+            __props__['tags'] = tags
             __props__['arn'] = None
         super(WebAcl, __self__).__init__(
             'aws:wafregional/webAcl:WebAcl',
@@ -134,7 +140,7 @@ class WebAcl(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None):
+    def get(resource_name, id, opts=None, arn=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None, tags=None):
         """
         Get an existing WebAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -148,6 +154,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[str] name: The name or description of the web ACL.
         :param pulumi.Input[list] rules: Set of configuration blocks containing rules for the web ACL. Detailed below.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **default_action** object supports the following:
         
@@ -189,6 +196,7 @@ class WebAcl(pulumi.CustomResource):
         __props__["metric_name"] = metric_name
         __props__["name"] = name
         __props__["rules"] = rules
+        __props__["tags"] = tags
         return WebAcl(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -26,11 +26,14 @@ func NewRuleGroup(ctx *pulumi.Context,
 		inputs["activatedRules"] = nil
 		inputs["metricName"] = nil
 		inputs["name"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["activatedRules"] = args.ActivatedRules
 		inputs["metricName"] = args.MetricName
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:wafregional/ruleGroup:RuleGroup", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -45,8 +48,10 @@ func GetRuleGroup(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["activatedRules"] = state.ActivatedRules
+		inputs["arn"] = state.Arn
 		inputs["metricName"] = state.MetricName
 		inputs["name"] = state.Name
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:wafregional/ruleGroup:RuleGroup", name, id, inputs, opts...)
 	if err != nil {
@@ -70,6 +75,11 @@ func (r *RuleGroup) ActivatedRules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["activatedRules"])
 }
 
+// The ARN of the WAF Regional Rule Group.
+func (r *RuleGroup) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // A friendly name for the metrics from the rule group
 func (r *RuleGroup) MetricName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["metricName"])
@@ -80,14 +90,23 @@ func (r *RuleGroup) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// Key-value mapping of resource tags
+func (r *RuleGroup) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering RuleGroup resources.
 type RuleGroupState struct {
 	// A list of activated rules, see below
 	ActivatedRules interface{}
+	// The ARN of the WAF Regional Rule Group.
+	Arn interface{}
 	// A friendly name for the metrics from the rule group
 	MetricName interface{}
 	// A friendly name of the rule group
 	Name interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a RuleGroup resource.
@@ -98,4 +117,6 @@ type RuleGroupArgs struct {
 	MetricName interface{}
 	// A friendly name of the rule group
 	Name interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

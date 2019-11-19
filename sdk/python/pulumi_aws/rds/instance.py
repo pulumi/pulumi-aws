@@ -58,8 +58,7 @@ class Instance(pulumi.CustomResource):
     """
     ca_cert_identifier: pulumi.Output[str]
     """
-    Specifies the identifier of the CA certificate for the
-    DB instance.
+    The identifier of the CA certificate for the DB instance.
     """
     character_set_name: pulumi.Output[str]
     """
@@ -321,7 +320,7 @@ class Instance(pulumi.CustomResource):
     List of VPC security groups to
     associate.
     """
-    def __init__(__self__, resource_name, opts=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, ca_cert_identifier=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an RDS instance resource.  A DB instance is an isolated database
         environment in the cloud.  A DB instance can contain multiple user-created
@@ -369,6 +368,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which
                automated backups are created if they are enabled. Example: "09:46-10:16". Must
                not overlap with `maintenance_window`.
+        :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] character_set_name: The character set name to use for DB
                encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
                Supported in Amazon
@@ -514,6 +514,7 @@ class Instance(pulumi.CustomResource):
             __props__['availability_zone'] = availability_zone
             __props__['backup_retention_period'] = backup_retention_period
             __props__['backup_window'] = backup_window
+            __props__['ca_cert_identifier'] = ca_cert_identifier
             __props__['character_set_name'] = character_set_name
             __props__['copy_tags_to_snapshot'] = copy_tags_to_snapshot
             __props__['db_subnet_group_name'] = db_subnet_group_name
@@ -560,7 +561,6 @@ class Instance(pulumi.CustomResource):
             __props__['vpc_security_group_ids'] = vpc_security_group_ids
             __props__['address'] = None
             __props__['arn'] = None
-            __props__['ca_cert_identifier'] = None
             __props__['endpoint'] = None
             __props__['hosted_zone_id'] = None
             __props__['replicas'] = None
@@ -600,8 +600,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which
                automated backups are created if they are enabled. Example: "09:46-10:16". Must
                not overlap with `maintenance_window`.
-        :param pulumi.Input[str] ca_cert_identifier: Specifies the identifier of the CA certificate for the
-               DB instance.
+        :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] character_set_name: The character set name to use for DB
                encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
                Supported in Amazon

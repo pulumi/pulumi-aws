@@ -16,7 +16,7 @@ class Inventory(pulumi.CustomResource):
     """
     destination: pulumi.Output[dict]
     """
-    Destination bucket where inventory list files are written (documented below).
+    Contains information about where to publish the inventory results (documented below).
     
       * `bucket` (`dict`) - The S3 bucket configuration where inventory results are published (documented below).
     
@@ -39,13 +39,13 @@ class Inventory(pulumi.CustomResource):
     """
     filter: pulumi.Output[dict]
     """
-    Object filtering that accepts a prefix (documented below).
+    Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
     
       * `prefix` (`str`) - The prefix that is prepended to all inventory results.
     """
     included_object_versions: pulumi.Output[str]
     """
-    Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
+    Object versions to include in the inventory list. Valid values: `All`, `Current`.
     """
     name: pulumi.Output[str]
     """
@@ -53,13 +53,14 @@ class Inventory(pulumi.CustomResource):
     """
     optional_fields: pulumi.Output[list]
     """
-    Contains the optional fields that are included in the inventory results.
+    List of optional fields that are included in the inventory results.
+    Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
     """
     schedule: pulumi.Output[dict]
     """
-    Contains the frequency for generating inventory results (documented below).
+    Specifies the schedule for generating inventory results (documented below).
     
-      * `frequency` (`str`) - Specifies how frequently inventory results are produced. Can be `Daily` or `Weekly`.
+      * `frequency` (`str`) - Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
     """
     def __init__(__self__, resource_name, opts=None, bucket=None, destination=None, enabled=None, filter=None, included_object_versions=None, name=None, optional_fields=None, schedule=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -68,13 +69,14 @@ class Inventory(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The S3 bucket configuration where inventory results are published (documented below).
-        :param pulumi.Input[dict] destination: Destination bucket where inventory list files are written (documented below).
+        :param pulumi.Input[dict] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[bool] enabled: Specifies whether the inventory is enabled or disabled.
-        :param pulumi.Input[dict] filter: Object filtering that accepts a prefix (documented below).
-        :param pulumi.Input[str] included_object_versions: Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
+        :param pulumi.Input[dict] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+        :param pulumi.Input[str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
-        :param pulumi.Input[list] optional_fields: Contains the optional fields that are included in the inventory results.
-        :param pulumi.Input[dict] schedule: Contains the frequency for generating inventory results (documented below).
+        :param pulumi.Input[list] optional_fields: List of optional fields that are included in the inventory results.
+               Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+        :param pulumi.Input[dict] schedule: Specifies the schedule for generating inventory results (documented below).
         
         The **destination** object supports the following:
         
@@ -99,7 +101,7 @@ class Inventory(pulumi.CustomResource):
         
         The **schedule** object supports the following:
         
-          * `frequency` (`pulumi.Input[str]`) - Specifies how frequently inventory results are produced. Can be `Daily` or `Weekly`.
+          * `frequency` (`pulumi.Input[str]`) - Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_inventory.html.markdown.
         """
@@ -152,13 +154,14 @@ class Inventory(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The S3 bucket configuration where inventory results are published (documented below).
-        :param pulumi.Input[dict] destination: Destination bucket where inventory list files are written (documented below).
+        :param pulumi.Input[dict] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[bool] enabled: Specifies whether the inventory is enabled or disabled.
-        :param pulumi.Input[dict] filter: Object filtering that accepts a prefix (documented below).
-        :param pulumi.Input[str] included_object_versions: Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
+        :param pulumi.Input[dict] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+        :param pulumi.Input[str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
-        :param pulumi.Input[list] optional_fields: Contains the optional fields that are included in the inventory results.
-        :param pulumi.Input[dict] schedule: Contains the frequency for generating inventory results (documented below).
+        :param pulumi.Input[list] optional_fields: List of optional fields that are included in the inventory results.
+               Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+        :param pulumi.Input[dict] schedule: Specifies the schedule for generating inventory results (documented below).
         
         The **destination** object supports the following:
         
@@ -183,7 +186,7 @@ class Inventory(pulumi.CustomResource):
         
         The **schedule** object supports the following:
         
-          * `frequency` (`pulumi.Input[str]`) - Specifies how frequently inventory results are produced. Can be `Daily` or `Weekly`.
+          * `frequency` (`pulumi.Input[str]`) - Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_inventory.html.markdown.
         """

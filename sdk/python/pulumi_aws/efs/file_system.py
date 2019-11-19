@@ -37,7 +37,7 @@ class FileSystem(pulumi.CustomResource):
     """
     A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
     
-      * `transitionToIa` (`str`) - Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+      * `transitionToIa` (`str`) - Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
     """
     performance_mode: pulumi.Output[str]
     """
@@ -75,7 +75,7 @@ class FileSystem(pulumi.CustomResource):
         
         The **lifecycle_policy** object supports the following:
         
-          * `transitionToIa` (`pulumi.Input[str]`) - Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+          * `transitionToIa` (`pulumi.Input[str]`) - Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_file_system.html.markdown.
         """
@@ -137,7 +137,7 @@ class FileSystem(pulumi.CustomResource):
         
         The **lifecycle_policy** object supports the following:
         
-          * `transitionToIa` (`pulumi.Input[str]`) - Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+          * `transitionToIa` (`pulumi.Input[str]`) - Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_file_system.html.markdown.
         """

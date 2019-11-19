@@ -15,6 +15,12 @@ namespace Pulumi.Aws.Waf
     public partial class RegexMatchSet : Pulumi.CustomResource
     {
         /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The name or description of the Regex Match Set.
         /// </summary>
         [Output("name")]
@@ -99,6 +105,12 @@ namespace Pulumi.Aws.Waf
 
     public sealed class RegexMatchSetState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The name or description of the Regex Match Set.
         /// </summary>

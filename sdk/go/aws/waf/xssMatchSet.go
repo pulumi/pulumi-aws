@@ -25,6 +25,7 @@ func NewXssMatchSet(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["xssMatchTuples"] = args.XssMatchTuples
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:waf/xssMatchSet:XssMatchSet", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -38,6 +39,7 @@ func GetXssMatchSet(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *XssMatchSetState, opts ...pulumi.ResourceOpt) (*XssMatchSet, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["name"] = state.Name
 		inputs["xssMatchTuples"] = state.XssMatchTuples
 	}
@@ -58,6 +60,11 @@ func (r *XssMatchSet) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// Amazon Resource Name (ARN)
+func (r *XssMatchSet) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // The name or description of the SizeConstraintSet.
 func (r *XssMatchSet) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -70,6 +77,8 @@ func (r *XssMatchSet) XssMatchTuples() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering XssMatchSet resources.
 type XssMatchSetState struct {
+	// Amazon Resource Name (ARN)
+	Arn interface{}
 	// The name or description of the SizeConstraintSet.
 	Name interface{}
 	// The parts of web requests that you want to inspect for cross-site scripting attacks.

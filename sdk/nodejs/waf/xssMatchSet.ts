@@ -63,6 +63,10 @@ export class XssMatchSet extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN)
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The name or description of the SizeConstraintSet.
      */
     public readonly name!: pulumi.Output<string>;
@@ -83,12 +87,14 @@ export class XssMatchSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as XssMatchSetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["xssMatchTuples"] = state ? state.xssMatchTuples : undefined;
         } else {
             const args = argsOrState as XssMatchSetArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["xssMatchTuples"] = args ? args.xssMatchTuples : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,6 +111,10 @@ export class XssMatchSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering XssMatchSet resources.
  */
 export interface XssMatchSetState {
+    /**
+     * Amazon Resource Name (ARN)
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The name or description of the SizeConstraintSet.
      */

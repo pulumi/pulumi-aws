@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class LifecyclePolicy(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+    """
     description: pulumi.Output[str]
     """
     A description for the DLM lifecycle policy.
@@ -45,7 +49,11 @@ class LifecyclePolicy(pulumi.CustomResource):
     """
     Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, execution_role_arn=None, policy_details=None, state=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags.
+    """
+    def __init__(__self__, resource_name, opts=None, description=None, execution_role_arn=None, policy_details=None, state=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
         
@@ -55,6 +63,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input[dict] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
         
         The **policy_details** object supports the following:
         
@@ -106,6 +115,8 @@ class LifecyclePolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_details'")
             __props__['policy_details'] = policy_details
             __props__['state'] = state
+            __props__['tags'] = tags
+            __props__['arn'] = None
         super(LifecyclePolicy, __self__).__init__(
             'aws:dlm/lifecyclePolicy:LifecyclePolicy',
             resource_name,
@@ -113,7 +124,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, execution_role_arn=None, policy_details=None, state=None):
+    def get(resource_name, id, opts=None, arn=None, description=None, execution_role_arn=None, policy_details=None, state=None, tags=None):
         """
         Get an existing LifecyclePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -121,10 +132,12 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
         :param pulumi.Input[str] description: A description for the DLM lifecycle policy.
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input[dict] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
         
         The **policy_details** object supports the following:
         
@@ -152,10 +165,12 @@ class LifecyclePolicy(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["arn"] = arn
         __props__["description"] = description
         __props__["execution_role_arn"] = execution_role_arn
         __props__["policy_details"] = policy_details
         __props__["state"] = state
+        __props__["tags"] = tags
         return LifecyclePolicy(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

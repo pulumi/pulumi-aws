@@ -148,10 +148,9 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly backupWindow!: pulumi.Output<string>;
     /**
-     * Specifies the identifier of the CA certificate for the
-     * DB instance.
+     * The identifier of the CA certificate for the DB instance.
      */
-    public /*out*/ readonly caCertIdentifier!: pulumi.Output<string>;
+    public readonly caCertIdentifier!: pulumi.Output<string>;
     /**
      * The character set name to use for DB
      * encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
@@ -488,6 +487,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
             inputs["backupWindow"] = args ? args.backupWindow : undefined;
+            inputs["caCertIdentifier"] = args ? args.caCertIdentifier : undefined;
             inputs["characterSetName"] = args ? args.characterSetName : undefined;
             inputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
@@ -532,7 +532,6 @@ export class Instance extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             inputs["address"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
-            inputs["caCertIdentifier"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["hostedZoneId"] = undefined /*out*/;
             inputs["replicas"] = undefined /*out*/;
@@ -601,8 +600,7 @@ export interface InstanceState {
      */
     readonly backupWindow?: pulumi.Input<string>;
     /**
-     * Specifies the identifier of the CA certificate for the
-     * DB instance.
+     * The identifier of the CA certificate for the DB instance.
      */
     readonly caCertIdentifier?: pulumi.Input<string>;
     /**
@@ -903,6 +901,10 @@ export interface InstanceArgs {
      * not overlap with `maintenanceWindow`.
      */
     readonly backupWindow?: pulumi.Input<string>;
+    /**
+     * The identifier of the CA certificate for the DB instance.
+     */
+    readonly caCertIdentifier?: pulumi.Input<string>;
     /**
      * The character set name to use for DB
      * encoding in Oracle instances. This can't be changed. See [Oracle Character Sets

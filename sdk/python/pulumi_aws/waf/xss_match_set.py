@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class XssMatchSet(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN)
+    """
     name: pulumi.Output[str]
     """
     The name or description of the SizeConstraintSet.
@@ -80,6 +84,7 @@ class XssMatchSet(pulumi.CustomResource):
 
             __props__['name'] = name
             __props__['xss_match_tuples'] = xss_match_tuples
+            __props__['arn'] = None
         super(XssMatchSet, __self__).__init__(
             'aws:waf/xssMatchSet:XssMatchSet',
             resource_name,
@@ -87,7 +92,7 @@ class XssMatchSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, xss_match_tuples=None):
+    def get(resource_name, id, opts=None, arn=None, name=None, xss_match_tuples=None):
         """
         Get an existing XssMatchSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -95,6 +100,7 @@ class XssMatchSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
         :param pulumi.Input[str] name: The name or description of the SizeConstraintSet.
         :param pulumi.Input[list] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
         
@@ -120,6 +126,7 @@ class XssMatchSet(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["arn"] = arn
         __props__["name"] = name
         __props__["xss_match_tuples"] = xss_match_tuples
         return XssMatchSet(resource_name, opts=opts, __props__=__props__)

@@ -104,8 +104,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> BackupWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier of the CA certificate for the
-        /// DB instance.
+        /// The identifier of the CA certificate for the DB instance.
         /// </summary>
         [Output("caCertIdentifier")]
         public Output<string> CaCertIdentifier { get; private set; } = null!;
@@ -557,6 +556,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? BackupWindow { get; set; }
 
         /// <summary>
+        /// The identifier of the CA certificate for the DB instance.
+        /// </summary>
+        [Input("caCertIdentifier")]
+        public Input<string>? CaCertIdentifier { get; set; }
+
+        /// <summary>
         /// The character set name to use for DB
         /// encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
         /// Supported in Amazon
@@ -972,8 +977,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? BackupWindow { get; set; }
 
         /// <summary>
-        /// Specifies the identifier of the CA certificate for the
-        /// DB instance.
+        /// The identifier of the CA certificate for the DB instance.
         /// </summary>
         [Input("caCertIdentifier")]
         public Input<string>? CaCertIdentifier { get; set; }

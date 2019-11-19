@@ -53,6 +53,10 @@ export class RegexPatternSet extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN)
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The name or description of the Regex Pattern Set.
      */
     public readonly name!: pulumi.Output<string>;
@@ -73,12 +77,14 @@ export class RegexPatternSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as RegexPatternSetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["regexPatternStrings"] = state ? state.regexPatternStrings : undefined;
         } else {
             const args = argsOrState as RegexPatternSetArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["regexPatternStrings"] = args ? args.regexPatternStrings : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -95,6 +101,10 @@ export class RegexPatternSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RegexPatternSet resources.
  */
 export interface RegexPatternSetState {
+    /**
+     * Amazon Resource Name (ARN)
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The name or description of the Regex Pattern Set.
      */

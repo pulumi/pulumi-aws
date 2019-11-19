@@ -10,6 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 class SizeConstraintSet(pulumi.CustomResource):
+    arn: pulumi.Output[str]
     name: pulumi.Output[str]
     """
     The name or description of the Size Constraint Set.
@@ -92,6 +93,7 @@ class SizeConstraintSet(pulumi.CustomResource):
 
             __props__['name'] = name
             __props__['size_constraints'] = size_constraints
+            __props__['arn'] = None
         super(SizeConstraintSet, __self__).__init__(
             'aws:wafregional/sizeConstraintSet:SizeConstraintSet',
             resource_name,
@@ -99,7 +101,7 @@ class SizeConstraintSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, size_constraints=None):
+    def get(resource_name, id, opts=None, arn=None, name=None, size_constraints=None):
         """
         Get an existing SizeConstraintSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -138,6 +140,7 @@ class SizeConstraintSet(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["arn"] = arn
         __props__["name"] = name
         __props__["size_constraints"] = size_constraints
         return SizeConstraintSet(resource_name, opts=opts, __props__=__props__)

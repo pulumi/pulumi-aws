@@ -15,6 +15,12 @@ namespace Pulumi.Aws.Dlm
     public partial class LifecyclePolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// A description for the DLM lifecycle policy.
         /// </summary>
         [Output("description")]
@@ -37,6 +43,12 @@ namespace Pulumi.Aws.Dlm
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -108,6 +120,18 @@ namespace Pulumi.Aws.Dlm
         [Input("state")]
         public Input<string>? State { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public LifecyclePolicyArgs()
         {
         }
@@ -115,6 +139,12 @@ namespace Pulumi.Aws.Dlm
 
     public sealed class LifecyclePolicyState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// A description for the DLM lifecycle policy.
         /// </summary>
@@ -138,6 +168,18 @@ namespace Pulumi.Aws.Dlm
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         public LifecyclePolicyState()
         {

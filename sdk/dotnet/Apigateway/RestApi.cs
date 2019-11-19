@@ -21,6 +21,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> ApiKeySource { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
         /// </summary>
         [Output("binaryMediaTypes")]
@@ -78,6 +84,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Output("rootResourceId")]
         public Output<string> RootResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -176,6 +188,18 @@ namespace Pulumi.Aws.ApiGateway
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public RestApiArgs()
         {
         }
@@ -188,6 +212,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("apiKeySource")]
         public Input<string>? ApiKeySource { get; set; }
+
+        /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         [Input("binaryMediaTypes")]
         private InputList<string>? _binaryMediaTypes;
@@ -253,6 +283,18 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("rootResourceId")]
         public Input<string>? RootResourceId { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         public RestApiState()
         {

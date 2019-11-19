@@ -178,6 +178,7 @@ namespace Pulumi.Aws.Config
         public string? Glacier { get; set; }
         public string? Globalaccelerator { get; set; }
         public string? Glue { get; set; }
+        public string? Greengrass { get; set; }
         public string? Guardduty { get; set; }
         public string? Iam { get; set; }
         public string? Inspector { get; set; }

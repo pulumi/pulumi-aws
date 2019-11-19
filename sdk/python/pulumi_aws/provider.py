@@ -90,6 +90,7 @@ class Provider(pulumi.ProviderResource):
           * `glacier` (`pulumi.Input[str]`)
           * `globalaccelerator` (`pulumi.Input[str]`)
           * `glue` (`pulumi.Input[str]`)
+          * `greengrass` (`pulumi.Input[str]`)
           * `guardduty` (`pulumi.Input[str]`)
           * `iam` (`pulumi.Input[str]`)
           * `inspector` (`pulumi.Input[str]`)

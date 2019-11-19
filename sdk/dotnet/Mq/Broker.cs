@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Mq
         public Output<string> EngineType { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the broker engine. Currently, See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
+        /// The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Mq
         public Input<string> EngineType { get; set; } = null!;
 
         /// <summary>
-        /// The version of the broker engine. Currently, See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
+        /// The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
         /// </summary>
         [Input("engineVersion", required: true)]
         public Input<string> EngineVersion { get; set; } = null!;
@@ -370,7 +370,7 @@ namespace Pulumi.Aws.Mq
         public Input<string>? EngineType { get; set; }
 
         /// <summary>
-        /// The version of the broker engine. Currently, See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
+        /// The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }

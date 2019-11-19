@@ -115,6 +115,10 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A description for the DLM lifecycle policy.
      */
     public readonly description!: pulumi.Output<string>;
@@ -130,6 +134,10 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
     public readonly state!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a LifecyclePolicy resource with the given unique name, arguments, and options.
@@ -143,10 +151,12 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as LifecyclePolicyState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             inputs["policyDetails"] = state ? state.policyDetails : undefined;
             inputs["state"] = state ? state.state : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LifecyclePolicyArgs | undefined;
             if (!args || args.description === undefined) {
@@ -162,6 +172,8 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             inputs["policyDetails"] = args ? args.policyDetails : undefined;
             inputs["state"] = args ? args.state : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -179,6 +191,10 @@ export class LifecyclePolicy extends pulumi.CustomResource {
  */
 export interface LifecyclePolicyState {
     /**
+     * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * A description for the DLM lifecycle policy.
      */
     readonly description?: pulumi.Input<string>;
@@ -194,6 +210,10 @@ export interface LifecyclePolicyState {
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
     readonly state?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -216,4 +236,8 @@ export interface LifecyclePolicyArgs {
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
     readonly state?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

@@ -55,6 +55,7 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["availabilityZone"] = nil
 		inputs["backupRetentionPeriod"] = nil
 		inputs["backupWindow"] = nil
+		inputs["caCertIdentifier"] = nil
 		inputs["characterSetName"] = nil
 		inputs["copyTagsToSnapshot"] = nil
 		inputs["dbSubnetGroupName"] = nil
@@ -105,6 +106,7 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["availabilityZone"] = args.AvailabilityZone
 		inputs["backupRetentionPeriod"] = args.BackupRetentionPeriod
 		inputs["backupWindow"] = args.BackupWindow
+		inputs["caCertIdentifier"] = args.CaCertIdentifier
 		inputs["characterSetName"] = args.CharacterSetName
 		inputs["copyTagsToSnapshot"] = args.CopyTagsToSnapshot
 		inputs["dbSubnetGroupName"] = args.DbSubnetGroupName
@@ -150,7 +152,6 @@ func NewInstance(ctx *pulumi.Context,
 	}
 	inputs["address"] = nil
 	inputs["arn"] = nil
-	inputs["caCertIdentifier"] = nil
 	inputs["endpoint"] = nil
 	inputs["hostedZoneId"] = nil
 	inputs["replicas"] = nil
@@ -299,8 +300,7 @@ func (r *Instance) BackupWindow() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["backupWindow"])
 }
 
-// Specifies the identifier of the CA certificate for the
-// DB instance.
+// The identifier of the CA certificate for the DB instance.
 func (r *Instance) CaCertIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["caCertIdentifier"])
 }
@@ -638,8 +638,7 @@ type InstanceState struct {
 	// automated backups are created if they are enabled. Example: "09:46-10:16". Must
 	// not overlap with `maintenanceWindow`.
 	BackupWindow interface{}
-	// Specifies the identifier of the CA certificate for the
-	// DB instance.
+	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier interface{}
 	// The character set name to use for DB
 	// encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
@@ -831,6 +830,8 @@ type InstanceArgs struct {
 	// automated backups are created if they are enabled. Example: "09:46-10:16". Must
 	// not overlap with `maintenanceWindow`.
 	BackupWindow interface{}
+	// The identifier of the CA certificate for the DB instance.
+	CaCertIdentifier interface{}
 	// The character set name to use for DB
 	// encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon

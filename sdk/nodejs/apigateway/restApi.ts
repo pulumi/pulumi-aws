@@ -69,6 +69,10 @@ export class RestApi extends pulumi.CustomResource {
      */
     public readonly apiKeySource!: pulumi.Output<string | undefined>;
     /**
+     * Amazon Resource Name (ARN)
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
      */
     public readonly binaryMediaTypes!: pulumi.Output<string[] | undefined>;
@@ -107,6 +111,10 @@ export class RestApi extends pulumi.CustomResource {
      * The resource ID of the REST API's root
      */
     public /*out*/ readonly rootResourceId!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a RestApi resource with the given unique name, arguments, and options.
@@ -121,6 +129,7 @@ export class RestApi extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as RestApiState | undefined;
             inputs["apiKeySource"] = state ? state.apiKeySource : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["binaryMediaTypes"] = state ? state.binaryMediaTypes : undefined;
             inputs["body"] = state ? state.body : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
@@ -131,6 +140,7 @@ export class RestApi extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["rootResourceId"] = state ? state.rootResourceId : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RestApiArgs | undefined;
             inputs["apiKeySource"] = args ? args.apiKeySource : undefined;
@@ -141,6 +151,8 @@ export class RestApi extends pulumi.CustomResource {
             inputs["minimumCompressionSize"] = args ? args.minimumCompressionSize : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["policy"] = args ? args.policy : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["executionArn"] = undefined /*out*/;
             inputs["rootResourceId"] = undefined /*out*/;
@@ -164,6 +176,10 @@ export interface RestApiState {
      * The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
      */
     readonly apiKeySource?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN)
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
      */
@@ -203,6 +219,10 @@ export interface RestApiState {
      * The resource ID of the REST API's root
      */
     readonly rootResourceId?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -238,4 +258,8 @@ export interface RestApiArgs {
      */
     readonly name?: pulumi.Input<string>;
     readonly policy?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

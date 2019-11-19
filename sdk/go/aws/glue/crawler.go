@@ -40,6 +40,7 @@ func NewCrawler(ctx *pulumi.Context,
 		inputs["schemaChangePolicy"] = nil
 		inputs["securityConfiguration"] = nil
 		inputs["tablePrefix"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["catalogTargets"] = args.CatalogTargets
 		inputs["classifiers"] = args.Classifiers
@@ -55,6 +56,7 @@ func NewCrawler(ctx *pulumi.Context,
 		inputs["schemaChangePolicy"] = args.SchemaChangePolicy
 		inputs["securityConfiguration"] = args.SecurityConfiguration
 		inputs["tablePrefix"] = args.TablePrefix
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:glue/crawler:Crawler", name, true, inputs, opts...)
@@ -85,6 +87,7 @@ func GetCrawler(ctx *pulumi.Context,
 		inputs["schemaChangePolicy"] = state.SchemaChangePolicy
 		inputs["securityConfiguration"] = state.SecurityConfiguration
 		inputs["tablePrefix"] = state.TablePrefix
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:glue/crawler:Crawler", name, id, inputs, opts...)
 	if err != nil {
@@ -177,6 +180,11 @@ func (r *Crawler) TablePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tablePrefix"])
 }
 
+// Key-value mapping of resource tags
+func (r *Crawler) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Crawler resources.
 type CrawlerState struct {
 	// The ARN of the crawler 
@@ -208,6 +216,8 @@ type CrawlerState struct {
 	SecurityConfiguration interface{}
 	// The table prefix used for catalog tables that are created.
 	TablePrefix interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Crawler resource.
@@ -239,4 +249,6 @@ type CrawlerArgs struct {
 	SecurityConfiguration interface{}
 	// The table prefix used for catalog tables that are created.
 	TablePrefix interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

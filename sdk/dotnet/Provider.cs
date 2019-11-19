@@ -399,6 +399,9 @@ namespace Pulumi.Aws
         [Input("glue")]
         public Input<string>? Glue { get; set; }
 
+        [Input("greengrass")]
+        public Input<string>? Greengrass { get; set; }
+
         [Input("guardduty")]
         public Input<string>? Guardduty { get; set; }
 

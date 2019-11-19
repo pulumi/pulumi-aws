@@ -25,6 +25,7 @@ func NewGeoMatchSet(ctx *pulumi.Context,
 		inputs["geoMatchConstraints"] = args.GeoMatchConstraints
 		inputs["name"] = args.Name
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:waf/geoMatchSet:GeoMatchSet", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -38,6 +39,7 @@ func GetGeoMatchSet(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *GeoMatchSetState, opts ...pulumi.ResourceOpt) (*GeoMatchSet, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["geoMatchConstraints"] = state.GeoMatchConstraints
 		inputs["name"] = state.Name
 	}
@@ -58,6 +60,11 @@ func (r *GeoMatchSet) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// Amazon Resource Name (ARN)
+func (r *GeoMatchSet) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
 func (r *GeoMatchSet) GeoMatchConstraints() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["geoMatchConstraints"])
@@ -70,6 +77,8 @@ func (r *GeoMatchSet) Name() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering GeoMatchSet resources.
 type GeoMatchSetState struct {
+	// Amazon Resource Name (ARN)
+	Arn interface{}
 	// The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
 	GeoMatchConstraints interface{}
 	// The name or description of the GeoMatchSet.

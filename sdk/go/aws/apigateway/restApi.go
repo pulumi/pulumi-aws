@@ -27,6 +27,7 @@ func NewRestApi(ctx *pulumi.Context,
 		inputs["minimumCompressionSize"] = nil
 		inputs["name"] = nil
 		inputs["policy"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["apiKeySource"] = args.ApiKeySource
 		inputs["binaryMediaTypes"] = args.BinaryMediaTypes
@@ -36,7 +37,9 @@ func NewRestApi(ctx *pulumi.Context,
 		inputs["minimumCompressionSize"] = args.MinimumCompressionSize
 		inputs["name"] = args.Name
 		inputs["policy"] = args.Policy
+		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	inputs["createdDate"] = nil
 	inputs["executionArn"] = nil
 	inputs["rootResourceId"] = nil
@@ -54,6 +57,7 @@ func GetRestApi(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["apiKeySource"] = state.ApiKeySource
+		inputs["arn"] = state.Arn
 		inputs["binaryMediaTypes"] = state.BinaryMediaTypes
 		inputs["body"] = state.Body
 		inputs["createdDate"] = state.CreatedDate
@@ -64,6 +68,7 @@ func GetRestApi(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["policy"] = state.Policy
 		inputs["rootResourceId"] = state.RootResourceId
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:apigateway/restApi:RestApi", name, id, inputs, opts...)
 	if err != nil {
@@ -85,6 +90,11 @@ func (r *RestApi) ID() *pulumi.IDOutput {
 // The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
 func (r *RestApi) ApiKeySource() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["apiKeySource"])
+}
+
+// Amazon Resource Name (ARN)
+func (r *RestApi) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
@@ -138,10 +148,17 @@ func (r *RestApi) RootResourceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["rootResourceId"])
 }
 
+// Key-value mapping of resource tags
+func (r *RestApi) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering RestApi resources.
 type RestApiState struct {
 	// The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
 	ApiKeySource interface{}
+	// Amazon Resource Name (ARN)
+	Arn interface{}
 	// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
 	BinaryMediaTypes interface{}
 	// An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
@@ -163,6 +180,8 @@ type RestApiState struct {
 	Policy interface{}
 	// The resource ID of the REST API's root
 	RootResourceId interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a RestApi resource.
@@ -182,4 +201,6 @@ type RestApiArgs struct {
 	// The name of the REST API
 	Name interface{}
 	Policy interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
