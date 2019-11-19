@@ -4,6 +4,7 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Adding an EOL deprecation message to NodeJS 8.x Lambda Runtime
 * Adding support for NodeJS12 Lambda Runtime
+* Update `ContainerDefinition` to latest ECS schema
 
 ---
 
