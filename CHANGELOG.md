@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Update `ContainerDefinition` to latest ECS schema
 
 ---
 
