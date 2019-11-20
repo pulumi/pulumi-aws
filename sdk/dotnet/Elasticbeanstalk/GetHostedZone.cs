@@ -15,7 +15,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_hosted_zone.html.markdown.
         /// </summary>
         public static Task<GetHostedZoneResult> GetHostedZone(GetHostedZoneArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneResult>("aws:elasticbeanstalk/getHostedZone:getHostedZone", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneResult>("aws:elasticbeanstalk/getHostedZone:getHostedZone", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetHostedZoneArgs : Pulumi.ResourceArgs

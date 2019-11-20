@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ssm
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_parameter.html.markdown.
         /// </summary>
         public static Task<GetParameterResult> GetParameter(GetParameterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetParameterResult>("aws:ssm/getParameter:getParameter", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetParameterResult>("aws:ssm/getParameter:getParameter", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetParameterArgs : Pulumi.ResourceArgs

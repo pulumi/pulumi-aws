@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Lambda
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
         /// </summary>
         public static Task<GetLayerVersionResult> GetLayerVersion(GetLayerVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetLayerVersionArgs : Pulumi.ResourceArgs

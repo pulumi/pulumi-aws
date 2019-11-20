@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Emr
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InstanceGroup(string name, InstanceGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:emr/instanceGroup:InstanceGroup", name, args, MakeResourceOptions(options, ""))
+            : base("aws:emr/instanceGroup:InstanceGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

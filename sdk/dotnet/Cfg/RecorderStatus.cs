@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Cfg
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RecorderStatus(string name, RecorderStatusArgs args, CustomResourceOptions? options = null)
-            : base("aws:cfg/recorderStatus:RecorderStatus", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cfg/recorderStatus:RecorderStatus", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

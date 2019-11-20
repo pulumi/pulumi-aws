@@ -16,7 +16,7 @@ namespace Pulumi.Aws.RedShift
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_service_account.html.markdown.
         /// </summary>
         public static Task<GetServiceAccountResult> GetServiceAccount(GetServiceAccountArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:redshift/getServiceAccount:getServiceAccount", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:redshift/getServiceAccount:getServiceAccount", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetServiceAccountArgs : Pulumi.ResourceArgs

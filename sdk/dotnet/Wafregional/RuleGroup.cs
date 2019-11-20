@@ -53,7 +53,7 @@ namespace Pulumi.Aws.WafRegional
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RuleGroup(string name, RuleGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:wafregional/ruleGroup:RuleGroup", name, args, MakeResourceOptions(options, ""))
+            : base("aws:wafregional/ruleGroup:RuleGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

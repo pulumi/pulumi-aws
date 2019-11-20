@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IdentityPoolRoleAttachment(string name, IdentityPoolRoleAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

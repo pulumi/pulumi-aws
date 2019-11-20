@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Eks
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster_auth.html.markdown.
         /// </summary>
         public static Task<GetClusterAuthResult> GetClusterAuth(GetClusterAuthArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetClusterAuthArgs : Pulumi.ResourceArgs

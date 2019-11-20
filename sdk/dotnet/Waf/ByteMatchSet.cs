@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Waf
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ByteMatchSet(string name, ByteMatchSetArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:waf/byteMatchSet:ByteMatchSet", name, args, MakeResourceOptions(options, ""))
+            : base("aws:waf/byteMatchSet:ByteMatchSet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

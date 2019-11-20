@@ -86,7 +86,7 @@ namespace Pulumi.Aws.SecretsManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Secret(string name, SecretArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:secretsmanager/secret:Secret", name, args, MakeResourceOptions(options, ""))
+            : base("aws:secretsmanager/secret:Secret", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

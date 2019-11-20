@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Association(string name, AssociationArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ssm/association:Association", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ssm/association:Association", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

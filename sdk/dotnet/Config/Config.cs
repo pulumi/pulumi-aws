@@ -3,7 +3,7 @@
 
 using System.Collections.Immutable;
 
-namespace Pulumi.Aws.Config
+namespace Pulumi.Aws
 {
     public static class Config
     {

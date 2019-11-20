@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Lambda
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
         /// </summary>
         public static Task<GetFunctionResult> GetFunction(GetFunctionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws:lambda/getFunction:getFunction", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws:lambda/getFunction:getFunction", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetFunctionArgs : Pulumi.ResourceArgs

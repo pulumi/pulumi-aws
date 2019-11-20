@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Dms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationTask(string name, ReplicationTaskArgs args, CustomResourceOptions? options = null)
-            : base("aws:dms/replicationTask:ReplicationTask", name, args, MakeResourceOptions(options, ""))
+            : base("aws:dms/replicationTask:ReplicationTask", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

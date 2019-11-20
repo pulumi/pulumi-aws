@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Applicationloadbalancing
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TargetGroup(string name, TargetGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:applicationloadbalancing/targetGroup:TargetGroup", name, args, MakeResourceOptions(options, ""))
+            : base("aws:applicationloadbalancing/targetGroup:TargetGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

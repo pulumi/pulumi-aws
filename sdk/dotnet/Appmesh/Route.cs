@@ -71,7 +71,7 @@ namespace Pulumi.Aws.AppMesh
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Route(string name, RouteArgs args, CustomResourceOptions? options = null)
-            : base("aws:appmesh/route:Route", name, args, MakeResourceOptions(options, ""))
+            : base("aws:appmesh/route:Route", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

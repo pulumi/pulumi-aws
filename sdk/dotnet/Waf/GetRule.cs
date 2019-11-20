@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Waf
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rule.html.markdown.
         /// </summary>
         public static Task<GetRuleResult> GetRule(GetRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws:waf/getRule:getRule", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws:waf/getRule:getRule", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetRuleArgs : Pulumi.ResourceArgs

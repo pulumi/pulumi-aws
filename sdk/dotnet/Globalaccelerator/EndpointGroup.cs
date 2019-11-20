@@ -74,7 +74,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EndpointGroup(string name, EndpointGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:globalaccelerator/endpointGroup:EndpointGroup", name, args, MakeResourceOptions(options, ""))
+            : base("aws:globalaccelerator/endpointGroup:EndpointGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

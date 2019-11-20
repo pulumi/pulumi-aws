@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Macie
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public S3BucketAssociation(string name, S3BucketAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:macie/s3BucketAssociation:S3BucketAssociation", name, args, MakeResourceOptions(options, ""))
+            : base("aws:macie/s3BucketAssociation:S3BucketAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

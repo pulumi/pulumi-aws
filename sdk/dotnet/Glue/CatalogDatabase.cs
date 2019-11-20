@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CatalogDatabase(string name, CatalogDatabaseArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:glue/catalogDatabase:CatalogDatabase", name, args, MakeResourceOptions(options, ""))
+            : base("aws:glue/catalogDatabase:CatalogDatabase", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

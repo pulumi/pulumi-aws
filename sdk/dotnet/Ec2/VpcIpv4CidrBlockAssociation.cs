@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcIpv4CidrBlockAssociation(string name, VpcIpv4CidrBlockAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

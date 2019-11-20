@@ -65,7 +65,7 @@ namespace Pulumi.Aws.DirectConnect
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GatewayAssociationProposal(string name, GatewayAssociationProposalArgs args, CustomResourceOptions? options = null)
-            : base("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, args, MakeResourceOptions(options, ""))
+            : base("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

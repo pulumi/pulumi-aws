@@ -236,7 +236,7 @@ namespace Pulumi.Aws.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Distribution(string name, DistributionArgs args, CustomResourceOptions? options = null)
-            : base("aws:cloudfront/distribution:Distribution", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cloudfront/distribution:Distribution", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

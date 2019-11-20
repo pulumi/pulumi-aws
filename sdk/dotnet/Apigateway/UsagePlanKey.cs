@@ -53,7 +53,7 @@ namespace Pulumi.Aws.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UsagePlanKey(string name, UsagePlanKeyArgs args, CustomResourceOptions? options = null)
-            : base("aws:apigateway/usagePlanKey:UsagePlanKey", name, args, MakeResourceOptions(options, ""))
+            : base("aws:apigateway/usagePlanKey:UsagePlanKey", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

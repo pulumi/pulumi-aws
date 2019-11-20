@@ -47,7 +47,7 @@ namespace Pulumi.Aws.GameLift
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Alias(string name, AliasArgs args, CustomResourceOptions? options = null)
-            : base("aws:gamelift/alias:Alias", name, args, MakeResourceOptions(options, ""))
+            : base("aws:gamelift/alias:Alias", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Rds
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_instance.html.markdown.
         /// </summary>
         public static Task<GetInstanceResult> GetInstance(GetInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:rds/getInstance:getInstance", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:rds/getInstance:getInstance", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetInstanceArgs : Pulumi.ResourceArgs

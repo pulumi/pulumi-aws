@@ -97,7 +97,7 @@ namespace Pulumi.Aws.AutoScaling
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Policy(string name, PolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:autoscaling/policy:Policy", name, args, MakeResourceOptions(options, ""))
+            : base("aws:autoscaling/policy:Policy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

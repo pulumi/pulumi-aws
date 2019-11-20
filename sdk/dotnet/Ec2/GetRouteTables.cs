@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ec2
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
         /// </summary>
         public static Task<GetRouteTablesResult> GetRouteTables(GetRouteTablesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetRouteTablesArgs : Pulumi.ResourceArgs

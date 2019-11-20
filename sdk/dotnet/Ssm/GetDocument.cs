@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ssm
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_document.html.markdown.
         /// </summary>
         public static Task<GetDocumentResult> GetDocument(GetDocumentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws:ssm/getDocument:getDocument", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetDocumentArgs : Pulumi.ResourceArgs

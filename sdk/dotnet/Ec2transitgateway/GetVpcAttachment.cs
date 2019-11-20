@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpc_attachment.html.markdown.
         /// </summary>
         public static Task<GetVpcAttachmentResult> GetVpcAttachment(GetVpcAttachmentArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcAttachmentResult>("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcAttachmentResult>("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetVpcAttachmentArgs : Pulumi.ResourceArgs

@@ -58,7 +58,7 @@ namespace Pulumi.Aws.DataSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EfsLocation(string name, EfsLocationArgs args, CustomResourceOptions? options = null)
-            : base("aws:datasync/efsLocation:EfsLocation", name, args, MakeResourceOptions(options, ""))
+            : base("aws:datasync/efsLocation:EfsLocation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

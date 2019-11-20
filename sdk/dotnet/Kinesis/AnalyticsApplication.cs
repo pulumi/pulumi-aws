@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Kinesis
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AnalyticsApplication(string name, AnalyticsApplicationArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:kinesis/analyticsApplication:AnalyticsApplication", name, args, MakeResourceOptions(options, ""))
+            : base("aws:kinesis/analyticsApplication:AnalyticsApplication", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

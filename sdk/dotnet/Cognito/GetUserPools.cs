@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Cognito
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cognito_user_pools.html.markdown.
         /// </summary>
         public static Task<GetUserPoolsResult> GetUserPools(GetUserPoolsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolsResult>("aws:cognito/getUserPools:getUserPools", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolsResult>("aws:cognito/getUserPools:getUserPools", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetUserPoolsArgs : Pulumi.ResourceArgs

@@ -49,7 +49,7 @@ namespace Pulumi.Aws.LB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TargetGroupAttachment(string name, TargetGroupAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:lb/targetGroupAttachment:TargetGroupAttachment", name, args, MakeResourceOptions(options, ""))
+            : base("aws:lb/targetGroupAttachment:TargetGroupAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Kms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ExternalKey(string name, ExternalKeyArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:kms/externalKey:ExternalKey", name, args, MakeResourceOptions(options, ""))
+            : base("aws:kms/externalKey:ExternalKey", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Waf
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_ipset.html.markdown.
         /// </summary>
         public static Task<GetIpsetResult> GetIpset(GetIpsetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpsetResult>("aws:waf/getIpset:getIpset", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIpsetResult>("aws:waf/getIpset:getIpset", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetIpsetArgs : Pulumi.ResourceArgs

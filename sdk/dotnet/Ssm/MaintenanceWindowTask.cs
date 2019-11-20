@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MaintenanceWindowTask(string name, MaintenanceWindowTaskArgs args, CustomResourceOptions? options = null)
-            : base("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Qldb
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/qldb_ledger.html.markdown.
         /// </summary>
         public static Task<GetLedgerResult> GetLedger(GetLedgerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("aws:qldb/getLedger:getLedger", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetLedgerArgs : Pulumi.ResourceArgs

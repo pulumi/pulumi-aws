@@ -19,8 +19,8 @@ namespace Pulumi.Aws.Ec2
     /// conflicts, and will lead to spurious diffs and undefined behavior - please use
     /// one or the other.
     /// 
-    /// [1]: /docs/providers/aws/d/instance.html
-    /// [2]: /docs/providers/aws/r/network_interface.html
+    /// [1]: https://www.terraform.io/docs/providers/aws/d/instance.html
+    /// [2]: https://www.terraform.io/docs/providers/aws/r/network_interface.html
     /// 
     /// ## Output Reference
     /// 
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkInterfaceSecurityGroupAttachment(string name, NetworkInterfaceSecurityGroupAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

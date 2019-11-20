@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ebs
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
         /// </summary>
         public static Task<GetSnapshotResult> GetSnapshot(GetSnapshotArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:ebs/getSnapshot:getSnapshot", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:ebs/getSnapshot:getSnapshot", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetSnapshotArgs : Pulumi.ResourceArgs

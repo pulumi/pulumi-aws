@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ZoneAssociation(string name, ZoneAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:route53/zoneAssociation:ZoneAssociation", name, args, MakeResourceOptions(options, ""))
+            : base("aws:route53/zoneAssociation:ZoneAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Waf
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_web_acl.html.markdown.
         /// </summary>
         public static Task<GetWebAclResult> GetWebAcl(GetWebAclArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:waf/getWebAcl:getWebAcl", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:waf/getWebAcl:getWebAcl", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetWebAclArgs : Pulumi.ResourceArgs

@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Alb
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_listener.html.markdown.
         /// </summary>
         public static Task<GetListenerResult> GetListener(GetListenerArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:alb/getListener:getListener", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:alb/getListener:getListener", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetListenerArgs : Pulumi.ResourceArgs

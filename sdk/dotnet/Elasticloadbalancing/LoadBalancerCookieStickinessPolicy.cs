@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Elasticloadbalancing
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LoadBalancerCookieStickinessPolicy(string name, LoadBalancerCookieStickinessPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy", name, args, MakeResourceOptions(options, ""))
+            : base("aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

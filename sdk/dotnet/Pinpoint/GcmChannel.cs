@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GcmChannel(string name, GcmChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws:pinpoint/gcmChannel:GcmChannel", name, args, MakeResourceOptions(options, ""))
+            : base("aws:pinpoint/gcmChannel:GcmChannel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

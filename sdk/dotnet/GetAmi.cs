@@ -16,7 +16,7 @@ namespace Pulumi.Aws
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
         /// </summary>
         public static Task<GetAmiResult> GetAmi(GetAmiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:index/getAmi:getAmi", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:index/getAmi:getAmi", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAmiArgs : Pulumi.ResourceArgs

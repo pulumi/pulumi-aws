@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserPoolDomain(string name, UserPoolDomainArgs args, CustomResourceOptions? options = null)
-            : base("aws:cognito/userPoolDomain:UserPoolDomain", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cognito/userPoolDomain:UserPoolDomain", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

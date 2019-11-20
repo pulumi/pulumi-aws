@@ -54,7 +54,7 @@ namespace Pulumi.Aws.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PublicKey(string name, PublicKeyArgs args, CustomResourceOptions? options = null)
-            : base("aws:cloudfront/publicKey:PublicKey", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cloudfront/publicKey:PublicKey", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

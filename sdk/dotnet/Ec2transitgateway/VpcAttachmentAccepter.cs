@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcAttachmentAccepter(string name, VpcAttachmentAccepterArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

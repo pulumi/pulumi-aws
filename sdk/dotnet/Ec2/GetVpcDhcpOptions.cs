@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ec2
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
         /// </summary>
         public static Task<GetVpcDhcpOptionsResult> GetVpcDhcpOptions(GetVpcDhcpOptionsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcDhcpOptionsResult>("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcDhcpOptionsResult>("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetVpcDhcpOptionsArgs : Pulumi.ResourceArgs

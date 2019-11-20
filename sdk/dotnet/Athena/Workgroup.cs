@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Athena
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workgroup(string name, WorkgroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:athena/workgroup:Workgroup", name, args, MakeResourceOptions(options, ""))
+            : base("aws:athena/workgroup:Workgroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

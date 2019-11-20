@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Elb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LoadBalancerPolicy(string name, LoadBalancerPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:elb/loadBalancerPolicy:LoadBalancerPolicy", name, args, MakeResourceOptions(options, ""))
+            : base("aws:elb/loadBalancerPolicy:LoadBalancerPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

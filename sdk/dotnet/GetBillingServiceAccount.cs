@@ -15,7 +15,7 @@ namespace Pulumi.Aws
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/billing_service_account.html.markdown.
         /// </summary>
         public static Task<GetBillingServiceAccountResult> GetBillingServiceAccount(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBillingServiceAccountResult>("aws:index/getBillingServiceAccount:getBillingServiceAccount", null, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBillingServiceAccountResult>("aws:index/getBillingServiceAccount:getBillingServiceAccount", ResourceArgs.Empty, options.WithVersion());
     }
 
     [OutputType]

@@ -31,8 +31,8 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         conflicts, and will lead to spurious diffs and undefined behavior - please use
         one or the other.
         
-        [1]: /docs/providers/aws/d/instance.html
-        [2]: /docs/providers/aws/r/network_interface.html
+        [1]: https://www.terraform.io/docs/providers/aws/d/instance.html
+        [2]: https://www.terraform.io/docs/providers/aws/r/network_interface.html
         
         ## Output Reference
         

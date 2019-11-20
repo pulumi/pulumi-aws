@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Sns
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sns_topic.html.markdown.
         /// </summary>
         public static Task<GetTopicResult> GetTopic(GetTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("aws:sns/getTopic:getTopic", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("aws:sns/getTopic:getTopic", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetTopicArgs : Pulumi.ResourceArgs

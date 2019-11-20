@@ -59,7 +59,7 @@ namespace Pulumi.Aws.CodePipeline
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Pipeline(string name, PipelineArgs args, CustomResourceOptions? options = null)
-            : base("aws:codepipeline/pipeline:Pipeline", name, args, MakeResourceOptions(options, ""))
+            : base("aws:codepipeline/pipeline:Pipeline", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

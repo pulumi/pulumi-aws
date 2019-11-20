@@ -32,7 +32,7 @@ namespace Pulumi.Aws.MediaStore
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ContainerPolicy(string name, ContainerPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:mediastore/containerPolicy:ContainerPolicy", name, args, MakeResourceOptions(options, ""))
+            : base("aws:mediastore/containerPolicy:ContainerPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

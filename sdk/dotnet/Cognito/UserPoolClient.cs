@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserPoolClient(string name, UserPoolClientArgs args, CustomResourceOptions? options = null)
-            : base("aws:cognito/userPoolClient:UserPoolClient", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cognito/userPoolClient:UserPoolClient", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

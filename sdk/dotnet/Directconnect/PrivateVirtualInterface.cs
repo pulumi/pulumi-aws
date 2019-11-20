@@ -114,7 +114,7 @@ namespace Pulumi.Aws.DirectConnect
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateVirtualInterface(string name, PrivateVirtualInterfaceArgs args, CustomResourceOptions? options = null)
-            : base("aws:directconnect/privateVirtualInterface:PrivateVirtualInterface", name, args, MakeResourceOptions(options, ""))
+            : base("aws:directconnect/privateVirtualInterface:PrivateVirtualInterface", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

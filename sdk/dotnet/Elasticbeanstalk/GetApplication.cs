@@ -15,7 +15,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_application.html.markdown.
         /// </summary>
         public static Task<GetApplicationResult> GetApplication(GetApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws:elasticbeanstalk/getApplication:getApplication", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws:elasticbeanstalk/getApplication:getApplication", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetApplicationArgs : Pulumi.ResourceArgs

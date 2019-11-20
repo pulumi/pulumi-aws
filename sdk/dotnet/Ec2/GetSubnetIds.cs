@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Ec2
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.
         /// </summary>
         public static Task<GetSubnetIdsResult> GetSubnetIds(GetSubnetIdsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetIdsResult>("aws:ec2/getSubnetIds:getSubnetIds", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetIdsResult>("aws:ec2/getSubnetIds:getSubnetIds", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetSubnetIdsArgs : Pulumi.ResourceArgs

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Rds
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
         /// </summary>
         public static Task<GetSnapshotResult> GetSnapshot(GetSnapshotArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetSnapshotArgs : Pulumi.ResourceArgs

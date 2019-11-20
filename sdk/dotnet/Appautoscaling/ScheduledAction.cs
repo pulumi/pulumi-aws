@@ -77,7 +77,7 @@ namespace Pulumi.Aws.AppAutoScaling
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScheduledAction(string name, ScheduledActionArgs args, CustomResourceOptions? options = null)
-            : base("aws:appautoscaling/scheduledAction:ScheduledAction", name, args, MakeResourceOptions(options, ""))
+            : base("aws:appautoscaling/scheduledAction:ScheduledAction", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

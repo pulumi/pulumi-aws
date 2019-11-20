@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Ecs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TaskDefinition(string name, TaskDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("aws:ecs/taskDefinition:TaskDefinition", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ecs/taskDefinition:TaskDefinition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

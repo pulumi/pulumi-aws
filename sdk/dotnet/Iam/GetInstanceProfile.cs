@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Iam
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_instance_profile.html.markdown.
         /// </summary>
         public static Task<GetInstanceProfileResult> GetInstanceProfile(GetInstanceProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetInstanceProfileArgs : Pulumi.ResourceArgs

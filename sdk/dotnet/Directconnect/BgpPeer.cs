@@ -79,7 +79,7 @@ namespace Pulumi.Aws.DirectConnect
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BgpPeer(string name, BgpPeerArgs args, CustomResourceOptions? options = null)
-            : base("aws:directconnect/bgpPeer:BgpPeer", name, args, MakeResourceOptions(options, ""))
+            : base("aws:directconnect/bgpPeer:BgpPeer", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

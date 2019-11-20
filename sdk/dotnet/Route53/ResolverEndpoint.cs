@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResolverEndpoint(string name, ResolverEndpointArgs args, CustomResourceOptions? options = null)
-            : base("aws:route53/resolverEndpoint:ResolverEndpoint", name, args, MakeResourceOptions(options, ""))
+            : base("aws:route53/resolverEndpoint:ResolverEndpoint", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

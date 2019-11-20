@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Acm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:acm/certificate:Certificate", name, args, MakeResourceOptions(options, ""))
+            : base("aws:acm/certificate:Certificate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

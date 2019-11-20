@@ -77,7 +77,7 @@ namespace Pulumi.Aws.AppSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Resolver(string name, ResolverArgs args, CustomResourceOptions? options = null)
-            : base("aws:appsync/resolver:Resolver", name, args, MakeResourceOptions(options, ""))
+            : base("aws:appsync/resolver:Resolver", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

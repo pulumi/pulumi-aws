@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet.html.markdown.
         /// </summary>
         public static Task<GetSubnetResult> GetSubnet(GetSubnetArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("aws:ec2/getSubnet:getSubnet", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("aws:ec2/getSubnet:getSubnet", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetSubnetArgs : Pulumi.ResourceArgs

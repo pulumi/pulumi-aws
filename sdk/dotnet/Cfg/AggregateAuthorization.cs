@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Cfg
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AggregateAuthorization(string name, AggregateAuthorizationArgs args, CustomResourceOptions? options = null)
-            : base("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.DirectConnect
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dx_gateway.html.markdown.
         /// </summary>
         public static Task<GetGatewayResult> GetGateway(GetGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("aws:directconnect/getGateway:getGateway", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("aws:directconnect/getGateway:getGateway", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetGatewayArgs : Pulumi.ResourceArgs

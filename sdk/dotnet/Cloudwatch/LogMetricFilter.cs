@@ -49,7 +49,7 @@ namespace Pulumi.Aws.CloudWatch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogMetricFilter(string name, LogMetricFilterArgs args, CustomResourceOptions? options = null)
-            : base("aws:cloudwatch/logMetricFilter:LogMetricFilter", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cloudwatch/logMetricFilter:LogMetricFilter", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

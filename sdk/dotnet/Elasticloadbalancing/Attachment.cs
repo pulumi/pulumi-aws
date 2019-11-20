@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Elasticloadbalancing
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Attachment(string name, AttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:elasticloadbalancing/attachment:Attachment", name, args, MakeResourceOptions(options, ""))
+            : base("aws:elasticloadbalancing/attachment:Attachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

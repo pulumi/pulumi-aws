@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Efs
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_file_system.html.markdown.
         /// </summary>
         public static Task<GetFileSystemResult> GetFileSystem(GetFileSystemArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetFileSystemArgs : Pulumi.ResourceArgs

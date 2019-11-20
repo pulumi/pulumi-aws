@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Kinesis
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
         /// </summary>
         public static Task<GetStreamResult> GetStream(GetStreamArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws:kinesis/getStream:getStream", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetStreamArgs : Pulumi.ResourceArgs

@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InstanceProfile(string name, InstanceProfileArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:iam/instanceProfile:InstanceProfile", name, args, MakeResourceOptions(options, ""))
+            : base("aws:iam/instanceProfile:InstanceProfile", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

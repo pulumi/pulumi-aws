@@ -80,7 +80,7 @@ namespace Pulumi.Aws.CloudWatch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventRule(string name, EventRuleArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:cloudwatch/eventRule:EventRule", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cloudwatch/eventRule:EventRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

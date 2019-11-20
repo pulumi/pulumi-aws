@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EipAssociation(string name, EipAssociationArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ec2/eipAssociation:EipAssociation", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ec2/eipAssociation:EipAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

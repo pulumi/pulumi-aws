@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkAssociation(string name, NetworkAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, args, MakeResourceOptions(options, ""))
+            : base("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

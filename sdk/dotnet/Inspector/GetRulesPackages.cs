@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Inspector
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/inspector_rules_packages.html.markdown.
         /// </summary>
         public static Task<GetRulesPackagesResult> GetRulesPackages(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", null, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", ResourceArgs.Empty, options.WithVersion());
     }
 
     [OutputType]

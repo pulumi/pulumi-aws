@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TopicRule(string name, TopicRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:iot/topicRule:TopicRule", name, args, MakeResourceOptions(options, ""))
+            : base("aws:iot/topicRule:TopicRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

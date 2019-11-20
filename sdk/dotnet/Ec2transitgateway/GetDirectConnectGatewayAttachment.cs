@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_dx_gateway_attachment.html.markdown.
         /// </summary>
         public static Task<GetDirectConnectGatewayAttachmentResult> GetDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDirectConnectGatewayAttachmentResult>("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDirectConnectGatewayAttachmentResult>("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetDirectConnectGatewayAttachmentArgs : Pulumi.ResourceArgs

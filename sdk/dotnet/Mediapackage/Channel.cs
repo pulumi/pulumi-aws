@@ -53,7 +53,7 @@ namespace Pulumi.Aws.MediaPackage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Channel(string name, ChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws:mediapackage/channel:Channel", name, args, MakeResourceOptions(options, ""))
+            : base("aws:mediapackage/channel:Channel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

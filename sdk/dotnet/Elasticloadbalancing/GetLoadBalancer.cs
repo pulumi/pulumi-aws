@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Elasticloadbalancing
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_legacy.html.markdown.
         /// </summary>
         public static Task<GetLoadBalancerResult> GetLoadBalancer(GetLoadBalancerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:elasticloadbalancing/getLoadBalancer:getLoadBalancer", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:elasticloadbalancing/getLoadBalancer:getLoadBalancer", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetLoadBalancerArgs : Pulumi.ResourceArgs

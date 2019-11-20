@@ -55,7 +55,7 @@ namespace Pulumi.Aws.DataSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Agent(string name, AgentArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:datasync/agent:Agent", name, args, MakeResourceOptions(options, ""))
+            : base("aws:datasync/agent:Agent", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

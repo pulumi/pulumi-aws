@@ -53,7 +53,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Portfolio(string name, PortfolioArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:servicecatalog/portfolio:Portfolio", name, args, MakeResourceOptions(options, ""))
+            : base("aws:servicecatalog/portfolio:Portfolio", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -71,7 +71,7 @@ namespace Pulumi.Aws.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OriginAccessIdentity(string name, OriginAccessIdentityArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

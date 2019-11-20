@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Iam
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_account_alias.html.markdown.
         /// </summary>
         public static Task<GetAccountAliasResult> GetAccountAlias(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountAliasResult>("aws:iam/getAccountAlias:getAccountAlias", null, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountAliasResult>("aws:iam/getAccountAlias:getAccountAlias", ResourceArgs.Empty, options.WithVersion());
     }
 
     [OutputType]

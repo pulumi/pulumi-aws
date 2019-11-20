@@ -75,7 +75,7 @@ namespace Pulumi.Aws.CodeCommit
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Repository(string name, RepositoryArgs args, CustomResourceOptions? options = null)
-            : base("aws:codecommit/repository:Repository", name, args, MakeResourceOptions(options, ""))
+            : base("aws:codecommit/repository:Repository", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

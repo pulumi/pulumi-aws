@@ -30,7 +30,7 @@ namespace Pulumi.Aws.RedShift
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SnapshotScheduleAssociation(string name, SnapshotScheduleAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation", name, args, MakeResourceOptions(options, ""))
+            : base("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

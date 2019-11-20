@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Elasticloadbalancing
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id_legacy.html.markdown.
         /// </summary>
         public static Task<GetHostedZoneIdResult> GetHostedZoneId(GetHostedZoneIdArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetHostedZoneIdArgs : Pulumi.ResourceArgs

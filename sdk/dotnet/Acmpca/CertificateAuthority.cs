@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Acmpca
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CertificateAuthority(string name, CertificateAuthorityArgs args, CustomResourceOptions? options = null)
-            : base("aws:acmpca/certificateAuthority:CertificateAuthority", name, args, MakeResourceOptions(options, ""))
+            : base("aws:acmpca/certificateAuthority:CertificateAuthority", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

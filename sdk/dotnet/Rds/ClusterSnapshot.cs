@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClusterSnapshot(string name, ClusterSnapshotArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/clusterSnapshot:ClusterSnapshot", name, args, MakeResourceOptions(options, ""))
+            : base("aws:rds/clusterSnapshot:ClusterSnapshot", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

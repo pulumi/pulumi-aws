@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Iam
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_server_certificate.html.markdown.
         /// </summary>
         public static Task<GetServerCertificateResult> GetServerCertificate(GetServerCertificateArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetServerCertificateArgs : Pulumi.ResourceArgs

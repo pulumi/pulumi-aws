@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Transfer
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:transfer/server:Server", name, args, MakeResourceOptions(options, ""))
+            : base("aws:transfer/server:Server", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

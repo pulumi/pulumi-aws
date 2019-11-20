@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApnsSandboxChannel(string name, ApnsSandboxChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel", name, args, MakeResourceOptions(options, ""))
+            : base("aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

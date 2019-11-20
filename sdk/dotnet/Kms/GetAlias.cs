@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Kms
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
         /// </summary>
         public static Task<GetAliasResult> GetAlias(GetAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:kms/getAlias:getAlias", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAliasArgs : Pulumi.ResourceArgs

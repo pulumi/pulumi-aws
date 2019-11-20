@@ -15,7 +15,7 @@ namespace Pulumi.Aws.ElastiCache
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_replication_group.html.markdown.
         /// </summary>
         public static Task<GetReplicationGroupResult> GetReplicationGroup(GetReplicationGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationGroupResult>("aws:elasticache/getReplicationGroup:getReplicationGroup", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationGroupResult>("aws:elasticache/getReplicationGroup:getReplicationGroup", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetReplicationGroupArgs : Pulumi.ResourceArgs

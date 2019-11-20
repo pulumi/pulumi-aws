@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ecs
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
         /// </summary>
         public static Task<GetContainerDefinitionResult> GetContainerDefinition(GetContainerDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetContainerDefinitionArgs : Pulumi.ResourceArgs

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticsearch_domain.html.markdown.
         /// </summary>
         public static Task<GetDomainResult> GetDomain(GetDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws:elasticsearch/getDomain:getDomain", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws:elasticsearch/getDomain:getDomain", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetDomainArgs : Pulumi.ResourceArgs

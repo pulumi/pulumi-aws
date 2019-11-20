@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Kms
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
         /// </summary>
         public static Task<GetCipherTextResult> GetCipherText(GetCipherTextArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetCipherTextArgs : Pulumi.ResourceArgs

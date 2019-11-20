@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Efs
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
         /// </summary>
         public static Task<GetMountTargetResult> GetMountTarget(GetMountTargetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetMountTargetArgs : Pulumi.ResourceArgs

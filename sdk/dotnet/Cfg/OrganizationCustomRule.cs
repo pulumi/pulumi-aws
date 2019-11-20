@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Cfg
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OrganizationCustomRule(string name, OrganizationCustomRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:cfg/organizationCustomRule:OrganizationCustomRule", name, args, MakeResourceOptions(options, ""))
+            : base("aws:cfg/organizationCustomRule:OrganizationCustomRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

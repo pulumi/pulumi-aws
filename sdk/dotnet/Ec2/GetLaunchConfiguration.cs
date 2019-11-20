@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ec2
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_configuration.html.markdown.
         /// </summary>
         public static Task<GetLaunchConfigurationResult> GetLaunchConfiguration(GetLaunchConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchConfigurationResult>("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchConfigurationResult>("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetLaunchConfigurationArgs : Pulumi.ResourceArgs

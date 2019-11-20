@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserLoginProfile(string name, UserLoginProfileArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/userLoginProfile:UserLoginProfile", name, args, MakeResourceOptions(options, ""))
+            : base("aws:iam/userLoginProfile:UserLoginProfile", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 
