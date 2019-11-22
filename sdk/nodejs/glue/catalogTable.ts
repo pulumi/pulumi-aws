@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * 
  * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws.glue.CatalogTable", {
  *     databaseName: "MyCatalogDatabase",
+ *     name: "MyCatalogTable",
  * });
  * ```
  * 
@@ -30,6 +31,7 @@ import * as utilities from "../utilities";
  * 
  * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws.glue.CatalogTable", {
  *     databaseName: "MyCatalogDatabase",
+ *     name: "MyCatalogTable",
  *     parameters: {
  *         EXTERNAL: "TRUE",
  *         "parquet.compression": "SNAPPY",

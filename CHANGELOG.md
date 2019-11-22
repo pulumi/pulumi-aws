@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Enforce `appsync.Function`, `glue.CatalogTable` and `glue.CatalogDatabase` to adhere to AWS naming conventions
 
 ---
 
