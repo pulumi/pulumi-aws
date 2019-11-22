@@ -83,68 +83,68 @@ func GetVpcEndpointService(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpcEndpointService) URN() *pulumi.URNOutput {
+func (r *VpcEndpointService) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpcEndpointService) ID() *pulumi.IDOutput {
+func (r *VpcEndpointService) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-func (r *VpcEndpointService) AcceptanceRequired() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["acceptanceRequired"])
+func (r *VpcEndpointService) AcceptanceRequired() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["acceptanceRequired"])
 }
 
 // The ARNs of one or more principals allowed to discover the endpoint service.
-func (r *VpcEndpointService) AllowedPrincipals() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["allowedPrincipals"])
+func (r *VpcEndpointService) AllowedPrincipals() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["allowedPrincipals"])
 }
 
 // The Availability Zones in which the service is available.
-func (r *VpcEndpointService) AvailabilityZones() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["availabilityZones"])
+func (r *VpcEndpointService) AvailabilityZones() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["availabilityZones"])
 }
 
 // The DNS names for the service.
-func (r *VpcEndpointService) BaseEndpointDnsNames() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["baseEndpointDnsNames"])
+func (r *VpcEndpointService) BaseEndpointDnsNames() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["baseEndpointDnsNames"])
 }
 
 // Whether or not the service manages its VPC endpoints - `true` or `false`.
-func (r *VpcEndpointService) ManagesVpcEndpoints() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["managesVpcEndpoints"])
+func (r *VpcEndpointService) ManagesVpcEndpoints() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["managesVpcEndpoints"])
 }
 
 // The ARNs of one or more Network Load Balancers for the endpoint service.
-func (r *VpcEndpointService) NetworkLoadBalancerArns() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkLoadBalancerArns"])
+func (r *VpcEndpointService) NetworkLoadBalancerArns() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkLoadBalancerArns"])
 }
 
 // The private DNS name for the service.
-func (r *VpcEndpointService) PrivateDnsName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateDnsName"])
+func (r *VpcEndpointService) PrivateDnsName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateDnsName"])
 }
 
 // The service name.
-func (r *VpcEndpointService) ServiceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceName"])
+func (r *VpcEndpointService) ServiceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceName"])
 }
 
 // The service type, `Gateway` or `Interface`.
-func (r *VpcEndpointService) ServiceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceType"])
+func (r *VpcEndpointService) ServiceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceType"])
 }
 
 // The state of the VPC endpoint service.
-func (r *VpcEndpointService) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *VpcEndpointService) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *VpcEndpointService) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VpcEndpointService) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering VpcEndpointService resources.

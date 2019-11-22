@@ -65,33 +65,33 @@ func GetLoadBalancerPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LoadBalancerPolicy) URN() *pulumi.URNOutput {
+func (r *LoadBalancerPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LoadBalancerPolicy) ID() *pulumi.IDOutput {
+func (r *LoadBalancerPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The load balancer on which the policy is defined.
-func (r *LoadBalancerPolicy) LoadBalancerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadBalancerName"])
+func (r *LoadBalancerPolicy) LoadBalancerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadBalancerName"])
 }
 
 // Policy attribute to apply to the policy.
-func (r *LoadBalancerPolicy) PolicyAttributes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["policyAttributes"])
+func (r *LoadBalancerPolicy) PolicyAttributes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["policyAttributes"])
 }
 
 // The name of the load balancer policy.
-func (r *LoadBalancerPolicy) PolicyName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyName"])
+func (r *LoadBalancerPolicy) PolicyName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyName"])
 }
 
 // The policy type.
-func (r *LoadBalancerPolicy) PolicyTypeName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyTypeName"])
+func (r *LoadBalancerPolicy) PolicyTypeName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyTypeName"])
 }
 
 // Input properties used for looking up and filtering LoadBalancerPolicy resources.

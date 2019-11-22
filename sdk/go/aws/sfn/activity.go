@@ -51,28 +51,28 @@ func GetActivity(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Activity) URN() *pulumi.URNOutput {
+func (r *Activity) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Activity) ID() *pulumi.IDOutput {
+func (r *Activity) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The date the activity was created.
-func (r *Activity) CreationDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["creationDate"])
+func (r *Activity) CreationDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["creationDate"])
 }
 
 // The name of the activity to create.
-func (r *Activity) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Activity) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Key-value mapping of resource tags
-func (r *Activity) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Activity) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Activity resources.

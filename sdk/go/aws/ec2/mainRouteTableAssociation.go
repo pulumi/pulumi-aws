@@ -67,29 +67,29 @@ func GetMainRouteTableAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MainRouteTableAssociation) URN() *pulumi.URNOutput {
+func (r *MainRouteTableAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MainRouteTableAssociation) ID() *pulumi.IDOutput {
+func (r *MainRouteTableAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Used internally, see __Notes__ below
-func (r *MainRouteTableAssociation) OriginalRouteTableId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["originalRouteTableId"])
+func (r *MainRouteTableAssociation) OriginalRouteTableId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["originalRouteTableId"])
 }
 
 // The ID of the Route Table to set as the new
 // main route table for the target VPC
-func (r *MainRouteTableAssociation) RouteTableId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["routeTableId"])
+func (r *MainRouteTableAssociation) RouteTableId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["routeTableId"])
 }
 
 // The ID of the VPC whose main route table should be set
-func (r *MainRouteTableAssociation) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *MainRouteTableAssociation) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering MainRouteTableAssociation resources.

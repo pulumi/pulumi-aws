@@ -61,33 +61,33 @@ func GetParameterGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ParameterGroup) URN() *pulumi.URNOutput {
+func (r *ParameterGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ParameterGroup) ID() *pulumi.IDOutput {
+func (r *ParameterGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
-func (r *ParameterGroup) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ParameterGroup) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The family of the ElastiCache parameter group.
-func (r *ParameterGroup) Family() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["family"])
+func (r *ParameterGroup) Family() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["family"])
 }
 
 // The name of the ElastiCache parameter.
-func (r *ParameterGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ParameterGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A list of ElastiCache parameters to apply.
-func (r *ParameterGroup) Parameters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["parameters"])
+func (r *ParameterGroup) Parameters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["parameters"])
 }
 
 // Input properties used for looking up and filtering ParameterGroup resources.

@@ -61,38 +61,38 @@ func GetGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Group) URN() *pulumi.URNOutput {
+func (r *Group) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Group) ID() *pulumi.IDOutput {
+func (r *Group) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of group
-func (r *Group) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Group) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-func (r *Group) AwsAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["awsAccountId"])
+func (r *Group) AwsAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["awsAccountId"])
 }
 
 // A description for the group.
-func (r *Group) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Group) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // A name for the group.
-func (r *Group) GroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupName"])
+func (r *Group) GroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupName"])
 }
 
 // The namespace. Currently, you should set this to `default`.
-func (r *Group) Namespace() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespace"])
+func (r *Group) Namespace() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespace"])
 }
 
 // Input properties used for looking up and filtering Group resources.

@@ -43,17 +43,17 @@ func GetConfgurationSet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ConfgurationSet) URN() *pulumi.URNOutput {
+func (r *ConfgurationSet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ConfgurationSet) ID() *pulumi.IDOutput {
+func (r *ConfgurationSet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *ConfgurationSet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ConfgurationSet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering ConfgurationSet resources.

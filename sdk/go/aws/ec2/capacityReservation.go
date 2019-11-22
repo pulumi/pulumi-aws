@@ -89,68 +89,68 @@ func GetCapacityReservation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *CapacityReservation) URN() *pulumi.URNOutput {
+func (r *CapacityReservation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *CapacityReservation) ID() *pulumi.IDOutput {
+func (r *CapacityReservation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Availability Zone in which to create the Capacity Reservation.
-func (r *CapacityReservation) AvailabilityZone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
+func (r *CapacityReservation) AvailabilityZone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
 // Indicates whether the Capacity Reservation supports EBS-optimized instances.
-func (r *CapacityReservation) EbsOptimized() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["ebsOptimized"])
+func (r *CapacityReservation) EbsOptimized() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["ebsOptimized"])
 }
 
 // The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-func (r *CapacityReservation) EndDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endDate"])
+func (r *CapacityReservation) EndDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endDate"])
 }
 
 // Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
-func (r *CapacityReservation) EndDateType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endDateType"])
+func (r *CapacityReservation) EndDateType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endDateType"])
 }
 
 // Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
-func (r *CapacityReservation) EphemeralStorage() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["ephemeralStorage"])
+func (r *CapacityReservation) EphemeralStorage() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["ephemeralStorage"])
 }
 
 // The number of instances for which to reserve capacity.
-func (r *CapacityReservation) InstanceCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["instanceCount"])
+func (r *CapacityReservation) InstanceCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["instanceCount"])
 }
 
 // Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
-func (r *CapacityReservation) InstanceMatchCriteria() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceMatchCriteria"])
+func (r *CapacityReservation) InstanceMatchCriteria() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceMatchCriteria"])
 }
 
 // The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-func (r *CapacityReservation) InstancePlatform() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instancePlatform"])
+func (r *CapacityReservation) InstancePlatform() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instancePlatform"])
 }
 
 // The instance type for which to reserve capacity.
-func (r *CapacityReservation) InstanceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceType"])
+func (r *CapacityReservation) InstanceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceType"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *CapacityReservation) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *CapacityReservation) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
-func (r *CapacityReservation) Tenancy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tenancy"])
+func (r *CapacityReservation) Tenancy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tenancy"])
 }
 
 // Input properties used for looking up and filtering CapacityReservation resources.

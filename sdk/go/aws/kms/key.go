@@ -68,60 +68,60 @@ func GetKey(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Key) URN() *pulumi.URNOutput {
+func (r *Key) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Key) ID() *pulumi.IDOutput {
+func (r *Key) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) of the key.
-func (r *Key) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Key) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Duration in days after which the key is deleted
 // after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
-func (r *Key) DeletionWindowInDays() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["deletionWindowInDays"])
+func (r *Key) DeletionWindowInDays() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["deletionWindowInDays"])
 }
 
 // The description of the key as viewed in AWS console.
-func (r *Key) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Key) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
 // is enabled. Defaults to false.
-func (r *Key) EnableKeyRotation() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableKeyRotation"])
+func (r *Key) EnableKeyRotation() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableKeyRotation"])
 }
 
 // Specifies whether the key is enabled. Defaults to true.
-func (r *Key) IsEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isEnabled"])
+func (r *Key) IsEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isEnabled"])
 }
 
 // The globally unique identifier for the key.
-func (r *Key) KeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyId"])
+func (r *Key) KeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyId"])
 }
 
 // Specifies the intended use of the key.
 // Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
-func (r *Key) KeyUsage() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyUsage"])
+func (r *Key) KeyUsage() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyUsage"])
 }
 
-func (r *Key) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *Key) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // A mapping of tags to assign to the object.
-func (r *Key) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Key) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Key resources.

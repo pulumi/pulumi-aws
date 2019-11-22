@@ -55,23 +55,23 @@ func GetRecorderStatus(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RecorderStatus) URN() *pulumi.URNOutput {
+func (r *RecorderStatus) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RecorderStatus) ID() *pulumi.IDOutput {
+func (r *RecorderStatus) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether the configuration recorder should be enabled or disabled.
-func (r *RecorderStatus) IsEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isEnabled"])
+func (r *RecorderStatus) IsEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isEnabled"])
 }
 
 // The name of the recorder
-func (r *RecorderStatus) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RecorderStatus) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering RecorderStatus resources.

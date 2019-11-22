@@ -54,33 +54,33 @@ func GetResourceShare(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ResourceShare) URN() *pulumi.URNOutput {
+func (r *ResourceShare) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ResourceShare) ID() *pulumi.IDOutput {
+func (r *ResourceShare) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Indicates whether principals outside your organization can be associated with a resource share.
-func (r *ResourceShare) AllowExternalPrincipals() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowExternalPrincipals"])
+func (r *ResourceShare) AllowExternalPrincipals() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowExternalPrincipals"])
 }
 
 // The Amazon Resource Name (ARN) of the resource share.
-func (r *ResourceShare) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ResourceShare) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name of the resource share.
-func (r *ResourceShare) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ResourceShare) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A mapping of tags to assign to the resource share.
-func (r *ResourceShare) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ResourceShare) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering ResourceShare resources.

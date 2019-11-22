@@ -71,47 +71,47 @@ func GetEventDestination(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventDestination) URN() *pulumi.URNOutput {
+func (r *EventDestination) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventDestination) ID() *pulumi.IDOutput {
+func (r *EventDestination) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // CloudWatch destination for the events
-func (r *EventDestination) CloudwatchDestinations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["cloudwatchDestinations"])
+func (r *EventDestination) CloudwatchDestinations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["cloudwatchDestinations"])
 }
 
 // The name of the configuration set
-func (r *EventDestination) ConfigurationSetName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["configurationSetName"])
+func (r *EventDestination) ConfigurationSetName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["configurationSetName"])
 }
 
 // If true, the event destination will be enabled
-func (r *EventDestination) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *EventDestination) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Send the events to a kinesis firehose destination
-func (r *EventDestination) KinesisDestination() *pulumi.Output {
+func (r *EventDestination) KinesisDestination() pulumi.Output {
 	return r.s.State["kinesisDestination"]
 }
 
 // A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
-func (r *EventDestination) MatchingTypes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["matchingTypes"])
+func (r *EventDestination) MatchingTypes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["matchingTypes"])
 }
 
 // The name of the event destination
-func (r *EventDestination) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *EventDestination) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Send the events to an SNS Topic destination
-func (r *EventDestination) SnsDestination() *pulumi.Output {
+func (r *EventDestination) SnsDestination() pulumi.Output {
 	return r.s.State["snsDestination"]
 }
 

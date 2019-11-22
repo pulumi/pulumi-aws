@@ -104,71 +104,71 @@ func GetSecurityGroupRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SecurityGroupRule) URN() *pulumi.URNOutput {
+func (r *SecurityGroupRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SecurityGroupRule) ID() *pulumi.IDOutput {
+func (r *SecurityGroupRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
-func (r *SecurityGroupRule) CidrBlocks() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["cidrBlocks"])
+func (r *SecurityGroupRule) CidrBlocks() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["cidrBlocks"])
 }
 
 // Description of the rule.
-func (r *SecurityGroupRule) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *SecurityGroupRule) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The start port (or ICMP type number if protocol is "icmp").
-func (r *SecurityGroupRule) FromPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["fromPort"])
+func (r *SecurityGroupRule) FromPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["fromPort"])
 }
 
 // List of IPv6 CIDR blocks.
-func (r *SecurityGroupRule) Ipv6CidrBlocks() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ipv6CidrBlocks"])
+func (r *SecurityGroupRule) Ipv6CidrBlocks() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ipv6CidrBlocks"])
 }
 
 // List of prefix list IDs (for allowing access to VPC endpoints).
-func (r *SecurityGroupRule) PrefixListIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["prefixListIds"])
+func (r *SecurityGroupRule) PrefixListIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["prefixListIds"])
 }
 
 // The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-func (r *SecurityGroupRule) Protocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocol"])
+func (r *SecurityGroupRule) Protocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocol"])
 }
 
 // The security group to apply this rule to.
-func (r *SecurityGroupRule) SecurityGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["securityGroupId"])
+func (r *SecurityGroupRule) SecurityGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["securityGroupId"])
 }
 
 // If true, the security group itself will be added as
 // a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
-func (r *SecurityGroupRule) Self() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["self"])
+func (r *SecurityGroupRule) Self() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["self"])
 }
 
 // The security group id to allow access to/from,
 // depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
-func (r *SecurityGroupRule) SourceSecurityGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceSecurityGroupId"])
+func (r *SecurityGroupRule) SourceSecurityGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceSecurityGroupId"])
 }
 
 // The end port (or ICMP code if protocol is "icmp").
-func (r *SecurityGroupRule) ToPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["toPort"])
+func (r *SecurityGroupRule) ToPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["toPort"])
 }
 
 // The type of rule being created. Valid options are `ingress` (inbound)
 // or `egress` (outbound).
-func (r *SecurityGroupRule) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *SecurityGroupRule) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering SecurityGroupRule resources.

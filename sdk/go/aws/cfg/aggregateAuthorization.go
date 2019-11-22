@@ -61,33 +61,33 @@ func GetAggregateAuthorization(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AggregateAuthorization) URN() *pulumi.URNOutput {
+func (r *AggregateAuthorization) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AggregateAuthorization) ID() *pulumi.IDOutput {
+func (r *AggregateAuthorization) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Account ID
-func (r *AggregateAuthorization) AccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountId"])
+func (r *AggregateAuthorization) AccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountId"])
 }
 
 // The ARN of the authorization
-func (r *AggregateAuthorization) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *AggregateAuthorization) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Region
-func (r *AggregateAuthorization) Region() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["region"])
+func (r *AggregateAuthorization) Region() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["region"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *AggregateAuthorization) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *AggregateAuthorization) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering AggregateAuthorization resources.

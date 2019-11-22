@@ -58,28 +58,28 @@ func GetDashboard(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Dashboard) URN() *pulumi.URNOutput {
+func (r *Dashboard) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Dashboard) ID() *pulumi.IDOutput {
+func (r *Dashboard) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) of the dashboard.
-func (r *Dashboard) DashboardArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dashboardArn"])
+func (r *Dashboard) DashboardArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dashboardArn"])
 }
 
 // The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-func (r *Dashboard) DashboardBody() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dashboardBody"])
+func (r *Dashboard) DashboardBody() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dashboardBody"])
 }
 
 // The name of the dashboard.
-func (r *Dashboard) DashboardName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dashboardName"])
+func (r *Dashboard) DashboardName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dashboardName"])
 }
 
 // Input properties used for looking up and filtering Dashboard resources.

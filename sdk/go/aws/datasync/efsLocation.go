@@ -68,42 +68,42 @@ func GetEfsLocation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EfsLocation) URN() *pulumi.URNOutput {
+func (r *EfsLocation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EfsLocation) ID() *pulumi.IDOutput {
+func (r *EfsLocation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
-func (r *EfsLocation) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *EfsLocation) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Configuration block containing EC2 configurations for connecting to the EFS File System.
-func (r *EfsLocation) Ec2Config() *pulumi.Output {
+func (r *EfsLocation) Ec2Config() pulumi.Output {
 	return r.s.State["ec2Config"]
 }
 
 // Amazon Resource Name (ARN) of EFS File System.
-func (r *EfsLocation) EfsFileSystemArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["efsFileSystemArn"])
+func (r *EfsLocation) EfsFileSystemArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["efsFileSystemArn"])
 }
 
 // Subdirectory to perform actions as source or destination. Default `/`.
-func (r *EfsLocation) Subdirectory() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subdirectory"])
+func (r *EfsLocation) Subdirectory() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subdirectory"])
 }
 
 // Key-value pairs of resource tags to assign to the DataSync Location.
-func (r *EfsLocation) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *EfsLocation) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-func (r *EfsLocation) Uri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uri"])
+func (r *EfsLocation) Uri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uri"])
 }
 
 // Input properties used for looking up and filtering EfsLocation resources.

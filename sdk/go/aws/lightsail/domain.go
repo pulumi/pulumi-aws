@@ -58,23 +58,23 @@ func GetDomain(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Domain) URN() *pulumi.URNOutput {
+func (r *Domain) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Domain) ID() *pulumi.IDOutput {
+func (r *Domain) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the Lightsail domain
-func (r *Domain) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Domain) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name of the Lightsail domain to manage
-func (r *Domain) DomainName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domainName"])
+func (r *Domain) DomainName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domainName"])
 }
 
 // Input properties used for looking up and filtering Domain resources.

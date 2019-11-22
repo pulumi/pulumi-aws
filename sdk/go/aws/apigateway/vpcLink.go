@@ -61,37 +61,37 @@ func GetVpcLink(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpcLink) URN() *pulumi.URNOutput {
+func (r *VpcLink) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpcLink) ID() *pulumi.IDOutput {
+func (r *VpcLink) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *VpcLink) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *VpcLink) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The description of the VPC link.
-func (r *VpcLink) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *VpcLink) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name used to label and identify the VPC link.
-func (r *VpcLink) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VpcLink) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Key-value mapping of resource tags
-func (r *VpcLink) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VpcLink) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-func (r *VpcLink) TargetArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetArn"])
+func (r *VpcLink) TargetArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetArn"])
 }
 
 // Input properties used for looking up and filtering VpcLink resources.

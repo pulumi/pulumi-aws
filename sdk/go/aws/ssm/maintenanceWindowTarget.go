@@ -71,43 +71,43 @@ func GetMaintenanceWindowTarget(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MaintenanceWindowTarget) URN() *pulumi.URNOutput {
+func (r *MaintenanceWindowTarget) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MaintenanceWindowTarget) ID() *pulumi.IDOutput {
+func (r *MaintenanceWindowTarget) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The description of the maintenance window target.
-func (r *MaintenanceWindowTarget) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *MaintenanceWindowTarget) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the maintenance window target.
-func (r *MaintenanceWindowTarget) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *MaintenanceWindowTarget) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
-func (r *MaintenanceWindowTarget) OwnerInformation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerInformation"])
+func (r *MaintenanceWindowTarget) OwnerInformation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerInformation"])
 }
 
 // The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
-func (r *MaintenanceWindowTarget) ResourceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceType"])
+func (r *MaintenanceWindowTarget) ResourceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceType"])
 }
 
 // The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
-func (r *MaintenanceWindowTarget) Targets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["targets"])
+func (r *MaintenanceWindowTarget) Targets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["targets"])
 }
 
 // The Id of the maintenance window to register the target with.
-func (r *MaintenanceWindowTarget) WindowId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["windowId"])
+func (r *MaintenanceWindowTarget) WindowId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["windowId"])
 }
 
 // Input properties used for looking up and filtering MaintenanceWindowTarget resources.

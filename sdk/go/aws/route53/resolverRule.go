@@ -74,61 +74,61 @@ func GetResolverRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ResolverRule) URN() *pulumi.URNOutput {
+func (r *ResolverRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ResolverRule) ID() *pulumi.IDOutput {
+func (r *ResolverRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN (Amazon Resource Name) for the resolver rule.
-func (r *ResolverRule) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ResolverRule) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
-func (r *ResolverRule) DomainName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domainName"])
+func (r *ResolverRule) DomainName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domainName"])
 }
 
 // A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-func (r *ResolverRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ResolverRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-func (r *ResolverRule) OwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+func (r *ResolverRule) OwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
 // The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 // This argument should only be specified for `FORWARD` type rules.
-func (r *ResolverRule) ResolverEndpointId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resolverEndpointId"])
+func (r *ResolverRule) ResolverEndpointId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resolverEndpointId"])
 }
 
 // The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-func (r *ResolverRule) RuleType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ruleType"])
+func (r *ResolverRule) RuleType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ruleType"])
 }
 
 // Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
 // Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-func (r *ResolverRule) ShareStatus() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["shareStatus"])
+func (r *ResolverRule) ShareStatus() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["shareStatus"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ResolverRule) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ResolverRule) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
 // This argument should only be specified for `FORWARD` type rules.
-func (r *ResolverRule) TargetIps() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["targetIps"])
+func (r *ResolverRule) TargetIps() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["targetIps"])
 }
 
 // Input properties used for looking up and filtering ResolverRule resources.

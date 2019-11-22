@@ -71,58 +71,58 @@ func GetActivation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Activation) URN() *pulumi.URNOutput {
+func (r *Activation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Activation) ID() *pulumi.IDOutput {
+func (r *Activation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The code the system generates when it processes the activation.
-func (r *Activation) ActivationCode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["activationCode"])
+func (r *Activation) ActivationCode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["activationCode"])
 }
 
 // The description of the resource that you want to register.
-func (r *Activation) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Activation) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
-func (r *Activation) ExpirationDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expirationDate"])
+func (r *Activation) ExpirationDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expirationDate"])
 }
 
 // If the current activation has expired.
-func (r *Activation) Expired() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expired"])
+func (r *Activation) Expired() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expired"])
 }
 
 // The IAM Role to attach to the managed instance.
-func (r *Activation) IamRole() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iamRole"])
+func (r *Activation) IamRole() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iamRole"])
 }
 
 // The default name of the registered managed instance.
-func (r *Activation) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Activation) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The number of managed instances that are currently registered using this activation.
-func (r *Activation) RegistrationCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["registrationCount"])
+func (r *Activation) RegistrationCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["registrationCount"])
 }
 
 // The maximum number of managed instances you want to register. The default value is 1 instance.
-func (r *Activation) RegistrationLimit() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["registrationLimit"])
+func (r *Activation) RegistrationLimit() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["registrationLimit"])
 }
 
 // A mapping of tags to assign to the object.
-func (r *Activation) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Activation) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Activation resources.

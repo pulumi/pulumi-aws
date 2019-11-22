@@ -94,64 +94,64 @@ func GetVpcPeeringConnection(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpcPeeringConnection) URN() *pulumi.URNOutput {
+func (r *VpcPeeringConnection) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpcPeeringConnection) ID() *pulumi.IDOutput {
+func (r *VpcPeeringConnection) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The status of the VPC Peering Connection request.
-func (r *VpcPeeringConnection) AcceptStatus() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["acceptStatus"])
+func (r *VpcPeeringConnection) AcceptStatus() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["acceptStatus"])
 }
 
 // An optional configuration block that allows for [VPC Peering Connection]
 // (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
 // the peering connection (a maximum of one).
-func (r *VpcPeeringConnection) Accepter() *pulumi.Output {
+func (r *VpcPeeringConnection) Accepter() pulumi.Output {
 	return r.s.State["accepter"]
 }
 
 // Accept the peering (both VPCs need to be in the same AWS account).
-func (r *VpcPeeringConnection) AutoAccept() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoAccept"])
+func (r *VpcPeeringConnection) AutoAccept() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoAccept"])
 }
 
 // The AWS account ID of the owner of the peer VPC.
 // Defaults to the account ID the [AWS provider][1] is currently connected to.
-func (r *VpcPeeringConnection) PeerOwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["peerOwnerId"])
+func (r *VpcPeeringConnection) PeerOwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["peerOwnerId"])
 }
 
 // The region of the accepter VPC of the [VPC Peering Connection]. `autoAccept` must be `false`,
 // and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
-func (r *VpcPeeringConnection) PeerRegion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["peerRegion"])
+func (r *VpcPeeringConnection) PeerRegion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["peerRegion"])
 }
 
 // The ID of the VPC with which you are creating the VPC Peering Connection.
-func (r *VpcPeeringConnection) PeerVpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["peerVpcId"])
+func (r *VpcPeeringConnection) PeerVpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["peerVpcId"])
 }
 
 // A optional configuration block that allows for [VPC Peering Connection]
 // (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
 // the peering connection (a maximum of one).
-func (r *VpcPeeringConnection) Requester() *pulumi.Output {
+func (r *VpcPeeringConnection) Requester() pulumi.Output {
 	return r.s.State["requester"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *VpcPeeringConnection) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VpcPeeringConnection) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The ID of the requester VPC.
-func (r *VpcPeeringConnection) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *VpcPeeringConnection) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering VpcPeeringConnection resources.

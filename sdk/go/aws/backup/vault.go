@@ -56,38 +56,38 @@ func GetVault(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Vault) URN() *pulumi.URNOutput {
+func (r *Vault) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Vault) ID() *pulumi.IDOutput {
+func (r *Vault) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the vault.
-func (r *Vault) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Vault) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The server-side encryption key that is used to protect your backups.
-func (r *Vault) KmsKeyArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyArn"])
+func (r *Vault) KmsKeyArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyArn"])
 }
 
 // Name of the backup vault to create.
-func (r *Vault) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Vault) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The number of recovery points that are stored in a backup vault.
-func (r *Vault) RecoveryPoints() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["recoveryPoints"])
+func (r *Vault) RecoveryPoints() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["recoveryPoints"])
 }
 
 // Metadata that you can assign to help organize the resources that you create.
-func (r *Vault) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Vault) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Vault resources.

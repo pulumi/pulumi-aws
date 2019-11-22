@@ -58,23 +58,23 @@ func GetGroupPolicyAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *GroupPolicyAttachment) URN() *pulumi.URNOutput {
+func (r *GroupPolicyAttachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *GroupPolicyAttachment) ID() *pulumi.IDOutput {
+func (r *GroupPolicyAttachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The group the policy should be applied to
-func (r *GroupPolicyAttachment) Group() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["group"])
+func (r *GroupPolicyAttachment) Group() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["group"])
 }
 
 // The ARN of the policy you want to apply
-func (r *GroupPolicyAttachment) PolicyArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyArn"])
+func (r *GroupPolicyAttachment) PolicyArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyArn"])
 }
 
 // Input properties used for looking up and filtering GroupPolicyAttachment resources.

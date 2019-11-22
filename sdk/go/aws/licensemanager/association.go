@@ -58,23 +58,23 @@ func GetAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Association) URN() *pulumi.URNOutput {
+func (r *Association) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Association) ID() *pulumi.IDOutput {
+func (r *Association) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // ARN of the license configuration.
-func (r *Association) LicenseConfigurationArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["licenseConfigurationArn"])
+func (r *Association) LicenseConfigurationArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["licenseConfigurationArn"])
 }
 
 // ARN of the resource associated with the license configuration.
-func (r *Association) ResourceArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceArn"])
+func (r *Association) ResourceArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceArn"])
 }
 
 // Input properties used for looking up and filtering Association resources.

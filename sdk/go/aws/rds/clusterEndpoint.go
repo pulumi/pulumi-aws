@@ -73,48 +73,48 @@ func GetClusterEndpoint(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ClusterEndpoint) URN() *pulumi.URNOutput {
+func (r *ClusterEndpoint) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ClusterEndpoint) ID() *pulumi.IDOutput {
+func (r *ClusterEndpoint) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of cluster
-func (r *ClusterEndpoint) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ClusterEndpoint) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
-func (r *ClusterEndpoint) ClusterEndpointIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterEndpointIdentifier"])
+func (r *ClusterEndpoint) ClusterEndpointIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterEndpointIdentifier"])
 }
 
 // The cluster identifier.
-func (r *ClusterEndpoint) ClusterIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
+func (r *ClusterEndpoint) ClusterIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
 
 // The type of the endpoint. One of: READER , ANY .
-func (r *ClusterEndpoint) CustomEndpointType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customEndpointType"])
+func (r *ClusterEndpoint) CustomEndpointType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customEndpointType"])
 }
 
 // A custom endpoint for the Aurora cluster
-func (r *ClusterEndpoint) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *ClusterEndpoint) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
-func (r *ClusterEndpoint) ExcludedMembers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["excludedMembers"])
+func (r *ClusterEndpoint) ExcludedMembers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["excludedMembers"])
 }
 
 // List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
-func (r *ClusterEndpoint) StaticMembers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["staticMembers"])
+func (r *ClusterEndpoint) StaticMembers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["staticMembers"])
 }
 
 // Input properties used for looking up and filtering ClusterEndpoint resources.

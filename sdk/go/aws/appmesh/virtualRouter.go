@@ -80,48 +80,48 @@ func GetVirtualRouter(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualRouter) URN() *pulumi.URNOutput {
+func (r *VirtualRouter) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualRouter) ID() *pulumi.IDOutput {
+func (r *VirtualRouter) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the virtual router.
-func (r *VirtualRouter) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *VirtualRouter) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The creation date of the virtual router.
-func (r *VirtualRouter) CreatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdDate"])
+func (r *VirtualRouter) CreatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdDate"])
 }
 
 // The last update date of the virtual router.
-func (r *VirtualRouter) LastUpdatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
+func (r *VirtualRouter) LastUpdatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
 }
 
 // The name of the service mesh in which to create the virtual router.
-func (r *VirtualRouter) MeshName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["meshName"])
+func (r *VirtualRouter) MeshName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["meshName"])
 }
 
 // The name to use for the virtual router.
-func (r *VirtualRouter) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VirtualRouter) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The virtual router specification to apply.
-func (r *VirtualRouter) Spec() *pulumi.Output {
+func (r *VirtualRouter) Spec() pulumi.Output {
 	return r.s.State["spec"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *VirtualRouter) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VirtualRouter) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering VirtualRouter resources.

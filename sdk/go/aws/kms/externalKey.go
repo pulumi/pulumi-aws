@@ -74,68 +74,68 @@ func GetExternalKey(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ExternalKey) URN() *pulumi.URNOutput {
+func (r *ExternalKey) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ExternalKey) ID() *pulumi.IDOutput {
+func (r *ExternalKey) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) of the key.
-func (r *ExternalKey) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ExternalKey) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
-func (r *ExternalKey) DeletionWindowInDays() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["deletionWindowInDays"])
+func (r *ExternalKey) DeletionWindowInDays() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["deletionWindowInDays"])
 }
 
 // Description of the key.
-func (r *ExternalKey) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ExternalKey) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
-func (r *ExternalKey) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *ExternalKey) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
-func (r *ExternalKey) ExpirationModel() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expirationModel"])
+func (r *ExternalKey) ExpirationModel() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expirationModel"])
 }
 
 // Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
-func (r *ExternalKey) KeyMaterialBase64() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyMaterialBase64"])
+func (r *ExternalKey) KeyMaterialBase64() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyMaterialBase64"])
 }
 
 // The state of the CMK.
-func (r *ExternalKey) KeyState() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyState"])
+func (r *ExternalKey) KeyState() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyState"])
 }
 
 // The cryptographic operations for which you can use the CMK.
-func (r *ExternalKey) KeyUsage() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyUsage"])
+func (r *ExternalKey) KeyUsage() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyUsage"])
 }
 
 // A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
-func (r *ExternalKey) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *ExternalKey) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // A key-value map of tags to assign to the key.
-func (r *ExternalKey) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ExternalKey) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-func (r *ExternalKey) ValidTo() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["validTo"])
+func (r *ExternalKey) ValidTo() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["validTo"])
 }
 
 // Input properties used for looking up and filtering ExternalKey resources.

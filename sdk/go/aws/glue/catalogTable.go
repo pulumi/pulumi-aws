@@ -83,73 +83,73 @@ func GetCatalogTable(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *CatalogTable) URN() *pulumi.URNOutput {
+func (r *CatalogTable) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *CatalogTable) ID() *pulumi.IDOutput {
+func (r *CatalogTable) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-func (r *CatalogTable) CatalogId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["catalogId"])
+func (r *CatalogTable) CatalogId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["catalogId"])
 }
 
 // Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-func (r *CatalogTable) DatabaseName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["databaseName"])
+func (r *CatalogTable) DatabaseName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["databaseName"])
 }
 
 // Description of the table.
-func (r *CatalogTable) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *CatalogTable) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Name of the SerDe.
-func (r *CatalogTable) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *CatalogTable) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Owner of the table.
-func (r *CatalogTable) Owner() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["owner"])
+func (r *CatalogTable) Owner() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["owner"])
 }
 
 // A map of initialization parameters for the SerDe, in key-value form.
-func (r *CatalogTable) Parameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["parameters"])
+func (r *CatalogTable) Parameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
-func (r *CatalogTable) PartitionKeys() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["partitionKeys"])
+func (r *CatalogTable) PartitionKeys() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["partitionKeys"])
 }
 
 // Retention time for this table.
-func (r *CatalogTable) Retention() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["retention"])
+func (r *CatalogTable) Retention() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["retention"])
 }
 
 // A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-func (r *CatalogTable) StorageDescriptor() *pulumi.Output {
+func (r *CatalogTable) StorageDescriptor() pulumi.Output {
 	return r.s.State["storageDescriptor"]
 }
 
 // The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
-func (r *CatalogTable) TableType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tableType"])
+func (r *CatalogTable) TableType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tableType"])
 }
 
 // If the table is a view, the expanded text of the view; otherwise null.
-func (r *CatalogTable) ViewExpandedText() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["viewExpandedText"])
+func (r *CatalogTable) ViewExpandedText() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["viewExpandedText"])
 }
 
 // If the table is a view, the original text of the view; otherwise null.
-func (r *CatalogTable) ViewOriginalText() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["viewOriginalText"])
+func (r *CatalogTable) ViewOriginalText() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["viewOriginalText"])
 }
 
 // Input properties used for looking up and filtering CatalogTable resources.

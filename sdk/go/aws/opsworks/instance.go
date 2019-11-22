@@ -238,228 +238,228 @@ func GetInstance(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Instance) URN() *pulumi.URNOutput {
+func (r *Instance) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Instance) ID() *pulumi.IDOutput {
+func (r *Instance) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
-func (r *Instance) AgentVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["agentVersion"])
+func (r *Instance) AgentVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["agentVersion"])
 }
 
 // The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
-func (r *Instance) AmiId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["amiId"])
+func (r *Instance) AmiId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["amiId"])
 }
 
 // Machine architecture for created instances.  Can be either `"x8664"` (the default) or `"i386"`
-func (r *Instance) Architecture() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["architecture"])
+func (r *Instance) Architecture() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["architecture"])
 }
 
 // Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
-func (r *Instance) AutoScalingType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["autoScalingType"])
+func (r *Instance) AutoScalingType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["autoScalingType"])
 }
 
 // Name of the availability zone where instances will be created
 // by default.
-func (r *Instance) AvailabilityZone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
+func (r *Instance) AvailabilityZone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
-func (r *Instance) CreatedAt() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdAt"])
+func (r *Instance) CreatedAt() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdAt"])
 }
 
-func (r *Instance) DeleteEbs() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["deleteEbs"])
+func (r *Instance) DeleteEbs() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["deleteEbs"])
 }
 
-func (r *Instance) DeleteEip() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["deleteEip"])
+func (r *Instance) DeleteEip() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["deleteEip"])
 }
 
 // Additional EBS block devices to attach to the
 // instance.  See Block Devices below for details.
-func (r *Instance) EbsBlockDevices() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
+func (r *Instance) EbsBlockDevices() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
 }
 
 // If true, the launched EC2 instance will be EBS-optimized.
-func (r *Instance) EbsOptimized() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["ebsOptimized"])
+func (r *Instance) EbsOptimized() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["ebsOptimized"])
 }
 
 // EC2 instance ID
-func (r *Instance) Ec2InstanceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ec2InstanceId"])
+func (r *Instance) Ec2InstanceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ec2InstanceId"])
 }
 
-func (r *Instance) EcsClusterArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ecsClusterArn"])
+func (r *Instance) EcsClusterArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ecsClusterArn"])
 }
 
-func (r *Instance) ElasticIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["elasticIp"])
+func (r *Instance) ElasticIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["elasticIp"])
 }
 
 // Customize Ephemeral (also known as
 // "Instance Store") volumes on the instance. See Block Devices below for details.
-func (r *Instance) EphemeralBlockDevices() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
+func (r *Instance) EphemeralBlockDevices() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
 }
 
 // The instance's host name.
-func (r *Instance) Hostname() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostname"])
+func (r *Instance) Hostname() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostname"])
 }
 
-func (r *Instance) InfrastructureClass() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["infrastructureClass"])
+func (r *Instance) InfrastructureClass() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["infrastructureClass"])
 }
 
 // Controls where to install OS and package updates when the instance boots.  Defaults to `true`.
-func (r *Instance) InstallUpdatesOnBoot() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
+func (r *Instance) InstallUpdatesOnBoot() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
 }
 
-func (r *Instance) InstanceProfileArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceProfileArn"])
+func (r *Instance) InstanceProfileArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceProfileArn"])
 }
 
 // The type of instance to start
-func (r *Instance) InstanceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceType"])
+func (r *Instance) InstanceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceType"])
 }
 
-func (r *Instance) LastServiceErrorId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastServiceErrorId"])
+func (r *Instance) LastServiceErrorId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastServiceErrorId"])
 }
 
 // The ids of the layers the instance will belong to.
-func (r *Instance) LayerIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["layerIds"])
+func (r *Instance) LayerIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["layerIds"])
 }
 
 // Name of operating system that will be installed.
-func (r *Instance) Os() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["os"])
+func (r *Instance) Os() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["os"])
 }
 
-func (r *Instance) Platform() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["platform"])
+func (r *Instance) Platform() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["platform"])
 }
 
 // The private DNS name assigned to the instance. Can only be
 // used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 // for your VPC
-func (r *Instance) PrivateDns() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateDns"])
+func (r *Instance) PrivateDns() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateDns"])
 }
 
 // The private IP address assigned to the instance
-func (r *Instance) PrivateIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateIp"])
+func (r *Instance) PrivateIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateIp"])
 }
 
 // The public DNS name assigned to the instance. For EC2-VPC, this
 // is only available if you've enabled DNS hostnames for your VPC
-func (r *Instance) PublicDns() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publicDns"])
+func (r *Instance) PublicDns() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publicDns"])
 }
 
 // The public IP address assigned to the instance, if applicable.
-func (r *Instance) PublicIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publicIp"])
+func (r *Instance) PublicIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publicIp"])
 }
 
-func (r *Instance) RegisteredBy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["registeredBy"])
+func (r *Instance) RegisteredBy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["registeredBy"])
 }
 
-func (r *Instance) ReportedAgentVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["reportedAgentVersion"])
+func (r *Instance) ReportedAgentVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["reportedAgentVersion"])
 }
 
-func (r *Instance) ReportedOsFamily() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["reportedOsFamily"])
+func (r *Instance) ReportedOsFamily() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["reportedOsFamily"])
 }
 
-func (r *Instance) ReportedOsName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["reportedOsName"])
+func (r *Instance) ReportedOsName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["reportedOsName"])
 }
 
-func (r *Instance) ReportedOsVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["reportedOsVersion"])
+func (r *Instance) ReportedOsVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["reportedOsVersion"])
 }
 
 // Customize details about the root block
 // device of the instance. See Block Devices below for details.
-func (r *Instance) RootBlockDevices() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["rootBlockDevices"])
+func (r *Instance) RootBlockDevices() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["rootBlockDevices"])
 }
 
 // Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
-func (r *Instance) RootDeviceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rootDeviceType"])
+func (r *Instance) RootDeviceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rootDeviceType"])
 }
 
-func (r *Instance) RootDeviceVolumeId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rootDeviceVolumeId"])
+func (r *Instance) RootDeviceVolumeId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rootDeviceVolumeId"])
 }
 
 // The associated security groups.
-func (r *Instance) SecurityGroupIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityGroupIds"])
+func (r *Instance) SecurityGroupIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityGroupIds"])
 }
 
-func (r *Instance) SshHostDsaKeyFingerprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sshHostDsaKeyFingerprint"])
+func (r *Instance) SshHostDsaKeyFingerprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sshHostDsaKeyFingerprint"])
 }
 
-func (r *Instance) SshHostRsaKeyFingerprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sshHostRsaKeyFingerprint"])
+func (r *Instance) SshHostRsaKeyFingerprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sshHostRsaKeyFingerprint"])
 }
 
 // Name of the SSH keypair that instances will have by default.
-func (r *Instance) SshKeyName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sshKeyName"])
+func (r *Instance) SshKeyName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sshKeyName"])
 }
 
 // The id of the stack the instance will belong to.
-func (r *Instance) StackId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stackId"])
+func (r *Instance) StackId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stackId"])
 }
 
 // The desired state of the instance.  Can be either `"running"` or `"stopped"`.
-func (r *Instance) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *Instance) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
-func (r *Instance) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Instance) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Subnet ID to attach to
-func (r *Instance) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *Instance) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
-func (r *Instance) Tenancy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tenancy"])
+func (r *Instance) Tenancy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tenancy"])
 }
 
 // Keyword to choose what virtualization mode created instances
 // will use. Can be either `"paravirtual"` or `"hvm"`.
-func (r *Instance) VirtualizationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["virtualizationType"])
+func (r *Instance) VirtualizationType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["virtualizationType"])
 }
 
 // Input properties used for looking up and filtering Instance resources.

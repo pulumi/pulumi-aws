@@ -61,38 +61,38 @@ func GetRuleGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RuleGroup) URN() *pulumi.URNOutput {
+func (r *RuleGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RuleGroup) ID() *pulumi.IDOutput {
+func (r *RuleGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A list of activated rules, see below
-func (r *RuleGroup) ActivatedRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["activatedRules"])
+func (r *RuleGroup) ActivatedRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["activatedRules"])
 }
 
 // The ARN of the WAF rule group.
-func (r *RuleGroup) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *RuleGroup) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A friendly name for the metrics from the rule group
-func (r *RuleGroup) MetricName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metricName"])
+func (r *RuleGroup) MetricName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metricName"])
 }
 
 // A friendly name of the rule group
-func (r *RuleGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RuleGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Key-value mapping of resource tags
-func (r *RuleGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *RuleGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering RuleGroup resources.

@@ -57,43 +57,43 @@ func GetClientCertificate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ClientCertificate) URN() *pulumi.URNOutput {
+func (r *ClientCertificate) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ClientCertificate) ID() *pulumi.IDOutput {
+func (r *ClientCertificate) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN)
-func (r *ClientCertificate) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ClientCertificate) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The date when the client certificate was created.
-func (r *ClientCertificate) CreatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdDate"])
+func (r *ClientCertificate) CreatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdDate"])
 }
 
 // The description of the client certificate.
-func (r *ClientCertificate) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ClientCertificate) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The date when the client certificate will expire.
-func (r *ClientCertificate) ExpirationDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expirationDate"])
+func (r *ClientCertificate) ExpirationDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expirationDate"])
 }
 
 // The PEM-encoded public key of the client certificate.
-func (r *ClientCertificate) PemEncodedCertificate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["pemEncodedCertificate"])
+func (r *ClientCertificate) PemEncodedCertificate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["pemEncodedCertificate"])
 }
 
 // Key-value mapping of resource tags
-func (r *ClientCertificate) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ClientCertificate) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering ClientCertificate resources.

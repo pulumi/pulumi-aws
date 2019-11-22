@@ -61,28 +61,28 @@ func GetMailFrom(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MailFrom) URN() *pulumi.URNOutput {
+func (r *MailFrom) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MailFrom) ID() *pulumi.IDOutput {
+func (r *MailFrom) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
-func (r *MailFrom) BehaviorOnMxFailure() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["behaviorOnMxFailure"])
+func (r *MailFrom) BehaviorOnMxFailure() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["behaviorOnMxFailure"])
 }
 
 // Verified domain name to generate DKIM tokens for.
-func (r *MailFrom) Domain() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domain"])
+func (r *MailFrom) Domain() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domain"])
 }
 
 // Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
-func (r *MailFrom) MailFromDomain() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mailFromDomain"])
+func (r *MailFrom) MailFromDomain() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mailFromDomain"])
 }
 
 // Input properties used for looking up and filtering MailFrom resources.

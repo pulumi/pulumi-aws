@@ -53,33 +53,33 @@ func GetPublicDnsNamespace(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PublicDnsNamespace) URN() *pulumi.URNOutput {
+func (r *PublicDnsNamespace) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PublicDnsNamespace) ID() *pulumi.IDOutput {
+func (r *PublicDnsNamespace) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN that Amazon Route 53 assigns to the namespace when you create it.
-func (r *PublicDnsNamespace) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *PublicDnsNamespace) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The description that you specify for the namespace when you create it.
-func (r *PublicDnsNamespace) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *PublicDnsNamespace) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
-func (r *PublicDnsNamespace) HostedZone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostedZone"])
+func (r *PublicDnsNamespace) HostedZone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostedZone"])
 }
 
 // The name of the namespace.
-func (r *PublicDnsNamespace) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PublicDnsNamespace) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering PublicDnsNamespace resources.

@@ -66,38 +66,38 @@ func GetPolicyAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PolicyAttachment) URN() *pulumi.URNOutput {
+func (r *PolicyAttachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PolicyAttachment) ID() *pulumi.IDOutput {
+func (r *PolicyAttachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The group(s) the policy should be applied to
-func (r *PolicyAttachment) Groups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groups"])
+func (r *PolicyAttachment) Groups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groups"])
 }
 
 // The name of the attachment. This cannot be an empty string.
-func (r *PolicyAttachment) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PolicyAttachment) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ARN of the policy you want to apply
-func (r *PolicyAttachment) PolicyArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyArn"])
+func (r *PolicyAttachment) PolicyArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyArn"])
 }
 
 // The role(s) the policy should be applied to
-func (r *PolicyAttachment) Roles() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["roles"])
+func (r *PolicyAttachment) Roles() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["roles"])
 }
 
 // The user(s) the policy should be applied to
-func (r *PolicyAttachment) Users() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["users"])
+func (r *PolicyAttachment) Users() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["users"])
 }
 
 // Input properties used for looking up and filtering PolicyAttachment resources.

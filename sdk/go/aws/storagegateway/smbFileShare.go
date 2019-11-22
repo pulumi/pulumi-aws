@@ -99,93 +99,93 @@ func GetSmbFileShare(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SmbFileShare) URN() *pulumi.URNOutput {
+func (r *SmbFileShare) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SmbFileShare) ID() *pulumi.IDOutput {
+func (r *SmbFileShare) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the SMB File Share.
-func (r *SmbFileShare) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *SmbFileShare) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
-func (r *SmbFileShare) Authentication() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authentication"])
+func (r *SmbFileShare) Authentication() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authentication"])
 }
 
 // The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
-func (r *SmbFileShare) DefaultStorageClass() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultStorageClass"])
+func (r *SmbFileShare) DefaultStorageClass() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultStorageClass"])
 }
 
 // ID of the SMB File Share.
-func (r *SmbFileShare) FileshareId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fileshareId"])
+func (r *SmbFileShare) FileshareId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fileshareId"])
 }
 
 // Amazon Resource Name (ARN) of the file gateway.
-func (r *SmbFileShare) GatewayArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gatewayArn"])
+func (r *SmbFileShare) GatewayArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gatewayArn"])
 }
 
 // Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
-func (r *SmbFileShare) GuessMimeTypeEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["guessMimeTypeEnabled"])
+func (r *SmbFileShare) GuessMimeTypeEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["guessMimeTypeEnabled"])
 }
 
 // A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
-func (r *SmbFileShare) InvalidUserLists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["invalidUserLists"])
+func (r *SmbFileShare) InvalidUserLists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["invalidUserLists"])
 }
 
 // Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-func (r *SmbFileShare) KmsEncrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["kmsEncrypted"])
+func (r *SmbFileShare) KmsEncrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["kmsEncrypted"])
 }
 
 // Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
-func (r *SmbFileShare) KmsKeyArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyArn"])
+func (r *SmbFileShare) KmsKeyArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyArn"])
 }
 
 // The ARN of the backed storage used for storing file data.
-func (r *SmbFileShare) LocationArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["locationArn"])
+func (r *SmbFileShare) LocationArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["locationArn"])
 }
 
 // Access Control List permission for S3 bucket objects. Defaults to `private`.
-func (r *SmbFileShare) ObjectAcl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["objectAcl"])
+func (r *SmbFileShare) ObjectAcl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["objectAcl"])
 }
 
 // Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
-func (r *SmbFileShare) ReadOnly() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["readOnly"])
+func (r *SmbFileShare) ReadOnly() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["readOnly"])
 }
 
 // Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
-func (r *SmbFileShare) RequesterPays() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["requesterPays"])
+func (r *SmbFileShare) RequesterPays() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["requesterPays"])
 }
 
 // The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
-func (r *SmbFileShare) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *SmbFileShare) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // Key-value mapping of resource tags
-func (r *SmbFileShare) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *SmbFileShare) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
-func (r *SmbFileShare) ValidUserLists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["validUserLists"])
+func (r *SmbFileShare) ValidUserLists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["validUserLists"])
 }
 
 // Input properties used for looking up and filtering SmbFileShare resources.

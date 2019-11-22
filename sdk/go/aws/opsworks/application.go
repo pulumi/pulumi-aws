@@ -101,98 +101,98 @@ func GetApplication(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Application) URN() *pulumi.URNOutput {
+func (r *Application) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Application) ID() *pulumi.IDOutput {
+func (r *Application) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // SCM configuration of the app as described below.
-func (r *Application) AppSources() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["appSources"])
+func (r *Application) AppSources() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["appSources"])
 }
 
 // Run bundle install when deploying for application of type `rails`.
-func (r *Application) AutoBundleOnDeploy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["autoBundleOnDeploy"])
+func (r *Application) AutoBundleOnDeploy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["autoBundleOnDeploy"])
 }
 
 // Specify activity and workflow workers for your app using the aws-flow gem.
-func (r *Application) AwsFlowRubySettings() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["awsFlowRubySettings"])
+func (r *Application) AwsFlowRubySettings() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["awsFlowRubySettings"])
 }
 
 // The data source's ARN.
-func (r *Application) DataSourceArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataSourceArn"])
+func (r *Application) DataSourceArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataSourceArn"])
 }
 
 // The database name.
-func (r *Application) DataSourceDatabaseName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataSourceDatabaseName"])
+func (r *Application) DataSourceDatabaseName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataSourceDatabaseName"])
 }
 
 // The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
-func (r *Application) DataSourceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataSourceType"])
+func (r *Application) DataSourceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataSourceType"])
 }
 
 // A description of the app.
-func (r *Application) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Application) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Subfolder for the document root for application of type `rails`.
-func (r *Application) DocumentRoot() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["documentRoot"])
+func (r *Application) DocumentRoot() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["documentRoot"])
 }
 
 // A list of virtual host alias.
-func (r *Application) Domains() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["domains"])
+func (r *Application) Domains() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["domains"])
 }
 
 // Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-func (r *Application) EnableSsl() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableSsl"])
+func (r *Application) EnableSsl() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableSsl"])
 }
 
 // Object to define environment variables.  Object is described below.
-func (r *Application) Environments() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["environments"])
+func (r *Application) Environments() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["environments"])
 }
 
 // A human-readable name for the application.
-func (r *Application) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Application) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Rails environment for application of type `rails`.
-func (r *Application) RailsEnv() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["railsEnv"])
+func (r *Application) RailsEnv() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["railsEnv"])
 }
 
 // A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-func (r *Application) ShortName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["shortName"])
+func (r *Application) ShortName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["shortName"])
 }
 
 // The SSL configuration of the app. Object is described below.
-func (r *Application) SslConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["sslConfigurations"])
+func (r *Application) SslConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["sslConfigurations"])
 }
 
 // The id of the stack the application will belong to.
-func (r *Application) StackId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stackId"])
+func (r *Application) StackId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stackId"])
 }
 
 // The type of source to use. For example, "archive".
-func (r *Application) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Application) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering Application resources.

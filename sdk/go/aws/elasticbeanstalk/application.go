@@ -62,37 +62,37 @@ func GetApplication(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Application) URN() *pulumi.URNOutput {
+func (r *Application) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Application) ID() *pulumi.IDOutput {
+func (r *Application) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *Application) AppversionLifecycle() *pulumi.Output {
+func (r *Application) AppversionLifecycle() pulumi.Output {
 	return r.s.State["appversionLifecycle"]
 }
 
 // The ARN assigned by AWS for this Elastic Beanstalk Application.
-func (r *Application) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Application) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Short description of the application
-func (r *Application) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Application) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the application, must be unique within your account
-func (r *Application) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Application) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Key-value mapping of tags for the Elastic Beanstalk Application.
-func (r *Application) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Application) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Application resources.

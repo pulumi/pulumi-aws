@@ -67,48 +67,48 @@ func GetUserPoolDomain(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *UserPoolDomain) URN() *pulumi.URNOutput {
+func (r *UserPoolDomain) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *UserPoolDomain) ID() *pulumi.IDOutput {
+func (r *UserPoolDomain) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The AWS account ID for the user pool owner.
-func (r *UserPoolDomain) AwsAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["awsAccountId"])
+func (r *UserPoolDomain) AwsAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["awsAccountId"])
 }
 
 // The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-func (r *UserPoolDomain) CertificateArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificateArn"])
+func (r *UserPoolDomain) CertificateArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificateArn"])
 }
 
 // The ARN of the CloudFront distribution.
-func (r *UserPoolDomain) CloudfrontDistributionArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cloudfrontDistributionArn"])
+func (r *UserPoolDomain) CloudfrontDistributionArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cloudfrontDistributionArn"])
 }
 
 // The domain string.
-func (r *UserPoolDomain) Domain() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domain"])
+func (r *UserPoolDomain) Domain() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domain"])
 }
 
 // The S3 bucket where the static files for this domain are stored.
-func (r *UserPoolDomain) S3Bucket() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3Bucket"])
+func (r *UserPoolDomain) S3Bucket() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["s3Bucket"])
 }
 
 // The user pool ID.
-func (r *UserPoolDomain) UserPoolId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userPoolId"])
+func (r *UserPoolDomain) UserPoolId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userPoolId"])
 }
 
 // The app version.
-func (r *UserPoolDomain) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *UserPoolDomain) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering UserPoolDomain resources.

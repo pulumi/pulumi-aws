@@ -72,47 +72,47 @@ func GetAlias(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Alias) URN() *pulumi.URNOutput {
+func (r *Alias) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Alias) ID() *pulumi.IDOutput {
+func (r *Alias) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) identifying your Lambda function alias.
-func (r *Alias) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Alias) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Description of the alias.
-func (r *Alias) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Alias) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The function ARN of the Lambda function for which you want to create an alias.
-func (r *Alias) FunctionName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["functionName"])
+func (r *Alias) FunctionName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["functionName"])
 }
 
 // Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-func (r *Alias) FunctionVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["functionVersion"])
+func (r *Alias) FunctionVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["functionVersion"])
 }
 
 // The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
-func (r *Alias) InvokeArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["invokeArn"])
+func (r *Alias) InvokeArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["invokeArn"])
 }
 
 // Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
-func (r *Alias) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Alias) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The Lambda alias' route configuration settings. Fields documented below
-func (r *Alias) RoutingConfig() *pulumi.Output {
+func (r *Alias) RoutingConfig() pulumi.Output {
 	return r.s.State["routingConfig"]
 }
 

@@ -64,43 +64,43 @@ func GetPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Policy) URN() *pulumi.URNOutput {
+func (r *Policy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Policy) ID() *pulumi.IDOutput {
+func (r *Policy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN assigned by AWS to this policy.
-func (r *Policy) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Policy) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Description of the IAM policy.
-func (r *Policy) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Policy) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the policy. If omitted, this provider will assign a random, unique name.
-func (r *Policy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Policy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *Policy) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *Policy) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // Path in which to create the policy.
 // See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-func (r *Policy) Path() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["path"])
+func (r *Policy) Path() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["path"])
 }
 
-func (r *Policy) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *Policy) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // Input properties used for looking up and filtering Policy resources.

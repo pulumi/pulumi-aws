@@ -114,131 +114,131 @@ func GetVpnConnection(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpnConnection) URN() *pulumi.URNOutput {
+func (r *VpnConnection) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpnConnection) ID() *pulumi.IDOutput {
+func (r *VpnConnection) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The configuration information for the VPN connection's customer gateway (in the native XML format).
-func (r *VpnConnection) CustomerGatewayConfiguration() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customerGatewayConfiguration"])
+func (r *VpnConnection) CustomerGatewayConfiguration() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customerGatewayConfiguration"])
 }
 
 // The ID of the customer gateway.
-func (r *VpnConnection) CustomerGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customerGatewayId"])
+func (r *VpnConnection) CustomerGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customerGatewayId"])
 }
 
-func (r *VpnConnection) Routes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["routes"])
+func (r *VpnConnection) Routes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["routes"])
 }
 
 // Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-func (r *VpnConnection) StaticRoutesOnly() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["staticRoutesOnly"])
+func (r *VpnConnection) StaticRoutesOnly() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["staticRoutesOnly"])
 }
 
 // Tags to apply to the connection.
-func (r *VpnConnection) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VpnConnection) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
-func (r *VpnConnection) TransitGatewayAttachmentId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transitGatewayAttachmentId"])
+func (r *VpnConnection) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["transitGatewayAttachmentId"])
 }
 
 // The ID of the EC2 Transit Gateway.
-func (r *VpnConnection) TransitGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transitGatewayId"])
+func (r *VpnConnection) TransitGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["transitGatewayId"])
 }
 
 // The public IP address of the first VPN tunnel.
-func (r *VpnConnection) Tunnel1Address() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tunnel1Address"])
+func (r *VpnConnection) Tunnel1Address() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tunnel1Address"])
 }
 
 // The bgp asn number of the first VPN tunnel.
-func (r *VpnConnection) Tunnel1BgpAsn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tunnel1BgpAsn"])
+func (r *VpnConnection) Tunnel1BgpAsn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tunnel1BgpAsn"])
 }
 
 // The bgp holdtime of the first VPN tunnel.
-func (r *VpnConnection) Tunnel1BgpHoldtime() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["tunnel1BgpHoldtime"])
+func (r *VpnConnection) Tunnel1BgpHoldtime() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["tunnel1BgpHoldtime"])
 }
 
 // The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
-func (r *VpnConnection) Tunnel1CgwInsideAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tunnel1CgwInsideAddress"])
+func (r *VpnConnection) Tunnel1CgwInsideAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tunnel1CgwInsideAddress"])
 }
 
 // The CIDR block of the inside IP addresses for the first VPN tunnel.
-func (r *VpnConnection) Tunnel1InsideCidr() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tunnel1InsideCidr"])
+func (r *VpnConnection) Tunnel1InsideCidr() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tunnel1InsideCidr"])
 }
 
 // The preshared key of the first VPN tunnel.
-func (r *VpnConnection) Tunnel1PresharedKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tunnel1PresharedKey"])
+func (r *VpnConnection) Tunnel1PresharedKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tunnel1PresharedKey"])
 }
 
 // The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
-func (r *VpnConnection) Tunnel1VgwInsideAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tunnel1VgwInsideAddress"])
+func (r *VpnConnection) Tunnel1VgwInsideAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tunnel1VgwInsideAddress"])
 }
 
 // The public IP address of the second VPN tunnel.
-func (r *VpnConnection) Tunnel2Address() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tunnel2Address"])
+func (r *VpnConnection) Tunnel2Address() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tunnel2Address"])
 }
 
 // The bgp asn number of the second VPN tunnel.
-func (r *VpnConnection) Tunnel2BgpAsn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tunnel2BgpAsn"])
+func (r *VpnConnection) Tunnel2BgpAsn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tunnel2BgpAsn"])
 }
 
 // The bgp holdtime of the second VPN tunnel.
-func (r *VpnConnection) Tunnel2BgpHoldtime() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["tunnel2BgpHoldtime"])
+func (r *VpnConnection) Tunnel2BgpHoldtime() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["tunnel2BgpHoldtime"])
 }
 
 // The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
-func (r *VpnConnection) Tunnel2CgwInsideAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tunnel2CgwInsideAddress"])
+func (r *VpnConnection) Tunnel2CgwInsideAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tunnel2CgwInsideAddress"])
 }
 
 // The CIDR block of the inside IP addresses for the second VPN tunnel.
-func (r *VpnConnection) Tunnel2InsideCidr() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tunnel2InsideCidr"])
+func (r *VpnConnection) Tunnel2InsideCidr() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tunnel2InsideCidr"])
 }
 
 // The preshared key of the second VPN tunnel.
-func (r *VpnConnection) Tunnel2PresharedKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tunnel2PresharedKey"])
+func (r *VpnConnection) Tunnel2PresharedKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tunnel2PresharedKey"])
 }
 
 // The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
-func (r *VpnConnection) Tunnel2VgwInsideAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tunnel2VgwInsideAddress"])
+func (r *VpnConnection) Tunnel2VgwInsideAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tunnel2VgwInsideAddress"])
 }
 
 // The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-func (r *VpnConnection) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *VpnConnection) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
-func (r *VpnConnection) VgwTelemetries() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["vgwTelemetries"])
+func (r *VpnConnection) VgwTelemetries() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["vgwTelemetries"])
 }
 
 // The ID of the Virtual Private Gateway.
-func (r *VpnConnection) VpnGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpnGatewayId"])
+func (r *VpnConnection) VpnGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpnGatewayId"])
 }
 
 // Input properties used for looking up and filtering VpnConnection resources.

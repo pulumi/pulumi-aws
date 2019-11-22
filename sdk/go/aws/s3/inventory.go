@@ -80,53 +80,53 @@ func GetInventory(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Inventory) URN() *pulumi.URNOutput {
+func (r *Inventory) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Inventory) ID() *pulumi.IDOutput {
+func (r *Inventory) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The S3 bucket configuration where inventory results are published (documented below).
-func (r *Inventory) Bucket() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bucket"])
+func (r *Inventory) Bucket() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bucket"])
 }
 
 // Contains information about where to publish the inventory results (documented below).
-func (r *Inventory) Destination() *pulumi.Output {
+func (r *Inventory) Destination() pulumi.Output {
 	return r.s.State["destination"]
 }
 
 // Specifies whether the inventory is enabled or disabled.
-func (r *Inventory) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *Inventory) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
-func (r *Inventory) Filter() *pulumi.Output {
+func (r *Inventory) Filter() pulumi.Output {
 	return r.s.State["filter"]
 }
 
 // Object versions to include in the inventory list. Valid values: `All`, `Current`.
-func (r *Inventory) IncludedObjectVersions() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["includedObjectVersions"])
+func (r *Inventory) IncludedObjectVersions() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["includedObjectVersions"])
 }
 
 // Unique identifier of the inventory configuration for the bucket.
-func (r *Inventory) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Inventory) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // List of optional fields that are included in the inventory results.
 // Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
-func (r *Inventory) OptionalFields() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["optionalFields"])
+func (r *Inventory) OptionalFields() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["optionalFields"])
 }
 
 // Specifies the schedule for generating inventory results (documented below).
-func (r *Inventory) Schedule() *pulumi.Output {
+func (r *Inventory) Schedule() pulumi.Output {
 	return r.s.State["schedule"]
 }
 

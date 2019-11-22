@@ -75,62 +75,62 @@ func GetGatewayAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *GatewayAssociation) URN() *pulumi.URNOutput {
+func (r *GatewayAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *GatewayAssociation) ID() *pulumi.IDOutput {
+func (r *GatewayAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-func (r *GatewayAssociation) AllowedPrefixes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["allowedPrefixes"])
+func (r *GatewayAssociation) AllowedPrefixes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["allowedPrefixes"])
 }
 
 // The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 // Used for single account Direct Connect gateway associations.
-func (r *GatewayAssociation) AssociatedGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["associatedGatewayId"])
+func (r *GatewayAssociation) AssociatedGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["associatedGatewayId"])
 }
 
 // The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
 // Used for cross-account Direct Connect gateway associations.
-func (r *GatewayAssociation) AssociatedGatewayOwnerAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["associatedGatewayOwnerAccountId"])
+func (r *GatewayAssociation) AssociatedGatewayOwnerAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["associatedGatewayOwnerAccountId"])
 }
 
 // The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-func (r *GatewayAssociation) AssociatedGatewayType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["associatedGatewayType"])
+func (r *GatewayAssociation) AssociatedGatewayType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["associatedGatewayType"])
 }
 
 // The ID of the Direct Connect gateway association.
-func (r *GatewayAssociation) DxGatewayAssociationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dxGatewayAssociationId"])
+func (r *GatewayAssociation) DxGatewayAssociationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dxGatewayAssociationId"])
 }
 
 // The ID of the Direct Connect gateway.
-func (r *GatewayAssociation) DxGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dxGatewayId"])
+func (r *GatewayAssociation) DxGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dxGatewayId"])
 }
 
 // The ID of the AWS account that owns the Direct Connect gateway.
-func (r *GatewayAssociation) DxGatewayOwnerAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dxGatewayOwnerAccountId"])
+func (r *GatewayAssociation) DxGatewayOwnerAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dxGatewayOwnerAccountId"])
 }
 
 // The ID of the Direct Connect gateway association proposal.
 // Used for cross-account Direct Connect gateway associations.
-func (r *GatewayAssociation) ProposalId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["proposalId"])
+func (r *GatewayAssociation) ProposalId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["proposalId"])
 }
 
 // *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
 // Used for single account Direct Connect gateway associations.
-func (r *GatewayAssociation) VpnGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpnGatewayId"])
+func (r *GatewayAssociation) VpnGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpnGatewayId"])
 }
 
 // Input properties used for looking up and filtering GatewayAssociation resources.

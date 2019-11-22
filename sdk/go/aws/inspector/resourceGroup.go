@@ -52,23 +52,23 @@ func GetResourceGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ResourceGroup) URN() *pulumi.URNOutput {
+func (r *ResourceGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ResourceGroup) ID() *pulumi.IDOutput {
+func (r *ResourceGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The resource group ARN.
-func (r *ResourceGroup) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ResourceGroup) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The tags on your EC2 Instance.
-func (r *ResourceGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ResourceGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering ResourceGroup resources.

@@ -48,25 +48,25 @@ func GetDelegationSet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DelegationSet) URN() *pulumi.URNOutput {
+func (r *DelegationSet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DelegationSet) ID() *pulumi.IDOutput {
+func (r *DelegationSet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A list of authoritative name servers for the hosted zone
 // (effectively a list of NS records).
-func (r *DelegationSet) NameServers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["nameServers"])
+func (r *DelegationSet) NameServers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["nameServers"])
 }
 
 // This is a reference name used in Caller Reference
 // (helpful for identifying single delegation set amongst others)
-func (r *DelegationSet) ReferenceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["referenceName"])
+func (r *DelegationSet) ReferenceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["referenceName"])
 }
 
 // Input properties used for looking up and filtering DelegationSet resources.

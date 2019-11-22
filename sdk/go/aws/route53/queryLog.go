@@ -62,23 +62,23 @@ func GetQueryLog(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *QueryLog) URN() *pulumi.URNOutput {
+func (r *QueryLog) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *QueryLog) ID() *pulumi.IDOutput {
+func (r *QueryLog) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // CloudWatch log group ARN to send query logs.
-func (r *QueryLog) CloudwatchLogGroupArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cloudwatchLogGroupArn"])
+func (r *QueryLog) CloudwatchLogGroupArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cloudwatchLogGroupArn"])
 }
 
 // Route53 hosted zone ID to enable query logs.
-func (r *QueryLog) ZoneId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zoneId"])
+func (r *QueryLog) ZoneId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zoneId"])
 }
 
 // Input properties used for looking up and filtering QueryLog resources.

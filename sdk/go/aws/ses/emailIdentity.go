@@ -52,23 +52,23 @@ func GetEmailIdentity(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EmailIdentity) URN() *pulumi.URNOutput {
+func (r *EmailIdentity) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EmailIdentity) ID() *pulumi.IDOutput {
+func (r *EmailIdentity) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the email identity.
-func (r *EmailIdentity) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *EmailIdentity) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The email address to assign to SES
-func (r *EmailIdentity) Email() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["email"])
+func (r *EmailIdentity) Email() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["email"])
 }
 
 // Input properties used for looking up and filtering EmailIdentity resources.

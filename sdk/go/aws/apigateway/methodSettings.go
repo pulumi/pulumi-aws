@@ -68,33 +68,33 @@ func GetMethodSettings(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MethodSettings) URN() *pulumi.URNOutput {
+func (r *MethodSettings) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MethodSettings) ID() *pulumi.IDOutput {
+func (r *MethodSettings) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
-func (r *MethodSettings) MethodPath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["methodPath"])
+func (r *MethodSettings) MethodPath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["methodPath"])
 }
 
 // The ID of the REST API
-func (r *MethodSettings) RestApi() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restApi"])
+func (r *MethodSettings) RestApi() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restApi"])
 }
 
 // The settings block, see below.
-func (r *MethodSettings) Settings() *pulumi.Output {
+func (r *MethodSettings) Settings() pulumi.Output {
 	return r.s.State["settings"]
 }
 
 // The name of the stage
-func (r *MethodSettings) StageName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stageName"])
+func (r *MethodSettings) StageName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stageName"])
 }
 
 // Input properties used for looking up and filtering MethodSettings resources.

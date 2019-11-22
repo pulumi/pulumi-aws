@@ -62,32 +62,32 @@ func GetUserPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *UserPolicy) URN() *pulumi.URNOutput {
+func (r *UserPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *UserPolicy) ID() *pulumi.IDOutput {
+func (r *UserPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the policy. If omitted, this provider will assign a random, unique name.
-func (r *UserPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *UserPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *UserPolicy) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *UserPolicy) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-func (r *UserPolicy) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *UserPolicy) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // IAM user to which to attach this policy.
-func (r *UserPolicy) User() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["user"])
+func (r *UserPolicy) User() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["user"])
 }
 
 // Input properties used for looking up and filtering UserPolicy resources.

@@ -65,43 +65,43 @@ func GetNatGateway(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NatGateway) URN() *pulumi.URNOutput {
+func (r *NatGateway) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NatGateway) ID() *pulumi.IDOutput {
+func (r *NatGateway) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Allocation ID of the Elastic IP address for the gateway.
-func (r *NatGateway) AllocationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["allocationId"])
+func (r *NatGateway) AllocationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["allocationId"])
 }
 
 // The ENI ID of the network interface created by the NAT gateway.
-func (r *NatGateway) NetworkInterfaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkInterfaceId"])
+func (r *NatGateway) NetworkInterfaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkInterfaceId"])
 }
 
 // The private IP address of the NAT Gateway.
-func (r *NatGateway) PrivateIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateIp"])
+func (r *NatGateway) PrivateIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateIp"])
 }
 
 // The public IP address of the NAT Gateway.
-func (r *NatGateway) PublicIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publicIp"])
+func (r *NatGateway) PublicIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publicIp"])
 }
 
 // The Subnet ID of the subnet in which to place the gateway.
-func (r *NatGateway) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *NatGateway) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *NatGateway) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *NatGateway) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering NatGateway resources.

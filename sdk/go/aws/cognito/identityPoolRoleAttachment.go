@@ -59,27 +59,27 @@ func GetIdentityPoolRoleAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *IdentityPoolRoleAttachment) URN() *pulumi.URNOutput {
+func (r *IdentityPoolRoleAttachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *IdentityPoolRoleAttachment) ID() *pulumi.IDOutput {
+func (r *IdentityPoolRoleAttachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // An identity pool ID in the format REGION:GUID.
-func (r *IdentityPoolRoleAttachment) IdentityPoolId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identityPoolId"])
+func (r *IdentityPoolRoleAttachment) IdentityPoolId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identityPoolId"])
 }
 
 // A List of Role Mapping.
-func (r *IdentityPoolRoleAttachment) RoleMappings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["roleMappings"])
+func (r *IdentityPoolRoleAttachment) RoleMappings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["roleMappings"])
 }
 
 // The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-func (r *IdentityPoolRoleAttachment) Roles() *pulumi.Output {
+func (r *IdentityPoolRoleAttachment) Roles() pulumi.Output {
 	return r.s.State["roles"]
 }
 

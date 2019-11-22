@@ -51,28 +51,28 @@ func GetSizeConstraintSet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SizeConstraintSet) URN() *pulumi.URNOutput {
+func (r *SizeConstraintSet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SizeConstraintSet) ID() *pulumi.IDOutput {
+func (r *SizeConstraintSet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN)
-func (r *SizeConstraintSet) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *SizeConstraintSet) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name or description of the Size Constraint Set.
-func (r *SizeConstraintSet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SizeConstraintSet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the parts of web requests that you want to inspect the size of.
-func (r *SizeConstraintSet) SizeConstraints() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["sizeConstraints"])
+func (r *SizeConstraintSet) SizeConstraints() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["sizeConstraints"])
 }
 
 // Input properties used for looking up and filtering SizeConstraintSet resources.

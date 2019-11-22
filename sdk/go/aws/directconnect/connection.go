@@ -70,53 +70,53 @@ func GetConnection(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Connection) URN() *pulumi.URNOutput {
+func (r *Connection) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Connection) ID() *pulumi.IDOutput {
+func (r *Connection) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the connection.
-func (r *Connection) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Connection) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The Direct Connect endpoint on which the physical connection terminates.
-func (r *Connection) AwsDevice() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["awsDevice"])
+func (r *Connection) AwsDevice() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["awsDevice"])
 }
 
 // The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
-func (r *Connection) Bandwidth() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bandwidth"])
+func (r *Connection) Bandwidth() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bandwidth"])
 }
 
 // Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-func (r *Connection) HasLogicalRedundancy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hasLogicalRedundancy"])
+func (r *Connection) HasLogicalRedundancy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hasLogicalRedundancy"])
 }
 
 // Boolean value representing if jumbo frames have been enabled for this connection.
-func (r *Connection) JumboFrameCapable() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["jumboFrameCapable"])
+func (r *Connection) JumboFrameCapable() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["jumboFrameCapable"])
 }
 
 // The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-func (r *Connection) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Connection) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the connection.
-func (r *Connection) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Connection) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Connection) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Connection) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Connection resources.

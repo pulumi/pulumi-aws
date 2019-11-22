@@ -97,101 +97,101 @@ func GetTrail(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Trail) URN() *pulumi.URNOutput {
+func (r *Trail) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Trail) ID() *pulumi.IDOutput {
+func (r *Trail) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name of the trail.
-func (r *Trail) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Trail) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Specifies a log group name using an Amazon Resource Name (ARN),
 // that represents the log group to which CloudTrail logs will be delivered.
-func (r *Trail) CloudWatchLogsGroupArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cloudWatchLogsGroupArn"])
+func (r *Trail) CloudWatchLogsGroupArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cloudWatchLogsGroupArn"])
 }
 
 // Specifies the role for the CloudWatch Logs
 // endpoint to assume to write to a user’s log group.
-func (r *Trail) CloudWatchLogsRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cloudWatchLogsRoleArn"])
+func (r *Trail) CloudWatchLogsRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cloudWatchLogsRoleArn"])
 }
 
 // Specifies whether log file integrity validation is enabled.
 // Defaults to `false`.
-func (r *Trail) EnableLogFileValidation() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableLogFileValidation"])
+func (r *Trail) EnableLogFileValidation() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableLogFileValidation"])
 }
 
 // Enables logging for the trail. Defaults to `true`.
 // Setting this to `false` will pause logging.
-func (r *Trail) EnableLogging() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableLogging"])
+func (r *Trail) EnableLogging() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableLogging"])
 }
 
 // Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
-func (r *Trail) EventSelectors() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["eventSelectors"])
+func (r *Trail) EventSelectors() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["eventSelectors"])
 }
 
 // The region in which the trail was created.
-func (r *Trail) HomeRegion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["homeRegion"])
+func (r *Trail) HomeRegion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["homeRegion"])
 }
 
 // Specifies whether the trail is publishing events
 // from global services such as IAM to the log files. Defaults to `true`.
-func (r *Trail) IncludeGlobalServiceEvents() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["includeGlobalServiceEvents"])
+func (r *Trail) IncludeGlobalServiceEvents() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["includeGlobalServiceEvents"])
 }
 
 // Specifies whether the trail is created in the current
 // region or in all regions. Defaults to `false`.
-func (r *Trail) IsMultiRegionTrail() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isMultiRegionTrail"])
+func (r *Trail) IsMultiRegionTrail() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isMultiRegionTrail"])
 }
 
 // Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
-func (r *Trail) IsOrganizationTrail() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isOrganizationTrail"])
+func (r *Trail) IsOrganizationTrail() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isOrganizationTrail"])
 }
 
 // Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
-func (r *Trail) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *Trail) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // Specifies the name of the trail.
-func (r *Trail) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Trail) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the S3 bucket designated for publishing log files.
-func (r *Trail) S3BucketName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3BucketName"])
+func (r *Trail) S3BucketName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["s3BucketName"])
 }
 
 // Specifies the S3 key prefix that follows
 // the name of the bucket you have designated for log file delivery.
-func (r *Trail) S3KeyPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3KeyPrefix"])
+func (r *Trail) S3KeyPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["s3KeyPrefix"])
 }
 
 // Specifies the name of the Amazon SNS topic
 // defined for notification of log file delivery.
-func (r *Trail) SnsTopicName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["snsTopicName"])
+func (r *Trail) SnsTopicName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["snsTopicName"])
 }
 
 // A mapping of tags to assign to the trail
-func (r *Trail) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Trail) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Trail resources.

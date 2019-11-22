@@ -73,38 +73,38 @@ func GetIPSet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *IPSet) URN() *pulumi.URNOutput {
+func (r *IPSet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *IPSet) ID() *pulumi.IDOutput {
+func (r *IPSet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies whether GuardDuty is to start using the uploaded IPSet.
-func (r *IPSet) Activate() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["activate"])
+func (r *IPSet) Activate() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["activate"])
 }
 
 // The detector ID of the GuardDuty.
-func (r *IPSet) DetectorId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["detectorId"])
+func (r *IPSet) DetectorId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["detectorId"])
 }
 
 // The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-func (r *IPSet) Format() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["format"])
+func (r *IPSet) Format() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["format"])
 }
 
 // The URI of the file that contains the IPSet.
-func (r *IPSet) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *IPSet) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The friendly name to identify the IPSet.
-func (r *IPSet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *IPSet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering IPSet resources.

@@ -64,37 +64,37 @@ func GetResourceServer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ResourceServer) URN() *pulumi.URNOutput {
+func (r *ResourceServer) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ResourceServer) ID() *pulumi.IDOutput {
+func (r *ResourceServer) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // An identifier for the resource server.
-func (r *ResourceServer) Identifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identifier"])
+func (r *ResourceServer) Identifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identifier"])
 }
 
 // A name for the resource server.
-func (r *ResourceServer) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ResourceServer) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A list of Authorization Scope.
-func (r *ResourceServer) Scopes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["scopes"])
+func (r *ResourceServer) Scopes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["scopes"])
 }
 
 // A list of all scopes configured for this resource server in the format identifier/scope_name.
-func (r *ResourceServer) ScopeIdentifiers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["scopeIdentifiers"])
+func (r *ResourceServer) ScopeIdentifiers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["scopeIdentifiers"])
 }
 
-func (r *ResourceServer) UserPoolId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userPoolId"])
+func (r *ResourceServer) UserPoolId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userPoolId"])
 }
 
 // Input properties used for looking up and filtering ResourceServer resources.

@@ -58,23 +58,23 @@ func GetRolePolicyAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RolePolicyAttachment) URN() *pulumi.URNOutput {
+func (r *RolePolicyAttachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RolePolicyAttachment) ID() *pulumi.IDOutput {
+func (r *RolePolicyAttachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the policy you want to apply
-func (r *RolePolicyAttachment) PolicyArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyArn"])
+func (r *RolePolicyAttachment) PolicyArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyArn"])
 }
 
 // The role the policy should be applied to
-func (r *RolePolicyAttachment) Role() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["role"])
+func (r *RolePolicyAttachment) Role() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["role"])
 }
 
 // Input properties used for looking up and filtering RolePolicyAttachment resources.

@@ -56,23 +56,23 @@ func GetInviteAccepter(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *InviteAccepter) URN() *pulumi.URNOutput {
+func (r *InviteAccepter) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *InviteAccepter) ID() *pulumi.IDOutput {
+func (r *InviteAccepter) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The detector ID of the member GuardDuty account.
-func (r *InviteAccepter) DetectorId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["detectorId"])
+func (r *InviteAccepter) DetectorId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["detectorId"])
 }
 
 // AWS account ID for master account.
-func (r *InviteAccepter) MasterAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["masterAccountId"])
+func (r *InviteAccepter) MasterAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["masterAccountId"])
 }
 
 // Input properties used for looking up and filtering InviteAccepter resources.

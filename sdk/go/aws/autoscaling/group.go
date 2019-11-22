@@ -203,35 +203,35 @@ func GetGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Group) URN() *pulumi.URNOutput {
+func (r *Group) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Group) ID() *pulumi.IDOutput {
+func (r *Group) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN for this AutoScaling Group
-func (r *Group) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Group) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A list of one or more availability zones for the group. This parameter should not be specified when using `vpcZoneIdentifier`.
-func (r *Group) AvailabilityZones() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["availabilityZones"])
+func (r *Group) AvailabilityZones() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["availabilityZones"])
 }
 
 // The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
-func (r *Group) DefaultCooldown() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["defaultCooldown"])
+func (r *Group) DefaultCooldown() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["defaultCooldown"])
 }
 
 // The number of Amazon EC2 instances that
 // should be running in the group. (See also Waiting for
 // Capacity below.)
-func (r *Group) DesiredCapacity() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["desiredCapacity"])
+func (r *Group) DesiredCapacity() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["desiredCapacity"])
 }
 
 // A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
@@ -240,8 +240,8 @@ func (r *Group) DesiredCapacity() *pulumi.IntOutput {
 // wait for ASG instances to be healthy before timing out.  (See also Waiting
 // for Capacity below.) Setting this to "0" causes
 // this provider to skip all Capacity Waiting behavior.
-func (r *Group) EnabledMetrics() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["enabledMetrics"])
+func (r *Group) EnabledMetrics() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["enabledMetrics"])
 }
 
 // Allows deleting the autoscaling group without waiting
@@ -249,18 +249,18 @@ func (r *Group) EnabledMetrics() *pulumi.ArrayOutput {
 // even if it's in the process of scaling a resource. Normally, this provider
 // drains all the instances before deleting the group.  This bypasses that
 // behavior and potentially leaves resources dangling.
-func (r *Group) ForceDelete() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["forceDelete"])
+func (r *Group) ForceDelete() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["forceDelete"])
 }
 
 // Time (in seconds) after instance comes into service before checking health.
-func (r *Group) HealthCheckGracePeriod() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["healthCheckGracePeriod"])
+func (r *Group) HealthCheckGracePeriod() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["healthCheckGracePeriod"])
 }
 
 // "EC2" or "ELB". Controls how health checking is done.
-func (r *Group) HealthCheckType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["healthCheckType"])
+func (r *Group) HealthCheckType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["healthCheckType"])
 }
 
 // One or more
@@ -270,116 +270,116 @@ func (r *Group) HealthCheckType() *pulumi.StringOutput {
 // [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
 // resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
 // a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
-func (r *Group) InitialLifecycleHooks() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["initialLifecycleHooks"])
+func (r *Group) InitialLifecycleHooks() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["initialLifecycleHooks"])
 }
 
 // The name of the launch configuration to use.
-func (r *Group) LaunchConfiguration() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["launchConfiguration"])
+func (r *Group) LaunchConfiguration() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["launchConfiguration"])
 }
 
 // Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
-func (r *Group) LaunchTemplate() *pulumi.Output {
+func (r *Group) LaunchTemplate() pulumi.Output {
 	return r.s.State["launchTemplate"]
 }
 
 // A list of elastic load balancer names to add to the autoscaling
 // group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
-func (r *Group) LoadBalancers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["loadBalancers"])
+func (r *Group) LoadBalancers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["loadBalancers"])
 }
 
 // The maximum size of the auto scale group.
-func (r *Group) MaxSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxSize"])
+func (r *Group) MaxSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxSize"])
 }
 
 // The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
-func (r *Group) MetricsGranularity() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metricsGranularity"])
+func (r *Group) MetricsGranularity() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metricsGranularity"])
 }
 
 // Setting this causes this provider to wait for
 // this number of instances from this autoscaling group to show up healthy in the
 // ELB only on creation. Updates will not wait on ELB instance number changes.
 // (See also Waiting for Capacity below.)
-func (r *Group) MinElbCapacity() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["minElbCapacity"])
+func (r *Group) MinElbCapacity() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["minElbCapacity"])
 }
 
 // The minimum size of the auto scale group.
 // (See also Waiting for Capacity below.)
-func (r *Group) MinSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["minSize"])
+func (r *Group) MinSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["minSize"])
 }
 
 // Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
-func (r *Group) MixedInstancesPolicy() *pulumi.Output {
+func (r *Group) MixedInstancesPolicy() pulumi.Output {
 	return r.s.State["mixedInstancesPolicy"]
 }
 
 // The name of the auto scaling group. By default generated by this provider.
-func (r *Group) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Group) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified
 // prefix. Conflicts with `name`.
-func (r *Group) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *Group) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // The name of the placement group into which you'll launch your instances, if any.
-func (r *Group) PlacementGroup() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["placementGroup"])
+func (r *Group) PlacementGroup() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["placementGroup"])
 }
 
 // Allows setting instance protection. The
 // autoscaling group will not select instances with this setting for terminination
 // during scale in events.
-func (r *Group) ProtectFromScaleIn() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["protectFromScaleIn"])
+func (r *Group) ProtectFromScaleIn() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["protectFromScaleIn"])
 }
 
 // The ARN of the service-linked role that the ASG will use to call other AWS services
-func (r *Group) ServiceLinkedRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceLinkedRoleArn"])
+func (r *Group) ServiceLinkedRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceLinkedRoleArn"])
 }
 
 // A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 // Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
-func (r *Group) SuspendedProcesses() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["suspendedProcesses"])
+func (r *Group) SuspendedProcesses() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["suspendedProcesses"])
 }
 
 // A list of tag blocks. Tags documented below.
-func (r *Group) Tags() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["tags"])
+func (r *Group) Tags() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["tags"])
 }
 
 // A list of tag blocks (maps). Tags documented below.
-func (r *Group) TagsCollection() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["tagsCollection"])
+func (r *Group) TagsCollection() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["tagsCollection"])
 }
 
 // A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
-func (r *Group) TargetGroupArns() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["targetGroupArns"])
+func (r *Group) TargetGroupArns() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["targetGroupArns"])
 }
 
 // A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
-func (r *Group) TerminationPolicies() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["terminationPolicies"])
+func (r *Group) TerminationPolicies() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["terminationPolicies"])
 }
 
 // A list of subnet IDs to launch resources in.
-func (r *Group) VpcZoneIdentifiers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["vpcZoneIdentifiers"])
+func (r *Group) VpcZoneIdentifiers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["vpcZoneIdentifiers"])
 }
 
-func (r *Group) WaitForCapacityTimeout() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["waitForCapacityTimeout"])
+func (r *Group) WaitForCapacityTimeout() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["waitForCapacityTimeout"])
 }
 
 // Setting this will cause this provider to wait
@@ -387,8 +387,8 @@ func (r *Group) WaitForCapacityTimeout() *pulumi.StringOutput {
 // all attached load balancers on both create and update operations. (Takes
 // precedence over `minElbCapacity` behavior.)
 // (See also Waiting for Capacity below.)
-func (r *Group) WaitForElbCapacity() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["waitForElbCapacity"])
+func (r *Group) WaitForElbCapacity() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["waitForElbCapacity"])
 }
 
 // Input properties used for looking up and filtering Group resources.

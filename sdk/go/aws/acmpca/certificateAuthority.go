@@ -83,83 +83,83 @@ func GetCertificateAuthority(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *CertificateAuthority) URN() *pulumi.URNOutput {
+func (r *CertificateAuthority) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *CertificateAuthority) ID() *pulumi.IDOutput {
+func (r *CertificateAuthority) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the certificate authority.
-func (r *CertificateAuthority) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *CertificateAuthority) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-func (r *CertificateAuthority) Certificate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificate"])
+func (r *CertificateAuthority) Certificate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificate"])
 }
 
 // Nested argument containing algorithms and certificate subject information. Defined below.
-func (r *CertificateAuthority) CertificateAuthorityConfiguration() *pulumi.Output {
+func (r *CertificateAuthority) CertificateAuthorityConfiguration() pulumi.Output {
 	return r.s.State["certificateAuthorityConfiguration"]
 }
 
 // Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-func (r *CertificateAuthority) CertificateChain() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificateChain"])
+func (r *CertificateAuthority) CertificateChain() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificateChain"])
 }
 
 // The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-func (r *CertificateAuthority) CertificateSigningRequest() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificateSigningRequest"])
+func (r *CertificateAuthority) CertificateSigningRequest() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificateSigningRequest"])
 }
 
 // Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
-func (r *CertificateAuthority) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *CertificateAuthority) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-func (r *CertificateAuthority) NotAfter() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["notAfter"])
+func (r *CertificateAuthority) NotAfter() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["notAfter"])
 }
 
 // Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-func (r *CertificateAuthority) NotBefore() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["notBefore"])
+func (r *CertificateAuthority) NotBefore() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["notBefore"])
 }
 
 // The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-func (r *CertificateAuthority) PermanentDeletionTimeInDays() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["permanentDeletionTimeInDays"])
+func (r *CertificateAuthority) PermanentDeletionTimeInDays() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["permanentDeletionTimeInDays"])
 }
 
 // Nested argument containing revocation configuration. Defined below.
-func (r *CertificateAuthority) RevocationConfiguration() *pulumi.Output {
+func (r *CertificateAuthority) RevocationConfiguration() pulumi.Output {
 	return r.s.State["revocationConfiguration"]
 }
 
 // Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-func (r *CertificateAuthority) Serial() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serial"])
+func (r *CertificateAuthority) Serial() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serial"])
 }
 
 // Status of the certificate authority.
-func (r *CertificateAuthority) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *CertificateAuthority) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Specifies a key-value map of user-defined tags that are attached to the certificate authority.
-func (r *CertificateAuthority) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *CertificateAuthority) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-func (r *CertificateAuthority) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *CertificateAuthority) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering CertificateAuthority resources.

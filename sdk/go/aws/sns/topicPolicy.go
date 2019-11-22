@@ -58,22 +58,22 @@ func GetTopicPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TopicPolicy) URN() *pulumi.URNOutput {
+func (r *TopicPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TopicPolicy) ID() *pulumi.IDOutput {
+func (r *TopicPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the SNS topic
-func (r *TopicPolicy) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *TopicPolicy) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
-func (r *TopicPolicy) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *TopicPolicy) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // Input properties used for looking up and filtering TopicPolicy resources.

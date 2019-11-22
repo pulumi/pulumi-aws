@@ -62,28 +62,28 @@ func GetEventStream(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventStream) URN() *pulumi.URNOutput {
+func (r *EventStream) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventStream) ID() *pulumi.IDOutput {
+func (r *EventStream) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The application ID.
-func (r *EventStream) ApplicationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationId"])
+func (r *EventStream) ApplicationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationId"])
 }
 
 // The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
-func (r *EventStream) DestinationStreamArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destinationStreamArn"])
+func (r *EventStream) DestinationStreamArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destinationStreamArn"])
 }
 
 // The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
-func (r *EventStream) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *EventStream) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // Input properties used for looking up and filtering EventStream resources.

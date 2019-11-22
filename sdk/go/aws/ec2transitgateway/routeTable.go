@@ -57,33 +57,33 @@ func GetRouteTable(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RouteTable) URN() *pulumi.URNOutput {
+func (r *RouteTable) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RouteTable) ID() *pulumi.IDOutput {
+func (r *RouteTable) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Boolean whether this is the default association route table for the EC2 Transit Gateway.
-func (r *RouteTable) DefaultAssociationRouteTable() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["defaultAssociationRouteTable"])
+func (r *RouteTable) DefaultAssociationRouteTable() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["defaultAssociationRouteTable"])
 }
 
 // Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
-func (r *RouteTable) DefaultPropagationRouteTable() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["defaultPropagationRouteTable"])
+func (r *RouteTable) DefaultPropagationRouteTable() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["defaultPropagationRouteTable"])
 }
 
 // Key-value tags for the EC2 Transit Gateway Route Table.
-func (r *RouteTable) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *RouteTable) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Identifier of EC2 Transit Gateway.
-func (r *RouteTable) TransitGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transitGatewayId"])
+func (r *RouteTable) TransitGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["transitGatewayId"])
 }
 
 // Input properties used for looking up and filtering RouteTable resources.

@@ -58,23 +58,23 @@ func GetUploadBuffer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *UploadBuffer) URN() *pulumi.URNOutput {
+func (r *UploadBuffer) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *UploadBuffer) ID() *pulumi.IDOutput {
+func (r *UploadBuffer) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-func (r *UploadBuffer) DiskId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["diskId"])
+func (r *UploadBuffer) DiskId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["diskId"])
 }
 
 // The Amazon Resource Name (ARN) of the gateway.
-func (r *UploadBuffer) GatewayArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gatewayArn"])
+func (r *UploadBuffer) GatewayArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gatewayArn"])
 }
 
 // Input properties used for looking up and filtering UploadBuffer resources.

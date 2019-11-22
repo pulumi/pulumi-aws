@@ -75,62 +75,62 @@ func GetGraphQLApi(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *GraphQLApi) URN() *pulumi.URNOutput {
+func (r *GraphQLApi) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *GraphQLApi) ID() *pulumi.IDOutput {
+func (r *GraphQLApi) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more additional authentication providers for the GraphqlApi. Defined below.
-func (r *GraphQLApi) AdditionalAuthenticationProviders() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["additionalAuthenticationProviders"])
+func (r *GraphQLApi) AdditionalAuthenticationProviders() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["additionalAuthenticationProviders"])
 }
 
 // The ARN
-func (r *GraphQLApi) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *GraphQLApi) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
-func (r *GraphQLApi) AuthenticationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authenticationType"])
+func (r *GraphQLApi) AuthenticationType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authenticationType"])
 }
 
 // Nested argument containing logging configuration. Defined below.
-func (r *GraphQLApi) LogConfig() *pulumi.Output {
+func (r *GraphQLApi) LogConfig() pulumi.Output {
 	return r.s.State["logConfig"]
 }
 
 // A user-supplied name for the GraphqlApi.
-func (r *GraphQLApi) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *GraphQLApi) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Nested argument containing OpenID Connect configuration. Defined below.
-func (r *GraphQLApi) OpenidConnectConfig() *pulumi.Output {
+func (r *GraphQLApi) OpenidConnectConfig() pulumi.Output {
 	return r.s.State["openidConnectConfig"]
 }
 
 // The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-func (r *GraphQLApi) Schema() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["schema"])
+func (r *GraphQLApi) Schema() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["schema"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *GraphQLApi) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *GraphQLApi) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
-func (r *GraphQLApi) Uris() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["uris"])
+func (r *GraphQLApi) Uris() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["uris"])
 }
 
 // The Amazon Cognito User Pool configuration. Defined below.
-func (r *GraphQLApi) UserPoolConfig() *pulumi.Output {
+func (r *GraphQLApi) UserPoolConfig() pulumi.Output {
 	return r.s.State["userPoolConfig"]
 }
 

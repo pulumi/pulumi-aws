@@ -62,27 +62,27 @@ func GetLifecyclePolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LifecyclePolicy) URN() *pulumi.URNOutput {
+func (r *LifecyclePolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LifecyclePolicy) ID() *pulumi.IDOutput {
+func (r *LifecyclePolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *LifecyclePolicy) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *LifecyclePolicy) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // The registry ID where the repository was created.
-func (r *LifecyclePolicy) RegistryId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["registryId"])
+func (r *LifecyclePolicy) RegistryId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["registryId"])
 }
 
 // Name of the repository to apply the policy.
-func (r *LifecyclePolicy) Repository() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["repository"])
+func (r *LifecyclePolicy) Repository() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["repository"])
 }
 
 // Input properties used for looking up and filtering LifecyclePolicy resources.

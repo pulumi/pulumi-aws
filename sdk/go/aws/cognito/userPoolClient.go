@@ -91,88 +91,88 @@ func GetUserPoolClient(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *UserPoolClient) URN() *pulumi.URNOutput {
+func (r *UserPoolClient) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *UserPoolClient) ID() *pulumi.IDOutput {
+func (r *UserPoolClient) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // List of allowed OAuth flows (code, implicit, client_credentials).
-func (r *UserPoolClient) AllowedOauthFlows() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["allowedOauthFlows"])
+func (r *UserPoolClient) AllowedOauthFlows() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["allowedOauthFlows"])
 }
 
 // Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-func (r *UserPoolClient) AllowedOauthFlowsUserPoolClient() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowedOauthFlowsUserPoolClient"])
+func (r *UserPoolClient) AllowedOauthFlowsUserPoolClient() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowedOauthFlowsUserPoolClient"])
 }
 
 // List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
-func (r *UserPoolClient) AllowedOauthScopes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["allowedOauthScopes"])
+func (r *UserPoolClient) AllowedOauthScopes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["allowedOauthScopes"])
 }
 
 // List of allowed callback URLs for the identity providers.
-func (r *UserPoolClient) CallbackUrls() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["callbackUrls"])
+func (r *UserPoolClient) CallbackUrls() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["callbackUrls"])
 }
 
 // The client secret of the user pool client.
-func (r *UserPoolClient) ClientSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientSecret"])
+func (r *UserPoolClient) ClientSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientSecret"])
 }
 
 // The default redirect URI. Must be in the list of callback URLs.
-func (r *UserPoolClient) DefaultRedirectUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultRedirectUri"])
+func (r *UserPoolClient) DefaultRedirectUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultRedirectUri"])
 }
 
 // List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
-func (r *UserPoolClient) ExplicitAuthFlows() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["explicitAuthFlows"])
+func (r *UserPoolClient) ExplicitAuthFlows() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["explicitAuthFlows"])
 }
 
 // Should an application secret be generated.
-func (r *UserPoolClient) GenerateSecret() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["generateSecret"])
+func (r *UserPoolClient) GenerateSecret() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["generateSecret"])
 }
 
 // List of allowed logout URLs for the identity providers.
-func (r *UserPoolClient) LogoutUrls() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["logoutUrls"])
+func (r *UserPoolClient) LogoutUrls() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["logoutUrls"])
 }
 
 // The name of the application client.
-func (r *UserPoolClient) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *UserPoolClient) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // List of user pool attributes the application client can read from.
-func (r *UserPoolClient) ReadAttributes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["readAttributes"])
+func (r *UserPoolClient) ReadAttributes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["readAttributes"])
 }
 
 // The time limit in days refresh tokens are valid for.
-func (r *UserPoolClient) RefreshTokenValidity() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["refreshTokenValidity"])
+func (r *UserPoolClient) RefreshTokenValidity() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["refreshTokenValidity"])
 }
 
 // List of provider names for the identity providers that are supported on this client.
-func (r *UserPoolClient) SupportedIdentityProviders() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["supportedIdentityProviders"])
+func (r *UserPoolClient) SupportedIdentityProviders() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["supportedIdentityProviders"])
 }
 
 // The user pool the client belongs to.
-func (r *UserPoolClient) UserPoolId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userPoolId"])
+func (r *UserPoolClient) UserPoolId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userPoolId"])
 }
 
 // List of user pool attributes the application client can write to.
-func (r *UserPoolClient) WriteAttributes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["writeAttributes"])
+func (r *UserPoolClient) WriteAttributes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["writeAttributes"])
 }
 
 // Input properties used for looking up and filtering UserPoolClient resources.

@@ -82,86 +82,86 @@ func GetClusterSnapshot(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ClusterSnapshot) URN() *pulumi.URNOutput {
+func (r *ClusterSnapshot) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ClusterSnapshot) ID() *pulumi.IDOutput {
+func (r *ClusterSnapshot) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the allocated storage size in gigabytes (GB).
-func (r *ClusterSnapshot) AllocatedStorage() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["allocatedStorage"])
+func (r *ClusterSnapshot) AllocatedStorage() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["allocatedStorage"])
 }
 
 // List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-func (r *ClusterSnapshot) AvailabilityZones() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["availabilityZones"])
+func (r *ClusterSnapshot) AvailabilityZones() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["availabilityZones"])
 }
 
 // The DB Cluster Identifier from which to take the snapshot.
-func (r *ClusterSnapshot) DbClusterIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbClusterIdentifier"])
+func (r *ClusterSnapshot) DbClusterIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbClusterIdentifier"])
 }
 
 // The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-func (r *ClusterSnapshot) DbClusterSnapshotArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbClusterSnapshotArn"])
+func (r *ClusterSnapshot) DbClusterSnapshotArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbClusterSnapshotArn"])
 }
 
 // The Identifier for the snapshot.
-func (r *ClusterSnapshot) DbClusterSnapshotIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbClusterSnapshotIdentifier"])
+func (r *ClusterSnapshot) DbClusterSnapshotIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbClusterSnapshotIdentifier"])
 }
 
 // Specifies the name of the database engine.
-func (r *ClusterSnapshot) Engine() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engine"])
+func (r *ClusterSnapshot) Engine() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engine"])
 }
 
 // Version of the database engine for this DB cluster snapshot.
-func (r *ClusterSnapshot) EngineVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
+func (r *ClusterSnapshot) EngineVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
 // If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-func (r *ClusterSnapshot) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *ClusterSnapshot) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // License model information for the restored DB cluster.
-func (r *ClusterSnapshot) LicenseModel() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["licenseModel"])
+func (r *ClusterSnapshot) LicenseModel() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["licenseModel"])
 }
 
 // Port that the DB cluster was listening on at the time of the snapshot.
-func (r *ClusterSnapshot) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *ClusterSnapshot) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
-func (r *ClusterSnapshot) SnapshotType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["snapshotType"])
+func (r *ClusterSnapshot) SnapshotType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["snapshotType"])
 }
 
-func (r *ClusterSnapshot) SourceDbClusterSnapshotArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceDbClusterSnapshotArn"])
+func (r *ClusterSnapshot) SourceDbClusterSnapshotArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceDbClusterSnapshotArn"])
 }
 
 // The status of this DB Cluster Snapshot.
-func (r *ClusterSnapshot) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *ClusterSnapshot) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Specifies whether the DB cluster snapshot is encrypted.
-func (r *ClusterSnapshot) StorageEncrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["storageEncrypted"])
+func (r *ClusterSnapshot) StorageEncrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["storageEncrypted"])
 }
 
 // The VPC ID associated with the DB cluster snapshot.
-func (r *ClusterSnapshot) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *ClusterSnapshot) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering ClusterSnapshot resources.

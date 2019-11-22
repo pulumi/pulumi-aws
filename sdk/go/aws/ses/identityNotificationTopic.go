@@ -62,33 +62,33 @@ func GetIdentityNotificationTopic(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *IdentityNotificationTopic) URN() *pulumi.URNOutput {
+func (r *IdentityNotificationTopic) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *IdentityNotificationTopic) ID() *pulumi.IDOutput {
+func (r *IdentityNotificationTopic) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
-func (r *IdentityNotificationTopic) Identity() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identity"])
+func (r *IdentityNotificationTopic) Identity() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identity"])
 }
 
 // Whether SES should include original email headers in SNS notifications of this type. *false* by default.
-func (r *IdentityNotificationTopic) IncludeOriginalHeaders() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["includeOriginalHeaders"])
+func (r *IdentityNotificationTopic) IncludeOriginalHeaders() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["includeOriginalHeaders"])
 }
 
 // The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
-func (r *IdentityNotificationTopic) NotificationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["notificationType"])
+func (r *IdentityNotificationTopic) NotificationType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["notificationType"])
 }
 
 // The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
-func (r *IdentityNotificationTopic) TopicArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["topicArn"])
+func (r *IdentityNotificationTopic) TopicArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["topicArn"])
 }
 
 // Input properties used for looking up and filtering IdentityNotificationTopic resources.

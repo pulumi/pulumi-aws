@@ -73,53 +73,53 @@ func GetLinkAggregationGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LinkAggregationGroup) URN() *pulumi.URNOutput {
+func (r *LinkAggregationGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LinkAggregationGroup) ID() *pulumi.IDOutput {
+func (r *LinkAggregationGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the LAG.
 // * `jumboFrameCapable` -Indicates whether jumbo frames (9001 MTU) are supported.
-func (r *LinkAggregationGroup) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *LinkAggregationGroup) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The bandwidth of the individual physical connections bundled by the LAG. Available values: 1Gbps, 10Gbps. Case sensitive.
-func (r *LinkAggregationGroup) ConnectionsBandwidth() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["connectionsBandwidth"])
+func (r *LinkAggregationGroup) ConnectionsBandwidth() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["connectionsBandwidth"])
 }
 
 // A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
-func (r *LinkAggregationGroup) ForceDestroy() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
+func (r *LinkAggregationGroup) ForceDestroy() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["forceDestroy"])
 }
 
 // Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-func (r *LinkAggregationGroup) HasLogicalRedundancy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hasLogicalRedundancy"])
+func (r *LinkAggregationGroup) HasLogicalRedundancy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hasLogicalRedundancy"])
 }
 
-func (r *LinkAggregationGroup) JumboFrameCapable() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["jumboFrameCapable"])
+func (r *LinkAggregationGroup) JumboFrameCapable() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["jumboFrameCapable"])
 }
 
 // The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-func (r *LinkAggregationGroup) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *LinkAggregationGroup) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the LAG.
-func (r *LinkAggregationGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LinkAggregationGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *LinkAggregationGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *LinkAggregationGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering LinkAggregationGroup resources.

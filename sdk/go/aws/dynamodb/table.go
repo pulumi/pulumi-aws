@@ -103,111 +103,111 @@ func GetTable(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Table) URN() *pulumi.URNOutput {
+func (r *Table) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Table) ID() *pulumi.IDOutput {
+func (r *Table) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The arn of the table
-func (r *Table) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Table) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
-func (r *Table) Attributes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["attributes"])
+func (r *Table) Attributes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["attributes"])
 }
 
 // Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
-func (r *Table) BillingMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["billingMode"])
+func (r *Table) BillingMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["billingMode"])
 }
 
 // Describe a GSI for the table;
 // subject to the normal limits on the number of GSIs, projected
 // attributes, etc.
-func (r *Table) GlobalSecondaryIndexes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["globalSecondaryIndexes"])
+func (r *Table) GlobalSecondaryIndexes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["globalSecondaryIndexes"])
 }
 
 // The name of the hash key in the index; must be
 // defined as an attribute in the resource.
-func (r *Table) HashKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hashKey"])
+func (r *Table) HashKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hashKey"])
 }
 
 // Describe an LSI on the table;
 // these can only be allocated *at creation* so you cannot change this
 // definition after you have created the resource.
-func (r *Table) LocalSecondaryIndexes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["localSecondaryIndexes"])
+func (r *Table) LocalSecondaryIndexes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["localSecondaryIndexes"])
 }
 
 // The name of the index
-func (r *Table) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Table) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Point-in-time recovery options.
-func (r *Table) PointInTimeRecovery() *pulumi.Output {
+func (r *Table) PointInTimeRecovery() pulumi.Output {
 	return r.s.State["pointInTimeRecovery"]
 }
 
 // The name of the range key; must be defined
-func (r *Table) RangeKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rangeKey"])
+func (r *Table) RangeKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rangeKey"])
 }
 
 // The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
-func (r *Table) ReadCapacity() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["readCapacity"])
+func (r *Table) ReadCapacity() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["readCapacity"])
 }
 
 // Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
-func (r *Table) ServerSideEncryption() *pulumi.Output {
+func (r *Table) ServerSideEncryption() pulumi.Output {
 	return r.s.State["serverSideEncryption"]
 }
 
 // The ARN of the Table Stream. Only available when `streamEnabled = true`
-func (r *Table) StreamArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["streamArn"])
+func (r *Table) StreamArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["streamArn"])
 }
 
 // Indicates whether Streams are to be enabled (true) or disabled (false).
-func (r *Table) StreamEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["streamEnabled"])
+func (r *Table) StreamEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["streamEnabled"])
 }
 
 // A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
 // a unique identifier for the stream on its own. However, the combination of AWS customer ID,
 // table name and this field is guaranteed to be unique.
 // It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
-func (r *Table) StreamLabel() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["streamLabel"])
+func (r *Table) StreamLabel() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["streamLabel"])
 }
 
 // When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
-func (r *Table) StreamViewType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["streamViewType"])
+func (r *Table) StreamViewType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["streamViewType"])
 }
 
 // A map of tags to populate on the created table.
-func (r *Table) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Table) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Defines ttl, has two properties, and can only be specified once:
-func (r *Table) Ttl() *pulumi.Output {
+func (r *Table) Ttl() pulumi.Output {
 	return r.s.State["ttl"]
 }
 
 // The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
-func (r *Table) WriteCapacity() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["writeCapacity"])
+func (r *Table) WriteCapacity() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["writeCapacity"])
 }
 
 // Input properties used for looking up and filtering Table resources.

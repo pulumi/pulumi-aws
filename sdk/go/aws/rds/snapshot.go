@@ -93,111 +93,111 @@ func GetSnapshot(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Snapshot) URN() *pulumi.URNOutput {
+func (r *Snapshot) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Snapshot) ID() *pulumi.IDOutput {
+func (r *Snapshot) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the allocated storage size in gigabytes (GB).
-func (r *Snapshot) AllocatedStorage() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["allocatedStorage"])
+func (r *Snapshot) AllocatedStorage() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["allocatedStorage"])
 }
 
 // Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-func (r *Snapshot) AvailabilityZone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
+func (r *Snapshot) AvailabilityZone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
 // The DB Instance Identifier from which to take the snapshot.
-func (r *Snapshot) DbInstanceIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbInstanceIdentifier"])
+func (r *Snapshot) DbInstanceIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbInstanceIdentifier"])
 }
 
 // The Amazon Resource Name (ARN) for the DB snapshot.
-func (r *Snapshot) DbSnapshotArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbSnapshotArn"])
+func (r *Snapshot) DbSnapshotArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbSnapshotArn"])
 }
 
 // The Identifier for the snapshot.
-func (r *Snapshot) DbSnapshotIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbSnapshotIdentifier"])
+func (r *Snapshot) DbSnapshotIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbSnapshotIdentifier"])
 }
 
 // Specifies whether the DB snapshot is encrypted.
-func (r *Snapshot) Encrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["encrypted"])
+func (r *Snapshot) Encrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["encrypted"])
 }
 
 // Specifies the name of the database engine.
-func (r *Snapshot) Engine() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engine"])
+func (r *Snapshot) Engine() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engine"])
 }
 
 // Specifies the version of the database engine.
-func (r *Snapshot) EngineVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
+func (r *Snapshot) EngineVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
 // Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
-func (r *Snapshot) Iops() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["iops"])
+func (r *Snapshot) Iops() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["iops"])
 }
 
 // The ARN for the KMS encryption key.
-func (r *Snapshot) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *Snapshot) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // License model information for the restored DB instance.
-func (r *Snapshot) LicenseModel() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["licenseModel"])
+func (r *Snapshot) LicenseModel() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["licenseModel"])
 }
 
 // Provides the option group name for the DB snapshot.
-func (r *Snapshot) OptionGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["optionGroupName"])
+func (r *Snapshot) OptionGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["optionGroupName"])
 }
 
-func (r *Snapshot) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *Snapshot) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
-func (r *Snapshot) SnapshotType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["snapshotType"])
+func (r *Snapshot) SnapshotType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["snapshotType"])
 }
 
 // The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
-func (r *Snapshot) SourceDbSnapshotIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceDbSnapshotIdentifier"])
+func (r *Snapshot) SourceDbSnapshotIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceDbSnapshotIdentifier"])
 }
 
 // The region that the DB snapshot was created in or copied from.
-func (r *Snapshot) SourceRegion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceRegion"])
+func (r *Snapshot) SourceRegion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceRegion"])
 }
 
 // Specifies the status of this DB snapshot.
-func (r *Snapshot) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Snapshot) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Specifies the storage type associated with DB snapshot.
-func (r *Snapshot) StorageType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageType"])
+func (r *Snapshot) StorageType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageType"])
 }
 
 // Key-value mapping of resource tags
-func (r *Snapshot) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Snapshot) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the storage type associated with DB snapshot.
-func (r *Snapshot) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *Snapshot) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering Snapshot resources.

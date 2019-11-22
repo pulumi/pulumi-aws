@@ -107,107 +107,107 @@ func GetStaticWebLayer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *StaticWebLayer) URN() *pulumi.URNOutput {
+func (r *StaticWebLayer) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *StaticWebLayer) ID() *pulumi.IDOutput {
+func (r *StaticWebLayer) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether to automatically assign an elastic IP address to the layer's instances.
-func (r *StaticWebLayer) AutoAssignElasticIps() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoAssignElasticIps"])
+func (r *StaticWebLayer) AutoAssignElasticIps() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoAssignElasticIps"])
 }
 
 // For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-func (r *StaticWebLayer) AutoAssignPublicIps() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoAssignPublicIps"])
+func (r *StaticWebLayer) AutoAssignPublicIps() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoAssignPublicIps"])
 }
 
 // Whether to enable auto-healing for the layer.
-func (r *StaticWebLayer) AutoHealing() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoHealing"])
+func (r *StaticWebLayer) AutoHealing() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoHealing"])
 }
 
-func (r *StaticWebLayer) CustomConfigureRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customConfigureRecipes"])
+func (r *StaticWebLayer) CustomConfigureRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customConfigureRecipes"])
 }
 
-func (r *StaticWebLayer) CustomDeployRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customDeployRecipes"])
+func (r *StaticWebLayer) CustomDeployRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customDeployRecipes"])
 }
 
 // The ARN of an IAM profile that will be used for the layer's instances.
-func (r *StaticWebLayer) CustomInstanceProfileArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customInstanceProfileArn"])
+func (r *StaticWebLayer) CustomInstanceProfileArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customInstanceProfileArn"])
 }
 
-func (r *StaticWebLayer) CustomJson() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customJson"])
+func (r *StaticWebLayer) CustomJson() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customJson"])
 }
 
 // Ids for a set of security groups to apply to the layer's instances.
-func (r *StaticWebLayer) CustomSecurityGroupIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customSecurityGroupIds"])
+func (r *StaticWebLayer) CustomSecurityGroupIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customSecurityGroupIds"])
 }
 
-func (r *StaticWebLayer) CustomSetupRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customSetupRecipes"])
+func (r *StaticWebLayer) CustomSetupRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customSetupRecipes"])
 }
 
-func (r *StaticWebLayer) CustomShutdownRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customShutdownRecipes"])
+func (r *StaticWebLayer) CustomShutdownRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customShutdownRecipes"])
 }
 
-func (r *StaticWebLayer) CustomUndeployRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customUndeployRecipes"])
+func (r *StaticWebLayer) CustomUndeployRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customUndeployRecipes"])
 }
 
 // Whether to enable Elastic Load Balancing connection draining.
-func (r *StaticWebLayer) DrainElbOnShutdown() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
+func (r *StaticWebLayer) DrainElbOnShutdown() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
 }
 
 // `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-func (r *StaticWebLayer) EbsVolumes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
+func (r *StaticWebLayer) EbsVolumes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
 }
 
 // Name of an Elastic Load Balancer to attach to this layer
-func (r *StaticWebLayer) ElasticLoadBalancer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["elasticLoadBalancer"])
+func (r *StaticWebLayer) ElasticLoadBalancer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["elasticLoadBalancer"])
 }
 
 // Whether to install OS and package updates on each instance when it boots.
-func (r *StaticWebLayer) InstallUpdatesOnBoot() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
+func (r *StaticWebLayer) InstallUpdatesOnBoot() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
 }
 
 // The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-func (r *StaticWebLayer) InstanceShutdownTimeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["instanceShutdownTimeout"])
+func (r *StaticWebLayer) InstanceShutdownTimeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["instanceShutdownTimeout"])
 }
 
 // A human-readable name for the layer.
-func (r *StaticWebLayer) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *StaticWebLayer) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The id of the stack the layer will belong to.
-func (r *StaticWebLayer) StackId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stackId"])
+func (r *StaticWebLayer) StackId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stackId"])
 }
 
 // Names of a set of system packages to install on the layer's instances.
-func (r *StaticWebLayer) SystemPackages() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["systemPackages"])
+func (r *StaticWebLayer) SystemPackages() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["systemPackages"])
 }
 
 // Whether to use EBS-optimized instances.
-func (r *StaticWebLayer) UseEbsOptimizedInstances() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["useEbsOptimizedInstances"])
+func (r *StaticWebLayer) UseEbsOptimizedInstances() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["useEbsOptimizedInstances"])
 }
 
 // Input properties used for looking up and filtering StaticWebLayer resources.

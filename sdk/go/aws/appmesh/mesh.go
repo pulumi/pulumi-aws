@@ -58,43 +58,43 @@ func GetMesh(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Mesh) URN() *pulumi.URNOutput {
+func (r *Mesh) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Mesh) ID() *pulumi.IDOutput {
+func (r *Mesh) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the service mesh.
-func (r *Mesh) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Mesh) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The creation date of the service mesh.
-func (r *Mesh) CreatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdDate"])
+func (r *Mesh) CreatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdDate"])
 }
 
 // The last update date of the service mesh.
-func (r *Mesh) LastUpdatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
+func (r *Mesh) LastUpdatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
 }
 
 // The name to use for the service mesh.
-func (r *Mesh) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Mesh) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The service mesh specification to apply.
-func (r *Mesh) Spec() *pulumi.Output {
+func (r *Mesh) Spec() pulumi.Output {
 	return r.s.State["spec"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Mesh) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Mesh) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Mesh resources.

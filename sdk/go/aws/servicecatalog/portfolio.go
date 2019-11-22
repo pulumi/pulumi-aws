@@ -59,41 +59,41 @@ func GetPortfolio(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Portfolio) URN() *pulumi.URNOutput {
+func (r *Portfolio) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Portfolio) ID() *pulumi.IDOutput {
+func (r *Portfolio) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *Portfolio) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Portfolio) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
-func (r *Portfolio) CreatedTime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdTime"])
+func (r *Portfolio) CreatedTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdTime"])
 }
 
 // Description of the portfolio
-func (r *Portfolio) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Portfolio) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the portfolio.
-func (r *Portfolio) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Portfolio) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Name of the person or organization who owns the portfolio.
-func (r *Portfolio) ProviderName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["providerName"])
+func (r *Portfolio) ProviderName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["providerName"])
 }
 
 // Tags to apply to the connection.
-func (r *Portfolio) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Portfolio) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Portfolio resources.

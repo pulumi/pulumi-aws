@@ -71,53 +71,53 @@ func GetRepository(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Repository) URN() *pulumi.URNOutput {
+func (r *Repository) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Repository) ID() *pulumi.IDOutput {
+func (r *Repository) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the repository
-func (r *Repository) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Repository) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The URL to use for cloning the repository over HTTPS.
-func (r *Repository) CloneUrlHttp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cloneUrlHttp"])
+func (r *Repository) CloneUrlHttp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cloneUrlHttp"])
 }
 
 // The URL to use for cloning the repository over SSH.
-func (r *Repository) CloneUrlSsh() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cloneUrlSsh"])
+func (r *Repository) CloneUrlSsh() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cloneUrlSsh"])
 }
 
 // The default branch of the repository. The branch specified here needs to exist.
-func (r *Repository) DefaultBranch() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultBranch"])
+func (r *Repository) DefaultBranch() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultBranch"])
 }
 
 // The description of the repository. This needs to be less than 1000 characters
-func (r *Repository) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Repository) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The ID of the repository
-func (r *Repository) RepositoryId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["repositoryId"])
+func (r *Repository) RepositoryId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["repositoryId"])
 }
 
 // The name for the repository. This needs to be less than 100 characters.
-func (r *Repository) RepositoryName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["repositoryName"])
+func (r *Repository) RepositoryName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["repositoryName"])
 }
 
 // Key-value mapping of resource tags
-func (r *Repository) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Repository) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Repository resources.

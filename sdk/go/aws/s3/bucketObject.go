@@ -115,135 +115,135 @@ func GetBucketObject(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *BucketObject) URN() *pulumi.URNOutput {
+func (r *BucketObject) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *BucketObject) ID() *pulumi.IDOutput {
+func (r *BucketObject) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
-func (r *BucketObject) Acl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["acl"])
+func (r *BucketObject) Acl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["acl"])
 }
 
 // The name of the bucket to put the file in.
-func (r *BucketObject) Bucket() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bucket"])
+func (r *BucketObject) Bucket() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bucket"])
 }
 
 // Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-func (r *BucketObject) CacheControl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cacheControl"])
+func (r *BucketObject) CacheControl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cacheControl"])
 }
 
 // Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
-func (r *BucketObject) Content() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["content"])
+func (r *BucketObject) Content() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["content"])
 }
 
 // Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
-func (r *BucketObject) ContentBase64() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentBase64"])
+func (r *BucketObject) ContentBase64() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentBase64"])
 }
 
 // Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
-func (r *BucketObject) ContentDisposition() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentDisposition"])
+func (r *BucketObject) ContentDisposition() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentDisposition"])
 }
 
 // Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
-func (r *BucketObject) ContentEncoding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentEncoding"])
+func (r *BucketObject) ContentEncoding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentEncoding"])
 }
 
 // The language the content is in e.g. en-US or en-GB.
-func (r *BucketObject) ContentLanguage() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentLanguage"])
+func (r *BucketObject) ContentLanguage() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentLanguage"])
 }
 
 // A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
-func (r *BucketObject) ContentType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentType"])
+func (r *BucketObject) ContentType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentType"])
 }
 
 // Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
 // This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`.
-func (r *BucketObject) Etag() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["etag"])
+func (r *BucketObject) Etag() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["etag"])
 }
 
 // Allow the object to be deleted by removing any legal hold on any object version.
 // Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
-func (r *BucketObject) ForceDestroy() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
+func (r *BucketObject) ForceDestroy() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["forceDestroy"])
 }
 
 // The name of the object once it is in the bucket.
-func (r *BucketObject) Key() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["key"])
+func (r *BucketObject) Key() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["key"])
 }
 
 // Specifies the AWS KMS Key ARN to use for object encryption.
 // This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
 // use the exported `arn` attribute:
 // `kmsKeyId = "${aws_kms_key.foo.arn}"`
-func (r *BucketObject) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *BucketObject) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
-func (r *BucketObject) Metadata() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["metadata"])
+func (r *BucketObject) Metadata() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["metadata"])
 }
 
 // The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
-func (r *BucketObject) ObjectLockLegalHoldStatus() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["objectLockLegalHoldStatus"])
+func (r *BucketObject) ObjectLockLegalHoldStatus() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["objectLockLegalHoldStatus"])
 }
 
 // The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
-func (r *BucketObject) ObjectLockMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["objectLockMode"])
+func (r *BucketObject) ObjectLockMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["objectLockMode"])
 }
 
 // The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
-func (r *BucketObject) ObjectLockRetainUntilDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["objectLockRetainUntilDate"])
+func (r *BucketObject) ObjectLockRetainUntilDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["objectLockRetainUntilDate"])
 }
 
 // Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
-func (r *BucketObject) ServerSideEncryption() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverSideEncryption"])
+func (r *BucketObject) ServerSideEncryption() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverSideEncryption"])
 }
 
 // The path to a file that will be read and uploaded as raw bytes for the object content.
-func (r *BucketObject) Source() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["source"])
+func (r *BucketObject) Source() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["source"])
 }
 
 // Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
 // for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
-func (r *BucketObject) StorageClass() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageClass"])
+func (r *BucketObject) StorageClass() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageClass"])
 }
 
 // A mapping of tags to assign to the object.
-func (r *BucketObject) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *BucketObject) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // A unique version ID value for the object, if bucket versioning
 // is enabled.
-func (r *BucketObject) VersionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["versionId"])
+func (r *BucketObject) VersionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["versionId"])
 }
 
 // Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-func (r *BucketObject) WebsiteRedirect() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["websiteRedirect"])
+func (r *BucketObject) WebsiteRedirect() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["websiteRedirect"])
 }
 
 // Input properties used for looking up and filtering BucketObject resources.

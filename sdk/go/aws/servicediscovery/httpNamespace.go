@@ -48,28 +48,28 @@ func GetHttpNamespace(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *HttpNamespace) URN() *pulumi.URNOutput {
+func (r *HttpNamespace) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *HttpNamespace) ID() *pulumi.IDOutput {
+func (r *HttpNamespace) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN that Amazon Route 53 assigns to the namespace when you create it.
-func (r *HttpNamespace) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *HttpNamespace) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The description that you specify for the namespace when you create it.
-func (r *HttpNamespace) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *HttpNamespace) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the http namespace.
-func (r *HttpNamespace) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *HttpNamespace) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering HttpNamespace resources.

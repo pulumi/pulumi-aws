@@ -77,44 +77,44 @@ func GetTarget(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Target) URN() *pulumi.URNOutput {
+func (r *Target) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Target) ID() *pulumi.IDOutput {
+func (r *Target) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The max capacity of the scalable target.
-func (r *Target) MaxCapacity() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxCapacity"])
+func (r *Target) MaxCapacity() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxCapacity"])
 }
 
 // The min capacity of the scalable target.
-func (r *Target) MinCapacity() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["minCapacity"])
+func (r *Target) MinCapacity() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["minCapacity"])
 }
 
 // The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-func (r *Target) ResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceId"])
+func (r *Target) ResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceId"])
 }
 
 // The ARN of the IAM role that allows Application
 // AutoScaling to modify your scalable target on your behalf.
-func (r *Target) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *Target) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-func (r *Target) ScalableDimension() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scalableDimension"])
+func (r *Target) ScalableDimension() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scalableDimension"])
 }
 
 // The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-func (r *Target) ServiceNamespace() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceNamespace"])
+func (r *Target) ServiceNamespace() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceNamespace"])
 }
 
 // Input properties used for looking up and filtering Target resources.

@@ -62,33 +62,33 @@ func GetUserProfile(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *UserProfile) URN() *pulumi.URNOutput {
+func (r *UserProfile) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *UserProfile) ID() *pulumi.IDOutput {
+func (r *UserProfile) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether users can specify their own SSH public key through the My Settings page
-func (r *UserProfile) AllowSelfManagement() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowSelfManagement"])
+func (r *UserProfile) AllowSelfManagement() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowSelfManagement"])
 }
 
 // The users public key
-func (r *UserProfile) SshPublicKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sshPublicKey"])
+func (r *UserProfile) SshPublicKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sshPublicKey"])
 }
 
 // The ssh username, with witch this user wants to log in
-func (r *UserProfile) SshUsername() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sshUsername"])
+func (r *UserProfile) SshUsername() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sshUsername"])
 }
 
 // The user's IAM ARN
-func (r *UserProfile) UserArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userArn"])
+func (r *UserProfile) UserArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userArn"])
 }
 
 // Input properties used for looking up and filtering UserProfile resources.

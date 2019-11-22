@@ -86,66 +86,66 @@ func GetInstanceGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *InstanceGroup) URN() *pulumi.URNOutput {
+func (r *InstanceGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *InstanceGroup) ID() *pulumi.IDOutput {
+func (r *InstanceGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-func (r *InstanceGroup) AutoscalingPolicy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["autoscalingPolicy"])
+func (r *InstanceGroup) AutoscalingPolicy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["autoscalingPolicy"])
 }
 
 // If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-func (r *InstanceGroup) BidPrice() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bidPrice"])
+func (r *InstanceGroup) BidPrice() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bidPrice"])
 }
 
 // ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-func (r *InstanceGroup) ClusterId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterId"])
+func (r *InstanceGroup) ClusterId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterId"])
 }
 
 // A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-func (r *InstanceGroup) ConfigurationsJson() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["configurationsJson"])
+func (r *InstanceGroup) ConfigurationsJson() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["configurationsJson"])
 }
 
 // One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
-func (r *InstanceGroup) EbsConfigs() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ebsConfigs"])
+func (r *InstanceGroup) EbsConfigs() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ebsConfigs"])
 }
 
 // Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-func (r *InstanceGroup) EbsOptimized() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["ebsOptimized"])
+func (r *InstanceGroup) EbsOptimized() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["ebsOptimized"])
 }
 
 // target number of instances for the instance group. defaults to 0.
-func (r *InstanceGroup) InstanceCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["instanceCount"])
+func (r *InstanceGroup) InstanceCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["instanceCount"])
 }
 
 // The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-func (r *InstanceGroup) InstanceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceType"])
+func (r *InstanceGroup) InstanceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceType"])
 }
 
 // Human friendly name given to the instance group. Changing this forces a new resource to be created.
-func (r *InstanceGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *InstanceGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *InstanceGroup) RunningInstanceCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["runningInstanceCount"])
+func (r *InstanceGroup) RunningInstanceCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["runningInstanceCount"])
 }
 
-func (r *InstanceGroup) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *InstanceGroup) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Input properties used for looking up and filtering InstanceGroup resources.

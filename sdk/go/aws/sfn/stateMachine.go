@@ -66,43 +66,43 @@ func GetStateMachine(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *StateMachine) URN() *pulumi.URNOutput {
+func (r *StateMachine) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *StateMachine) ID() *pulumi.IDOutput {
+func (r *StateMachine) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The date the state machine was created.
-func (r *StateMachine) CreationDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["creationDate"])
+func (r *StateMachine) CreationDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["creationDate"])
 }
 
 // The Amazon States Language definition of the state machine.
-func (r *StateMachine) Definition() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["definition"])
+func (r *StateMachine) Definition() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["definition"])
 }
 
 // The name of the state machine.
-func (r *StateMachine) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *StateMachine) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-func (r *StateMachine) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *StateMachine) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // The current status of the state machine. Either "ACTIVE" or "DELETING".
-func (r *StateMachine) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *StateMachine) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Key-value mapping of resource tags
-func (r *StateMachine) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *StateMachine) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering StateMachine resources.

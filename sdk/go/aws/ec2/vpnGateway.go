@@ -55,33 +55,33 @@ func GetVpnGateway(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpnGateway) URN() *pulumi.URNOutput {
+func (r *VpnGateway) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpnGateway) ID() *pulumi.IDOutput {
+func (r *VpnGateway) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
-func (r *VpnGateway) AmazonSideAsn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["amazonSideAsn"])
+func (r *VpnGateway) AmazonSideAsn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["amazonSideAsn"])
 }
 
 // The Availability Zone for the virtual private gateway.
-func (r *VpnGateway) AvailabilityZone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
+func (r *VpnGateway) AvailabilityZone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *VpnGateway) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VpnGateway) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The VPC ID to create in.
-func (r *VpnGateway) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *VpnGateway) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering VpnGateway resources.

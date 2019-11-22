@@ -54,23 +54,23 @@ func GetPlacementGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PlacementGroup) URN() *pulumi.URNOutput {
+func (r *PlacementGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PlacementGroup) ID() *pulumi.IDOutput {
+func (r *PlacementGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the placement group.
-func (r *PlacementGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PlacementGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The placement strategy.
-func (r *PlacementGroup) Strategy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["strategy"])
+func (r *PlacementGroup) Strategy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["strategy"])
 }
 
 // Input properties used for looking up and filtering PlacementGroup resources.

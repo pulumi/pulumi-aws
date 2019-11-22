@@ -126,147 +126,147 @@ func GetFunction(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Function) URN() *pulumi.URNOutput {
+func (r *Function) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Function) ID() *pulumi.IDOutput {
+func (r *Function) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) identifying your Lambda Function.
-func (r *Function) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Function) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Nested block to configure the function's *dead letter queue*. See details below.
-func (r *Function) DeadLetterConfig() *pulumi.Output {
+func (r *Function) DeadLetterConfig() pulumi.Output {
 	return r.s.State["deadLetterConfig"]
 }
 
 // Description of what your Lambda Function does.
-func (r *Function) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Function) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The Lambda environment's configuration settings. Fields documented below.
-func (r *Function) Environment() *pulumi.Output {
+func (r *Function) Environment() pulumi.Output {
 	return r.s.State["environment"]
 }
 
 // The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-func (r *Function) Code() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["code"])
+func (r *Function) Code() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["code"])
 }
 
 // A unique name for your Lambda Function.
-func (r *Function) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Function) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The function [entrypoint][3] in your code.
-func (r *Function) Handler() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["handler"])
+func (r *Function) Handler() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["handler"])
 }
 
 // The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
-func (r *Function) InvokeArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["invokeArn"])
+func (r *Function) InvokeArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["invokeArn"])
 }
 
 // The ARN for the KMS encryption key.
-func (r *Function) KmsKeyArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyArn"])
+func (r *Function) KmsKeyArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyArn"])
 }
 
 // The date this resource was last modified.
-func (r *Function) LastModified() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastModified"])
+func (r *Function) LastModified() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastModified"])
 }
 
 // List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
-func (r *Function) Layers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["layers"])
+func (r *Function) Layers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["layers"])
 }
 
 // Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
-func (r *Function) MemorySize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["memorySize"])
+func (r *Function) MemorySize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["memorySize"])
 }
 
 // Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-func (r *Function) Publish() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["publish"])
+func (r *Function) Publish() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["publish"])
 }
 
 // The Amazon Resource Name (ARN) identifying your Lambda Function Version
 // (if versioning is enabled via `publish = true`).
-func (r *Function) QualifiedArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["qualifiedArn"])
+func (r *Function) QualifiedArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["qualifiedArn"])
 }
 
 // The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
-func (r *Function) ReservedConcurrentExecutions() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["reservedConcurrentExecutions"])
+func (r *Function) ReservedConcurrentExecutions() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["reservedConcurrentExecutions"])
 }
 
 // IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
-func (r *Function) Role() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["role"])
+func (r *Function) Role() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["role"])
 }
 
 // See [Runtimes][6] for valid values.
-func (r *Function) Runtime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["runtime"])
+func (r *Function) Runtime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["runtime"])
 }
 
 // The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-func (r *Function) S3Bucket() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3Bucket"])
+func (r *Function) S3Bucket() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["s3Bucket"])
 }
 
 // The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
-func (r *Function) S3Key() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3Key"])
+func (r *Function) S3Key() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["s3Key"])
 }
 
 // The object version containing the function's deployment package. Conflicts with `filename`.
-func (r *Function) S3ObjectVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3ObjectVersion"])
+func (r *Function) S3ObjectVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["s3ObjectVersion"])
 }
 
 // Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
-func (r *Function) SourceCodeHash() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceCodeHash"])
+func (r *Function) SourceCodeHash() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceCodeHash"])
 }
 
 // The size in bytes of the function .zip file.
-func (r *Function) SourceCodeSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["sourceCodeSize"])
+func (r *Function) SourceCodeSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["sourceCodeSize"])
 }
 
 // A mapping of tags to assign to the object.
-func (r *Function) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Function) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
-func (r *Function) Timeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["timeout"])
+func (r *Function) Timeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["timeout"])
 }
 
-func (r *Function) TracingConfig() *pulumi.Output {
+func (r *Function) TracingConfig() pulumi.Output {
 	return r.s.State["tracingConfig"]
 }
 
 // Latest published version of your Lambda Function.
-func (r *Function) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *Function) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
-func (r *Function) VpcConfig() *pulumi.Output {
+func (r *Function) VpcConfig() pulumi.Output {
 	return r.s.State["vpcConfig"]
 }
 

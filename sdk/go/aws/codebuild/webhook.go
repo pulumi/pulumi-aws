@@ -62,43 +62,43 @@ func GetWebhook(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Webhook) URN() *pulumi.URNOutput {
+func (r *Webhook) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Webhook) ID() *pulumi.IDOutput {
+func (r *Webhook) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
-func (r *Webhook) BranchFilter() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["branchFilter"])
+func (r *Webhook) BranchFilter() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["branchFilter"])
 }
 
 // Information about the webhook's trigger. Filter group blocks are documented below.
-func (r *Webhook) FilterGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["filterGroups"])
+func (r *Webhook) FilterGroups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["filterGroups"])
 }
 
 // The CodeBuild endpoint where webhook events are sent.
-func (r *Webhook) PayloadUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["payloadUrl"])
+func (r *Webhook) PayloadUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["payloadUrl"])
 }
 
 // The name of the build project.
-func (r *Webhook) ProjectName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["projectName"])
+func (r *Webhook) ProjectName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["projectName"])
 }
 
 // The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
-func (r *Webhook) Secret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secret"])
+func (r *Webhook) Secret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secret"])
 }
 
 // The URL to the webhook.
-func (r *Webhook) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *Webhook) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // Input properties used for looking up and filtering Webhook resources.

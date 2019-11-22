@@ -69,42 +69,42 @@ func GetReplicationSubnetGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ReplicationSubnetGroup) URN() *pulumi.URNOutput {
+func (r *ReplicationSubnetGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ReplicationSubnetGroup) ID() *pulumi.IDOutput {
+func (r *ReplicationSubnetGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *ReplicationSubnetGroup) ReplicationSubnetGroupArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["replicationSubnetGroupArn"])
+func (r *ReplicationSubnetGroup) ReplicationSubnetGroupArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["replicationSubnetGroupArn"])
 }
 
 // The description for the subnet group.
-func (r *ReplicationSubnetGroup) ReplicationSubnetGroupDescription() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["replicationSubnetGroupDescription"])
+func (r *ReplicationSubnetGroup) ReplicationSubnetGroupDescription() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["replicationSubnetGroupDescription"])
 }
 
 // The name for the replication subnet group. This value is stored as a lowercase string.
-func (r *ReplicationSubnetGroup) ReplicationSubnetGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["replicationSubnetGroupId"])
+func (r *ReplicationSubnetGroup) ReplicationSubnetGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["replicationSubnetGroupId"])
 }
 
 // A list of the EC2 subnet IDs for the subnet group.
-func (r *ReplicationSubnetGroup) SubnetIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subnetIds"])
+func (r *ReplicationSubnetGroup) SubnetIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subnetIds"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ReplicationSubnetGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ReplicationSubnetGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The ID of the VPC the subnet group is in.
-func (r *ReplicationSubnetGroup) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *ReplicationSubnetGroup) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering ReplicationSubnetGroup resources.

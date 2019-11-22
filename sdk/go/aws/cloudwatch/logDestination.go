@@ -61,33 +61,33 @@ func GetLogDestination(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LogDestination) URN() *pulumi.URNOutput {
+func (r *LogDestination) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LogDestination) ID() *pulumi.IDOutput {
+func (r *LogDestination) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) specifying the log destination.
-func (r *LogDestination) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *LogDestination) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A name for the log destination
-func (r *LogDestination) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LogDestination) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
-func (r *LogDestination) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *LogDestination) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // The ARN of the target Amazon Kinesis stream resource for the destination
-func (r *LogDestination) TargetArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetArn"])
+func (r *LogDestination) TargetArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetArn"])
 }
 
 // Input properties used for looking up and filtering LogDestination resources.

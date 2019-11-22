@@ -74,67 +74,67 @@ func GetSecret(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Secret) URN() *pulumi.URNOutput {
+func (r *Secret) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Secret) ID() *pulumi.IDOutput {
+func (r *Secret) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the secret.
-func (r *Secret) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Secret) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A description of the secret.
-func (r *Secret) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Secret) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies the ARN or alias of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
-func (r *Secret) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *Secret) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
-func (r *Secret) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Secret) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *Secret) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *Secret) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-func (r *Secret) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *Secret) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
-func (r *Secret) RecoveryWindowInDays() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["recoveryWindowInDays"])
+func (r *Secret) RecoveryWindowInDays() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["recoveryWindowInDays"])
 }
 
 // Specifies whether automatic rotation is enabled for this secret.
-func (r *Secret) RotationEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["rotationEnabled"])
+func (r *Secret) RotationEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["rotationEnabled"])
 }
 
 // Specifies the ARN of the Lambda function that can rotate the secret.
-func (r *Secret) RotationLambdaArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rotationLambdaArn"])
+func (r *Secret) RotationLambdaArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rotationLambdaArn"])
 }
 
 // A structure that defines the rotation configuration for this secret. Defined below.
-func (r *Secret) RotationRules() *pulumi.Output {
+func (r *Secret) RotationRules() pulumi.Output {
 	return r.s.State["rotationRules"]
 }
 
 // Specifies a key-value map of user-defined tags that are attached to the secret.
-func (r *Secret) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Secret) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Secret resources.

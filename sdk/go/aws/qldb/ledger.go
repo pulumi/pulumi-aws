@@ -52,31 +52,31 @@ func GetLedger(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Ledger) URN() *pulumi.URNOutput {
+func (r *Ledger) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Ledger) ID() *pulumi.IDOutput {
+func (r *Ledger) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the QLDB Ledger
-func (r *Ledger) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Ledger) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
-func (r *Ledger) DeletionProtection() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["deletionProtection"])
+func (r *Ledger) DeletionProtection() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["deletionProtection"])
 }
 
-func (r *Ledger) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Ledger) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Key-value mapping of resource tags
-func (r *Ledger) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Ledger) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Ledger resources.

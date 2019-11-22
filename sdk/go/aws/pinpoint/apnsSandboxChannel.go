@@ -77,61 +77,61 @@ func GetApnsSandboxChannel(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ApnsSandboxChannel) URN() *pulumi.URNOutput {
+func (r *ApnsSandboxChannel) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ApnsSandboxChannel) ID() *pulumi.IDOutput {
+func (r *ApnsSandboxChannel) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The application ID.
-func (r *ApnsSandboxChannel) ApplicationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationId"])
+func (r *ApnsSandboxChannel) ApplicationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationId"])
 }
 
 // The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-func (r *ApnsSandboxChannel) BundleId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bundleId"])
+func (r *ApnsSandboxChannel) BundleId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bundleId"])
 }
 
 // The pem encoded TLS Certificate from Apple.
-func (r *ApnsSandboxChannel) Certificate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificate"])
+func (r *ApnsSandboxChannel) Certificate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificate"])
 }
 
 // The default authentication method used for APNs Sandbox. 
 // __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 // You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 // If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-func (r *ApnsSandboxChannel) DefaultAuthenticationMethod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultAuthenticationMethod"])
+func (r *ApnsSandboxChannel) DefaultAuthenticationMethod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultAuthenticationMethod"])
 }
 
 // Whether the channel is enabled or disabled. Defaults to `true`.
-func (r *ApnsSandboxChannel) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *ApnsSandboxChannel) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // The Certificate Private Key file (ie. `.key` file).
-func (r *ApnsSandboxChannel) PrivateKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateKey"])
+func (r *ApnsSandboxChannel) PrivateKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateKey"])
 }
 
 // The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-func (r *ApnsSandboxChannel) TeamId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["teamId"])
+func (r *ApnsSandboxChannel) TeamId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["teamId"])
 }
 
 // The `.p8` file that you download from your Apple developer account when you create an authentication key. 
-func (r *ApnsSandboxChannel) TokenKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenKey"])
+func (r *ApnsSandboxChannel) TokenKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenKey"])
 }
 
 // The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-func (r *ApnsSandboxChannel) TokenKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenKeyId"])
+func (r *ApnsSandboxChannel) TokenKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenKeyId"])
 }
 
 // Input properties used for looking up and filtering ApnsSandboxChannel resources.

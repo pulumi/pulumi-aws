@@ -105,121 +105,121 @@ func GetCluster(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() *pulumi.URNOutput {
+func (r *Cluster) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() *pulumi.IDOutput {
+func (r *Cluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the DAX cluster
-func (r *Cluster) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Cluster) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // List of Availability Zones in which the
 // nodes will be created
-func (r *Cluster) AvailabilityZones() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["availabilityZones"])
+func (r *Cluster) AvailabilityZones() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["availabilityZones"])
 }
 
 // The DNS name of the DAX cluster without the port appended
-func (r *Cluster) ClusterAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterAddress"])
+func (r *Cluster) ClusterAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterAddress"])
 }
 
 // Group identifier. DAX converts this name to
 // lowercase
-func (r *Cluster) ClusterName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterName"])
+func (r *Cluster) ClusterName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterName"])
 }
 
 // The configuration endpoint for this DAX cluster,
 // consisting of a DNS name and a port number
-func (r *Cluster) ConfigurationEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["configurationEndpoint"])
+func (r *Cluster) ConfigurationEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["configurationEndpoint"])
 }
 
 // Description for the cluster
-func (r *Cluster) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Cluster) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // A valid Amazon Resource Name (ARN) that identifies
 // an IAM role. At runtime, DAX will assume this role and use the role's
 // permissions to access DynamoDB on your behalf
-func (r *Cluster) IamRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iamRoleArn"])
+func (r *Cluster) IamRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iamRoleArn"])
 }
 
 // Specifies the weekly time range for when
 // maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
 // (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
 // `sun:05:00-sun:09:00`
-func (r *Cluster) MaintenanceWindow() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["maintenanceWindow"])
+func (r *Cluster) MaintenanceWindow() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["maintenanceWindow"])
 }
 
 // The compute and memory capacity of the nodes. See
 // [Nodes][1] for supported node types
-func (r *Cluster) NodeType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["nodeType"])
+func (r *Cluster) NodeType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["nodeType"])
 }
 
 // List of node objects including `id`, `address`, `port` and
 // `availabilityZone`. Referenceable e.g. as
 // `${aws_dax_cluster.test.nodes.0.address}`
-func (r *Cluster) Nodes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["nodes"])
+func (r *Cluster) Nodes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["nodes"])
 }
 
 // An Amazon Resource Name (ARN) of an
 // SNS topic to send DAX notifications to. Example:
 // `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-func (r *Cluster) NotificationTopicArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["notificationTopicArn"])
+func (r *Cluster) NotificationTopicArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["notificationTopicArn"])
 }
 
 // Name of the parameter group to associate
 // with this DAX cluster
-func (r *Cluster) ParameterGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["parameterGroupName"])
+func (r *Cluster) ParameterGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["parameterGroupName"])
 }
 
 // The port used by the configuration endpoint
-func (r *Cluster) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *Cluster) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
 // The number of nodes in the DAX cluster. A
 // replication factor of 1 will create a single-node cluster, without any read
 // replicas
-func (r *Cluster) ReplicationFactor() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["replicationFactor"])
+func (r *Cluster) ReplicationFactor() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["replicationFactor"])
 }
 
 // One or more VPC security groups associated
 // with the cluster
-func (r *Cluster) SecurityGroupIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityGroupIds"])
+func (r *Cluster) SecurityGroupIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityGroupIds"])
 }
 
 // Encrypt at rest options
-func (r *Cluster) ServerSideEncryption() *pulumi.Output {
+func (r *Cluster) ServerSideEncryption() pulumi.Output {
 	return r.s.State["serverSideEncryption"]
 }
 
 // Name of the subnet group to be used for the
 // cluster
-func (r *Cluster) SubnetGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetGroupName"])
+func (r *Cluster) SubnetGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetGroupName"])
 }
 
 // A mapping of tags to assign to the resource
-func (r *Cluster) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Cluster) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Cluster resources.

@@ -62,36 +62,36 @@ func GetSslNegotiationPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SslNegotiationPolicy) URN() *pulumi.URNOutput {
+func (r *SslNegotiationPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SslNegotiationPolicy) ID() *pulumi.IDOutput {
+func (r *SslNegotiationPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // An SSL Negotiation policy attribute. Each has two properties:
-func (r *SslNegotiationPolicy) Attributes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["attributes"])
+func (r *SslNegotiationPolicy) Attributes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["attributes"])
 }
 
 // The load balancer port to which the policy
 // should be applied. This must be an active listener on the load
 // balancer.
-func (r *SslNegotiationPolicy) LbPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["lbPort"])
+func (r *SslNegotiationPolicy) LbPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["lbPort"])
 }
 
 // The load balancer to which the policy
 // should be attached.
-func (r *SslNegotiationPolicy) LoadBalancer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadBalancer"])
+func (r *SslNegotiationPolicy) LoadBalancer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadBalancer"])
 }
 
 // The name of the attribute
-func (r *SslNegotiationPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SslNegotiationPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering SslNegotiationPolicy resources.

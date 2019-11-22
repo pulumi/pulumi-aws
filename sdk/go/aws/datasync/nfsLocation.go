@@ -71,42 +71,42 @@ func GetNfsLocation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NfsLocation) URN() *pulumi.URNOutput {
+func (r *NfsLocation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NfsLocation) ID() *pulumi.IDOutput {
+func (r *NfsLocation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
-func (r *NfsLocation) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *NfsLocation) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Configuration block containing information for connecting to the NFS File System.
-func (r *NfsLocation) OnPremConfig() *pulumi.Output {
+func (r *NfsLocation) OnPremConfig() pulumi.Output {
 	return r.s.State["onPremConfig"]
 }
 
 // Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
-func (r *NfsLocation) ServerHostname() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverHostname"])
+func (r *NfsLocation) ServerHostname() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverHostname"])
 }
 
 // Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
-func (r *NfsLocation) Subdirectory() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subdirectory"])
+func (r *NfsLocation) Subdirectory() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subdirectory"])
 }
 
 // Key-value pairs of resource tags to assign to the DataSync Location.
-func (r *NfsLocation) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *NfsLocation) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-func (r *NfsLocation) Uri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uri"])
+func (r *NfsLocation) Uri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uri"])
 }
 
 // Input properties used for looking up and filtering NfsLocation resources.

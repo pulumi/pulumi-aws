@@ -68,58 +68,58 @@ func GetSnapshot(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Snapshot) URN() *pulumi.URNOutput {
+func (r *Snapshot) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Snapshot) ID() *pulumi.IDOutput {
+func (r *Snapshot) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The data encryption key identifier for the snapshot.
-func (r *Snapshot) DataEncryptionKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataEncryptionKeyId"])
+func (r *Snapshot) DataEncryptionKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataEncryptionKeyId"])
 }
 
 // A description of what the snapshot is.
-func (r *Snapshot) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Snapshot) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Whether the snapshot is encrypted.
-func (r *Snapshot) Encrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["encrypted"])
+func (r *Snapshot) Encrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["encrypted"])
 }
 
 // The ARN for the KMS encryption key.
-func (r *Snapshot) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *Snapshot) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-func (r *Snapshot) OwnerAlias() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerAlias"])
+func (r *Snapshot) OwnerAlias() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerAlias"])
 }
 
 // The AWS account ID of the EBS snapshot owner.
-func (r *Snapshot) OwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+func (r *Snapshot) OwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
 // A mapping of tags to assign to the snapshot
-func (r *Snapshot) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Snapshot) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The Volume ID of which to make a snapshot.
-func (r *Snapshot) VolumeId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["volumeId"])
+func (r *Snapshot) VolumeId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["volumeId"])
 }
 
 // The size of the drive in GiBs.
-func (r *Snapshot) VolumeSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["volumeSize"])
+func (r *Snapshot) VolumeSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["volumeSize"])
 }
 
 // Input properties used for looking up and filtering Snapshot resources.

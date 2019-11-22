@@ -59,28 +59,28 @@ func GetLoadBalancerBackendServerPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LoadBalancerBackendServerPolicy) URN() *pulumi.URNOutput {
+func (r *LoadBalancerBackendServerPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LoadBalancerBackendServerPolicy) ID() *pulumi.IDOutput {
+func (r *LoadBalancerBackendServerPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The instance port to apply the policy to.
-func (r *LoadBalancerBackendServerPolicy) InstancePort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["instancePort"])
+func (r *LoadBalancerBackendServerPolicy) InstancePort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["instancePort"])
 }
 
 // The load balancer to attach the policy to.
-func (r *LoadBalancerBackendServerPolicy) LoadBalancerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadBalancerName"])
+func (r *LoadBalancerBackendServerPolicy) LoadBalancerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadBalancerName"])
 }
 
 // List of Policy Names to apply to the backend server.
-func (r *LoadBalancerBackendServerPolicy) PolicyNames() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["policyNames"])
+func (r *LoadBalancerBackendServerPolicy) PolicyNames() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["policyNames"])
 }
 
 // Input properties used for looking up and filtering LoadBalancerBackendServerPolicy resources.

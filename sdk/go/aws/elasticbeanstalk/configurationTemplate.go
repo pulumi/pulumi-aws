@@ -76,46 +76,46 @@ func GetConfigurationTemplate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ConfigurationTemplate) URN() *pulumi.URNOutput {
+func (r *ConfigurationTemplate) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ConfigurationTemplate) ID() *pulumi.IDOutput {
+func (r *ConfigurationTemplate) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // name of the application to associate with this configuration template
-func (r *ConfigurationTemplate) Application() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["application"])
+func (r *ConfigurationTemplate) Application() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["application"])
 }
 
 // Short description of the Template
-func (r *ConfigurationTemplate) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ConfigurationTemplate) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The ID of the environment used with this configuration template
-func (r *ConfigurationTemplate) EnvironmentId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["environmentId"])
+func (r *ConfigurationTemplate) EnvironmentId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["environmentId"])
 }
 
 // A unique name for this Template.
-func (r *ConfigurationTemplate) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ConfigurationTemplate) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Option settings to configure the new Environment. These
 // override specific values that are set as defaults. The format is detailed
 // below in Option Settings
-func (r *ConfigurationTemplate) Settings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["settings"])
+func (r *ConfigurationTemplate) Settings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["settings"])
 }
 
 // A solution stack to base your Template
 // off of. Example stacks can be found in the [Amazon API documentation][1]
-func (r *ConfigurationTemplate) SolutionStackName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["solutionStackName"])
+func (r *ConfigurationTemplate) SolutionStackName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["solutionStackName"])
 }
 
 // Input properties used for looking up and filtering ConfigurationTemplate resources.

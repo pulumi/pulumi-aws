@@ -65,38 +65,38 @@ func GetSelection(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Selection) URN() *pulumi.URNOutput {
+func (r *Selection) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Selection) ID() *pulumi.IDOutput {
+func (r *Selection) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-func (r *Selection) IamRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iamRoleArn"])
+func (r *Selection) IamRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iamRoleArn"])
 }
 
 // The display name of a resource selection document.
-func (r *Selection) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Selection) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The backup plan ID to be associated with the selection of resources.
-func (r *Selection) PlanId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["planId"])
+func (r *Selection) PlanId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["planId"])
 }
 
 // An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
-func (r *Selection) Resources() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["resources"])
+func (r *Selection) Resources() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["resources"])
 }
 
 // Tag-based conditions used to specify a set of resources to assign to a backup plan.
-func (r *Selection) SelectionTags() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["selectionTags"])
+func (r *Selection) SelectionTags() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["selectionTags"])
 }
 
 // Input properties used for looking up and filtering Selection resources.

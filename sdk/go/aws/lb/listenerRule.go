@@ -69,38 +69,38 @@ func GetListenerRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ListenerRule) URN() *pulumi.URNOutput {
+func (r *ListenerRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ListenerRule) ID() *pulumi.IDOutput {
+func (r *ListenerRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // An Action block. Action blocks are documented below.
-func (r *ListenerRule) Actions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["actions"])
+func (r *ListenerRule) Actions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["actions"])
 }
 
 // The ARN of the rule (matches `id`)
-func (r *ListenerRule) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ListenerRule) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A Condition block. Condition blocks are documented below.
-func (r *ListenerRule) Conditions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["conditions"])
+func (r *ListenerRule) Conditions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["conditions"])
 }
 
 // The ARN of the listener to which to attach the rule.
-func (r *ListenerRule) ListenerArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["listenerArn"])
+func (r *ListenerRule) ListenerArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["listenerArn"])
 }
 
 // The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-func (r *ListenerRule) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *ListenerRule) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // Input properties used for looking up and filtering ListenerRule resources.

@@ -93,84 +93,84 @@ func GetCluster(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() *pulumi.URNOutput {
+func (r *Cluster) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() *pulumi.IDOutput {
+func (r *Cluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-func (r *Cluster) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Cluster) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
-func (r *Cluster) BootstrapBrokers() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bootstrapBrokers"])
+func (r *Cluster) BootstrapBrokers() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bootstrapBrokers"])
 }
 
 // A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
-func (r *Cluster) BootstrapBrokersTls() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bootstrapBrokersTls"])
+func (r *Cluster) BootstrapBrokersTls() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bootstrapBrokersTls"])
 }
 
 // Configuration block for the broker nodes of the Kafka cluster.
-func (r *Cluster) BrokerNodeGroupInfo() *pulumi.Output {
+func (r *Cluster) BrokerNodeGroupInfo() pulumi.Output {
 	return r.s.State["brokerNodeGroupInfo"]
 }
 
 // Configuration block for specifying a client authentication. See below.
-func (r *Cluster) ClientAuthentication() *pulumi.Output {
+func (r *Cluster) ClientAuthentication() pulumi.Output {
 	return r.s.State["clientAuthentication"]
 }
 
 // Name of the MSK cluster.
-func (r *Cluster) ClusterName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterName"])
+func (r *Cluster) ClusterName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterName"])
 }
 
 // Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
-func (r *Cluster) ConfigurationInfo() *pulumi.Output {
+func (r *Cluster) ConfigurationInfo() pulumi.Output {
 	return r.s.State["configurationInfo"]
 }
 
 // Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
 // * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
-func (r *Cluster) CurrentVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["currentVersion"])
+func (r *Cluster) CurrentVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["currentVersion"])
 }
 
 // Configuration block for specifying encryption. See below.
-func (r *Cluster) EncryptionInfo() *pulumi.Output {
+func (r *Cluster) EncryptionInfo() pulumi.Output {
 	return r.s.State["encryptionInfo"]
 }
 
 // Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
-func (r *Cluster) EnhancedMonitoring() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["enhancedMonitoring"])
+func (r *Cluster) EnhancedMonitoring() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["enhancedMonitoring"])
 }
 
 // Specify the desired Kafka software version.
-func (r *Cluster) KafkaVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kafkaVersion"])
+func (r *Cluster) KafkaVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kafkaVersion"])
 }
 
 // The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
-func (r *Cluster) NumberOfBrokerNodes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["numberOfBrokerNodes"])
+func (r *Cluster) NumberOfBrokerNodes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["numberOfBrokerNodes"])
 }
 
 // A mapping of tags to assign to the resource
-func (r *Cluster) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Cluster) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
-func (r *Cluster) ZookeeperConnectString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zookeeperConnectString"])
+func (r *Cluster) ZookeeperConnectString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zookeeperConnectString"])
 }
 
 // Input properties used for looking up and filtering Cluster resources.

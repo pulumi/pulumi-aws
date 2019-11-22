@@ -58,33 +58,33 @@ func GetApiKey(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ApiKey) URN() *pulumi.URNOutput {
+func (r *ApiKey) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ApiKey) ID() *pulumi.IDOutput {
+func (r *ApiKey) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the associated AppSync API
-func (r *ApiKey) ApiId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiId"])
+func (r *ApiKey) ApiId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiId"])
 }
 
 // The API key description. Defaults to "Managed by Pulumi".
-func (r *ApiKey) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ApiKey) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-func (r *ApiKey) Expires() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expires"])
+func (r *ApiKey) Expires() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expires"])
 }
 
 // The API key
-func (r *ApiKey) Key() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["key"])
+func (r *ApiKey) Key() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["key"])
 }
 
 // Input properties used for looking up and filtering ApiKey resources.

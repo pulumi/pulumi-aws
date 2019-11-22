@@ -64,33 +64,33 @@ func GetTargetGroupAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TargetGroupAttachment) URN() *pulumi.URNOutput {
+func (r *TargetGroupAttachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TargetGroupAttachment) ID() *pulumi.IDOutput {
+func (r *TargetGroupAttachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Availability Zone where the IP address of the target is to be registered.
-func (r *TargetGroupAttachment) AvailabilityZone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
+func (r *TargetGroupAttachment) AvailabilityZone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
 // The port on which targets receive traffic.
-func (r *TargetGroupAttachment) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *TargetGroupAttachment) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
 // The ARN of the target group with which to register targets
-func (r *TargetGroupAttachment) TargetGroupArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetGroupArn"])
+func (r *TargetGroupAttachment) TargetGroupArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetGroupArn"])
 }
 
 // The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
-func (r *TargetGroupAttachment) TargetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetId"])
+func (r *TargetGroupAttachment) TargetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetId"])
 }
 
 // Input properties used for looking up and filtering TargetGroupAttachment resources.

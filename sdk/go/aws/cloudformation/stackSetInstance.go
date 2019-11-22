@@ -68,43 +68,43 @@ func GetStackSetInstance(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *StackSetInstance) URN() *pulumi.URNOutput {
+func (r *StackSetInstance) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *StackSetInstance) ID() *pulumi.IDOutput {
+func (r *StackSetInstance) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Target AWS Account ID to create a Stack based on the Stack Set. Defaults to current account.
-func (r *StackSetInstance) AccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountId"])
+func (r *StackSetInstance) AccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountId"])
 }
 
 // Key-value map of input parameters to override from the Stack Set for this Instance.
-func (r *StackSetInstance) ParameterOverrides() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["parameterOverrides"])
+func (r *StackSetInstance) ParameterOverrides() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["parameterOverrides"])
 }
 
 // Target AWS Region to create a Stack based on the Stack Set. Defaults to current region.
-func (r *StackSetInstance) Region() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["region"])
+func (r *StackSetInstance) Region() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["region"])
 }
 
 // During resource destroy, remove Instance from Stack Set while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new Stack Set. Defaults to `false`.
-func (r *StackSetInstance) RetainStack() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["retainStack"])
+func (r *StackSetInstance) RetainStack() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["retainStack"])
 }
 
 // Stack identifier
-func (r *StackSetInstance) StackId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stackId"])
+func (r *StackSetInstance) StackId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stackId"])
 }
 
 // Name of the Stack Set.
-func (r *StackSetInstance) StackSetName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stackSetName"])
+func (r *StackSetInstance) StackSetName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stackSetName"])
 }
 
 // Input properties used for looking up and filtering StackSetInstance resources.

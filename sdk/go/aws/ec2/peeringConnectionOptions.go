@@ -70,32 +70,32 @@ func GetPeeringConnectionOptions(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PeeringConnectionOptions) URN() *pulumi.URNOutput {
+func (r *PeeringConnectionOptions) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PeeringConnectionOptions) ID() *pulumi.IDOutput {
+func (r *PeeringConnectionOptions) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // An optional configuration block that allows for [VPC Peering Connection]
 // (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
 // the peering connection (a maximum of one).
-func (r *PeeringConnectionOptions) Accepter() *pulumi.Output {
+func (r *PeeringConnectionOptions) Accepter() pulumi.Output {
 	return r.s.State["accepter"]
 }
 
 // A optional configuration block that allows for [VPC Peering Connection]
 // (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
 // the peering connection (a maximum of one).
-func (r *PeeringConnectionOptions) Requester() *pulumi.Output {
+func (r *PeeringConnectionOptions) Requester() pulumi.Output {
 	return r.s.State["requester"]
 }
 
 // The ID of the requester VPC peering connection.
-func (r *PeeringConnectionOptions) VpcPeeringConnectionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcPeeringConnectionId"])
+func (r *PeeringConnectionOptions) VpcPeeringConnectionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcPeeringConnectionId"])
 }
 
 // Input properties used for looking up and filtering PeeringConnectionOptions resources.

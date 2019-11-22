@@ -51,29 +51,29 @@ func GetRegexMatchSet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RegexMatchSet) URN() *pulumi.URNOutput {
+func (r *RegexMatchSet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RegexMatchSet) ID() *pulumi.IDOutput {
+func (r *RegexMatchSet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN)
-func (r *RegexMatchSet) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *RegexMatchSet) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name or description of the Regex Match Set.
-func (r *RegexMatchSet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RegexMatchSet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The regular expression pattern that you want AWS WAF to search for in web requests,
 // the location in requests that you want AWS WAF to search, and other settings. See below.
-func (r *RegexMatchSet) RegexMatchTuples() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["regexMatchTuples"])
+func (r *RegexMatchSet) RegexMatchTuples() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["regexMatchTuples"])
 }
 
 // Input properties used for looking up and filtering RegexMatchSet resources.

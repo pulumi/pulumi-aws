@@ -73,48 +73,48 @@ func GetRateBasedRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RateBasedRule) URN() *pulumi.URNOutput {
+func (r *RateBasedRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RateBasedRule) ID() *pulumi.IDOutput {
+func (r *RateBasedRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the WAF Regional Rate Based Rule.
-func (r *RateBasedRule) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *RateBasedRule) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name or description for the Amazon CloudWatch metric of this rule.
-func (r *RateBasedRule) MetricName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metricName"])
+func (r *RateBasedRule) MetricName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metricName"])
 }
 
 // The name or description of the rule.
-func (r *RateBasedRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RateBasedRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The objects to include in a rule (documented below).
-func (r *RateBasedRule) Predicates() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["predicates"])
+func (r *RateBasedRule) Predicates() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["predicates"])
 }
 
 // Valid value is IP.
-func (r *RateBasedRule) RateKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rateKey"])
+func (r *RateBasedRule) RateKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rateKey"])
 }
 
 // The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-func (r *RateBasedRule) RateLimit() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["rateLimit"])
+func (r *RateBasedRule) RateLimit() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["rateLimit"])
 }
 
 // Key-value mapping of resource tags
-func (r *RateBasedRule) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *RateBasedRule) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering RateBasedRule resources.

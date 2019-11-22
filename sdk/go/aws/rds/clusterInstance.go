@@ -125,164 +125,164 @@ func GetClusterInstance(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ClusterInstance) URN() *pulumi.URNOutput {
+func (r *ClusterInstance) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ClusterInstance) ID() *pulumi.IDOutput {
+func (r *ClusterInstance) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies whether any database modifications
 // are applied immediately, or during the next maintenance window. Default is`false`.
-func (r *ClusterInstance) ApplyImmediately() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["applyImmediately"])
+func (r *ClusterInstance) ApplyImmediately() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["applyImmediately"])
 }
 
 // Amazon Resource Name (ARN) of cluster instance
-func (r *ClusterInstance) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ClusterInstance) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
-func (r *ClusterInstance) AutoMinorVersionUpgrade() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoMinorVersionUpgrade"])
+func (r *ClusterInstance) AutoMinorVersionUpgrade() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoMinorVersionUpgrade"])
 }
 
 // The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
-func (r *ClusterInstance) AvailabilityZone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
+func (r *ClusterInstance) AvailabilityZone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
 // The identifier of the [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
-func (r *ClusterInstance) ClusterIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
+func (r *ClusterInstance) ClusterIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
 
 // Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
-func (r *ClusterInstance) CopyTagsToSnapshot() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["copyTagsToSnapshot"])
+func (r *ClusterInstance) CopyTagsToSnapshot() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["copyTagsToSnapshot"])
 }
 
 // The name of the DB parameter group to associate with this instance.
-func (r *ClusterInstance) DbParameterGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbParameterGroupName"])
+func (r *ClusterInstance) DbParameterGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbParameterGroupName"])
 }
 
 // A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
-func (r *ClusterInstance) DbSubnetGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
+func (r *ClusterInstance) DbSubnetGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
 }
 
 // The region-unique, immutable identifier for the DB instance.
-func (r *ClusterInstance) DbiResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbiResourceId"])
+func (r *ClusterInstance) DbiResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbiResourceId"])
 }
 
 // The DNS address for this instance. May not be writable
-func (r *ClusterInstance) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *ClusterInstance) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
 // For information on the difference between the available Aurora MySQL engines
 // see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 // in the Amazon RDS User Guide.
-func (r *ClusterInstance) Engine() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engine"])
+func (r *ClusterInstance) Engine() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engine"])
 }
 
 // The database engine version.
-func (r *ClusterInstance) EngineVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
+func (r *ClusterInstance) EngineVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
 // The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
-func (r *ClusterInstance) Identifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identifier"])
+func (r *ClusterInstance) Identifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identifier"])
 }
 
 // Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-func (r *ClusterInstance) IdentifierPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identifierPrefix"])
+func (r *ClusterInstance) IdentifierPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identifierPrefix"])
 }
 
 // The instance class to use. For details on CPU
 // and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
-func (r *ClusterInstance) InstanceClass() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceClass"])
+func (r *ClusterInstance) InstanceClass() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceClass"])
 }
 
 // The ARN for the KMS encryption key if one is set to the cluster.
-func (r *ClusterInstance) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *ClusterInstance) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
-func (r *ClusterInstance) MonitoringInterval() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["monitoringInterval"])
+func (r *ClusterInstance) MonitoringInterval() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["monitoringInterval"])
 }
 
 // The ARN for the IAM role that permits RDS to send
 // enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
 // what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
-func (r *ClusterInstance) MonitoringRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["monitoringRoleArn"])
+func (r *ClusterInstance) MonitoringRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["monitoringRoleArn"])
 }
 
 // Specifies whether Performance Insights is enabled or not.
-func (r *ClusterInstance) PerformanceInsightsEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["performanceInsightsEnabled"])
+func (r *ClusterInstance) PerformanceInsightsEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["performanceInsightsEnabled"])
 }
 
 // The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
-func (r *ClusterInstance) PerformanceInsightsKmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["performanceInsightsKmsKeyId"])
+func (r *ClusterInstance) PerformanceInsightsKmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["performanceInsightsKmsKeyId"])
 }
 
 // The database port
-func (r *ClusterInstance) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *ClusterInstance) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
 // The daily time range during which automated backups are created if automated backups are enabled.
 // Eg: "04:00-09:00"
-func (r *ClusterInstance) PreferredBackupWindow() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["preferredBackupWindow"])
+func (r *ClusterInstance) PreferredBackupWindow() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["preferredBackupWindow"])
 }
 
 // The window to perform maintenance in.
 // Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-func (r *ClusterInstance) PreferredMaintenanceWindow() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["preferredMaintenanceWindow"])
+func (r *ClusterInstance) PreferredMaintenanceWindow() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["preferredMaintenanceWindow"])
 }
 
 // Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
-func (r *ClusterInstance) PromotionTier() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["promotionTier"])
+func (r *ClusterInstance) PromotionTier() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["promotionTier"])
 }
 
 // Bool to control if instance is publicly accessible.
 // Default `false`. See the documentation on [Creating DB Instances][6] for more
 // details on controlling this property.
-func (r *ClusterInstance) PubliclyAccessible() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["publiclyAccessible"])
+func (r *ClusterInstance) PubliclyAccessible() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["publiclyAccessible"])
 }
 
 // Specifies whether the DB cluster is encrypted.
-func (r *ClusterInstance) StorageEncrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["storageEncrypted"])
+func (r *ClusterInstance) StorageEncrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["storageEncrypted"])
 }
 
 // A mapping of tags to assign to the instance.
-func (r *ClusterInstance) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ClusterInstance) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-func (r *ClusterInstance) Writer() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["writer"])
+func (r *ClusterInstance) Writer() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["writer"])
 }
 
 // Input properties used for looking up and filtering ClusterInstance resources.

@@ -60,43 +60,43 @@ func GetWorkgroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Workgroup) URN() *pulumi.URNOutput {
+func (r *Workgroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Workgroup) ID() *pulumi.IDOutput {
+func (r *Workgroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the workgroup
-func (r *Workgroup) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Workgroup) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Configuration block with various settings for the workgroup. Documented below.
-func (r *Workgroup) Configuration() *pulumi.Output {
+func (r *Workgroup) Configuration() pulumi.Output {
 	return r.s.State["configuration"]
 }
 
 // Description of the workgroup.
-func (r *Workgroup) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Workgroup) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Name of the workgroup.
-func (r *Workgroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Workgroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
-func (r *Workgroup) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *Workgroup) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // Key-value mapping of resource tags for the workgroup.
-func (r *Workgroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Workgroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Workgroup resources.

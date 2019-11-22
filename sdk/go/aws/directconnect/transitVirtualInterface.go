@@ -99,84 +99,84 @@ func GetTransitVirtualInterface(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TransitVirtualInterface) URN() *pulumi.URNOutput {
+func (r *TransitVirtualInterface) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TransitVirtualInterface) ID() *pulumi.IDOutput {
+func (r *TransitVirtualInterface) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The address family for the BGP peer. `ipv4 ` or `ipv6`.
-func (r *TransitVirtualInterface) AddressFamily() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["addressFamily"])
+func (r *TransitVirtualInterface) AddressFamily() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["addressFamily"])
 }
 
 // The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-func (r *TransitVirtualInterface) AmazonAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["amazonAddress"])
+func (r *TransitVirtualInterface) AmazonAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["amazonAddress"])
 }
 
 // The ARN of the virtual interface.
-func (r *TransitVirtualInterface) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *TransitVirtualInterface) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The Direct Connect endpoint on which the virtual interface terminates.
-func (r *TransitVirtualInterface) AwsDevice() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["awsDevice"])
+func (r *TransitVirtualInterface) AwsDevice() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["awsDevice"])
 }
 
 // The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-func (r *TransitVirtualInterface) BgpAsn() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["bgpAsn"])
+func (r *TransitVirtualInterface) BgpAsn() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["bgpAsn"])
 }
 
 // The authentication key for BGP configuration.
-func (r *TransitVirtualInterface) BgpAuthKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bgpAuthKey"])
+func (r *TransitVirtualInterface) BgpAuthKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bgpAuthKey"])
 }
 
 // The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-func (r *TransitVirtualInterface) ConnectionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["connectionId"])
+func (r *TransitVirtualInterface) ConnectionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["connectionId"])
 }
 
 // The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-func (r *TransitVirtualInterface) CustomerAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customerAddress"])
+func (r *TransitVirtualInterface) CustomerAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customerAddress"])
 }
 
 // The ID of the Direct Connect gateway to which to connect the virtual interface.
-func (r *TransitVirtualInterface) DxGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dxGatewayId"])
+func (r *TransitVirtualInterface) DxGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dxGatewayId"])
 }
 
 // Indicates whether jumbo frames (8500 MTU) are supported.
-func (r *TransitVirtualInterface) JumboFrameCapable() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["jumboFrameCapable"])
+func (r *TransitVirtualInterface) JumboFrameCapable() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["jumboFrameCapable"])
 }
 
 // The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
 // The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
-func (r *TransitVirtualInterface) Mtu() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["mtu"])
+func (r *TransitVirtualInterface) Mtu() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["mtu"])
 }
 
 // The name for the virtual interface.
-func (r *TransitVirtualInterface) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *TransitVirtualInterface) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *TransitVirtualInterface) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *TransitVirtualInterface) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The VLAN ID.
-func (r *TransitVirtualInterface) Vlan() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["vlan"])
+func (r *TransitVirtualInterface) Vlan() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["vlan"])
 }
 
 // Input properties used for looking up and filtering TransitVirtualInterface resources.

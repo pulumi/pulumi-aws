@@ -55,33 +55,33 @@ func GetTemplate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Template) URN() *pulumi.URNOutput {
+func (r *Template) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Template) ID() *pulumi.IDOutput {
+func (r *Template) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-func (r *Template) Html() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["html"])
+func (r *Template) Html() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["html"])
 }
 
 // The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-func (r *Template) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Template) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The subject line of the email.
-func (r *Template) Subject() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subject"])
+func (r *Template) Subject() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subject"])
 }
 
 // The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
-func (r *Template) Text() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["text"])
+func (r *Template) Text() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["text"])
 }
 
 // Input properties used for looking up and filtering Template resources.

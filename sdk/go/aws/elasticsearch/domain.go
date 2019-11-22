@@ -90,101 +90,101 @@ func GetDomain(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Domain) URN() *pulumi.URNOutput {
+func (r *Domain) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Domain) ID() *pulumi.IDOutput {
+func (r *Domain) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // IAM policy document specifying the access policies for the domain
-func (r *Domain) AccessPolicies() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessPolicies"])
+func (r *Domain) AccessPolicies() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessPolicies"])
 }
 
 // Key-value string pairs to specify advanced configuration options.
 // Note that the values for these configuration options must be strings (wrapped in quotes) or they
 // may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 // domain on every apply.
-func (r *Domain) AdvancedOptions() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["advancedOptions"])
+func (r *Domain) AdvancedOptions() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["advancedOptions"])
 }
 
 // Amazon Resource Name (ARN) of the domain.
-func (r *Domain) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Domain) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Cluster configuration of the domain, see below.
-func (r *Domain) ClusterConfig() *pulumi.Output {
+func (r *Domain) ClusterConfig() pulumi.Output {
 	return r.s.State["clusterConfig"]
 }
 
-func (r *Domain) CognitoOptions() *pulumi.Output {
+func (r *Domain) CognitoOptions() pulumi.Output {
 	return r.s.State["cognitoOptions"]
 }
 
 // Unique identifier for the domain.
-func (r *Domain) DomainId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domainId"])
+func (r *Domain) DomainId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domainId"])
 }
 
 // Name of the domain.
-func (r *Domain) DomainName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domainName"])
+func (r *Domain) DomainName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domainName"])
 }
 
 // EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
-func (r *Domain) EbsOptions() *pulumi.Output {
+func (r *Domain) EbsOptions() pulumi.Output {
 	return r.s.State["ebsOptions"]
 }
 
 // The version of Elasticsearch to deploy. Defaults to `1.5`
-func (r *Domain) ElasticsearchVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["elasticsearchVersion"])
+func (r *Domain) ElasticsearchVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["elasticsearchVersion"])
 }
 
 // Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
-func (r *Domain) EncryptAtRest() *pulumi.Output {
+func (r *Domain) EncryptAtRest() pulumi.Output {
 	return r.s.State["encryptAtRest"]
 }
 
 // Domain-specific endpoint used to submit index, search, and data upload requests.
-func (r *Domain) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *Domain) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // Domain-specific endpoint for kibana without https scheme.
 // * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 // * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
-func (r *Domain) KibanaEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kibanaEndpoint"])
+func (r *Domain) KibanaEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kibanaEndpoint"])
 }
 
 // Options for publishing slow logs to CloudWatch Logs.
-func (r *Domain) LogPublishingOptions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["logPublishingOptions"])
+func (r *Domain) LogPublishingOptions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["logPublishingOptions"])
 }
 
 // Node-to-node encryption options. See below.
-func (r *Domain) NodeToNodeEncryption() *pulumi.Output {
+func (r *Domain) NodeToNodeEncryption() pulumi.Output {
 	return r.s.State["nodeToNodeEncryption"]
 }
 
 // Snapshot related options, see below.
-func (r *Domain) SnapshotOptions() *pulumi.Output {
+func (r *Domain) SnapshotOptions() pulumi.Output {
 	return r.s.State["snapshotOptions"]
 }
 
 // A mapping of tags to assign to the resource
-func (r *Domain) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Domain) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
-func (r *Domain) VpcOptions() *pulumi.Output {
+func (r *Domain) VpcOptions() pulumi.Output {
 	return r.s.State["vpcOptions"]
 }
 

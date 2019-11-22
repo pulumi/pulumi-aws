@@ -67,43 +67,43 @@ func GetVpcEndpointConnectionNotification(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpcEndpointConnectionNotification) URN() *pulumi.URNOutput {
+func (r *VpcEndpointConnectionNotification) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpcEndpointConnectionNotification) ID() *pulumi.IDOutput {
+func (r *VpcEndpointConnectionNotification) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-func (r *VpcEndpointConnectionNotification) ConnectionEvents() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["connectionEvents"])
+func (r *VpcEndpointConnectionNotification) ConnectionEvents() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["connectionEvents"])
 }
 
 // The ARN of the SNS topic for the notifications.
-func (r *VpcEndpointConnectionNotification) ConnectionNotificationArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["connectionNotificationArn"])
+func (r *VpcEndpointConnectionNotification) ConnectionNotificationArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["connectionNotificationArn"])
 }
 
 // The type of notification.
-func (r *VpcEndpointConnectionNotification) NotificationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["notificationType"])
+func (r *VpcEndpointConnectionNotification) NotificationType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["notificationType"])
 }
 
 // The state of the notification.
-func (r *VpcEndpointConnectionNotification) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *VpcEndpointConnectionNotification) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // The ID of the VPC Endpoint to receive notifications for.
-func (r *VpcEndpointConnectionNotification) VpcEndpointId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcEndpointId"])
+func (r *VpcEndpointConnectionNotification) VpcEndpointId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcEndpointId"])
 }
 
 // The ID of the VPC Endpoint Service to receive notifications for.
-func (r *VpcEndpointConnectionNotification) VpcEndpointServiceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcEndpointServiceId"])
+func (r *VpcEndpointConnectionNotification) VpcEndpointServiceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcEndpointServiceId"])
 }
 
 // Input properties used for looking up and filtering VpcEndpointConnectionNotification resources.

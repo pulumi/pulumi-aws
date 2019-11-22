@@ -58,23 +58,23 @@ func GetWebAclAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *WebAclAssociation) URN() *pulumi.URNOutput {
+func (r *WebAclAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *WebAclAssociation) ID() *pulumi.IDOutput {
+func (r *WebAclAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
-func (r *WebAclAssociation) ResourceArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceArn"])
+func (r *WebAclAssociation) ResourceArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceArn"])
 }
 
 // The ID of the WAF Regional WebACL to create an association.
-func (r *WebAclAssociation) WebAclId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["webAclId"])
+func (r *WebAclAssociation) WebAclId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["webAclId"])
 }
 
 // Input properties used for looking up and filtering WebAclAssociation resources.

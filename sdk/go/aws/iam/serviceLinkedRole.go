@@ -66,53 +66,53 @@ func GetServiceLinkedRole(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ServiceLinkedRole) URN() *pulumi.URNOutput {
+func (r *ServiceLinkedRole) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ServiceLinkedRole) ID() *pulumi.IDOutput {
+func (r *ServiceLinkedRole) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) specifying the role.
-func (r *ServiceLinkedRole) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ServiceLinkedRole) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-func (r *ServiceLinkedRole) AwsServiceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["awsServiceName"])
+func (r *ServiceLinkedRole) AwsServiceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["awsServiceName"])
 }
 
 // The creation date of the IAM role.
-func (r *ServiceLinkedRole) CreateDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createDate"])
+func (r *ServiceLinkedRole) CreateDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createDate"])
 }
 
 // Additional string appended to the role name. Not all AWS services support custom suffixes.
-func (r *ServiceLinkedRole) CustomSuffix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customSuffix"])
+func (r *ServiceLinkedRole) CustomSuffix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customSuffix"])
 }
 
 // The description of the role.
-func (r *ServiceLinkedRole) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ServiceLinkedRole) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the role.
-func (r *ServiceLinkedRole) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ServiceLinkedRole) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The path of the role.
-func (r *ServiceLinkedRole) Path() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["path"])
+func (r *ServiceLinkedRole) Path() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["path"])
 }
 
 // The stable and unique string identifying the role.
-func (r *ServiceLinkedRole) UniqueId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uniqueId"])
+func (r *ServiceLinkedRole) UniqueId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uniqueId"])
 }
 
 // Input properties used for looking up and filtering ServiceLinkedRole resources.

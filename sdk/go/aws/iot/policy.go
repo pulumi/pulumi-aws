@@ -57,32 +57,32 @@ func GetPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Policy) URN() *pulumi.URNOutput {
+func (r *Policy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Policy) ID() *pulumi.IDOutput {
+func (r *Policy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN assigned by AWS to this policy.
-func (r *Policy) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Policy) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The default version of this policy.
-func (r *Policy) DefaultVersionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultVersionId"])
+func (r *Policy) DefaultVersionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultVersionId"])
 }
 
 // The name of the policy.
-func (r *Policy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Policy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *Policy) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *Policy) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // Input properties used for looking up and filtering Policy resources.

@@ -62,28 +62,28 @@ func GetDocumentationPart(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DocumentationPart) URN() *pulumi.URNOutput {
+func (r *DocumentationPart) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DocumentationPart) ID() *pulumi.IDOutput {
+func (r *DocumentationPart) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The location of the targeted API entity of the to-be-created documentation part. See below.
-func (r *DocumentationPart) Location() *pulumi.Output {
+func (r *DocumentationPart) Location() pulumi.Output {
 	return r.s.State["location"]
 }
 
 // A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
-func (r *DocumentationPart) Properties() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["properties"])
+func (r *DocumentationPart) Properties() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["properties"])
 }
 
 // The ID of the associated Rest API
-func (r *DocumentationPart) RestApiId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restApiId"])
+func (r *DocumentationPart) RestApiId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restApiId"])
 }
 
 // Input properties used for looking up and filtering DocumentationPart resources.

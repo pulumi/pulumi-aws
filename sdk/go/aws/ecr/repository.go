@@ -61,48 +61,48 @@ func GetRepository(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Repository) URN() *pulumi.URNOutput {
+func (r *Repository) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Repository) ID() *pulumi.IDOutput {
+func (r *Repository) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Full ARN of the repository.
-func (r *Repository) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Repository) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-func (r *Repository) ImageScanningConfiguration() *pulumi.Output {
+func (r *Repository) ImageScanningConfiguration() pulumi.Output {
 	return r.s.State["imageScanningConfiguration"]
 }
 
 // The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-func (r *Repository) ImageTagMutability() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["imageTagMutability"])
+func (r *Repository) ImageTagMutability() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["imageTagMutability"])
 }
 
 // Name of the repository.
-func (r *Repository) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Repository) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The registry ID where the repository was created.
-func (r *Repository) RegistryId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["registryId"])
+func (r *Repository) RegistryId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["registryId"])
 }
 
 // The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
-func (r *Repository) RepositoryUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["repositoryUrl"])
+func (r *Repository) RepositoryUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["repositoryUrl"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Repository) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Repository) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Repository resources.

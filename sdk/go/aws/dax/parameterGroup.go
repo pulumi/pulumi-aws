@@ -59,28 +59,28 @@ func GetParameterGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ParameterGroup) URN() *pulumi.URNOutput {
+func (r *ParameterGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ParameterGroup) ID() *pulumi.IDOutput {
+func (r *ParameterGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A description of the parameter group.
-func (r *ParameterGroup) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ParameterGroup) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the parameter group.
-func (r *ParameterGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ParameterGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The parameters of the parameter group.
-func (r *ParameterGroup) Parameters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["parameters"])
+func (r *ParameterGroup) Parameters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["parameters"])
 }
 
 // Input properties used for looking up and filtering ParameterGroup resources.

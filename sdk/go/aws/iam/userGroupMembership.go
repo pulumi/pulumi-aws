@@ -61,23 +61,23 @@ func GetUserGroupMembership(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *UserGroupMembership) URN() *pulumi.URNOutput {
+func (r *UserGroupMembership) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *UserGroupMembership) ID() *pulumi.IDOutput {
+func (r *UserGroupMembership) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A list of [IAM Groups][1] to add the user to
-func (r *UserGroupMembership) Groups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groups"])
+func (r *UserGroupMembership) Groups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groups"])
 }
 
 // The name of the [IAM User][2] to add to groups
-func (r *UserGroupMembership) User() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["user"])
+func (r *UserGroupMembership) User() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["user"])
 }
 
 // Input properties used for looking up and filtering UserGroupMembership resources.

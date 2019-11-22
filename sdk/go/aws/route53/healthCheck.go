@@ -104,109 +104,109 @@ func GetHealthCheck(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *HealthCheck) URN() *pulumi.URNOutput {
+func (r *HealthCheck) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *HealthCheck) ID() *pulumi.IDOutput {
+func (r *HealthCheck) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
-func (r *HealthCheck) ChildHealthThreshold() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["childHealthThreshold"])
+func (r *HealthCheck) ChildHealthThreshold() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["childHealthThreshold"])
 }
 
 // For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
-func (r *HealthCheck) ChildHealthchecks() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["childHealthchecks"])
+func (r *HealthCheck) ChildHealthchecks() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["childHealthchecks"])
 }
 
 // The name of the CloudWatch alarm.
-func (r *HealthCheck) CloudwatchAlarmName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cloudwatchAlarmName"])
+func (r *HealthCheck) CloudwatchAlarmName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cloudwatchAlarmName"])
 }
 
 // The CloudWatchRegion that the CloudWatch alarm was created in.
-func (r *HealthCheck) CloudwatchAlarmRegion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cloudwatchAlarmRegion"])
+func (r *HealthCheck) CloudwatchAlarmRegion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cloudwatchAlarmRegion"])
 }
 
 // A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
-func (r *HealthCheck) EnableSni() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableSni"])
+func (r *HealthCheck) EnableSni() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableSni"])
 }
 
 // The number of consecutive health checks that an endpoint must pass or fail.
-func (r *HealthCheck) FailureThreshold() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["failureThreshold"])
+func (r *HealthCheck) FailureThreshold() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["failureThreshold"])
 }
 
 // The fully qualified domain name of the endpoint to be checked.
-func (r *HealthCheck) Fqdn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fqdn"])
+func (r *HealthCheck) Fqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
 // The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
-func (r *HealthCheck) InsufficientDataHealthStatus() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["insufficientDataHealthStatus"])
+func (r *HealthCheck) InsufficientDataHealthStatus() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["insufficientDataHealthStatus"])
 }
 
 // A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
-func (r *HealthCheck) InvertHealthcheck() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["invertHealthcheck"])
+func (r *HealthCheck) InvertHealthcheck() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["invertHealthcheck"])
 }
 
 // The IP address of the endpoint to be checked.
-func (r *HealthCheck) IpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
+func (r *HealthCheck) IpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipAddress"])
 }
 
 // A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
-func (r *HealthCheck) MeasureLatency() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["measureLatency"])
+func (r *HealthCheck) MeasureLatency() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["measureLatency"])
 }
 
 // The port of the endpoint to be checked.
-func (r *HealthCheck) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *HealthCheck) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
 // This is a reference name used in Caller Reference
 // (helpful for identifying single healthCheck set amongst others)
-func (r *HealthCheck) ReferenceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["referenceName"])
+func (r *HealthCheck) ReferenceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["referenceName"])
 }
 
 // A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
-func (r *HealthCheck) Regions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["regions"])
+func (r *HealthCheck) Regions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["regions"])
 }
 
 // The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
-func (r *HealthCheck) RequestInterval() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["requestInterval"])
+func (r *HealthCheck) RequestInterval() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["requestInterval"])
 }
 
 // The path that you want Amazon Route 53 to request when performing health checks.
-func (r *HealthCheck) ResourcePath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourcePath"])
+func (r *HealthCheck) ResourcePath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourcePath"])
 }
 
 // String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-func (r *HealthCheck) SearchString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["searchString"])
+func (r *HealthCheck) SearchString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["searchString"])
 }
 
 // A mapping of tags to assign to the health check.
-func (r *HealthCheck) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *HealthCheck) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
-func (r *HealthCheck) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *HealthCheck) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering HealthCheck resources.

@@ -78,73 +78,73 @@ func GetAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Association) URN() *pulumi.URNOutput {
+func (r *Association) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Association) ID() *pulumi.IDOutput {
+func (r *Association) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the SSM association.
-func (r *Association) AssociationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["associationId"])
+func (r *Association) AssociationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["associationId"])
 }
 
 // The descriptive name for the association.
-func (r *Association) AssociationName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["associationName"])
+func (r *Association) AssociationName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["associationName"])
 }
 
 // The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
-func (r *Association) ComplianceSeverity() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["complianceSeverity"])
+func (r *Association) ComplianceSeverity() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["complianceSeverity"])
 }
 
 // The document version you want to associate with the target(s). Can be a specific version or the default version.
-func (r *Association) DocumentVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["documentVersion"])
+func (r *Association) DocumentVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["documentVersion"])
 }
 
 // The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
-func (r *Association) InstanceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceId"])
+func (r *Association) InstanceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceId"])
 }
 
 // The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-func (r *Association) MaxConcurrency() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["maxConcurrency"])
+func (r *Association) MaxConcurrency() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["maxConcurrency"])
 }
 
 // The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-func (r *Association) MaxErrors() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["maxErrors"])
+func (r *Association) MaxErrors() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["maxErrors"])
 }
 
 // The name of the SSM document to apply.
-func (r *Association) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Association) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // An output location block. Output Location is documented below.
-func (r *Association) OutputLocation() *pulumi.Output {
+func (r *Association) OutputLocation() pulumi.Output {
 	return r.s.State["outputLocation"]
 }
 
 // A block of arbitrary string parameters to pass to the SSM document.
-func (r *Association) Parameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["parameters"])
+func (r *Association) Parameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // A cron expression when the association will be applied to the target(s).
-func (r *Association) ScheduleExpression() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scheduleExpression"])
+func (r *Association) ScheduleExpression() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scheduleExpression"])
 }
 
 // A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
-func (r *Association) Targets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["targets"])
+func (r *Association) Targets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["targets"])
 }
 
 // Input properties used for looking up and filtering Association resources.

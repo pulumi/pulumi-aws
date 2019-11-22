@@ -66,38 +66,38 @@ func GetNetworkInterfaceAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkInterfaceAttachment) URN() *pulumi.URNOutput {
+func (r *NetworkInterfaceAttachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkInterfaceAttachment) ID() *pulumi.IDOutput {
+func (r *NetworkInterfaceAttachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ENI Attachment ID.
-func (r *NetworkInterfaceAttachment) AttachmentId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["attachmentId"])
+func (r *NetworkInterfaceAttachment) AttachmentId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["attachmentId"])
 }
 
 // Network interface index (int).
-func (r *NetworkInterfaceAttachment) DeviceIndex() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["deviceIndex"])
+func (r *NetworkInterfaceAttachment) DeviceIndex() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["deviceIndex"])
 }
 
 // Instance ID to attach.
-func (r *NetworkInterfaceAttachment) InstanceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceId"])
+func (r *NetworkInterfaceAttachment) InstanceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceId"])
 }
 
 // ENI ID to attach.
-func (r *NetworkInterfaceAttachment) NetworkInterfaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkInterfaceId"])
+func (r *NetworkInterfaceAttachment) NetworkInterfaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkInterfaceId"])
 }
 
 // The status of the Network Interface Attachment.
-func (r *NetworkInterfaceAttachment) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *NetworkInterfaceAttachment) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Input properties used for looking up and filtering NetworkInterfaceAttachment resources.

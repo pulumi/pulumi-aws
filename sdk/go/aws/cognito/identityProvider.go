@@ -74,43 +74,43 @@ func GetIdentityProvider(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *IdentityProvider) URN() *pulumi.URNOutput {
+func (r *IdentityProvider) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *IdentityProvider) ID() *pulumi.IDOutput {
+func (r *IdentityProvider) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-func (r *IdentityProvider) AttributeMapping() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["attributeMapping"])
+func (r *IdentityProvider) AttributeMapping() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["attributeMapping"])
 }
 
 // The list of identity providers.
-func (r *IdentityProvider) IdpIdentifiers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["idpIdentifiers"])
+func (r *IdentityProvider) IdpIdentifiers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["idpIdentifiers"])
 }
 
 // The map of identity details, such as access token
-func (r *IdentityProvider) ProviderDetails() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["providerDetails"])
+func (r *IdentityProvider) ProviderDetails() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["providerDetails"])
 }
 
 // The provider name
-func (r *IdentityProvider) ProviderName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["providerName"])
+func (r *IdentityProvider) ProviderName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["providerName"])
 }
 
 // The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-func (r *IdentityProvider) ProviderType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["providerType"])
+func (r *IdentityProvider) ProviderType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["providerType"])
 }
 
 // The user pool id
-func (r *IdentityProvider) UserPoolId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userPoolId"])
+func (r *IdentityProvider) UserPoolId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userPoolId"])
 }
 
 // Input properties used for looking up and filtering IdentityProvider resources.

@@ -74,45 +74,45 @@ func GetMethodResponse(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MethodResponse) URN() *pulumi.URNOutput {
+func (r *MethodResponse) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MethodResponse) ID() *pulumi.IDOutput {
+func (r *MethodResponse) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
-func (r *MethodResponse) HttpMethod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["httpMethod"])
+func (r *MethodResponse) HttpMethod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["httpMethod"])
 }
 
 // The API resource ID
-func (r *MethodResponse) ResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceId"])
+func (r *MethodResponse) ResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceId"])
 }
 
 // A map of the API models used for the response's content type
-func (r *MethodResponse) ResponseModels() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["responseModels"])
+func (r *MethodResponse) ResponseModels() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["responseModels"])
 }
 
 // A map of response parameters that can be sent to the caller.
 // For example: `responseParameters = { "method.response.header.X-Some-Header" = true }`
 // would define that the header `X-Some-Header` can be provided on the response.
-func (r *MethodResponse) ResponseParameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["responseParameters"])
+func (r *MethodResponse) ResponseParameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["responseParameters"])
 }
 
 // The ID of the associated REST API
-func (r *MethodResponse) RestApi() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restApi"])
+func (r *MethodResponse) RestApi() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restApi"])
 }
 
 // The HTTP status code
-func (r *MethodResponse) StatusCode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["statusCode"])
+func (r *MethodResponse) StatusCode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["statusCode"])
 }
 
 // Input properties used for looking up and filtering MethodResponse resources.

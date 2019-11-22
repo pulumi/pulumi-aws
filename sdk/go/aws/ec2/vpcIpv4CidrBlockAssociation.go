@@ -59,23 +59,23 @@ func GetVpcIpv4CidrBlockAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpcIpv4CidrBlockAssociation) URN() *pulumi.URNOutput {
+func (r *VpcIpv4CidrBlockAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpcIpv4CidrBlockAssociation) ID() *pulumi.IDOutput {
+func (r *VpcIpv4CidrBlockAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The additional IPv4 CIDR block to associate with the VPC.
-func (r *VpcIpv4CidrBlockAssociation) CidrBlock() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cidrBlock"])
+func (r *VpcIpv4CidrBlockAssociation) CidrBlock() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cidrBlock"])
 }
 
 // The ID of the VPC to make the association with.
-func (r *VpcIpv4CidrBlockAssociation) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *VpcIpv4CidrBlockAssociation) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering VpcIpv4CidrBlockAssociation resources.

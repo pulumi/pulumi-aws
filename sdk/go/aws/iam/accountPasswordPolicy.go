@@ -76,66 +76,66 @@ func GetAccountPasswordPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AccountPasswordPolicy) URN() *pulumi.URNOutput {
+func (r *AccountPasswordPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AccountPasswordPolicy) ID() *pulumi.IDOutput {
+func (r *AccountPasswordPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether to allow users to change their own password
-func (r *AccountPasswordPolicy) AllowUsersToChangePassword() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowUsersToChangePassword"])
+func (r *AccountPasswordPolicy) AllowUsersToChangePassword() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowUsersToChangePassword"])
 }
 
 // Indicates whether passwords in the account expire.
 // Returns `true` if `maxPasswordAge` contains a value greater than `0`.
 // Returns `false` if it is `0` or _not present_.
-func (r *AccountPasswordPolicy) ExpirePasswords() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["expirePasswords"])
+func (r *AccountPasswordPolicy) ExpirePasswords() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["expirePasswords"])
 }
 
 // Whether users are prevented from setting a new password after their password has expired
 // (i.e. require administrator reset)
-func (r *AccountPasswordPolicy) HardExpiry() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hardExpiry"])
+func (r *AccountPasswordPolicy) HardExpiry() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hardExpiry"])
 }
 
 // The number of days that an user password is valid.
-func (r *AccountPasswordPolicy) MaxPasswordAge() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxPasswordAge"])
+func (r *AccountPasswordPolicy) MaxPasswordAge() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxPasswordAge"])
 }
 
 // Minimum length to require for user passwords.
-func (r *AccountPasswordPolicy) MinimumPasswordLength() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["minimumPasswordLength"])
+func (r *AccountPasswordPolicy) MinimumPasswordLength() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["minimumPasswordLength"])
 }
 
 // The number of previous passwords that users are prevented from reusing.
-func (r *AccountPasswordPolicy) PasswordReusePrevention() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["passwordReusePrevention"])
+func (r *AccountPasswordPolicy) PasswordReusePrevention() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["passwordReusePrevention"])
 }
 
 // Whether to require lowercase characters for user passwords.
-func (r *AccountPasswordPolicy) RequireLowercaseCharacters() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["requireLowercaseCharacters"])
+func (r *AccountPasswordPolicy) RequireLowercaseCharacters() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["requireLowercaseCharacters"])
 }
 
 // Whether to require numbers for user passwords.
-func (r *AccountPasswordPolicy) RequireNumbers() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["requireNumbers"])
+func (r *AccountPasswordPolicy) RequireNumbers() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["requireNumbers"])
 }
 
 // Whether to require symbols for user passwords.
-func (r *AccountPasswordPolicy) RequireSymbols() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["requireSymbols"])
+func (r *AccountPasswordPolicy) RequireSymbols() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["requireSymbols"])
 }
 
 // Whether to require uppercase characters for user passwords.
-func (r *AccountPasswordPolicy) RequireUppercaseCharacters() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["requireUppercaseCharacters"])
+func (r *AccountPasswordPolicy) RequireUppercaseCharacters() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["requireUppercaseCharacters"])
 }
 
 // Input properties used for looking up and filtering AccountPasswordPolicy resources.

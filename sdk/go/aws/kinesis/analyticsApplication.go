@@ -80,80 +80,80 @@ func GetAnalyticsApplication(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AnalyticsApplication) URN() *pulumi.URNOutput {
+func (r *AnalyticsApplication) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AnalyticsApplication) ID() *pulumi.IDOutput {
+func (r *AnalyticsApplication) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the Kinesis Analytics Appliation.
-func (r *AnalyticsApplication) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *AnalyticsApplication) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The CloudWatch log stream options to monitor application errors.
 // See CloudWatch Logging Options below for more details.
-func (r *AnalyticsApplication) CloudwatchLoggingOptions() *pulumi.Output {
+func (r *AnalyticsApplication) CloudwatchLoggingOptions() pulumi.Output {
 	return r.s.State["cloudwatchLoggingOptions"]
 }
 
 // SQL Code to transform input data, and generate output.
-func (r *AnalyticsApplication) Code() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["code"])
+func (r *AnalyticsApplication) Code() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["code"])
 }
 
 // The Timestamp when the application version was created.
-func (r *AnalyticsApplication) CreateTimestamp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createTimestamp"])
+func (r *AnalyticsApplication) CreateTimestamp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createTimestamp"])
 }
 
 // Description of the application.
-func (r *AnalyticsApplication) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *AnalyticsApplication) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Input configuration of the application. See Inputs below for more details.
-func (r *AnalyticsApplication) Inputs() *pulumi.Output {
+func (r *AnalyticsApplication) Inputs() pulumi.Output {
 	return r.s.State["inputs"]
 }
 
 // The Timestamp when the application was last updated.
-func (r *AnalyticsApplication) LastUpdateTimestamp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastUpdateTimestamp"])
+func (r *AnalyticsApplication) LastUpdateTimestamp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastUpdateTimestamp"])
 }
 
 // Name of the Kinesis Analytics Application.
-func (r *AnalyticsApplication) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AnalyticsApplication) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Output destination configuration of the application. See Outputs below for more details.
-func (r *AnalyticsApplication) Outputs() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["outputs"])
+func (r *AnalyticsApplication) Outputs() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["outputs"])
 }
 
 // An S3 Reference Data Source for the application.
 // See Reference Data Sources below for more details.
-func (r *AnalyticsApplication) ReferenceDataSources() *pulumi.Output {
+func (r *AnalyticsApplication) ReferenceDataSources() pulumi.Output {
 	return r.s.State["referenceDataSources"]
 }
 
 // The Status of the application.
-func (r *AnalyticsApplication) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *AnalyticsApplication) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Key-value mapping of tags for the Kinesis Analytics Application.
-func (r *AnalyticsApplication) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *AnalyticsApplication) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The Version of the application.
-func (r *AnalyticsApplication) Version() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["version"])
+func (r *AnalyticsApplication) Version() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering AnalyticsApplication resources.

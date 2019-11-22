@@ -105,97 +105,97 @@ func GetProject(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Project) URN() *pulumi.URNOutput {
+func (r *Project) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Project) ID() *pulumi.IDOutput {
+func (r *Project) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the CodeBuild project.
-func (r *Project) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Project) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Information about the project's build output artifacts. Artifact blocks are documented below.
-func (r *Project) Artifacts() *pulumi.Output {
+func (r *Project) Artifacts() pulumi.Output {
 	return r.s.State["artifacts"]
 }
 
 // Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
-func (r *Project) BadgeEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["badgeEnabled"])
+func (r *Project) BadgeEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["badgeEnabled"])
 }
 
 // The URL of the build badge when `badgeEnabled` is enabled.
-func (r *Project) BadgeUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["badgeUrl"])
+func (r *Project) BadgeUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["badgeUrl"])
 }
 
 // How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-func (r *Project) BuildTimeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["buildTimeout"])
+func (r *Project) BuildTimeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["buildTimeout"])
 }
 
 // Information about the cache storage for the project. Cache blocks are documented below.
-func (r *Project) Cache() *pulumi.Output {
+func (r *Project) Cache() pulumi.Output {
 	return r.s.State["cache"]
 }
 
 // A short description of the project.
-func (r *Project) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Project) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-func (r *Project) EncryptionKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["encryptionKey"])
+func (r *Project) EncryptionKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["encryptionKey"])
 }
 
 // Information about the project's build environment. Environment blocks are documented below.
-func (r *Project) Environment() *pulumi.Output {
+func (r *Project) Environment() pulumi.Output {
 	return r.s.State["environment"]
 }
 
 // Configuration for the builds to store log data to CloudWatch or S3.
-func (r *Project) LogsConfig() *pulumi.Output {
+func (r *Project) LogsConfig() pulumi.Output {
 	return r.s.State["logsConfig"]
 }
 
 // The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-func (r *Project) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Project) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
-func (r *Project) SecondaryArtifacts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["secondaryArtifacts"])
+func (r *Project) SecondaryArtifacts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["secondaryArtifacts"])
 }
 
 // A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
-func (r *Project) SecondarySources() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["secondarySources"])
+func (r *Project) SecondarySources() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["secondarySources"])
 }
 
 // The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
-func (r *Project) ServiceRole() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceRole"])
+func (r *Project) ServiceRole() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceRole"])
 }
 
 // Information about the project's input source code. Source blocks are documented below.
-func (r *Project) Source() *pulumi.Output {
+func (r *Project) Source() pulumi.Output {
 	return r.s.State["source"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Project) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Project) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
-func (r *Project) VpcConfig() *pulumi.Output {
+func (r *Project) VpcConfig() pulumi.Output {
 	return r.s.State["vpcConfig"]
 }
 

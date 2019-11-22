@@ -83,68 +83,68 @@ func GetOrganizationManagedRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OrganizationManagedRule) URN() *pulumi.URNOutput {
+func (r *OrganizationManagedRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OrganizationManagedRule) ID() *pulumi.IDOutput {
+func (r *OrganizationManagedRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the rule
-func (r *OrganizationManagedRule) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *OrganizationManagedRule) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Description of the rule
-func (r *OrganizationManagedRule) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *OrganizationManagedRule) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // List of AWS account identifiers to exclude from the rule
-func (r *OrganizationManagedRule) ExcludedAccounts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["excludedAccounts"])
+func (r *OrganizationManagedRule) ExcludedAccounts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["excludedAccounts"])
 }
 
 // A string in JSON format that is passed to the AWS Config Rule Lambda Function
-func (r *OrganizationManagedRule) InputParameters() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["inputParameters"])
+func (r *OrganizationManagedRule) InputParameters() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["inputParameters"])
 }
 
 // The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-func (r *OrganizationManagedRule) MaximumExecutionFrequency() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["maximumExecutionFrequency"])
+func (r *OrganizationManagedRule) MaximumExecutionFrequency() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["maximumExecutionFrequency"])
 }
 
 // The name of the rule
-func (r *OrganizationManagedRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *OrganizationManagedRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Identifier of the AWS resource to evaluate
-func (r *OrganizationManagedRule) ResourceIdScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceIdScope"])
+func (r *OrganizationManagedRule) ResourceIdScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceIdScope"])
 }
 
 // List of types of AWS resources to evaluate
-func (r *OrganizationManagedRule) ResourceTypesScopes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["resourceTypesScopes"])
+func (r *OrganizationManagedRule) ResourceTypesScopes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["resourceTypesScopes"])
 }
 
 // Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
-func (r *OrganizationManagedRule) RuleIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ruleIdentifier"])
+func (r *OrganizationManagedRule) RuleIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ruleIdentifier"])
 }
 
 // Tag key of AWS resources to evaluate
-func (r *OrganizationManagedRule) TagKeyScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tagKeyScope"])
+func (r *OrganizationManagedRule) TagKeyScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tagKeyScope"])
 }
 
 // Tag value of AWS resources to evaluate
-func (r *OrganizationManagedRule) TagValueScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tagValueScope"])
+func (r *OrganizationManagedRule) TagValueScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tagValueScope"])
 }
 
 // Input properties used for looking up and filtering OrganizationManagedRule resources.

@@ -104,89 +104,89 @@ func GetNodeGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NodeGroup) URN() *pulumi.URNOutput {
+func (r *NodeGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NodeGroup) ID() *pulumi.IDOutput {
+func (r *NodeGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *NodeGroup) AmiType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["amiType"])
+func (r *NodeGroup) AmiType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["amiType"])
 }
 
 // Amazon Resource Name (ARN) of the EKS Node Group.
-func (r *NodeGroup) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *NodeGroup) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Name of the EKS Cluster.
-func (r *NodeGroup) ClusterName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterName"])
+func (r *NodeGroup) ClusterName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterName"])
 }
 
-func (r *NodeGroup) DiskSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["diskSize"])
+func (r *NodeGroup) DiskSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["diskSize"])
 }
 
-func (r *NodeGroup) InstanceTypes() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceTypes"])
+func (r *NodeGroup) InstanceTypes() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceTypes"])
 }
 
 // Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-func (r *NodeGroup) Labels() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["labels"])
+func (r *NodeGroup) Labels() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["labels"])
 }
 
 // Name of the EKS Node Group.
-func (r *NodeGroup) NodeGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["nodeGroupName"])
+func (r *NodeGroup) NodeGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["nodeGroupName"])
 }
 
 // Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
-func (r *NodeGroup) NodeRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["nodeRoleArn"])
+func (r *NodeGroup) NodeRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["nodeRoleArn"])
 }
 
 // AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-func (r *NodeGroup) ReleaseVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["releaseVersion"])
+func (r *NodeGroup) ReleaseVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["releaseVersion"])
 }
 
 // Configuration block with remote access settings. Detailed below.
-func (r *NodeGroup) RemoteAccess() *pulumi.Output {
+func (r *NodeGroup) RemoteAccess() pulumi.Output {
 	return r.s.State["remoteAccess"]
 }
 
 // List of objects containing information about underlying resources.
-func (r *NodeGroup) Resources() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["resources"])
+func (r *NodeGroup) Resources() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["resources"])
 }
 
 // Configuration block with scaling settings. Detailed below.
-func (r *NodeGroup) ScalingConfig() *pulumi.Output {
+func (r *NodeGroup) ScalingConfig() pulumi.Output {
 	return r.s.State["scalingConfig"]
 }
 
 // Status of the EKS Node Group.
-func (r *NodeGroup) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *NodeGroup) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-func (r *NodeGroup) SubnetIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subnetIds"])
+func (r *NodeGroup) SubnetIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subnetIds"])
 }
 
 // Key-value mapping of resource tags.
-func (r *NodeGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *NodeGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-func (r *NodeGroup) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *NodeGroup) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering NodeGroup resources.

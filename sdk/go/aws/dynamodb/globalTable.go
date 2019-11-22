@@ -57,28 +57,28 @@ func GetGlobalTable(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *GlobalTable) URN() *pulumi.URNOutput {
+func (r *GlobalTable) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *GlobalTable) ID() *pulumi.IDOutput {
+func (r *GlobalTable) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the DynamoDB Global Table
-func (r *GlobalTable) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *GlobalTable) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name of the global table. Must match underlying DynamoDB Table names in all regions.
-func (r *GlobalTable) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *GlobalTable) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-func (r *GlobalTable) Replicas() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["replicas"])
+func (r *GlobalTable) Replicas() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["replicas"])
 }
 
 // Input properties used for looking up and filtering GlobalTable resources.

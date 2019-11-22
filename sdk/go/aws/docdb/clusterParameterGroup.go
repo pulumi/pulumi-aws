@@ -67,48 +67,48 @@ func GetClusterParameterGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ClusterParameterGroup) URN() *pulumi.URNOutput {
+func (r *ClusterParameterGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ClusterParameterGroup) ID() *pulumi.IDOutput {
+func (r *ClusterParameterGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the documentDB cluster parameter group.
-func (r *ClusterParameterGroup) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ClusterParameterGroup) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
-func (r *ClusterParameterGroup) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ClusterParameterGroup) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The family of the documentDB cluster parameter group.
-func (r *ClusterParameterGroup) Family() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["family"])
+func (r *ClusterParameterGroup) Family() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["family"])
 }
 
 // The name of the documentDB parameter.
-func (r *ClusterParameterGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ClusterParameterGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *ClusterParameterGroup) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *ClusterParameterGroup) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // A list of documentDB parameters to apply.
-func (r *ClusterParameterGroup) Parameters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["parameters"])
+func (r *ClusterParameterGroup) Parameters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["parameters"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ClusterParameterGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ClusterParameterGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering ClusterParameterGroup resources.

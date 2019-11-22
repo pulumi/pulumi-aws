@@ -58,33 +58,33 @@ func GetWebsiteCertificateAuthorityAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *WebsiteCertificateAuthorityAssociation) URN() *pulumi.URNOutput {
+func (r *WebsiteCertificateAuthorityAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *WebsiteCertificateAuthorityAssociation) ID() *pulumi.IDOutput {
+func (r *WebsiteCertificateAuthorityAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The root certificate of the Certificate Authority.
-func (r *WebsiteCertificateAuthorityAssociation) Certificate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificate"])
+func (r *WebsiteCertificateAuthorityAssociation) Certificate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificate"])
 }
 
 // The certificate name to display.
-func (r *WebsiteCertificateAuthorityAssociation) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *WebsiteCertificateAuthorityAssociation) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // The ARN of the fleet.
-func (r *WebsiteCertificateAuthorityAssociation) FleetArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fleetArn"])
+func (r *WebsiteCertificateAuthorityAssociation) FleetArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fleetArn"])
 }
 
 // A unique identifier for the Certificate Authority.
-func (r *WebsiteCertificateAuthorityAssociation) WebsiteCaId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["websiteCaId"])
+func (r *WebsiteCertificateAuthorityAssociation) WebsiteCaId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["websiteCaId"])
 }
 
 // Input properties used for looking up and filtering WebsiteCertificateAuthorityAssociation resources.

@@ -61,42 +61,42 @@ func GetUsagePlan(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *UsagePlan) URN() *pulumi.URNOutput {
+func (r *UsagePlan) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *UsagePlan) ID() *pulumi.IDOutput {
+func (r *UsagePlan) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The associated API stages of the usage plan.
-func (r *UsagePlan) ApiStages() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["apiStages"])
+func (r *UsagePlan) ApiStages() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["apiStages"])
 }
 
 // The description of a usage plan.
-func (r *UsagePlan) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *UsagePlan) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the usage plan.
-func (r *UsagePlan) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *UsagePlan) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-func (r *UsagePlan) ProductCode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["productCode"])
+func (r *UsagePlan) ProductCode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["productCode"])
 }
 
 // The quota settings of the usage plan.
-func (r *UsagePlan) QuotaSettings() *pulumi.Output {
+func (r *UsagePlan) QuotaSettings() pulumi.Output {
 	return r.s.State["quotaSettings"]
 }
 
 // The throttling limits of the usage plan.
-func (r *UsagePlan) ThrottleSettings() *pulumi.Output {
+func (r *UsagePlan) ThrottleSettings() pulumi.Output {
 	return r.s.State["throttleSettings"]
 }
 

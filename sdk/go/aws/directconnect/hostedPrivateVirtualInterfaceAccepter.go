@@ -62,38 +62,38 @@ func GetHostedPrivateVirtualInterfaceAccepter(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *HostedPrivateVirtualInterfaceAccepter) URN() *pulumi.URNOutput {
+func (r *HostedPrivateVirtualInterfaceAccepter) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *HostedPrivateVirtualInterfaceAccepter) ID() *pulumi.IDOutput {
+func (r *HostedPrivateVirtualInterfaceAccepter) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the virtual interface.
-func (r *HostedPrivateVirtualInterfaceAccepter) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *HostedPrivateVirtualInterfaceAccepter) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The ID of the Direct Connect gateway to which to connect the virtual interface.
-func (r *HostedPrivateVirtualInterfaceAccepter) DxGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dxGatewayId"])
+func (r *HostedPrivateVirtualInterfaceAccepter) DxGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dxGatewayId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *HostedPrivateVirtualInterfaceAccepter) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *HostedPrivateVirtualInterfaceAccepter) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The ID of the Direct Connect virtual interface to accept.
-func (r *HostedPrivateVirtualInterfaceAccepter) VirtualInterfaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["virtualInterfaceId"])
+func (r *HostedPrivateVirtualInterfaceAccepter) VirtualInterfaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["virtualInterfaceId"])
 }
 
 // The ID of the virtual private gateway to which to connect the virtual interface.
-func (r *HostedPrivateVirtualInterfaceAccepter) VpnGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpnGatewayId"])
+func (r *HostedPrivateVirtualInterfaceAccepter) VpnGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpnGatewayId"])
 }
 
 // Input properties used for looking up and filtering HostedPrivateVirtualInterfaceAccepter resources.

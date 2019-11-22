@@ -56,23 +56,23 @@ func GetVpcEndpointRouteTableAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpcEndpointRouteTableAssociation) URN() *pulumi.URNOutput {
+func (r *VpcEndpointRouteTableAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpcEndpointRouteTableAssociation) ID() *pulumi.IDOutput {
+func (r *VpcEndpointRouteTableAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-func (r *VpcEndpointRouteTableAssociation) RouteTableId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["routeTableId"])
+func (r *VpcEndpointRouteTableAssociation) RouteTableId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["routeTableId"])
 }
 
 // Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-func (r *VpcEndpointRouteTableAssociation) VpcEndpointId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcEndpointId"])
+func (r *VpcEndpointRouteTableAssociation) VpcEndpointId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcEndpointId"])
 }
 
 // Input properties used for looking up and filtering VpcEndpointRouteTableAssociation resources.

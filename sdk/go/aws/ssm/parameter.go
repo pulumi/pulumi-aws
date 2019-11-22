@@ -82,68 +82,68 @@ func GetParameter(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Parameter) URN() *pulumi.URNOutput {
+func (r *Parameter) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Parameter) ID() *pulumi.IDOutput {
+func (r *Parameter) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A regular expression used to validate the parameter value.
-func (r *Parameter) AllowedPattern() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["allowedPattern"])
+func (r *Parameter) AllowedPattern() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["allowedPattern"])
 }
 
 // The ARN of the parameter.
-func (r *Parameter) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Parameter) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The description of the parameter.
-func (r *Parameter) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Parameter) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The KMS key id or arn for encrypting a SecureString.
-func (r *Parameter) KeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyId"])
+func (r *Parameter) KeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyId"])
 }
 
 // The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-func (r *Parameter) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Parameter) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
-func (r *Parameter) Overwrite() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["overwrite"])
+func (r *Parameter) Overwrite() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["overwrite"])
 }
 
 // A mapping of tags to assign to the object.
-func (r *Parameter) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Parameter) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-func (r *Parameter) Tier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tier"])
+func (r *Parameter) Tier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tier"])
 }
 
 // The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-func (r *Parameter) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Parameter) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // The value of the parameter.
-func (r *Parameter) Value() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["value"])
+func (r *Parameter) Value() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["value"])
 }
 
 // The version of the parameter.
-func (r *Parameter) Version() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["version"])
+func (r *Parameter) Version() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering Parameter resources.

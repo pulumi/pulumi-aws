@@ -66,28 +66,28 @@ func GetGroupMembership(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *GroupMembership) URN() *pulumi.URNOutput {
+func (r *GroupMembership) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *GroupMembership) ID() *pulumi.IDOutput {
+func (r *GroupMembership) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The IAM Group name to attach the list of `users` to
-func (r *GroupMembership) Group() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["group"])
+func (r *GroupMembership) Group() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["group"])
 }
 
 // The name to identify the Group Membership
-func (r *GroupMembership) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *GroupMembership) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A list of IAM User names to associate with the Group
-func (r *GroupMembership) Users() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["users"])
+func (r *GroupMembership) Users() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["users"])
 }
 
 // Input properties used for looking up and filtering GroupMembership resources.

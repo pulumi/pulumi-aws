@@ -99,83 +99,83 @@ func GetCachesIscsiVolume(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *CachesIscsiVolume) URN() *pulumi.URNOutput {
+func (r *CachesIscsiVolume) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *CachesIscsiVolume) ID() *pulumi.IDOutput {
+func (r *CachesIscsiVolume) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-func (r *CachesIscsiVolume) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *CachesIscsiVolume) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Whether mutual CHAP is enabled for the iSCSI target.
-func (r *CachesIscsiVolume) ChapEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["chapEnabled"])
+func (r *CachesIscsiVolume) ChapEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["chapEnabled"])
 }
 
 // The Amazon Resource Name (ARN) of the gateway.
-func (r *CachesIscsiVolume) GatewayArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gatewayArn"])
+func (r *CachesIscsiVolume) GatewayArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gatewayArn"])
 }
 
 // Logical disk number.
-func (r *CachesIscsiVolume) LunNumber() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["lunNumber"])
+func (r *CachesIscsiVolume) LunNumber() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["lunNumber"])
 }
 
 // The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
-func (r *CachesIscsiVolume) NetworkInterfaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkInterfaceId"])
+func (r *CachesIscsiVolume) NetworkInterfaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkInterfaceId"])
 }
 
 // The port used to communicate with iSCSI targets.
-func (r *CachesIscsiVolume) NetworkInterfacePort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["networkInterfacePort"])
+func (r *CachesIscsiVolume) NetworkInterfacePort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["networkInterfacePort"])
 }
 
 // The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
-func (r *CachesIscsiVolume) SnapshotId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["snapshotId"])
+func (r *CachesIscsiVolume) SnapshotId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["snapshotId"])
 }
 
 // The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
-func (r *CachesIscsiVolume) SourceVolumeArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceVolumeArn"])
+func (r *CachesIscsiVolume) SourceVolumeArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceVolumeArn"])
 }
 
 // Key-value mapping of resource tags
-func (r *CachesIscsiVolume) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *CachesIscsiVolume) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
-func (r *CachesIscsiVolume) TargetArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetArn"])
+func (r *CachesIscsiVolume) TargetArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetArn"])
 }
 
 // The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
-func (r *CachesIscsiVolume) TargetName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetName"])
+func (r *CachesIscsiVolume) TargetName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetName"])
 }
 
 // Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-func (r *CachesIscsiVolume) VolumeArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["volumeArn"])
+func (r *CachesIscsiVolume) VolumeArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["volumeArn"])
 }
 
 // Volume ID, e.g. `vol-12345678`.
-func (r *CachesIscsiVolume) VolumeId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["volumeId"])
+func (r *CachesIscsiVolume) VolumeId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["volumeId"])
 }
 
 // The size of the volume in bytes.
-func (r *CachesIscsiVolume) VolumeSizeInBytes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["volumeSizeInBytes"])
+func (r *CachesIscsiVolume) VolumeSizeInBytes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["volumeSizeInBytes"])
 }
 
 // Input properties used for looking up and filtering CachesIscsiVolume resources.

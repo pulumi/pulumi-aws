@@ -76,61 +76,61 @@ func GetServiceQuota(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ServiceQuota) URN() *pulumi.URNOutput {
+func (r *ServiceQuota) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ServiceQuota) ID() *pulumi.IDOutput {
+func (r *ServiceQuota) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether the service quota can be increased.
-func (r *ServiceQuota) Adjustable() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["adjustable"])
+func (r *ServiceQuota) Adjustable() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["adjustable"])
 }
 
 // Amazon Resource Name (ARN) of the service quota.
-func (r *ServiceQuota) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ServiceQuota) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Default value of the service quota.
-func (r *ServiceQuota) DefaultValue() *pulumi.Float64Output {
-	return (*pulumi.Float64Output)(r.s.State["defaultValue"])
+func (r *ServiceQuota) DefaultValue() pulumi.Float64Output {
+	return (pulumi.Float64Output)(r.s.State["defaultValue"])
 }
 
 // Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-func (r *ServiceQuota) QuotaCode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["quotaCode"])
+func (r *ServiceQuota) QuotaCode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["quotaCode"])
 }
 
 // Name of the quota.
-func (r *ServiceQuota) QuotaName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["quotaName"])
+func (r *ServiceQuota) QuotaName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["quotaName"])
 }
 
-func (r *ServiceQuota) RequestId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestId"])
+func (r *ServiceQuota) RequestId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestId"])
 }
 
-func (r *ServiceQuota) RequestStatus() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestStatus"])
+func (r *ServiceQuota) RequestStatus() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestStatus"])
 }
 
 // Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-func (r *ServiceQuota) ServiceCode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceCode"])
+func (r *ServiceQuota) ServiceCode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceCode"])
 }
 
 // Name of the service.
-func (r *ServiceQuota) ServiceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceName"])
+func (r *ServiceQuota) ServiceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceName"])
 }
 
 // Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-func (r *ServiceQuota) Value() *pulumi.Float64Output {
-	return (*pulumi.Float64Output)(r.s.State["value"])
+func (r *ServiceQuota) Value() pulumi.Float64Output {
+	return (pulumi.Float64Output)(r.s.State["value"])
 }
 
 // Input properties used for looking up and filtering ServiceQuota resources.

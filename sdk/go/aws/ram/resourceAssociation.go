@@ -58,23 +58,23 @@ func GetResourceAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ResourceAssociation) URN() *pulumi.URNOutput {
+func (r *ResourceAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ResourceAssociation) ID() *pulumi.IDOutput {
+func (r *ResourceAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-func (r *ResourceAssociation) ResourceArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceArn"])
+func (r *ResourceAssociation) ResourceArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceArn"])
 }
 
 // Amazon Resource Name (ARN) of the RAM Resource Share.
-func (r *ResourceAssociation) ResourceShareArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceShareArn"])
+func (r *ResourceAssociation) ResourceShareArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceShareArn"])
 }
 
 // Input properties used for looking up and filtering ResourceAssociation resources.

@@ -244,158 +244,158 @@ func GetCluster(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() *pulumi.URNOutput {
+func (r *Cluster) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() *pulumi.IDOutput {
+func (r *Cluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
-func (r *Cluster) AdditionalInfo() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["additionalInfo"])
+func (r *Cluster) AdditionalInfo() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["additionalInfo"])
 }
 
 // A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
-func (r *Cluster) Applications() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["applications"])
+func (r *Cluster) Applications() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["applications"])
 }
 
 // An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
-func (r *Cluster) AutoscalingRole() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["autoscalingRole"])
+func (r *Cluster) AutoscalingRole() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["autoscalingRole"])
 }
 
 // List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
-func (r *Cluster) BootstrapActions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["bootstrapActions"])
+func (r *Cluster) BootstrapActions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["bootstrapActions"])
 }
 
-func (r *Cluster) ClusterState() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterState"])
+func (r *Cluster) ClusterState() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterState"])
 }
 
 // List of configurations supplied for the EMR cluster you are creating
-func (r *Cluster) Configurations() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["configurations"])
+func (r *Cluster) Configurations() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["configurations"])
 }
 
 // A JSON string for supplying list of configurations for the EMR cluster.
-func (r *Cluster) ConfigurationsJson() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["configurationsJson"])
+func (r *Cluster) ConfigurationsJson() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["configurationsJson"])
 }
 
 // Use the `coreInstanceGroup` configuration block `instanceCount` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`coreInstanceCount`-1) as core nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set. Default `1`
-func (r *Cluster) CoreInstanceCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["coreInstanceCount"])
+func (r *Cluster) CoreInstanceCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["coreInstanceCount"])
 }
 
 // Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `coreInstanceCount` argument, `coreInstanceType` argument, or `instanceGroup` configuration blocks are set. Detailed below.
-func (r *Cluster) CoreInstanceGroup() *pulumi.Output {
+func (r *Cluster) CoreInstanceGroup() pulumi.Output {
 	return r.s.State["coreInstanceGroup"]
 }
 
 // Use the `coreInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set.
-func (r *Cluster) CoreInstanceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["coreInstanceType"])
+func (r *Cluster) CoreInstanceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["coreInstanceType"])
 }
 
 // A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
-func (r *Cluster) CustomAmiId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customAmiId"])
+func (r *Cluster) CustomAmiId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customAmiId"])
 }
 
 // Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
-func (r *Cluster) EbsRootVolumeSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["ebsRootVolumeSize"])
+func (r *Cluster) EbsRootVolumeSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["ebsRootVolumeSize"])
 }
 
 // Attributes for the EC2 instances running the job flow. Defined below
-func (r *Cluster) Ec2Attributes() *pulumi.Output {
+func (r *Cluster) Ec2Attributes() pulumi.Output {
 	return r.s.State["ec2Attributes"]
 }
 
 // Use the `masterInstanceGroup` configuration block, `coreInstanceGroup` configuration block and [`emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instanceGroup` objects for each instance group in the cluster. Exactly one of `masterInstanceType` and `instanceGroup` must be specified. If `instanceGroup` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `masterInstanceGroup` or `coreInstanceGroup` configuration blocks are set. Defined below
-func (r *Cluster) InstanceGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["instanceGroups"])
+func (r *Cluster) InstanceGroups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["instanceGroups"])
 }
 
 // Switch on/off run cluster with no steps or when all steps are complete (default is on)
-func (r *Cluster) KeepJobFlowAliveWhenNoSteps() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["keepJobFlowAliveWhenNoSteps"])
+func (r *Cluster) KeepJobFlowAliveWhenNoSteps() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["keepJobFlowAliveWhenNoSteps"])
 }
 
 // Kerberos configuration for the cluster. Defined below
-func (r *Cluster) KerberosAttributes() *pulumi.Output {
+func (r *Cluster) KerberosAttributes() pulumi.Output {
 	return r.s.State["kerberosAttributes"]
 }
 
 // S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
-func (r *Cluster) LogUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logUri"])
+func (r *Cluster) LogUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logUri"])
 }
 
 // Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `masterInstanceType` argument or `instanceGroup` configuration blocks are set. Detailed below.
-func (r *Cluster) MasterInstanceGroup() *pulumi.Output {
+func (r *Cluster) MasterInstanceGroup() pulumi.Output {
 	return r.s.State["masterInstanceGroup"]
 }
 
 // Use the `masterInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the master node. Cannot be specified if `masterInstanceGroup` or `instanceGroup` configuration blocks are set.
-func (r *Cluster) MasterInstanceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["masterInstanceType"])
+func (r *Cluster) MasterInstanceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["masterInstanceType"])
 }
 
 // The public DNS name of the master EC2 instance.
 // * `core_instance_group.0.id` - Core node type Instance Group ID, if using Instance Group for this node type.
-func (r *Cluster) MasterPublicDns() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["masterPublicDns"])
+func (r *Cluster) MasterPublicDns() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["masterPublicDns"])
 }
 
 // The name of the job flow
-func (r *Cluster) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Cluster) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The release label for the Amazon EMR release
-func (r *Cluster) ReleaseLabel() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["releaseLabel"])
+func (r *Cluster) ReleaseLabel() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["releaseLabel"])
 }
 
 // The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
-func (r *Cluster) ScaleDownBehavior() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scaleDownBehavior"])
+func (r *Cluster) ScaleDownBehavior() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scaleDownBehavior"])
 }
 
 // The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater
-func (r *Cluster) SecurityConfiguration() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["securityConfiguration"])
+func (r *Cluster) SecurityConfiguration() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["securityConfiguration"])
 }
 
 // IAM role that will be assumed by the Amazon EMR service to access AWS resources
-func (r *Cluster) ServiceRole() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceRole"])
+func (r *Cluster) ServiceRole() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceRole"])
 }
 
 // List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-func (r *Cluster) Steps() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["steps"])
+func (r *Cluster) Steps() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["steps"])
 }
 
 // list of tags to apply to the EMR Cluster
-func (r *Cluster) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Cluster) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
-func (r *Cluster) TerminationProtection() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["terminationProtection"])
+func (r *Cluster) TerminationProtection() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["terminationProtection"])
 }
 
 // Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
-func (r *Cluster) VisibleToAllUsers() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["visibleToAllUsers"])
+func (r *Cluster) VisibleToAllUsers() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["visibleToAllUsers"])
 }
 
 // Input properties used for looking up and filtering Cluster resources.

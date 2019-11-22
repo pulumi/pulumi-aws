@@ -108,127 +108,127 @@ func GetUserPool(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *UserPool) URN() *pulumi.URNOutput {
+func (r *UserPool) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *UserPool) ID() *pulumi.IDOutput {
+func (r *UserPool) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The configuration for AdminCreateUser requests.
-func (r *UserPool) AdminCreateUserConfig() *pulumi.Output {
+func (r *UserPool) AdminCreateUserConfig() pulumi.Output {
 	return r.s.State["adminCreateUserConfig"]
 }
 
 // Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
-func (r *UserPool) AliasAttributes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["aliasAttributes"])
+func (r *UserPool) AliasAttributes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["aliasAttributes"])
 }
 
 // The ARN of the user pool.
-func (r *UserPool) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *UserPool) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The attributes to be auto-verified. Possible values: email, phone_number.
-func (r *UserPool) AutoVerifiedAttributes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["autoVerifiedAttributes"])
+func (r *UserPool) AutoVerifiedAttributes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["autoVerifiedAttributes"])
 }
 
 // The date the user pool was created.
-func (r *UserPool) CreationDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["creationDate"])
+func (r *UserPool) CreationDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["creationDate"])
 }
 
 // The configuration for the user pool's device tracking.
-func (r *UserPool) DeviceConfiguration() *pulumi.Output {
+func (r *UserPool) DeviceConfiguration() pulumi.Output {
 	return r.s.State["deviceConfiguration"]
 }
 
 // The Email Configuration.
-func (r *UserPool) EmailConfiguration() *pulumi.Output {
+func (r *UserPool) EmailConfiguration() pulumi.Output {
 	return r.s.State["emailConfiguration"]
 }
 
 // A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
-func (r *UserPool) EmailVerificationMessage() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["emailVerificationMessage"])
+func (r *UserPool) EmailVerificationMessage() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["emailVerificationMessage"])
 }
 
 // A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
-func (r *UserPool) EmailVerificationSubject() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["emailVerificationSubject"])
+func (r *UserPool) EmailVerificationSubject() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["emailVerificationSubject"])
 }
 
 // The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
-func (r *UserPool) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *UserPool) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // A container for the AWS Lambda triggers associated with the user pool.
-func (r *UserPool) LambdaConfig() *pulumi.Output {
+func (r *UserPool) LambdaConfig() pulumi.Output {
 	return r.s.State["lambdaConfig"]
 }
 
 // The date the user pool was last modified.
-func (r *UserPool) LastModifiedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastModifiedDate"])
+func (r *UserPool) LastModifiedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastModifiedDate"])
 }
 
 // Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
-func (r *UserPool) MfaConfiguration() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mfaConfiguration"])
+func (r *UserPool) MfaConfiguration() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mfaConfiguration"])
 }
 
 // The name of the attribute.
-func (r *UserPool) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *UserPool) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A container for information about the user pool password policy.
-func (r *UserPool) PasswordPolicy() *pulumi.Output {
+func (r *UserPool) PasswordPolicy() pulumi.Output {
 	return r.s.State["passwordPolicy"]
 }
 
 // A container with the schema attributes of a user pool. Maximum of 50 attributes.
-func (r *UserPool) Schemas() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["schemas"])
+func (r *UserPool) Schemas() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["schemas"])
 }
 
 // A string representing the SMS authentication message.
-func (r *UserPool) SmsAuthenticationMessage() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["smsAuthenticationMessage"])
+func (r *UserPool) SmsAuthenticationMessage() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["smsAuthenticationMessage"])
 }
 
 // The SMS Configuration.
-func (r *UserPool) SmsConfiguration() *pulumi.Output {
+func (r *UserPool) SmsConfiguration() pulumi.Output {
 	return r.s.State["smsConfiguration"]
 }
 
 // A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
-func (r *UserPool) SmsVerificationMessage() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["smsVerificationMessage"])
+func (r *UserPool) SmsVerificationMessage() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["smsVerificationMessage"])
 }
 
 // A mapping of tags to assign to the User Pool.
-func (r *UserPool) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *UserPool) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Configuration block for user pool add-ons to enable user pool advanced security mode features.
-func (r *UserPool) UserPoolAddOns() *pulumi.Output {
+func (r *UserPool) UserPoolAddOns() pulumi.Output {
 	return r.s.State["userPoolAddOns"]
 }
 
 // Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
-func (r *UserPool) UsernameAttributes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["usernameAttributes"])
+func (r *UserPool) UsernameAttributes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["usernameAttributes"])
 }
 
 // The verification message templates configuration.
-func (r *UserPool) VerificationMessageTemplate() *pulumi.Output {
+func (r *UserPool) VerificationMessageTemplate() pulumi.Output {
 	return r.s.State["verificationMessageTemplate"]
 }
 

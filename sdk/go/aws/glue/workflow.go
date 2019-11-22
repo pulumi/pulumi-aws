@@ -54,28 +54,28 @@ func GetWorkflow(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Workflow) URN() *pulumi.URNOutput {
+func (r *Workflow) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Workflow) ID() *pulumi.IDOutput {
+func (r *Workflow) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-func (r *Workflow) DefaultRunProperties() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["defaultRunProperties"])
+func (r *Workflow) DefaultRunProperties() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["defaultRunProperties"])
 }
 
 // Description of the workflow.
-func (r *Workflow) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Workflow) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name you assign to this workflow.
-func (r *Workflow) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Workflow) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering Workflow resources.

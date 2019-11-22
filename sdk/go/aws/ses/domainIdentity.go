@@ -54,23 +54,23 @@ func GetDomainIdentity(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DomainIdentity) URN() *pulumi.URNOutput {
+func (r *DomainIdentity) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DomainIdentity) ID() *pulumi.IDOutput {
+func (r *DomainIdentity) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the domain identity.
-func (r *DomainIdentity) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *DomainIdentity) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The domain name to assign to SES
-func (r *DomainIdentity) Domain() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domain"])
+func (r *DomainIdentity) Domain() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domain"])
 }
 
 // A code which when added to the domain as a TXT record
@@ -80,8 +80,8 @@ func (r *DomainIdentity) Domain() *pulumi.StringOutput {
 // when the domain is hosted in Route 53 and managed by this provider.  Find out
 // more about verifying domains in Amazon SES in the [AWS SES
 // docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
-func (r *DomainIdentity) VerificationToken() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["verificationToken"])
+func (r *DomainIdentity) VerificationToken() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["verificationToken"])
 }
 
 // Input properties used for looking up and filtering DomainIdentity resources.

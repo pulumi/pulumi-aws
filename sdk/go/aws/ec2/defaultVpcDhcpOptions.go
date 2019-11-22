@@ -69,45 +69,45 @@ func GetDefaultVpcDhcpOptions(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DefaultVpcDhcpOptions) URN() *pulumi.URNOutput {
+func (r *DefaultVpcDhcpOptions) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DefaultVpcDhcpOptions) ID() *pulumi.IDOutput {
+func (r *DefaultVpcDhcpOptions) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *DefaultVpcDhcpOptions) DomainName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domainName"])
+func (r *DefaultVpcDhcpOptions) DomainName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domainName"])
 }
 
-func (r *DefaultVpcDhcpOptions) DomainNameServers() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domainNameServers"])
+func (r *DefaultVpcDhcpOptions) DomainNameServers() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domainNameServers"])
 }
 
 // List of NETBIOS name servers.
-func (r *DefaultVpcDhcpOptions) NetbiosNameServers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["netbiosNameServers"])
+func (r *DefaultVpcDhcpOptions) NetbiosNameServers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["netbiosNameServers"])
 }
 
 // The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-func (r *DefaultVpcDhcpOptions) NetbiosNodeType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["netbiosNodeType"])
+func (r *DefaultVpcDhcpOptions) NetbiosNodeType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["netbiosNodeType"])
 }
 
-func (r *DefaultVpcDhcpOptions) NtpServers() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ntpServers"])
+func (r *DefaultVpcDhcpOptions) NtpServers() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ntpServers"])
 }
 
 // The ID of the AWS account that owns the DHCP options set.
-func (r *DefaultVpcDhcpOptions) OwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+func (r *DefaultVpcDhcpOptions) OwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *DefaultVpcDhcpOptions) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *DefaultVpcDhcpOptions) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering DefaultVpcDhcpOptions resources.

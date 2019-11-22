@@ -53,28 +53,28 @@ func GetDetector(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Detector) URN() *pulumi.URNOutput {
+func (r *Detector) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Detector) ID() *pulumi.IDOutput {
+func (r *Detector) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The AWS account ID of the GuardDuty detector
-func (r *Detector) AccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountId"])
+func (r *Detector) AccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountId"])
 }
 
 // Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
-func (r *Detector) Enable() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enable"])
+func (r *Detector) Enable() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enable"])
 }
 
 // Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty master account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty master accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and master accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-func (r *Detector) FindingPublishingFrequency() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["findingPublishingFrequency"])
+func (r *Detector) FindingPublishingFrequency() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["findingPublishingFrequency"])
 }
 
 // Input properties used for looking up and filtering Detector resources.

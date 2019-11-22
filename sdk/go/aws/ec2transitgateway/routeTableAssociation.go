@@ -60,33 +60,33 @@ func GetRouteTableAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RouteTableAssociation) URN() *pulumi.URNOutput {
+func (r *RouteTableAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RouteTableAssociation) ID() *pulumi.IDOutput {
+func (r *RouteTableAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Identifier of the resource
-func (r *RouteTableAssociation) ResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceId"])
+func (r *RouteTableAssociation) ResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceId"])
 }
 
 // Type of the resource
-func (r *RouteTableAssociation) ResourceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceType"])
+func (r *RouteTableAssociation) ResourceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceType"])
 }
 
 // Identifier of EC2 Transit Gateway Attachment.
-func (r *RouteTableAssociation) TransitGatewayAttachmentId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transitGatewayAttachmentId"])
+func (r *RouteTableAssociation) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["transitGatewayAttachmentId"])
 }
 
 // Identifier of EC2 Transit Gateway Route Table.
-func (r *RouteTableAssociation) TransitGatewayRouteTableId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transitGatewayRouteTableId"])
+func (r *RouteTableAssociation) TransitGatewayRouteTableId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["transitGatewayRouteTableId"])
 }
 
 // Input properties used for looking up and filtering RouteTableAssociation resources.

@@ -67,38 +67,38 @@ func GetAssessmentTemplate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AssessmentTemplate) URN() *pulumi.URNOutput {
+func (r *AssessmentTemplate) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AssessmentTemplate) ID() *pulumi.IDOutput {
+func (r *AssessmentTemplate) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The template assessment ARN.
-func (r *AssessmentTemplate) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *AssessmentTemplate) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The duration of the inspector run.
-func (r *AssessmentTemplate) Duration() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["duration"])
+func (r *AssessmentTemplate) Duration() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["duration"])
 }
 
 // The name of the assessment template.
-func (r *AssessmentTemplate) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AssessmentTemplate) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The rules to be used during the run.
-func (r *AssessmentTemplate) RulesPackageArns() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["rulesPackageArns"])
+func (r *AssessmentTemplate) RulesPackageArns() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["rulesPackageArns"])
 }
 
 // The assessment target ARN to attach the template to.
-func (r *AssessmentTemplate) TargetArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetArn"])
+func (r *AssessmentTemplate) TargetArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetArn"])
 }
 
 // Input properties used for looking up and filtering AssessmentTemplate resources.

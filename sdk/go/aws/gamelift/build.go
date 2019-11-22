@@ -62,33 +62,33 @@ func GetBuild(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Build) URN() *pulumi.URNOutput {
+func (r *Build) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Build) ID() *pulumi.IDOutput {
+func (r *Build) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Name of the build
-func (r *Build) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Build) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
-func (r *Build) OperatingSystem() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["operatingSystem"])
+func (r *Build) OperatingSystem() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["operatingSystem"])
 }
 
 // Information indicating where your game build files are stored. See below.
-func (r *Build) StorageLocation() *pulumi.Output {
+func (r *Build) StorageLocation() pulumi.Output {
 	return r.s.State["storageLocation"]
 }
 
 // Version that is associated with this build.
-func (r *Build) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *Build) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering Build resources.

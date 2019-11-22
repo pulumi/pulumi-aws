@@ -62,26 +62,26 @@ func GetTrigger(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Trigger) URN() *pulumi.URNOutput {
+func (r *Trigger) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Trigger) ID() *pulumi.IDOutput {
+func (r *Trigger) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *Trigger) ConfigurationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["configurationId"])
+func (r *Trigger) ConfigurationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["configurationId"])
 }
 
 // The name for the repository. This needs to be less than 100 characters.
-func (r *Trigger) RepositoryName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["repositoryName"])
+func (r *Trigger) RepositoryName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["repositoryName"])
 }
 
-func (r *Trigger) Triggers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["triggers"])
+func (r *Trigger) Triggers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["triggers"])
 }
 
 // Input properties used for looking up and filtering Trigger resources.

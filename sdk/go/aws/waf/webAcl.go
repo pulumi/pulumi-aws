@@ -70,48 +70,48 @@ func GetWebAcl(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *WebAcl) URN() *pulumi.URNOutput {
+func (r *WebAcl) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *WebAcl) ID() *pulumi.IDOutput {
+func (r *WebAcl) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the WAF WebACL.
-func (r *WebAcl) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *WebAcl) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-func (r *WebAcl) DefaultAction() *pulumi.Output {
+func (r *WebAcl) DefaultAction() pulumi.Output {
 	return r.s.State["defaultAction"]
 }
 
 // Configuration block to enable WAF logging. Detailed below.
-func (r *WebAcl) LoggingConfiguration() *pulumi.Output {
+func (r *WebAcl) LoggingConfiguration() pulumi.Output {
 	return r.s.State["loggingConfiguration"]
 }
 
 // The name or description for the Amazon CloudWatch metric of this web ACL.
-func (r *WebAcl) MetricName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metricName"])
+func (r *WebAcl) MetricName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metricName"])
 }
 
 // The name or description of the web ACL.
-func (r *WebAcl) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *WebAcl) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-func (r *WebAcl) Rules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["rules"])
+func (r *WebAcl) Rules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["rules"])
 }
 
 // Key-value mapping of resource tags
-func (r *WebAcl) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *WebAcl) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering WebAcl resources.

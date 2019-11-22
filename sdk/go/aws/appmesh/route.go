@@ -74,53 +74,53 @@ func GetRoute(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Route) URN() *pulumi.URNOutput {
+func (r *Route) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Route) ID() *pulumi.IDOutput {
+func (r *Route) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the route.
-func (r *Route) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Route) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The creation date of the route.
-func (r *Route) CreatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdDate"])
+func (r *Route) CreatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdDate"])
 }
 
 // The last update date of the route.
-func (r *Route) LastUpdatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
+func (r *Route) LastUpdatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
 }
 
 // The name of the service mesh in which to create the route.
-func (r *Route) MeshName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["meshName"])
+func (r *Route) MeshName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["meshName"])
 }
 
 // The name to use for the route.
-func (r *Route) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Route) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The route specification to apply.
-func (r *Route) Spec() *pulumi.Output {
+func (r *Route) Spec() pulumi.Output {
 	return r.s.State["spec"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Route) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Route) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The name of the virtual router in which to create the route.
-func (r *Route) VirtualRouterName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["virtualRouterName"])
+func (r *Route) VirtualRouterName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["virtualRouterName"])
 }
 
 // Input properties used for looking up and filtering Route resources.

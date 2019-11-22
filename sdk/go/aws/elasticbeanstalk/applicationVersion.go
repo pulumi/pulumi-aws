@@ -91,54 +91,54 @@ func GetApplicationVersion(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ApplicationVersion) URN() *pulumi.URNOutput {
+func (r *ApplicationVersion) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ApplicationVersion) ID() *pulumi.IDOutput {
+func (r *ApplicationVersion) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Name of the Beanstalk Application the version is associated with.
-func (r *ApplicationVersion) Application() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["application"])
+func (r *ApplicationVersion) Application() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["application"])
 }
 
 // The ARN assigned by AWS for this Elastic Beanstalk Application.
-func (r *ApplicationVersion) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ApplicationVersion) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // S3 bucket that contains the Application Version source bundle.
-func (r *ApplicationVersion) Bucket() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bucket"])
+func (r *ApplicationVersion) Bucket() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bucket"])
 }
 
 // Short description of the Application Version.
-func (r *ApplicationVersion) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ApplicationVersion) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // On delete, force an Application Version to be deleted when it may be in use
 // by multiple Elastic Beanstalk Environments.
-func (r *ApplicationVersion) ForceDelete() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["forceDelete"])
+func (r *ApplicationVersion) ForceDelete() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["forceDelete"])
 }
 
 // S3 object that is the Application Version source bundle.
-func (r *ApplicationVersion) Key() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["key"])
+func (r *ApplicationVersion) Key() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["key"])
 }
 
 // A unique name for the this Application Version.
-func (r *ApplicationVersion) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ApplicationVersion) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Key-value mapping of tags for the Elastic Beanstalk Application Version.
-func (r *ApplicationVersion) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ApplicationVersion) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering ApplicationVersion resources.

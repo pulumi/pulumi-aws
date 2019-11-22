@@ -64,57 +64,57 @@ func GetAccessKey(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AccessKey) URN() *pulumi.URNOutput {
+func (r *AccessKey) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AccessKey) ID() *pulumi.IDOutput {
+func (r *AccessKey) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The encrypted secret, base64 encoded.
 // > **NOTE:** The encrypted secret may be decrypted using the command line,
 // for example: `... | base64 --decode | keybase pgp decrypt`.
-func (r *AccessKey) EncryptedSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["encryptedSecret"])
+func (r *AccessKey) EncryptedSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["encryptedSecret"])
 }
 
 // The fingerprint of the PGP key used to encrypt
 // the secret
-func (r *AccessKey) KeyFingerprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyFingerprint"])
+func (r *AccessKey) KeyFingerprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyFingerprint"])
 }
 
 // Either a base-64 encoded PGP public key, or a
 // keybase username in the form `keybase:some_person_that_exists`.
-func (r *AccessKey) PgpKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["pgpKey"])
+func (r *AccessKey) PgpKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["pgpKey"])
 }
 
 // The secret access key. Note that this will be written
 // to the state file. Please supply a `pgpKey` instead, which will prevent the
 // secret from being stored in plain text
-func (r *AccessKey) Secret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secret"])
+func (r *AccessKey) Secret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secret"])
 }
 
 // The secret access key converted into an SES SMTP
 // password by applying [AWS's documented conversion
 // algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
-func (r *AccessKey) SesSmtpPassword() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sesSmtpPassword"])
+func (r *AccessKey) SesSmtpPassword() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sesSmtpPassword"])
 }
 
 // The access key status to apply. Defaults to `Active`.
 // Valid values are `Active` and `Inactive`.
-func (r *AccessKey) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *AccessKey) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // The IAM user to associate with this access key.
-func (r *AccessKey) User() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["user"])
+func (r *AccessKey) User() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["user"])
 }
 
 // Input properties used for looking up and filtering AccessKey resources.

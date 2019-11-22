@@ -62,28 +62,28 @@ func GetSshKey(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SshKey) URN() *pulumi.URNOutput {
+func (r *SshKey) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SshKey) ID() *pulumi.IDOutput {
+func (r *SshKey) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The public key portion of an SSH key pair.
-func (r *SshKey) Body() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["body"])
+func (r *SshKey) Body() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["body"])
 }
 
 // The Server ID of the Transfer Server (e.g. `s-12345678`)
-func (r *SshKey) ServerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverId"])
+func (r *SshKey) ServerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverId"])
 }
 
 // The name of the user account that is assigned to one or more servers.
-func (r *SshKey) UserName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userName"])
+func (r *SshKey) UserName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userName"])
 }
 
 // Input properties used for looking up and filtering SshKey resources.

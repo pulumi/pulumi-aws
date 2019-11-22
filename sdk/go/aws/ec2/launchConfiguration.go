@@ -163,116 +163,116 @@ func GetLaunchConfiguration(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LaunchConfiguration) URN() *pulumi.URNOutput {
+func (r *LaunchConfiguration) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LaunchConfiguration) ID() *pulumi.IDOutput {
+func (r *LaunchConfiguration) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Associate a public ip address with an instance in a VPC.
-func (r *LaunchConfiguration) AssociatePublicIpAddress() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["associatePublicIpAddress"])
+func (r *LaunchConfiguration) AssociatePublicIpAddress() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["associatePublicIpAddress"])
 }
 
 // Additional EBS block devices to attach to the
 // instance.  See Block Devices below for details.
-func (r *LaunchConfiguration) EbsBlockDevices() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
+func (r *LaunchConfiguration) EbsBlockDevices() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
 }
 
 // If true, the launched EC2 instance will be EBS-optimized.
-func (r *LaunchConfiguration) EbsOptimized() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["ebsOptimized"])
+func (r *LaunchConfiguration) EbsOptimized() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["ebsOptimized"])
 }
 
 // Enables/disables detailed monitoring. This is enabled by default.
-func (r *LaunchConfiguration) EnableMonitoring() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableMonitoring"])
+func (r *LaunchConfiguration) EnableMonitoring() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableMonitoring"])
 }
 
 // Customize Ephemeral (also known as
 // "Instance Store") volumes on the instance. See Block Devices below for details.
-func (r *LaunchConfiguration) EphemeralBlockDevices() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
+func (r *LaunchConfiguration) EphemeralBlockDevices() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
 }
 
 // The name attribute of the IAM instance profile to associate
 // with launched instances.
-func (r *LaunchConfiguration) IamInstanceProfile() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iamInstanceProfile"])
+func (r *LaunchConfiguration) IamInstanceProfile() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iamInstanceProfile"])
 }
 
 // The EC2 image ID to launch.
-func (r *LaunchConfiguration) ImageId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["imageId"])
+func (r *LaunchConfiguration) ImageId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["imageId"])
 }
 
 // The size of instance to launch.
-func (r *LaunchConfiguration) InstanceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceType"])
+func (r *LaunchConfiguration) InstanceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceType"])
 }
 
 // The key name that should be used for the instance.
-func (r *LaunchConfiguration) KeyName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyName"])
+func (r *LaunchConfiguration) KeyName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyName"])
 }
 
 // The name of the launch configuration. If you leave
 // this blank, this provider will auto-generate a unique name.
-func (r *LaunchConfiguration) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LaunchConfiguration) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified
 // prefix. Conflicts with `name`.
-func (r *LaunchConfiguration) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *LaunchConfiguration) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // The tenancy of the instance. Valid values are
 // `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
 // for more details
-func (r *LaunchConfiguration) PlacementTenancy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["placementTenancy"])
+func (r *LaunchConfiguration) PlacementTenancy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["placementTenancy"])
 }
 
 // Customize details about the root block
 // device of the instance. See Block Devices below for details.
-func (r *LaunchConfiguration) RootBlockDevice() *pulumi.Output {
+func (r *LaunchConfiguration) RootBlockDevice() pulumi.Output {
 	return r.s.State["rootBlockDevice"]
 }
 
 // A list of associated security group IDS.
-func (r *LaunchConfiguration) SecurityGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityGroups"])
+func (r *LaunchConfiguration) SecurityGroups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityGroups"])
 }
 
 // The maximum price to use for reserving spot instances.
-func (r *LaunchConfiguration) SpotPrice() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["spotPrice"])
+func (r *LaunchConfiguration) SpotPrice() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["spotPrice"])
 }
 
 // The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
-func (r *LaunchConfiguration) UserData() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userData"])
+func (r *LaunchConfiguration) UserData() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userData"])
 }
 
 // Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-func (r *LaunchConfiguration) UserDataBase64() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userDataBase64"])
+func (r *LaunchConfiguration) UserDataBase64() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userDataBase64"])
 }
 
 // The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-func (r *LaunchConfiguration) VpcClassicLinkId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcClassicLinkId"])
+func (r *LaunchConfiguration) VpcClassicLinkId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcClassicLinkId"])
 }
 
 // The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-func (r *LaunchConfiguration) VpcClassicLinkSecurityGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["vpcClassicLinkSecurityGroups"])
+func (r *LaunchConfiguration) VpcClassicLinkSecurityGroups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["vpcClassicLinkSecurityGroups"])
 }
 
 // Input properties used for looking up and filtering LaunchConfiguration resources.

@@ -92,87 +92,87 @@ func GetDirectory(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Directory) URN() *pulumi.URNOutput {
+func (r *Directory) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Directory) ID() *pulumi.IDOutput {
+func (r *Directory) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The access URL for the directory, such as `http://alias.awsapps.com`.
-func (r *Directory) AccessUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessUrl"])
+func (r *Directory) AccessUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessUrl"])
 }
 
 // The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
-func (r *Directory) Alias() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["alias"])
+func (r *Directory) Alias() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["alias"])
 }
 
 // Connector related information about the directory. Fields documented below.
-func (r *Directory) ConnectSettings() *pulumi.Output {
+func (r *Directory) ConnectSettings() pulumi.Output {
 	return r.s.State["connectSettings"]
 }
 
 // A textual description for the directory.
-func (r *Directory) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Directory) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // A list of IP addresses of the DNS servers for the directory or connector.
-func (r *Directory) DnsIpAddresses() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["dnsIpAddresses"])
+func (r *Directory) DnsIpAddresses() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["dnsIpAddresses"])
 }
 
 // The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
-func (r *Directory) Edition() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["edition"])
+func (r *Directory) Edition() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["edition"])
 }
 
 // Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-func (r *Directory) EnableSso() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableSso"])
+func (r *Directory) EnableSso() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableSso"])
 }
 
 // The fully qualified name for the directory, such as `corp.example.com`
-func (r *Directory) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Directory) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The password for the directory administrator or connector user.
-func (r *Directory) Password() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["password"])
+func (r *Directory) Password() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["password"])
 }
 
 // The ID of the security group created by the directory.
-func (r *Directory) SecurityGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["securityGroupId"])
+func (r *Directory) SecurityGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["securityGroupId"])
 }
 
 // The short name of the directory, such as `CORP`.
-func (r *Directory) ShortName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["shortName"])
+func (r *Directory) ShortName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["shortName"])
 }
 
 // The size of the directory (`Small` or `Large` are accepted values).
-func (r *Directory) Size() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["size"])
+func (r *Directory) Size() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["size"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Directory) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Directory) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-func (r *Directory) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Directory) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // VPC related information about the directory. Fields documented below.
-func (r *Directory) VpcSettings() *pulumi.Output {
+func (r *Directory) VpcSettings() pulumi.Output {
 	return r.s.State["vpcSettings"]
 }
 

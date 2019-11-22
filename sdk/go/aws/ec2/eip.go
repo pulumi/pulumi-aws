@@ -79,77 +79,77 @@ func GetEip(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Eip) URN() *pulumi.URNOutput {
+func (r *Eip) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Eip) ID() *pulumi.IDOutput {
+func (r *Eip) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *Eip) AllocationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["allocationId"])
+func (r *Eip) AllocationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["allocationId"])
 }
 
 // A user specified primary or secondary private IP address to
 // associate with the Elastic IP address. If no private IP address is specified,
 // the Elastic IP address is associated with the primary private IP address.
-func (r *Eip) AssociateWithPrivateIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["associateWithPrivateIp"])
+func (r *Eip) AssociateWithPrivateIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["associateWithPrivateIp"])
 }
 
-func (r *Eip) AssociationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["associationId"])
+func (r *Eip) AssociationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["associationId"])
 }
 
-func (r *Eip) Domain() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domain"])
+func (r *Eip) Domain() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domain"])
 }
 
 // EC2 instance ID.
-func (r *Eip) Instance() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instance"])
+func (r *Eip) Instance() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instance"])
 }
 
 // Network interface ID to associate with.
-func (r *Eip) NetworkInterface() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkInterface"])
+func (r *Eip) NetworkInterface() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkInterface"])
 }
 
 // The Private DNS associated with the Elastic IP address (if in VPC).
-func (r *Eip) PrivateDns() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateDns"])
+func (r *Eip) PrivateDns() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateDns"])
 }
 
 // Contains the private IP address (if in VPC).
-func (r *Eip) PrivateIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateIp"])
+func (r *Eip) PrivateIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateIp"])
 }
 
 // Public DNS associated with the Elastic IP address.
-func (r *Eip) PublicDns() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publicDns"])
+func (r *Eip) PublicDns() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publicDns"])
 }
 
 // Contains the public IP address.
-func (r *Eip) PublicIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publicIp"])
+func (r *Eip) PublicIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publicIp"])
 }
 
 // EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
-func (r *Eip) PublicIpv4Pool() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publicIpv4Pool"])
+func (r *Eip) PublicIpv4Pool() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publicIpv4Pool"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Eip) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Eip) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Boolean if the EIP is in a VPC or not.
-func (r *Eip) Vpc() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["vpc"])
+func (r *Eip) Vpc() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["vpc"])
 }
 
 // Input properties used for looking up and filtering Eip resources.

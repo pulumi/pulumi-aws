@@ -79,48 +79,48 @@ func GetVirtualNode(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualNode) URN() *pulumi.URNOutput {
+func (r *VirtualNode) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualNode) ID() *pulumi.IDOutput {
+func (r *VirtualNode) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the virtual node.
-func (r *VirtualNode) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *VirtualNode) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The creation date of the virtual node.
-func (r *VirtualNode) CreatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdDate"])
+func (r *VirtualNode) CreatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdDate"])
 }
 
 // The last update date of the virtual node.
-func (r *VirtualNode) LastUpdatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
+func (r *VirtualNode) LastUpdatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
 }
 
 // The name of the service mesh in which to create the virtual node.
-func (r *VirtualNode) MeshName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["meshName"])
+func (r *VirtualNode) MeshName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["meshName"])
 }
 
 // The name to use for the virtual node.
-func (r *VirtualNode) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VirtualNode) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The virtual node specification to apply.
-func (r *VirtualNode) Spec() *pulumi.Output {
+func (r *VirtualNode) Spec() pulumi.Output {
 	return r.s.State["spec"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *VirtualNode) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VirtualNode) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering VirtualNode resources.

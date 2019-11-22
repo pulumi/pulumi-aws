@@ -60,38 +60,38 @@ func GetPlan(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Plan) URN() *pulumi.URNOutput {
+func (r *Plan) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Plan) ID() *pulumi.IDOutput {
+func (r *Plan) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the backup plan.
-func (r *Plan) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Plan) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The display name of a backup plan.
-func (r *Plan) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Plan) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A rule object that specifies a scheduled task that is used to back up a selection of resources.
-func (r *Plan) Rules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["rules"])
+func (r *Plan) Rules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["rules"])
 }
 
 // Metadata that you can assign to help organize the plans you create.
-func (r *Plan) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Plan) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-func (r *Plan) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *Plan) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering Plan resources.

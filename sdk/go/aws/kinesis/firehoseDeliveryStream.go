@@ -88,80 +88,80 @@ func GetFirehoseDeliveryStream(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *FirehoseDeliveryStream) URN() *pulumi.URNOutput {
+func (r *FirehoseDeliveryStream) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *FirehoseDeliveryStream) ID() *pulumi.IDOutput {
+func (r *FirehoseDeliveryStream) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) specifying the Stream
-func (r *FirehoseDeliveryStream) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *FirehoseDeliveryStream) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, and `splunk`.
-func (r *FirehoseDeliveryStream) Destination() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destination"])
+func (r *FirehoseDeliveryStream) Destination() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destination"])
 }
 
-func (r *FirehoseDeliveryStream) DestinationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destinationId"])
+func (r *FirehoseDeliveryStream) DestinationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destinationId"])
 }
 
-func (r *FirehoseDeliveryStream) ElasticsearchConfiguration() *pulumi.Output {
+func (r *FirehoseDeliveryStream) ElasticsearchConfiguration() pulumi.Output {
 	return r.s.State["elasticsearchConfiguration"]
 }
 
 // Enhanced configuration options for the s3 destination. More details are given below.
-func (r *FirehoseDeliveryStream) ExtendedS3Configuration() *pulumi.Output {
+func (r *FirehoseDeliveryStream) ExtendedS3Configuration() pulumi.Output {
 	return r.s.State["extendedS3Configuration"]
 }
 
 // Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
-func (r *FirehoseDeliveryStream) KinesisSourceConfiguration() *pulumi.Output {
+func (r *FirehoseDeliveryStream) KinesisSourceConfiguration() pulumi.Output {
 	return r.s.State["kinesisSourceConfiguration"]
 }
 
 // A name to identify the stream. This is unique to the
 // AWS account and region the Stream is created in.
-func (r *FirehoseDeliveryStream) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *FirehoseDeliveryStream) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Configuration options if redshift is the destination.
 // Using `redshiftConfiguration` requires the user to also specify a
 // `s3Configuration` block. More details are given below.
-func (r *FirehoseDeliveryStream) RedshiftConfiguration() *pulumi.Output {
+func (r *FirehoseDeliveryStream) RedshiftConfiguration() pulumi.Output {
 	return r.s.State["redshiftConfiguration"]
 }
 
 // Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
 // is redshift). More details are given below.
-func (r *FirehoseDeliveryStream) S3Configuration() *pulumi.Output {
+func (r *FirehoseDeliveryStream) S3Configuration() pulumi.Output {
 	return r.s.State["s3Configuration"]
 }
 
 // Encrypt at rest options.
 // Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-func (r *FirehoseDeliveryStream) ServerSideEncryption() *pulumi.Output {
+func (r *FirehoseDeliveryStream) ServerSideEncryption() pulumi.Output {
 	return r.s.State["serverSideEncryption"]
 }
 
-func (r *FirehoseDeliveryStream) SplunkConfiguration() *pulumi.Output {
+func (r *FirehoseDeliveryStream) SplunkConfiguration() pulumi.Output {
 	return r.s.State["splunkConfiguration"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *FirehoseDeliveryStream) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *FirehoseDeliveryStream) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the table version for the output data schema. Defaults to `LATEST`.
-func (r *FirehoseDeliveryStream) VersionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["versionId"])
+func (r *FirehoseDeliveryStream) VersionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["versionId"])
 }
 
 // Input properties used for looking up and filtering FirehoseDeliveryStream resources.

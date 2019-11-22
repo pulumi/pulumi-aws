@@ -77,55 +77,55 @@ func GetConfiguration(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Configuration) URN() *pulumi.URNOutput {
+func (r *Configuration) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Configuration) ID() *pulumi.IDOutput {
+func (r *Configuration) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the configuration.
-func (r *Configuration) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Configuration) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The broker configuration in XML format.
 // See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
 // for supported parameters and format of the XML.
-func (r *Configuration) Data() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["data"])
+func (r *Configuration) Data() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["data"])
 }
 
 // The description of the configuration.
-func (r *Configuration) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Configuration) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The type of broker engine.
-func (r *Configuration) EngineType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engineType"])
+func (r *Configuration) EngineType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engineType"])
 }
 
 // The version of the broker engine.
-func (r *Configuration) EngineVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
+func (r *Configuration) EngineVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
 // The latest revision of the configuration.
-func (r *Configuration) LatestRevision() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["latestRevision"])
+func (r *Configuration) LatestRevision() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["latestRevision"])
 }
 
 // The name of the configuration
-func (r *Configuration) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Configuration) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Configuration) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Configuration) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Configuration resources.

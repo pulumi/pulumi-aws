@@ -122,133 +122,133 @@ func GetJavaAppLayer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *JavaAppLayer) URN() *pulumi.URNOutput {
+func (r *JavaAppLayer) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *JavaAppLayer) ID() *pulumi.IDOutput {
+func (r *JavaAppLayer) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Keyword for the application container to use. Defaults to "tomcat".
-func (r *JavaAppLayer) AppServer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appServer"])
+func (r *JavaAppLayer) AppServer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appServer"])
 }
 
 // Version of the selected application container to use. Defaults to "7".
-func (r *JavaAppLayer) AppServerVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appServerVersion"])
+func (r *JavaAppLayer) AppServerVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appServerVersion"])
 }
 
 // Whether to automatically assign an elastic IP address to the layer's instances.
-func (r *JavaAppLayer) AutoAssignElasticIps() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoAssignElasticIps"])
+func (r *JavaAppLayer) AutoAssignElasticIps() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoAssignElasticIps"])
 }
 
 // For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-func (r *JavaAppLayer) AutoAssignPublicIps() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoAssignPublicIps"])
+func (r *JavaAppLayer) AutoAssignPublicIps() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoAssignPublicIps"])
 }
 
 // Whether to enable auto-healing for the layer.
-func (r *JavaAppLayer) AutoHealing() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoHealing"])
+func (r *JavaAppLayer) AutoHealing() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoHealing"])
 }
 
-func (r *JavaAppLayer) CustomConfigureRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customConfigureRecipes"])
+func (r *JavaAppLayer) CustomConfigureRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customConfigureRecipes"])
 }
 
-func (r *JavaAppLayer) CustomDeployRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customDeployRecipes"])
+func (r *JavaAppLayer) CustomDeployRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customDeployRecipes"])
 }
 
 // The ARN of an IAM profile that will be used for the layer's instances.
-func (r *JavaAppLayer) CustomInstanceProfileArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customInstanceProfileArn"])
+func (r *JavaAppLayer) CustomInstanceProfileArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customInstanceProfileArn"])
 }
 
 // Custom JSON attributes to apply to the layer.
-func (r *JavaAppLayer) CustomJson() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customJson"])
+func (r *JavaAppLayer) CustomJson() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customJson"])
 }
 
 // Ids for a set of security groups to apply to the layer's instances.
-func (r *JavaAppLayer) CustomSecurityGroupIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customSecurityGroupIds"])
+func (r *JavaAppLayer) CustomSecurityGroupIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customSecurityGroupIds"])
 }
 
-func (r *JavaAppLayer) CustomSetupRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customSetupRecipes"])
+func (r *JavaAppLayer) CustomSetupRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customSetupRecipes"])
 }
 
-func (r *JavaAppLayer) CustomShutdownRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customShutdownRecipes"])
+func (r *JavaAppLayer) CustomShutdownRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customShutdownRecipes"])
 }
 
-func (r *JavaAppLayer) CustomUndeployRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customUndeployRecipes"])
+func (r *JavaAppLayer) CustomUndeployRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customUndeployRecipes"])
 }
 
 // Whether to enable Elastic Load Balancing connection draining.
-func (r *JavaAppLayer) DrainElbOnShutdown() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
+func (r *JavaAppLayer) DrainElbOnShutdown() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
 }
 
 // `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-func (r *JavaAppLayer) EbsVolumes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
+func (r *JavaAppLayer) EbsVolumes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
 }
 
 // Name of an Elastic Load Balancer to attach to this layer
-func (r *JavaAppLayer) ElasticLoadBalancer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["elasticLoadBalancer"])
+func (r *JavaAppLayer) ElasticLoadBalancer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["elasticLoadBalancer"])
 }
 
 // Whether to install OS and package updates on each instance when it boots.
-func (r *JavaAppLayer) InstallUpdatesOnBoot() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
+func (r *JavaAppLayer) InstallUpdatesOnBoot() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
 }
 
 // The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-func (r *JavaAppLayer) InstanceShutdownTimeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["instanceShutdownTimeout"])
+func (r *JavaAppLayer) InstanceShutdownTimeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["instanceShutdownTimeout"])
 }
 
 // Options to set for the JVM.
-func (r *JavaAppLayer) JvmOptions() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["jvmOptions"])
+func (r *JavaAppLayer) JvmOptions() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["jvmOptions"])
 }
 
 // Keyword for the type of JVM to use. Defaults to `openjdk`.
-func (r *JavaAppLayer) JvmType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["jvmType"])
+func (r *JavaAppLayer) JvmType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["jvmType"])
 }
 
 // Version of JVM to use. Defaults to "7".
-func (r *JavaAppLayer) JvmVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["jvmVersion"])
+func (r *JavaAppLayer) JvmVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["jvmVersion"])
 }
 
 // A human-readable name for the layer.
-func (r *JavaAppLayer) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *JavaAppLayer) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The id of the stack the layer will belong to.
-func (r *JavaAppLayer) StackId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stackId"])
+func (r *JavaAppLayer) StackId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stackId"])
 }
 
 // Names of a set of system packages to install on the layer's instances.
-func (r *JavaAppLayer) SystemPackages() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["systemPackages"])
+func (r *JavaAppLayer) SystemPackages() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["systemPackages"])
 }
 
 // Whether to use EBS-optimized instances.
-func (r *JavaAppLayer) UseEbsOptimizedInstances() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["useEbsOptimizedInstances"])
+func (r *JavaAppLayer) UseEbsOptimizedInstances() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["useEbsOptimizedInstances"])
 }
 
 // Input properties used for looking up and filtering JavaAppLayer resources.

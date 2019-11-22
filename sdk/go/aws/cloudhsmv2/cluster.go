@@ -81,12 +81,12 @@ func GetCluster(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() *pulumi.URNOutput {
+func (r *Cluster) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() *pulumi.IDOutput {
+func (r *Cluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
@@ -96,48 +96,48 @@ func (r *Cluster) ID() *pulumi.IDOutput {
 // * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
 // * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
 // * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
-func (r *Cluster) ClusterCertificates() *pulumi.Output {
+func (r *Cluster) ClusterCertificates() pulumi.Output {
 	return r.s.State["clusterCertificates"]
 }
 
 // The id of the CloudHSM cluster.
-func (r *Cluster) ClusterId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterId"])
+func (r *Cluster) ClusterId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterId"])
 }
 
 // The state of the cluster.
-func (r *Cluster) ClusterState() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterState"])
+func (r *Cluster) ClusterState() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterState"])
 }
 
 // The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
-func (r *Cluster) HsmType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hsmType"])
+func (r *Cluster) HsmType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hsmType"])
 }
 
 // The ID of the security group associated with the CloudHSM cluster.
-func (r *Cluster) SecurityGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["securityGroupId"])
+func (r *Cluster) SecurityGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["securityGroupId"])
 }
 
 // The id of Cloud HSM v2 cluster backup to be restored.
-func (r *Cluster) SourceBackupIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceBackupIdentifier"])
+func (r *Cluster) SourceBackupIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceBackupIdentifier"])
 }
 
 // The IDs of subnets in which cluster will operate.
-func (r *Cluster) SubnetIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subnetIds"])
+func (r *Cluster) SubnetIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subnetIds"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Cluster) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Cluster) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The id of the VPC that the CloudHSM cluster resides in.
-func (r *Cluster) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *Cluster) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering Cluster resources.

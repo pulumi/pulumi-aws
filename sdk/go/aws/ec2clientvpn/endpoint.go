@@ -88,68 +88,68 @@ func GetEndpoint(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Endpoint) URN() *pulumi.URNOutput {
+func (r *Endpoint) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Endpoint) ID() *pulumi.IDOutput {
+func (r *Endpoint) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Information about the authentication method to be used to authenticate clients.
-func (r *Endpoint) AuthenticationOptions() *pulumi.Output {
+func (r *Endpoint) AuthenticationOptions() pulumi.Output {
 	return r.s.State["authenticationOptions"]
 }
 
 // The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
-func (r *Endpoint) ClientCidrBlock() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientCidrBlock"])
+func (r *Endpoint) ClientCidrBlock() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientCidrBlock"])
 }
 
 // Information about the client connection logging options.
-func (r *Endpoint) ConnectionLogOptions() *pulumi.Output {
+func (r *Endpoint) ConnectionLogOptions() pulumi.Output {
 	return r.s.State["connectionLogOptions"]
 }
 
 // Name of the repository.
-func (r *Endpoint) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Endpoint) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The DNS name to be used by clients when establishing their VPN session.
-func (r *Endpoint) DnsName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dnsName"])
+func (r *Endpoint) DnsName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dnsName"])
 }
 
 // Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
-func (r *Endpoint) DnsServers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["dnsServers"])
+func (r *Endpoint) DnsServers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["dnsServers"])
 }
 
 // The ARN of the ACM server certificate.
-func (r *Endpoint) ServerCertificateArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverCertificateArn"])
+func (r *Endpoint) ServerCertificateArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverCertificateArn"])
 }
 
 // Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
-func (r *Endpoint) SplitTunnel() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["splitTunnel"])
+func (r *Endpoint) SplitTunnel() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["splitTunnel"])
 }
 
 // The current state of the Client VPN endpoint.
-func (r *Endpoint) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Endpoint) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Endpoint) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Endpoint) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The transport protocol to be used by the VPN session. Default value is `udp`.
-func (r *Endpoint) TransportProtocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transportProtocol"])
+func (r *Endpoint) TransportProtocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["transportProtocol"])
 }
 
 // Input properties used for looking up and filtering Endpoint resources.

@@ -86,72 +86,72 @@ func GetGateway(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Gateway) URN() *pulumi.URNOutput {
+func (r *Gateway) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Gateway) ID() *pulumi.IDOutput {
+func (r *Gateway) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-func (r *Gateway) ActivationKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["activationKey"])
+func (r *Gateway) ActivationKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["activationKey"])
 }
 
 // Amazon Resource Name (ARN) of the gateway.
-func (r *Gateway) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Gateway) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Identifier of the gateway.
-func (r *Gateway) GatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gatewayId"])
+func (r *Gateway) GatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gatewayId"])
 }
 
 // Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-func (r *Gateway) GatewayIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gatewayIpAddress"])
+func (r *Gateway) GatewayIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gatewayIpAddress"])
 }
 
 // Name of the gateway.
-func (r *Gateway) GatewayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gatewayName"])
+func (r *Gateway) GatewayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gatewayName"])
 }
 
 // Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
-func (r *Gateway) GatewayTimezone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gatewayTimezone"])
+func (r *Gateway) GatewayTimezone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gatewayTimezone"])
 }
 
 // Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-func (r *Gateway) GatewayType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gatewayType"])
+func (r *Gateway) GatewayType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gatewayType"])
 }
 
-func (r *Gateway) MediumChangerType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mediumChangerType"])
+func (r *Gateway) MediumChangerType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mediumChangerType"])
 }
 
 // Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
-func (r *Gateway) SmbActiveDirectorySettings() *pulumi.Output {
+func (r *Gateway) SmbActiveDirectorySettings() pulumi.Output {
 	return r.s.State["smbActiveDirectorySettings"]
 }
 
 // Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
-func (r *Gateway) SmbGuestPassword() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["smbGuestPassword"])
+func (r *Gateway) SmbGuestPassword() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["smbGuestPassword"])
 }
 
 // Key-value mapping of resource tags
-func (r *Gateway) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Gateway) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
-func (r *Gateway) TapeDriveType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tapeDriveType"])
+func (r *Gateway) TapeDriveType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tapeDriveType"])
 }
 
 // Input properties used for looking up and filtering Gateway resources.

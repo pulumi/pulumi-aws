@@ -65,34 +65,34 @@ func GetCustomerGateway(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *CustomerGateway) URN() *pulumi.URNOutput {
+func (r *CustomerGateway) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *CustomerGateway) ID() *pulumi.IDOutput {
+func (r *CustomerGateway) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-func (r *CustomerGateway) BgpAsn() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["bgpAsn"])
+func (r *CustomerGateway) BgpAsn() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["bgpAsn"])
 }
 
 // The IP address of the gateway's Internet-routable external interface.
-func (r *CustomerGateway) IpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
+func (r *CustomerGateway) IpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipAddress"])
 }
 
 // Tags to apply to the gateway.
-func (r *CustomerGateway) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *CustomerGateway) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The type of customer gateway. The only type AWS
 // supports at this time is "ipsec.1".
-func (r *CustomerGateway) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *CustomerGateway) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering CustomerGateway resources.

@@ -100,86 +100,86 @@ func GetTopicRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TopicRule) URN() *pulumi.URNOutput {
+func (r *TopicRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TopicRule) ID() *pulumi.IDOutput {
+func (r *TopicRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the topic rule
-func (r *TopicRule) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *TopicRule) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
-func (r *TopicRule) CloudwatchAlarm() *pulumi.Output {
+func (r *TopicRule) CloudwatchAlarm() pulumi.Output {
 	return r.s.State["cloudwatchAlarm"]
 }
 
-func (r *TopicRule) CloudwatchMetric() *pulumi.Output {
+func (r *TopicRule) CloudwatchMetric() pulumi.Output {
 	return r.s.State["cloudwatchMetric"]
 }
 
 // The description of the rule.
-func (r *TopicRule) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *TopicRule) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
-func (r *TopicRule) Dynamodb() *pulumi.Output {
+func (r *TopicRule) Dynamodb() pulumi.Output {
 	return r.s.State["dynamodb"]
 }
 
-func (r *TopicRule) Elasticsearch() *pulumi.Output {
+func (r *TopicRule) Elasticsearch() pulumi.Output {
 	return r.s.State["elasticsearch"]
 }
 
 // Specifies whether the rule is enabled.
-func (r *TopicRule) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *TopicRule) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
-func (r *TopicRule) Firehose() *pulumi.Output {
+func (r *TopicRule) Firehose() pulumi.Output {
 	return r.s.State["firehose"]
 }
 
-func (r *TopicRule) Kinesis() *pulumi.Output {
+func (r *TopicRule) Kinesis() pulumi.Output {
 	return r.s.State["kinesis"]
 }
 
-func (r *TopicRule) Lambda() *pulumi.Output {
+func (r *TopicRule) Lambda() pulumi.Output {
 	return r.s.State["lambda"]
 }
 
 // The name of the rule.
-func (r *TopicRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *TopicRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *TopicRule) Republish() *pulumi.Output {
+func (r *TopicRule) Republish() pulumi.Output {
 	return r.s.State["republish"]
 }
 
-func (r *TopicRule) S3() *pulumi.Output {
+func (r *TopicRule) S3() pulumi.Output {
 	return r.s.State["s3"]
 }
 
-func (r *TopicRule) Sns() *pulumi.Output {
+func (r *TopicRule) Sns() pulumi.Output {
 	return r.s.State["sns"]
 }
 
 // The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-func (r *TopicRule) Sql() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sql"])
+func (r *TopicRule) Sql() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sql"])
 }
 
 // The version of the SQL rules engine to use when evaluating the rule.
-func (r *TopicRule) SqlVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sqlVersion"])
+func (r *TopicRule) SqlVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sqlVersion"])
 }
 
-func (r *TopicRule) Sqs() *pulumi.Output {
+func (r *TopicRule) Sqs() pulumi.Output {
 	return r.s.State["sqs"]
 }
 

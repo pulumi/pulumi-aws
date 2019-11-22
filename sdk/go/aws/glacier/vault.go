@@ -61,44 +61,44 @@ func GetVault(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Vault) URN() *pulumi.URNOutput {
+func (r *Vault) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Vault) ID() *pulumi.IDOutput {
+func (r *Vault) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The policy document. This is a JSON formatted string.
 // The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-func (r *Vault) AccessPolicy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessPolicy"])
+func (r *Vault) AccessPolicy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessPolicy"])
 }
 
 // The ARN of the vault.
-func (r *Vault) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Vault) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The URI of the vault that was created.
-func (r *Vault) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Vault) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-func (r *Vault) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Vault) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The notifications for the Vault. Fields documented below.
-func (r *Vault) Notifications() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["notifications"])
+func (r *Vault) Notifications() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["notifications"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Vault) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Vault) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Vault resources.

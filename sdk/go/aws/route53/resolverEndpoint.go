@@ -72,51 +72,51 @@ func GetResolverEndpoint(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ResolverEndpoint) URN() *pulumi.URNOutput {
+func (r *ResolverEndpoint) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ResolverEndpoint) ID() *pulumi.IDOutput {
+func (r *ResolverEndpoint) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the Route 53 Resolver endpoint.
-func (r *ResolverEndpoint) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ResolverEndpoint) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The direction of DNS queries to or from the Route 53 Resolver endpoint.
 // Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
 // or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
-func (r *ResolverEndpoint) Direction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["direction"])
+func (r *ResolverEndpoint) Direction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["direction"])
 }
 
 // The ID of the VPC that you want to create the resolver endpoint in.
-func (r *ResolverEndpoint) HostVpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostVpcId"])
+func (r *ResolverEndpoint) HostVpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostVpcId"])
 }
 
 // The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
 // to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-func (r *ResolverEndpoint) IpAddresses() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ipAddresses"])
+func (r *ResolverEndpoint) IpAddresses() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ipAddresses"])
 }
 
 // The friendly name of the Route 53 Resolver endpoint.
-func (r *ResolverEndpoint) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ResolverEndpoint) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ID of one or more security groups that you want to use to control access to this VPC.
-func (r *ResolverEndpoint) SecurityGroupIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityGroupIds"])
+func (r *ResolverEndpoint) SecurityGroupIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityGroupIds"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ResolverEndpoint) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ResolverEndpoint) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering ResolverEndpoint resources.

@@ -51,28 +51,28 @@ func GetIpSet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *IpSet) URN() *pulumi.URNOutput {
+func (r *IpSet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *IpSet) ID() *pulumi.IDOutput {
+func (r *IpSet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the WAF IPSet.
-func (r *IpSet) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *IpSet) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
-func (r *IpSet) IpSetDescriptors() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ipSetDescriptors"])
+func (r *IpSet) IpSetDescriptors() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ipSetDescriptors"])
 }
 
 // The name or description of the IPSet.
-func (r *IpSet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *IpSet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering IpSet resources.

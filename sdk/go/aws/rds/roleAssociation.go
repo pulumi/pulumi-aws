@@ -67,28 +67,28 @@ func GetRoleAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RoleAssociation) URN() *pulumi.URNOutput {
+func (r *RoleAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RoleAssociation) ID() *pulumi.IDOutput {
+func (r *RoleAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // DB Instance Identifier to associate with the IAM Role.
-func (r *RoleAssociation) DbInstanceIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbInstanceIdentifier"])
+func (r *RoleAssociation) DbInstanceIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbInstanceIdentifier"])
 }
 
 // Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-func (r *RoleAssociation) FeatureName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["featureName"])
+func (r *RoleAssociation) FeatureName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["featureName"])
 }
 
 // Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
-func (r *RoleAssociation) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *RoleAssociation) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // Input properties used for looking up and filtering RoleAssociation resources.

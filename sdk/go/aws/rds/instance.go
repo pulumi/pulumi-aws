@@ -236,73 +236,73 @@ func GetInstance(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Instance) URN() *pulumi.URNOutput {
+func (r *Instance) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Instance) ID() *pulumi.IDOutput {
+func (r *Instance) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The hostname of the RDS instance. See also `endpoint` and `port`.
-func (r *Instance) Address() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["address"])
+func (r *Instance) Address() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["address"])
 }
 
 // The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
-func (r *Instance) AllocatedStorage() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["allocatedStorage"])
+func (r *Instance) AllocatedStorage() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["allocatedStorage"])
 }
 
 // Indicates that major version
 // upgrades are allowed. Changing this parameter does not result in an outage and
 // the change is asynchronously applied as soon as possible.
-func (r *Instance) AllowMajorVersionUpgrade() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowMajorVersionUpgrade"])
+func (r *Instance) AllowMajorVersionUpgrade() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowMajorVersionUpgrade"])
 }
 
 // Specifies whether any database modifications
 // are applied immediately, or during the next maintenance window. Default is
 // `false`. See [Amazon RDS Documentation for more
 // information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-func (r *Instance) ApplyImmediately() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["applyImmediately"])
+func (r *Instance) ApplyImmediately() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["applyImmediately"])
 }
 
 // The ARN of the RDS instance.
-func (r *Instance) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Instance) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Indicates that minor engine upgrades
 // will be applied automatically to the DB instance during the maintenance window.
 // Defaults to true.
-func (r *Instance) AutoMinorVersionUpgrade() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoMinorVersionUpgrade"])
+func (r *Instance) AutoMinorVersionUpgrade() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoMinorVersionUpgrade"])
 }
 
 // The AZ for the RDS instance.
-func (r *Instance) AvailabilityZone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
+func (r *Instance) AvailabilityZone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
 // The days to retain backups for. Must be
 // between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
-func (r *Instance) BackupRetentionPeriod() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["backupRetentionPeriod"])
+func (r *Instance) BackupRetentionPeriod() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["backupRetentionPeriod"])
 }
 
 // The daily time range (in UTC) during which
 // automated backups are created if they are enabled. Example: "09:46-10:16". Must
 // not overlap with `maintenanceWindow`.
-func (r *Instance) BackupWindow() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["backupWindow"])
+func (r *Instance) BackupWindow() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["backupWindow"])
 }
 
 // The identifier of the CA certificate for the DB instance.
-func (r *Instance) CaCertIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["caCertIdentifier"])
+func (r *Instance) CaCertIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["caCertIdentifier"])
 }
 
 // The character set name to use for DB
@@ -310,13 +310,13 @@ func (r *Instance) CaCertIdentifier() *pulumi.StringOutput {
 // Supported in Amazon
 // RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
 // for more information.
-func (r *Instance) CharacterSetName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["characterSetName"])
+func (r *Instance) CharacterSetName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["characterSetName"])
 }
 
 // Copy all Instance `tags` to snapshots. Default is `false`.
-func (r *Instance) CopyTagsToSnapshot() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["copyTagsToSnapshot"])
+func (r *Instance) CopyTagsToSnapshot() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["copyTagsToSnapshot"])
 }
 
 // Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
@@ -326,33 +326,33 @@ func (r *Instance) CopyTagsToSnapshot() *pulumi.BoolOutput {
 // specifies an instance in another AWS Region. See [DBSubnetGroupName in API
 // action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 // for additional read replica contraints.
-func (r *Instance) DbSubnetGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
+func (r *Instance) DbSubnetGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
 }
 
 // If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-func (r *Instance) DeletionProtection() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["deletionProtection"])
+func (r *Instance) DeletionProtection() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["deletionProtection"])
 }
 
 // The ID of the Directory Service Active Directory domain to create the instance in.
-func (r *Instance) Domain() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domain"])
+func (r *Instance) Domain() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domain"])
 }
 
 // The name of the IAM role to be used when making API calls to the Directory Service.
-func (r *Instance) DomainIamRoleName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domainIamRoleName"])
+func (r *Instance) DomainIamRoleName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domainIamRoleName"])
 }
 
 // List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
-func (r *Instance) EnabledCloudwatchLogsExports() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["enabledCloudwatchLogsExports"])
+func (r *Instance) EnabledCloudwatchLogsExports() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["enabledCloudwatchLogsExports"])
 }
 
 // The connection endpoint in `address:port` format.
-func (r *Instance) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *Instance) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // (Required unless a `snapshotIdentifier` or `replicateSourceDb`
@@ -361,8 +361,8 @@ func (r *Instance) Endpoint() *pulumi.StringOutput {
 // For information on the difference between the available Aurora MySQL engines
 // see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 // in the Amazon RDS User Guide.
-func (r *Instance) Engine() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engine"])
+func (r *Instance) Engine() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engine"])
 }
 
 // The engine version to use. If `autoMinorVersionUpgrade`
@@ -370,63 +370,63 @@ func (r *Instance) Engine() *pulumi.StringOutput {
 // this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
 // For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 // Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
-func (r *Instance) EngineVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
+func (r *Instance) EngineVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
 // The name of your final DB snapshot
 // when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
 // set to `false`.
-func (r *Instance) FinalSnapshotIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["finalSnapshotIdentifier"])
+func (r *Instance) FinalSnapshotIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["finalSnapshotIdentifier"])
 }
 
 // The canonical hosted zone ID of the DB instance (to be used
 // in a Route 53 Alias record).
-func (r *Instance) HostedZoneId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostedZoneId"])
+func (r *Instance) HostedZoneId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostedZoneId"])
 }
 
 // Specifies whether or
 // mappings of AWS Identity and Access Management (IAM) accounts to database
 // accounts is enabled.
-func (r *Instance) IamDatabaseAuthenticationEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["iamDatabaseAuthenticationEnabled"])
+func (r *Instance) IamDatabaseAuthenticationEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["iamDatabaseAuthenticationEnabled"])
 }
 
 // The name of the RDS instance,
 // if omitted, this provider will assign a random, unique identifier.
-func (r *Instance) Identifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identifier"])
+func (r *Instance) Identifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identifier"])
 }
 
 // Creates a unique
 // identifier beginning with the specified prefix. Conflicts with `identifier`.
-func (r *Instance) IdentifierPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identifierPrefix"])
+func (r *Instance) IdentifierPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identifierPrefix"])
 }
 
 // The instance type of the RDS instance.
-func (r *Instance) InstanceClass() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceClass"])
+func (r *Instance) InstanceClass() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceClass"])
 }
 
 // The amount of provisioned IOPS. Setting this implies a
 // storageType of "io1".
-func (r *Instance) Iops() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["iops"])
+func (r *Instance) Iops() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["iops"])
 }
 
 // The ARN for the KMS encryption key. If creating an
 // encrypted replica, set this to the destination KMS ARN.
-func (r *Instance) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *Instance) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // (Optional, but required for some DB engines, i.e. Oracle
 // SE1) License model information for this DB instance.
-func (r *Instance) LicenseModel() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["licenseModel"])
+func (r *Instance) LicenseModel() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["licenseModel"])
 }
 
 // The window to perform maintenance in.
@@ -434,21 +434,21 @@ func (r *Instance) LicenseModel() *pulumi.StringOutput {
 // Maintenance Window
 // docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
 // for more information.
-func (r *Instance) MaintenanceWindow() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["maintenanceWindow"])
+func (r *Instance) MaintenanceWindow() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["maintenanceWindow"])
 }
 
 // When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
-func (r *Instance) MaxAllocatedStorage() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxAllocatedStorage"])
+func (r *Instance) MaxAllocatedStorage() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxAllocatedStorage"])
 }
 
 // The interval, in seconds, between points
 // when Enhanced Monitoring metrics are collected for the DB instance. To disable
 // collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
 // Values: 0, 1, 5, 10, 15, 30, 60.
-func (r *Instance) MonitoringInterval() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["monitoringInterval"])
+func (r *Instance) MonitoringInterval() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["monitoringInterval"])
 }
 
 // The ARN for the IAM role that permits RDS
@@ -456,66 +456,66 @@ func (r *Instance) MonitoringInterval() *pulumi.IntOutput {
 // information on the [AWS
 // Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
 // what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
-func (r *Instance) MonitoringRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["monitoringRoleArn"])
+func (r *Instance) MonitoringRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["monitoringRoleArn"])
 }
 
 // Specifies if the RDS instance is multi-AZ
-func (r *Instance) MultiAz() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["multiAz"])
+func (r *Instance) MultiAz() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["multiAz"])
 }
 
 // The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
-func (r *Instance) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Instance) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Name of the DB option group to associate.
-func (r *Instance) OptionGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["optionGroupName"])
+func (r *Instance) OptionGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["optionGroupName"])
 }
 
 // Name of the DB parameter group to
 // associate.
-func (r *Instance) ParameterGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["parameterGroupName"])
+func (r *Instance) ParameterGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["parameterGroupName"])
 }
 
 // (Required unless a `snapshotIdentifier` or `replicateSourceDb`
 // is provided) Password for the master DB user. Note that this may show up in
 // logs, and it will be stored in the state file.
-func (r *Instance) Password() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["password"])
+func (r *Instance) Password() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["password"])
 }
 
 // Specifies whether Performance Insights are enabled. Defaults to false.
-func (r *Instance) PerformanceInsightsEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["performanceInsightsEnabled"])
+func (r *Instance) PerformanceInsightsEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["performanceInsightsEnabled"])
 }
 
 // The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
-func (r *Instance) PerformanceInsightsKmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["performanceInsightsKmsKeyId"])
+func (r *Instance) PerformanceInsightsKmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["performanceInsightsKmsKeyId"])
 }
 
 // The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
-func (r *Instance) PerformanceInsightsRetentionPeriod() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["performanceInsightsRetentionPeriod"])
+func (r *Instance) PerformanceInsightsRetentionPeriod() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["performanceInsightsRetentionPeriod"])
 }
 
 // The port on which the DB accepts connections.
-func (r *Instance) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *Instance) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
 // Bool to control if instance is publicly
 // accessible. Default is `false`.
-func (r *Instance) PubliclyAccessible() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["publiclyAccessible"])
+func (r *Instance) PubliclyAccessible() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["publiclyAccessible"])
 }
 
-func (r *Instance) Replicas() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["replicas"])
+func (r *Instance) Replicas() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["replicas"])
 }
 
 // Specifies that this resource is a Replicate
@@ -525,25 +525,25 @@ func (r *Instance) Replicas() *pulumi.ArrayOutput {
 // specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
 // PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
 // for more information on using Replication.
-func (r *Instance) ReplicateSourceDb() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["replicateSourceDb"])
+func (r *Instance) ReplicateSourceDb() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["replicateSourceDb"])
 }
 
 // The RDS Resource ID of this instance.
-func (r *Instance) ResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceId"])
+func (r *Instance) ResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceId"])
 }
 
 // Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
-func (r *Instance) S3Import() *pulumi.Output {
+func (r *Instance) S3Import() pulumi.Output {
 	return r.s.State["s3Import"]
 }
 
 // List of DB Security Groups to
 // associate. Only used for [DB Instances on the _EC2-Classic_
 // Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-func (r *Instance) SecurityGroupNames() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityGroupNames"])
+func (r *Instance) SecurityGroupNames() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityGroupNames"])
 }
 
 // Determines whether a final DB snapshot is
@@ -551,40 +551,40 @@ func (r *Instance) SecurityGroupNames() *pulumi.ArrayOutput {
 // is created. If false is specified, a DB snapshot is created before the DB
 // instance is deleted, using the value from `finalSnapshotIdentifier`. Default
 // is `false`.
-func (r *Instance) SkipFinalSnapshot() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["skipFinalSnapshot"])
+func (r *Instance) SkipFinalSnapshot() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["skipFinalSnapshot"])
 }
 
 // Specifies whether or not to create this
 // database from a snapshot. This correlates to the snapshot ID you'd find in the
 // RDS console, e.g: rds:production-2015-06-26-06-05.
-func (r *Instance) SnapshotIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["snapshotIdentifier"])
+func (r *Instance) SnapshotIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["snapshotIdentifier"])
 }
 
 // The RDS instance status.
-func (r *Instance) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Instance) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Specifies whether the DB instance is
 // encrypted. Note that if you are creating a cross-region read replica this field
 // is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
 // default is `false` if not specified.
-func (r *Instance) StorageEncrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["storageEncrypted"])
+func (r *Instance) StorageEncrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["storageEncrypted"])
 }
 
 // One of "standard" (magnetic), "gp2" (general
 // purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
 // specified, "gp2" if not.
-func (r *Instance) StorageType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageType"])
+func (r *Instance) StorageType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageType"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Instance) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Instance) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Time zone of the DB instance. `timezone` is currently
@@ -592,20 +592,20 @@ func (r *Instance) Tags() *pulumi.MapOutput {
 // creation. See [MSSQL User
 // Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
 // for more information.
-func (r *Instance) Timezone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timezone"])
+func (r *Instance) Timezone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timezone"])
 }
 
 // (Required unless a `snapshotIdentifier` or `replicateSourceDb`
 // is provided) Username for the master DB user.
-func (r *Instance) Username() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["username"])
+func (r *Instance) Username() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["username"])
 }
 
 // List of VPC security groups to
 // associate.
-func (r *Instance) VpcSecurityGroupIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["vpcSecurityGroupIds"])
+func (r *Instance) VpcSecurityGroupIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["vpcSecurityGroupIds"])
 }
 
 // Input properties used for looking up and filtering Instance resources.

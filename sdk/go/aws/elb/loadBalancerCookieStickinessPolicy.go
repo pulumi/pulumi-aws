@@ -62,37 +62,37 @@ func GetLoadBalancerCookieStickinessPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LoadBalancerCookieStickinessPolicy) URN() *pulumi.URNOutput {
+func (r *LoadBalancerCookieStickinessPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LoadBalancerCookieStickinessPolicy) ID() *pulumi.IDOutput {
+func (r *LoadBalancerCookieStickinessPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The time period after which
 // the session cookie should be considered stale, expressed in seconds.
-func (r *LoadBalancerCookieStickinessPolicy) CookieExpirationPeriod() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["cookieExpirationPeriod"])
+func (r *LoadBalancerCookieStickinessPolicy) CookieExpirationPeriod() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["cookieExpirationPeriod"])
 }
 
 // The load balancer port to which the policy
 // should be applied. This must be an active listener on the load
 // balancer.
-func (r *LoadBalancerCookieStickinessPolicy) LbPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["lbPort"])
+func (r *LoadBalancerCookieStickinessPolicy) LbPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["lbPort"])
 }
 
 // The load balancer to which the policy
 // should be attached.
-func (r *LoadBalancerCookieStickinessPolicy) LoadBalancer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadBalancer"])
+func (r *LoadBalancerCookieStickinessPolicy) LoadBalancer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadBalancer"])
 }
 
 // The name of the stickiness policy.
-func (r *LoadBalancerCookieStickinessPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LoadBalancerCookieStickinessPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering LoadBalancerCookieStickinessPolicy resources.

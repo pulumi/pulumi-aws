@@ -49,23 +49,23 @@ func GetByteMatchSet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ByteMatchSet) URN() *pulumi.URNOutput {
+func (r *ByteMatchSet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ByteMatchSet) ID() *pulumi.IDOutput {
+func (r *ByteMatchSet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
-func (r *ByteMatchSet) ByteMatchTuples() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["byteMatchTuples"])
+func (r *ByteMatchSet) ByteMatchTuples() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["byteMatchTuples"])
 }
 
 // The name or description of the ByteMatchSet.
-func (r *ByteMatchSet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ByteMatchSet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering ByteMatchSet resources.

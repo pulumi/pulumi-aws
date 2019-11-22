@@ -61,37 +61,37 @@ func GetDeploymentConfig(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DeploymentConfig) URN() *pulumi.URNOutput {
+func (r *DeploymentConfig) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DeploymentConfig) ID() *pulumi.IDOutput {
+func (r *DeploymentConfig) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-func (r *DeploymentConfig) ComputePlatform() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["computePlatform"])
+func (r *DeploymentConfig) ComputePlatform() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["computePlatform"])
 }
 
 // The AWS Assigned deployment config id
-func (r *DeploymentConfig) DeploymentConfigId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deploymentConfigId"])
+func (r *DeploymentConfig) DeploymentConfigId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deploymentConfigId"])
 }
 
 // The name of the deployment config.
-func (r *DeploymentConfig) DeploymentConfigName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deploymentConfigName"])
+func (r *DeploymentConfig) DeploymentConfigName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deploymentConfigName"])
 }
 
 // A minimumHealthyHosts block. Minimum Healthy Hosts are documented below.
-func (r *DeploymentConfig) MinimumHealthyHosts() *pulumi.Output {
+func (r *DeploymentConfig) MinimumHealthyHosts() pulumi.Output {
 	return r.s.State["minimumHealthyHosts"]
 }
 
 // A trafficRoutingConfig block. Traffic Routing Config is documented below.
-func (r *DeploymentConfig) TrafficRoutingConfig() *pulumi.Output {
+func (r *DeploymentConfig) TrafficRoutingConfig() pulumi.Output {
 	return r.s.State["trafficRoutingConfig"]
 }
 

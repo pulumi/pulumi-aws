@@ -56,23 +56,23 @@ func GetLogDestinationPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LogDestinationPolicy) URN() *pulumi.URNOutput {
+func (r *LogDestinationPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LogDestinationPolicy) ID() *pulumi.IDOutput {
+func (r *LogDestinationPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The policy document. This is a JSON formatted string.
-func (r *LogDestinationPolicy) AccessPolicy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessPolicy"])
+func (r *LogDestinationPolicy) AccessPolicy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessPolicy"])
 }
 
 // A name for the subscription filter
-func (r *LogDestinationPolicy) DestinationName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destinationName"])
+func (r *LogDestinationPolicy) DestinationName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destinationName"])
 }
 
 // Input properties used for looking up and filtering LogDestinationPolicy resources.

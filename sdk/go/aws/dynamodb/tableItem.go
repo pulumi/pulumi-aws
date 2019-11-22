@@ -68,34 +68,34 @@ func GetTableItem(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TableItem) URN() *pulumi.URNOutput {
+func (r *TableItem) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TableItem) ID() *pulumi.IDOutput {
+func (r *TableItem) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Hash key to use for lookups and identification of the item
-func (r *TableItem) HashKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hashKey"])
+func (r *TableItem) HashKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hashKey"])
 }
 
 // JSON representation of a map of attribute name/value pairs, one for each attribute.
 // Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-func (r *TableItem) Item() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["item"])
+func (r *TableItem) Item() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["item"])
 }
 
 // Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-func (r *TableItem) RangeKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rangeKey"])
+func (r *TableItem) RangeKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rangeKey"])
 }
 
 // The name of the table to contain the item.
-func (r *TableItem) TableName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tableName"])
+func (r *TableItem) TableName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tableName"])
 }
 
 // Input properties used for looking up and filtering TableItem resources.

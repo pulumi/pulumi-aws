@@ -173,119 +173,119 @@ func GetService(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Service) URN() *pulumi.URNOutput {
+func (r *Service) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Service) ID() *pulumi.IDOutput {
+func (r *Service) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // ARN of an ECS cluster
-func (r *Service) Cluster() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cluster"])
+func (r *Service) Cluster() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cluster"])
 }
 
 // Configuration block containing deployment controller configuration. Defined below.
-func (r *Service) DeploymentController() *pulumi.Output {
+func (r *Service) DeploymentController() pulumi.Output {
 	return r.s.State["deploymentController"]
 }
 
 // The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
-func (r *Service) DeploymentMaximumPercent() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["deploymentMaximumPercent"])
+func (r *Service) DeploymentMaximumPercent() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["deploymentMaximumPercent"])
 }
 
 // The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
-func (r *Service) DeploymentMinimumHealthyPercent() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["deploymentMinimumHealthyPercent"])
+func (r *Service) DeploymentMinimumHealthyPercent() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["deploymentMinimumHealthyPercent"])
 }
 
 // The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
-func (r *Service) DesiredCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["desiredCount"])
+func (r *Service) DesiredCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["desiredCount"])
 }
 
 // Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
-func (r *Service) EnableEcsManagedTags() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableEcsManagedTags"])
+func (r *Service) EnableEcsManagedTags() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableEcsManagedTags"])
 }
 
 // Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
-func (r *Service) HealthCheckGracePeriodSeconds() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["healthCheckGracePeriodSeconds"])
+func (r *Service) HealthCheckGracePeriodSeconds() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["healthCheckGracePeriodSeconds"])
 }
 
 // ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
-func (r *Service) IamRole() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iamRole"])
+func (r *Service) IamRole() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iamRole"])
 }
 
 // The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
-func (r *Service) LaunchType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["launchType"])
+func (r *Service) LaunchType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["launchType"])
 }
 
 // A load balancer block. Load balancers documented below.
-func (r *Service) LoadBalancers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["loadBalancers"])
+func (r *Service) LoadBalancers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["loadBalancers"])
 }
 
 // The name of the service (up to 255 letters, numbers, hyphens, and underscores)
-func (r *Service) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Service) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
-func (r *Service) NetworkConfiguration() *pulumi.Output {
+func (r *Service) NetworkConfiguration() pulumi.Output {
 	return r.s.State["networkConfiguration"]
 }
 
 // Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
-func (r *Service) OrderedPlacementStrategies() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["orderedPlacementStrategies"])
+func (r *Service) OrderedPlacementStrategies() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["orderedPlacementStrategies"])
 }
 
 // rules that are taken into consideration during task placement. Maximum number of
 // `placementConstraints` is `10`. Defined below.
-func (r *Service) PlacementConstraints() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["placementConstraints"])
+func (r *Service) PlacementConstraints() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["placementConstraints"])
 }
 
 // The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-func (r *Service) PlatformVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["platformVersion"])
+func (r *Service) PlatformVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["platformVersion"])
 }
 
 // Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
-func (r *Service) PropagateTags() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["propagateTags"])
+func (r *Service) PropagateTags() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["propagateTags"])
 }
 
 // The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
-func (r *Service) SchedulingStrategy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["schedulingStrategy"])
+func (r *Service) SchedulingStrategy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["schedulingStrategy"])
 }
 
 // The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
-func (r *Service) ServiceRegistries() *pulumi.Output {
+func (r *Service) ServiceRegistries() pulumi.Output {
 	return r.s.State["serviceRegistries"]
 }
 
 // Key-value mapping of resource tags
-func (r *Service) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Service) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-func (r *Service) TaskDefinition() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["taskDefinition"])
+func (r *Service) TaskDefinition() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["taskDefinition"])
 }
 
 // If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-func (r *Service) WaitForSteadyState() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["waitForSteadyState"])
+func (r *Service) WaitForSteadyState() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["waitForSteadyState"])
 }
 
 // Input properties used for looking up and filtering Service resources.

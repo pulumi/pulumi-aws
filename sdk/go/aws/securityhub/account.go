@@ -47,12 +47,12 @@ func GetAccount(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() *pulumi.URNOutput {
+func (r *Account) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() *pulumi.IDOutput {
+func (r *Account) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 

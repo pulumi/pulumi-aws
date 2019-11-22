@@ -56,28 +56,28 @@ func GetBucketMetric(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *BucketMetric) URN() *pulumi.URNOutput {
+func (r *BucketMetric) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *BucketMetric) ID() *pulumi.IDOutput {
+func (r *BucketMetric) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the bucket to put metric configuration.
-func (r *BucketMetric) Bucket() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bucket"])
+func (r *BucketMetric) Bucket() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bucket"])
 }
 
 // [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-func (r *BucketMetric) Filter() *pulumi.Output {
+func (r *BucketMetric) Filter() pulumi.Output {
 	return r.s.State["filter"]
 }
 
 // Unique identifier of the metrics configuration for the bucket.
-func (r *BucketMetric) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *BucketMetric) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering BucketMetric resources.

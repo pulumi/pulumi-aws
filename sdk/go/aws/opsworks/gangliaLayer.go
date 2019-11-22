@@ -119,123 +119,123 @@ func GetGangliaLayer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *GangliaLayer) URN() *pulumi.URNOutput {
+func (r *GangliaLayer) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *GangliaLayer) ID() *pulumi.IDOutput {
+func (r *GangliaLayer) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether to automatically assign an elastic IP address to the layer's instances.
-func (r *GangliaLayer) AutoAssignElasticIps() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoAssignElasticIps"])
+func (r *GangliaLayer) AutoAssignElasticIps() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoAssignElasticIps"])
 }
 
 // For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-func (r *GangliaLayer) AutoAssignPublicIps() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoAssignPublicIps"])
+func (r *GangliaLayer) AutoAssignPublicIps() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoAssignPublicIps"])
 }
 
 // Whether to enable auto-healing for the layer.
-func (r *GangliaLayer) AutoHealing() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoHealing"])
+func (r *GangliaLayer) AutoHealing() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoHealing"])
 }
 
-func (r *GangliaLayer) CustomConfigureRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customConfigureRecipes"])
+func (r *GangliaLayer) CustomConfigureRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customConfigureRecipes"])
 }
 
-func (r *GangliaLayer) CustomDeployRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customDeployRecipes"])
+func (r *GangliaLayer) CustomDeployRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customDeployRecipes"])
 }
 
 // The ARN of an IAM profile that will be used for the layer's instances.
-func (r *GangliaLayer) CustomInstanceProfileArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customInstanceProfileArn"])
+func (r *GangliaLayer) CustomInstanceProfileArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customInstanceProfileArn"])
 }
 
 // Custom JSON attributes to apply to the layer.
-func (r *GangliaLayer) CustomJson() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customJson"])
+func (r *GangliaLayer) CustomJson() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customJson"])
 }
 
 // Ids for a set of security groups to apply to the layer's instances.
-func (r *GangliaLayer) CustomSecurityGroupIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customSecurityGroupIds"])
+func (r *GangliaLayer) CustomSecurityGroupIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customSecurityGroupIds"])
 }
 
-func (r *GangliaLayer) CustomSetupRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customSetupRecipes"])
+func (r *GangliaLayer) CustomSetupRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customSetupRecipes"])
 }
 
-func (r *GangliaLayer) CustomShutdownRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customShutdownRecipes"])
+func (r *GangliaLayer) CustomShutdownRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customShutdownRecipes"])
 }
 
-func (r *GangliaLayer) CustomUndeployRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customUndeployRecipes"])
+func (r *GangliaLayer) CustomUndeployRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customUndeployRecipes"])
 }
 
 // Whether to enable Elastic Load Balancing connection draining.
-func (r *GangliaLayer) DrainElbOnShutdown() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
+func (r *GangliaLayer) DrainElbOnShutdown() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
 }
 
 // `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-func (r *GangliaLayer) EbsVolumes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
+func (r *GangliaLayer) EbsVolumes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
 }
 
 // Name of an Elastic Load Balancer to attach to this layer
-func (r *GangliaLayer) ElasticLoadBalancer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["elasticLoadBalancer"])
+func (r *GangliaLayer) ElasticLoadBalancer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["elasticLoadBalancer"])
 }
 
 // Whether to install OS and package updates on each instance when it boots.
-func (r *GangliaLayer) InstallUpdatesOnBoot() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
+func (r *GangliaLayer) InstallUpdatesOnBoot() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
 }
 
 // The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-func (r *GangliaLayer) InstanceShutdownTimeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["instanceShutdownTimeout"])
+func (r *GangliaLayer) InstanceShutdownTimeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["instanceShutdownTimeout"])
 }
 
 // A human-readable name for the layer.
-func (r *GangliaLayer) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *GangliaLayer) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The password to use for Ganglia.
-func (r *GangliaLayer) Password() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["password"])
+func (r *GangliaLayer) Password() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["password"])
 }
 
 // The id of the stack the layer will belong to.
-func (r *GangliaLayer) StackId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stackId"])
+func (r *GangliaLayer) StackId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stackId"])
 }
 
 // Names of a set of system packages to install on the layer's instances.
-func (r *GangliaLayer) SystemPackages() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["systemPackages"])
+func (r *GangliaLayer) SystemPackages() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["systemPackages"])
 }
 
 // The URL path to use for Ganglia. Defaults to "/ganglia".
-func (r *GangliaLayer) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *GangliaLayer) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // Whether to use EBS-optimized instances.
-func (r *GangliaLayer) UseEbsOptimizedInstances() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["useEbsOptimizedInstances"])
+func (r *GangliaLayer) UseEbsOptimizedInstances() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["useEbsOptimizedInstances"])
 }
 
 // The username to use for Ganglia. Defaults to "opsworks".
-func (r *GangliaLayer) Username() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["username"])
+func (r *GangliaLayer) Username() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["username"])
 }
 
 // Input properties used for looking up and filtering GangliaLayer resources.

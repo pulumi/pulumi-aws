@@ -79,53 +79,53 @@ func GetWebhook(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Webhook) URN() *pulumi.URNOutput {
+func (r *Webhook) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Webhook) ID() *pulumi.IDOutput {
+func (r *Webhook) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
-func (r *Webhook) Authentication() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authentication"])
+func (r *Webhook) Authentication() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authentication"])
 }
 
 // An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
-func (r *Webhook) AuthenticationConfiguration() *pulumi.Output {
+func (r *Webhook) AuthenticationConfiguration() pulumi.Output {
 	return r.s.State["authenticationConfiguration"]
 }
 
 // One or more `filter` blocks. Filter blocks are documented below.
-func (r *Webhook) Filters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["filters"])
+func (r *Webhook) Filters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["filters"])
 }
 
 // The name of the webhook.
-func (r *Webhook) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Webhook) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Webhook) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Webhook) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
-func (r *Webhook) TargetAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetAction"])
+func (r *Webhook) TargetAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetAction"])
 }
 
 // The name of the pipeline.
-func (r *Webhook) TargetPipeline() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetPipeline"])
+func (r *Webhook) TargetPipeline() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetPipeline"])
 }
 
 // The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
-func (r *Webhook) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *Webhook) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // Input properties used for looking up and filtering Webhook resources.

@@ -58,33 +58,33 @@ func GetEndpoint(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Endpoint) URN() *pulumi.URNOutput {
+func (r *Endpoint) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Endpoint) ID() *pulumi.IDOutput {
+func (r *Endpoint) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-func (r *Endpoint) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Endpoint) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name of the endpoint configuration to use.
-func (r *Endpoint) EndpointConfigName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpointConfigName"])
+func (r *Endpoint) EndpointConfigName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpointConfigName"])
 }
 
 // The name of the endpoint. If omitted, this provider will assign a random, unique name.
-func (r *Endpoint) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Endpoint) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Endpoint) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Endpoint) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Endpoint resources.

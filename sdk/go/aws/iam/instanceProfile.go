@@ -64,54 +64,54 @@ func GetInstanceProfile(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *InstanceProfile) URN() *pulumi.URNOutput {
+func (r *InstanceProfile) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *InstanceProfile) ID() *pulumi.IDOutput {
+func (r *InstanceProfile) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN assigned by AWS to the instance profile.
-func (r *InstanceProfile) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *InstanceProfile) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The creation timestamp of the instance profile.
-func (r *InstanceProfile) CreateDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createDate"])
+func (r *InstanceProfile) CreateDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createDate"])
 }
 
 // The profile's name. If omitted, this provider will assign a random, unique name.
-func (r *InstanceProfile) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *InstanceProfile) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *InstanceProfile) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *InstanceProfile) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // Path in which to create the profile.
-func (r *InstanceProfile) Path() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["path"])
+func (r *InstanceProfile) Path() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["path"])
 }
 
 // The role name to include in the profile.
-func (r *InstanceProfile) Role() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["role"])
+func (r *InstanceProfile) Role() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["role"])
 }
 
 // 
 // A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-func (r *InstanceProfile) Roles() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["roles"])
+func (r *InstanceProfile) Roles() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["roles"])
 }
 
 // The [unique ID][1] assigned by AWS.
-func (r *InstanceProfile) UniqueId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uniqueId"])
+func (r *InstanceProfile) UniqueId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uniqueId"])
 }
 
 // Input properties used for looking up and filtering InstanceProfile resources.

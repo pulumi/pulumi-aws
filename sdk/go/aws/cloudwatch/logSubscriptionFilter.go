@@ -71,43 +71,43 @@ func GetLogSubscriptionFilter(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LogSubscriptionFilter) URN() *pulumi.URNOutput {
+func (r *LogSubscriptionFilter) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LogSubscriptionFilter) ID() *pulumi.IDOutput {
+func (r *LogSubscriptionFilter) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
-func (r *LogSubscriptionFilter) DestinationArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destinationArn"])
+func (r *LogSubscriptionFilter) DestinationArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destinationArn"])
 }
 
 // The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
-func (r *LogSubscriptionFilter) Distribution() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["distribution"])
+func (r *LogSubscriptionFilter) Distribution() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["distribution"])
 }
 
 // A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
-func (r *LogSubscriptionFilter) FilterPattern() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["filterPattern"])
+func (r *LogSubscriptionFilter) FilterPattern() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["filterPattern"])
 }
 
 // The name of the log group to associate the subscription filter with
-func (r *LogSubscriptionFilter) LogGroup() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logGroup"])
+func (r *LogSubscriptionFilter) LogGroup() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logGroup"])
 }
 
 // A name for the subscription filter
-func (r *LogSubscriptionFilter) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LogSubscriptionFilter) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
-func (r *LogSubscriptionFilter) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *LogSubscriptionFilter) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // Input properties used for looking up and filtering LogSubscriptionFilter resources.

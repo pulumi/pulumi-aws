@@ -61,43 +61,43 @@ func GetSmsPreferences(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SmsPreferences) URN() *pulumi.URNOutput {
+func (r *SmsPreferences) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SmsPreferences) ID() *pulumi.IDOutput {
+func (r *SmsPreferences) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A string, such as your business brand, that is displayed as the sender on the receiving device.
-func (r *SmsPreferences) DefaultSenderId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultSenderId"])
+func (r *SmsPreferences) DefaultSenderId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultSenderId"])
 }
 
 // The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-func (r *SmsPreferences) DefaultSmsType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultSmsType"])
+func (r *SmsPreferences) DefaultSmsType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultSmsType"])
 }
 
 // The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-func (r *SmsPreferences) DeliveryStatusIamRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deliveryStatusIamRoleArn"])
+func (r *SmsPreferences) DeliveryStatusIamRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deliveryStatusIamRoleArn"])
 }
 
 // The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-func (r *SmsPreferences) DeliveryStatusSuccessSamplingRate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deliveryStatusSuccessSamplingRate"])
+func (r *SmsPreferences) DeliveryStatusSuccessSamplingRate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deliveryStatusSuccessSamplingRate"])
 }
 
 // The maximum amount in USD that you are willing to spend each month to send SMS messages.
-func (r *SmsPreferences) MonthlySpendLimit() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["monthlySpendLimit"])
+func (r *SmsPreferences) MonthlySpendLimit() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["monthlySpendLimit"])
 }
 
 // The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-func (r *SmsPreferences) UsageReportS3Bucket() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["usageReportS3Bucket"])
+func (r *SmsPreferences) UsageReportS3Bucket() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["usageReportS3Bucket"])
 }
 
 // Input properties used for looking up and filtering SmsPreferences resources.

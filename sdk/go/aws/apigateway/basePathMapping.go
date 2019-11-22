@@ -64,33 +64,33 @@ func GetBasePathMapping(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *BasePathMapping) URN() *pulumi.URNOutput {
+func (r *BasePathMapping) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *BasePathMapping) ID() *pulumi.IDOutput {
+func (r *BasePathMapping) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The id of the API to connect.
-func (r *BasePathMapping) RestApi() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restApi"])
+func (r *BasePathMapping) RestApi() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restApi"])
 }
 
 // Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-func (r *BasePathMapping) BasePath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["basePath"])
+func (r *BasePathMapping) BasePath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["basePath"])
 }
 
 // The already-registered domain name to connect the API to.
-func (r *BasePathMapping) DomainName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domainName"])
+func (r *BasePathMapping) DomainName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domainName"])
 }
 
 // The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
-func (r *BasePathMapping) StageName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stageName"])
+func (r *BasePathMapping) StageName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stageName"])
 }
 
 // Input properties used for looking up and filtering BasePathMapping resources.

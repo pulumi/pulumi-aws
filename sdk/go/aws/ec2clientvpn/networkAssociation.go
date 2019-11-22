@@ -63,38 +63,38 @@ func GetNetworkAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkAssociation) URN() *pulumi.URNOutput {
+func (r *NetworkAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkAssociation) ID() *pulumi.IDOutput {
+func (r *NetworkAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the Client VPN endpoint.
-func (r *NetworkAssociation) ClientVpnEndpointId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientVpnEndpointId"])
+func (r *NetworkAssociation) ClientVpnEndpointId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientVpnEndpointId"])
 }
 
 // The IDs of the security groups applied to the target network association.
-func (r *NetworkAssociation) SecurityGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityGroups"])
+func (r *NetworkAssociation) SecurityGroups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityGroups"])
 }
 
 // The current state of the target network association.
-func (r *NetworkAssociation) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *NetworkAssociation) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // The ID of the subnet to associate with the Client VPN endpoint.
-func (r *NetworkAssociation) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *NetworkAssociation) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // The ID of the VPC in which the target network (subnet) is located. 
-func (r *NetworkAssociation) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *NetworkAssociation) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering NetworkAssociation resources.

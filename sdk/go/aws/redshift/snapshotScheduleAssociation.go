@@ -53,23 +53,23 @@ func GetSnapshotScheduleAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SnapshotScheduleAssociation) URN() *pulumi.URNOutput {
+func (r *SnapshotScheduleAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SnapshotScheduleAssociation) ID() *pulumi.IDOutput {
+func (r *SnapshotScheduleAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The cluster identifier.
-func (r *SnapshotScheduleAssociation) ClusterIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
+func (r *SnapshotScheduleAssociation) ClusterIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
 
 // The snapshot schedule identifier.
-func (r *SnapshotScheduleAssociation) ScheduleIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scheduleIdentifier"])
+func (r *SnapshotScheduleAssociation) ScheduleIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scheduleIdentifier"])
 }
 
 // Input properties used for looking up and filtering SnapshotScheduleAssociation resources.

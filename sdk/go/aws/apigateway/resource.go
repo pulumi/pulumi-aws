@@ -64,33 +64,33 @@ func GetResource(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Resource) URN() *pulumi.URNOutput {
+func (r *Resource) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Resource) ID() *pulumi.IDOutput {
+func (r *Resource) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the parent API resource
-func (r *Resource) ParentId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["parentId"])
+func (r *Resource) ParentId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["parentId"])
 }
 
 // The complete path for this API resource, including all parent paths.
-func (r *Resource) Path() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["path"])
+func (r *Resource) Path() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["path"])
 }
 
 // The last path segment of this API resource.
-func (r *Resource) PathPart() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["pathPart"])
+func (r *Resource) PathPart() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["pathPart"])
 }
 
 // The ID of the associated REST API
-func (r *Resource) RestApi() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restApi"])
+func (r *Resource) RestApi() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restApi"])
 }
 
 // Input properties used for looking up and filtering Resource resources.

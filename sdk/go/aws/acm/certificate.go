@@ -98,74 +98,74 @@ func GetCertificate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Certificate) URN() *pulumi.URNOutput {
+func (r *Certificate) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Certificate) ID() *pulumi.IDOutput {
+func (r *Certificate) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the certificate
-func (r *Certificate) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Certificate) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // ARN of an ACMPCA
-func (r *Certificate) CertificateAuthorityArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificateAuthorityArn"])
+func (r *Certificate) CertificateAuthorityArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificateAuthorityArn"])
 }
 
 // The certificate's PEM-formatted public key
-func (r *Certificate) CertificateBody() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificateBody"])
+func (r *Certificate) CertificateBody() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificateBody"])
 }
 
 // The certificate's PEM-formatted chain
 // * Creating a private CA issued certificate
-func (r *Certificate) CertificateChain() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificateChain"])
+func (r *Certificate) CertificateChain() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificateChain"])
 }
 
 // A domain name for which the certificate should be issued
-func (r *Certificate) DomainName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domainName"])
+func (r *Certificate) DomainName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domainName"])
 }
 
 // A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
-func (r *Certificate) DomainValidationOptions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["domainValidationOptions"])
+func (r *Certificate) DomainValidationOptions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["domainValidationOptions"])
 }
 
-func (r *Certificate) Options() *pulumi.Output {
+func (r *Certificate) Options() pulumi.Output {
 	return r.s.State["options"]
 }
 
 // The certificate's PEM-formatted private key
-func (r *Certificate) PrivateKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateKey"])
+func (r *Certificate) PrivateKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateKey"])
 }
 
 // A list of domains that should be SANs in the issued certificate
-func (r *Certificate) SubjectAlternativeNames() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subjectAlternativeNames"])
+func (r *Certificate) SubjectAlternativeNames() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subjectAlternativeNames"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Certificate) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Certificate) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
-func (r *Certificate) ValidationEmails() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["validationEmails"])
+func (r *Certificate) ValidationEmails() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["validationEmails"])
 }
 
 // Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
 // * Importing an existing certificate
-func (r *Certificate) ValidationMethod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["validationMethod"])
+func (r *Certificate) ValidationMethod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["validationMethod"])
 }
 
 // Input properties used for looking up and filtering Certificate resources.

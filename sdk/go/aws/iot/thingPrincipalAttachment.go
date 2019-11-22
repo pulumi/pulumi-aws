@@ -56,23 +56,23 @@ func GetThingPrincipalAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ThingPrincipalAttachment) URN() *pulumi.URNOutput {
+func (r *ThingPrincipalAttachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ThingPrincipalAttachment) ID() *pulumi.IDOutput {
+func (r *ThingPrincipalAttachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-func (r *ThingPrincipalAttachment) Principal() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["principal"])
+func (r *ThingPrincipalAttachment) Principal() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["principal"])
 }
 
 // The name of the thing.
-func (r *ThingPrincipalAttachment) Thing() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["thing"])
+func (r *ThingPrincipalAttachment) Thing() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["thing"])
 }
 
 // Input properties used for looking up and filtering ThingPrincipalAttachment resources.

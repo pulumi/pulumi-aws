@@ -56,23 +56,23 @@ func GetPolicyAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PolicyAttachment) URN() *pulumi.URNOutput {
+func (r *PolicyAttachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PolicyAttachment) ID() *pulumi.IDOutput {
+func (r *PolicyAttachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the policy to attach.
-func (r *PolicyAttachment) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *PolicyAttachment) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // The identity to which the policy is attached.
-func (r *PolicyAttachment) Target() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["target"])
+func (r *PolicyAttachment) Target() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["target"])
 }
 
 // Input properties used for looking up and filtering PolicyAttachment resources.

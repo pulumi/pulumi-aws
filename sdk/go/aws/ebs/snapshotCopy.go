@@ -78,69 +78,69 @@ func GetSnapshotCopy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SnapshotCopy) URN() *pulumi.URNOutput {
+func (r *SnapshotCopy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SnapshotCopy) ID() *pulumi.IDOutput {
+func (r *SnapshotCopy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The data encryption key identifier for the snapshot.
 // * `sourceSnapshotId` The ARN of the copied snapshot.
 // * `sourceRegion` The region of the source snapshot.
-func (r *SnapshotCopy) DataEncryptionKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataEncryptionKeyId"])
+func (r *SnapshotCopy) DataEncryptionKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataEncryptionKeyId"])
 }
 
 // A description of what the snapshot is.
-func (r *SnapshotCopy) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *SnapshotCopy) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Whether the snapshot is encrypted.
-func (r *SnapshotCopy) Encrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["encrypted"])
+func (r *SnapshotCopy) Encrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["encrypted"])
 }
 
 // The ARN for the KMS encryption key.
 // * `sourceSnapshotId` The ARN for the snapshot to be copied.
 // * `sourceRegion` The region of the source snapshot.
-func (r *SnapshotCopy) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *SnapshotCopy) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-func (r *SnapshotCopy) OwnerAlias() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerAlias"])
+func (r *SnapshotCopy) OwnerAlias() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerAlias"])
 }
 
 // The AWS account ID of the snapshot owner.
-func (r *SnapshotCopy) OwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+func (r *SnapshotCopy) OwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
-func (r *SnapshotCopy) SourceRegion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceRegion"])
+func (r *SnapshotCopy) SourceRegion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceRegion"])
 }
 
-func (r *SnapshotCopy) SourceSnapshotId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceSnapshotId"])
+func (r *SnapshotCopy) SourceSnapshotId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceSnapshotId"])
 }
 
 // A mapping of tags for the snapshot.
-func (r *SnapshotCopy) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *SnapshotCopy) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-func (r *SnapshotCopy) VolumeId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["volumeId"])
+func (r *SnapshotCopy) VolumeId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["volumeId"])
 }
 
 // The size of the drive in GiBs.
-func (r *SnapshotCopy) VolumeSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["volumeSize"])
+func (r *SnapshotCopy) VolumeSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["volumeSize"])
 }
 
 // Input properties used for looking up and filtering SnapshotCopy resources.

@@ -72,43 +72,43 @@ func GetPipeline(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Pipeline) URN() *pulumi.URNOutput {
+func (r *Pipeline) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Pipeline) ID() *pulumi.IDOutput {
+func (r *Pipeline) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The codepipeline ARN.
-func (r *Pipeline) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Pipeline) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // An artifactStore block. Artifact stores are documented below.
 // * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
-func (r *Pipeline) ArtifactStore() *pulumi.Output {
+func (r *Pipeline) ArtifactStore() pulumi.Output {
 	return r.s.State["artifactStore"]
 }
 
 // The name of the pipeline.
-func (r *Pipeline) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Pipeline) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-func (r *Pipeline) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *Pipeline) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
-func (r *Pipeline) Stages() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["stages"])
+func (r *Pipeline) Stages() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["stages"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Pipeline) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Pipeline) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Pipeline resources.

@@ -49,23 +49,23 @@ func GetSqlInjectionMatchSet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SqlInjectionMatchSet) URN() *pulumi.URNOutput {
+func (r *SqlInjectionMatchSet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SqlInjectionMatchSet) ID() *pulumi.IDOutput {
+func (r *SqlInjectionMatchSet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name or description of the SizeConstraintSet.
-func (r *SqlInjectionMatchSet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SqlInjectionMatchSet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-func (r *SqlInjectionMatchSet) SqlInjectionMatchTuples() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["sqlInjectionMatchTuples"])
+func (r *SqlInjectionMatchSet) SqlInjectionMatchTuples() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["sqlInjectionMatchTuples"])
 }
 
 // Input properties used for looking up and filtering SqlInjectionMatchSet resources.

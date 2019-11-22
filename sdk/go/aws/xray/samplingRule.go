@@ -112,78 +112,78 @@ func GetSamplingRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SamplingRule) URN() *pulumi.URNOutput {
+func (r *SamplingRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SamplingRule) ID() *pulumi.IDOutput {
+func (r *SamplingRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the sampling rule.
-func (r *SamplingRule) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *SamplingRule) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Matches attributes derived from the request.
-func (r *SamplingRule) Attributes() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["attributes"])
+func (r *SamplingRule) Attributes() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["attributes"])
 }
 
 // The percentage of matching requests to instrument, after the reservoir is exhausted.
-func (r *SamplingRule) FixedRate() *pulumi.Float64Output {
-	return (*pulumi.Float64Output)(r.s.State["fixedRate"])
+func (r *SamplingRule) FixedRate() pulumi.Float64Output {
+	return (pulumi.Float64Output)(r.s.State["fixedRate"])
 }
 
 // Matches the hostname from a request URL.
-func (r *SamplingRule) Host() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["host"])
+func (r *SamplingRule) Host() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["host"])
 }
 
 // Matches the HTTP method of a request.
-func (r *SamplingRule) HttpMethod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["httpMethod"])
+func (r *SamplingRule) HttpMethod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["httpMethod"])
 }
 
 // The priority of the sampling rule.
-func (r *SamplingRule) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *SamplingRule) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-func (r *SamplingRule) ReservoirSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["reservoirSize"])
+func (r *SamplingRule) ReservoirSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["reservoirSize"])
 }
 
 // Matches the ARN of the AWS resource on which the service runs.
-func (r *SamplingRule) ResourceArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceArn"])
+func (r *SamplingRule) ResourceArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceArn"])
 }
 
 // The name of the sampling rule.
-func (r *SamplingRule) RuleName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ruleName"])
+func (r *SamplingRule) RuleName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ruleName"])
 }
 
 // Matches the `name` that the service uses to identify itself in segments.
-func (r *SamplingRule) ServiceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceName"])
+func (r *SamplingRule) ServiceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceName"])
 }
 
 // Matches the `origin` that the service uses to identify its type in segments.
-func (r *SamplingRule) ServiceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceType"])
+func (r *SamplingRule) ServiceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceType"])
 }
 
 // Matches the path from a request URL.
-func (r *SamplingRule) UrlPath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["urlPath"])
+func (r *SamplingRule) UrlPath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["urlPath"])
 }
 
 // The version of the sampling rule format (`1` )
-func (r *SamplingRule) Version() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["version"])
+func (r *SamplingRule) Version() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering SamplingRule resources.

@@ -76,62 +76,62 @@ func GetSchedule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Schedule) URN() *pulumi.URNOutput {
+func (r *Schedule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Schedule) ID() *pulumi.IDOutput {
+func (r *Schedule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN assigned by AWS to the autoscaling schedule.
-func (r *Schedule) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Schedule) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-func (r *Schedule) AutoscalingGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["autoscalingGroupName"])
+func (r *Schedule) AutoscalingGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["autoscalingGroupName"])
 }
 
 // The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
-func (r *Schedule) DesiredCapacity() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["desiredCapacity"])
+func (r *Schedule) DesiredCapacity() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["desiredCapacity"])
 }
 
 // The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 // If you try to schedule your action in the past, Auto Scaling returns an error message.
-func (r *Schedule) EndTime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endTime"])
+func (r *Schedule) EndTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endTime"])
 }
 
 // The maximum size for the Auto Scaling group. Default 0.
 // Set to -1 if you don't want to change the maximum size at the scheduled time.
-func (r *Schedule) MaxSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxSize"])
+func (r *Schedule) MaxSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxSize"])
 }
 
 // The minimum size for the Auto Scaling group. Default 0.
 // Set to -1 if you don't want to change the minimum size at the scheduled time.
-func (r *Schedule) MinSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["minSize"])
+func (r *Schedule) MinSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["minSize"])
 }
 
 // The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
-func (r *Schedule) Recurrence() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recurrence"])
+func (r *Schedule) Recurrence() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recurrence"])
 }
 
 // The name of this scaling action.
-func (r *Schedule) ScheduledActionName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scheduledActionName"])
+func (r *Schedule) ScheduledActionName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scheduledActionName"])
 }
 
 // The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 // If you try to schedule your action in the past, Auto Scaling returns an error message.
-func (r *Schedule) StartTime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startTime"])
+func (r *Schedule) StartTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startTime"])
 }
 
 // Input properties used for looking up and filtering Schedule resources.
