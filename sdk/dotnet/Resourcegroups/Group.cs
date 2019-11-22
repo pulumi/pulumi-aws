@@ -38,6 +38,12 @@ namespace Pulumi.Aws.ResourceGroups
         [Output("resourceQuery")]
         public Output<Outputs.GroupResourceQuery> ResourceQuery { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Group resource with the given unique name, arguments, and options.
@@ -102,6 +108,18 @@ namespace Pulumi.Aws.ResourceGroups
         [Input("resourceQuery", required: true)]
         public Input<Inputs.GroupResourceQueryArgs> ResourceQuery { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public GroupArgs()
         {
         }
@@ -132,6 +150,18 @@ namespace Pulumi.Aws.ResourceGroups
         /// </summary>
         [Input("resourceQuery")]
         public Input<Inputs.GroupResourceQueryGetArgs>? ResourceQuery { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         public GroupState()
         {

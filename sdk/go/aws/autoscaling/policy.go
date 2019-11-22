@@ -148,6 +148,8 @@ func (r *Policy) ScalingAdjustment() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["scalingAdjustment"])
 }
 
+// A set of adjustments that manage
+// group scaling. These have the following structure:
 func (r *Policy) StepAdjustments() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["stepAdjustments"])
 }
@@ -180,6 +182,8 @@ type PolicyState struct {
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
 	ScalingAdjustment interface{}
+	// A set of adjustments that manage
+	// group scaling. These have the following structure:
 	StepAdjustments interface{}
 	// A target tracking policy. These have the following structure:
 	TargetTrackingConfiguration interface{}
@@ -206,6 +210,8 @@ type PolicyArgs struct {
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
 	ScalingAdjustment interface{}
+	// A set of adjustments that manage
+	// group scaling. These have the following structure:
 	StepAdjustments interface{}
 	// A target tracking policy. These have the following structure:
 	TargetTrackingConfiguration interface{}

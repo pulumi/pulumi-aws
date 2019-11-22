@@ -8,3 +8,4 @@ from .invite_accepter import *
 from .ip_set import *
 from .member import *
 from .threat_intel_set import *
+from .get_detector import *

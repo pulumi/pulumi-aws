@@ -90,7 +90,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The event source ARN - can either be a Kinesis or DynamoDB stream.
+     * The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
      */
     public readonly eventSourceArn!: pulumi.Output<string>;
     /**
@@ -109,6 +109,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
      * The result of the last AWS Lambda invocation of your Lambda function.
      */
     public /*out*/ readonly lastProcessingResult!: pulumi.Output<string>;
+    /**
+     * The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+     */
+    public readonly maximumBatchingWindowInSeconds!: pulumi.Output<number | undefined>;
     /**
      * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      */
@@ -149,6 +153,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["functionName"] = state ? state.functionName : undefined;
             inputs["lastModified"] = state ? state.lastModified : undefined;
             inputs["lastProcessingResult"] = state ? state.lastProcessingResult : undefined;
+            inputs["maximumBatchingWindowInSeconds"] = state ? state.maximumBatchingWindowInSeconds : undefined;
             inputs["startingPosition"] = state ? state.startingPosition : undefined;
             inputs["startingPositionTimestamp"] = state ? state.startingPositionTimestamp : undefined;
             inputs["state"] = state ? state.state : undefined;
@@ -166,6 +171,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
             inputs["functionName"] = args ? args.functionName : undefined;
+            inputs["maximumBatchingWindowInSeconds"] = args ? args.maximumBatchingWindowInSeconds : undefined;
             inputs["startingPosition"] = args ? args.startingPosition : undefined;
             inputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
             inputs["functionArn"] = undefined /*out*/;
@@ -199,7 +205,7 @@ export interface EventSourceMappingState {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * The event source ARN - can either be a Kinesis or DynamoDB stream.
+     * The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
      */
     readonly eventSourceArn?: pulumi.Input<string>;
     /**
@@ -218,6 +224,10 @@ export interface EventSourceMappingState {
      * The result of the last AWS Lambda invocation of your Lambda function.
      */
     readonly lastProcessingResult?: pulumi.Input<string>;
+    /**
+     * The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+     */
+    readonly maximumBatchingWindowInSeconds?: pulumi.Input<number>;
     /**
      * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      */
@@ -253,13 +263,17 @@ export interface EventSourceMappingArgs {
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * The event source ARN - can either be a Kinesis or DynamoDB stream.
+     * The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
      */
     readonly eventSourceArn: pulumi.Input<string>;
     /**
      * The name or the ARN of the Lambda function that will be subscribing to events.
      */
     readonly functionName: pulumi.Input<string>;
+    /**
+     * The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+     */
+    readonly maximumBatchingWindowInSeconds?: pulumi.Input<number>;
     /**
      * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      */

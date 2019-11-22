@@ -63,7 +63,7 @@ export class LogDestination extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+     * The ARN of the target Amazon Kinesis stream resource for the destination
      */
     public readonly targetArn!: pulumi.Output<string>;
 
@@ -124,7 +124,7 @@ export interface LogDestinationState {
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
-     * The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+     * The ARN of the target Amazon Kinesis stream resource for the destination
      */
     readonly targetArn?: pulumi.Input<string>;
 }
@@ -142,7 +142,7 @@ export interface LogDestinationArgs {
      */
     readonly roleArn: pulumi.Input<string>;
     /**
-     * The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+     * The ARN of the target Amazon Kinesis stream resource for the destination
      */
     readonly targetArn: pulumi.Input<string>;
 }

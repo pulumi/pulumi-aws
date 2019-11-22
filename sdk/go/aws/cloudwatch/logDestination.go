@@ -85,7 +85,7 @@ func (r *LogDestination) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
-// The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+// The ARN of the target Amazon Kinesis stream resource for the destination
 func (r *LogDestination) TargetArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["targetArn"])
 }
@@ -98,7 +98,7 @@ type LogDestinationState struct {
 	Name interface{}
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
 	RoleArn interface{}
-	// The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+	// The ARN of the target Amazon Kinesis stream resource for the destination
 	TargetArn interface{}
 }
 
@@ -108,6 +108,6 @@ type LogDestinationArgs struct {
 	Name interface{}
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
 	RoleArn interface{}
-	// The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+	// The ARN of the target Amazon Kinesis stream resource for the destination
 	TargetArn interface{}
 }

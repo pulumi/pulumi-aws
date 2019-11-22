@@ -14,9 +14,9 @@ class Application(pulumi.CustomResource):
     """
     SCM configuration of the app as described below.
     
-      * `password` (`str`) - Password to use when authenticating to the source.
+      * `password` (`str`) - <elided>
       * `revision` (`str`) - For sources that are version-aware, the revision to use.
-      * `sshKey` (`str`) - SSH key to use when authenticating to the source.
+      * `sshKey` (`str`) - <elided>
       * `type` (`str`) - The type of source to use. For example, "archive".
       * `url` (`str`) - The URL where the app resource can be found.
       * `username` (`str`) - Username to use when authenticating to the source.
@@ -119,9 +119,9 @@ class Application(pulumi.CustomResource):
         
         The **app_sources** object supports the following:
         
-          * `password` (`pulumi.Input[str]`) - Password to use when authenticating to the source.
+          * `password` (`pulumi.Input[str]`) - <elided>
           * `revision` (`pulumi.Input[str]`) - For sources that are version-aware, the revision to use.
-          * `sshKey` (`pulumi.Input[str]`) - SSH key to use when authenticating to the source.
+          * `sshKey` (`pulumi.Input[str]`) - <elided>
           * `type` (`pulumi.Input[str]`) - The type of source to use. For example, "archive".
           * `url` (`pulumi.Input[str]`) - The URL where the app resource can be found.
           * `username` (`pulumi.Input[str]`) - Username to use when authenticating to the source.
@@ -213,9 +213,9 @@ class Application(pulumi.CustomResource):
         
         The **app_sources** object supports the following:
         
-          * `password` (`pulumi.Input[str]`) - Password to use when authenticating to the source.
+          * `password` (`pulumi.Input[str]`) - <elided>
           * `revision` (`pulumi.Input[str]`) - For sources that are version-aware, the revision to use.
-          * `sshKey` (`pulumi.Input[str]`) - SSH key to use when authenticating to the source.
+          * `sshKey` (`pulumi.Input[str]`) - <elided>
           * `type` (`pulumi.Input[str]`) - The type of source to use. For example, "archive".
           * `url` (`pulumi.Input[str]`) - The URL where the app resource can be found.
           * `username` (`pulumi.Input[str]`) - Username to use when authenticating to the source.

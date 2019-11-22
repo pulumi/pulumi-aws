@@ -21,6 +21,12 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableArray<Outputs.TriggerActions>> Actions { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of Glue Trigger
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the new trigger.
         /// </summary>
         [Output("description")]
@@ -51,10 +57,22 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Schedule { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+        /// </summary>
+        [Output("workflowName")]
+        public Output<string?> WorkflowName { get; private set; } = null!;
 
 
         /// <summary>
@@ -144,11 +162,29 @@ namespace Pulumi.Aws.Glue
         [Input("schedule")]
         public Input<string>? Schedule { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+        /// </summary>
+        [Input("workflowName")]
+        public Input<string>? WorkflowName { get; set; }
 
         public TriggerArgs()
         {
@@ -168,6 +204,12 @@ namespace Pulumi.Aws.Glue
             get => _actions ?? (_actions = new InputList<Inputs.TriggerActionsGetArgs>());
             set => _actions = value;
         }
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of Glue Trigger
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// A description of the new trigger.
@@ -199,11 +241,29 @@ namespace Pulumi.Aws.Glue
         [Input("schedule")]
         public Input<string>? Schedule { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+        /// </summary>
+        [Input("workflowName")]
+        public Input<string>? WorkflowName { get; set; }
 
         public TriggerState()
         {
@@ -228,10 +288,16 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The name of the job to watch.
+        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("crawlerName")]
+        public Input<string>? CrawlerName { get; set; }
+
+        /// <summary>
+        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        /// </summary>
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         /// <summary>
         /// The job run timeout in minutes. It overrides the timeout value of the job.
@@ -259,10 +325,16 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The name of the job to watch.
+        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("crawlerName")]
+        public Input<string>? CrawlerName { get; set; }
+
+        /// <summary>
+        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        /// </summary>
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         /// <summary>
         /// The job run timeout in minutes. It overrides the timeout value of the job.
@@ -303,10 +375,22 @@ namespace Pulumi.Aws.Glue
     public sealed class TriggerPredicateConditionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the job to watch.
+        /// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("crawlState")]
+        public Input<string>? CrawlState { get; set; }
+
+        /// <summary>
+        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+        /// </summary>
+        [Input("crawlerName")]
+        public Input<string>? CrawlerName { get; set; }
+
+        /// <summary>
+        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        /// </summary>
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         /// <summary>
         /// A logical operator. Defaults to `EQUALS`.
@@ -315,10 +399,10 @@ namespace Pulumi.Aws.Glue
         public Input<string>? LogicalOperator { get; set; }
 
         /// <summary>
-        /// The condition state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`.
+        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
         /// </summary>
-        [Input("state", required: true)]
-        public Input<string> State { get; set; } = null!;
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         public TriggerPredicateConditionsArgs()
         {
@@ -328,10 +412,22 @@ namespace Pulumi.Aws.Glue
     public sealed class TriggerPredicateConditionsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the job to watch.
+        /// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
         /// </summary>
-        [Input("jobName", required: true)]
-        public Input<string> JobName { get; set; } = null!;
+        [Input("crawlState")]
+        public Input<string>? CrawlState { get; set; }
+
+        /// <summary>
+        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+        /// </summary>
+        [Input("crawlerName")]
+        public Input<string>? CrawlerName { get; set; }
+
+        /// <summary>
+        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        /// </summary>
+        [Input("jobName")]
+        public Input<string>? JobName { get; set; }
 
         /// <summary>
         /// A logical operator. Defaults to `EQUALS`.
@@ -340,10 +436,10 @@ namespace Pulumi.Aws.Glue
         public Input<string>? LogicalOperator { get; set; }
 
         /// <summary>
-        /// The condition state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`.
+        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
         /// </summary>
-        [Input("state", required: true)]
-        public Input<string> State { get; set; } = null!;
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         public TriggerPredicateConditionsGetArgs()
         {
@@ -387,9 +483,13 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Arguments;
         /// <summary>
-        /// The name of the job to watch.
+        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
         /// </summary>
-        public readonly string JobName;
+        public readonly string? CrawlerName;
+        /// <summary>
+        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        /// </summary>
+        public readonly string? JobName;
         /// <summary>
         /// The job run timeout in minutes. It overrides the timeout value of the job.
         /// </summary>
@@ -398,10 +498,12 @@ namespace Pulumi.Aws.Glue
         [OutputConstructor]
         private TriggerActions(
             ImmutableDictionary<string, object>? arguments,
-            string jobName,
+            string? crawlerName,
+            string? jobName,
             int? timeout)
         {
             Arguments = arguments;
+            CrawlerName = crawlerName;
             JobName = jobName;
             Timeout = timeout;
         }
@@ -433,24 +535,36 @@ namespace Pulumi.Aws.Glue
     public sealed class TriggerPredicateConditions
     {
         /// <summary>
-        /// The name of the job to watch.
+        /// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
         /// </summary>
-        public readonly string JobName;
+        public readonly string? CrawlState;
+        /// <summary>
+        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+        /// </summary>
+        public readonly string? CrawlerName;
+        /// <summary>
+        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        /// </summary>
+        public readonly string? JobName;
         /// <summary>
         /// A logical operator. Defaults to `EQUALS`.
         /// </summary>
         public readonly string? LogicalOperator;
         /// <summary>
-        /// The condition state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`.
+        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
         /// </summary>
-        public readonly string State;
+        public readonly string? State;
 
         [OutputConstructor]
         private TriggerPredicateConditions(
-            string jobName,
+            string? crawlState,
+            string? crawlerName,
+            string? jobName,
             string? logicalOperator,
-            string state)
+            string? state)
         {
+            CrawlState = crawlState;
+            CrawlerName = crawlerName;
             JobName = jobName;
             LogicalOperator = logicalOperator;
             State = state;

@@ -59,6 +59,50 @@ import * as utilities from "../utilities";
  *     type: "SCHEDULED",
  * });
  * ```
+ * 
+ * ### Conditional Trigger with Crawler Action
+ * 
+ * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.glue.Trigger("example", {
+ *     actions: [{
+ *         crawlerName: aws_glue_crawler_example1.name,
+ *     }],
+ *     predicate: {
+ *         conditions: [{
+ *             jobName: aws_glue_job_example2.name,
+ *             state: "SUCCEEDED",
+ *         }],
+ *     },
+ *     type: "CONDITIONAL",
+ * });
+ * ```
+ * 
+ * ### Conditional Trigger with Crawler Condition 
+ * 
+ * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.glue.Trigger("example", {
+ *     actions: [{
+ *         jobName: aws_glue_job_example1.name,
+ *     }],
+ *     predicate: {
+ *         conditions: [{
+ *             crawlState: "SUCCEEDED",
+ *             crawlerName: aws_glue_crawler_example2.name,
+ *         }],
+ *     },
+ *     type: "CONDITIONAL",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_trigger.html.markdown.
  */
@@ -94,6 +138,10 @@ export class Trigger extends pulumi.CustomResource {
      */
     public readonly actions!: pulumi.Output<outputs.glue.TriggerAction[]>;
     /**
+     * Amazon Resource Name (ARN) of Glue Trigger
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A description of the new trigger.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -114,9 +162,17 @@ export class Trigger extends pulumi.CustomResource {
      */
     public readonly schedule!: pulumi.Output<string | undefined>;
     /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+     */
+    public readonly workflowName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Trigger resource with the given unique name, arguments, and options.
@@ -131,12 +187,15 @@ export class Trigger extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as TriggerState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["predicate"] = state ? state.predicate : undefined;
             inputs["schedule"] = state ? state.schedule : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
+            inputs["workflowName"] = state ? state.workflowName : undefined;
         } else {
             const args = argsOrState as TriggerArgs | undefined;
             if (!args || args.actions === undefined) {
@@ -151,7 +210,10 @@ export class Trigger extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["predicate"] = args ? args.predicate : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["workflowName"] = args ? args.workflowName : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -173,6 +235,10 @@ export interface TriggerState {
      */
     readonly actions?: pulumi.Input<pulumi.Input<inputs.glue.TriggerAction>[]>;
     /**
+     * Amazon Resource Name (ARN) of Glue Trigger
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * A description of the new trigger.
      */
     readonly description?: pulumi.Input<string>;
@@ -193,9 +259,17 @@ export interface TriggerState {
      */
     readonly schedule?: pulumi.Input<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+     */
+    readonly workflowName?: pulumi.Input<string>;
 }
 
 /**
@@ -227,7 +301,15 @@ export interface TriggerArgs {
      */
     readonly schedule?: pulumi.Input<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
      */
     readonly type: pulumi.Input<string>;
+    /**
+     * A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+     */
+    readonly workflowName?: pulumi.Input<string>;
 }

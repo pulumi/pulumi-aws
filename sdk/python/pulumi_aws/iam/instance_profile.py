@@ -47,8 +47,6 @@ class InstanceProfile(pulumi.CustomResource):
         """
         Provides an IAM instance profile.
         
-        > **NOTE:** Either `role` or `roles` (**deprecated**) must be specified.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The profile's name. If omitted, this provider will assign a random, unique name.

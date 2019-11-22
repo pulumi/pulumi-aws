@@ -1849,7 +1849,7 @@ export namespace autoscaling {
          */
         onDemandPercentageAboveBaseCapacity?: number;
         /**
-         * How to allocate capacity across the Spot pools. Valid values: `lowest-price`. Default: `lowest-price`.
+         * How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
          */
         spotAllocationStrategy?: string;
         /**
@@ -8355,9 +8355,13 @@ export namespace glue {
          */
         arguments?: {[key: string]: any};
         /**
-         * The name of the job to watch.
+         * The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
          */
-        jobName: string;
+        crawlerName?: string;
+        /**
+         * The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+         */
+        jobName?: string;
         /**
          * The job run timeout in minutes. It overrides the timeout value of the job.
          */
@@ -8377,17 +8381,25 @@ export namespace glue {
 
     export interface TriggerPredicateCondition {
         /**
-         * The name of the job to watch.
+         * The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
          */
-        jobName: string;
+        crawlState?: string;
+        /**
+         * The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+         */
+        crawlerName?: string;
+        /**
+         * The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+         */
+        jobName?: string;
         /**
          * A logical operator. Defaults to `EQUALS`.
          */
         logicalOperator?: string;
         /**
-         * The condition state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`.
+         * The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
          */
-        state: string;
+        state?: string;
     }
 }
 
@@ -10449,7 +10461,7 @@ export namespace neptune {
 export namespace opsworks {
     export interface ApplicationAppSource {
         /**
-         * Password to use when authenticating to the source.
+         * <elided>
          */
         password?: string;
         /**
@@ -10457,7 +10469,7 @@ export namespace opsworks {
          */
         revision?: string;
         /**
-         * SSH key to use when authenticating to the source.
+         * <elided>
          */
         sshKey?: string;
         /**

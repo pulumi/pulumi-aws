@@ -36,9 +36,12 @@ func NewJob(ctx *pulumi.Context,
 		inputs["maxCapacity"] = nil
 		inputs["maxRetries"] = nil
 		inputs["name"] = nil
+		inputs["numberOfWorkers"] = nil
 		inputs["roleArn"] = nil
 		inputs["securityConfiguration"] = nil
+		inputs["tags"] = nil
 		inputs["timeout"] = nil
+		inputs["workerType"] = nil
 	} else {
 		inputs["allocatedCapacity"] = args.AllocatedCapacity
 		inputs["command"] = args.Command
@@ -50,10 +53,14 @@ func NewJob(ctx *pulumi.Context,
 		inputs["maxCapacity"] = args.MaxCapacity
 		inputs["maxRetries"] = args.MaxRetries
 		inputs["name"] = args.Name
+		inputs["numberOfWorkers"] = args.NumberOfWorkers
 		inputs["roleArn"] = args.RoleArn
 		inputs["securityConfiguration"] = args.SecurityConfiguration
+		inputs["tags"] = args.Tags
 		inputs["timeout"] = args.Timeout
+		inputs["workerType"] = args.WorkerType
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:glue/job:Job", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -68,6 +75,7 @@ func GetJob(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["allocatedCapacity"] = state.AllocatedCapacity
+		inputs["arn"] = state.Arn
 		inputs["command"] = state.Command
 		inputs["connections"] = state.Connections
 		inputs["defaultArguments"] = state.DefaultArguments
@@ -77,9 +85,12 @@ func GetJob(ctx *pulumi.Context,
 		inputs["maxCapacity"] = state.MaxCapacity
 		inputs["maxRetries"] = state.MaxRetries
 		inputs["name"] = state.Name
+		inputs["numberOfWorkers"] = state.NumberOfWorkers
 		inputs["roleArn"] = state.RoleArn
 		inputs["securityConfiguration"] = state.SecurityConfiguration
+		inputs["tags"] = state.Tags
 		inputs["timeout"] = state.Timeout
+		inputs["workerType"] = state.WorkerType
 	}
 	s, err := ctx.ReadResource("aws:glue/job:Job", name, id, inputs, opts...)
 	if err != nil {
@@ -101,6 +112,11 @@ func (r *Job) ID() *pulumi.IDOutput {
 // **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
 func (r *Job) AllocatedCapacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["allocatedCapacity"])
+}
+
+// Amazon Resource Name (ARN) of Glue Job
+func (r *Job) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The command of the job. Defined below.
@@ -148,6 +164,11 @@ func (r *Job) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// The number of workers of a defined workerType that are allocated when a job runs.
+func (r *Job) NumberOfWorkers() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["numberOfWorkers"])
+}
+
 // The ARN of the IAM role associated with this job.
 func (r *Job) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
@@ -158,15 +179,27 @@ func (r *Job) SecurityConfiguration() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["securityConfiguration"])
 }
 
+// Key-value mapping of resource tags
+func (r *Job) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The job timeout in minutes. The default is 2880 minutes (48 hours).
 func (r *Job) Timeout() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["timeout"])
+}
+
+// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+func (r *Job) WorkerType() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["workerType"])
 }
 
 // Input properties used for looking up and filtering Job resources.
 type JobState struct {
 	// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
 	AllocatedCapacity interface{}
+	// Amazon Resource Name (ARN) of Glue Job
+	Arn interface{}
 	// The command of the job. Defined below.
 	Command interface{}
 	// The list of connections used for this job.
@@ -185,12 +218,18 @@ type JobState struct {
 	MaxRetries interface{}
 	// The name of the job command. Defaults to `glueetl`
 	Name interface{}
+	// The number of workers of a defined workerType that are allocated when a job runs.
+	NumberOfWorkers interface{}
 	// The ARN of the IAM role associated with this job.
 	RoleArn interface{}
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout interface{}
+	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+	WorkerType interface{}
 }
 
 // The set of arguments for constructing a Job resource.
@@ -215,10 +254,16 @@ type JobArgs struct {
 	MaxRetries interface{}
 	// The name of the job command. Defaults to `glueetl`
 	Name interface{}
+	// The number of workers of a defined workerType that are allocated when a job runs.
+	NumberOfWorkers interface{}
 	// The ARN of the IAM role associated with this job.
 	RoleArn interface{}
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout interface{}
+	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+	WorkerType interface{}
 }

@@ -117,7 +117,7 @@ class Group(pulumi.CustomResource):
         * `onDemandAllocationStrategy` (`str`) - Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
         * `onDemandBaseCapacity` (`float`) - Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
         * `onDemandPercentageAboveBaseCapacity` (`float`) - Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-        * `spotAllocationStrategy` (`str`) - How to allocate capacity across the Spot pools. Valid values: `lowest-price`. Default: `lowest-price`.
+        * `spotAllocationStrategy` (`str`) - How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
         * `spotInstancePools` (`float`) - Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
         * `spotMaxPrice` (`str`) - Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
     
@@ -347,7 +347,7 @@ class Group(pulumi.CustomResource):
             * `onDemandAllocationStrategy` (`pulumi.Input[str]`) - Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
             * `onDemandBaseCapacity` (`pulumi.Input[float]`) - Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
             * `onDemandPercentageAboveBaseCapacity` (`pulumi.Input[float]`) - Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-            * `spotAllocationStrategy` (`pulumi.Input[str]`) - How to allocate capacity across the Spot pools. Valid values: `lowest-price`. Default: `lowest-price`.
+            * `spotAllocationStrategy` (`pulumi.Input[str]`) - How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
             * `spotInstancePools` (`pulumi.Input[float]`) - Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
             * `spotMaxPrice` (`pulumi.Input[str]`) - Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
         
@@ -521,7 +521,7 @@ class Group(pulumi.CustomResource):
             * `onDemandAllocationStrategy` (`pulumi.Input[str]`) - Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
             * `onDemandBaseCapacity` (`pulumi.Input[float]`) - Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
             * `onDemandPercentageAboveBaseCapacity` (`pulumi.Input[float]`) - Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-            * `spotAllocationStrategy` (`pulumi.Input[str]`) - How to allocate capacity across the Spot pools. Valid values: `lowest-price`. Default: `lowest-price`.
+            * `spotAllocationStrategy` (`pulumi.Input[str]`) - How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
             * `spotInstancePools` (`pulumi.Input[float]`) - Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
             * `spotMaxPrice` (`pulumi.Input[str]`) - Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
         

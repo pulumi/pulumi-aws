@@ -11,3 +11,4 @@ export * from "./getScript";
 export * from "./job";
 export * from "./securityConfiguration";
 export * from "./trigger";
+export * from "./workflow";

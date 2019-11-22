@@ -9,8 +9,6 @@ import {Role} from "./role";
 /**
  * Provides an IAM instance profile.
  * 
- * > **NOTE:** Either `role` or `roles` (**deprecated**) must be specified.
- * 
  * ## Example Usage
  * 
  * ```typescript

@@ -141,7 +141,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
-     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
      */
     public readonly promotionTier!: pulumi.Output<number | undefined>;
     /**
@@ -357,7 +357,7 @@ export interface ClusterInstanceState {
      */
     readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
      */
     readonly promotionTier?: pulumi.Input<number>;
     /**
@@ -466,7 +466,7 @@ export interface ClusterInstanceArgs {
      */
     readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
      */
     readonly promotionTier?: pulumi.Input<number>;
     /**

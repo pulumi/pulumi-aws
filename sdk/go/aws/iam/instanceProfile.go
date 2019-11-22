@@ -8,8 +8,6 @@ import (
 )
 
 // Provides an IAM instance profile.
-// 
-// > **NOTE:** Either `role` or `roles` (**deprecated**) must be specified.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_instance_profile.html.markdown.
 type InstanceProfile struct {

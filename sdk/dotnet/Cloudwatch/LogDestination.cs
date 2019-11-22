@@ -33,7 +33,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+        /// The ARN of the target Amazon Kinesis stream resource for the destination
         /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+        /// The ARN of the target Amazon Kinesis stream resource for the destination
         /// </summary>
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+        /// The ARN of the target Amazon Kinesis stream resource for the destination
         /// </summary>
         [Input("targetArn")]
         public Input<string>? TargetArn { get; set; }

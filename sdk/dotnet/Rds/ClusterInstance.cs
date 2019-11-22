@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+        /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         /// </summary>
         [Output("promotionTier")]
         public Output<int?> PromotionTier { get; private set; } = null!;
@@ -355,7 +355,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+        /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         /// </summary>
         [Input("promotionTier")]
         public Input<int>? PromotionTier { get; set; }
@@ -535,7 +535,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+        /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         /// </summary>
         [Input("promotionTier")]
         public Input<int>? PromotionTier { get; set; }

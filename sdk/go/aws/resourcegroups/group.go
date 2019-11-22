@@ -26,10 +26,12 @@ func NewGroup(ctx *pulumi.Context,
 		inputs["description"] = nil
 		inputs["name"] = nil
 		inputs["resourceQuery"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["description"] = args.Description
 		inputs["name"] = args.Name
 		inputs["resourceQuery"] = args.ResourceQuery
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:resourcegroups/group:Group", name, true, inputs, opts...)
@@ -49,6 +51,7 @@ func GetGroup(ctx *pulumi.Context,
 		inputs["description"] = state.Description
 		inputs["name"] = state.Name
 		inputs["resourceQuery"] = state.ResourceQuery
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:resourcegroups/group:Group", name, id, inputs, opts...)
 	if err != nil {
@@ -87,6 +90,11 @@ func (r *Group) ResourceQuery() *pulumi.Output {
 	return r.s.State["resourceQuery"]
 }
 
+// Key-value mapping of resource tags
+func (r *Group) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Group resources.
 type GroupState struct {
 	// The ARN assigned by AWS for this resource group.
@@ -97,6 +105,8 @@ type GroupState struct {
 	Name interface{}
 	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Group resource.
@@ -107,4 +117,6 @@ type GroupArgs struct {
 	Name interface{}
 	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

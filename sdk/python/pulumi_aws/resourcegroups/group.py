@@ -29,7 +29,11 @@ class Group(pulumi.CustomResource):
       * `query` (`str`)
       * `type` (`str`)
     """
-    def __init__(__self__, resource_name, opts=None, description=None, name=None, resource_query=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, description=None, name=None, resource_query=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Resource Group.
         
@@ -38,6 +42,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the resource group.
         :param pulumi.Input[str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         :param pulumi.Input[dict] resource_query: A `resource_query` block. Resource queries are documented below.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **resource_query** object supports the following:
         
@@ -68,6 +73,7 @@ class Group(pulumi.CustomResource):
             if resource_query is None:
                 raise TypeError("Missing required property 'resource_query'")
             __props__['resource_query'] = resource_query
+            __props__['tags'] = tags
             __props__['arn'] = None
         super(Group, __self__).__init__(
             'aws:resourcegroups/group:Group',
@@ -76,7 +82,7 @@ class Group(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, description=None, name=None, resource_query=None):
+    def get(resource_name, id, opts=None, arn=None, description=None, name=None, resource_query=None, tags=None):
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -88,6 +94,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the resource group.
         :param pulumi.Input[str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         :param pulumi.Input[dict] resource_query: A `resource_query` block. Resource queries are documented below.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **resource_query** object supports the following:
         
@@ -103,6 +110,7 @@ class Group(pulumi.CustomResource):
         __props__["description"] = description
         __props__["name"] = name
         __props__["resource_query"] = resource_query
+        __props__["tags"] = tags
         return Group(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
