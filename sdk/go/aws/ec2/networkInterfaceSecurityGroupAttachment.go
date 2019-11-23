@@ -72,23 +72,23 @@ func GetNetworkInterfaceSecurityGroupAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkInterfaceSecurityGroupAttachment) URN() *pulumi.URNOutput {
+func (r *NetworkInterfaceSecurityGroupAttachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkInterfaceSecurityGroupAttachment) ID() *pulumi.IDOutput {
+func (r *NetworkInterfaceSecurityGroupAttachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the network interface to attach to.
-func (r *NetworkInterfaceSecurityGroupAttachment) NetworkInterfaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkInterfaceId"])
+func (r *NetworkInterfaceSecurityGroupAttachment) NetworkInterfaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkInterfaceId"])
 }
 
 // The ID of the security group.
-func (r *NetworkInterfaceSecurityGroupAttachment) SecurityGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["securityGroupId"])
+func (r *NetworkInterfaceSecurityGroupAttachment) SecurityGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["securityGroupId"])
 }
 
 // Input properties used for looking up and filtering NetworkInterfaceSecurityGroupAttachment resources.

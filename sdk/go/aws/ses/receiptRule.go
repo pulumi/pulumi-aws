@@ -89,83 +89,83 @@ func GetReceiptRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ReceiptRule) URN() *pulumi.URNOutput {
+func (r *ReceiptRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ReceiptRule) ID() *pulumi.IDOutput {
+func (r *ReceiptRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A list of Add Header Action blocks. Documented below.
-func (r *ReceiptRule) AddHeaderActions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["addHeaderActions"])
+func (r *ReceiptRule) AddHeaderActions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["addHeaderActions"])
 }
 
 // The name of the rule to place this rule after
-func (r *ReceiptRule) After() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["after"])
+func (r *ReceiptRule) After() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["after"])
 }
 
 // A list of Bounce Action blocks. Documented below.
-func (r *ReceiptRule) BounceActions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["bounceActions"])
+func (r *ReceiptRule) BounceActions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["bounceActions"])
 }
 
 // If true, the rule will be enabled
-func (r *ReceiptRule) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *ReceiptRule) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // A list of Lambda Action blocks. Documented below.
-func (r *ReceiptRule) LambdaActions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["lambdaActions"])
+func (r *ReceiptRule) LambdaActions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["lambdaActions"])
 }
 
 // The name of the rule
-func (r *ReceiptRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ReceiptRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A list of email addresses
-func (r *ReceiptRule) Recipients() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["recipients"])
+func (r *ReceiptRule) Recipients() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["recipients"])
 }
 
 // The name of the rule set
-func (r *ReceiptRule) RuleSetName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ruleSetName"])
+func (r *ReceiptRule) RuleSetName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ruleSetName"])
 }
 
 // A list of S3 Action blocks. Documented below.
-func (r *ReceiptRule) S3Actions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["s3Actions"])
+func (r *ReceiptRule) S3Actions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["s3Actions"])
 }
 
 // If true, incoming emails will be scanned for spam and viruses
-func (r *ReceiptRule) ScanEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["scanEnabled"])
+func (r *ReceiptRule) ScanEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["scanEnabled"])
 }
 
 // A list of SNS Action blocks. Documented below.
-func (r *ReceiptRule) SnsActions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["snsActions"])
+func (r *ReceiptRule) SnsActions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["snsActions"])
 }
 
 // A list of Stop Action blocks. Documented below.
-func (r *ReceiptRule) StopActions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["stopActions"])
+func (r *ReceiptRule) StopActions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["stopActions"])
 }
 
 // Require or Optional
-func (r *ReceiptRule) TlsPolicy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tlsPolicy"])
+func (r *ReceiptRule) TlsPolicy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tlsPolicy"])
 }
 
 // A list of WorkMail Action blocks. Documented below.
-func (r *ReceiptRule) WorkmailActions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["workmailActions"])
+func (r *ReceiptRule) WorkmailActions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["workmailActions"])
 }
 
 // Input properties used for looking up and filtering ReceiptRule resources.

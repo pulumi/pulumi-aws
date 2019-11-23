@@ -69,43 +69,43 @@ func GetSshKey(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SshKey) URN() *pulumi.URNOutput {
+func (r *SshKey) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SshKey) ID() *pulumi.IDOutput {
+func (r *SshKey) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-func (r *SshKey) Encoding() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["encoding"])
+func (r *SshKey) Encoding() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["encoding"])
 }
 
 // The MD5 message digest of the SSH public key.
-func (r *SshKey) Fingerprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fingerprint"])
+func (r *SshKey) Fingerprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fingerprint"])
 }
 
 // The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
-func (r *SshKey) PublicKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publicKey"])
+func (r *SshKey) PublicKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publicKey"])
 }
 
 // The unique identifier for the SSH public key.
-func (r *SshKey) SshPublicKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sshPublicKeyId"])
+func (r *SshKey) SshPublicKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sshPublicKeyId"])
 }
 
 // The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
-func (r *SshKey) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *SshKey) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // The name of the IAM user to associate the SSH public key with.
-func (r *SshKey) Username() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["username"])
+func (r *SshKey) Username() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["username"])
 }
 
 // Input properties used for looking up and filtering SshKey resources.

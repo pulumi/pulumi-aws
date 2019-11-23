@@ -60,23 +60,23 @@ func GetVpnGatewayRoutePropagation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpnGatewayRoutePropagation) URN() *pulumi.URNOutput {
+func (r *VpnGatewayRoutePropagation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpnGatewayRoutePropagation) ID() *pulumi.IDOutput {
+func (r *VpnGatewayRoutePropagation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The id of the `ec2.RouteTable` to propagate routes into.
-func (r *VpnGatewayRoutePropagation) RouteTableId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["routeTableId"])
+func (r *VpnGatewayRoutePropagation) RouteTableId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["routeTableId"])
 }
 
 // The id of the `ec2.VpnGateway` to propagate routes from.
-func (r *VpnGatewayRoutePropagation) VpnGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpnGatewayId"])
+func (r *VpnGatewayRoutePropagation) VpnGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpnGatewayId"])
 }
 
 // Input properties used for looking up and filtering VpnGatewayRoutePropagation resources.

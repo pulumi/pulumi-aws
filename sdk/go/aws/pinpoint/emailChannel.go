@@ -73,43 +73,43 @@ func GetEmailChannel(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EmailChannel) URN() *pulumi.URNOutput {
+func (r *EmailChannel) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EmailChannel) ID() *pulumi.IDOutput {
+func (r *EmailChannel) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The application ID.
-func (r *EmailChannel) ApplicationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationId"])
+func (r *EmailChannel) ApplicationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationId"])
 }
 
 // Whether the channel is enabled or disabled. Defaults to `true`.
-func (r *EmailChannel) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *EmailChannel) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // The email address used to send emails from.
-func (r *EmailChannel) FromAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fromAddress"])
+func (r *EmailChannel) FromAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fromAddress"])
 }
 
 // The ARN of an identity verified with SES.
-func (r *EmailChannel) Identity() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identity"])
+func (r *EmailChannel) Identity() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identity"])
 }
 
 // Messages per second that can be sent.
-func (r *EmailChannel) MessagesPerSecond() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["messagesPerSecond"])
+func (r *EmailChannel) MessagesPerSecond() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["messagesPerSecond"])
 }
 
 // The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-func (r *EmailChannel) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *EmailChannel) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // Input properties used for looking up and filtering EmailChannel resources.

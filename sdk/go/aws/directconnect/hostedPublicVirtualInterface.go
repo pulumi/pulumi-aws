@@ -97,73 +97,73 @@ func GetHostedPublicVirtualInterface(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *HostedPublicVirtualInterface) URN() *pulumi.URNOutput {
+func (r *HostedPublicVirtualInterface) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *HostedPublicVirtualInterface) ID() *pulumi.IDOutput {
+func (r *HostedPublicVirtualInterface) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The address family for the BGP peer. `ipv4 ` or `ipv6`.
-func (r *HostedPublicVirtualInterface) AddressFamily() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["addressFamily"])
+func (r *HostedPublicVirtualInterface) AddressFamily() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["addressFamily"])
 }
 
 // The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-func (r *HostedPublicVirtualInterface) AmazonAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["amazonAddress"])
+func (r *HostedPublicVirtualInterface) AmazonAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["amazonAddress"])
 }
 
 // The ARN of the virtual interface.
-func (r *HostedPublicVirtualInterface) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *HostedPublicVirtualInterface) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The Direct Connect endpoint on which the virtual interface terminates.
-func (r *HostedPublicVirtualInterface) AwsDevice() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["awsDevice"])
+func (r *HostedPublicVirtualInterface) AwsDevice() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["awsDevice"])
 }
 
 // The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-func (r *HostedPublicVirtualInterface) BgpAsn() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["bgpAsn"])
+func (r *HostedPublicVirtualInterface) BgpAsn() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["bgpAsn"])
 }
 
 // The authentication key for BGP configuration.
-func (r *HostedPublicVirtualInterface) BgpAuthKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bgpAuthKey"])
+func (r *HostedPublicVirtualInterface) BgpAuthKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bgpAuthKey"])
 }
 
 // The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-func (r *HostedPublicVirtualInterface) ConnectionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["connectionId"])
+func (r *HostedPublicVirtualInterface) ConnectionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["connectionId"])
 }
 
 // The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-func (r *HostedPublicVirtualInterface) CustomerAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customerAddress"])
+func (r *HostedPublicVirtualInterface) CustomerAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customerAddress"])
 }
 
 // The name for the virtual interface.
-func (r *HostedPublicVirtualInterface) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *HostedPublicVirtualInterface) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The AWS account that will own the new virtual interface.
-func (r *HostedPublicVirtualInterface) OwnerAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerAccountId"])
+func (r *HostedPublicVirtualInterface) OwnerAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerAccountId"])
 }
 
 // A list of routes to be advertised to the AWS network in this region.
-func (r *HostedPublicVirtualInterface) RouteFilterPrefixes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["routeFilterPrefixes"])
+func (r *HostedPublicVirtualInterface) RouteFilterPrefixes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["routeFilterPrefixes"])
 }
 
 // The VLAN ID.
-func (r *HostedPublicVirtualInterface) Vlan() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["vlan"])
+func (r *HostedPublicVirtualInterface) Vlan() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["vlan"])
 }
 
 // Input properties used for looking up and filtering HostedPublicVirtualInterface resources.

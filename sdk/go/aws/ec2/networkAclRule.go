@@ -95,68 +95,68 @@ func GetNetworkAclRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkAclRule) URN() *pulumi.URNOutput {
+func (r *NetworkAclRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkAclRule) ID() *pulumi.IDOutput {
+func (r *NetworkAclRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-func (r *NetworkAclRule) CidrBlock() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cidrBlock"])
+func (r *NetworkAclRule) CidrBlock() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cidrBlock"])
 }
 
 // Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-func (r *NetworkAclRule) Egress() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["egress"])
+func (r *NetworkAclRule) Egress() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["egress"])
 }
 
 // The from port to match.
-func (r *NetworkAclRule) FromPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["fromPort"])
+func (r *NetworkAclRule) FromPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["fromPort"])
 }
 
 // ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
-func (r *NetworkAclRule) IcmpCode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["icmpCode"])
+func (r *NetworkAclRule) IcmpCode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["icmpCode"])
 }
 
 // ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
-func (r *NetworkAclRule) IcmpType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["icmpType"])
+func (r *NetworkAclRule) IcmpType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["icmpType"])
 }
 
 // The IPv6 CIDR block to allow or deny.
-func (r *NetworkAclRule) Ipv6CidrBlock() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipv6CidrBlock"])
+func (r *NetworkAclRule) Ipv6CidrBlock() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipv6CidrBlock"])
 }
 
 // The ID of the network ACL.
-func (r *NetworkAclRule) NetworkAclId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkAclId"])
+func (r *NetworkAclRule) NetworkAclId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkAclId"])
 }
 
 // The protocol. A value of -1 means all protocols.
-func (r *NetworkAclRule) Protocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocol"])
+func (r *NetworkAclRule) Protocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocol"])
 }
 
 // Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-func (r *NetworkAclRule) RuleAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ruleAction"])
+func (r *NetworkAclRule) RuleAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ruleAction"])
 }
 
 // The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-func (r *NetworkAclRule) RuleNumber() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["ruleNumber"])
+func (r *NetworkAclRule) RuleNumber() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["ruleNumber"])
 }
 
 // The to port to match.
-func (r *NetworkAclRule) ToPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["toPort"])
+func (r *NetworkAclRule) ToPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["toPort"])
 }
 
 // Input properties used for looking up and filtering NetworkAclRule resources.

@@ -55,28 +55,28 @@ func GetGateway(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Gateway) URN() *pulumi.URNOutput {
+func (r *Gateway) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Gateway) ID() *pulumi.IDOutput {
+func (r *Gateway) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-func (r *Gateway) AmazonSideAsn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["amazonSideAsn"])
+func (r *Gateway) AmazonSideAsn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["amazonSideAsn"])
 }
 
 // The name of the connection.
-func (r *Gateway) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Gateway) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // AWS Account ID of the gateway.
-func (r *Gateway) OwnerAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerAccountId"])
+func (r *Gateway) OwnerAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerAccountId"])
 }
 
 // Input properties used for looking up and filtering Gateway resources.

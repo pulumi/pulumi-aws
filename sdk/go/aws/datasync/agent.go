@@ -59,38 +59,38 @@ func GetAgent(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Agent) URN() *pulumi.URNOutput {
+func (r *Agent) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Agent) ID() *pulumi.IDOutput {
+func (r *Agent) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
-func (r *Agent) ActivationKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["activationKey"])
+func (r *Agent) ActivationKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["activationKey"])
 }
 
 // Amazon Resource Name (ARN) of the DataSync Agent.
-func (r *Agent) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Agent) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
-func (r *Agent) IpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
+func (r *Agent) IpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipAddress"])
 }
 
 // Name of the DataSync Agent.
-func (r *Agent) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Agent) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Key-value pairs of resource tags to assign to the DataSync Agent.
-func (r *Agent) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Agent) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Agent resources.

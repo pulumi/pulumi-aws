@@ -92,43 +92,43 @@ func GetDefaultRouteTable(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DefaultRouteTable) URN() *pulumi.URNOutput {
+func (r *DefaultRouteTable) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DefaultRouteTable) ID() *pulumi.IDOutput {
+func (r *DefaultRouteTable) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the Default Routing Table.
-func (r *DefaultRouteTable) DefaultRouteTableId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultRouteTableId"])
+func (r *DefaultRouteTable) DefaultRouteTableId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultRouteTableId"])
 }
 
 // The ID of the AWS account that owns the route table
-func (r *DefaultRouteTable) OwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+func (r *DefaultRouteTable) OwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
 // A list of virtual gateways for propagation.
-func (r *DefaultRouteTable) PropagatingVgws() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["propagatingVgws"])
+func (r *DefaultRouteTable) PropagatingVgws() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["propagatingVgws"])
 }
 
 // A list of route objects. Their keys are documented below.
 // This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-func (r *DefaultRouteTable) Routes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["routes"])
+func (r *DefaultRouteTable) Routes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["routes"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *DefaultRouteTable) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *DefaultRouteTable) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-func (r *DefaultRouteTable) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *DefaultRouteTable) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering DefaultRouteTable resources.

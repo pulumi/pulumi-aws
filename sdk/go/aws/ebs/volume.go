@@ -73,58 +73,58 @@ func GetVolume(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Volume) URN() *pulumi.URNOutput {
+func (r *Volume) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Volume) ID() *pulumi.IDOutput {
+func (r *Volume) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
-func (r *Volume) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Volume) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The AZ where the EBS volume will exist.
-func (r *Volume) AvailabilityZone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
+func (r *Volume) AvailabilityZone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
 // If true, the disk will be encrypted.
-func (r *Volume) Encrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["encrypted"])
+func (r *Volume) Encrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["encrypted"])
 }
 
 // The amount of IOPS to provision for the disk.
-func (r *Volume) Iops() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["iops"])
+func (r *Volume) Iops() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["iops"])
 }
 
 // The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
-func (r *Volume) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *Volume) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // The size of the drive in GiBs.
-func (r *Volume) Size() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["size"])
+func (r *Volume) Size() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["size"])
 }
 
 // A snapshot to base the EBS volume off of.
-func (r *Volume) SnapshotId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["snapshotId"])
+func (r *Volume) SnapshotId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["snapshotId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Volume) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Volume) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
-func (r *Volume) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Volume) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering Volume resources.

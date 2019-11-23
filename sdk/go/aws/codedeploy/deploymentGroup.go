@@ -100,88 +100,88 @@ func GetDeploymentGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DeploymentGroup) URN() *pulumi.URNOutput {
+func (r *DeploymentGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DeploymentGroup) ID() *pulumi.IDOutput {
+func (r *DeploymentGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Configuration block of alarms associated with the deployment group (documented below).
-func (r *DeploymentGroup) AlarmConfiguration() *pulumi.Output {
+func (r *DeploymentGroup) AlarmConfiguration() pulumi.Output {
 	return r.s.State["alarmConfiguration"]
 }
 
 // The name of the application.
-func (r *DeploymentGroup) AppName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appName"])
+func (r *DeploymentGroup) AppName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appName"])
 }
 
 // Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-func (r *DeploymentGroup) AutoRollbackConfiguration() *pulumi.Output {
+func (r *DeploymentGroup) AutoRollbackConfiguration() pulumi.Output {
 	return r.s.State["autoRollbackConfiguration"]
 }
 
 // Autoscaling groups associated with the deployment group.
-func (r *DeploymentGroup) AutoscalingGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["autoscalingGroups"])
+func (r *DeploymentGroup) AutoscalingGroups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["autoscalingGroups"])
 }
 
 // Configuration block of the blue/green deployment options for a deployment group (documented below).
-func (r *DeploymentGroup) BlueGreenDeploymentConfig() *pulumi.Output {
+func (r *DeploymentGroup) BlueGreenDeploymentConfig() pulumi.Output {
 	return r.s.State["blueGreenDeploymentConfig"]
 }
 
 // The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
-func (r *DeploymentGroup) DeploymentConfigName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deploymentConfigName"])
+func (r *DeploymentGroup) DeploymentConfigName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deploymentConfigName"])
 }
 
 // The name of the deployment group.
-func (r *DeploymentGroup) DeploymentGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deploymentGroupName"])
+func (r *DeploymentGroup) DeploymentGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deploymentGroupName"])
 }
 
 // Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-func (r *DeploymentGroup) DeploymentStyle() *pulumi.Output {
+func (r *DeploymentGroup) DeploymentStyle() pulumi.Output {
 	return r.s.State["deploymentStyle"]
 }
 
 // Tag filters associated with the deployment group. See the AWS docs for details.
-func (r *DeploymentGroup) Ec2TagFilters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ec2TagFilters"])
+func (r *DeploymentGroup) Ec2TagFilters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ec2TagFilters"])
 }
 
 // Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
-func (r *DeploymentGroup) Ec2TagSets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ec2TagSets"])
+func (r *DeploymentGroup) Ec2TagSets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ec2TagSets"])
 }
 
 // Configuration block(s) of the ECS services for a deployment group (documented below).
-func (r *DeploymentGroup) EcsService() *pulumi.Output {
+func (r *DeploymentGroup) EcsService() pulumi.Output {
 	return r.s.State["ecsService"]
 }
 
 // Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-func (r *DeploymentGroup) LoadBalancerInfo() *pulumi.Output {
+func (r *DeploymentGroup) LoadBalancerInfo() pulumi.Output {
 	return r.s.State["loadBalancerInfo"]
 }
 
 // On premise tag filters associated with the group. See the AWS docs for details.
-func (r *DeploymentGroup) OnPremisesInstanceTagFilters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["onPremisesInstanceTagFilters"])
+func (r *DeploymentGroup) OnPremisesInstanceTagFilters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["onPremisesInstanceTagFilters"])
 }
 
 // The service role ARN that allows deployments.
-func (r *DeploymentGroup) ServiceRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceRoleArn"])
+func (r *DeploymentGroup) ServiceRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceRoleArn"])
 }
 
 // Configuration block(s) of the triggers for the deployment group (documented below).
-func (r *DeploymentGroup) TriggerConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["triggerConfigurations"])
+func (r *DeploymentGroup) TriggerConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["triggerConfigurations"])
 }
 
 // Input properties used for looking up and filtering DeploymentGroup resources.

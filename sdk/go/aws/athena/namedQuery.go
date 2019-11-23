@@ -65,38 +65,38 @@ func GetNamedQuery(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NamedQuery) URN() *pulumi.URNOutput {
+func (r *NamedQuery) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NamedQuery) ID() *pulumi.IDOutput {
+func (r *NamedQuery) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The database to which the query belongs.
-func (r *NamedQuery) Database() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["database"])
+func (r *NamedQuery) Database() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["database"])
 }
 
 // A brief explanation of the query. Maximum length of 1024.
-func (r *NamedQuery) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *NamedQuery) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The plain language name for the query. Maximum length of 128.
-func (r *NamedQuery) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *NamedQuery) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The text of the query itself. In other words, all query statements. Maximum length of 262144.
-func (r *NamedQuery) Query() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["query"])
+func (r *NamedQuery) Query() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["query"])
 }
 
 // The workgroup to which the query belongs. Defaults to `primary`
-func (r *NamedQuery) Workgroup() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["workgroup"])
+func (r *NamedQuery) Workgroup() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["workgroup"])
 }
 
 // Input properties used for looking up and filtering NamedQuery resources.

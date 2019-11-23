@@ -21,6 +21,12 @@ namespace Pulumi.Aws.Glue
         public Output<int> AllocatedCapacity { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of Glue Job
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The command of the job. Defined below.
         /// </summary>
         [Output("command")]
@@ -75,6 +81,12 @@ namespace Pulumi.Aws.Glue
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The number of workers of a defined workerType that are allocated when a job runs.
+        /// </summary>
+        [Output("numberOfWorkers")]
+        public Output<int?> NumberOfWorkers { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the IAM role associated with this job.
         /// </summary>
         [Output("roleArn")]
@@ -87,10 +99,22 @@ namespace Pulumi.Aws.Glue
         public Output<string?> SecurityConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The job timeout in minutes. The default is 2880 minutes (48 hours).
         /// </summary>
         [Output("timeout")]
         public Output<int?> Timeout { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+        /// </summary>
+        [Output("workerType")]
+        public Output<string?> WorkerType { get; private set; } = null!;
 
 
         /// <summary>
@@ -211,6 +235,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The number of workers of a defined workerType that are allocated when a job runs.
+        /// </summary>
+        [Input("numberOfWorkers")]
+        public Input<int>? NumberOfWorkers { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role associated with this job.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -222,11 +252,29 @@ namespace Pulumi.Aws.Glue
         [Input("securityConfiguration")]
         public Input<string>? SecurityConfiguration { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The job timeout in minutes. The default is 2880 minutes (48 hours).
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
+
+        /// <summary>
+        /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+        /// </summary>
+        [Input("workerType")]
+        public Input<string>? WorkerType { get; set; }
 
         public JobArgs()
         {
@@ -240,6 +288,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("allocatedCapacity")]
         public Input<int>? AllocatedCapacity { get; set; }
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of Glue Job
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// The command of the job. Defined below.
@@ -308,6 +362,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The number of workers of a defined workerType that are allocated when a job runs.
+        /// </summary>
+        [Input("numberOfWorkers")]
+        public Input<int>? NumberOfWorkers { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role associated with this job.
         /// </summary>
         [Input("roleArn")]
@@ -319,11 +379,29 @@ namespace Pulumi.Aws.Glue
         [Input("securityConfiguration")]
         public Input<string>? SecurityConfiguration { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The job timeout in minutes. The default is 2880 minutes (48 hours).
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
+
+        /// <summary>
+        /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+        /// </summary>
+        [Input("workerType")]
+        public Input<string>? WorkerType { get; set; }
 
         public JobState()
         {

@@ -62,33 +62,33 @@ func GetEventPermission(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventPermission) URN() *pulumi.URNOutput {
+func (r *EventPermission) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventPermission) ID() *pulumi.IDOutput {
+func (r *EventPermission) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-func (r *EventPermission) Action() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["action"])
+func (r *EventPermission) Action() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["action"])
 }
 
 // Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-func (r *EventPermission) Condition() *pulumi.Output {
+func (r *EventPermission) Condition() pulumi.Output {
 	return r.s.State["condition"]
 }
 
 // The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-func (r *EventPermission) Principal() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["principal"])
+func (r *EventPermission) Principal() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["principal"])
 }
 
 // An identifier string for the external account that you are granting permissions to.
-func (r *EventPermission) StatementId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["statementId"])
+func (r *EventPermission) StatementId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["statementId"])
 }
 
 // Input properties used for looking up and filtering EventPermission resources.

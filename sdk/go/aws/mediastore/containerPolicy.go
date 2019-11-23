@@ -56,22 +56,22 @@ func GetContainerPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ContainerPolicy) URN() *pulumi.URNOutput {
+func (r *ContainerPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ContainerPolicy) ID() *pulumi.IDOutput {
+func (r *ContainerPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the container.
-func (r *ContainerPolicy) ContainerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["containerName"])
+func (r *ContainerPolicy) ContainerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["containerName"])
 }
 
-func (r *ContainerPolicy) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *ContainerPolicy) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // Input properties used for looking up and filtering ContainerPolicy resources.

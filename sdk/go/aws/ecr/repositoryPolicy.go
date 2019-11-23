@@ -60,27 +60,27 @@ func GetRepositoryPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RepositoryPolicy) URN() *pulumi.URNOutput {
+func (r *RepositoryPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RepositoryPolicy) ID() *pulumi.IDOutput {
+func (r *RepositoryPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *RepositoryPolicy) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *RepositoryPolicy) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // The registry ID where the repository was created.
-func (r *RepositoryPolicy) RegistryId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["registryId"])
+func (r *RepositoryPolicy) RegistryId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["registryId"])
 }
 
 // Name of the repository to apply the policy.
-func (r *RepositoryPolicy) Repository() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["repository"])
+func (r *RepositoryPolicy) Repository() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["repository"])
 }
 
 // Input properties used for looking up and filtering RepositoryPolicy resources.

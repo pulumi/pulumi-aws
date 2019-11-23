@@ -77,53 +77,53 @@ func GetOptionGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OptionGroup) URN() *pulumi.URNOutput {
+func (r *OptionGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OptionGroup) ID() *pulumi.IDOutput {
+func (r *OptionGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the db option group.
-func (r *OptionGroup) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *OptionGroup) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Specifies the name of the engine that this option group should be associated with.
-func (r *OptionGroup) EngineName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engineName"])
+func (r *OptionGroup) EngineName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engineName"])
 }
 
 // Specifies the major version of the engine that this option group should be associated with.
-func (r *OptionGroup) MajorEngineVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["majorEngineVersion"])
+func (r *OptionGroup) MajorEngineVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["majorEngineVersion"])
 }
 
 // The Name of the setting.
-func (r *OptionGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *OptionGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-func (r *OptionGroup) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *OptionGroup) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // A list of Options to apply.
-func (r *OptionGroup) Options() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["options"])
+func (r *OptionGroup) Options() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["options"])
 }
 
 // The description of the option group. Defaults to "Managed by Pulumi".
-func (r *OptionGroup) OptionGroupDescription() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["optionGroupDescription"])
+func (r *OptionGroup) OptionGroupDescription() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["optionGroupDescription"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *OptionGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *OptionGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering OptionGroup resources.

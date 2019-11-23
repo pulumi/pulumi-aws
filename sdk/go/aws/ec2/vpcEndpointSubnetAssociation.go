@@ -62,23 +62,23 @@ func GetVpcEndpointSubnetAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpcEndpointSubnetAssociation) URN() *pulumi.URNOutput {
+func (r *VpcEndpointSubnetAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpcEndpointSubnetAssociation) ID() *pulumi.IDOutput {
+func (r *VpcEndpointSubnetAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the subnet to be associated with the VPC endpoint.
-func (r *VpcEndpointSubnetAssociation) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *VpcEndpointSubnetAssociation) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // The ID of the VPC endpoint with which the subnet will be associated.
-func (r *VpcEndpointSubnetAssociation) VpcEndpointId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcEndpointId"])
+func (r *VpcEndpointSubnetAssociation) VpcEndpointId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcEndpointId"])
 }
 
 // Input properties used for looking up and filtering VpcEndpointSubnetAssociation resources.

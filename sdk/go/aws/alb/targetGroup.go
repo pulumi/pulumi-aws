@@ -88,78 +88,78 @@ func GetTargetGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TargetGroup) URN() *pulumi.URNOutput {
+func (r *TargetGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TargetGroup) ID() *pulumi.IDOutput {
+func (r *TargetGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the Target Group (matches `id`)
-func (r *TargetGroup) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *TargetGroup) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The ARN suffix for use with CloudWatch Metrics.
-func (r *TargetGroup) ArnSuffix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arnSuffix"])
+func (r *TargetGroup) ArnSuffix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arnSuffix"])
 }
 
 // The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-func (r *TargetGroup) DeregistrationDelay() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["deregistrationDelay"])
+func (r *TargetGroup) DeregistrationDelay() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["deregistrationDelay"])
 }
 
 // A Health Check block. Health Check blocks are documented below.
-func (r *TargetGroup) HealthCheck() *pulumi.Output {
+func (r *TargetGroup) HealthCheck() pulumi.Output {
 	return r.s.State["healthCheck"]
 }
 
 // Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
-func (r *TargetGroup) LambdaMultiValueHeadersEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["lambdaMultiValueHeadersEnabled"])
+func (r *TargetGroup) LambdaMultiValueHeadersEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["lambdaMultiValueHeadersEnabled"])
 }
 
 // The name of the target group. If omitted, this provider will assign a random, unique name.
-func (r *TargetGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *TargetGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-func (r *TargetGroup) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *TargetGroup) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
-func (r *TargetGroup) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *TargetGroup) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
 // The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
-func (r *TargetGroup) Protocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocol"])
+func (r *TargetGroup) Protocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocol"])
 }
 
 // Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
-func (r *TargetGroup) ProxyProtocolV2() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["proxyProtocolV2"])
+func (r *TargetGroup) ProxyProtocolV2() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["proxyProtocolV2"])
 }
 
 // The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-func (r *TargetGroup) SlowStart() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["slowStart"])
+func (r *TargetGroup) SlowStart() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["slowStart"])
 }
 
 // A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
-func (r *TargetGroup) Stickiness() *pulumi.Output {
+func (r *TargetGroup) Stickiness() pulumi.Output {
 	return r.s.State["stickiness"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *TargetGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *TargetGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The type of target that you must specify when registering targets with this target group.
@@ -168,13 +168,13 @@ func (r *TargetGroup) Tags() *pulumi.MapOutput {
 // If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group,
 // the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
 // You can't specify publicly routable IP addresses.
-func (r *TargetGroup) TargetType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetType"])
+func (r *TargetGroup) TargetType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetType"])
 }
 
 // The identifier of the VPC in which to create the target group. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
-func (r *TargetGroup) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *TargetGroup) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering TargetGroup resources.

@@ -57,38 +57,38 @@ func GetConfigurationAggregator(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ConfigurationAggregator) URN() *pulumi.URNOutput {
+func (r *ConfigurationAggregator) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ConfigurationAggregator) ID() *pulumi.IDOutput {
+func (r *ConfigurationAggregator) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The account(s) to aggregate config data from as documented below.
-func (r *ConfigurationAggregator) AccountAggregationSource() *pulumi.Output {
+func (r *ConfigurationAggregator) AccountAggregationSource() pulumi.Output {
 	return r.s.State["accountAggregationSource"]
 }
 
 // The ARN of the aggregator
-func (r *ConfigurationAggregator) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ConfigurationAggregator) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name of the configuration aggregator.
-func (r *ConfigurationAggregator) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ConfigurationAggregator) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The organization to aggregate config data from as documented below.
-func (r *ConfigurationAggregator) OrganizationAggregationSource() *pulumi.Output {
+func (r *ConfigurationAggregator) OrganizationAggregationSource() pulumi.Output {
 	return r.s.State["organizationAggregationSource"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ConfigurationAggregator) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ConfigurationAggregator) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering ConfigurationAggregator resources.

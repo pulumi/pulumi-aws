@@ -70,48 +70,48 @@ func GetTask(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Task) URN() *pulumi.URNOutput {
+func (r *Task) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Task) ID() *pulumi.IDOutput {
+func (r *Task) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the DataSync Task.
-func (r *Task) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Task) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-func (r *Task) CloudwatchLogGroupArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cloudwatchLogGroupArn"])
+func (r *Task) CloudwatchLogGroupArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cloudwatchLogGroupArn"])
 }
 
 // Amazon Resource Name (ARN) of destination DataSync Location.
-func (r *Task) DestinationLocationArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destinationLocationArn"])
+func (r *Task) DestinationLocationArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destinationLocationArn"])
 }
 
 // Name of the DataSync Task.
-func (r *Task) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Task) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-func (r *Task) Options() *pulumi.Output {
+func (r *Task) Options() pulumi.Output {
 	return r.s.State["options"]
 }
 
 // Amazon Resource Name (ARN) of source DataSync Location.
-func (r *Task) SourceLocationArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceLocationArn"])
+func (r *Task) SourceLocationArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceLocationArn"])
 }
 
 // Key-value pairs of resource tags to assign to the DataSync Task.
-func (r *Task) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Task) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Task resources.

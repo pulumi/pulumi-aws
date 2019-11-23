@@ -59,27 +59,27 @@ func GetIdentityPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *IdentityPolicy) URN() *pulumi.URNOutput {
+func (r *IdentityPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *IdentityPolicy) ID() *pulumi.IDOutput {
+func (r *IdentityPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Name or Amazon Resource Name (ARN) of the SES Identity.
-func (r *IdentityPolicy) Identity() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identity"])
+func (r *IdentityPolicy) Identity() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identity"])
 }
 
 // Name of the policy.
-func (r *IdentityPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *IdentityPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *IdentityPolicy) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *IdentityPolicy) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // Input properties used for looking up and filtering IdentityPolicy resources.

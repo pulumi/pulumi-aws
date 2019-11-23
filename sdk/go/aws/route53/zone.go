@@ -65,54 +65,54 @@ func GetZone(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Zone) URN() *pulumi.URNOutput {
+func (r *Zone) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Zone) ID() *pulumi.IDOutput {
+func (r *Zone) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
-func (r *Zone) Comment() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["comment"])
+func (r *Zone) Comment() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["comment"])
 }
 
 // The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
-func (r *Zone) DelegationSetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["delegationSetId"])
+func (r *Zone) DelegationSetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["delegationSetId"])
 }
 
 // Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
-func (r *Zone) ForceDestroy() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
+func (r *Zone) ForceDestroy() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["forceDestroy"])
 }
 
 // This is the name of the hosted zone.
-func (r *Zone) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Zone) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A list of name servers in associated (or default) delegation set.
 // Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
-func (r *Zone) NameServers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["nameServers"])
+func (r *Zone) NameServers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["nameServers"])
 }
 
 // A mapping of tags to assign to the zone.
-func (r *Zone) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Zone) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
-func (r *Zone) Vpcs() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["vpcs"])
+func (r *Zone) Vpcs() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["vpcs"])
 }
 
 // The Hosted Zone ID. This can be referenced by zone records.
-func (r *Zone) ZoneId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zoneId"])
+func (r *Zone) ZoneId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zoneId"])
 }
 
 // Input properties used for looking up and filtering Zone resources.

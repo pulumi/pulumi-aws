@@ -61,33 +61,33 @@ func GetS3BucketAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *S3BucketAssociation) URN() *pulumi.URNOutput {
+func (r *S3BucketAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *S3BucketAssociation) ID() *pulumi.IDOutput {
+func (r *S3BucketAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the S3 bucket that you want to associate with Amazon Macie.
-func (r *S3BucketAssociation) BucketName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bucketName"])
+func (r *S3BucketAssociation) BucketName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bucketName"])
 }
 
 // The configuration of how Amazon Macie classifies the S3 objects.
-func (r *S3BucketAssociation) ClassificationType() *pulumi.Output {
+func (r *S3BucketAssociation) ClassificationType() pulumi.Output {
 	return r.s.State["classificationType"]
 }
 
 // The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
-func (r *S3BucketAssociation) MemberAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["memberAccountId"])
+func (r *S3BucketAssociation) MemberAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["memberAccountId"])
 }
 
 // Object key prefix identifying one or more S3 objects to which the association applies.
-func (r *S3BucketAssociation) Prefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["prefix"])
+func (r *S3BucketAssociation) Prefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["prefix"])
 }
 
 // Input properties used for looking up and filtering S3BucketAssociation resources.

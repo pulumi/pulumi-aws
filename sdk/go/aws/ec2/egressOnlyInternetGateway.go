@@ -53,18 +53,18 @@ func GetEgressOnlyInternetGateway(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EgressOnlyInternetGateway) URN() *pulumi.URNOutput {
+func (r *EgressOnlyInternetGateway) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EgressOnlyInternetGateway) ID() *pulumi.IDOutput {
+func (r *EgressOnlyInternetGateway) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The VPC ID to create in.
-func (r *EgressOnlyInternetGateway) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *EgressOnlyInternetGateway) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering EgressOnlyInternetGateway resources.

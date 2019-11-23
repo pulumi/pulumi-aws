@@ -104,49 +104,49 @@ func GetIntegration(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Integration) URN() *pulumi.URNOutput {
+func (r *Integration) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Integration) ID() *pulumi.IDOutput {
+func (r *Integration) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A list of cache key parameters for the integration.
-func (r *Integration) CacheKeyParameters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["cacheKeyParameters"])
+func (r *Integration) CacheKeyParameters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["cacheKeyParameters"])
 }
 
 // The integration's cache namespace.
-func (r *Integration) CacheNamespace() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cacheNamespace"])
+func (r *Integration) CacheNamespace() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cacheNamespace"])
 }
 
 // The id of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
-func (r *Integration) ConnectionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["connectionId"])
+func (r *Integration) ConnectionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["connectionId"])
 }
 
 // The integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
-func (r *Integration) ConnectionType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["connectionType"])
+func (r *Integration) ConnectionType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["connectionType"])
 }
 
 // Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
-func (r *Integration) ContentHandling() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentHandling"])
+func (r *Integration) ContentHandling() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentHandling"])
 }
 
 // The credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
-func (r *Integration) Credentials() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["credentials"])
+func (r *Integration) Credentials() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["credentials"])
 }
 
 // The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
 // when calling the associated resource.
-func (r *Integration) HttpMethod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["httpMethod"])
+func (r *Integration) HttpMethod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["httpMethod"])
 }
 
 // The integration HTTP method
@@ -154,51 +154,51 @@ func (r *Integration) HttpMethod() *pulumi.StringOutput {
 // **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
 // Not all methods are compatible with all `AWS` integrations.
 // e.g. Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
-func (r *Integration) IntegrationHttpMethod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["integrationHttpMethod"])
+func (r *Integration) IntegrationHttpMethod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["integrationHttpMethod"])
 }
 
 // The integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
-func (r *Integration) PassthroughBehavior() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["passthroughBehavior"])
+func (r *Integration) PassthroughBehavior() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["passthroughBehavior"])
 }
 
 // A map of request query string parameters and headers that should be passed to the backend responder.
 // For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
-func (r *Integration) RequestParameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["requestParameters"])
+func (r *Integration) RequestParameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["requestParameters"])
 }
 
 // A map of the integration's request templates.
-func (r *Integration) RequestTemplates() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["requestTemplates"])
+func (r *Integration) RequestTemplates() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["requestTemplates"])
 }
 
 // The API resource ID.
-func (r *Integration) ResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceId"])
+func (r *Integration) ResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceId"])
 }
 
 // The ID of the associated REST API.
-func (r *Integration) RestApi() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restApi"])
+func (r *Integration) RestApi() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restApi"])
 }
 
 // Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
-func (r *Integration) TimeoutMilliseconds() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["timeoutMilliseconds"])
+func (r *Integration) TimeoutMilliseconds() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["timeoutMilliseconds"])
 }
 
 // The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
-func (r *Integration) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Integration) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
 // For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
 // e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
-func (r *Integration) Uri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uri"])
+func (r *Integration) Uri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uri"])
 }
 
 // Input properties used for looking up and filtering Integration resources.

@@ -107,108 +107,108 @@ func GetPhpAppLayer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PhpAppLayer) URN() *pulumi.URNOutput {
+func (r *PhpAppLayer) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PhpAppLayer) ID() *pulumi.IDOutput {
+func (r *PhpAppLayer) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether to automatically assign an elastic IP address to the layer's instances.
-func (r *PhpAppLayer) AutoAssignElasticIps() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoAssignElasticIps"])
+func (r *PhpAppLayer) AutoAssignElasticIps() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoAssignElasticIps"])
 }
 
 // For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-func (r *PhpAppLayer) AutoAssignPublicIps() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoAssignPublicIps"])
+func (r *PhpAppLayer) AutoAssignPublicIps() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoAssignPublicIps"])
 }
 
 // Whether to enable auto-healing for the layer.
-func (r *PhpAppLayer) AutoHealing() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoHealing"])
+func (r *PhpAppLayer) AutoHealing() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoHealing"])
 }
 
-func (r *PhpAppLayer) CustomConfigureRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customConfigureRecipes"])
+func (r *PhpAppLayer) CustomConfigureRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customConfigureRecipes"])
 }
 
-func (r *PhpAppLayer) CustomDeployRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customDeployRecipes"])
+func (r *PhpAppLayer) CustomDeployRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customDeployRecipes"])
 }
 
 // The ARN of an IAM profile that will be used for the layer's instances.
-func (r *PhpAppLayer) CustomInstanceProfileArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customInstanceProfileArn"])
+func (r *PhpAppLayer) CustomInstanceProfileArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customInstanceProfileArn"])
 }
 
 // Custom JSON attributes to apply to the layer.
-func (r *PhpAppLayer) CustomJson() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customJson"])
+func (r *PhpAppLayer) CustomJson() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customJson"])
 }
 
 // Ids for a set of security groups to apply to the layer's instances.
-func (r *PhpAppLayer) CustomSecurityGroupIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customSecurityGroupIds"])
+func (r *PhpAppLayer) CustomSecurityGroupIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customSecurityGroupIds"])
 }
 
-func (r *PhpAppLayer) CustomSetupRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customSetupRecipes"])
+func (r *PhpAppLayer) CustomSetupRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customSetupRecipes"])
 }
 
-func (r *PhpAppLayer) CustomShutdownRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customShutdownRecipes"])
+func (r *PhpAppLayer) CustomShutdownRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customShutdownRecipes"])
 }
 
-func (r *PhpAppLayer) CustomUndeployRecipes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customUndeployRecipes"])
+func (r *PhpAppLayer) CustomUndeployRecipes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customUndeployRecipes"])
 }
 
 // Whether to enable Elastic Load Balancing connection draining.
-func (r *PhpAppLayer) DrainElbOnShutdown() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
+func (r *PhpAppLayer) DrainElbOnShutdown() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
 }
 
 // `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-func (r *PhpAppLayer) EbsVolumes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
+func (r *PhpAppLayer) EbsVolumes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
 }
 
 // Name of an Elastic Load Balancer to attach to this layer
-func (r *PhpAppLayer) ElasticLoadBalancer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["elasticLoadBalancer"])
+func (r *PhpAppLayer) ElasticLoadBalancer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["elasticLoadBalancer"])
 }
 
 // Whether to install OS and package updates on each instance when it boots.
-func (r *PhpAppLayer) InstallUpdatesOnBoot() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
+func (r *PhpAppLayer) InstallUpdatesOnBoot() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
 }
 
 // The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-func (r *PhpAppLayer) InstanceShutdownTimeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["instanceShutdownTimeout"])
+func (r *PhpAppLayer) InstanceShutdownTimeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["instanceShutdownTimeout"])
 }
 
 // A human-readable name for the layer.
-func (r *PhpAppLayer) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PhpAppLayer) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The id of the stack the layer will belong to.
-func (r *PhpAppLayer) StackId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stackId"])
+func (r *PhpAppLayer) StackId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stackId"])
 }
 
 // Names of a set of system packages to install on the layer's instances.
-func (r *PhpAppLayer) SystemPackages() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["systemPackages"])
+func (r *PhpAppLayer) SystemPackages() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["systemPackages"])
 }
 
 // Whether to use EBS-optimized instances.
-func (r *PhpAppLayer) UseEbsOptimizedInstances() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["useEbsOptimizedInstances"])
+func (r *PhpAppLayer) UseEbsOptimizedInstances() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["useEbsOptimizedInstances"])
 }
 
 // Input properties used for looking up and filtering PhpAppLayer resources.

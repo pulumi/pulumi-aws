@@ -52,27 +52,27 @@ func GetApplication(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Application) URN() *pulumi.URNOutput {
+func (r *Application) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Application) ID() *pulumi.IDOutput {
+func (r *Application) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-func (r *Application) ComputePlatform() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["computePlatform"])
+func (r *Application) ComputePlatform() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["computePlatform"])
 }
 
 // The name of the application.
-func (r *Application) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Application) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *Application) UniqueId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uniqueId"])
+func (r *Application) UniqueId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uniqueId"])
 }
 
 // Input properties used for looking up and filtering Application resources.

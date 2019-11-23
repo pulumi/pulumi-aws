@@ -66,33 +66,33 @@ func GetKeyPair(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *KeyPair) URN() *pulumi.URNOutput {
+func (r *KeyPair) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *KeyPair) ID() *pulumi.IDOutput {
+func (r *KeyPair) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The MD5 public key fingerprint as specified in section 4 of RFC 4716.
-func (r *KeyPair) Fingerprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fingerprint"])
+func (r *KeyPair) Fingerprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fingerprint"])
 }
 
 // The name for the key pair.
-func (r *KeyPair) KeyName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyName"])
+func (r *KeyPair) KeyName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyName"])
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
-func (r *KeyPair) KeyNamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyNamePrefix"])
+func (r *KeyPair) KeyNamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyNamePrefix"])
 }
 
 // The public key material.
-func (r *KeyPair) PublicKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publicKey"])
+func (r *KeyPair) PublicKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publicKey"])
 }
 
 // Input properties used for looking up and filtering KeyPair resources.

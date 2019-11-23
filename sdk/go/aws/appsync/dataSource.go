@@ -79,63 +79,63 @@ func GetDataSource(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DataSource) URN() *pulumi.URNOutput {
+func (r *DataSource) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DataSource) ID() *pulumi.IDOutput {
+func (r *DataSource) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The API ID for the GraphQL API for the DataSource.
-func (r *DataSource) ApiId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiId"])
+func (r *DataSource) ApiId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiId"])
 }
 
 // The ARN
-func (r *DataSource) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *DataSource) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A description of the DataSource.
-func (r *DataSource) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *DataSource) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // DynamoDB settings. See below
-func (r *DataSource) DynamodbConfig() *pulumi.Output {
+func (r *DataSource) DynamodbConfig() pulumi.Output {
 	return r.s.State["dynamodbConfig"]
 }
 
 // Amazon Elasticsearch settings. See below
-func (r *DataSource) ElasticsearchConfig() *pulumi.Output {
+func (r *DataSource) ElasticsearchConfig() pulumi.Output {
 	return r.s.State["elasticsearchConfig"]
 }
 
 // HTTP settings. See below
-func (r *DataSource) HttpConfig() *pulumi.Output {
+func (r *DataSource) HttpConfig() pulumi.Output {
 	return r.s.State["httpConfig"]
 }
 
 // AWS Lambda settings. See below
-func (r *DataSource) LambdaConfig() *pulumi.Output {
+func (r *DataSource) LambdaConfig() pulumi.Output {
 	return r.s.State["lambdaConfig"]
 }
 
 // A user-supplied name for the DataSource.
-func (r *DataSource) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *DataSource) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The IAM service role ARN for the data source.
-func (r *DataSource) ServiceRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceRoleArn"])
+func (r *DataSource) ServiceRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceRoleArn"])
 }
 
 // The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
-func (r *DataSource) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *DataSource) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering DataSource resources.

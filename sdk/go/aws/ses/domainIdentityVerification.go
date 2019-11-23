@@ -58,23 +58,23 @@ func GetDomainIdentityVerification(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DomainIdentityVerification) URN() *pulumi.URNOutput {
+func (r *DomainIdentityVerification) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DomainIdentityVerification) ID() *pulumi.IDOutput {
+func (r *DomainIdentityVerification) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the domain identity.
-func (r *DomainIdentityVerification) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *DomainIdentityVerification) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The domain name of the SES domain identity to verify.
-func (r *DomainIdentityVerification) Domain() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domain"])
+func (r *DomainIdentityVerification) Domain() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domain"])
 }
 
 // Input properties used for looking up and filtering DomainIdentityVerification resources.

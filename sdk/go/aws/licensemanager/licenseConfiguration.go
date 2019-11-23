@@ -82,48 +82,48 @@ func GetLicenseConfiguration(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LicenseConfiguration) URN() *pulumi.URNOutput {
+func (r *LicenseConfiguration) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LicenseConfiguration) ID() *pulumi.IDOutput {
+func (r *LicenseConfiguration) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Description of the license configuration.
-func (r *LicenseConfiguration) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *LicenseConfiguration) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Number of licenses managed by the license configuration.
-func (r *LicenseConfiguration) LicenseCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["licenseCount"])
+func (r *LicenseConfiguration) LicenseCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["licenseCount"])
 }
 
 // Sets the number of available licenses as a hard limit.
-func (r *LicenseConfiguration) LicenseCountHardLimit() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["licenseCountHardLimit"])
+func (r *LicenseConfiguration) LicenseCountHardLimit() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["licenseCountHardLimit"])
 }
 
 // Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-func (r *LicenseConfiguration) LicenseCountingType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["licenseCountingType"])
+func (r *LicenseConfiguration) LicenseCountingType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["licenseCountingType"])
 }
 
 // Array of configured License Manager rules.
-func (r *LicenseConfiguration) LicenseRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["licenseRules"])
+func (r *LicenseConfiguration) LicenseRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["licenseRules"])
 }
 
 // Name of the license configuration.
-func (r *LicenseConfiguration) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LicenseConfiguration) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *LicenseConfiguration) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *LicenseConfiguration) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering LicenseConfiguration resources.

@@ -33,6 +33,7 @@ func NewEventSourceMapping(ctx *pulumi.Context,
 		inputs["enabled"] = nil
 		inputs["eventSourceArn"] = nil
 		inputs["functionName"] = nil
+		inputs["maximumBatchingWindowInSeconds"] = nil
 		inputs["startingPosition"] = nil
 		inputs["startingPositionTimestamp"] = nil
 	} else {
@@ -40,6 +41,7 @@ func NewEventSourceMapping(ctx *pulumi.Context,
 		inputs["enabled"] = args.Enabled
 		inputs["eventSourceArn"] = args.EventSourceArn
 		inputs["functionName"] = args.FunctionName
+		inputs["maximumBatchingWindowInSeconds"] = args.MaximumBatchingWindowInSeconds
 		inputs["startingPosition"] = args.StartingPosition
 		inputs["startingPositionTimestamp"] = args.StartingPositionTimestamp
 	}
@@ -69,6 +71,7 @@ func GetEventSourceMapping(ctx *pulumi.Context,
 		inputs["functionName"] = state.FunctionName
 		inputs["lastModified"] = state.LastModified
 		inputs["lastProcessingResult"] = state.LastProcessingResult
+		inputs["maximumBatchingWindowInSeconds"] = state.MaximumBatchingWindowInSeconds
 		inputs["startingPosition"] = state.StartingPosition
 		inputs["startingPositionTimestamp"] = state.StartingPositionTimestamp
 		inputs["state"] = state.State
@@ -83,73 +86,78 @@ func GetEventSourceMapping(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventSourceMapping) URN() *pulumi.URNOutput {
+func (r *EventSourceMapping) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventSourceMapping) ID() *pulumi.IDOutput {
+func (r *EventSourceMapping) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
-func (r *EventSourceMapping) BatchSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["batchSize"])
+func (r *EventSourceMapping) BatchSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["batchSize"])
 }
 
 // Determines if the mapping will be enabled on creation. Defaults to `true`.
-func (r *EventSourceMapping) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *EventSourceMapping) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
-// The event source ARN - can either be a Kinesis or DynamoDB stream.
-func (r *EventSourceMapping) EventSourceArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventSourceArn"])
+// The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
+func (r *EventSourceMapping) EventSourceArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventSourceArn"])
 }
 
 // The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
-func (r *EventSourceMapping) FunctionArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["functionArn"])
+func (r *EventSourceMapping) FunctionArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["functionArn"])
 }
 
 // The name or the ARN of the Lambda function that will be subscribing to events.
-func (r *EventSourceMapping) FunctionName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["functionName"])
+func (r *EventSourceMapping) FunctionName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["functionName"])
 }
 
 // The date this resource was last modified.
-func (r *EventSourceMapping) LastModified() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastModified"])
+func (r *EventSourceMapping) LastModified() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastModified"])
 }
 
 // The result of the last AWS Lambda invocation of your Lambda function.
-func (r *EventSourceMapping) LastProcessingResult() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastProcessingResult"])
+func (r *EventSourceMapping) LastProcessingResult() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastProcessingResult"])
+}
+
+// The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+func (r *EventSourceMapping) MaximumBatchingWindowInSeconds() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maximumBatchingWindowInSeconds"])
 }
 
 // The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
-func (r *EventSourceMapping) StartingPosition() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startingPosition"])
+func (r *EventSourceMapping) StartingPosition() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startingPosition"])
 }
 
 // A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
-func (r *EventSourceMapping) StartingPositionTimestamp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startingPositionTimestamp"])
+func (r *EventSourceMapping) StartingPositionTimestamp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startingPositionTimestamp"])
 }
 
 // The state of the event source mapping.
-func (r *EventSourceMapping) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *EventSourceMapping) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // The reason the event source mapping is in its current state.
-func (r *EventSourceMapping) StateTransitionReason() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stateTransitionReason"])
+func (r *EventSourceMapping) StateTransitionReason() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stateTransitionReason"])
 }
 
 // The UUID of the created event source mapping.
-func (r *EventSourceMapping) Uuid() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uuid"])
+func (r *EventSourceMapping) Uuid() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uuid"])
 }
 
 // Input properties used for looking up and filtering EventSourceMapping resources.
@@ -158,7 +166,7 @@ type EventSourceMappingState struct {
 	BatchSize interface{}
 	// Determines if the mapping will be enabled on creation. Defaults to `true`.
 	Enabled interface{}
-	// The event source ARN - can either be a Kinesis or DynamoDB stream.
+	// The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
 	EventSourceArn interface{}
 	// The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
 	FunctionArn interface{}
@@ -168,6 +176,8 @@ type EventSourceMappingState struct {
 	LastModified interface{}
 	// The result of the last AWS Lambda invocation of your Lambda function.
 	LastProcessingResult interface{}
+	// The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+	MaximumBatchingWindowInSeconds interface{}
 	// The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
 	StartingPosition interface{}
 	// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
@@ -186,10 +196,12 @@ type EventSourceMappingArgs struct {
 	BatchSize interface{}
 	// Determines if the mapping will be enabled on creation. Defaults to `true`.
 	Enabled interface{}
-	// The event source ARN - can either be a Kinesis or DynamoDB stream.
+	// The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
 	EventSourceArn interface{}
 	// The name or the ARN of the Lambda function that will be subscribing to events.
 	FunctionName interface{}
+	// The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+	MaximumBatchingWindowInSeconds interface{}
 	// The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
 	StartingPosition interface{}
 	// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.

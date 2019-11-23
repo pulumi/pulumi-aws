@@ -71,48 +71,48 @@ func GetVpcDhcpOptions(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpcDhcpOptions) URN() *pulumi.URNOutput {
+func (r *VpcDhcpOptions) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpcDhcpOptions) ID() *pulumi.IDOutput {
+func (r *VpcDhcpOptions) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
-func (r *VpcDhcpOptions) DomainName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domainName"])
+func (r *VpcDhcpOptions) DomainName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domainName"])
 }
 
 // List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
-func (r *VpcDhcpOptions) DomainNameServers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["domainNameServers"])
+func (r *VpcDhcpOptions) DomainNameServers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["domainNameServers"])
 }
 
 // List of NETBIOS name servers.
-func (r *VpcDhcpOptions) NetbiosNameServers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["netbiosNameServers"])
+func (r *VpcDhcpOptions) NetbiosNameServers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["netbiosNameServers"])
 }
 
 // The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-func (r *VpcDhcpOptions) NetbiosNodeType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["netbiosNodeType"])
+func (r *VpcDhcpOptions) NetbiosNodeType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["netbiosNodeType"])
 }
 
 // List of NTP servers to configure.
-func (r *VpcDhcpOptions) NtpServers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ntpServers"])
+func (r *VpcDhcpOptions) NtpServers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ntpServers"])
 }
 
 // The ID of the AWS account that owns the DHCP options set.
-func (r *VpcDhcpOptions) OwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+func (r *VpcDhcpOptions) OwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *VpcDhcpOptions) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VpcDhcpOptions) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering VpcDhcpOptions resources.

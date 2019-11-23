@@ -103,55 +103,55 @@ func GetDefaultSecurityGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DefaultSecurityGroup) URN() *pulumi.URNOutput {
+func (r *DefaultSecurityGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DefaultSecurityGroup) ID() *pulumi.IDOutput {
+func (r *DefaultSecurityGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *DefaultSecurityGroup) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *DefaultSecurityGroup) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Can be specified multiple times for each
 // egress rule. Each egress block supports fields documented below.
-func (r *DefaultSecurityGroup) Egress() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["egress"])
+func (r *DefaultSecurityGroup) Egress() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["egress"])
 }
 
 // Can be specified multiple times for each
 // ingress rule. Each ingress block supports fields documented below.
-func (r *DefaultSecurityGroup) Ingress() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ingress"])
+func (r *DefaultSecurityGroup) Ingress() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ingress"])
 }
 
 // The name of the security group
-func (r *DefaultSecurityGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *DefaultSecurityGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The owner ID.
-func (r *DefaultSecurityGroup) OwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+func (r *DefaultSecurityGroup) OwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
-func (r *DefaultSecurityGroup) RevokeRulesOnDelete() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["revokeRulesOnDelete"])
+func (r *DefaultSecurityGroup) RevokeRulesOnDelete() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["revokeRulesOnDelete"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *DefaultSecurityGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *DefaultSecurityGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The VPC ID. **Note that changing
 // the `vpcId` will _not_ restore any default security group rules that were
 // modified, added, or removed.** It will be left in its current state
-func (r *DefaultSecurityGroup) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *DefaultSecurityGroup) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering DefaultSecurityGroup resources.

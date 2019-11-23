@@ -77,65 +77,65 @@ func GetDefaultSubnet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DefaultSubnet) URN() *pulumi.URNOutput {
+func (r *DefaultSubnet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DefaultSubnet) ID() *pulumi.IDOutput {
+func (r *DefaultSubnet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *DefaultSubnet) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *DefaultSubnet) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
-func (r *DefaultSubnet) AssignIpv6AddressOnCreation() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["assignIpv6AddressOnCreation"])
+func (r *DefaultSubnet) AssignIpv6AddressOnCreation() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["assignIpv6AddressOnCreation"])
 }
 
-func (r *DefaultSubnet) AvailabilityZone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
+func (r *DefaultSubnet) AvailabilityZone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
-func (r *DefaultSubnet) AvailabilityZoneId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilityZoneId"])
+func (r *DefaultSubnet) AvailabilityZoneId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilityZoneId"])
 }
 
 // The CIDR block for the subnet.
-func (r *DefaultSubnet) CidrBlock() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cidrBlock"])
+func (r *DefaultSubnet) CidrBlock() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cidrBlock"])
 }
 
 // The IPv6 CIDR block.
-func (r *DefaultSubnet) Ipv6CidrBlock() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipv6CidrBlock"])
+func (r *DefaultSubnet) Ipv6CidrBlock() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipv6CidrBlock"])
 }
 
-func (r *DefaultSubnet) Ipv6CidrBlockAssociationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipv6CidrBlockAssociationId"])
+func (r *DefaultSubnet) Ipv6CidrBlockAssociationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipv6CidrBlockAssociationId"])
 }
 
 // Specify true to indicate
 // that instances launched into the subnet should be assigned
 // a public IP address.
-func (r *DefaultSubnet) MapPublicIpOnLaunch() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["mapPublicIpOnLaunch"])
+func (r *DefaultSubnet) MapPublicIpOnLaunch() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["mapPublicIpOnLaunch"])
 }
 
 // The ID of the AWS account that owns the subnet.
-func (r *DefaultSubnet) OwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+func (r *DefaultSubnet) OwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *DefaultSubnet) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *DefaultSubnet) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The VPC ID.
-func (r *DefaultSubnet) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *DefaultSubnet) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering DefaultSubnet resources.

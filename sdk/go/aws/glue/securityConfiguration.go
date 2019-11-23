@@ -53,23 +53,23 @@ func GetSecurityConfiguration(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SecurityConfiguration) URN() *pulumi.URNOutput {
+func (r *SecurityConfiguration) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SecurityConfiguration) ID() *pulumi.IDOutput {
+func (r *SecurityConfiguration) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Configuration block containing encryption configuration. Detailed below.
-func (r *SecurityConfiguration) EncryptionConfiguration() *pulumi.Output {
+func (r *SecurityConfiguration) EncryptionConfiguration() pulumi.Output {
 	return r.s.State["encryptionConfiguration"]
 }
 
 // Name of the security configuration.
-func (r *SecurityConfiguration) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SecurityConfiguration) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering SecurityConfiguration resources.

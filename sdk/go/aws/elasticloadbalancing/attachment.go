@@ -63,23 +63,23 @@ func GetAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Attachment) URN() *pulumi.URNOutput {
+func (r *Attachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Attachment) ID() *pulumi.IDOutput {
+func (r *Attachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the ELB.
-func (r *Attachment) Elb() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["elb"])
+func (r *Attachment) Elb() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["elb"])
 }
 
 // Instance ID to place in the ELB pool.
-func (r *Attachment) Instance() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instance"])
+func (r *Attachment) Instance() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instance"])
 }
 
 // Input properties used for looking up and filtering Attachment resources.

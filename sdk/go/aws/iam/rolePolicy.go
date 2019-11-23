@@ -62,34 +62,34 @@ func GetRolePolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RolePolicy) URN() *pulumi.URNOutput {
+func (r *RolePolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RolePolicy) ID() *pulumi.IDOutput {
+func (r *RolePolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the role policy. If omitted, this provider will
 // assign a random, unique name.
-func (r *RolePolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RolePolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified
 // prefix. Conflicts with `name`.
-func (r *RolePolicy) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *RolePolicy) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-func (r *RolePolicy) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *RolePolicy) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // The IAM role to attach to the policy.
-func (r *RolePolicy) Role() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["role"])
+func (r *RolePolicy) Role() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["role"])
 }
 
 // Input properties used for looking up and filtering RolePolicy resources.

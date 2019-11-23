@@ -82,74 +82,74 @@ func GetRole(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Role) URN() *pulumi.URNOutput {
+func (r *Role) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Role) ID() *pulumi.IDOutput {
+func (r *Role) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) specifying the role.
-func (r *Role) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Role) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The policy that grants an entity permission to assume the role.
-func (r *Role) AssumeRolePolicy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["assumeRolePolicy"])
+func (r *Role) AssumeRolePolicy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["assumeRolePolicy"])
 }
 
 // The creation date of the IAM role.
-func (r *Role) CreateDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createDate"])
+func (r *Role) CreateDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createDate"])
 }
 
 // The description of the role.
-func (r *Role) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Role) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
-func (r *Role) ForceDetachPolicies() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["forceDetachPolicies"])
+func (r *Role) ForceDetachPolicies() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["forceDetachPolicies"])
 }
 
 // The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
-func (r *Role) MaxSessionDuration() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxSessionDuration"])
+func (r *Role) MaxSessionDuration() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxSessionDuration"])
 }
 
 // The name of the role. If omitted, this provider will assign a random, unique name.
-func (r *Role) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Role) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *Role) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *Role) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // The path to the role.
 // See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-func (r *Role) Path() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["path"])
+func (r *Role) Path() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["path"])
 }
 
 // The ARN of the policy that is used to set the permissions boundary for the role.
-func (r *Role) PermissionsBoundary() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["permissionsBoundary"])
+func (r *Role) PermissionsBoundary() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["permissionsBoundary"])
 }
 
 // Key-value mapping of tags for the IAM role
-func (r *Role) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Role) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The stable and unique string identifying the role.
-func (r *Role) UniqueId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uniqueId"])
+func (r *Role) UniqueId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uniqueId"])
 }
 
 // Input properties used for looking up and filtering Role resources.

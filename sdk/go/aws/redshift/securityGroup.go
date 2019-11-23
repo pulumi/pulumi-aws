@@ -56,28 +56,28 @@ func GetSecurityGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SecurityGroup) URN() *pulumi.URNOutput {
+func (r *SecurityGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SecurityGroup) ID() *pulumi.IDOutput {
+func (r *SecurityGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The description of the Redshift security group. Defaults to "Managed by Pulumi".
-func (r *SecurityGroup) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *SecurityGroup) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // A list of ingress rules.
-func (r *SecurityGroup) Ingress() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ingress"])
+func (r *SecurityGroup) Ingress() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ingress"])
 }
 
 // The name of the Redshift security group.
-func (r *SecurityGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SecurityGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering SecurityGroup resources.

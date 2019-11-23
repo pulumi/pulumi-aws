@@ -123,145 +123,145 @@ func GetEnvironment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Environment) URN() *pulumi.URNOutput {
+func (r *Environment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Environment) ID() *pulumi.IDOutput {
+func (r *Environment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // List of all option settings configured in this Environment. These
 // are a combination of default settings and their overrides from `setting` in
 // the configuration.
-func (r *Environment) AllSettings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["allSettings"])
+func (r *Environment) AllSettings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["allSettings"])
 }
 
 // Name of the application that contains the version
 // to be deployed
-func (r *Environment) Application() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["application"])
+func (r *Environment) Application() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["application"])
 }
 
-func (r *Environment) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Environment) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The autoscaling groups used by this Environment.
-func (r *Environment) AutoscalingGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["autoscalingGroups"])
+func (r *Environment) AutoscalingGroups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["autoscalingGroups"])
 }
 
 // Fully qualified DNS name for this Environment.
-func (r *Environment) Cname() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cname"])
+func (r *Environment) Cname() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cname"])
 }
 
 // Prefix to use for the fully qualified DNS name of
 // the Environment.
-func (r *Environment) CnamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cnamePrefix"])
+func (r *Environment) CnamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cnamePrefix"])
 }
 
 // Short description of the Environment
-func (r *Environment) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Environment) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The URL to the Load Balancer for this Environment
-func (r *Environment) EndpointUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpointUrl"])
+func (r *Environment) EndpointUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpointUrl"])
 }
 
 // Instances used by this Environment.
-func (r *Environment) Instances() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["instances"])
+func (r *Environment) Instances() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["instances"])
 }
 
 // Launch configurations in use by this Environment.
-func (r *Environment) LaunchConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["launchConfigurations"])
+func (r *Environment) LaunchConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["launchConfigurations"])
 }
 
 // Elastic load balancers in use by this Environment.
-func (r *Environment) LoadBalancers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["loadBalancers"])
+func (r *Environment) LoadBalancers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["loadBalancers"])
 }
 
 // A unique name for this Environment. This name is used
 // in the application URL
-func (r *Environment) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Environment) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The [ARN][2] of the Elastic Beanstalk [Platform][3]
 // to use in deployment
-func (r *Environment) PlatformArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["platformArn"])
+func (r *Environment) PlatformArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["platformArn"])
 }
 
 // The time between polling the AWS API to
 // check if changes have been applied. Use this to adjust the rate of API calls
 // for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
 // use the default behavior, which is an exponential backoff
-func (r *Environment) PollInterval() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["pollInterval"])
+func (r *Environment) PollInterval() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["pollInterval"])
 }
 
 // SQS queues in use by this Environment.
-func (r *Environment) Queues() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["queues"])
+func (r *Environment) Queues() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["queues"])
 }
 
 // Option settings to configure the new Environment. These
 // override specific values that are set as defaults. The format is detailed
 // below in Option Settings
-func (r *Environment) Settings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["settings"])
+func (r *Environment) Settings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["settings"])
 }
 
 // A solution stack to base your environment
 // off of. Example stacks can be found in the [Amazon API documentation][1]
-func (r *Environment) SolutionStackName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["solutionStackName"])
+func (r *Environment) SolutionStackName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["solutionStackName"])
 }
 
 // A set of tags to apply to the Environment.
-func (r *Environment) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Environment) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The name of the Elastic Beanstalk Configuration
 // template to use in deployment
-func (r *Environment) TemplateName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["templateName"])
+func (r *Environment) TemplateName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["templateName"])
 }
 
 // Elastic Beanstalk Environment tier. Valid values are `Worker`
 // or `WebServer`. If tier is left blank `WebServer` will be used.
-func (r *Environment) Tier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tier"])
+func (r *Environment) Tier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tier"])
 }
 
 // Autoscaling triggers in use by this Environment.
-func (r *Environment) Triggers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["triggers"])
+func (r *Environment) Triggers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["triggers"])
 }
 
 // The name of the Elastic Beanstalk Application Version
 // to use in deployment.
-func (r *Environment) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *Environment) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // The maximum
 // [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 // wait for an Elastic Beanstalk Environment to be in a ready state before timing
 // out.
-func (r *Environment) WaitForReadyTimeout() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["waitForReadyTimeout"])
+func (r *Environment) WaitForReadyTimeout() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["waitForReadyTimeout"])
 }
 
 // Input properties used for looking up and filtering Environment resources.

@@ -62,23 +62,23 @@ func GetVpcEndpointServiceAllowedPrinciple(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpcEndpointServiceAllowedPrinciple) URN() *pulumi.URNOutput {
+func (r *VpcEndpointServiceAllowedPrinciple) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpcEndpointServiceAllowedPrinciple) ID() *pulumi.IDOutput {
+func (r *VpcEndpointServiceAllowedPrinciple) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the principal to allow permissions.
-func (r *VpcEndpointServiceAllowedPrinciple) PrincipalArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["principalArn"])
+func (r *VpcEndpointServiceAllowedPrinciple) PrincipalArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["principalArn"])
 }
 
 // The ID of the VPC endpoint service to allow permission.
-func (r *VpcEndpointServiceAllowedPrinciple) VpcEndpointServiceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcEndpointServiceId"])
+func (r *VpcEndpointServiceAllowedPrinciple) VpcEndpointServiceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcEndpointServiceId"])
 }
 
 // Input properties used for looking up and filtering VpcEndpointServiceAllowedPrinciple resources.

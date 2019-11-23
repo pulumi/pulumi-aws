@@ -77,63 +77,63 @@ func GetVpcAttachmentAccepter(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpcAttachmentAccepter) URN() *pulumi.URNOutput {
+func (r *VpcAttachmentAccepter) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpcAttachmentAccepter) ID() *pulumi.IDOutput {
+func (r *VpcAttachmentAccepter) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether DNS support is enabled. Valid values: `disable`, `enable`.
-func (r *VpcAttachmentAccepter) DnsSupport() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dnsSupport"])
+func (r *VpcAttachmentAccepter) DnsSupport() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dnsSupport"])
 }
 
 // Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
-func (r *VpcAttachmentAccepter) Ipv6Support() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipv6Support"])
+func (r *VpcAttachmentAccepter) Ipv6Support() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipv6Support"])
 }
 
 // Identifiers of EC2 Subnets.
-func (r *VpcAttachmentAccepter) SubnetIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subnetIds"])
+func (r *VpcAttachmentAccepter) SubnetIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subnetIds"])
 }
 
 // Key-value tags for the EC2 Transit Gateway VPC Attachment.
-func (r *VpcAttachmentAccepter) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VpcAttachmentAccepter) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The ID of the EC2 Transit Gateway Attachment to manage.
-func (r *VpcAttachmentAccepter) TransitGatewayAttachmentId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transitGatewayAttachmentId"])
+func (r *VpcAttachmentAccepter) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["transitGatewayAttachmentId"])
 }
 
 // Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
-func (r *VpcAttachmentAccepter) TransitGatewayDefaultRouteTableAssociation() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["transitGatewayDefaultRouteTableAssociation"])
+func (r *VpcAttachmentAccepter) TransitGatewayDefaultRouteTableAssociation() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["transitGatewayDefaultRouteTableAssociation"])
 }
 
 // Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
-func (r *VpcAttachmentAccepter) TransitGatewayDefaultRouteTablePropagation() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["transitGatewayDefaultRouteTablePropagation"])
+func (r *VpcAttachmentAccepter) TransitGatewayDefaultRouteTablePropagation() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["transitGatewayDefaultRouteTablePropagation"])
 }
 
 // Identifier of EC2 Transit Gateway.
-func (r *VpcAttachmentAccepter) TransitGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transitGatewayId"])
+func (r *VpcAttachmentAccepter) TransitGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["transitGatewayId"])
 }
 
 // Identifier of EC2 VPC.
-func (r *VpcAttachmentAccepter) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *VpcAttachmentAccepter) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Identifier of the AWS account that owns the EC2 VPC.
-func (r *VpcAttachmentAccepter) VpcOwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcOwnerId"])
+func (r *VpcAttachmentAccepter) VpcOwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcOwnerId"])
 }
 
 // Input properties used for looking up and filtering VpcAttachmentAccepter resources.

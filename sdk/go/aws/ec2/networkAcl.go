@@ -71,45 +71,45 @@ func GetNetworkAcl(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkAcl) URN() *pulumi.URNOutput {
+func (r *NetworkAcl) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkAcl) ID() *pulumi.IDOutput {
+func (r *NetworkAcl) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies an egress rule. Parameters defined below.
 // This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-func (r *NetworkAcl) Egress() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["egress"])
+func (r *NetworkAcl) Egress() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["egress"])
 }
 
 // Specifies an ingress rule. Parameters defined below.
 // This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-func (r *NetworkAcl) Ingress() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ingress"])
+func (r *NetworkAcl) Ingress() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ingress"])
 }
 
 // The ID of the AWS account that owns the network ACL.
-func (r *NetworkAcl) OwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+func (r *NetworkAcl) OwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
 // A list of Subnet IDs to apply the ACL to
-func (r *NetworkAcl) SubnetIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subnetIds"])
+func (r *NetworkAcl) SubnetIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subnetIds"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *NetworkAcl) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *NetworkAcl) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The ID of the associated VPC.
-func (r *NetworkAcl) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *NetworkAcl) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering NetworkAcl resources.

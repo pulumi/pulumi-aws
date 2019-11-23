@@ -96,78 +96,78 @@ func GetHostedPrivateVirtualInterface(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *HostedPrivateVirtualInterface) URN() *pulumi.URNOutput {
+func (r *HostedPrivateVirtualInterface) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *HostedPrivateVirtualInterface) ID() *pulumi.IDOutput {
+func (r *HostedPrivateVirtualInterface) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The address family for the BGP peer. `ipv4 ` or `ipv6`.
-func (r *HostedPrivateVirtualInterface) AddressFamily() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["addressFamily"])
+func (r *HostedPrivateVirtualInterface) AddressFamily() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["addressFamily"])
 }
 
 // The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-func (r *HostedPrivateVirtualInterface) AmazonAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["amazonAddress"])
+func (r *HostedPrivateVirtualInterface) AmazonAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["amazonAddress"])
 }
 
 // The ARN of the virtual interface.
-func (r *HostedPrivateVirtualInterface) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *HostedPrivateVirtualInterface) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The Direct Connect endpoint on which the virtual interface terminates.
-func (r *HostedPrivateVirtualInterface) AwsDevice() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["awsDevice"])
+func (r *HostedPrivateVirtualInterface) AwsDevice() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["awsDevice"])
 }
 
 // The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-func (r *HostedPrivateVirtualInterface) BgpAsn() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["bgpAsn"])
+func (r *HostedPrivateVirtualInterface) BgpAsn() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["bgpAsn"])
 }
 
 // The authentication key for BGP configuration.
-func (r *HostedPrivateVirtualInterface) BgpAuthKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bgpAuthKey"])
+func (r *HostedPrivateVirtualInterface) BgpAuthKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bgpAuthKey"])
 }
 
 // The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-func (r *HostedPrivateVirtualInterface) ConnectionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["connectionId"])
+func (r *HostedPrivateVirtualInterface) ConnectionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["connectionId"])
 }
 
 // The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-func (r *HostedPrivateVirtualInterface) CustomerAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customerAddress"])
+func (r *HostedPrivateVirtualInterface) CustomerAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customerAddress"])
 }
 
 // Indicates whether jumbo frames (9001 MTU) are supported.
-func (r *HostedPrivateVirtualInterface) JumboFrameCapable() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["jumboFrameCapable"])
+func (r *HostedPrivateVirtualInterface) JumboFrameCapable() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["jumboFrameCapable"])
 }
 
 // The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
-func (r *HostedPrivateVirtualInterface) Mtu() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["mtu"])
+func (r *HostedPrivateVirtualInterface) Mtu() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["mtu"])
 }
 
 // The name for the virtual interface.
-func (r *HostedPrivateVirtualInterface) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *HostedPrivateVirtualInterface) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The AWS account that will own the new virtual interface.
-func (r *HostedPrivateVirtualInterface) OwnerAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerAccountId"])
+func (r *HostedPrivateVirtualInterface) OwnerAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerAccountId"])
 }
 
 // The VLAN ID.
-func (r *HostedPrivateVirtualInterface) Vlan() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["vlan"])
+func (r *HostedPrivateVirtualInterface) Vlan() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["vlan"])
 }
 
 // Input properties used for looking up and filtering HostedPrivateVirtualInterface resources.

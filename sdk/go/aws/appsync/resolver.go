@@ -85,58 +85,58 @@ func GetResolver(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Resolver) URN() *pulumi.URNOutput {
+func (r *Resolver) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Resolver) ID() *pulumi.IDOutput {
+func (r *Resolver) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The API ID for the GraphQL API.
-func (r *Resolver) ApiId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiId"])
+func (r *Resolver) ApiId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiId"])
 }
 
 // The ARN
-func (r *Resolver) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Resolver) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The DataSource name.
-func (r *Resolver) DataSource() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataSource"])
+func (r *Resolver) DataSource() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataSource"])
 }
 
 // The field name from the schema defined in the GraphQL API.
-func (r *Resolver) Field() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["field"])
+func (r *Resolver) Field() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["field"])
 }
 
 // The resolver type. Valid values are `UNIT` and `PIPELINE`.
-func (r *Resolver) Kind() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kind"])
+func (r *Resolver) Kind() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kind"])
 }
 
 // The PipelineConfig. A `pipelineConfig` block is documented below.
-func (r *Resolver) PipelineConfig() *pulumi.Output {
+func (r *Resolver) PipelineConfig() pulumi.Output {
 	return r.s.State["pipelineConfig"]
 }
 
 // The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
-func (r *Resolver) RequestTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestTemplate"])
+func (r *Resolver) RequestTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestTemplate"])
 }
 
 // The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
-func (r *Resolver) ResponseTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseTemplate"])
+func (r *Resolver) ResponseTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseTemplate"])
 }
 
 // The type name from the schema defined in the GraphQL API.
-func (r *Resolver) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Resolver) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering Resolver resources.

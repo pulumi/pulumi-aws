@@ -56,23 +56,23 @@ func GetConnectionAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ConnectionAssociation) URN() *pulumi.URNOutput {
+func (r *ConnectionAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ConnectionAssociation) ID() *pulumi.IDOutput {
+func (r *ConnectionAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the connection.
-func (r *ConnectionAssociation) ConnectionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["connectionId"])
+func (r *ConnectionAssociation) ConnectionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["connectionId"])
 }
 
 // The ID of the LAG with which to associate the connection.
-func (r *ConnectionAssociation) LagId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lagId"])
+func (r *ConnectionAssociation) LagId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lagId"])
 }
 
 // Input properties used for looking up and filtering ConnectionAssociation resources.

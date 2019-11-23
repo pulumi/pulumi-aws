@@ -71,56 +71,56 @@ func GetDeployment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Deployment) URN() *pulumi.URNOutput {
+func (r *Deployment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Deployment) ID() *pulumi.IDOutput {
+func (r *Deployment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The creation date of the deployment
-func (r *Deployment) CreatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdDate"])
+func (r *Deployment) CreatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdDate"])
 }
 
 // The description of the deployment
-func (r *Deployment) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Deployment) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
 // when allowing API Gateway to invoke a Lambda function,
 // e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-func (r *Deployment) ExecutionArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["executionArn"])
+func (r *Deployment) ExecutionArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["executionArn"])
 }
 
 // The URL to invoke the API pointing to the stage,
 // e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-func (r *Deployment) InvokeUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["invokeUrl"])
+func (r *Deployment) InvokeUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["invokeUrl"])
 }
 
 // The ID of the associated REST API
-func (r *Deployment) RestApi() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restApi"])
+func (r *Deployment) RestApi() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restApi"])
 }
 
 // The description of the stage
-func (r *Deployment) StageDescription() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stageDescription"])
+func (r *Deployment) StageDescription() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stageDescription"])
 }
 
 // The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
-func (r *Deployment) StageName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stageName"])
+func (r *Deployment) StageName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stageName"])
 }
 
 // A map that defines variables for the stage
-func (r *Deployment) Variables() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["variables"])
+func (r *Deployment) Variables() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["variables"])
 }
 
 // Input properties used for looking up and filtering Deployment resources.

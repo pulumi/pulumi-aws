@@ -66,23 +66,23 @@ func GetPrincipalAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PrincipalAssociation) URN() *pulumi.URNOutput {
+func (r *PrincipalAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PrincipalAssociation) ID() *pulumi.IDOutput {
+func (r *PrincipalAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
-func (r *PrincipalAssociation) Principal() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["principal"])
+func (r *PrincipalAssociation) Principal() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["principal"])
 }
 
 // The Amazon Resource Name (ARN) of the resource share.
-func (r *PrincipalAssociation) ResourceShareArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceShareArn"])
+func (r *PrincipalAssociation) ResourceShareArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceShareArn"])
 }
 
 // Input properties used for looking up and filtering PrincipalAssociation resources.

@@ -58,30 +58,30 @@ func GetRecorder(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Recorder) URN() *pulumi.URNOutput {
+func (r *Recorder) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Recorder) ID() *pulumi.IDOutput {
+func (r *Recorder) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-func (r *Recorder) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Recorder) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Recording group - see below.
-func (r *Recorder) RecordingGroup() *pulumi.Output {
+func (r *Recorder) RecordingGroup() pulumi.Output {
 	return r.s.State["recordingGroup"]
 }
 
 // Amazon Resource Name (ARN) of the IAM role.
 // used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
 // See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-func (r *Recorder) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *Recorder) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // Input properties used for looking up and filtering Recorder resources.

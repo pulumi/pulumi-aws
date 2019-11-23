@@ -60,28 +60,28 @@ func GetStaticIpAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *StaticIpAttachment) URN() *pulumi.URNOutput {
+func (r *StaticIpAttachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *StaticIpAttachment) ID() *pulumi.IDOutput {
+func (r *StaticIpAttachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Lightsail instance to attach the IP to
-func (r *StaticIpAttachment) InstanceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceName"])
+func (r *StaticIpAttachment) InstanceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceName"])
 }
 
 // The allocated static IP address
-func (r *StaticIpAttachment) IpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
+func (r *StaticIpAttachment) IpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipAddress"])
 }
 
 // The name of the allocated static IP
-func (r *StaticIpAttachment) StaticIpName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["staticIpName"])
+func (r *StaticIpAttachment) StaticIpName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["staticIpName"])
 }
 
 // Input properties used for looking up and filtering StaticIpAttachment resources.

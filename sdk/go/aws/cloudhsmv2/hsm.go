@@ -65,48 +65,48 @@ func GetHsm(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Hsm) URN() *pulumi.URNOutput {
+func (r *Hsm) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Hsm) ID() *pulumi.IDOutput {
+func (r *Hsm) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
-func (r *Hsm) AvailabilityZone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
+func (r *Hsm) AvailabilityZone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
 // The ID of Cloud HSM v2 cluster to which HSM will be added.
-func (r *Hsm) ClusterId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterId"])
+func (r *Hsm) ClusterId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterId"])
 }
 
 // The id of the ENI interface allocated for HSM module.
-func (r *Hsm) HsmEniId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hsmEniId"])
+func (r *Hsm) HsmEniId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hsmEniId"])
 }
 
 // The id of the HSM module.
-func (r *Hsm) HsmId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hsmId"])
+func (r *Hsm) HsmId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hsmId"])
 }
 
 // The state of the HSM module.
-func (r *Hsm) HsmState() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hsmState"])
+func (r *Hsm) HsmState() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hsmState"])
 }
 
 // The IP address of HSM module. Must be within the CIDR of selected subnet.
-func (r *Hsm) IpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
+func (r *Hsm) IpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipAddress"])
 }
 
 // The ID of subnet in which HSM module will be located.
-func (r *Hsm) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *Hsm) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // Input properties used for looking up and filtering Hsm resources.

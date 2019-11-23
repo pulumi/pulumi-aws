@@ -113,7 +113,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     promotion_tier: pulumi.Output[float]
     """
-    Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+    Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
     """
     publicly_accessible: pulumi.Output[bool]
     """
@@ -166,7 +166,7 @@ class ClusterInstance(pulumi.CustomResource):
                Eg: "04:00-09:00"
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+        :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible.
                Default `false`. See the documentation on [Creating DB Instances][6] for more
                details on controlling this property.
@@ -270,7 +270,7 @@ class ClusterInstance(pulumi.CustomResource):
                Eg: "04:00-09:00"
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+        :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible.
                Default `false`. See the documentation on [Creating DB Instances][6] for more
                details on controlling this property.

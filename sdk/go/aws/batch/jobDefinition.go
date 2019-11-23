@@ -81,55 +81,55 @@ func GetJobDefinition(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *JobDefinition) URN() *pulumi.URNOutput {
+func (r *JobDefinition) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *JobDefinition) ID() *pulumi.IDOutput {
+func (r *JobDefinition) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name of the job definition.
-func (r *JobDefinition) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *JobDefinition) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
 // provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-func (r *JobDefinition) ContainerProperties() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["containerProperties"])
+func (r *JobDefinition) ContainerProperties() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["containerProperties"])
 }
 
 // Specifies the name of the job definition.
-func (r *JobDefinition) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *JobDefinition) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the parameter substitution placeholders to set in the job definition.
-func (r *JobDefinition) Parameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["parameters"])
+func (r *JobDefinition) Parameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
 // Maximum number of `retryStrategy` is `1`.  Defined below.
-func (r *JobDefinition) RetryStrategy() *pulumi.Output {
+func (r *JobDefinition) RetryStrategy() pulumi.Output {
 	return r.s.State["retryStrategy"]
 }
 
 // The revision of the job definition.
-func (r *JobDefinition) Revision() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["revision"])
+func (r *JobDefinition) Revision() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["revision"])
 }
 
 // Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-func (r *JobDefinition) Timeout() *pulumi.Output {
+func (r *JobDefinition) Timeout() pulumi.Output {
 	return r.s.State["timeout"]
 }
 
 // The type of job definition.  Must be `container`
-func (r *JobDefinition) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *JobDefinition) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering JobDefinition resources.

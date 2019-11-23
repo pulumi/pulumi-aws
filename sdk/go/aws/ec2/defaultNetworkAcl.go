@@ -89,50 +89,50 @@ func GetDefaultNetworkAcl(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DefaultNetworkAcl) URN() *pulumi.URNOutput {
+func (r *DefaultNetworkAcl) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DefaultNetworkAcl) ID() *pulumi.IDOutput {
+func (r *DefaultNetworkAcl) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Network ACL ID to manage. This
 // attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
-func (r *DefaultNetworkAcl) DefaultNetworkAclId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultNetworkAclId"])
+func (r *DefaultNetworkAcl) DefaultNetworkAclId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultNetworkAclId"])
 }
 
 // Specifies an egress rule. Parameters defined below.
-func (r *DefaultNetworkAcl) Egress() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["egress"])
+func (r *DefaultNetworkAcl) Egress() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["egress"])
 }
 
 // Specifies an ingress rule. Parameters defined below.
-func (r *DefaultNetworkAcl) Ingress() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ingress"])
+func (r *DefaultNetworkAcl) Ingress() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ingress"])
 }
 
 // The ID of the AWS account that owns the Default Network ACL
-func (r *DefaultNetworkAcl) OwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+func (r *DefaultNetworkAcl) OwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
 // A list of Subnet IDs to apply the ACL to. See the
 // notes below on managing Subnets in the Default Network ACL
-func (r *DefaultNetworkAcl) SubnetIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subnetIds"])
+func (r *DefaultNetworkAcl) SubnetIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subnetIds"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *DefaultNetworkAcl) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *DefaultNetworkAcl) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The ID of the associated VPC
-func (r *DefaultNetworkAcl) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *DefaultNetworkAcl) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering DefaultNetworkAcl resources.

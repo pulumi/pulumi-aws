@@ -72,48 +72,48 @@ func GetParameterGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ParameterGroup) URN() *pulumi.URNOutput {
+func (r *ParameterGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ParameterGroup) ID() *pulumi.IDOutput {
+func (r *ParameterGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the db parameter group.
-func (r *ParameterGroup) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ParameterGroup) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The description of the DB parameter group. Defaults to "Managed by Pulumi".
-func (r *ParameterGroup) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ParameterGroup) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The family of the DB parameter group.
-func (r *ParameterGroup) Family() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["family"])
+func (r *ParameterGroup) Family() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["family"])
 }
 
 // The name of the DB parameter.
-func (r *ParameterGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ParameterGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *ParameterGroup) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *ParameterGroup) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-func (r *ParameterGroup) Parameters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["parameters"])
+func (r *ParameterGroup) Parameters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["parameters"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ParameterGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ParameterGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering ParameterGroup resources.

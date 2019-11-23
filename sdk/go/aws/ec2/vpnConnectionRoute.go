@@ -56,23 +56,23 @@ func GetVpnConnectionRoute(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpnConnectionRoute) URN() *pulumi.URNOutput {
+func (r *VpnConnectionRoute) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpnConnectionRoute) ID() *pulumi.IDOutput {
+func (r *VpnConnectionRoute) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The CIDR block associated with the local subnet of the customer network.
-func (r *VpnConnectionRoute) DestinationCidrBlock() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destinationCidrBlock"])
+func (r *VpnConnectionRoute) DestinationCidrBlock() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destinationCidrBlock"])
 }
 
 // The ID of the VPN connection.
-func (r *VpnConnectionRoute) VpnConnectionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpnConnectionId"])
+func (r *VpnConnectionRoute) VpnConnectionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpnConnectionId"])
 }
 
 // Input properties used for looking up and filtering VpnConnectionRoute resources.

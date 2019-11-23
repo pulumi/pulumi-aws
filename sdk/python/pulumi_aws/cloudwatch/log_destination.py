@@ -24,7 +24,7 @@ class LogDestination(pulumi.CustomResource):
     """
     target_arn: pulumi.Output[str]
     """
-    The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+    The ARN of the target Amazon Kinesis stream resource for the destination
     """
     def __init__(__self__, resource_name, opts=None, name=None, role_arn=None, target_arn=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -34,7 +34,7 @@ class LogDestination(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: A name for the log destination
         :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
-        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_destination.html.markdown.
         """
@@ -81,7 +81,7 @@ class LogDestination(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the log destination.
         :param pulumi.Input[str] name: A name for the log destination
         :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
-        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_destination.html.markdown.
         """

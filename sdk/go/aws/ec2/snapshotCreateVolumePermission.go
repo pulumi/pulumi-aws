@@ -56,23 +56,23 @@ func GetSnapshotCreateVolumePermission(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SnapshotCreateVolumePermission) URN() *pulumi.URNOutput {
+func (r *SnapshotCreateVolumePermission) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SnapshotCreateVolumePermission) ID() *pulumi.IDOutput {
+func (r *SnapshotCreateVolumePermission) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // An AWS Account ID to add create volume permissions
-func (r *SnapshotCreateVolumePermission) AccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountId"])
+func (r *SnapshotCreateVolumePermission) AccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountId"])
 }
 
 // A snapshot ID
-func (r *SnapshotCreateVolumePermission) SnapshotId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["snapshotId"])
+func (r *SnapshotCreateVolumePermission) SnapshotId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["snapshotId"])
 }
 
 // Input properties used for looking up and filtering SnapshotCreateVolumePermission resources.

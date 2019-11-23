@@ -63,48 +63,48 @@ func GetService(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Service) URN() *pulumi.URNOutput {
+func (r *Service) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Service) ID() *pulumi.IDOutput {
+func (r *Service) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the service.
-func (r *Service) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Service) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The description of the service.
-func (r *Service) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Service) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
-func (r *Service) DnsConfig() *pulumi.Output {
+func (r *Service) DnsConfig() pulumi.Output {
 	return r.s.State["dnsConfig"]
 }
 
 // A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
-func (r *Service) HealthCheckConfig() *pulumi.Output {
+func (r *Service) HealthCheckConfig() pulumi.Output {
 	return r.s.State["healthCheckConfig"]
 }
 
 // A complex type that contains settings for ECS managed health checks.
-func (r *Service) HealthCheckCustomConfig() *pulumi.Output {
+func (r *Service) HealthCheckCustomConfig() pulumi.Output {
 	return r.s.State["healthCheckCustomConfig"]
 }
 
 // The name of the service.
-func (r *Service) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Service) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ID of the namespace to use for DNS configuration.
-func (r *Service) NamespaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespaceId"])
+func (r *Service) NamespaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespaceId"])
 }
 
 // Input properties used for looking up and filtering Service resources.

@@ -75,58 +75,58 @@ func GetFlowLog(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *FlowLog) URN() *pulumi.URNOutput {
+func (r *FlowLog) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *FlowLog) ID() *pulumi.IDOutput {
+func (r *FlowLog) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Elastic Network Interface ID to attach to
-func (r *FlowLog) EniId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eniId"])
+func (r *FlowLog) EniId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eniId"])
 }
 
 // The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
-func (r *FlowLog) IamRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iamRoleArn"])
+func (r *FlowLog) IamRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iamRoleArn"])
 }
 
 // The ARN of the logging destination.
-func (r *FlowLog) LogDestination() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logDestination"])
+func (r *FlowLog) LogDestination() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logDestination"])
 }
 
 // The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
-func (r *FlowLog) LogDestinationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logDestinationType"])
+func (r *FlowLog) LogDestinationType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logDestinationType"])
 }
 
 // The fields to include in the flow log record, in the order in which they should appear.
-func (r *FlowLog) LogFormat() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logFormat"])
+func (r *FlowLog) LogFormat() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logFormat"])
 }
 
 // *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
-func (r *FlowLog) LogGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logGroupName"])
+func (r *FlowLog) LogGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logGroupName"])
 }
 
 // Subnet ID to attach to
-func (r *FlowLog) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *FlowLog) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
-func (r *FlowLog) TrafficType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["trafficType"])
+func (r *FlowLog) TrafficType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["trafficType"])
 }
 
 // VPC ID to attach to
-func (r *FlowLog) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *FlowLog) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering FlowLog resources.

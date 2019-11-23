@@ -50,6 +50,21 @@ class Policy(pulumi.CustomResource):
     up. A negative value scales down.
     """
     step_adjustments: pulumi.Output[list]
+    """
+    A set of adjustments that manage
+    group scaling. These have the following structure:
+    
+      * `metricIntervalLowerBound` (`str`) - The lower bound for the
+        difference between the alarm threshold and the CloudWatch metric.
+        Without a value, AWS will treat this bound as infinity.
+      * `metricIntervalUpperBound` (`str`) - The upper bound for the
+        difference between the alarm threshold and the CloudWatch metric.
+        Without a value, AWS will treat this bound as infinity. The upper bound
+        must be greater than the lower bound.
+      * `scaling_adjustment` (`float`) - The number of members by which to
+        scale, when the adjustment bounds are breached. A positive value scales
+        up. A negative value scales down.
+    """
     target_tracking_configuration: pulumi.Output[dict]
     """
     A target tracking policy. These have the following structure:
@@ -96,6 +111,8 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[float] scaling_adjustment: The number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
+        :param pulumi.Input[list] step_adjustments: A set of adjustments that manage
+               group scaling. These have the following structure:
         :param pulumi.Input[dict] target_tracking_configuration: A target tracking policy. These have the following structure:
         
         The **step_adjustments** object supports the following:
@@ -192,6 +209,8 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[float] scaling_adjustment: The number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
+        :param pulumi.Input[list] step_adjustments: A set of adjustments that manage
+               group scaling. These have the following structure:
         :param pulumi.Input[dict] target_tracking_configuration: A target tracking policy. These have the following structure:
         
         The **step_adjustments** object supports the following:

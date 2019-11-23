@@ -61,23 +61,23 @@ func GetVpnGatewayAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpnGatewayAttachment) URN() *pulumi.URNOutput {
+func (r *VpnGatewayAttachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpnGatewayAttachment) ID() *pulumi.IDOutput {
+func (r *VpnGatewayAttachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the VPC.
-func (r *VpnGatewayAttachment) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *VpnGatewayAttachment) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // The ID of the Virtual Private Gateway.
-func (r *VpnGatewayAttachment) VpnGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpnGatewayId"])
+func (r *VpnGatewayAttachment) VpnGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpnGatewayId"])
 }
 
 // Input properties used for looking up and filtering VpnGatewayAttachment resources.

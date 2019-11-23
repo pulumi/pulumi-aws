@@ -65,38 +65,38 @@ func GetResponse(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Response) URN() *pulumi.URNOutput {
+func (r *Response) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Response) ID() *pulumi.IDOutput {
+func (r *Response) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
-func (r *Response) ResponseParameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["responseParameters"])
+func (r *Response) ResponseParameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["responseParameters"])
 }
 
 // A map specifying the templates used to transform the response body.
-func (r *Response) ResponseTemplates() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["responseTemplates"])
+func (r *Response) ResponseTemplates() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["responseTemplates"])
 }
 
 // The response type of the associated GatewayResponse.
-func (r *Response) ResponseType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseType"])
+func (r *Response) ResponseType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseType"])
 }
 
 // The string identifier of the associated REST API.
-func (r *Response) RestApiId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restApiId"])
+func (r *Response) RestApiId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restApiId"])
 }
 
 // The HTTP status code of the Gateway Response.
-func (r *Response) StatusCode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["statusCode"])
+func (r *Response) StatusCode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["statusCode"])
 }
 
 // Input properties used for looking up and filtering Response resources.

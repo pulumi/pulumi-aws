@@ -62,28 +62,28 @@ func GetConditionalForwader(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ConditionalForwader) URN() *pulumi.URNOutput {
+func (r *ConditionalForwader) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ConditionalForwader) ID() *pulumi.IDOutput {
+func (r *ConditionalForwader) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The id of directory.
-func (r *ConditionalForwader) DirectoryId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["directoryId"])
+func (r *ConditionalForwader) DirectoryId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["directoryId"])
 }
 
 // A list of forwarder IP addresses.
-func (r *ConditionalForwader) DnsIps() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["dnsIps"])
+func (r *ConditionalForwader) DnsIps() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["dnsIps"])
 }
 
 // The fully qualified domain name of the remote domain for which forwarders will be used.
-func (r *ConditionalForwader) RemoteDomainName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["remoteDomainName"])
+func (r *ConditionalForwader) RemoteDomainName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["remoteDomainName"])
 }
 
 // Input properties used for looking up and filtering ConditionalForwader resources.

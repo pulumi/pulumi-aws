@@ -97,92 +97,92 @@ func GetCrawler(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Crawler) URN() *pulumi.URNOutput {
+func (r *Crawler) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Crawler) ID() *pulumi.IDOutput {
+func (r *Crawler) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the crawler 
-func (r *Crawler) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Crawler) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
-func (r *Crawler) CatalogTargets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["catalogTargets"])
+func (r *Crawler) CatalogTargets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["catalogTargets"])
 }
 
 // List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
-func (r *Crawler) Classifiers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["classifiers"])
+func (r *Crawler) Classifiers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["classifiers"])
 }
 
 // JSON string of configuration information.
-func (r *Crawler) Configuration() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["configuration"])
+func (r *Crawler) Configuration() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["configuration"])
 }
 
 // The name of the Glue database to be synchronized.
-func (r *Crawler) DatabaseName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["databaseName"])
+func (r *Crawler) DatabaseName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["databaseName"])
 }
 
 // Description of the crawler.
-func (r *Crawler) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Crawler) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // List of nested DynamoDB target arguments. See below.
-func (r *Crawler) DynamodbTargets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["dynamodbTargets"])
+func (r *Crawler) DynamodbTargets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["dynamodbTargets"])
 }
 
 // List of nested JBDC target arguments. See below.
-func (r *Crawler) JdbcTargets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["jdbcTargets"])
+func (r *Crawler) JdbcTargets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["jdbcTargets"])
 }
 
 // Name of the crawler.
-func (r *Crawler) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Crawler) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-func (r *Crawler) Role() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["role"])
+func (r *Crawler) Role() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["role"])
 }
 
 // List nested Amazon S3 target arguments. See below.
-func (r *Crawler) S3Targets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["s3Targets"])
+func (r *Crawler) S3Targets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["s3Targets"])
 }
 
 // A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
-func (r *Crawler) Schedule() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["schedule"])
+func (r *Crawler) Schedule() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["schedule"])
 }
 
 // Policy for the crawler's update and deletion behavior.
-func (r *Crawler) SchemaChangePolicy() *pulumi.Output {
+func (r *Crawler) SchemaChangePolicy() pulumi.Output {
 	return r.s.State["schemaChangePolicy"]
 }
 
 // The name of Security Configuration to be used by the crawler
-func (r *Crawler) SecurityConfiguration() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["securityConfiguration"])
+func (r *Crawler) SecurityConfiguration() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["securityConfiguration"])
 }
 
 // The table prefix used for catalog tables that are created.
-func (r *Crawler) TablePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tablePrefix"])
+func (r *Crawler) TablePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tablePrefix"])
 }
 
 // Key-value mapping of resource tags
-func (r *Crawler) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Crawler) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Crawler resources.

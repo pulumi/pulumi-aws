@@ -83,63 +83,63 @@ func GetMaintenanceWindow(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MaintenanceWindow) URN() *pulumi.URNOutput {
+func (r *MaintenanceWindow) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MaintenanceWindow) ID() *pulumi.IDOutput {
+func (r *MaintenanceWindow) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
-func (r *MaintenanceWindow) AllowUnassociatedTargets() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowUnassociatedTargets"])
+func (r *MaintenanceWindow) AllowUnassociatedTargets() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowUnassociatedTargets"])
 }
 
 // The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-func (r *MaintenanceWindow) Cutoff() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["cutoff"])
+func (r *MaintenanceWindow) Cutoff() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["cutoff"])
 }
 
 // The duration of the Maintenance Window in hours.
-func (r *MaintenanceWindow) Duration() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["duration"])
+func (r *MaintenanceWindow) Duration() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["duration"])
 }
 
 // Whether the maintenance window is enabled. Default: `true`.
-func (r *MaintenanceWindow) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *MaintenanceWindow) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
-func (r *MaintenanceWindow) EndDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endDate"])
+func (r *MaintenanceWindow) EndDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endDate"])
 }
 
 // The name of the maintenance window.
-func (r *MaintenanceWindow) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *MaintenanceWindow) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
-func (r *MaintenanceWindow) Schedule() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["schedule"])
+func (r *MaintenanceWindow) Schedule() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["schedule"])
 }
 
 // Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
-func (r *MaintenanceWindow) ScheduleTimezone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scheduleTimezone"])
+func (r *MaintenanceWindow) ScheduleTimezone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scheduleTimezone"])
 }
 
 // Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-func (r *MaintenanceWindow) StartDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startDate"])
+func (r *MaintenanceWindow) StartDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startDate"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *MaintenanceWindow) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *MaintenanceWindow) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering MaintenanceWindow resources.

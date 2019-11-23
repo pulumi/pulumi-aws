@@ -54,33 +54,33 @@ func GetNotebookInstanceLifecycleConfiguration(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NotebookInstanceLifecycleConfiguration) URN() *pulumi.URNOutput {
+func (r *NotebookInstanceLifecycleConfiguration) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NotebookInstanceLifecycleConfiguration) ID() *pulumi.IDOutput {
+func (r *NotebookInstanceLifecycleConfiguration) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
-func (r *NotebookInstanceLifecycleConfiguration) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *NotebookInstanceLifecycleConfiguration) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
-func (r *NotebookInstanceLifecycleConfiguration) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *NotebookInstanceLifecycleConfiguration) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
-func (r *NotebookInstanceLifecycleConfiguration) OnCreate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["onCreate"])
+func (r *NotebookInstanceLifecycleConfiguration) OnCreate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["onCreate"])
 }
 
 // A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
-func (r *NotebookInstanceLifecycleConfiguration) OnStart() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["onStart"])
+func (r *NotebookInstanceLifecycleConfiguration) OnStart() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["onStart"])
 }
 
 // Input properties used for looking up and filtering NotebookInstanceLifecycleConfiguration resources.

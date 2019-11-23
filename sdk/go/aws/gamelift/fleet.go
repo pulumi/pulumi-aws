@@ -83,71 +83,71 @@ func GetFleet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Fleet) URN() *pulumi.URNOutput {
+func (r *Fleet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Fleet) ID() *pulumi.IDOutput {
+func (r *Fleet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Fleet ARN.
-func (r *Fleet) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Fleet) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // ID of the Gamelift Build to be deployed on the fleet.
-func (r *Fleet) BuildId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["buildId"])
+func (r *Fleet) BuildId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["buildId"])
 }
 
 // Human-readable description of the fleet.
-func (r *Fleet) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Fleet) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
-func (r *Fleet) Ec2InboundPermissions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ec2InboundPermissions"])
+func (r *Fleet) Ec2InboundPermissions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ec2InboundPermissions"])
 }
 
 // Name of an EC2 instance type. e.g. `t2.micro`
-func (r *Fleet) Ec2InstanceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ec2InstanceType"])
+func (r *Fleet) Ec2InstanceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ec2InstanceType"])
 }
 
-func (r *Fleet) LogPaths() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["logPaths"])
+func (r *Fleet) LogPaths() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["logPaths"])
 }
 
 // List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-func (r *Fleet) MetricGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["metricGroups"])
+func (r *Fleet) MetricGroups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["metricGroups"])
 }
 
 // The name of the fleet.
-func (r *Fleet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Fleet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
-func (r *Fleet) NewGameSessionProtectionPolicy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["newGameSessionProtectionPolicy"])
+func (r *Fleet) NewGameSessionProtectionPolicy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["newGameSessionProtectionPolicy"])
 }
 
 // Operating system of the fleet's computing resources.
-func (r *Fleet) OperatingSystem() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["operatingSystem"])
+func (r *Fleet) OperatingSystem() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["operatingSystem"])
 }
 
 // Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-func (r *Fleet) ResourceCreationLimitPolicy() *pulumi.Output {
+func (r *Fleet) ResourceCreationLimitPolicy() pulumi.Output {
 	return r.s.State["resourceCreationLimitPolicy"]
 }
 
 // Instructions for launching server processes on each instance in the fleet. See below.
-func (r *Fleet) RuntimeConfiguration() *pulumi.Output {
+func (r *Fleet) RuntimeConfiguration() pulumi.Output {
 	return r.s.State["runtimeConfiguration"]
 }
 

@@ -90,58 +90,58 @@ func GetTopicSubscription(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TopicSubscription) URN() *pulumi.URNOutput {
+func (r *TopicSubscription) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TopicSubscription) ID() *pulumi.IDOutput {
+func (r *TopicSubscription) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the subscription stored as a more user-friendly property
-func (r *TopicSubscription) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *TopicSubscription) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
-func (r *TopicSubscription) ConfirmationTimeoutInMinutes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["confirmationTimeoutInMinutes"])
+func (r *TopicSubscription) ConfirmationTimeoutInMinutes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["confirmationTimeoutInMinutes"])
 }
 
 // JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
-func (r *TopicSubscription) DeliveryPolicy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deliveryPolicy"])
+func (r *TopicSubscription) DeliveryPolicy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deliveryPolicy"])
 }
 
 // The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
-func (r *TopicSubscription) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *TopicSubscription) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
-func (r *TopicSubscription) EndpointAutoConfirms() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["endpointAutoConfirms"])
+func (r *TopicSubscription) EndpointAutoConfirms() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["endpointAutoConfirms"])
 }
 
 // JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
-func (r *TopicSubscription) FilterPolicy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["filterPolicy"])
+func (r *TopicSubscription) FilterPolicy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["filterPolicy"])
 }
 
 // The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
-func (r *TopicSubscription) Protocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocol"])
+func (r *TopicSubscription) Protocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocol"])
 }
 
 // Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
-func (r *TopicSubscription) RawMessageDelivery() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["rawMessageDelivery"])
+func (r *TopicSubscription) RawMessageDelivery() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["rawMessageDelivery"])
 }
 
 // The ARN of the SNS topic to subscribe to
-func (r *TopicSubscription) Topic() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["topic"])
+func (r *TopicSubscription) Topic() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["topic"])
 }
 
 // Input properties used for looking up and filtering TopicSubscription resources.

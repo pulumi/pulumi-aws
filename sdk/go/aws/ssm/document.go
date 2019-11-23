@@ -107,102 +107,102 @@ func GetDocument(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Document) URN() *pulumi.URNOutput {
+func (r *Document) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Document) ID() *pulumi.IDOutput {
+func (r *Document) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *Document) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Document) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The JSON or YAML content of the document.
-func (r *Document) Content() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["content"])
+func (r *Document) Content() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["content"])
 }
 
 // The date the document was created.
-func (r *Document) CreatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdDate"])
+func (r *Document) CreatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdDate"])
 }
 
 // The default version of the document.
-func (r *Document) DefaultVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultVersion"])
+func (r *Document) DefaultVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultVersion"])
 }
 
 // The description of the document.
-func (r *Document) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Document) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The format of the document. Valid document types include: `JSON` and `YAML`
-func (r *Document) DocumentFormat() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["documentFormat"])
+func (r *Document) DocumentFormat() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["documentFormat"])
 }
 
 // The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
-func (r *Document) DocumentType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["documentType"])
+func (r *Document) DocumentType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["documentType"])
 }
 
 // The sha1 or sha256 of the document content
-func (r *Document) Hash() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hash"])
+func (r *Document) Hash() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hash"])
 }
 
 // "Sha1" "Sha256". The hashing algorithm used when hashing the content.
-func (r *Document) HashType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hashType"])
+func (r *Document) HashType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hashType"])
 }
 
 // The latest version of the document.
-func (r *Document) LatestVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["latestVersion"])
+func (r *Document) LatestVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["latestVersion"])
 }
 
 // The name of the document.
-func (r *Document) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Document) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The AWS user account of the person who created the document.
-func (r *Document) Owner() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["owner"])
+func (r *Document) Owner() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["owner"])
 }
 
 // The parameters that are available to this document.
-func (r *Document) Parameters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["parameters"])
+func (r *Document) Parameters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["parameters"])
 }
 
 // Additional Permissions to attach to the document. See Permissions below for details.
-func (r *Document) Permissions() *pulumi.Output {
+func (r *Document) Permissions() pulumi.Output {
 	return r.s.State["permissions"]
 }
 
 // A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
-func (r *Document) PlatformTypes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["platformTypes"])
+func (r *Document) PlatformTypes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["platformTypes"])
 }
 
 // The schema version of the document.
-func (r *Document) SchemaVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["schemaVersion"])
+func (r *Document) SchemaVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["schemaVersion"])
 }
 
 // "Creating", "Active" or "Deleting". The current status of the document.
-func (r *Document) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Document) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // A mapping of tags to assign to the object.
-func (r *Document) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Document) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Document resources.

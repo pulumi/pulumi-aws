@@ -64,29 +64,29 @@ func GetNotification(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Notification) URN() *pulumi.URNOutput {
+func (r *Notification) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Notification) ID() *pulumi.IDOutput {
+func (r *Notification) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A list of AutoScaling Group Names
-func (r *Notification) GroupNames() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groupNames"])
+func (r *Notification) GroupNames() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groupNames"])
 }
 
 // A list of Notification Types that trigger
 // notifications. Acceptable values are documented [in the AWS documentation here][1]
-func (r *Notification) Notifications() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["notifications"])
+func (r *Notification) Notifications() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["notifications"])
 }
 
 // The Topic ARN for notifications to be sent through
-func (r *Notification) TopicArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["topicArn"])
+func (r *Notification) TopicArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["topicArn"])
 }
 
 // Input properties used for looking up and filtering Notification resources.

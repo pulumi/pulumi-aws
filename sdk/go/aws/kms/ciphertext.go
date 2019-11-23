@@ -67,33 +67,33 @@ func GetCiphertext(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Ciphertext) URN() *pulumi.URNOutput {
+func (r *Ciphertext) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Ciphertext) ID() *pulumi.IDOutput {
+func (r *Ciphertext) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Base64 encoded ciphertext
-func (r *Ciphertext) CiphertextBlob() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ciphertextBlob"])
+func (r *Ciphertext) CiphertextBlob() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ciphertextBlob"])
 }
 
 // An optional mapping that makes up the encryption context.
-func (r *Ciphertext) Context() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["context"])
+func (r *Ciphertext) Context() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["context"])
 }
 
 // Globally unique key ID for the customer master key.
-func (r *Ciphertext) KeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyId"])
+func (r *Ciphertext) KeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyId"])
 }
 
 // Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-func (r *Ciphertext) Plaintext() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["plaintext"])
+func (r *Ciphertext) Plaintext() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["plaintext"])
 }
 
 // Input properties used for looking up and filtering Ciphertext resources.

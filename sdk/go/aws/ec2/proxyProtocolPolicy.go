@@ -56,25 +56,25 @@ func GetProxyProtocolPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ProxyProtocolPolicy) URN() *pulumi.URNOutput {
+func (r *ProxyProtocolPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ProxyProtocolPolicy) ID() *pulumi.IDOutput {
+func (r *ProxyProtocolPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // List of instance ports to which the policy
 // should be applied. This can be specified if the protocol is SSL or TCP.
-func (r *ProxyProtocolPolicy) InstancePorts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["instancePorts"])
+func (r *ProxyProtocolPolicy) InstancePorts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["instancePorts"])
 }
 
 // The load balancer to which the policy
 // should be attached.
-func (r *ProxyProtocolPolicy) LoadBalancer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadBalancer"])
+func (r *ProxyProtocolPolicy) LoadBalancer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadBalancer"])
 }
 
 // Input properties used for looking up and filtering ProxyProtocolPolicy resources.

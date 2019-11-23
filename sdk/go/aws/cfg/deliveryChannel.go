@@ -64,38 +64,38 @@ func GetDeliveryChannel(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DeliveryChannel) URN() *pulumi.URNOutput {
+func (r *DeliveryChannel) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DeliveryChannel) ID() *pulumi.IDOutput {
+func (r *DeliveryChannel) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
-func (r *DeliveryChannel) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *DeliveryChannel) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the S3 bucket used to store the configuration history.
-func (r *DeliveryChannel) S3BucketName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3BucketName"])
+func (r *DeliveryChannel) S3BucketName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["s3BucketName"])
 }
 
 // The prefix for the specified S3 bucket.
-func (r *DeliveryChannel) S3KeyPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3KeyPrefix"])
+func (r *DeliveryChannel) S3KeyPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["s3KeyPrefix"])
 }
 
 // Options for how AWS Config delivers configuration snapshots. See below
-func (r *DeliveryChannel) SnapshotDeliveryProperties() *pulumi.Output {
+func (r *DeliveryChannel) SnapshotDeliveryProperties() pulumi.Output {
 	return r.s.State["snapshotDeliveryProperties"]
 }
 
 // The ARN of the SNS topic that AWS Config delivers notifications to.
-func (r *DeliveryChannel) SnsTopicArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["snsTopicArn"])
+func (r *DeliveryChannel) SnsTopicArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["snsTopicArn"])
 }
 
 // Input properties used for looking up and filtering DeliveryChannel resources.

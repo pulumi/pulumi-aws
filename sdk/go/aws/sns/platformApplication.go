@@ -85,73 +85,73 @@ func GetPlatformApplication(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PlatformApplication) URN() *pulumi.URNOutput {
+func (r *PlatformApplication) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PlatformApplication) ID() *pulumi.IDOutput {
+func (r *PlatformApplication) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the SNS platform application
-func (r *PlatformApplication) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *PlatformApplication) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-func (r *PlatformApplication) EventDeliveryFailureTopicArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventDeliveryFailureTopicArn"])
+func (r *PlatformApplication) EventDeliveryFailureTopicArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventDeliveryFailureTopicArn"])
 }
 
 // SNS Topic triggered when a new platform endpoint is added to your platform application.
-func (r *PlatformApplication) EventEndpointCreatedTopicArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventEndpointCreatedTopicArn"])
+func (r *PlatformApplication) EventEndpointCreatedTopicArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventEndpointCreatedTopicArn"])
 }
 
 // SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-func (r *PlatformApplication) EventEndpointDeletedTopicArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventEndpointDeletedTopicArn"])
+func (r *PlatformApplication) EventEndpointDeletedTopicArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventEndpointDeletedTopicArn"])
 }
 
 // SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-func (r *PlatformApplication) EventEndpointUpdatedTopicArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventEndpointUpdatedTopicArn"])
+func (r *PlatformApplication) EventEndpointUpdatedTopicArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventEndpointUpdatedTopicArn"])
 }
 
 // The IAM role permitted to receive failure feedback for this application.
-func (r *PlatformApplication) FailureFeedbackRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["failureFeedbackRoleArn"])
+func (r *PlatformApplication) FailureFeedbackRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["failureFeedbackRoleArn"])
 }
 
 // The friendly name for the SNS platform application
-func (r *PlatformApplication) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PlatformApplication) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The platform that the app is registered with. See [Platform][1] for supported platforms.
-func (r *PlatformApplication) Platform() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["platform"])
+func (r *PlatformApplication) Platform() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["platform"])
 }
 
 // Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-func (r *PlatformApplication) PlatformCredential() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["platformCredential"])
+func (r *PlatformApplication) PlatformCredential() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["platformCredential"])
 }
 
 // Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-func (r *PlatformApplication) PlatformPrincipal() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["platformPrincipal"])
+func (r *PlatformApplication) PlatformPrincipal() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["platformPrincipal"])
 }
 
 // The IAM role permitted to receive success feedback for this application.
-func (r *PlatformApplication) SuccessFeedbackRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["successFeedbackRoleArn"])
+func (r *PlatformApplication) SuccessFeedbackRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["successFeedbackRoleArn"])
 }
 
 // The percentage of success to sample (0-100)
-func (r *PlatformApplication) SuccessFeedbackSampleRate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["successFeedbackSampleRate"])
+func (r *PlatformApplication) SuccessFeedbackSampleRate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["successFeedbackSampleRate"])
 }
 
 // Input properties used for looking up and filtering PlatformApplication resources.

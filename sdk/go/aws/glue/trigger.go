@@ -32,7 +32,9 @@ func NewTrigger(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["predicate"] = nil
 		inputs["schedule"] = nil
+		inputs["tags"] = nil
 		inputs["type"] = nil
+		inputs["workflowName"] = nil
 	} else {
 		inputs["actions"] = args.Actions
 		inputs["description"] = args.Description
@@ -40,8 +42,11 @@ func NewTrigger(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["predicate"] = args.Predicate
 		inputs["schedule"] = args.Schedule
+		inputs["tags"] = args.Tags
 		inputs["type"] = args.Type
+		inputs["workflowName"] = args.WorkflowName
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:glue/trigger:Trigger", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -56,12 +61,15 @@ func GetTrigger(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["actions"] = state.Actions
+		inputs["arn"] = state.Arn
 		inputs["description"] = state.Description
 		inputs["enabled"] = state.Enabled
 		inputs["name"] = state.Name
 		inputs["predicate"] = state.Predicate
 		inputs["schedule"] = state.Schedule
+		inputs["tags"] = state.Tags
 		inputs["type"] = state.Type
+		inputs["workflowName"] = state.WorkflowName
 	}
 	s, err := ctx.ReadResource("aws:glue/trigger:Trigger", name, id, inputs, opts...)
 	if err != nil {
@@ -71,54 +79,71 @@ func GetTrigger(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Trigger) URN() *pulumi.URNOutput {
+func (r *Trigger) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Trigger) ID() *pulumi.IDOutput {
+func (r *Trigger) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // List of actions initiated by this trigger when it fires. Defined below.
-func (r *Trigger) Actions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["actions"])
+func (r *Trigger) Actions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["actions"])
+}
+
+// Amazon Resource Name (ARN) of Glue Trigger
+func (r *Trigger) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A description of the new trigger.
-func (r *Trigger) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Trigger) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
-func (r *Trigger) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *Trigger) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // The name of the trigger.
-func (r *Trigger) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Trigger) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
-func (r *Trigger) Predicate() *pulumi.Output {
+func (r *Trigger) Predicate() pulumi.Output {
 	return r.s.State["predicate"]
 }
 
 // A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-func (r *Trigger) Schedule() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["schedule"])
+func (r *Trigger) Schedule() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["schedule"])
+}
+
+// Key-value mapping of resource tags
+func (r *Trigger) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
-func (r *Trigger) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Trigger) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
+}
+
+// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+func (r *Trigger) WorkflowName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["workflowName"])
 }
 
 // Input properties used for looking up and filtering Trigger resources.
 type TriggerState struct {
 	// List of actions initiated by this trigger when it fires. Defined below.
 	Actions interface{}
+	// Amazon Resource Name (ARN) of Glue Trigger
+	Arn interface{}
 	// A description of the new trigger.
 	Description interface{}
 	// Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
@@ -129,8 +154,12 @@ type TriggerState struct {
 	Predicate interface{}
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
 	Type interface{}
+	// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+	WorkflowName interface{}
 }
 
 // The set of arguments for constructing a Trigger resource.
@@ -147,6 +176,10 @@ type TriggerArgs struct {
 	Predicate interface{}
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
 	Type interface{}
+	// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+	WorkflowName interface{}
 }

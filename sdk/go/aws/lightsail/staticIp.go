@@ -54,33 +54,33 @@ func GetStaticIp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *StaticIp) URN() *pulumi.URNOutput {
+func (r *StaticIp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *StaticIp) ID() *pulumi.IDOutput {
+func (r *StaticIp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the Lightsail static IP
-func (r *StaticIp) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *StaticIp) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The allocated static IP address
-func (r *StaticIp) IpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
+func (r *StaticIp) IpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipAddress"])
 }
 
 // The name for the allocated static IP
-func (r *StaticIp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *StaticIp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The support code.
-func (r *StaticIp) SupportCode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["supportCode"])
+func (r *StaticIp) SupportCode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["supportCode"])
 }
 
 // Input properties used for looking up and filtering StaticIp resources.

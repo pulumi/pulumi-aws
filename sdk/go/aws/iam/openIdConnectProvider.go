@@ -64,33 +64,33 @@ func GetOpenIdConnectProvider(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OpenIdConnectProvider) URN() *pulumi.URNOutput {
+func (r *OpenIdConnectProvider) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OpenIdConnectProvider) ID() *pulumi.IDOutput {
+func (r *OpenIdConnectProvider) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN assigned by AWS for this provider.
-func (r *OpenIdConnectProvider) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *OpenIdConnectProvider) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
-func (r *OpenIdConnectProvider) ClientIdLists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["clientIdLists"])
+func (r *OpenIdConnectProvider) ClientIdLists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["clientIdLists"])
 }
 
 // A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
-func (r *OpenIdConnectProvider) ThumbprintLists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["thumbprintLists"])
+func (r *OpenIdConnectProvider) ThumbprintLists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["thumbprintLists"])
 }
 
 // The URL of the identity provider. Corresponds to the _iss_ claim.
-func (r *OpenIdConnectProvider) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *OpenIdConnectProvider) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // Input properties used for looking up and filtering OpenIdConnectProvider resources.

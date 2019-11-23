@@ -61,33 +61,33 @@ func GetBucketNotification(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *BucketNotification) URN() *pulumi.URNOutput {
+func (r *BucketNotification) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *BucketNotification) ID() *pulumi.IDOutput {
+func (r *BucketNotification) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the bucket to put notification configuration.
-func (r *BucketNotification) Bucket() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bucket"])
+func (r *BucketNotification) Bucket() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bucket"])
 }
 
 // Used to configure notifications to a Lambda Function (documented below).
-func (r *BucketNotification) LambdaFunctions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["lambdaFunctions"])
+func (r *BucketNotification) LambdaFunctions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["lambdaFunctions"])
 }
 
 // The notification configuration to SQS Queue (documented below).
-func (r *BucketNotification) Queues() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["queues"])
+func (r *BucketNotification) Queues() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["queues"])
 }
 
 // The notification configuration to SNS Topic (documented below).
-func (r *BucketNotification) Topics() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["topics"])
+func (r *BucketNotification) Topics() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["topics"])
 }
 
 // Input properties used for looking up and filtering BucketNotification resources.

@@ -69,53 +69,53 @@ func GetEnvironmentEC2(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EnvironmentEC2) URN() *pulumi.URNOutput {
+func (r *EnvironmentEC2) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EnvironmentEC2) ID() *pulumi.IDOutput {
+func (r *EnvironmentEC2) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the environment.
-func (r *EnvironmentEC2) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *EnvironmentEC2) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The number of minutes until the running instance is shut down after the environment has last been used.
-func (r *EnvironmentEC2) AutomaticStopTimeMinutes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["automaticStopTimeMinutes"])
+func (r *EnvironmentEC2) AutomaticStopTimeMinutes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["automaticStopTimeMinutes"])
 }
 
 // The description of the environment.
-func (r *EnvironmentEC2) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *EnvironmentEC2) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The type of instance to connect to the environment, e.g. `t2.micro`.
-func (r *EnvironmentEC2) InstanceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceType"])
+func (r *EnvironmentEC2) InstanceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceType"])
 }
 
 // The name of the environment.
-func (r *EnvironmentEC2) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *EnvironmentEC2) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
-func (r *EnvironmentEC2) OwnerArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerArn"])
+func (r *EnvironmentEC2) OwnerArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerArn"])
 }
 
 // The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-func (r *EnvironmentEC2) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *EnvironmentEC2) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // The type of the environment (e.g. `ssh` or `ec2`)
-func (r *EnvironmentEC2) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *EnvironmentEC2) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering EnvironmentEC2 resources.

@@ -59,28 +59,28 @@ func GetReceiptFilter(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ReceiptFilter) URN() *pulumi.URNOutput {
+func (r *ReceiptFilter) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ReceiptFilter) ID() *pulumi.IDOutput {
+func (r *ReceiptFilter) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The IP address or address range to filter, in CIDR notation
-func (r *ReceiptFilter) Cidr() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cidr"])
+func (r *ReceiptFilter) Cidr() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cidr"])
 }
 
 // The name of the filter
-func (r *ReceiptFilter) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ReceiptFilter) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Block or Allow
-func (r *ReceiptFilter) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *ReceiptFilter) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // Input properties used for looking up and filtering ReceiptFilter resources.

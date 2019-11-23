@@ -89,73 +89,73 @@ func GetOrganizationCustomRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OrganizationCustomRule) URN() *pulumi.URNOutput {
+func (r *OrganizationCustomRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OrganizationCustomRule) ID() *pulumi.IDOutput {
+func (r *OrganizationCustomRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the rule
-func (r *OrganizationCustomRule) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *OrganizationCustomRule) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Description of the rule
-func (r *OrganizationCustomRule) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *OrganizationCustomRule) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // List of AWS account identifiers to exclude from the rule
-func (r *OrganizationCustomRule) ExcludedAccounts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["excludedAccounts"])
+func (r *OrganizationCustomRule) ExcludedAccounts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["excludedAccounts"])
 }
 
 // A string in JSON format that is passed to the AWS Config Rule Lambda Function
-func (r *OrganizationCustomRule) InputParameters() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["inputParameters"])
+func (r *OrganizationCustomRule) InputParameters() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["inputParameters"])
 }
 
 // Amazon Resource Name (ARN) of the rule Lambda Function
-func (r *OrganizationCustomRule) LambdaFunctionArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lambdaFunctionArn"])
+func (r *OrganizationCustomRule) LambdaFunctionArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lambdaFunctionArn"])
 }
 
 // The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-func (r *OrganizationCustomRule) MaximumExecutionFrequency() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["maximumExecutionFrequency"])
+func (r *OrganizationCustomRule) MaximumExecutionFrequency() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["maximumExecutionFrequency"])
 }
 
 // The name of the rule
-func (r *OrganizationCustomRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *OrganizationCustomRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Identifier of the AWS resource to evaluate
-func (r *OrganizationCustomRule) ResourceIdScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceIdScope"])
+func (r *OrganizationCustomRule) ResourceIdScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceIdScope"])
 }
 
 // List of types of AWS resources to evaluate
-func (r *OrganizationCustomRule) ResourceTypesScopes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["resourceTypesScopes"])
+func (r *OrganizationCustomRule) ResourceTypesScopes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["resourceTypesScopes"])
 }
 
 // Tag key of AWS resources to evaluate
-func (r *OrganizationCustomRule) TagKeyScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tagKeyScope"])
+func (r *OrganizationCustomRule) TagKeyScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tagKeyScope"])
 }
 
 // Tag value of AWS resources to evaluate
-func (r *OrganizationCustomRule) TagValueScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tagValueScope"])
+func (r *OrganizationCustomRule) TagValueScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tagValueScope"])
 }
 
 // List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
-func (r *OrganizationCustomRule) TriggerTypes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["triggerTypes"])
+func (r *OrganizationCustomRule) TriggerTypes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["triggerTypes"])
 }
 
 // Input properties used for looking up and filtering OrganizationCustomRule resources.

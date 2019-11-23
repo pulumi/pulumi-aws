@@ -57,33 +57,33 @@ func GetOrganizationalUnit(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OrganizationalUnit) URN() *pulumi.URNOutput {
+func (r *OrganizationalUnit) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OrganizationalUnit) ID() *pulumi.IDOutput {
+func (r *OrganizationalUnit) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
-func (r *OrganizationalUnit) Accounts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["accounts"])
+func (r *OrganizationalUnit) Accounts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["accounts"])
 }
 
 // ARN of the organizational unit
-func (r *OrganizationalUnit) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *OrganizationalUnit) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name for the organizational unit
-func (r *OrganizationalUnit) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *OrganizationalUnit) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // ID of the parent organizational unit, which may be the root
-func (r *OrganizationalUnit) ParentId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["parentId"])
+func (r *OrganizationalUnit) ParentId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["parentId"])
 }
 
 // Input properties used for looking up and filtering OrganizationalUnit resources.

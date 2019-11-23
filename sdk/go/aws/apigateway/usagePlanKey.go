@@ -66,38 +66,38 @@ func GetUsagePlanKey(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *UsagePlanKey) URN() *pulumi.URNOutput {
+func (r *UsagePlanKey) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *UsagePlanKey) ID() *pulumi.IDOutput {
+func (r *UsagePlanKey) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The identifier of the API key resource.
-func (r *UsagePlanKey) KeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyId"])
+func (r *UsagePlanKey) KeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyId"])
 }
 
 // The type of the API key resource. Currently, the valid key type is API_KEY.
-func (r *UsagePlanKey) KeyType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyType"])
+func (r *UsagePlanKey) KeyType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyType"])
 }
 
 // The name of a usage plan key.
-func (r *UsagePlanKey) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *UsagePlanKey) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The Id of the usage plan resource representing to associate the key to.
-func (r *UsagePlanKey) UsagePlanId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["usagePlanId"])
+func (r *UsagePlanKey) UsagePlanId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["usagePlanId"])
 }
 
 // The value of a usage plan key.
-func (r *UsagePlanKey) Value() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["value"])
+func (r *UsagePlanKey) Value() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["value"])
 }
 
 // Input properties used for looking up and filtering UsagePlanKey resources.

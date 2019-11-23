@@ -14,6 +14,10 @@ class Job(pulumi.CustomResource):
     """
     **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
     """
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of Glue Job
+    """
     command: pulumi.Output[dict]
     """
     The command of the job. Defined below.
@@ -56,6 +60,10 @@ class Job(pulumi.CustomResource):
     """
     The name of the job command. Defaults to `glueetl`
     """
+    number_of_workers: pulumi.Output[float]
+    """
+    The number of workers of a defined workerType that are allocated when a job runs.
+    """
     role_arn: pulumi.Output[str]
     """
     The ARN of the IAM role associated with this job.
@@ -64,11 +72,19 @@ class Job(pulumi.CustomResource):
     """
     The name of the Security Configuration to be associated with the job.
     """
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
     timeout: pulumi.Output[float]
     """
     The job timeout in minutes. The default is 2880 minutes (48 hours).
     """
-    def __init__(__self__, resource_name, opts=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, role_arn=None, security_configuration=None, timeout=None, __props__=None, __name__=None, __opts__=None):
+    worker_type: pulumi.Output[str]
+    """
+    The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+    """
+    def __init__(__self__, resource_name, opts=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, number_of_workers=None, role_arn=None, security_configuration=None, tags=None, timeout=None, worker_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Glue Job resource.
         
@@ -84,9 +100,12 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
         :param pulumi.Input[float] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`
+        :param pulumi.Input[float] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[float] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours).
+        :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
         
         The **command** object supports the following:
         
@@ -129,11 +148,15 @@ class Job(pulumi.CustomResource):
             __props__['max_capacity'] = max_capacity
             __props__['max_retries'] = max_retries
             __props__['name'] = name
+            __props__['number_of_workers'] = number_of_workers
             if role_arn is None:
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
             __props__['security_configuration'] = security_configuration
+            __props__['tags'] = tags
             __props__['timeout'] = timeout
+            __props__['worker_type'] = worker_type
+            __props__['arn'] = None
         super(Job, __self__).__init__(
             'aws:glue/job:Job',
             resource_name,
@@ -141,7 +164,7 @@ class Job(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, role_arn=None, security_configuration=None, timeout=None):
+    def get(resource_name, id, opts=None, allocated_capacity=None, arn=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, number_of_workers=None, role_arn=None, security_configuration=None, tags=None, timeout=None, worker_type=None):
         """
         Get an existing Job resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -150,6 +173,7 @@ class Job(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] allocated_capacity: **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Job
         :param pulumi.Input[dict] command: The command of the job. Defined below.
         :param pulumi.Input[list] connections: The list of connections used for this job.
         :param pulumi.Input[dict] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
@@ -159,9 +183,12 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
         :param pulumi.Input[float] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`
+        :param pulumi.Input[float] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[float] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours).
+        :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
         
         The **command** object supports the following:
         
@@ -179,6 +206,7 @@ class Job(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["allocated_capacity"] = allocated_capacity
+        __props__["arn"] = arn
         __props__["command"] = command
         __props__["connections"] = connections
         __props__["default_arguments"] = default_arguments
@@ -188,9 +216,12 @@ class Job(pulumi.CustomResource):
         __props__["max_capacity"] = max_capacity
         __props__["max_retries"] = max_retries
         __props__["name"] = name
+        __props__["number_of_workers"] = number_of_workers
         __props__["role_arn"] = role_arn
         __props__["security_configuration"] = security_configuration
+        __props__["tags"] = tags
         __props__["timeout"] = timeout
+        __props__["worker_type"] = worker_type
         return Job(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

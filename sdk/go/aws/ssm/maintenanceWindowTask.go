@@ -104,78 +104,78 @@ func GetMaintenanceWindowTask(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MaintenanceWindowTask) URN() *pulumi.URNOutput {
+func (r *MaintenanceWindowTask) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MaintenanceWindowTask) ID() *pulumi.IDOutput {
+func (r *MaintenanceWindowTask) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The description of the maintenance window task.
-func (r *MaintenanceWindowTask) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *MaintenanceWindowTask) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
-func (r *MaintenanceWindowTask) LoggingInfo() *pulumi.Output {
+func (r *MaintenanceWindowTask) LoggingInfo() pulumi.Output {
 	return r.s.State["loggingInfo"]
 }
 
 // The maximum number of targets this task can be run for in parallel.
-func (r *MaintenanceWindowTask) MaxConcurrency() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["maxConcurrency"])
+func (r *MaintenanceWindowTask) MaxConcurrency() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["maxConcurrency"])
 }
 
 // The maximum number of errors allowed before this task stops being scheduled.
-func (r *MaintenanceWindowTask) MaxErrors() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["maxErrors"])
+func (r *MaintenanceWindowTask) MaxErrors() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["maxErrors"])
 }
 
 // The parameter name.
-func (r *MaintenanceWindowTask) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *MaintenanceWindowTask) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-func (r *MaintenanceWindowTask) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *MaintenanceWindowTask) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // The IAM service role to assume during task execution.
-func (r *MaintenanceWindowTask) ServiceRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceRoleArn"])
+func (r *MaintenanceWindowTask) ServiceRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceRoleArn"])
 }
 
 // The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-func (r *MaintenanceWindowTask) Targets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["targets"])
+func (r *MaintenanceWindowTask) Targets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["targets"])
 }
 
 // The ARN of the task to execute.
-func (r *MaintenanceWindowTask) TaskArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["taskArn"])
+func (r *MaintenanceWindowTask) TaskArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["taskArn"])
 }
 
 // The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
-func (r *MaintenanceWindowTask) TaskInvocationParameters() *pulumi.Output {
+func (r *MaintenanceWindowTask) TaskInvocationParameters() pulumi.Output {
 	return r.s.State["taskInvocationParameters"]
 }
 
 // A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
-func (r *MaintenanceWindowTask) TaskParameters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["taskParameters"])
+func (r *MaintenanceWindowTask) TaskParameters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["taskParameters"])
 }
 
 // The type of task being registered. The only allowed value is `RUN_COMMAND`.
-func (r *MaintenanceWindowTask) TaskType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["taskType"])
+func (r *MaintenanceWindowTask) TaskType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["taskType"])
 }
 
 // The Id of the maintenance window to register the task with.
-func (r *MaintenanceWindowTask) WindowId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["windowId"])
+func (r *MaintenanceWindowTask) WindowId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["windowId"])
 }
 
 // Input properties used for looking up and filtering MaintenanceWindowTask resources.

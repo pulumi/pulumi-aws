@@ -62,28 +62,28 @@ func GetGcmChannel(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *GcmChannel) URN() *pulumi.URNOutput {
+func (r *GcmChannel) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *GcmChannel) ID() *pulumi.IDOutput {
+func (r *GcmChannel) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Platform credential API key from Google.
-func (r *GcmChannel) ApiKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiKey"])
+func (r *GcmChannel) ApiKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiKey"])
 }
 
 // The application ID.
-func (r *GcmChannel) ApplicationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationId"])
+func (r *GcmChannel) ApplicationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationId"])
 }
 
 // Whether the channel is enabled or disabled. Defaults to `true`.
-func (r *GcmChannel) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *GcmChannel) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Input properties used for looking up and filtering GcmChannel resources.

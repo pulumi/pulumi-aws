@@ -68,43 +68,43 @@ func GetUserLoginProfile(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *UserLoginProfile) URN() *pulumi.URNOutput {
+func (r *UserLoginProfile) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *UserLoginProfile) ID() *pulumi.IDOutput {
+func (r *UserLoginProfile) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The encrypted password, base64 encoded. Only available if password was handled on this provider resource creation, not import.
-func (r *UserLoginProfile) EncryptedPassword() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["encryptedPassword"])
+func (r *UserLoginProfile) EncryptedPassword() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["encryptedPassword"])
 }
 
 // The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-func (r *UserLoginProfile) KeyFingerprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyFingerprint"])
+func (r *UserLoginProfile) KeyFingerprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyFingerprint"])
 }
 
 // The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
-func (r *UserLoginProfile) PasswordLength() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["passwordLength"])
+func (r *UserLoginProfile) PasswordLength() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["passwordLength"])
 }
 
 // Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
-func (r *UserLoginProfile) PasswordResetRequired() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["passwordResetRequired"])
+func (r *UserLoginProfile) PasswordResetRequired() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["passwordResetRequired"])
 }
 
 // Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-func (r *UserLoginProfile) PgpKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["pgpKey"])
+func (r *UserLoginProfile) PgpKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["pgpKey"])
 }
 
 // The IAM user's name.
-func (r *UserLoginProfile) User() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["user"])
+func (r *UserLoginProfile) User() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["user"])
 }
 
 // Input properties used for looking up and filtering UserLoginProfile resources.

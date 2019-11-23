@@ -58,43 +58,43 @@ func GetThing(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Thing) URN() *pulumi.URNOutput {
+func (r *Thing) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Thing) ID() *pulumi.IDOutput {
+func (r *Thing) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the thing.
-func (r *Thing) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Thing) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Map of attributes of the thing.
-func (r *Thing) Attributes() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["attributes"])
+func (r *Thing) Attributes() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["attributes"])
 }
 
 // The default client ID.
-func (r *Thing) DefaultClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultClientId"])
+func (r *Thing) DefaultClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultClientId"])
 }
 
 // The name of the thing.
-func (r *Thing) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Thing) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The thing type name.
-func (r *Thing) ThingTypeName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["thingTypeName"])
+func (r *Thing) ThingTypeName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["thingTypeName"])
 }
 
 // The current version of the thing record in the registry.
-func (r *Thing) Version() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["version"])
+func (r *Thing) Version() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering Thing resources.

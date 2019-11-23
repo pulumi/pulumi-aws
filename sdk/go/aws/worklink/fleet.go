@@ -69,68 +69,68 @@ func GetFleet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Fleet) URN() *pulumi.URNOutput {
+func (r *Fleet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Fleet) ID() *pulumi.IDOutput {
+func (r *Fleet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the created WorkLink Fleet.
-func (r *Fleet) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Fleet) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The ARN of the Amazon Kinesis data stream that receives the audit events.
-func (r *Fleet) AuditStreamArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["auditStreamArn"])
+func (r *Fleet) AuditStreamArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["auditStreamArn"])
 }
 
 // The identifier used by users to sign in to the Amazon WorkLink app.
-func (r *Fleet) CompanyCode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["companyCode"])
+func (r *Fleet) CompanyCode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["companyCode"])
 }
 
 // The time that the fleet was created.
-func (r *Fleet) CreatedTime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdTime"])
+func (r *Fleet) CreatedTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdTime"])
 }
 
 // The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-func (r *Fleet) DeviceCaCertificate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deviceCaCertificate"])
+func (r *Fleet) DeviceCaCertificate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deviceCaCertificate"])
 }
 
 // The name of the fleet.
-func (r *Fleet) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *Fleet) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-func (r *Fleet) IdentityProvider() *pulumi.Output {
+func (r *Fleet) IdentityProvider() pulumi.Output {
 	return r.s.State["identityProvider"]
 }
 
 // The time that the fleet was last updated.
-func (r *Fleet) LastUpdatedTime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastUpdatedTime"])
+func (r *Fleet) LastUpdatedTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastUpdatedTime"])
 }
 
 // A region-unique name for the AMI.
-func (r *Fleet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Fleet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-func (r *Fleet) Network() *pulumi.Output {
+func (r *Fleet) Network() pulumi.Output {
 	return r.s.State["network"]
 }
 
 // The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-func (r *Fleet) OptimizeForEndUserLocation() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["optimizeForEndUserLocation"])
+func (r *Fleet) OptimizeForEndUserLocation() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["optimizeForEndUserLocation"])
 }
 
 // Input properties used for looking up and filtering Fleet resources.

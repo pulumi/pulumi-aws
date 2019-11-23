@@ -65,33 +65,33 @@ func GetListener(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Listener) URN() *pulumi.URNOutput {
+func (r *Listener) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Listener) ID() *pulumi.IDOutput {
+func (r *Listener) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) of your accelerator.
-func (r *Listener) AcceleratorArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["acceleratorArn"])
+func (r *Listener) AcceleratorArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["acceleratorArn"])
 }
 
 // Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
-func (r *Listener) ClientAffinity() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientAffinity"])
+func (r *Listener) ClientAffinity() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientAffinity"])
 }
 
 // The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-func (r *Listener) PortRanges() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["portRanges"])
+func (r *Listener) PortRanges() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["portRanges"])
 }
 
 // The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
-func (r *Listener) Protocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocol"])
+func (r *Listener) Protocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocol"])
 }
 
 // Input properties used for looking up and filtering Listener resources.

@@ -1045,7 +1045,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? OnDemandPercentageAboveBaseCapacity { get; set; }
 
         /// <summary>
-        /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`. Default: `lowest-price`.
+        /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
         /// </summary>
         [Input("spotAllocationStrategy")]
         public Input<string>? SpotAllocationStrategy { get; set; }
@@ -1088,7 +1088,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? OnDemandPercentageAboveBaseCapacity { get; set; }
 
         /// <summary>
-        /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`. Default: `lowest-price`.
+        /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
         /// </summary>
         [Input("spotAllocationStrategy")]
         public Input<string>? SpotAllocationStrategy { get; set; }
@@ -1392,7 +1392,7 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly int? OnDemandPercentageAboveBaseCapacity;
         /// <summary>
-        /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`. Default: `lowest-price`.
+        /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
         /// </summary>
         public readonly string? SpotAllocationStrategy;
         /// <summary>

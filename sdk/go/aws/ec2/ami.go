@@ -93,95 +93,95 @@ func GetAmi(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Ami) URN() *pulumi.URNOutput {
+func (r *Ami) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Ami) ID() *pulumi.IDOutput {
+func (r *Ami) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Machine architecture for created instances. Defaults to "x8664".
-func (r *Ami) Architecture() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["architecture"])
+func (r *Ami) Architecture() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["architecture"])
 }
 
 // A longer, human-readable description for the AMI.
-func (r *Ami) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Ami) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Nested block describing an EBS block device that should be
 // attached to created instances. The structure of this block is described below.
-func (r *Ami) EbsBlockDevices() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
+func (r *Ami) EbsBlockDevices() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
 }
 
 // Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-func (r *Ami) EnaSupport() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enaSupport"])
+func (r *Ami) EnaSupport() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enaSupport"])
 }
 
 // Nested block describing an ephemeral block device that
 // should be attached to created instances. The structure of this block is described below.
-func (r *Ami) EphemeralBlockDevices() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
+func (r *Ami) EphemeralBlockDevices() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
 }
 
 // Path to an S3 object containing an image manifest, e.g. created
 // by the `ec2-upload-bundle` command in the EC2 command line tools.
-func (r *Ami) ImageLocation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["imageLocation"])
+func (r *Ami) ImageLocation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["imageLocation"])
 }
 
 // The id of the kernel image (AKI) that will be used as the paravirtual
 // kernel in created instances.
-func (r *Ami) KernelId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kernelId"])
+func (r *Ami) KernelId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kernelId"])
 }
 
-func (r *Ami) ManageEbsSnapshots() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["manageEbsSnapshots"])
+func (r *Ami) ManageEbsSnapshots() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["manageEbsSnapshots"])
 }
 
 // A region-unique name for the AMI.
-func (r *Ami) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Ami) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The id of an initrd image (ARI) that will be used when booting the
 // created instances.
-func (r *Ami) RamdiskId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ramdiskId"])
+func (r *Ami) RamdiskId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ramdiskId"])
 }
 
 // The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-func (r *Ami) RootDeviceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rootDeviceName"])
+func (r *Ami) RootDeviceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rootDeviceName"])
 }
 
 // The Snapshot ID for the root volume (for EBS-backed AMIs)
-func (r *Ami) RootSnapshotId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rootSnapshotId"])
+func (r *Ami) RootSnapshotId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rootSnapshotId"])
 }
 
 // When set to "simple" (the default), enables enhanced networking
 // for created instances. No other value is supported at this time.
-func (r *Ami) SriovNetSupport() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sriovNetSupport"])
+func (r *Ami) SriovNetSupport() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sriovNetSupport"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Ami) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Ami) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Keyword to choose what virtualization mode created instances
 // will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 // changes the set of further arguments that are required, as described below.
-func (r *Ami) VirtualizationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["virtualizationType"])
+func (r *Ami) VirtualizationType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["virtualizationType"])
 }
 
 // Input properties used for looking up and filtering Ami resources.

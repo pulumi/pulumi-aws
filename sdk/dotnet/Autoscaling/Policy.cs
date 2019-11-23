@@ -79,6 +79,10 @@ namespace Pulumi.Aws.AutoScaling
         [Output("scalingAdjustment")]
         public Output<int?> ScalingAdjustment { get; private set; } = null!;
 
+        /// <summary>
+        /// A set of adjustments that manage
+        /// group scaling. These have the following structure:
+        /// </summary>
         [Output("stepAdjustments")]
         public Output<ImmutableArray<Outputs.PolicyStepAdjustments>> StepAdjustments { get; private set; } = null!;
 
@@ -189,6 +193,11 @@ namespace Pulumi.Aws.AutoScaling
 
         [Input("stepAdjustments")]
         private InputList<Inputs.PolicyStepAdjustmentsArgs>? _stepAdjustments;
+
+        /// <summary>
+        /// A set of adjustments that manage
+        /// group scaling. These have the following structure:
+        /// </summary>
         public InputList<Inputs.PolicyStepAdjustmentsArgs> StepAdjustments
         {
             get => _stepAdjustments ?? (_stepAdjustments = new InputList<Inputs.PolicyStepAdjustmentsArgs>());
@@ -269,6 +278,11 @@ namespace Pulumi.Aws.AutoScaling
 
         [Input("stepAdjustments")]
         private InputList<Inputs.PolicyStepAdjustmentsGetArgs>? _stepAdjustments;
+
+        /// <summary>
+        /// A set of adjustments that manage
+        /// group scaling. These have the following structure:
+        /// </summary>
         public InputList<Inputs.PolicyStepAdjustmentsGetArgs> StepAdjustments
         {
             get => _stepAdjustments ?? (_stepAdjustments = new InputList<Inputs.PolicyStepAdjustmentsGetArgs>());

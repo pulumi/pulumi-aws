@@ -84,88 +84,88 @@ func GetStack(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Stack) URN() *pulumi.URNOutput {
+func (r *Stack) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Stack) ID() *pulumi.IDOutput {
+func (r *Stack) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A list of capabilities.
 // Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
-func (r *Stack) Capabilities() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["capabilities"])
+func (r *Stack) Capabilities() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["capabilities"])
 }
 
 // Set to true to disable rollback of the stack if stack creation failed.
 // Conflicts with `onFailure`.
-func (r *Stack) DisableRollback() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["disableRollback"])
+func (r *Stack) DisableRollback() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["disableRollback"])
 }
 
 // The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
-func (r *Stack) IamRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iamRoleArn"])
+func (r *Stack) IamRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iamRoleArn"])
 }
 
 // Stack name.
-func (r *Stack) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Stack) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A list of SNS topic ARNs to publish stack related events.
-func (r *Stack) NotificationArns() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["notificationArns"])
+func (r *Stack) NotificationArns() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["notificationArns"])
 }
 
 // Action to be taken if stack creation fails. This must be
 // one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
-func (r *Stack) OnFailure() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["onFailure"])
+func (r *Stack) OnFailure() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["onFailure"])
 }
 
 // A map of outputs from the stack.
-func (r *Stack) Outputs() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["outputs"])
+func (r *Stack) Outputs() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["outputs"])
 }
 
 // A map of Parameter structures that specify input parameters for the stack.
-func (r *Stack) Parameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["parameters"])
+func (r *Stack) Parameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // Structure containing the stack policy body.
 // Conflicts w/ `policyUrl`.
-func (r *Stack) PolicyBody() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyBody"])
+func (r *Stack) PolicyBody() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyBody"])
 }
 
 // Location of a file containing the stack policy.
 // Conflicts w/ `policyBody`.
-func (r *Stack) PolicyUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyUrl"])
+func (r *Stack) PolicyUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyUrl"])
 }
 
 // A list of tags to associate with this stack.
-func (r *Stack) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Stack) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Structure containing the template body (max size: 51,200 bytes).
-func (r *Stack) TemplateBody() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["templateBody"])
+func (r *Stack) TemplateBody() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["templateBody"])
 }
 
 // Location of a file containing the template body (max size: 460,800 bytes).
-func (r *Stack) TemplateUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["templateUrl"])
+func (r *Stack) TemplateUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["templateUrl"])
 }
 
 // The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
-func (r *Stack) TimeoutInMinutes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["timeoutInMinutes"])
+func (r *Stack) TimeoutInMinutes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["timeoutInMinutes"])
 }
 
 // Input properties used for looking up and filtering Stack resources.

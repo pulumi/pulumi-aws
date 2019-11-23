@@ -73,48 +73,48 @@ func GetMember(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Member) URN() *pulumi.URNOutput {
+func (r *Member) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Member) ID() *pulumi.IDOutput {
+func (r *Member) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // AWS account ID for member account.
-func (r *Member) AccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountId"])
+func (r *Member) AccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountId"])
 }
 
 // The detector ID of the GuardDuty account where you want to create member accounts.
-func (r *Member) DetectorId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["detectorId"])
+func (r *Member) DetectorId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["detectorId"])
 }
 
 // Boolean whether an email notification is sent to the accounts. Defaults to `false`.
-func (r *Member) DisableEmailNotification() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["disableEmailNotification"])
+func (r *Member) DisableEmailNotification() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["disableEmailNotification"])
 }
 
 // Email address for member account.
-func (r *Member) Email() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["email"])
+func (r *Member) Email() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["email"])
 }
 
 // Message for invitation.
-func (r *Member) InvitationMessage() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["invitationMessage"])
+func (r *Member) InvitationMessage() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["invitationMessage"])
 }
 
 // Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
-func (r *Member) Invite() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["invite"])
+func (r *Member) Invite() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["invite"])
 }
 
 // The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
-func (r *Member) RelationshipStatus() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["relationshipStatus"])
+func (r *Member) RelationshipStatus() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["relationshipStatus"])
 }
 
 // Input properties used for looking up and filtering Member resources.

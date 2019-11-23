@@ -60,23 +60,23 @@ func GetListenerCertificate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ListenerCertificate) URN() *pulumi.URNOutput {
+func (r *ListenerCertificate) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ListenerCertificate) ID() *pulumi.IDOutput {
+func (r *ListenerCertificate) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the certificate to attach to the listener.
-func (r *ListenerCertificate) CertificateArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificateArn"])
+func (r *ListenerCertificate) CertificateArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificateArn"])
 }
 
 // The ARN of the listener to which to attach the certificate.
-func (r *ListenerCertificate) ListenerArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["listenerArn"])
+func (r *ListenerCertificate) ListenerArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["listenerArn"])
 }
 
 // Input properties used for looking up and filtering ListenerCertificate resources.

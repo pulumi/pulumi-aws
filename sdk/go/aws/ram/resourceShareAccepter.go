@@ -66,53 +66,53 @@ func GetResourceShareAccepter(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ResourceShareAccepter) URN() *pulumi.URNOutput {
+func (r *ResourceShareAccepter) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ResourceShareAccepter) ID() *pulumi.IDOutput {
+func (r *ResourceShareAccepter) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the resource share invitation.
-func (r *ResourceShareAccepter) InvitationArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["invitationArn"])
+func (r *ResourceShareAccepter) InvitationArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["invitationArn"])
 }
 
 // The account ID of the receiver account which accepts the invitation.
-func (r *ResourceShareAccepter) ReceiverAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["receiverAccountId"])
+func (r *ResourceShareAccepter) ReceiverAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["receiverAccountId"])
 }
 
 // A list of the resource ARNs shared via the resource share.
-func (r *ResourceShareAccepter) Resources() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["resources"])
+func (r *ResourceShareAccepter) Resources() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["resources"])
 }
 
 // The account ID of the sender account which extends the invitation.
-func (r *ResourceShareAccepter) SenderAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["senderAccountId"])
+func (r *ResourceShareAccepter) SenderAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["senderAccountId"])
 }
 
 // The ARN of the resource share.
-func (r *ResourceShareAccepter) ShareArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["shareArn"])
+func (r *ResourceShareAccepter) ShareArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["shareArn"])
 }
 
 // The ID of the resource share as displayed in the console.
-func (r *ResourceShareAccepter) ShareId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["shareId"])
+func (r *ResourceShareAccepter) ShareId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["shareId"])
 }
 
 // The name of the resource share.
-func (r *ResourceShareAccepter) ShareName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["shareName"])
+func (r *ResourceShareAccepter) ShareName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["shareName"])
 }
 
 // The status of the invitation (e.g., ACCEPTED, REJECTED).
-func (r *ResourceShareAccepter) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *ResourceShareAccepter) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Input properties used for looking up and filtering ResourceShareAccepter resources.

@@ -69,42 +69,42 @@ func GetS3Location(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *S3Location) URN() *pulumi.URNOutput {
+func (r *S3Location) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *S3Location) ID() *pulumi.IDOutput {
+func (r *S3Location) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
-func (r *S3Location) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *S3Location) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Amazon Resource Name (ARN) of the S3 Bucket.
-func (r *S3Location) S3BucketArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3BucketArn"])
+func (r *S3Location) S3BucketArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["s3BucketArn"])
 }
 
 // Configuration block containing information for connecting to S3.
-func (r *S3Location) S3Config() *pulumi.Output {
+func (r *S3Location) S3Config() pulumi.Output {
 	return r.s.State["s3Config"]
 }
 
 // Prefix to perform actions as source or destination.
-func (r *S3Location) Subdirectory() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subdirectory"])
+func (r *S3Location) Subdirectory() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subdirectory"])
 }
 
 // Key-value pairs of resource tags to assign to the DataSync Location.
-func (r *S3Location) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *S3Location) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-func (r *S3Location) Uri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uri"])
+func (r *S3Location) Uri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uri"])
 }
 
 // Input properties used for looking up and filtering S3Location resources.

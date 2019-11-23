@@ -51,28 +51,28 @@ func GetAssessmentTarget(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AssessmentTarget) URN() *pulumi.URNOutput {
+func (r *AssessmentTarget) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AssessmentTarget) ID() *pulumi.IDOutput {
+func (r *AssessmentTarget) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The target assessment ARN.
-func (r *AssessmentTarget) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *AssessmentTarget) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name of the assessment target.
-func (r *AssessmentTarget) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AssessmentTarget) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-func (r *AssessmentTarget) ResourceGroupArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupArn"])
+func (r *AssessmentTarget) ResourceGroupArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupArn"])
 }
 
 // Input properties used for looking up and filtering AssessmentTarget resources.

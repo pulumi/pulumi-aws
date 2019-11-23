@@ -54,31 +54,31 @@ func GetThingType(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ThingType) URN() *pulumi.URNOutput {
+func (r *ThingType) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ThingType) ID() *pulumi.IDOutput {
+func (r *ThingType) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the created AWS IoT Thing Type.
-func (r *ThingType) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ThingType) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Whether the thing type is deprecated. If true, no new things could be associated with this type.
-func (r *ThingType) Deprecated() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["deprecated"])
+func (r *ThingType) Deprecated() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["deprecated"])
 }
 
 // The name of the thing type.
-func (r *ThingType) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ThingType) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *ThingType) Properties() *pulumi.Output {
+func (r *ThingType) Properties() pulumi.Output {
 	return r.s.State["properties"]
 }
 

@@ -73,38 +73,38 @@ func GetThreatIntelSet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ThreatIntelSet) URN() *pulumi.URNOutput {
+func (r *ThreatIntelSet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ThreatIntelSet) ID() *pulumi.IDOutput {
+func (r *ThreatIntelSet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-func (r *ThreatIntelSet) Activate() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["activate"])
+func (r *ThreatIntelSet) Activate() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["activate"])
 }
 
 // The detector ID of the GuardDuty.
-func (r *ThreatIntelSet) DetectorId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["detectorId"])
+func (r *ThreatIntelSet) DetectorId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["detectorId"])
 }
 
 // The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-func (r *ThreatIntelSet) Format() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["format"])
+func (r *ThreatIntelSet) Format() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["format"])
 }
 
 // The URI of the file that contains the ThreatIntelSet.
-func (r *ThreatIntelSet) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *ThreatIntelSet) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The friendly name to identify the ThreatIntelSet.
-func (r *ThreatIntelSet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ThreatIntelSet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering ThreatIntelSet resources.

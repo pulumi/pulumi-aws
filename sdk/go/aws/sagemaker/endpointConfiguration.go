@@ -61,38 +61,38 @@ func GetEndpointConfiguration(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EndpointConfiguration) URN() *pulumi.URNOutput {
+func (r *EndpointConfiguration) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EndpointConfiguration) ID() *pulumi.IDOutput {
+func (r *EndpointConfiguration) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
-func (r *EndpointConfiguration) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *EndpointConfiguration) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-func (r *EndpointConfiguration) KmsKeyArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyArn"])
+func (r *EndpointConfiguration) KmsKeyArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyArn"])
 }
 
 // The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
-func (r *EndpointConfiguration) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *EndpointConfiguration) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Fields are documented below.
-func (r *EndpointConfiguration) ProductionVariants() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["productionVariants"])
+func (r *EndpointConfiguration) ProductionVariants() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["productionVariants"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *EndpointConfiguration) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *EndpointConfiguration) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering EndpointConfiguration resources.

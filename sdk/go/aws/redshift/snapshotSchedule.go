@@ -64,47 +64,47 @@ func GetSnapshotSchedule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SnapshotSchedule) URN() *pulumi.URNOutput {
+func (r *SnapshotSchedule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SnapshotSchedule) ID() *pulumi.IDOutput {
+func (r *SnapshotSchedule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *SnapshotSchedule) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *SnapshotSchedule) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
-func (r *SnapshotSchedule) Definitions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["definitions"])
+func (r *SnapshotSchedule) Definitions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["definitions"])
 }
 
 // The description of the snapshot schedule.
-func (r *SnapshotSchedule) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *SnapshotSchedule) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-func (r *SnapshotSchedule) ForceDestroy() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
+func (r *SnapshotSchedule) ForceDestroy() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["forceDestroy"])
 }
 
-func (r *SnapshotSchedule) Identifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identifier"])
+func (r *SnapshotSchedule) Identifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identifier"])
 }
 
 // Creates a unique
 // identifier beginning with the specified prefix. Conflicts with `identifier`.
-func (r *SnapshotSchedule) IdentifierPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identifierPrefix"])
+func (r *SnapshotSchedule) IdentifierPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identifierPrefix"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *SnapshotSchedule) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *SnapshotSchedule) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering SnapshotSchedule resources.

@@ -60,23 +60,23 @@ func GetCertificateValidation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *CertificateValidation) URN() *pulumi.URNOutput {
+func (r *CertificateValidation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *CertificateValidation) ID() *pulumi.IDOutput {
+func (r *CertificateValidation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the certificate that is being validated.
-func (r *CertificateValidation) CertificateArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificateArn"])
+func (r *CertificateValidation) CertificateArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificateArn"])
 }
 
 // List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-func (r *CertificateValidation) ValidationRecordFqdns() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["validationRecordFqdns"])
+func (r *CertificateValidation) ValidationRecordFqdns() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["validationRecordFqdns"])
 }
 
 // Input properties used for looking up and filtering CertificateValidation resources.

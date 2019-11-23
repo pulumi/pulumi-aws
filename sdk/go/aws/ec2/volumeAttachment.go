@@ -71,32 +71,32 @@ func GetVolumeAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VolumeAttachment) URN() *pulumi.URNOutput {
+func (r *VolumeAttachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VolumeAttachment) ID() *pulumi.IDOutput {
+func (r *VolumeAttachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The device name to expose to the instance (for
 // example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
-func (r *VolumeAttachment) DeviceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deviceName"])
+func (r *VolumeAttachment) DeviceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deviceName"])
 }
 
 // Set to `true` if you want to force the
 // volume to detach. Useful if previous attempts failed, but use this option only
 // as a last resort, as this can result in **data loss**. See
 // [Detaching an Amazon EBS Volume from an Instance][3] for more information.
-func (r *VolumeAttachment) ForceDetach() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["forceDetach"])
+func (r *VolumeAttachment) ForceDetach() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["forceDetach"])
 }
 
 // ID of the Instance to attach to
-func (r *VolumeAttachment) InstanceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceId"])
+func (r *VolumeAttachment) InstanceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceId"])
 }
 
 // Set this to true if you do not wish
@@ -104,13 +104,13 @@ func (r *VolumeAttachment) InstanceId() *pulumi.StringOutput {
 // time, and instead just remove the attachment from this provider state. This is
 // useful when destroying an instance which has volumes created by some other
 // means attached.
-func (r *VolumeAttachment) SkipDestroy() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["skipDestroy"])
+func (r *VolumeAttachment) SkipDestroy() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["skipDestroy"])
 }
 
 // ID of the Volume to be attached
-func (r *VolumeAttachment) VolumeId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["volumeId"])
+func (r *VolumeAttachment) VolumeId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["volumeId"])
 }
 
 // Input properties used for looking up and filtering VolumeAttachment resources.

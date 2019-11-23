@@ -56,23 +56,23 @@ func GetSpotDatafeedSubscription(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SpotDatafeedSubscription) URN() *pulumi.URNOutput {
+func (r *SpotDatafeedSubscription) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SpotDatafeedSubscription) ID() *pulumi.IDOutput {
+func (r *SpotDatafeedSubscription) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon S3 bucket in which to store the Spot instance data feed.
-func (r *SpotDatafeedSubscription) Bucket() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bucket"])
+func (r *SpotDatafeedSubscription) Bucket() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bucket"])
 }
 
 // Path of folder inside bucket to place spot pricing data.
-func (r *SpotDatafeedSubscription) Prefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["prefix"])
+func (r *SpotDatafeedSubscription) Prefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["prefix"])
 }
 
 // Input properties used for looking up and filtering SpotDatafeedSubscription resources.

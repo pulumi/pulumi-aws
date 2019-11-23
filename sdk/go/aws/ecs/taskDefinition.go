@@ -96,18 +96,18 @@ func GetTaskDefinition(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TaskDefinition) URN() *pulumi.URNOutput {
+func (r *TaskDefinition) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TaskDefinition) ID() *pulumi.IDOutput {
+func (r *TaskDefinition) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Full ARN of the Task Definition (including both `family` and `revision`).
-func (r *TaskDefinition) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *TaskDefinition) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A list of valid [container definitions]
@@ -116,78 +116,78 @@ func (r *TaskDefinition) Arn() *pulumi.StringOutput {
 // definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters]
 // (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the
 // official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
-func (r *TaskDefinition) ContainerDefinitions() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["containerDefinitions"])
+func (r *TaskDefinition) ContainerDefinitions() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["containerDefinitions"])
 }
 
 // The number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
-func (r *TaskDefinition) Cpu() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cpu"])
+func (r *TaskDefinition) Cpu() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cpu"])
 }
 
 // The Amazon Resource Name (ARN) of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
-func (r *TaskDefinition) ExecutionRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["executionRoleArn"])
+func (r *TaskDefinition) ExecutionRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["executionRoleArn"])
 }
 
 // A unique name for your task definition.
-func (r *TaskDefinition) Family() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["family"])
+func (r *TaskDefinition) Family() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["family"])
 }
 
 // The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
-func (r *TaskDefinition) IpcMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipcMode"])
+func (r *TaskDefinition) IpcMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipcMode"])
 }
 
 // The amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
-func (r *TaskDefinition) Memory() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["memory"])
+func (r *TaskDefinition) Memory() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["memory"])
 }
 
 // The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, `awsvpc`, and `host`.
-func (r *TaskDefinition) NetworkMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkMode"])
+func (r *TaskDefinition) NetworkMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkMode"])
 }
 
 // The process namespace to use for the containers in the task. The valid values are `host` and `task`.
-func (r *TaskDefinition) PidMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["pidMode"])
+func (r *TaskDefinition) PidMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["pidMode"])
 }
 
 // A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`.
-func (r *TaskDefinition) PlacementConstraints() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["placementConstraints"])
+func (r *TaskDefinition) PlacementConstraints() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["placementConstraints"])
 }
 
 // The proxy configuration details for the App Mesh proxy.
-func (r *TaskDefinition) ProxyConfiguration() *pulumi.Output {
+func (r *TaskDefinition) ProxyConfiguration() pulumi.Output {
 	return r.s.State["proxyConfiguration"]
 }
 
 // A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
-func (r *TaskDefinition) RequiresCompatibilities() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["requiresCompatibilities"])
+func (r *TaskDefinition) RequiresCompatibilities() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["requiresCompatibilities"])
 }
 
 // The revision of the task in a particular family.
-func (r *TaskDefinition) Revision() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["revision"])
+func (r *TaskDefinition) Revision() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["revision"])
 }
 
 // Key-value mapping of resource tags
-func (r *TaskDefinition) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *TaskDefinition) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-func (r *TaskDefinition) TaskRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["taskRoleArn"])
+func (r *TaskDefinition) TaskRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["taskRoleArn"])
 }
 
 // A set of volume blocks that containers in your task may use.
-func (r *TaskDefinition) Volumes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["volumes"])
+func (r *TaskDefinition) Volumes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["volumes"])
 }
 
 // Input properties used for looking up and filtering TaskDefinition resources.

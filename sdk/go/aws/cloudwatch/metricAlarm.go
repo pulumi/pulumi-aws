@@ -118,53 +118,53 @@ func GetMetricAlarm(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MetricAlarm) URN() *pulumi.URNOutput {
+func (r *MetricAlarm) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MetricAlarm) ID() *pulumi.IDOutput {
+func (r *MetricAlarm) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
-func (r *MetricAlarm) ActionsEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["actionsEnabled"])
+func (r *MetricAlarm) ActionsEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["actionsEnabled"])
 }
 
 // The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-func (r *MetricAlarm) AlarmActions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["alarmActions"])
+func (r *MetricAlarm) AlarmActions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["alarmActions"])
 }
 
 // The description for the alarm.
-func (r *MetricAlarm) AlarmDescription() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["alarmDescription"])
+func (r *MetricAlarm) AlarmDescription() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["alarmDescription"])
 }
 
 // The descriptive name for the alarm. This name must be unique within the user's AWS account
-func (r *MetricAlarm) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *MetricAlarm) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ARN of the cloudwatch metric alarm.
-func (r *MetricAlarm) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *MetricAlarm) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
-func (r *MetricAlarm) ComparisonOperator() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["comparisonOperator"])
+func (r *MetricAlarm) ComparisonOperator() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["comparisonOperator"])
 }
 
 // The number of datapoints that must be breaching to trigger the alarm.
-func (r *MetricAlarm) DatapointsToAlarm() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["datapointsToAlarm"])
+func (r *MetricAlarm) DatapointsToAlarm() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["datapointsToAlarm"])
 }
 
 // The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-func (r *MetricAlarm) Dimensions() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["dimensions"])
+func (r *MetricAlarm) Dimensions() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["dimensions"])
 }
 
 // Used only for alarms
@@ -173,76 +173,76 @@ func (r *MetricAlarm) Dimensions() *pulumi.MapOutput {
 // If you specify `evaluate` or omit this parameter, the alarm will always be
 // evaluated and possibly change state no matter how many data points are available.
 // The following values are supported: `ignore`, and `evaluate`.
-func (r *MetricAlarm) EvaluateLowSampleCountPercentiles() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["evaluateLowSampleCountPercentiles"])
+func (r *MetricAlarm) EvaluateLowSampleCountPercentiles() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["evaluateLowSampleCountPercentiles"])
 }
 
 // The number of periods over which data is compared to the specified threshold.
-func (r *MetricAlarm) EvaluationPeriods() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["evaluationPeriods"])
+func (r *MetricAlarm) EvaluationPeriods() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["evaluationPeriods"])
 }
 
 // The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
-func (r *MetricAlarm) ExtendedStatistic() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["extendedStatistic"])
+func (r *MetricAlarm) ExtendedStatistic() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["extendedStatistic"])
 }
 
 // The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-func (r *MetricAlarm) InsufficientDataActions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["insufficientDataActions"])
+func (r *MetricAlarm) InsufficientDataActions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["insufficientDataActions"])
 }
 
 // The name for this metric.
 // See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-func (r *MetricAlarm) MetricName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metricName"])
+func (r *MetricAlarm) MetricName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metricName"])
 }
 
 // Enables you to create an alarm based on a metric math expression. You may specify at most 20.
-func (r *MetricAlarm) MetricQueries() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["metricQueries"])
+func (r *MetricAlarm) MetricQueries() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["metricQueries"])
 }
 
 // The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 // See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-func (r *MetricAlarm) Namespace() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespace"])
+func (r *MetricAlarm) Namespace() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespace"])
 }
 
 // The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-func (r *MetricAlarm) OkActions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["okActions"])
+func (r *MetricAlarm) OkActions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["okActions"])
 }
 
 // The period in seconds over which the specified `stat` is applied.
-func (r *MetricAlarm) Period() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["period"])
+func (r *MetricAlarm) Period() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["period"])
 }
 
 // The statistic to apply to the alarm's associated metric.
 // Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
-func (r *MetricAlarm) Statistic() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["statistic"])
+func (r *MetricAlarm) Statistic() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["statistic"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *MetricAlarm) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *MetricAlarm) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The value against which the specified statistic is compared.
-func (r *MetricAlarm) Threshold() *pulumi.Float64Output {
-	return (*pulumi.Float64Output)(r.s.State["threshold"])
+func (r *MetricAlarm) Threshold() pulumi.Float64Output {
+	return (pulumi.Float64Output)(r.s.State["threshold"])
 }
 
 // Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
-func (r *MetricAlarm) TreatMissingData() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["treatMissingData"])
+func (r *MetricAlarm) TreatMissingData() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["treatMissingData"])
 }
 
 // The unit for this metric.
-func (r *MetricAlarm) Unit() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["unit"])
+func (r *MetricAlarm) Unit() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["unit"])
 }
 
 // Input properties used for looking up and filtering MetricAlarm resources.

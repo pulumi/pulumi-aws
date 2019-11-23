@@ -56,23 +56,23 @@ func GetAmiLaunchPermission(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AmiLaunchPermission) URN() *pulumi.URNOutput {
+func (r *AmiLaunchPermission) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AmiLaunchPermission) ID() *pulumi.IDOutput {
+func (r *AmiLaunchPermission) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // An AWS Account ID to add launch permissions.
-func (r *AmiLaunchPermission) AccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountId"])
+func (r *AmiLaunchPermission) AccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountId"])
 }
 
 // A region-unique name for the AMI.
-func (r *AmiLaunchPermission) ImageId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["imageId"])
+func (r *AmiLaunchPermission) ImageId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["imageId"])
 }
 
 // Input properties used for looking up and filtering AmiLaunchPermission resources.

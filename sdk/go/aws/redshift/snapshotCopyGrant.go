@@ -60,33 +60,33 @@ func GetSnapshotCopyGrant(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SnapshotCopyGrant) URN() *pulumi.URNOutput {
+func (r *SnapshotCopyGrant) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SnapshotCopyGrant) ID() *pulumi.IDOutput {
+func (r *SnapshotCopyGrant) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of snapshot copy grant
-func (r *SnapshotCopyGrant) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *SnapshotCopyGrant) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-func (r *SnapshotCopyGrant) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *SnapshotCopyGrant) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // A friendly name for identifying the grant.
-func (r *SnapshotCopyGrant) SnapshotCopyGrantName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["snapshotCopyGrantName"])
+func (r *SnapshotCopyGrant) SnapshotCopyGrantName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["snapshotCopyGrantName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *SnapshotCopyGrant) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *SnapshotCopyGrant) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering SnapshotCopyGrant resources.

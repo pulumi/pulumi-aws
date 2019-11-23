@@ -68,47 +68,47 @@ func GetConnection(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Connection) URN() *pulumi.URNOutput {
+func (r *Connection) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Connection) ID() *pulumi.IDOutput {
+func (r *Connection) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-func (r *Connection) CatalogId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["catalogId"])
+func (r *Connection) CatalogId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["catalogId"])
 }
 
 // A map of key-value pairs used as parameters for this connection.
-func (r *Connection) ConnectionProperties() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["connectionProperties"])
+func (r *Connection) ConnectionProperties() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["connectionProperties"])
 }
 
 // The type of the connection. Defaults to `JBDC`.
-func (r *Connection) ConnectionType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["connectionType"])
+func (r *Connection) ConnectionType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["connectionType"])
 }
 
 // Description of the connection.
-func (r *Connection) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Connection) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // A list of criteria that can be used in selecting this connection.
-func (r *Connection) MatchCriterias() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["matchCriterias"])
+func (r *Connection) MatchCriterias() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["matchCriterias"])
 }
 
 // The name of the connection.
-func (r *Connection) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Connection) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
-func (r *Connection) PhysicalConnectionRequirements() *pulumi.Output {
+func (r *Connection) PhysicalConnectionRequirements() pulumi.Output {
 	return r.s.State["physicalConnectionRequirements"]
 }
 

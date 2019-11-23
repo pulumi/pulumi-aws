@@ -59,28 +59,28 @@ func GetListenerPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ListenerPolicy) URN() *pulumi.URNOutput {
+func (r *ListenerPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ListenerPolicy) ID() *pulumi.IDOutput {
+func (r *ListenerPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The load balancer to attach the policy to.
-func (r *ListenerPolicy) LoadBalancerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadBalancerName"])
+func (r *ListenerPolicy) LoadBalancerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadBalancerName"])
 }
 
 // The load balancer listener port to apply the policy to.
-func (r *ListenerPolicy) LoadBalancerPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["loadBalancerPort"])
+func (r *ListenerPolicy) LoadBalancerPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["loadBalancerPort"])
 }
 
 // List of Policy Names to apply to the backend server.
-func (r *ListenerPolicy) PolicyNames() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["policyNames"])
+func (r *ListenerPolicy) PolicyNames() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["policyNames"])
 }
 
 // Input properties used for looking up and filtering ListenerPolicy resources.

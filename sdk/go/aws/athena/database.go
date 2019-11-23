@@ -59,33 +59,33 @@ func GetDatabase(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Database) URN() *pulumi.URNOutput {
+func (r *Database) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Database) ID() *pulumi.IDOutput {
+func (r *Database) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Name of s3 bucket to save the results of the query execution.
-func (r *Database) Bucket() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bucket"])
+func (r *Database) Bucket() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bucket"])
 }
 
 // The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
-func (r *Database) EncryptionConfiguration() *pulumi.Output {
+func (r *Database) EncryptionConfiguration() pulumi.Output {
 	return r.s.State["encryptionConfiguration"]
 }
 
 // A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-func (r *Database) ForceDestroy() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
+func (r *Database) ForceDestroy() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["forceDestroy"])
 }
 
 // Name of the database to create.
-func (r *Database) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Database) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering Database resources.

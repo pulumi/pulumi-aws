@@ -58,38 +58,38 @@ func GetCatalogDatabase(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *CatalogDatabase) URN() *pulumi.URNOutput {
+func (r *CatalogDatabase) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *CatalogDatabase) ID() *pulumi.IDOutput {
+func (r *CatalogDatabase) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-func (r *CatalogDatabase) CatalogId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["catalogId"])
+func (r *CatalogDatabase) CatalogId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["catalogId"])
 }
 
 // Description of the database.
-func (r *CatalogDatabase) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *CatalogDatabase) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The location of the database (for example, an HDFS path).
-func (r *CatalogDatabase) LocationUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["locationUri"])
+func (r *CatalogDatabase) LocationUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["locationUri"])
 }
 
 // The name of the database.
-func (r *CatalogDatabase) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *CatalogDatabase) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A list of key-value pairs that define parameters and properties of the database.
-func (r *CatalogDatabase) Parameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["parameters"])
+func (r *CatalogDatabase) Parameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // Input properties used for looking up and filtering CatalogDatabase resources.

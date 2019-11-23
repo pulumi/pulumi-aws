@@ -60,37 +60,37 @@ func GetClassifier(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Classifier) URN() *pulumi.URNOutput {
+func (r *Classifier) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Classifier) ID() *pulumi.IDOutput {
+func (r *Classifier) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A classifier for Csv content. Defined below.
-func (r *Classifier) CsvClassifier() *pulumi.Output {
+func (r *Classifier) CsvClassifier() pulumi.Output {
 	return r.s.State["csvClassifier"]
 }
 
 // A classifier that uses grok patterns. Defined below.
-func (r *Classifier) GrokClassifier() *pulumi.Output {
+func (r *Classifier) GrokClassifier() pulumi.Output {
 	return r.s.State["grokClassifier"]
 }
 
 // A classifier for JSON content. Defined below.
-func (r *Classifier) JsonClassifier() *pulumi.Output {
+func (r *Classifier) JsonClassifier() pulumi.Output {
 	return r.s.State["jsonClassifier"]
 }
 
 // The name of the classifier.
-func (r *Classifier) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Classifier) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A classifier for XML content. Defined below.
-func (r *Classifier) XmlClassifier() *pulumi.Output {
+func (r *Classifier) XmlClassifier() pulumi.Output {
 	return r.s.State["xmlClassifier"]
 }
 

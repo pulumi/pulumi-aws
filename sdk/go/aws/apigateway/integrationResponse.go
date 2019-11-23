@@ -83,57 +83,57 @@ func GetIntegrationResponse(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *IntegrationResponse) URN() *pulumi.URNOutput {
+func (r *IntegrationResponse) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *IntegrationResponse) ID() *pulumi.IDOutput {
+func (r *IntegrationResponse) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
-func (r *IntegrationResponse) ContentHandling() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentHandling"])
+func (r *IntegrationResponse) ContentHandling() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentHandling"])
 }
 
 // The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
-func (r *IntegrationResponse) HttpMethod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["httpMethod"])
+func (r *IntegrationResponse) HttpMethod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["httpMethod"])
 }
 
 // The API resource ID
-func (r *IntegrationResponse) ResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceId"])
+func (r *IntegrationResponse) ResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceId"])
 }
 
 // A map of response parameters that can be read from the backend response.
 // For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
-func (r *IntegrationResponse) ResponseParameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["responseParameters"])
+func (r *IntegrationResponse) ResponseParameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["responseParameters"])
 }
 
 // A map specifying the templates used to transform the integration response body
-func (r *IntegrationResponse) ResponseTemplates() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["responseTemplates"])
+func (r *IntegrationResponse) ResponseTemplates() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["responseTemplates"])
 }
 
 // The ID of the associated REST API
-func (r *IntegrationResponse) RestApi() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restApi"])
+func (r *IntegrationResponse) RestApi() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restApi"])
 }
 
 // Specifies the regular expression pattern used to choose
 // an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
 // If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
 // For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
-func (r *IntegrationResponse) SelectionPattern() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["selectionPattern"])
+func (r *IntegrationResponse) SelectionPattern() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["selectionPattern"])
 }
 
 // The HTTP status code
-func (r *IntegrationResponse) StatusCode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["statusCode"])
+func (r *IntegrationResponse) StatusCode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["statusCode"])
 }
 
 // Input properties used for looking up and filtering IntegrationResponse resources.

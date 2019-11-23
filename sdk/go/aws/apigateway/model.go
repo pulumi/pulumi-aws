@@ -65,38 +65,38 @@ func GetModel(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Model) URN() *pulumi.URNOutput {
+func (r *Model) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Model) ID() *pulumi.IDOutput {
+func (r *Model) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The content type of the model
-func (r *Model) ContentType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentType"])
+func (r *Model) ContentType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentType"])
 }
 
 // The description of the model
-func (r *Model) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Model) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the model
-func (r *Model) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Model) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ID of the associated REST API
-func (r *Model) RestApi() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restApi"])
+func (r *Model) RestApi() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restApi"])
 }
 
 // The schema of the model in a JSON form
-func (r *Model) Schema() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["schema"])
+func (r *Model) Schema() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["schema"])
 }
 
 // Input properties used for looking up and filtering Model resources.

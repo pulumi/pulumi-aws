@@ -54,23 +54,23 @@ func GetProductSubscription(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ProductSubscription) URN() *pulumi.URNOutput {
+func (r *ProductSubscription) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ProductSubscription) ID() *pulumi.IDOutput {
+func (r *ProductSubscription) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
-func (r *ProductSubscription) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ProductSubscription) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The ARN of the product that generates findings that you want to import into Security Hub - see below.
-func (r *ProductSubscription) ProductArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["productArn"])
+func (r *ProductSubscription) ProductArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["productArn"])
 }
 
 // Input properties used for looking up and filtering ProductSubscription resources.

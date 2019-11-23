@@ -106,6 +106,10 @@ export class Policy extends pulumi.CustomResource {
      * up. A negative value scales down.
      */
     public readonly scalingAdjustment!: pulumi.Output<number | undefined>;
+    /**
+     * A set of adjustments that manage
+     * group scaling. These have the following structure:
+     */
     public readonly stepAdjustments!: pulumi.Output<outputs.autoscaling.PolicyStepAdjustment[] | undefined>;
     /**
      * A target tracking policy. These have the following structure:
@@ -208,6 +212,10 @@ export interface PolicyState {
      * up. A negative value scales down.
      */
     readonly scalingAdjustment?: pulumi.Input<number>;
+    /**
+     * A set of adjustments that manage
+     * group scaling. These have the following structure:
+     */
     readonly stepAdjustments?: pulumi.Input<pulumi.Input<inputs.autoscaling.PolicyStepAdjustment>[]>;
     /**
      * A target tracking policy. These have the following structure:
@@ -254,6 +262,10 @@ export interface PolicyArgs {
      * up. A negative value scales down.
      */
     readonly scalingAdjustment?: pulumi.Input<number>;
+    /**
+     * A set of adjustments that manage
+     * group scaling. These have the following structure:
+     */
     readonly stepAdjustments?: pulumi.Input<pulumi.Input<inputs.autoscaling.PolicyStepAdjustment>[]>;
     /**
      * A target tracking policy. These have the following structure:

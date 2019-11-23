@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Lambda
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The event source ARN - can either be a Kinesis or DynamoDB stream.
+        /// The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
         /// </summary>
         [Output("eventSourceArn")]
         public Output<string> EventSourceArn { get; private set; } = null!;
@@ -58,6 +58,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("lastProcessingResult")]
         public Output<string> LastProcessingResult { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+        /// </summary>
+        [Output("maximumBatchingWindowInSeconds")]
+        public Output<int?> MaximumBatchingWindowInSeconds { get; private set; } = null!;
 
         /// <summary>
         /// The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
@@ -148,7 +154,7 @@ namespace Pulumi.Aws.Lambda
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The event source ARN - can either be a Kinesis or DynamoDB stream.
+        /// The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
         /// </summary>
         [Input("eventSourceArn", required: true)]
         public Input<string> EventSourceArn { get; set; } = null!;
@@ -158,6 +164,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
+
+        /// <summary>
+        /// The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+        /// </summary>
+        [Input("maximumBatchingWindowInSeconds")]
+        public Input<int>? MaximumBatchingWindowInSeconds { get; set; }
 
         /// <summary>
         /// The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
@@ -191,7 +203,7 @@ namespace Pulumi.Aws.Lambda
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The event source ARN - can either be a Kinesis or DynamoDB stream.
+        /// The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
         /// </summary>
         [Input("eventSourceArn")]
         public Input<string>? EventSourceArn { get; set; }
@@ -219,6 +231,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("lastProcessingResult")]
         public Input<string>? LastProcessingResult { get; set; }
+
+        /// <summary>
+        /// The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+        /// </summary>
+        [Input("maximumBatchingWindowInSeconds")]
+        public Input<int>? MaximumBatchingWindowInSeconds { get; set; }
 
         /// <summary>
         /// The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).

@@ -86,74 +86,74 @@ func GetEventTarget(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventTarget) URN() *pulumi.URNOutput {
+func (r *EventTarget) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventTarget) ID() *pulumi.IDOutput {
+func (r *EventTarget) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) associated of the target.
-func (r *EventTarget) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *EventTarget) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-func (r *EventTarget) BatchTarget() *pulumi.Output {
+func (r *EventTarget) BatchTarget() pulumi.Output {
 	return r.s.State["batchTarget"]
 }
 
 // Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-func (r *EventTarget) EcsTarget() *pulumi.Output {
+func (r *EventTarget) EcsTarget() pulumi.Output {
 	return r.s.State["ecsTarget"]
 }
 
 // Valid JSON text passed to the target.
-func (r *EventTarget) Input() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["input"])
+func (r *EventTarget) Input() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["input"])
 }
 
 // The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
 // that is used for extracting part of the matched event when passing it to the target.
-func (r *EventTarget) InputPath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["inputPath"])
+func (r *EventTarget) InputPath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["inputPath"])
 }
 
 // Parameters used when you are providing a custom input to a target based on certain event data.
-func (r *EventTarget) InputTransformer() *pulumi.Output {
+func (r *EventTarget) InputTransformer() pulumi.Output {
 	return r.s.State["inputTransformer"]
 }
 
 // Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-func (r *EventTarget) KinesisTarget() *pulumi.Output {
+func (r *EventTarget) KinesisTarget() pulumi.Output {
 	return r.s.State["kinesisTarget"]
 }
 
 // The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
-func (r *EventTarget) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *EventTarget) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // The name of the rule you want to add targets to.
-func (r *EventTarget) Rule() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rule"])
+func (r *EventTarget) Rule() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rule"])
 }
 
 // Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-func (r *EventTarget) RunCommandTargets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["runCommandTargets"])
+func (r *EventTarget) RunCommandTargets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["runCommandTargets"])
 }
 
 // Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-func (r *EventTarget) SqsTarget() *pulumi.Output {
+func (r *EventTarget) SqsTarget() pulumi.Output {
 	return r.s.State["sqsTarget"]
 }
 
 // The unique target assignment ID.  If missing, will generate a random, unique id.
-func (r *EventTarget) TargetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetId"])
+func (r *EventTarget) TargetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetId"])
 }
 
 // Input properties used for looking up and filtering EventTarget resources.

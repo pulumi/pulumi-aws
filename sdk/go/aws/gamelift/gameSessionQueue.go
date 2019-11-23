@@ -57,38 +57,38 @@ func GetGameSessionQueue(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *GameSessionQueue) URN() *pulumi.URNOutput {
+func (r *GameSessionQueue) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *GameSessionQueue) ID() *pulumi.IDOutput {
+func (r *GameSessionQueue) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Game Session Queue ARN.
-func (r *GameSessionQueue) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *GameSessionQueue) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // List of fleet/alias ARNs used by session queue for placing game sessions.
-func (r *GameSessionQueue) Destinations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["destinations"])
+func (r *GameSessionQueue) Destinations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["destinations"])
 }
 
 // Name of the session queue.
-func (r *GameSessionQueue) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *GameSessionQueue) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // One or more policies used to choose fleet based on player latency. See below.
-func (r *GameSessionQueue) PlayerLatencyPolicies() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["playerLatencyPolicies"])
+func (r *GameSessionQueue) PlayerLatencyPolicies() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["playerLatencyPolicies"])
 }
 
 // Maximum time a game session request can remain in the queue.
-func (r *GameSessionQueue) TimeoutInSeconds() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["timeoutInSeconds"])
+func (r *GameSessionQueue) TimeoutInSeconds() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["timeoutInSeconds"])
 }
 
 // Input properties used for looking up and filtering GameSessionQueue resources.

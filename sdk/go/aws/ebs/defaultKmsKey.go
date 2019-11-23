@@ -57,18 +57,18 @@ func GetDefaultKmsKey(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DefaultKmsKey) URN() *pulumi.URNOutput {
+func (r *DefaultKmsKey) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DefaultKmsKey) ID() *pulumi.IDOutput {
+func (r *DefaultKmsKey) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
-func (r *DefaultKmsKey) KeyArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyArn"])
+func (r *DefaultKmsKey) KeyArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyArn"])
 }
 
 // Input properties used for looking up and filtering DefaultKmsKey resources.

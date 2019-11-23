@@ -68,48 +68,48 @@ func GetVirtualService(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualService) URN() *pulumi.URNOutput {
+func (r *VirtualService) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualService) ID() *pulumi.IDOutput {
+func (r *VirtualService) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the virtual service.
-func (r *VirtualService) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *VirtualService) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The creation date of the virtual service.
-func (r *VirtualService) CreatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdDate"])
+func (r *VirtualService) CreatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdDate"])
 }
 
 // The last update date of the virtual service.
-func (r *VirtualService) LastUpdatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
+func (r *VirtualService) LastUpdatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
 }
 
 // The name of the service mesh in which to create the virtual service.
-func (r *VirtualService) MeshName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["meshName"])
+func (r *VirtualService) MeshName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["meshName"])
 }
 
 // The name to use for the virtual service.
-func (r *VirtualService) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VirtualService) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The virtual service specification to apply.
-func (r *VirtualService) Spec() *pulumi.Output {
+func (r *VirtualService) Spec() pulumi.Output {
 	return r.s.State["spec"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *VirtualService) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VirtualService) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering VirtualService resources.

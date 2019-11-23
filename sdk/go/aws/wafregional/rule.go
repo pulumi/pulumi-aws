@@ -73,38 +73,38 @@ func GetRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Rule) URN() *pulumi.URNOutput {
+func (r *Rule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Rule) ID() *pulumi.IDOutput {
+func (r *Rule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the WAF Regional Rule.
-func (r *Rule) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Rule) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name or description for the Amazon CloudWatch metric of this rule.
-func (r *Rule) MetricName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metricName"])
+func (r *Rule) MetricName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metricName"])
 }
 
 // The name or description of the rule.
-func (r *Rule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Rule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The objects to include in a rule (documented below).
-func (r *Rule) Predicates() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["predicates"])
+func (r *Rule) Predicates() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["predicates"])
 }
 
 // Key-value mapping of resource tags
-func (r *Rule) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Rule) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Rule resources.

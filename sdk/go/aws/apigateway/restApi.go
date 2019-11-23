@@ -78,79 +78,79 @@ func GetRestApi(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RestApi) URN() *pulumi.URNOutput {
+func (r *RestApi) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RestApi) ID() *pulumi.IDOutput {
+func (r *RestApi) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
-func (r *RestApi) ApiKeySource() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiKeySource"])
+func (r *RestApi) ApiKeySource() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiKeySource"])
 }
 
 // Amazon Resource Name (ARN)
-func (r *RestApi) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *RestApi) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
-func (r *RestApi) BinaryMediaTypes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["binaryMediaTypes"])
+func (r *RestApi) BinaryMediaTypes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["binaryMediaTypes"])
 }
 
 // An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
-func (r *RestApi) Body() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["body"])
+func (r *RestApi) Body() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["body"])
 }
 
 // The creation date of the REST API
-func (r *RestApi) CreatedDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdDate"])
+func (r *RestApi) CreatedDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdDate"])
 }
 
 // The description of the REST API
-func (r *RestApi) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *RestApi) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Nested argument defining API endpoint configuration including endpoint type. Defined below.
-func (r *RestApi) EndpointConfiguration() *pulumi.Output {
+func (r *RestApi) EndpointConfiguration() pulumi.Output {
 	return r.s.State["endpointConfiguration"]
 }
 
 // The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
 // when allowing API Gateway to invoke a Lambda function,
 // e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
-func (r *RestApi) ExecutionArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["executionArn"])
+func (r *RestApi) ExecutionArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["executionArn"])
 }
 
 // Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
-func (r *RestApi) MinimumCompressionSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["minimumCompressionSize"])
+func (r *RestApi) MinimumCompressionSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["minimumCompressionSize"])
 }
 
 // The name of the REST API
-func (r *RestApi) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RestApi) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *RestApi) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *RestApi) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // The resource ID of the REST API's root
-func (r *RestApi) RootResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rootResourceId"])
+func (r *RestApi) RootResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rootResourceId"])
 }
 
 // Key-value mapping of resource tags
-func (r *RestApi) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *RestApi) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering RestApi resources.

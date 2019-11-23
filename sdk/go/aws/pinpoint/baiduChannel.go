@@ -68,33 +68,33 @@ func GetBaiduChannel(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *BaiduChannel) URN() *pulumi.URNOutput {
+func (r *BaiduChannel) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *BaiduChannel) ID() *pulumi.IDOutput {
+func (r *BaiduChannel) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Platform credential API key from Baidu.
-func (r *BaiduChannel) ApiKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiKey"])
+func (r *BaiduChannel) ApiKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiKey"])
 }
 
 // The application ID.
-func (r *BaiduChannel) ApplicationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationId"])
+func (r *BaiduChannel) ApplicationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationId"])
 }
 
 // Specifies whether to enable the channel. Defaults to `true`.
-func (r *BaiduChannel) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *BaiduChannel) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Platform credential Secret key from Baidu.
-func (r *BaiduChannel) SecretKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secretKey"])
+func (r *BaiduChannel) SecretKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secretKey"])
 }
 
 // Input properties used for looking up and filtering BaiduChannel resources.

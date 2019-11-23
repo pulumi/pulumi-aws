@@ -71,33 +71,33 @@ func GetRdsDbInstance(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RdsDbInstance) URN() *pulumi.URNOutput {
+func (r *RdsDbInstance) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RdsDbInstance) ID() *pulumi.IDOutput {
+func (r *RdsDbInstance) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A db password
-func (r *RdsDbInstance) DbPassword() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbPassword"])
+func (r *RdsDbInstance) DbPassword() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbPassword"])
 }
 
 // A db username
-func (r *RdsDbInstance) DbUser() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbUser"])
+func (r *RdsDbInstance) DbUser() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbUser"])
 }
 
 // The db instance to register for this stack. Changing this will force a new resource.
-func (r *RdsDbInstance) RdsDbInstanceArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rdsDbInstanceArn"])
+func (r *RdsDbInstance) RdsDbInstanceArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rdsDbInstanceArn"])
 }
 
 // The stack to register a db instance for. Changing this will force a new resource.
-func (r *RdsDbInstance) StackId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stackId"])
+func (r *RdsDbInstance) StackId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stackId"])
 }
 
 // Input properties used for looking up and filtering RdsDbInstance resources.

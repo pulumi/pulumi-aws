@@ -107,116 +107,116 @@ func GetAmiCopy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AmiCopy) URN() *pulumi.URNOutput {
+func (r *AmiCopy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AmiCopy) ID() *pulumi.IDOutput {
+func (r *AmiCopy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Machine architecture for created instances. Defaults to "x8664".
-func (r *AmiCopy) Architecture() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["architecture"])
+func (r *AmiCopy) Architecture() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["architecture"])
 }
 
 // A longer, human-readable description for the AMI.
-func (r *AmiCopy) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *AmiCopy) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Nested block describing an EBS block device that should be
 // attached to created instances. The structure of this block is described below.
-func (r *AmiCopy) EbsBlockDevices() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
+func (r *AmiCopy) EbsBlockDevices() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
 }
 
 // Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-func (r *AmiCopy) EnaSupport() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enaSupport"])
+func (r *AmiCopy) EnaSupport() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enaSupport"])
 }
 
 // Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-func (r *AmiCopy) Encrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["encrypted"])
+func (r *AmiCopy) Encrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["encrypted"])
 }
 
 // Nested block describing an ephemeral block device that
 // should be attached to created instances. The structure of this block is described below.
-func (r *AmiCopy) EphemeralBlockDevices() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
+func (r *AmiCopy) EphemeralBlockDevices() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
 }
 
 // Path to an S3 object containing an image manifest, e.g. created
 // by the `ec2-upload-bundle` command in the EC2 command line tools.
-func (r *AmiCopy) ImageLocation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["imageLocation"])
+func (r *AmiCopy) ImageLocation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["imageLocation"])
 }
 
 // The id of the kernel image (AKI) that will be used as the paravirtual
 // kernel in created instances.
-func (r *AmiCopy) KernelId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kernelId"])
+func (r *AmiCopy) KernelId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kernelId"])
 }
 
 // The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
-func (r *AmiCopy) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *AmiCopy) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
-func (r *AmiCopy) ManageEbsSnapshots() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["manageEbsSnapshots"])
+func (r *AmiCopy) ManageEbsSnapshots() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["manageEbsSnapshots"])
 }
 
 // A region-unique name for the AMI.
-func (r *AmiCopy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AmiCopy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The id of an initrd image (ARI) that will be used when booting the
 // created instances.
-func (r *AmiCopy) RamdiskId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ramdiskId"])
+func (r *AmiCopy) RamdiskId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ramdiskId"])
 }
 
 // The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-func (r *AmiCopy) RootDeviceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rootDeviceName"])
+func (r *AmiCopy) RootDeviceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rootDeviceName"])
 }
 
-func (r *AmiCopy) RootSnapshotId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rootSnapshotId"])
+func (r *AmiCopy) RootSnapshotId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rootSnapshotId"])
 }
 
 // The id of the AMI to copy. This id must be valid in the region
 // given by `sourceAmiRegion`.
-func (r *AmiCopy) SourceAmiId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceAmiId"])
+func (r *AmiCopy) SourceAmiId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceAmiId"])
 }
 
 // The region from which the AMI will be copied. This may be the
 // same as the AWS provider region in order to create a copy within the same region.
-func (r *AmiCopy) SourceAmiRegion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceAmiRegion"])
+func (r *AmiCopy) SourceAmiRegion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceAmiRegion"])
 }
 
 // When set to "simple" (the default), enables enhanced networking
 // for created instances. No other value is supported at this time.
-func (r *AmiCopy) SriovNetSupport() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sriovNetSupport"])
+func (r *AmiCopy) SriovNetSupport() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sriovNetSupport"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *AmiCopy) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *AmiCopy) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Keyword to choose what virtualization mode created instances
 // will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 // changes the set of further arguments that are required, as described below.
-func (r *AmiCopy) VirtualizationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["virtualizationType"])
+func (r *AmiCopy) VirtualizationType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["virtualizationType"])
 }
 
 // Input properties used for looking up and filtering AmiCopy resources.

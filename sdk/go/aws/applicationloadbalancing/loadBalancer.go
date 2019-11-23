@@ -97,113 +97,113 @@ func GetLoadBalancer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LoadBalancer) URN() *pulumi.URNOutput {
+func (r *LoadBalancer) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LoadBalancer) ID() *pulumi.IDOutput {
+func (r *LoadBalancer) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // An Access Logs block. Access Logs documented below.
-func (r *LoadBalancer) AccessLogs() *pulumi.Output {
+func (r *LoadBalancer) AccessLogs() pulumi.Output {
 	return r.s.State["accessLogs"]
 }
 
 // The ARN of the load balancer (matches `id`).
-func (r *LoadBalancer) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *LoadBalancer) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The ARN suffix for use with CloudWatch Metrics.
-func (r *LoadBalancer) ArnSuffix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arnSuffix"])
+func (r *LoadBalancer) ArnSuffix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arnSuffix"])
 }
 
 // The DNS name of the load balancer.
-func (r *LoadBalancer) DnsName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dnsName"])
+func (r *LoadBalancer) DnsName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dnsName"])
 }
 
 // If true, cross-zone load balancing of the load balancer will be enabled.
 // This is a `network` load balancer feature. Defaults to `false`.
-func (r *LoadBalancer) EnableCrossZoneLoadBalancing() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableCrossZoneLoadBalancing"])
+func (r *LoadBalancer) EnableCrossZoneLoadBalancing() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableCrossZoneLoadBalancing"])
 }
 
 // If true, deletion of the load balancer will be disabled via
 // the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
-func (r *LoadBalancer) EnableDeletionProtection() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableDeletionProtection"])
+func (r *LoadBalancer) EnableDeletionProtection() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableDeletionProtection"])
 }
 
 // Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
-func (r *LoadBalancer) EnableHttp2() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableHttp2"])
+func (r *LoadBalancer) EnableHttp2() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableHttp2"])
 }
 
 // The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-func (r *LoadBalancer) IdleTimeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["idleTimeout"])
+func (r *LoadBalancer) IdleTimeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["idleTimeout"])
 }
 
 // If true, the LB will be internal.
-func (r *LoadBalancer) Internal() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["internal"])
+func (r *LoadBalancer) Internal() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["internal"])
 }
 
 // The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
-func (r *LoadBalancer) IpAddressType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipAddressType"])
+func (r *LoadBalancer) IpAddressType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipAddressType"])
 }
 
 // The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
-func (r *LoadBalancer) LoadBalancerType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadBalancerType"])
+func (r *LoadBalancer) LoadBalancerType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadBalancerType"])
 }
 
 // The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
 // must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
 // this provider will autogenerate a name beginning with `tf-lb`.
-func (r *LoadBalancer) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LoadBalancer) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *LoadBalancer) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *LoadBalancer) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-func (r *LoadBalancer) SecurityGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityGroups"])
+func (r *LoadBalancer) SecurityGroups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityGroups"])
 }
 
 // A subnet mapping block as documented below.
-func (r *LoadBalancer) SubnetMappings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subnetMappings"])
+func (r *LoadBalancer) SubnetMappings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subnetMappings"])
 }
 
 // A list of subnet IDs to attach to the LB. Subnets
 // cannot be updated for Load Balancers of type `network`. Changing this value
 // for load balancers of type `network` will force a recreation of the resource.
-func (r *LoadBalancer) Subnets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subnets"])
+func (r *LoadBalancer) Subnets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subnets"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *LoadBalancer) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *LoadBalancer) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-func (r *LoadBalancer) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *LoadBalancer) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
-func (r *LoadBalancer) ZoneId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zoneId"])
+func (r *LoadBalancer) ZoneId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zoneId"])
 }
 
 // Input properties used for looking up and filtering LoadBalancer resources.

@@ -91,63 +91,63 @@ func GetReplicationTask(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ReplicationTask) URN() *pulumi.URNOutput {
+func (r *ReplicationTask) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ReplicationTask) ID() *pulumi.IDOutput {
+func (r *ReplicationTask) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
-func (r *ReplicationTask) CdcStartTime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cdcStartTime"])
+func (r *ReplicationTask) CdcStartTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cdcStartTime"])
 }
 
 // The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
-func (r *ReplicationTask) MigrationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["migrationType"])
+func (r *ReplicationTask) MigrationType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["migrationType"])
 }
 
 // The Amazon Resource Name (ARN) of the replication instance.
-func (r *ReplicationTask) ReplicationInstanceArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["replicationInstanceArn"])
+func (r *ReplicationTask) ReplicationInstanceArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["replicationInstanceArn"])
 }
 
 // The Amazon Resource Name (ARN) for the replication task.
-func (r *ReplicationTask) ReplicationTaskArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["replicationTaskArn"])
+func (r *ReplicationTask) ReplicationTaskArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["replicationTaskArn"])
 }
 
 // The replication task identifier.
-func (r *ReplicationTask) ReplicationTaskId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["replicationTaskId"])
+func (r *ReplicationTask) ReplicationTaskId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["replicationTaskId"])
 }
 
 // An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
-func (r *ReplicationTask) ReplicationTaskSettings() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["replicationTaskSettings"])
+func (r *ReplicationTask) ReplicationTaskSettings() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["replicationTaskSettings"])
 }
 
 // The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
-func (r *ReplicationTask) SourceEndpointArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceEndpointArn"])
+func (r *ReplicationTask) SourceEndpointArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceEndpointArn"])
 }
 
 // An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
-func (r *ReplicationTask) TableMappings() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tableMappings"])
+func (r *ReplicationTask) TableMappings() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tableMappings"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ReplicationTask) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ReplicationTask) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
-func (r *ReplicationTask) TargetEndpointArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetEndpointArn"])
+func (r *ReplicationTask) TargetEndpointArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetEndpointArn"])
 }
 
 // Input properties used for looking up and filtering ReplicationTask resources.

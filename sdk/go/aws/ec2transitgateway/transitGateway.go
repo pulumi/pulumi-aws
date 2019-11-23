@@ -75,73 +75,73 @@ func GetTransitGateway(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TransitGateway) URN() *pulumi.URNOutput {
+func (r *TransitGateway) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TransitGateway) ID() *pulumi.IDOutput {
+func (r *TransitGateway) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
-func (r *TransitGateway) AmazonSideAsn() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["amazonSideAsn"])
+func (r *TransitGateway) AmazonSideAsn() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["amazonSideAsn"])
 }
 
 // EC2 Transit Gateway Amazon Resource Name (ARN)
-func (r *TransitGateway) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *TransitGateway) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Identifier of the default association route table
-func (r *TransitGateway) AssociationDefaultRouteTableId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["associationDefaultRouteTableId"])
+func (r *TransitGateway) AssociationDefaultRouteTableId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["associationDefaultRouteTableId"])
 }
 
 // Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
-func (r *TransitGateway) AutoAcceptSharedAttachments() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["autoAcceptSharedAttachments"])
+func (r *TransitGateway) AutoAcceptSharedAttachments() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["autoAcceptSharedAttachments"])
 }
 
 // Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
-func (r *TransitGateway) DefaultRouteTableAssociation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultRouteTableAssociation"])
+func (r *TransitGateway) DefaultRouteTableAssociation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultRouteTableAssociation"])
 }
 
 // Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
-func (r *TransitGateway) DefaultRouteTablePropagation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultRouteTablePropagation"])
+func (r *TransitGateway) DefaultRouteTablePropagation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultRouteTablePropagation"])
 }
 
 // Description of the EC2 Transit Gateway.
-func (r *TransitGateway) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *TransitGateway) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-func (r *TransitGateway) DnsSupport() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dnsSupport"])
+func (r *TransitGateway) DnsSupport() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dnsSupport"])
 }
 
 // Identifier of the AWS account that owns the EC2 Transit Gateway
-func (r *TransitGateway) OwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+func (r *TransitGateway) OwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
 // Identifier of the default propagation route table
-func (r *TransitGateway) PropagationDefaultRouteTableId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["propagationDefaultRouteTableId"])
+func (r *TransitGateway) PropagationDefaultRouteTableId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["propagationDefaultRouteTableId"])
 }
 
 // Key-value tags for the EC2 Transit Gateway.
-func (r *TransitGateway) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *TransitGateway) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-func (r *TransitGateway) VpnEcmpSupport() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpnEcmpSupport"])
+func (r *TransitGateway) VpnEcmpSupport() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpnEcmpSupport"])
 }
 
 // Input properties used for looking up and filtering TransitGateway resources.

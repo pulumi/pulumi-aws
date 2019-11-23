@@ -64,43 +64,43 @@ func GetDomain(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Domain) URN() *pulumi.URNOutput {
+func (r *Domain) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Domain) ID() *pulumi.IDOutput {
+func (r *Domain) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN)
-func (r *Domain) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Domain) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The domain description.
-func (r *Domain) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Domain) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the domain. If omitted, this provider will assign a random, unique name.
-func (r *Domain) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Domain) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *Domain) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *Domain) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // Key-value mapping of resource tags
-func (r *Domain) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Domain) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
-func (r *Domain) WorkflowExecutionRetentionPeriodInDays() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["workflowExecutionRetentionPeriodInDays"])
+func (r *Domain) WorkflowExecutionRetentionPeriodInDays() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["workflowExecutionRetentionPeriodInDays"])
 }
 
 // Input properties used for looking up and filtering Domain resources.

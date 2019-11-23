@@ -70,52 +70,52 @@ func GetModel(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Model) URN() *pulumi.URNOutput {
+func (r *Model) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Model) ID() *pulumi.IDOutput {
+func (r *Model) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this model.
-func (r *Model) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Model) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-func (r *Model) Containers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["containers"])
+func (r *Model) Containers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["containers"])
 }
 
 // Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-func (r *Model) EnableNetworkIsolation() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableNetworkIsolation"])
+func (r *Model) EnableNetworkIsolation() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableNetworkIsolation"])
 }
 
 // A role that SageMaker can assume to access model artifacts and docker images for deployment.
-func (r *Model) ExecutionRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["executionRoleArn"])
+func (r *Model) ExecutionRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["executionRoleArn"])
 }
 
 // The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
-func (r *Model) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Model) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
-func (r *Model) PrimaryContainer() *pulumi.Output {
+func (r *Model) PrimaryContainer() pulumi.Output {
 	return r.s.State["primaryContainer"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Model) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Model) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
-func (r *Model) VpcConfig() *pulumi.Output {
+func (r *Model) VpcConfig() pulumi.Output {
 	return r.s.State["vpcConfig"]
 }
 

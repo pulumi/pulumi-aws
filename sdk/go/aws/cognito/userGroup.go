@@ -62,38 +62,38 @@ func GetUserGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *UserGroup) URN() *pulumi.URNOutput {
+func (r *UserGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *UserGroup) ID() *pulumi.IDOutput {
+func (r *UserGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The description of the user group.
-func (r *UserGroup) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *UserGroup) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the user group.
-func (r *UserGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *UserGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The precedence of the user group.
-func (r *UserGroup) Precedence() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["precedence"])
+func (r *UserGroup) Precedence() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["precedence"])
 }
 
 // The ARN of the IAM role to be associated with the user group.
-func (r *UserGroup) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *UserGroup) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // The user pool ID.
-func (r *UserGroup) UserPoolId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userPoolId"])
+func (r *UserGroup) UserPoolId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userPoolId"])
 }
 
 // Input properties used for looking up and filtering UserGroup resources.

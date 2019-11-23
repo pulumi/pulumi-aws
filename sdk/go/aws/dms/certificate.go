@@ -61,33 +61,33 @@ func GetCertificate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Certificate) URN() *pulumi.URNOutput {
+func (r *Certificate) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Certificate) ID() *pulumi.IDOutput {
+func (r *Certificate) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) for the certificate.
-func (r *Certificate) CertificateArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificateArn"])
+func (r *Certificate) CertificateArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificateArn"])
 }
 
 // The certificate identifier.
-func (r *Certificate) CertificateId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificateId"])
+func (r *Certificate) CertificateId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificateId"])
 }
 
 // The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
-func (r *Certificate) CertificatePem() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificatePem"])
+func (r *Certificate) CertificatePem() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificatePem"])
 }
 
 // The contents of the Oracle Wallet certificate for use with SSL. Either `certificatePem` or `certificateWallet` must be set.
-func (r *Certificate) CertificateWallet() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificateWallet"])
+func (r *Certificate) CertificateWallet() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificateWallet"])
 }
 
 // Input properties used for looking up and filtering Certificate resources.

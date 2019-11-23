@@ -133,161 +133,161 @@ func GetCluster(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() *pulumi.URNOutput {
+func (r *Cluster) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() *pulumi.IDOutput {
+func (r *Cluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies whether any cluster modifications
 // are applied immediately, or during the next maintenance window. Default is
 // `false`.
-func (r *Cluster) ApplyImmediately() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["applyImmediately"])
+func (r *Cluster) ApplyImmediately() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["applyImmediately"])
 }
 
 // Amazon Resource Name (ARN) of cluster
-func (r *Cluster) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Cluster) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A list of EC2 Availability Zones that
 // instances in the DB cluster can be created in.
-func (r *Cluster) AvailabilityZones() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["availabilityZones"])
+func (r *Cluster) AvailabilityZones() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["availabilityZones"])
 }
 
 // The days to retain backups for. Default `1`
-func (r *Cluster) BackupRetentionPeriod() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["backupRetentionPeriod"])
+func (r *Cluster) BackupRetentionPeriod() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["backupRetentionPeriod"])
 }
 
 // The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-func (r *Cluster) ClusterIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
+func (r *Cluster) ClusterIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
 
 // Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
-func (r *Cluster) ClusterIdentifierPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterIdentifierPrefix"])
+func (r *Cluster) ClusterIdentifierPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterIdentifierPrefix"])
 }
 
 // List of DocDB Instances that are a part of this cluster
-func (r *Cluster) ClusterMembers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["clusterMembers"])
+func (r *Cluster) ClusterMembers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["clusterMembers"])
 }
 
 // The DocDB Cluster Resource ID
-func (r *Cluster) ClusterResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterResourceId"])
+func (r *Cluster) ClusterResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterResourceId"])
 }
 
 // A cluster parameter group to associate with the cluster.
-func (r *Cluster) DbClusterParameterGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbClusterParameterGroupName"])
+func (r *Cluster) DbClusterParameterGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbClusterParameterGroupName"])
 }
 
 // A DB subnet group to associate with this DB instance.
-func (r *Cluster) DbSubnetGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
+func (r *Cluster) DbSubnetGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
 }
 
 // List of log types to export to cloudwatch. If omitted, no logs will be exported.
 // The following log types are supported: `audit`.
-func (r *Cluster) EnabledCloudwatchLogsExports() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["enabledCloudwatchLogsExports"])
+func (r *Cluster) EnabledCloudwatchLogsExports() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["enabledCloudwatchLogsExports"])
 }
 
 // The DNS address of the DocDB instance
-func (r *Cluster) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *Cluster) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
-func (r *Cluster) Engine() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engine"])
+func (r *Cluster) Engine() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engine"])
 }
 
 // The database engine version. Updating this argument results in an outage.
-func (r *Cluster) EngineVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
+func (r *Cluster) EngineVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
 // The name of your final DB snapshot
 // when this DB cluster is deleted. If omitted, no final snapshot will be
 // made.
-func (r *Cluster) FinalSnapshotIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["finalSnapshotIdentifier"])
+func (r *Cluster) FinalSnapshotIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["finalSnapshotIdentifier"])
 }
 
 // The Route53 Hosted Zone ID of the endpoint
-func (r *Cluster) HostedZoneId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostedZoneId"])
+func (r *Cluster) HostedZoneId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostedZoneId"])
 }
 
 // The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-func (r *Cluster) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *Cluster) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // Password for the master DB user. Note that this may
 // show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
-func (r *Cluster) MasterPassword() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["masterPassword"])
+func (r *Cluster) MasterPassword() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["masterPassword"])
 }
 
 // Username for the master DB user. 
-func (r *Cluster) MasterUsername() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["masterUsername"])
+func (r *Cluster) MasterUsername() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["masterUsername"])
 }
 
 // The port on which the DB accepts connections
-func (r *Cluster) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *Cluster) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
 // The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
 // Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-func (r *Cluster) PreferredBackupWindow() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["preferredBackupWindow"])
+func (r *Cluster) PreferredBackupWindow() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["preferredBackupWindow"])
 }
 
-func (r *Cluster) PreferredMaintenanceWindow() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["preferredMaintenanceWindow"])
+func (r *Cluster) PreferredMaintenanceWindow() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["preferredMaintenanceWindow"])
 }
 
 // A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
-func (r *Cluster) ReaderEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["readerEndpoint"])
+func (r *Cluster) ReaderEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["readerEndpoint"])
 }
 
 // Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
-func (r *Cluster) SkipFinalSnapshot() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["skipFinalSnapshot"])
+func (r *Cluster) SkipFinalSnapshot() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["skipFinalSnapshot"])
 }
 
 // Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
-func (r *Cluster) SnapshotIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["snapshotIdentifier"])
+func (r *Cluster) SnapshotIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["snapshotIdentifier"])
 }
 
 // Specifies whether the DB cluster is encrypted. The default is `false`.
-func (r *Cluster) StorageEncrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["storageEncrypted"])
+func (r *Cluster) StorageEncrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["storageEncrypted"])
 }
 
 // A mapping of tags to assign to the DB cluster.
-func (r *Cluster) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Cluster) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // List of VPC security groups to associate
 // with the Cluster
-func (r *Cluster) VpcSecurityGroupIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["vpcSecurityGroupIds"])
+func (r *Cluster) VpcSecurityGroupIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["vpcSecurityGroupIds"])
 }
 
 // Input properties used for looking up and filtering Cluster resources.

@@ -58,32 +58,32 @@ func GetAlias(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Alias) URN() *pulumi.URNOutput {
+func (r *Alias) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Alias) ID() *pulumi.IDOutput {
+func (r *Alias) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Alias ARN.
-func (r *Alias) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Alias) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Description of the alias.
-func (r *Alias) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Alias) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Name of the alias.
-func (r *Alias) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Alias) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the fleet and/or routing type to use for the alias.
-func (r *Alias) RoutingStrategy() *pulumi.Output {
+func (r *Alias) RoutingStrategy() pulumi.Output {
 	return r.s.State["routingStrategy"]
 }
 

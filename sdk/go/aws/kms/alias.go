@@ -62,39 +62,39 @@ func GetAlias(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Alias) URN() *pulumi.URNOutput {
+func (r *Alias) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Alias) ID() *pulumi.IDOutput {
+func (r *Alias) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) of the key alias.
-func (r *Alias) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Alias) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-func (r *Alias) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Alias) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates an unique alias beginning with the specified prefix.
 // The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-func (r *Alias) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *Alias) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // The Amazon Resource Name (ARN) of the target key identifier.
-func (r *Alias) TargetKeyArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetKeyArn"])
+func (r *Alias) TargetKeyArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetKeyArn"])
 }
 
 // Identifier for the key for which the alias is for, can be either an ARN or key_id.
-func (r *Alias) TargetKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetKeyId"])
+func (r *Alias) TargetKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetKeyId"])
 }
 
 // Input properties used for looking up and filtering Alias resources.

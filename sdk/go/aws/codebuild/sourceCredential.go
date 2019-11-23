@@ -67,38 +67,38 @@ func GetSourceCredential(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SourceCredential) URN() *pulumi.URNOutput {
+func (r *SourceCredential) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SourceCredential) ID() *pulumi.IDOutput {
+func (r *SourceCredential) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of Source Credential.
-func (r *SourceCredential) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *SourceCredential) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
-func (r *SourceCredential) AuthType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authType"])
+func (r *SourceCredential) AuthType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authType"])
 }
 
 // The source provider used for this project.
-func (r *SourceCredential) ServerType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverType"])
+func (r *SourceCredential) ServerType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverType"])
 }
 
 // For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
-func (r *SourceCredential) Token() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["token"])
+func (r *SourceCredential) Token() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["token"])
 }
 
 // The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
-func (r *SourceCredential) UserName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userName"])
+func (r *SourceCredential) UserName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userName"])
 }
 
 // Input properties used for looking up and filtering SourceCredential resources.

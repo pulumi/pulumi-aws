@@ -62,33 +62,33 @@ func GetRoute(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Route) URN() *pulumi.URNOutput {
+func (r *Route) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Route) ID() *pulumi.IDOutput {
+func (r *Route) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Indicates whether to drop traffic that matches this route (default to `false`).
-func (r *Route) Blackhole() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["blackhole"])
+func (r *Route) Blackhole() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["blackhole"])
 }
 
 // IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-func (r *Route) DestinationCidrBlock() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destinationCidrBlock"])
+func (r *Route) DestinationCidrBlock() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destinationCidrBlock"])
 }
 
 // Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
-func (r *Route) TransitGatewayAttachmentId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transitGatewayAttachmentId"])
+func (r *Route) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["transitGatewayAttachmentId"])
 }
 
 // Identifier of EC2 Transit Gateway Route Table.
-func (r *Route) TransitGatewayRouteTableId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transitGatewayRouteTableId"])
+func (r *Route) TransitGatewayRouteTableId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["transitGatewayRouteTableId"])
 }
 
 // Input properties used for looking up and filtering Route resources.

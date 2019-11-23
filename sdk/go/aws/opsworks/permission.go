@@ -62,38 +62,38 @@ func GetPermission(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Permission) URN() *pulumi.URNOutput {
+func (r *Permission) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Permission) ID() *pulumi.IDOutput {
+func (r *Permission) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether the user is allowed to use SSH to communicate with the instance
-func (r *Permission) AllowSsh() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowSsh"])
+func (r *Permission) AllowSsh() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowSsh"])
 }
 
 // Whether the user is allowed to use sudo to elevate privileges
-func (r *Permission) AllowSudo() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowSudo"])
+func (r *Permission) AllowSudo() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowSudo"])
 }
 
 // The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
-func (r *Permission) Level() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["level"])
+func (r *Permission) Level() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["level"])
 }
 
 // The stack to set the permissions for
-func (r *Permission) StackId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stackId"])
+func (r *Permission) StackId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stackId"])
 }
 
 // The user's IAM ARN to set permissions for
-func (r *Permission) UserArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userArn"])
+func (r *Permission) UserArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userArn"])
 }
 
 // Input properties used for looking up and filtering Permission resources.

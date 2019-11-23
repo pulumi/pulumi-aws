@@ -63,28 +63,28 @@ func GetZoneAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ZoneAssociation) URN() *pulumi.URNOutput {
+func (r *ZoneAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ZoneAssociation) ID() *pulumi.IDOutput {
+func (r *ZoneAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The VPC to associate with the private hosted zone.
-func (r *ZoneAssociation) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *ZoneAssociation) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // The VPC's region. Defaults to the region of the AWS provider.
-func (r *ZoneAssociation) VpcRegion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcRegion"])
+func (r *ZoneAssociation) VpcRegion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcRegion"])
 }
 
 // The private hosted zone to associate.
-func (r *ZoneAssociation) ZoneId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zoneId"])
+func (r *ZoneAssociation) ZoneId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zoneId"])
 }
 
 // Input properties used for looking up and filtering ZoneAssociation resources.

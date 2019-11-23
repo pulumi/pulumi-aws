@@ -69,48 +69,48 @@ func GetGatewayAssociationProposal(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *GatewayAssociationProposal) URN() *pulumi.URNOutput {
+func (r *GatewayAssociationProposal) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *GatewayAssociationProposal) ID() *pulumi.IDOutput {
+func (r *GatewayAssociationProposal) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-func (r *GatewayAssociationProposal) AllowedPrefixes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["allowedPrefixes"])
+func (r *GatewayAssociationProposal) AllowedPrefixes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["allowedPrefixes"])
 }
 
 // The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
-func (r *GatewayAssociationProposal) AssociatedGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["associatedGatewayId"])
+func (r *GatewayAssociationProposal) AssociatedGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["associatedGatewayId"])
 }
 
 // The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
-func (r *GatewayAssociationProposal) AssociatedGatewayOwnerAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["associatedGatewayOwnerAccountId"])
+func (r *GatewayAssociationProposal) AssociatedGatewayOwnerAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["associatedGatewayOwnerAccountId"])
 }
 
 // The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-func (r *GatewayAssociationProposal) AssociatedGatewayType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["associatedGatewayType"])
+func (r *GatewayAssociationProposal) AssociatedGatewayType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["associatedGatewayType"])
 }
 
 // Direct Connect Gateway identifier.
-func (r *GatewayAssociationProposal) DxGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dxGatewayId"])
+func (r *GatewayAssociationProposal) DxGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dxGatewayId"])
 }
 
 // AWS Account identifier of the Direct Connect Gateway's owner.
-func (r *GatewayAssociationProposal) DxGatewayOwnerAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dxGatewayOwnerAccountId"])
+func (r *GatewayAssociationProposal) DxGatewayOwnerAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dxGatewayOwnerAccountId"])
 }
 
 // *Deprecated:* Use `associatedGatewayId` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
-func (r *GatewayAssociationProposal) VpnGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpnGatewayId"])
+func (r *GatewayAssociationProposal) VpnGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpnGatewayId"])
 }
 
 // Input properties used for looking up and filtering GatewayAssociationProposal resources.

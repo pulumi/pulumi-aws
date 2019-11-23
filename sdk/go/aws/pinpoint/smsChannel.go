@@ -63,43 +63,43 @@ func GetSmsChannel(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SmsChannel) URN() *pulumi.URNOutput {
+func (r *SmsChannel) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SmsChannel) ID() *pulumi.IDOutput {
+func (r *SmsChannel) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The application ID.
-func (r *SmsChannel) ApplicationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationId"])
+func (r *SmsChannel) ApplicationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationId"])
 }
 
 // Whether the channel is enabled or disabled. Defaults to `true`.
-func (r *SmsChannel) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *SmsChannel) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Promotional messages per second that can be sent.
-func (r *SmsChannel) PromotionalMessagesPerSecond() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["promotionalMessagesPerSecond"])
+func (r *SmsChannel) PromotionalMessagesPerSecond() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["promotionalMessagesPerSecond"])
 }
 
 // Sender identifier of your messages.
-func (r *SmsChannel) SenderId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["senderId"])
+func (r *SmsChannel) SenderId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["senderId"])
 }
 
 // The Short Code registered with the phone provider.
-func (r *SmsChannel) ShortCode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["shortCode"])
+func (r *SmsChannel) ShortCode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["shortCode"])
 }
 
 // Transactional messages per second that can be sent.
-func (r *SmsChannel) TransactionalMessagesPerSecond() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["transactionalMessagesPerSecond"])
+func (r *SmsChannel) TransactionalMessagesPerSecond() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["transactionalMessagesPerSecond"])
 }
 
 // Input properties used for looking up and filtering SmsChannel resources.

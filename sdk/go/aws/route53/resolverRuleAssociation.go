@@ -59,28 +59,28 @@ func GetResolverRuleAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ResolverRuleAssociation) URN() *pulumi.URNOutput {
+func (r *ResolverRuleAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ResolverRuleAssociation) ID() *pulumi.IDOutput {
+func (r *ResolverRuleAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A name for the association that you're creating between a resolver rule and a VPC.
-func (r *ResolverRuleAssociation) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ResolverRuleAssociation) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ID of the resolver rule that you want to associate with the VPC.
-func (r *ResolverRuleAssociation) ResolverRuleId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resolverRuleId"])
+func (r *ResolverRuleAssociation) ResolverRuleId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resolverRuleId"])
 }
 
 // The ID of the VPC that you want to associate the resolver rule with.
-func (r *ResolverRuleAssociation) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *ResolverRuleAssociation) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering ResolverRuleAssociation resources.

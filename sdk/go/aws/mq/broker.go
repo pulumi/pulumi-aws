@@ -129,64 +129,64 @@ func GetBroker(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Broker) URN() *pulumi.URNOutput {
+func (r *Broker) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Broker) ID() *pulumi.IDOutput {
+func (r *Broker) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies whether any broker modifications
 // are applied immediately, or during the next maintenance window. Default is `false`.
-func (r *Broker) ApplyImmediately() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["applyImmediately"])
+func (r *Broker) ApplyImmediately() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["applyImmediately"])
 }
 
 // The ARN of the broker.
-func (r *Broker) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Broker) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
-func (r *Broker) AutoMinorVersionUpgrade() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoMinorVersionUpgrade"])
+func (r *Broker) AutoMinorVersionUpgrade() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoMinorVersionUpgrade"])
 }
 
 // The name of the broker.
-func (r *Broker) BrokerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["brokerName"])
+func (r *Broker) BrokerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["brokerName"])
 }
 
 // Configuration of the broker. See below.
-func (r *Broker) Configuration() *pulumi.Output {
+func (r *Broker) Configuration() pulumi.Output {
 	return r.s.State["configuration"]
 }
 
 // The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
-func (r *Broker) DeploymentMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deploymentMode"])
+func (r *Broker) DeploymentMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deploymentMode"])
 }
 
 // Configuration block containing encryption options. See below.
-func (r *Broker) EncryptionOptions() *pulumi.Output {
+func (r *Broker) EncryptionOptions() pulumi.Output {
 	return r.s.State["encryptionOptions"]
 }
 
 // The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
-func (r *Broker) EngineType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engineType"])
+func (r *Broker) EngineType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engineType"])
 }
 
 // The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
-func (r *Broker) EngineVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
+func (r *Broker) EngineVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
 // The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
-func (r *Broker) HostInstanceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostInstanceType"])
+func (r *Broker) HostInstanceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostInstanceType"])
 }
 
 // A list of information about allocated brokers (both active & standby).
@@ -198,43 +198,43 @@ func (r *Broker) HostInstanceType() *pulumi.StringOutput {
 // * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
 // * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
 // * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-func (r *Broker) Instances() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["instances"])
+func (r *Broker) Instances() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["instances"])
 }
 
 // Logging configuration of the broker. See below.
-func (r *Broker) Logs() *pulumi.Output {
+func (r *Broker) Logs() pulumi.Output {
 	return r.s.State["logs"]
 }
 
 // Maintenance window start time. See below.
-func (r *Broker) MaintenanceWindowStartTime() *pulumi.Output {
+func (r *Broker) MaintenanceWindowStartTime() pulumi.Output {
 	return r.s.State["maintenanceWindowStartTime"]
 }
 
 // Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
-func (r *Broker) PubliclyAccessible() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["publiclyAccessible"])
+func (r *Broker) PubliclyAccessible() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["publiclyAccessible"])
 }
 
 // The list of security group IDs assigned to the broker.
-func (r *Broker) SecurityGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityGroups"])
+func (r *Broker) SecurityGroups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityGroups"])
 }
 
 // The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
-func (r *Broker) SubnetIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subnetIds"])
+func (r *Broker) SubnetIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subnetIds"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Broker) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Broker) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The list of all ActiveMQ usernames for the specified broker. See below.
-func (r *Broker) Users() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["users"])
+func (r *Broker) Users() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["users"])
 }
 
 // Input properties used for looking up and filtering Broker resources.

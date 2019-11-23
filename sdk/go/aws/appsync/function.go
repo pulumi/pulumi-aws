@@ -81,58 +81,58 @@ func GetFunction(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Function) URN() *pulumi.URNOutput {
+func (r *Function) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Function) ID() *pulumi.IDOutput {
+func (r *Function) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the associated AppSync API.
-func (r *Function) ApiId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiId"])
+func (r *Function) ApiId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiId"])
 }
 
 // The ARN of the Function object.
-func (r *Function) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Function) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The Function DataSource name.
-func (r *Function) DataSource() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataSource"])
+func (r *Function) DataSource() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataSource"])
 }
 
 // The Function description.
-func (r *Function) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Function) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // A unique ID representing the Function object.
-func (r *Function) FunctionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["functionId"])
+func (r *Function) FunctionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["functionId"])
 }
 
 // The version of the request mapping template. Currently the supported value is `2018-05-29`.
-func (r *Function) FunctionVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["functionVersion"])
+func (r *Function) FunctionVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["functionVersion"])
 }
 
 // The Function name. The function name does not have to be unique.
-func (r *Function) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Function) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-func (r *Function) RequestMappingTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestMappingTemplate"])
+func (r *Function) RequestMappingTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestMappingTemplate"])
 }
 
 // The Function response mapping template.
-func (r *Function) ResponseMappingTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseMappingTemplate"])
+func (r *Function) ResponseMappingTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["responseMappingTemplate"])
 }
 
 // Input properties used for looking up and filtering Function resources.

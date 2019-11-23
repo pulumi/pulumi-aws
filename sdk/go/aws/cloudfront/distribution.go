@@ -144,179 +144,179 @@ func GetDistribution(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Distribution) URN() *pulumi.URNOutput {
+func (r *Distribution) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Distribution) ID() *pulumi.IDOutput {
+func (r *Distribution) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The key pair IDs that CloudFront is aware of for
 // each trusted signer, if the distribution is set up to serve private content
 // with signed URLs.
-func (r *Distribution) ActiveTrustedSigners() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["activeTrustedSigners"])
+func (r *Distribution) ActiveTrustedSigners() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["activeTrustedSigners"])
 }
 
 // Extra CNAMEs (alternate domain names), if any, for
 // this distribution.
-func (r *Distribution) Aliases() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["aliases"])
+func (r *Distribution) Aliases() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["aliases"])
 }
 
 // The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
-func (r *Distribution) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Distribution) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Internal value used by CloudFront to allow future
 // updates to the distribution configuration.
-func (r *Distribution) CallerReference() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["callerReference"])
+func (r *Distribution) CallerReference() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["callerReference"])
 }
 
 // Any comments you want to include about the
 // distribution.
-func (r *Distribution) Comment() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["comment"])
+func (r *Distribution) Comment() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["comment"])
 }
 
 // One or more custom error response elements (multiples allowed).
-func (r *Distribution) CustomErrorResponses() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customErrorResponses"])
+func (r *Distribution) CustomErrorResponses() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customErrorResponses"])
 }
 
 // The default cache behavior for this distribution (maximum
 // one).
-func (r *Distribution) DefaultCacheBehavior() *pulumi.Output {
+func (r *Distribution) DefaultCacheBehavior() pulumi.Output {
 	return r.s.State["defaultCacheBehavior"]
 }
 
 // The object that you want CloudFront to
 // return (for example, index.html) when an end user requests the root URL.
-func (r *Distribution) DefaultRootObject() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultRootObject"])
+func (r *Distribution) DefaultRootObject() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultRootObject"])
 }
 
 // The DNS domain name of either the S3 bucket, or
 // web site of your custom origin.
-func (r *Distribution) DomainName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domainName"])
+func (r *Distribution) DomainName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domainName"])
 }
 
 // Whether the distribution is enabled to accept end
 // user requests for content.
-func (r *Distribution) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *Distribution) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // The current version of the distribution's information. For example:
 // `E2QWRUHAPOMQZL`.
-func (r *Distribution) Etag() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["etag"])
+func (r *Distribution) Etag() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["etag"])
 }
 
 // The CloudFront Route 53 zone ID that can be used to
 // route an [Alias Resource Record Set][7] to. This attribute is simply an
 // alias for the zone ID `Z2FDTNDATAQYW2`.
-func (r *Distribution) HostedZoneId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostedZoneId"])
+func (r *Distribution) HostedZoneId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostedZoneId"])
 }
 
 // The maximum HTTP version to support on the
 // distribution. Allowed values are `http1.1` and `http2`. The default is
 // `http2`.
-func (r *Distribution) HttpVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["httpVersion"])
+func (r *Distribution) HttpVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["httpVersion"])
 }
 
 // The number of invalidation batches
 // currently in progress.
-func (r *Distribution) InProgressValidationBatches() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["inProgressValidationBatches"])
+func (r *Distribution) InProgressValidationBatches() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["inProgressValidationBatches"])
 }
 
 // Whether the IPv6 is enabled for the distribution.
-func (r *Distribution) IsIpv6Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isIpv6Enabled"])
+func (r *Distribution) IsIpv6Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isIpv6Enabled"])
 }
 
 // The date and time the distribution was last modified.
-func (r *Distribution) LastModifiedTime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastModifiedTime"])
+func (r *Distribution) LastModifiedTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastModifiedTime"])
 }
 
 // The logging
 // configuration that controls how logs are written
 // to your distribution (maximum one).
-func (r *Distribution) LoggingConfig() *pulumi.Output {
+func (r *Distribution) LoggingConfig() pulumi.Output {
 	return r.s.State["loggingConfig"]
 }
 
 // An ordered list of cache behaviors
 // resource for this distribution. List from top to bottom
 // in order of precedence. The topmost cache behavior will have precedence 0.
-func (r *Distribution) OrderedCacheBehaviors() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["orderedCacheBehaviors"])
+func (r *Distribution) OrderedCacheBehaviors() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["orderedCacheBehaviors"])
 }
 
 // One or more origins for this
 // distribution (multiples allowed).
-func (r *Distribution) Origins() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["origins"])
+func (r *Distribution) Origins() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["origins"])
 }
 
 // One or more originGroup for this
 // distribution (multiples allowed).
-func (r *Distribution) OriginGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["originGroups"])
+func (r *Distribution) OriginGroups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["originGroups"])
 }
 
 // The price class for this distribution. One of
 // `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
-func (r *Distribution) PriceClass() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["priceClass"])
+func (r *Distribution) PriceClass() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["priceClass"])
 }
 
 // The restriction
 // configuration for this distribution (maximum one).
-func (r *Distribution) Restrictions() *pulumi.Output {
+func (r *Distribution) Restrictions() pulumi.Output {
 	return r.s.State["restrictions"]
 }
 
 // Disables the distribution instead of
 // deleting it when destroying the resource. If this is set,
 // the distribution needs to be deleted manually afterwards. Default: `false`.
-func (r *Distribution) RetainOnDelete() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["retainOnDelete"])
+func (r *Distribution) RetainOnDelete() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["retainOnDelete"])
 }
 
 // The current status of the distribution. `Deployed` if the
 // distribution's information is fully propagated throughout the Amazon
 // CloudFront system.
-func (r *Distribution) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Distribution) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Distribution) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Distribution) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The SSL
 // configuration for this distribution (maximum
 // one).
-func (r *Distribution) ViewerCertificate() *pulumi.Output {
+func (r *Distribution) ViewerCertificate() pulumi.Output {
 	return r.s.State["viewerCertificate"]
 }
 
 // If enabled, the resource will wait for
 // the distribution status to change from `InProgress` to `Deployed`. Setting
 // this to`false` will skip the process. Default: `true`.
-func (r *Distribution) WaitForDeployment() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["waitForDeployment"])
+func (r *Distribution) WaitForDeployment() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["waitForDeployment"])
 }
 
 // If you're using AWS WAF to filter CloudFront
@@ -324,8 +324,8 @@ func (r *Distribution) WaitForDeployment() *pulumi.BoolOutput {
 // distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
 // region and the credentials configuring this argument must have
 // `waf:GetWebACL` permissions assigned.
-func (r *Distribution) WebAclId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["webAclId"])
+func (r *Distribution) WebAclId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["webAclId"])
 }
 
 // Input properties used for looking up and filtering Distribution resources.

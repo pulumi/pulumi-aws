@@ -71,63 +71,63 @@ func GetServer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Server) URN() *pulumi.URNOutput {
+func (r *Server) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Server) ID() *pulumi.IDOutput {
+func (r *Server) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of Transfer Server
-func (r *Server) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Server) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
-func (r *Server) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *Server) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
-func (r *Server) EndpointDetails() *pulumi.Output {
+func (r *Server) EndpointDetails() pulumi.Output {
 	return r.s.State["endpointDetails"]
 }
 
 // The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
-func (r *Server) EndpointType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpointType"])
+func (r *Server) EndpointType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpointType"])
 }
 
 // A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
-func (r *Server) ForceDestroy() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
+func (r *Server) ForceDestroy() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["forceDestroy"])
 }
 
 // The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
-func (r *Server) IdentityProviderType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identityProviderType"])
+func (r *Server) IdentityProviderType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identityProviderType"])
 }
 
 // Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
-func (r *Server) InvocationRole() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["invocationRole"])
+func (r *Server) InvocationRole() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["invocationRole"])
 }
 
 // Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
-func (r *Server) LoggingRole() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loggingRole"])
+func (r *Server) LoggingRole() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loggingRole"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Server) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Server) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
-func (r *Server) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *Server) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // Input properties used for looking up and filtering Server resources.

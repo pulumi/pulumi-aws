@@ -56,23 +56,23 @@ func GetDomainPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DomainPolicy) URN() *pulumi.URNOutput {
+func (r *DomainPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DomainPolicy) ID() *pulumi.IDOutput {
+func (r *DomainPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // IAM policy document specifying the access policies for the domain
-func (r *DomainPolicy) AccessPolicies() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessPolicies"])
+func (r *DomainPolicy) AccessPolicies() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessPolicies"])
 }
 
 // Name of the domain.
-func (r *DomainPolicy) DomainName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domainName"])
+func (r *DomainPolicy) DomainName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domainName"])
 }
 
 // Input properties used for looking up and filtering DomainPolicy resources.

@@ -95,92 +95,92 @@ func GetStage(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Stage) URN() *pulumi.URNOutput {
+func (r *Stage) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Stage) ID() *pulumi.IDOutput {
+func (r *Stage) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Enables access logs for the API stage. Detailed below.
-func (r *Stage) AccessLogSettings() *pulumi.Output {
+func (r *Stage) AccessLogSettings() pulumi.Output {
 	return r.s.State["accessLogSettings"]
 }
 
 // Amazon Resource Name (ARN)
-func (r *Stage) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Stage) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Specifies whether a cache cluster is enabled for the stage
-func (r *Stage) CacheClusterEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["cacheClusterEnabled"])
+func (r *Stage) CacheClusterEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["cacheClusterEnabled"])
 }
 
 // The size of the cache cluster for the stage, if enabled.
 // Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-func (r *Stage) CacheClusterSize() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cacheClusterSize"])
+func (r *Stage) CacheClusterSize() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cacheClusterSize"])
 }
 
 // The identifier of a client certificate for the stage.
-func (r *Stage) ClientCertificateId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientCertificateId"])
+func (r *Stage) ClientCertificateId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientCertificateId"])
 }
 
 // The ID of the deployment that the stage points to
-func (r *Stage) Deployment() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deployment"])
+func (r *Stage) Deployment() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deployment"])
 }
 
 // The description of the stage
-func (r *Stage) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Stage) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The version of the associated API documentation
-func (r *Stage) DocumentationVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["documentationVersion"])
+func (r *Stage) DocumentationVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["documentationVersion"])
 }
 
 // The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
 // when allowing API Gateway to invoke a Lambda function,
 // e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-func (r *Stage) ExecutionArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["executionArn"])
+func (r *Stage) ExecutionArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["executionArn"])
 }
 
 // The URL to invoke the API pointing to the stage,
 // e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-func (r *Stage) InvokeUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["invokeUrl"])
+func (r *Stage) InvokeUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["invokeUrl"])
 }
 
 // The ID of the associated REST API
-func (r *Stage) RestApi() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restApi"])
+func (r *Stage) RestApi() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restApi"])
 }
 
 // The name of the stage
-func (r *Stage) StageName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["stageName"])
+func (r *Stage) StageName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["stageName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Stage) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Stage) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // A map that defines the stage variables
-func (r *Stage) Variables() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["variables"])
+func (r *Stage) Variables() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["variables"])
 }
 
 // Whether active tracing with X-ray is enabled. Defaults to `false`.
-func (r *Stage) XrayTracingEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["xrayTracingEnabled"])
+func (r *Stage) XrayTracingEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["xrayTracingEnabled"])
 }
 
 // Input properties used for looking up and filtering Stage resources.

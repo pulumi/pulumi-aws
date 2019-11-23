@@ -85,65 +85,65 @@ func GetEventSubscription(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventSubscription) URN() *pulumi.URNOutput {
+func (r *EventSubscription) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventSubscription) ID() *pulumi.IDOutput {
+func (r *EventSubscription) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *EventSubscription) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *EventSubscription) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
-func (r *EventSubscription) CustomerAwsId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customerAwsId"])
+func (r *EventSubscription) CustomerAwsId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customerAwsId"])
 }
 
 // A boolean flag to enable/disable the subscription. Defaults to true.
-func (r *EventSubscription) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *EventSubscription) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
-func (r *EventSubscription) EventCategories() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["eventCategories"])
+func (r *EventSubscription) EventCategories() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["eventCategories"])
 }
 
 // The name of the Redshift event subscription.
-func (r *EventSubscription) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *EventSubscription) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
-func (r *EventSubscription) Severity() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["severity"])
+func (r *EventSubscription) Severity() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["severity"])
 }
 
 // The ARN of the SNS topic to send events to.
-func (r *EventSubscription) SnsTopicArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["snsTopicArn"])
+func (r *EventSubscription) SnsTopicArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["snsTopicArn"])
 }
 
 // A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
-func (r *EventSubscription) SourceIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["sourceIds"])
+func (r *EventSubscription) SourceIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["sourceIds"])
 }
 
 // The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
-func (r *EventSubscription) SourceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceType"])
+func (r *EventSubscription) SourceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceType"])
 }
 
-func (r *EventSubscription) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *EventSubscription) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *EventSubscription) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *EventSubscription) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering EventSubscription resources.

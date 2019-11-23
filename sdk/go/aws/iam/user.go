@@ -64,50 +64,50 @@ func GetUser(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *User) URN() *pulumi.URNOutput {
+func (r *User) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *User) ID() *pulumi.IDOutput {
+func (r *User) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN assigned by AWS for this user.
-func (r *User) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *User) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // When destroying this user, destroy even if it
 // has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
 // a user with non-this provider-managed access keys and login profile will fail to be destroyed.
-func (r *User) ForceDestroy() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
+func (r *User) ForceDestroy() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["forceDestroy"])
 }
 
 // The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
-func (r *User) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *User) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Path in which to create the user.
-func (r *User) Path() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["path"])
+func (r *User) Path() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["path"])
 }
 
 // The ARN of the policy that is used to set the permissions boundary for the user.
-func (r *User) PermissionsBoundary() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["permissionsBoundary"])
+func (r *User) PermissionsBoundary() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["permissionsBoundary"])
 }
 
 // Key-value mapping of tags for the IAM user
-func (r *User) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *User) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The [unique ID][1] assigned by AWS.
-func (r *User) UniqueId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uniqueId"])
+func (r *User) UniqueId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uniqueId"])
 }
 
 // Input properties used for looking up and filtering User resources.

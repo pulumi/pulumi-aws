@@ -103,56 +103,56 @@ func GetPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Policy) URN() *pulumi.URNOutput {
+func (r *Policy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Policy) ID() *pulumi.IDOutput {
+func (r *Policy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *Policy) Alarms() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["alarms"])
+func (r *Policy) Alarms() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["alarms"])
 }
 
 // The ARN assigned by AWS to the scaling policy.
-func (r *Policy) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Policy) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name of the policy.
-func (r *Policy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Policy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // For DynamoDB, only `TargetTrackingScaling` is supported. For Amazon ECS, Spot Fleet, and Amazon RDS, both `StepScaling` and `TargetTrackingScaling` are supported. For any other service, only `StepScaling` is supported. Defaults to `StepScaling`.
-func (r *Policy) PolicyType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyType"])
+func (r *Policy) PolicyType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyType"])
 }
 
 // The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-func (r *Policy) ResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceId"])
+func (r *Policy) ResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceId"])
 }
 
 // The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-func (r *Policy) ScalableDimension() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scalableDimension"])
+func (r *Policy) ScalableDimension() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scalableDimension"])
 }
 
 // The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-func (r *Policy) ServiceNamespace() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceNamespace"])
+func (r *Policy) ServiceNamespace() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceNamespace"])
 }
 
 // Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
-func (r *Policy) StepScalingPolicyConfiguration() *pulumi.Output {
+func (r *Policy) StepScalingPolicyConfiguration() pulumi.Output {
 	return r.s.State["stepScalingPolicyConfiguration"]
 }
 
 // A target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
-func (r *Policy) TargetTrackingScalingPolicyConfiguration() *pulumi.Output {
+func (r *Policy) TargetTrackingScalingPolicyConfiguration() pulumi.Output {
 	return r.s.State["targetTrackingScalingPolicyConfiguration"]
 }
 

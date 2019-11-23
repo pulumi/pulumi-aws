@@ -130,172 +130,172 @@ func GetLaunchTemplate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LaunchTemplate) URN() *pulumi.URNOutput {
+func (r *LaunchTemplate) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LaunchTemplate) ID() *pulumi.IDOutput {
+func (r *LaunchTemplate) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the launch template.
-func (r *LaunchTemplate) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *LaunchTemplate) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Specify volumes to attach to the instance besides the volumes specified by the AMI.
 // See Block Devices below for details.
-func (r *LaunchTemplate) BlockDeviceMappings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["blockDeviceMappings"])
+func (r *LaunchTemplate) BlockDeviceMappings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["blockDeviceMappings"])
 }
 
 // Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
-func (r *LaunchTemplate) CapacityReservationSpecification() *pulumi.Output {
+func (r *LaunchTemplate) CapacityReservationSpecification() pulumi.Output {
 	return r.s.State["capacityReservationSpecification"]
 }
 
 // Customize the credit specification of the instance. See Credit
 // Specification below for more details.
-func (r *LaunchTemplate) CreditSpecification() *pulumi.Output {
+func (r *LaunchTemplate) CreditSpecification() pulumi.Output {
 	return r.s.State["creditSpecification"]
 }
 
 // The default version of the launch template.
-func (r *LaunchTemplate) DefaultVersion() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["defaultVersion"])
+func (r *LaunchTemplate) DefaultVersion() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["defaultVersion"])
 }
 
 // Description of the launch template.
-func (r *LaunchTemplate) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *LaunchTemplate) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // If `true`, enables [EC2 Instance
 // Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
-func (r *LaunchTemplate) DisableApiTermination() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["disableApiTermination"])
+func (r *LaunchTemplate) DisableApiTermination() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["disableApiTermination"])
 }
 
 // If `true`, the launched EC2 instance will be EBS-optimized.
-func (r *LaunchTemplate) EbsOptimized() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ebsOptimized"])
+func (r *LaunchTemplate) EbsOptimized() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ebsOptimized"])
 }
 
 // The elastic GPU to attach to the instance. See Elastic GPU
 // below for more details.
-func (r *LaunchTemplate) ElasticGpuSpecifications() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["elasticGpuSpecifications"])
+func (r *LaunchTemplate) ElasticGpuSpecifications() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["elasticGpuSpecifications"])
 }
 
 // Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-func (r *LaunchTemplate) ElasticInferenceAccelerator() *pulumi.Output {
+func (r *LaunchTemplate) ElasticInferenceAccelerator() pulumi.Output {
 	return r.s.State["elasticInferenceAccelerator"]
 }
 
 // The IAM Instance Profile to launch the instance with. See Instance Profile
 // below for more details.
-func (r *LaunchTemplate) IamInstanceProfile() *pulumi.Output {
+func (r *LaunchTemplate) IamInstanceProfile() pulumi.Output {
 	return r.s.State["iamInstanceProfile"]
 }
 
 // The AMI from which to launch the instance.
-func (r *LaunchTemplate) ImageId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["imageId"])
+func (r *LaunchTemplate) ImageId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["imageId"])
 }
 
 // Shutdown behavior for the instance. Can be `stop` or `terminate`.
 // (Default: `stop`).
-func (r *LaunchTemplate) InstanceInitiatedShutdownBehavior() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceInitiatedShutdownBehavior"])
+func (r *LaunchTemplate) InstanceInitiatedShutdownBehavior() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceInitiatedShutdownBehavior"])
 }
 
 // The market (purchasing) option for the instance. See Market Options
 // below for details.
-func (r *LaunchTemplate) InstanceMarketOptions() *pulumi.Output {
+func (r *LaunchTemplate) InstanceMarketOptions() pulumi.Output {
 	return r.s.State["instanceMarketOptions"]
 }
 
 // The type of the instance.
-func (r *LaunchTemplate) InstanceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceType"])
+func (r *LaunchTemplate) InstanceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceType"])
 }
 
 // The kernel ID.
-func (r *LaunchTemplate) KernelId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kernelId"])
+func (r *LaunchTemplate) KernelId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kernelId"])
 }
 
 // The key name to use for the instance.
-func (r *LaunchTemplate) KeyName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyName"])
+func (r *LaunchTemplate) KeyName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyName"])
 }
 
 // The latest version of the launch template.
-func (r *LaunchTemplate) LatestVersion() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["latestVersion"])
+func (r *LaunchTemplate) LatestVersion() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["latestVersion"])
 }
 
 // A list of license specifications to associate with. See License Specification below for more details.
-func (r *LaunchTemplate) LicenseSpecifications() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["licenseSpecifications"])
+func (r *LaunchTemplate) LicenseSpecifications() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["licenseSpecifications"])
 }
 
 // The monitoring option for the instance. See Monitoring below for more details.
-func (r *LaunchTemplate) Monitoring() *pulumi.Output {
+func (r *LaunchTemplate) Monitoring() pulumi.Output {
 	return r.s.State["monitoring"]
 }
 
 // The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-func (r *LaunchTemplate) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LaunchTemplate) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *LaunchTemplate) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *LaunchTemplate) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // Customize network interfaces to be attached at instance boot time. See Network
 // Interfaces below for more details.
-func (r *LaunchTemplate) NetworkInterfaces() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkInterfaces"])
+func (r *LaunchTemplate) NetworkInterfaces() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkInterfaces"])
 }
 
 // The placement of the instance. See Placement below for more details.
-func (r *LaunchTemplate) Placement() *pulumi.Output {
+func (r *LaunchTemplate) Placement() pulumi.Output {
 	return r.s.State["placement"]
 }
 
 // The ID of the RAM disk.
-func (r *LaunchTemplate) RamDiskId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ramDiskId"])
+func (r *LaunchTemplate) RamDiskId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ramDiskId"])
 }
 
 // A list of security group names to associate with. If you are creating Instances in a VPC, use
 // `vpcSecurityGroupIds` instead.
-func (r *LaunchTemplate) SecurityGroupNames() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityGroupNames"])
+func (r *LaunchTemplate) SecurityGroupNames() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityGroupNames"])
 }
 
 // The tags to apply to the resources during launch. See Tag Specifications below for more details.
-func (r *LaunchTemplate) TagSpecifications() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["tagSpecifications"])
+func (r *LaunchTemplate) TagSpecifications() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["tagSpecifications"])
 }
 
 // A mapping of tags to assign to the launch template.
-func (r *LaunchTemplate) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *LaunchTemplate) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The Base64-encoded user data to provide when launching the instance.
-func (r *LaunchTemplate) UserData() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userData"])
+func (r *LaunchTemplate) UserData() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userData"])
 }
 
 // A list of security group IDs to associate with.
-func (r *LaunchTemplate) VpcSecurityGroupIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["vpcSecurityGroupIds"])
+func (r *LaunchTemplate) VpcSecurityGroupIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["vpcSecurityGroupIds"])
 }
 
 // Input properties used for looking up and filtering LaunchTemplate resources.

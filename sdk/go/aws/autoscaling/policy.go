@@ -88,72 +88,74 @@ func GetPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Policy) URN() *pulumi.URNOutput {
+func (r *Policy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Policy) ID() *pulumi.IDOutput {
+func (r *Policy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
-func (r *Policy) AdjustmentType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["adjustmentType"])
+func (r *Policy) AdjustmentType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["adjustmentType"])
 }
 
 // The ARN assigned by AWS to the scaling policy.
-func (r *Policy) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Policy) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name of the autoscaling group.
-func (r *Policy) AutoscalingGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["autoscalingGroupName"])
+func (r *Policy) AutoscalingGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["autoscalingGroupName"])
 }
 
 // The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
-func (r *Policy) Cooldown() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["cooldown"])
+func (r *Policy) Cooldown() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["cooldown"])
 }
 
 // The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
-func (r *Policy) EstimatedInstanceWarmup() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["estimatedInstanceWarmup"])
+func (r *Policy) EstimatedInstanceWarmup() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["estimatedInstanceWarmup"])
 }
 
 // The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-func (r *Policy) MetricAggregationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metricAggregationType"])
+func (r *Policy) MetricAggregationType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metricAggregationType"])
 }
 
-func (r *Policy) MinAdjustmentMagnitude() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["minAdjustmentMagnitude"])
+func (r *Policy) MinAdjustmentMagnitude() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["minAdjustmentMagnitude"])
 }
 
 // The name of the dimension.
-func (r *Policy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Policy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
-func (r *Policy) PolicyType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyType"])
+func (r *Policy) PolicyType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyType"])
 }
 
 // The number of members by which to
 // scale, when the adjustment bounds are breached. A positive value scales
 // up. A negative value scales down.
-func (r *Policy) ScalingAdjustment() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["scalingAdjustment"])
+func (r *Policy) ScalingAdjustment() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["scalingAdjustment"])
 }
 
-func (r *Policy) StepAdjustments() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["stepAdjustments"])
+// A set of adjustments that manage
+// group scaling. These have the following structure:
+func (r *Policy) StepAdjustments() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["stepAdjustments"])
 }
 
 // A target tracking policy. These have the following structure:
-func (r *Policy) TargetTrackingConfiguration() *pulumi.Output {
+func (r *Policy) TargetTrackingConfiguration() pulumi.Output {
 	return r.s.State["targetTrackingConfiguration"]
 }
 
@@ -180,6 +182,8 @@ type PolicyState struct {
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
 	ScalingAdjustment interface{}
+	// A set of adjustments that manage
+	// group scaling. These have the following structure:
 	StepAdjustments interface{}
 	// A target tracking policy. These have the following structure:
 	TargetTrackingConfiguration interface{}
@@ -206,6 +210,8 @@ type PolicyArgs struct {
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
 	ScalingAdjustment interface{}
+	// A set of adjustments that manage
+	// group scaling. These have the following structure:
 	StepAdjustments interface{}
 	// A target tracking policy. These have the following structure:
 	TargetTrackingConfiguration interface{}

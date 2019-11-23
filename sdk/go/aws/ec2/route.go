@@ -91,79 +91,79 @@ func GetRoute(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Route) URN() *pulumi.URNOutput {
+func (r *Route) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Route) ID() *pulumi.IDOutput {
+func (r *Route) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The destination CIDR block.
-func (r *Route) DestinationCidrBlock() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destinationCidrBlock"])
+func (r *Route) DestinationCidrBlock() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destinationCidrBlock"])
 }
 
 // The destination IPv6 CIDR block.
-func (r *Route) DestinationIpv6CidrBlock() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destinationIpv6CidrBlock"])
+func (r *Route) DestinationIpv6CidrBlock() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destinationIpv6CidrBlock"])
 }
 
-func (r *Route) DestinationPrefixListId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destinationPrefixListId"])
+func (r *Route) DestinationPrefixListId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destinationPrefixListId"])
 }
 
 // Identifier of a VPC Egress Only Internet Gateway.
-func (r *Route) EgressOnlyGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["egressOnlyGatewayId"])
+func (r *Route) EgressOnlyGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["egressOnlyGatewayId"])
 }
 
 // Identifier of a VPC internet gateway or a virtual private gateway.
-func (r *Route) GatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gatewayId"])
+func (r *Route) GatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gatewayId"])
 }
 
 // Identifier of an EC2 instance.
-func (r *Route) InstanceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceId"])
+func (r *Route) InstanceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceId"])
 }
 
-func (r *Route) InstanceOwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceOwnerId"])
+func (r *Route) InstanceOwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceOwnerId"])
 }
 
 // Identifier of a VPC NAT gateway.
-func (r *Route) NatGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["natGatewayId"])
+func (r *Route) NatGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["natGatewayId"])
 }
 
 // Identifier of an EC2 network interface.
-func (r *Route) NetworkInterfaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkInterfaceId"])
+func (r *Route) NetworkInterfaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkInterfaceId"])
 }
 
-func (r *Route) Origin() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["origin"])
+func (r *Route) Origin() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["origin"])
 }
 
 // The ID of the routing table.
-func (r *Route) RouteTableId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["routeTableId"])
+func (r *Route) RouteTableId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["routeTableId"])
 }
 
-func (r *Route) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *Route) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // Identifier of an EC2 Transit Gateway.
-func (r *Route) TransitGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transitGatewayId"])
+func (r *Route) TransitGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["transitGatewayId"])
 }
 
 // Identifier of a VPC peering connection.
-func (r *Route) VpcPeeringConnectionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcPeeringConnectionId"])
+func (r *Route) VpcPeeringConnectionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcPeeringConnectionId"])
 }
 
 // Input properties used for looking up and filtering Route resources.

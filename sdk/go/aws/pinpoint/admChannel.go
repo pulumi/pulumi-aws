@@ -68,33 +68,33 @@ func GetAdmChannel(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AdmChannel) URN() *pulumi.URNOutput {
+func (r *AdmChannel) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AdmChannel) ID() *pulumi.IDOutput {
+func (r *AdmChannel) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The application ID.
-func (r *AdmChannel) ApplicationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationId"])
+func (r *AdmChannel) ApplicationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationId"])
 }
 
 // Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-func (r *AdmChannel) ClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientId"])
+func (r *AdmChannel) ClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientId"])
 }
 
 // Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-func (r *AdmChannel) ClientSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientSecret"])
+func (r *AdmChannel) ClientSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientSecret"])
 }
 
 // Specifies whether to enable the channel. Defaults to `true`.
-func (r *AdmChannel) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *AdmChannel) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Input properties used for looking up and filtering AdmChannel resources.

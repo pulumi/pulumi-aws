@@ -96,58 +96,58 @@ func GetReportDefinition(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ReportDefinition) URN() *pulumi.URNOutput {
+func (r *ReportDefinition) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ReportDefinition) ID() *pulumi.IDOutput {
+func (r *ReportDefinition) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
-func (r *ReportDefinition) AdditionalArtifacts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["additionalArtifacts"])
+func (r *ReportDefinition) AdditionalArtifacts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["additionalArtifacts"])
 }
 
 // A list of schema elements. Valid values are: RESOURCES.
-func (r *ReportDefinition) AdditionalSchemaElements() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["additionalSchemaElements"])
+func (r *ReportDefinition) AdditionalSchemaElements() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["additionalSchemaElements"])
 }
 
 // Compression format for report. Valid values are: GZIP, ZIP.
-func (r *ReportDefinition) Compression() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["compression"])
+func (r *ReportDefinition) Compression() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["compression"])
 }
 
 // Format for report. Valid values are: textORcsv.
-func (r *ReportDefinition) Format() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["format"])
+func (r *ReportDefinition) Format() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["format"])
 }
 
 // Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
-func (r *ReportDefinition) ReportName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["reportName"])
+func (r *ReportDefinition) ReportName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["reportName"])
 }
 
 // Name of the existing S3 bucket to hold generated reports.
-func (r *ReportDefinition) S3Bucket() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3Bucket"])
+func (r *ReportDefinition) S3Bucket() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["s3Bucket"])
 }
 
 // Report path prefix. Limited to 256 characters.
-func (r *ReportDefinition) S3Prefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3Prefix"])
+func (r *ReportDefinition) S3Prefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["s3Prefix"])
 }
 
 // Region of the existing S3 bucket to hold generated reports.
-func (r *ReportDefinition) S3Region() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3Region"])
+func (r *ReportDefinition) S3Region() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["s3Region"])
 }
 
 // The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
-func (r *ReportDefinition) TimeUnit() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timeUnit"])
+func (r *ReportDefinition) TimeUnit() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timeUnit"])
 }
 
 // Input properties used for looking up and filtering ReportDefinition resources.

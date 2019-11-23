@@ -61,28 +61,28 @@ func GetCertificate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Certificate) URN() *pulumi.URNOutput {
+func (r *Certificate) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Certificate) ID() *pulumi.IDOutput {
+func (r *Certificate) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Boolean flag to indicate if the certificate should be active
-func (r *Certificate) Active() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["active"])
+func (r *Certificate) Active() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["active"])
 }
 
 // The ARN of the created certificate.
-func (r *Certificate) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Certificate) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The certificate data, in PEM format.
-func (r *Certificate) CertificatePem() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificatePem"])
+func (r *Certificate) CertificatePem() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificatePem"])
 }
 
 // The certificate signing request. Review
@@ -90,18 +90,18 @@ func (r *Certificate) CertificatePem() *pulumi.StringOutput {
 // for more information on generating a certificate from a certificate signing request (CSR).
 // If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
 // for more information on generating keys and a certificate.
-func (r *Certificate) Csr() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["csr"])
+func (r *Certificate) Csr() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["csr"])
 }
 
 // When no CSR is provided, the private key.
-func (r *Certificate) PrivateKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateKey"])
+func (r *Certificate) PrivateKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateKey"])
 }
 
 // When no CSR is provided, the public key.
-func (r *Certificate) PublicKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publicKey"])
+func (r *Certificate) PublicKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publicKey"])
 }
 
 // Input properties used for looking up and filtering Certificate resources.

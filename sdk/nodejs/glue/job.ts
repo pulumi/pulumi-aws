@@ -76,6 +76,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly allocatedCapacity!: pulumi.Output<number>;
     /**
+     * Amazon Resource Name (ARN) of Glue Job
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The command of the job. Defined below.
      */
     public readonly command!: pulumi.Output<outputs.glue.JobCommand>;
@@ -112,6 +116,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The number of workers of a defined workerType that are allocated when a job runs.
+     */
+    public readonly numberOfWorkers!: pulumi.Output<number | undefined>;
+    /**
      * The ARN of the IAM role associated with this job.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -120,9 +128,17 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly securityConfiguration!: pulumi.Output<string | undefined>;
     /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
     public readonly timeout!: pulumi.Output<number | undefined>;
+    /**
+     * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+     */
+    public readonly workerType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -137,6 +153,7 @@ export class Job extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as JobState | undefined;
             inputs["allocatedCapacity"] = state ? state.allocatedCapacity : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["command"] = state ? state.command : undefined;
             inputs["connections"] = state ? state.connections : undefined;
             inputs["defaultArguments"] = state ? state.defaultArguments : undefined;
@@ -146,9 +163,12 @@ export class Job extends pulumi.CustomResource {
             inputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             inputs["maxRetries"] = state ? state.maxRetries : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["timeout"] = state ? state.timeout : undefined;
+            inputs["workerType"] = state ? state.workerType : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
             if (!args || args.command === undefined) {
@@ -167,9 +187,13 @@ export class Job extends pulumi.CustomResource {
             inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             inputs["maxRetries"] = args ? args.maxRetries : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
+            inputs["workerType"] = args ? args.workerType : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -190,6 +214,10 @@ export interface JobState {
      * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
      */
     readonly allocatedCapacity?: pulumi.Input<number>;
+    /**
+     * Amazon Resource Name (ARN) of Glue Job
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The command of the job. Defined below.
      */
@@ -227,6 +255,10 @@ export interface JobState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * The number of workers of a defined workerType that are allocated when a job runs.
+     */
+    readonly numberOfWorkers?: pulumi.Input<number>;
+    /**
      * The ARN of the IAM role associated with this job.
      */
     readonly roleArn?: pulumi.Input<string>;
@@ -235,9 +267,17 @@ export interface JobState {
      */
     readonly securityConfiguration?: pulumi.Input<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
     readonly timeout?: pulumi.Input<number>;
+    /**
+     * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+     */
+    readonly workerType?: pulumi.Input<string>;
 }
 
 /**
@@ -285,6 +325,10 @@ export interface JobArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * The number of workers of a defined workerType that are allocated when a job runs.
+     */
+    readonly numberOfWorkers?: pulumi.Input<number>;
+    /**
      * The ARN of the IAM role associated with this job.
      */
     readonly roleArn: pulumi.Input<string>;
@@ -293,7 +337,15 @@ export interface JobArgs {
      */
     readonly securityConfiguration?: pulumi.Input<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
     readonly timeout?: pulumi.Input<number>;
+    /**
+     * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+     */
+    readonly workerType?: pulumi.Input<string>;
 }

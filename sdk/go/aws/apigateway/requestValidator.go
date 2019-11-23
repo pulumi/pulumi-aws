@@ -59,33 +59,33 @@ func GetRequestValidator(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RequestValidator) URN() *pulumi.URNOutput {
+func (r *RequestValidator) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RequestValidator) ID() *pulumi.IDOutput {
+func (r *RequestValidator) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the request validator
-func (r *RequestValidator) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RequestValidator) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ID of the associated Rest API
-func (r *RequestValidator) RestApi() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restApi"])
+func (r *RequestValidator) RestApi() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restApi"])
 }
 
 // Boolean whether to validate request body. Defaults to `false`.
-func (r *RequestValidator) ValidateRequestBody() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["validateRequestBody"])
+func (r *RequestValidator) ValidateRequestBody() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["validateRequestBody"])
 }
 
 // Boolean whether to validate request parameters. Defaults to `false`.
-func (r *RequestValidator) ValidateRequestParameters() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["validateRequestParameters"])
+func (r *RequestValidator) ValidateRequestParameters() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["validateRequestParameters"])
 }
 
 // Input properties used for looking up and filtering RequestValidator resources.

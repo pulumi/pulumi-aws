@@ -63,28 +63,28 @@ func GetAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Attachment) URN() *pulumi.URNOutput {
+func (r *Attachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Attachment) ID() *pulumi.IDOutput {
+func (r *Attachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of an ALB Target Group.
-func (r *Attachment) AlbTargetGroupArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["albTargetGroupArn"])
+func (r *Attachment) AlbTargetGroupArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["albTargetGroupArn"])
 }
 
 // Name of ASG to associate with the ELB.
-func (r *Attachment) AutoscalingGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["autoscalingGroupName"])
+func (r *Attachment) AutoscalingGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["autoscalingGroupName"])
 }
 
 // The name of the ELB.
-func (r *Attachment) Elb() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["elb"])
+func (r *Attachment) Elb() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["elb"])
 }
 
 // Input properties used for looking up and filtering Attachment resources.

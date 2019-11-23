@@ -57,22 +57,22 @@ func GetQueuePolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *QueuePolicy) URN() *pulumi.URNOutput {
+func (r *QueuePolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *QueuePolicy) ID() *pulumi.IDOutput {
+func (r *QueuePolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *QueuePolicy) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *QueuePolicy) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // The URL of the SQS Queue to which to attach the policy
-func (r *QueuePolicy) QueueUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["queueUrl"])
+func (r *QueuePolicy) QueueUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["queueUrl"])
 }
 
 // Input properties used for looking up and filtering QueuePolicy resources.

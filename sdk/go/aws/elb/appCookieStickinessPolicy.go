@@ -65,36 +65,36 @@ func GetAppCookieStickinessPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AppCookieStickinessPolicy) URN() *pulumi.URNOutput {
+func (r *AppCookieStickinessPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AppCookieStickinessPolicy) ID() *pulumi.IDOutput {
+func (r *AppCookieStickinessPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The application cookie whose lifetime the ELB's cookie should follow.
-func (r *AppCookieStickinessPolicy) CookieName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cookieName"])
+func (r *AppCookieStickinessPolicy) CookieName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cookieName"])
 }
 
 // The load balancer port to which the policy
 // should be applied. This must be an active listener on the load
 // balancer.
-func (r *AppCookieStickinessPolicy) LbPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["lbPort"])
+func (r *AppCookieStickinessPolicy) LbPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["lbPort"])
 }
 
 // The name of load balancer to which the policy
 // should be attached.
-func (r *AppCookieStickinessPolicy) LoadBalancer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadBalancer"])
+func (r *AppCookieStickinessPolicy) LoadBalancer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadBalancer"])
 }
 
 // The name of the stickiness policy.
-func (r *AppCookieStickinessPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AppCookieStickinessPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering AppCookieStickinessPolicy resources.

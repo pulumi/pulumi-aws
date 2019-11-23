@@ -78,6 +78,10 @@ export class Group extends pulumi.CustomResource {
      * A `resourceQuery` block. Resource queries are documented below.
      */
     public readonly resourceQuery!: pulumi.Output<outputs.resourcegroups.GroupResourceQuery>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -95,6 +99,7 @@ export class Group extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceQuery"] = state ? state.resourceQuery : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             if (!args || args.resourceQuery === undefined) {
@@ -103,6 +108,7 @@ export class Group extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceQuery"] = args ? args.resourceQuery : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -136,6 +142,10 @@ export interface GroupState {
      * A `resourceQuery` block. Resource queries are documented below.
      */
     readonly resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQuery>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -154,4 +164,8 @@ export interface GroupArgs {
      * A `resourceQuery` block. Resource queries are documented below.
      */
     readonly resourceQuery: pulumi.Input<inputs.resourcegroups.GroupResourceQuery>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

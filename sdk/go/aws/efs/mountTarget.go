@@ -68,50 +68,50 @@ func GetMountTarget(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MountTarget) URN() *pulumi.URNOutput {
+func (r *MountTarget) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MountTarget) ID() *pulumi.IDOutput {
+func (r *MountTarget) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
-func (r *MountTarget) DnsName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dnsName"])
+func (r *MountTarget) DnsName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dnsName"])
 }
 
 // Amazon Resource Name of the file system.
-func (r *MountTarget) FileSystemArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fileSystemArn"])
+func (r *MountTarget) FileSystemArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fileSystemArn"])
 }
 
 // The ID of the file system for which the mount target is intended.
-func (r *MountTarget) FileSystemId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fileSystemId"])
+func (r *MountTarget) FileSystemId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fileSystemId"])
 }
 
 // The address (within the address range of the specified subnet) at
 // which the file system may be mounted via the mount target.
-func (r *MountTarget) IpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
+func (r *MountTarget) IpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipAddress"])
 }
 
 // The ID of the network interface that Amazon EFS created when it created the mount target.
-func (r *MountTarget) NetworkInterfaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkInterfaceId"])
+func (r *MountTarget) NetworkInterfaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkInterfaceId"])
 }
 
 // A list of up to 5 VPC security group IDs (that must
 // be for the same VPC as subnet specified) in effect for the mount target.
-func (r *MountTarget) SecurityGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityGroups"])
+func (r *MountTarget) SecurityGroups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityGroups"])
 }
 
 // The ID of the subnet to add the mount target in.
-func (r *MountTarget) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *MountTarget) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // Input properties used for looking up and filtering MountTarget resources.

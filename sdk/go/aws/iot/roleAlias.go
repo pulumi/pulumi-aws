@@ -61,33 +61,33 @@ func GetRoleAlias(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RoleAlias) URN() *pulumi.URNOutput {
+func (r *RoleAlias) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RoleAlias) ID() *pulumi.IDOutput {
+func (r *RoleAlias) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the role alias.
-func (r *RoleAlias) Alias() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["alias"])
+func (r *RoleAlias) Alias() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["alias"])
 }
 
 // The ARN assigned by AWS to this role alias.
-func (r *RoleAlias) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *RoleAlias) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
-func (r *RoleAlias) CredentialDuration() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["credentialDuration"])
+func (r *RoleAlias) CredentialDuration() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["credentialDuration"])
 }
 
 // The identity of the role to which the alias refers.
-func (r *RoleAlias) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *RoleAlias) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // Input properties used for looking up and filtering RoleAlias resources.

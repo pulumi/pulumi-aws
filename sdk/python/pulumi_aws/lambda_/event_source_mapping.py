@@ -20,7 +20,7 @@ class EventSourceMapping(pulumi.CustomResource):
     """
     event_source_arn: pulumi.Output[str]
     """
-    The event source ARN - can either be a Kinesis or DynamoDB stream.
+    The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
     """
     function_arn: pulumi.Output[str]
     """
@@ -37,6 +37,10 @@ class EventSourceMapping(pulumi.CustomResource):
     last_processing_result: pulumi.Output[str]
     """
     The result of the last AWS Lambda invocation of your Lambda function.
+    """
+    maximum_batching_window_in_seconds: pulumi.Output[float]
+    """
+    The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
     """
     starting_position: pulumi.Output[str]
     """
@@ -58,7 +62,7 @@ class EventSourceMapping(pulumi.CustomResource):
     """
     The UUID of the created event source mapping.
     """
-    def __init__(__self__, resource_name, opts=None, batch_size=None, enabled=None, event_source_arn=None, function_name=None, starting_position=None, starting_position_timestamp=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, batch_size=None, enabled=None, event_source_arn=None, function_name=None, maximum_batching_window_in_seconds=None, starting_position=None, starting_position_timestamp=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB and SQS.
         
@@ -69,8 +73,9 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
-        :param pulumi.Input[str] event_source_arn: The event source ARN - can either be a Kinesis or DynamoDB stream.
+        :param pulumi.Input[str] event_source_arn: The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
         :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.
+        :param pulumi.Input[float] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
         :param pulumi.Input[str] starting_position: The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
         :param pulumi.Input[str] starting_position_timestamp: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
 
@@ -101,6 +106,7 @@ class EventSourceMapping(pulumi.CustomResource):
             if function_name is None:
                 raise TypeError("Missing required property 'function_name'")
             __props__['function_name'] = function_name
+            __props__['maximum_batching_window_in_seconds'] = maximum_batching_window_in_seconds
             __props__['starting_position'] = starting_position
             __props__['starting_position_timestamp'] = starting_position_timestamp
             __props__['function_arn'] = None
@@ -116,7 +122,7 @@ class EventSourceMapping(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, batch_size=None, enabled=None, event_source_arn=None, function_arn=None, function_name=None, last_modified=None, last_processing_result=None, starting_position=None, starting_position_timestamp=None, state=None, state_transition_reason=None, uuid=None):
+    def get(resource_name, id, opts=None, batch_size=None, enabled=None, event_source_arn=None, function_arn=None, function_name=None, last_modified=None, last_processing_result=None, maximum_batching_window_in_seconds=None, starting_position=None, starting_position_timestamp=None, state=None, state_transition_reason=None, uuid=None):
         """
         Get an existing EventSourceMapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -126,11 +132,12 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
-        :param pulumi.Input[str] event_source_arn: The event source ARN - can either be a Kinesis or DynamoDB stream.
+        :param pulumi.Input[str] event_source_arn: The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
         :param pulumi.Input[str] function_arn: The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.
         :param pulumi.Input[str] last_modified: The date this resource was last modified.
         :param pulumi.Input[str] last_processing_result: The result of the last AWS Lambda invocation of your Lambda function.
+        :param pulumi.Input[float] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
         :param pulumi.Input[str] starting_position: The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
         :param pulumi.Input[str] starting_position_timestamp: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
         :param pulumi.Input[str] state: The state of the event source mapping.
@@ -149,6 +156,7 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__["function_name"] = function_name
         __props__["last_modified"] = last_modified
         __props__["last_processing_result"] = last_processing_result
+        __props__["maximum_batching_window_in_seconds"] = maximum_batching_window_in_seconds
         __props__["starting_position"] = starting_position
         __props__["starting_position_timestamp"] = starting_position_timestamp
         __props__["state"] = state

@@ -68,43 +68,43 @@ func GetConfiguration(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Configuration) URN() *pulumi.URNOutput {
+func (r *Configuration) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Configuration) ID() *pulumi.IDOutput {
+func (r *Configuration) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the configuration.
-func (r *Configuration) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Configuration) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Description of the configuration.
-func (r *Configuration) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Configuration) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // List of Apache Kafka versions which can use this configuration.
-func (r *Configuration) KafkaVersions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["kafkaVersions"])
+func (r *Configuration) KafkaVersions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["kafkaVersions"])
 }
 
 // Latest revision of the configuration.
-func (r *Configuration) LatestRevision() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["latestRevision"])
+func (r *Configuration) LatestRevision() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["latestRevision"])
 }
 
 // Name of the configuration.
-func (r *Configuration) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Configuration) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-func (r *Configuration) ServerProperties() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverProperties"])
+func (r *Configuration) ServerProperties() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverProperties"])
 }
 
 // Input properties used for looking up and filtering Configuration resources.

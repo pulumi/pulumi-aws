@@ -76,58 +76,58 @@ func GetNotebookInstance(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NotebookInstance) URN() *pulumi.URNOutput {
+func (r *NotebookInstance) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NotebookInstance) ID() *pulumi.IDOutput {
+func (r *NotebookInstance) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
-func (r *NotebookInstance) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *NotebookInstance) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name of ML compute instance type.
-func (r *NotebookInstance) InstanceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceType"])
+func (r *NotebookInstance) InstanceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceType"])
 }
 
 // The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-func (r *NotebookInstance) KmsKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
+func (r *NotebookInstance) KmsKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
 // The name of a lifecycle configuration to associate with the notebook instance.
-func (r *NotebookInstance) LifecycleConfigName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lifecycleConfigName"])
+func (r *NotebookInstance) LifecycleConfigName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lifecycleConfigName"])
 }
 
 // The name of the notebook instance (must be unique).
-func (r *NotebookInstance) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *NotebookInstance) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
-func (r *NotebookInstance) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *NotebookInstance) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // The associated security groups.
-func (r *NotebookInstance) SecurityGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityGroups"])
+func (r *NotebookInstance) SecurityGroups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityGroups"])
 }
 
 // The VPC subnet ID.
-func (r *NotebookInstance) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *NotebookInstance) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *NotebookInstance) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *NotebookInstance) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering NotebookInstance resources.

@@ -52,18 +52,18 @@ func GetAccountAlias(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AccountAlias) URN() *pulumi.URNOutput {
+func (r *AccountAlias) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AccountAlias) ID() *pulumi.IDOutput {
+func (r *AccountAlias) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The account alias
-func (r *AccountAlias) AccountAlias() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountAlias"])
+func (r *AccountAlias) AccountAlias() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountAlias"])
 }
 
 // Input properties used for looking up and filtering AccountAlias resources.

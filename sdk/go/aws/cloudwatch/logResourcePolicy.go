@@ -56,23 +56,23 @@ func GetLogResourcePolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LogResourcePolicy) URN() *pulumi.URNOutput {
+func (r *LogResourcePolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LogResourcePolicy) ID() *pulumi.IDOutput {
+func (r *LogResourcePolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-func (r *LogResourcePolicy) PolicyDocument() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyDocument"])
+func (r *LogResourcePolicy) PolicyDocument() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyDocument"])
 }
 
 // Name of the resource policy.
-func (r *LogResourcePolicy) PolicyName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyName"])
+func (r *LogResourcePolicy) PolicyName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyName"])
 }
 
 // Input properties used for looking up and filtering LogResourcePolicy resources.

@@ -54,12 +54,12 @@ func GetDomainDkim(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DomainDkim) URN() *pulumi.URNOutput {
+func (r *DomainDkim) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DomainDkim) ID() *pulumi.IDOutput {
+func (r *DomainDkim) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
@@ -69,13 +69,13 @@ func (r *DomainDkim) ID() *pulumi.IDOutput {
 // when the domain is hosted in Route 53 and managed by this provider.
 // Find out more about verifying domains in Amazon SES
 // in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
-func (r *DomainDkim) DkimTokens() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["dkimTokens"])
+func (r *DomainDkim) DkimTokens() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["dkimTokens"])
 }
 
 // Verified domain name to generate DKIM tokens for.
-func (r *DomainDkim) Domain() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domain"])
+func (r *DomainDkim) Domain() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domain"])
 }
 
 // Input properties used for looking up and filtering DomainDkim resources.

@@ -70,43 +70,43 @@ func GetLifecyclePolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LifecyclePolicy) URN() *pulumi.URNOutput {
+func (r *LifecyclePolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LifecyclePolicy) ID() *pulumi.IDOutput {
+func (r *LifecyclePolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-func (r *LifecyclePolicy) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *LifecyclePolicy) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A description for the DLM lifecycle policy.
-func (r *LifecyclePolicy) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *LifecyclePolicy) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The ARN of an IAM role that is able to be assumed by the DLM service.
-func (r *LifecyclePolicy) ExecutionRoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["executionRoleArn"])
+func (r *LifecyclePolicy) ExecutionRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["executionRoleArn"])
 }
 
 // See the `policyDetails` configuration block. Max of 1.
-func (r *LifecyclePolicy) PolicyDetails() *pulumi.Output {
+func (r *LifecyclePolicy) PolicyDetails() pulumi.Output {
 	return r.s.State["policyDetails"]
 }
 
 // Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-func (r *LifecyclePolicy) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *LifecyclePolicy) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // Key-value mapping of resource tags.
-func (r *LifecyclePolicy) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *LifecyclePolicy) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering LifecyclePolicy resources.

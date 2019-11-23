@@ -61,29 +61,29 @@ func GetSecurityGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SecurityGroup) URN() *pulumi.URNOutput {
+func (r *SecurityGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SecurityGroup) ID() *pulumi.IDOutput {
+func (r *SecurityGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // description for the cache security group. Defaults to "Managed by Pulumi".
-func (r *SecurityGroup) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *SecurityGroup) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Name for the cache security group. This value is stored as a lowercase string.
-func (r *SecurityGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SecurityGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // List of EC2 security group names to be
 // authorized for ingress to the cache security group
-func (r *SecurityGroup) SecurityGroupNames() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityGroupNames"])
+func (r *SecurityGroup) SecurityGroupNames() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityGroupNames"])
 }
 
 // Input properties used for looking up and filtering SecurityGroup resources.

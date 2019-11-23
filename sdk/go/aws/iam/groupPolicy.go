@@ -62,34 +62,34 @@ func GetGroupPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *GroupPolicy) URN() *pulumi.URNOutput {
+func (r *GroupPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *GroupPolicy) ID() *pulumi.IDOutput {
+func (r *GroupPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The IAM group to attach to the policy.
-func (r *GroupPolicy) Group() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["group"])
+func (r *GroupPolicy) Group() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["group"])
 }
 
 // The name of the policy. If omitted, this provider will
 // assign a random, unique name.
-func (r *GroupPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *GroupPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified
 // prefix. Conflicts with `name`.
-func (r *GroupPolicy) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *GroupPolicy) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-func (r *GroupPolicy) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *GroupPolicy) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // Input properties used for looking up and filtering GroupPolicy resources.

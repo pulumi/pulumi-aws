@@ -179,39 +179,39 @@ func GetInstance(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Instance) URN() *pulumi.URNOutput {
+func (r *Instance) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Instance) ID() *pulumi.IDOutput {
+func (r *Instance) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the Lightsail instance (matches `id`).
-func (r *Instance) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Instance) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The Availability Zone in which to create your
 // instance (see list below)
-func (r *Instance) AvailabilityZone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
+func (r *Instance) AvailabilityZone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
 // The ID for a virtual private server image
 // (see list below)
-func (r *Instance) BlueprintId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["blueprintId"])
+func (r *Instance) BlueprintId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["blueprintId"])
 }
 
 // The bundle of specification information (see list below)
-func (r *Instance) BundleId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bundleId"])
+func (r *Instance) BundleId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["bundleId"])
 }
 
-func (r *Instance) CpuCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["cpuCount"])
+func (r *Instance) CpuCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["cpuCount"])
 }
 
 // The timestamp when the instance was created.
@@ -220,53 +220,53 @@ func (r *Instance) CpuCount() *pulumi.IntOutput {
 // * `bundleId`
 // * `keyPairName`
 // * `userData`
-func (r *Instance) CreatedAt() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createdAt"])
+func (r *Instance) CreatedAt() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createdAt"])
 }
 
-func (r *Instance) Ipv6Address() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipv6Address"])
+func (r *Instance) Ipv6Address() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipv6Address"])
 }
 
-func (r *Instance) IsStaticIp() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isStaticIp"])
+func (r *Instance) IsStaticIp() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isStaticIp"])
 }
 
 // The name of your key pair. Created in the
 // Lightsail console (cannot use `ec2.KeyPair` at this time)
-func (r *Instance) KeyPairName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyPairName"])
+func (r *Instance) KeyPairName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyPairName"])
 }
 
 // The name of the Lightsail Instance
-func (r *Instance) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Instance) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *Instance) PrivateIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateIpAddress"])
+func (r *Instance) PrivateIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateIpAddress"])
 }
 
-func (r *Instance) PublicIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publicIpAddress"])
+func (r *Instance) PublicIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publicIpAddress"])
 }
 
-func (r *Instance) RamSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["ramSize"])
+func (r *Instance) RamSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["ramSize"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Instance) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Instance) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // launch script to configure server with additional user data
-func (r *Instance) UserData() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userData"])
+func (r *Instance) UserData() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userData"])
 }
 
-func (r *Instance) Username() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["username"])
+func (r *Instance) Username() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["username"])
 }
 
 // Input properties used for looking up and filtering Instance resources.

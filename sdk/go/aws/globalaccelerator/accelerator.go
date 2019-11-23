@@ -57,38 +57,38 @@ func GetAccelerator(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Accelerator) URN() *pulumi.URNOutput {
+func (r *Accelerator) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Accelerator) ID() *pulumi.IDOutput {
+func (r *Accelerator) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The attributes of the accelerator. Fields documented below.
-func (r *Accelerator) Attributes() *pulumi.Output {
+func (r *Accelerator) Attributes() pulumi.Output {
 	return r.s.State["attributes"]
 }
 
 // Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
-func (r *Accelerator) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *Accelerator) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // The value for the address type must be `IPV4`.
-func (r *Accelerator) IpAddressType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipAddressType"])
+func (r *Accelerator) IpAddressType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipAddressType"])
 }
 
 // IP address set associated with the accelerator.
-func (r *Accelerator) IpSets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ipSets"])
+func (r *Accelerator) IpSets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ipSets"])
 }
 
 // The name of the accelerator.
-func (r *Accelerator) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Accelerator) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering Accelerator resources.

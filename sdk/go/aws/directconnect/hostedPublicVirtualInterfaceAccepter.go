@@ -56,28 +56,28 @@ func GetHostedPublicVirtualInterfaceAccepter(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *HostedPublicVirtualInterfaceAccepter) URN() *pulumi.URNOutput {
+func (r *HostedPublicVirtualInterfaceAccepter) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *HostedPublicVirtualInterfaceAccepter) ID() *pulumi.IDOutput {
+func (r *HostedPublicVirtualInterfaceAccepter) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the virtual interface.
-func (r *HostedPublicVirtualInterfaceAccepter) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *HostedPublicVirtualInterfaceAccepter) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *HostedPublicVirtualInterfaceAccepter) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *HostedPublicVirtualInterfaceAccepter) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The ID of the Direct Connect virtual interface to accept.
-func (r *HostedPublicVirtualInterfaceAccepter) VirtualInterfaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["virtualInterfaceId"])
+func (r *HostedPublicVirtualInterfaceAccepter) VirtualInterfaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["virtualInterfaceId"])
 }
 
 // Input properties used for looking up and filtering HostedPublicVirtualInterfaceAccepter resources.

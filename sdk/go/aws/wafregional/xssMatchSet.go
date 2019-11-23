@@ -49,23 +49,23 @@ func GetXssMatchSet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *XssMatchSet) URN() *pulumi.URNOutput {
+func (r *XssMatchSet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *XssMatchSet) ID() *pulumi.IDOutput {
+func (r *XssMatchSet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the set
-func (r *XssMatchSet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *XssMatchSet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The parts of web requests that you want to inspect for cross-site scripting attacks.
-func (r *XssMatchSet) XssMatchTuples() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["xssMatchTuples"])
+func (r *XssMatchSet) XssMatchTuples() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["xssMatchTuples"])
 }
 
 // Input properties used for looking up and filtering XssMatchSet resources.

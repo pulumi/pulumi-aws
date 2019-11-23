@@ -46,18 +46,18 @@ func GetAdminAccount(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AdminAccount) URN() *pulumi.URNOutput {
+func (r *AdminAccount) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AdminAccount) ID() *pulumi.IDOutput {
+func (r *AdminAccount) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
-func (r *AdminAccount) AccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountId"])
+func (r *AdminAccount) AccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountId"])
 }
 
 // Input properties used for looking up and filtering AdminAccount resources.

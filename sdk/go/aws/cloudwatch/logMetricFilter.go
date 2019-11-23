@@ -65,35 +65,35 @@ func GetLogMetricFilter(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LogMetricFilter) URN() *pulumi.URNOutput {
+func (r *LogMetricFilter) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LogMetricFilter) ID() *pulumi.IDOutput {
+func (r *LogMetricFilter) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the log group to associate the metric filter with.
-func (r *LogMetricFilter) LogGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logGroupName"])
+func (r *LogMetricFilter) LogGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logGroupName"])
 }
 
 // A block defining collection of information
 // needed to define how metric data gets emitted. See below.
-func (r *LogMetricFilter) MetricTransformation() *pulumi.Output {
+func (r *LogMetricFilter) MetricTransformation() pulumi.Output {
 	return r.s.State["metricTransformation"]
 }
 
 // A name for the metric filter.
-func (r *LogMetricFilter) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LogMetricFilter) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
 // for extracting metric data out of ingested log events.
-func (r *LogMetricFilter) Pattern() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["pattern"])
+func (r *LogMetricFilter) Pattern() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["pattern"])
 }
 
 // Input properties used for looking up and filtering LogMetricFilter resources.

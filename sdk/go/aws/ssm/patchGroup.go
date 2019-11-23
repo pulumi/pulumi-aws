@@ -56,23 +56,23 @@ func GetPatchGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PatchGroup) URN() *pulumi.URNOutput {
+func (r *PatchGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PatchGroup) ID() *pulumi.IDOutput {
+func (r *PatchGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the patch baseline to register the patch group with.
-func (r *PatchGroup) BaselineId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["baselineId"])
+func (r *PatchGroup) BaselineId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["baselineId"])
 }
 
 // The name of the patch group that should be registered with the patch baseline.
-func (r *PatchGroup) PatchGroup() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["patchGroup"])
+func (r *PatchGroup) PatchGroup() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["patchGroup"])
 }
 
 // Input properties used for looking up and filtering PatchGroup resources.

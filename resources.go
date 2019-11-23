@@ -1098,6 +1098,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_job":                    {Tok: awsResource(glueMod, "Job")},
 			"aws_glue_security_configuration": {Tok: awsResource(glueMod, "SecurityConfiguration")},
 			"aws_glue_trigger":                {Tok: awsResource(glueMod, "Trigger")},
+			"aws_glue_workflow":               {Tok: awsResource(glueMod, "Workflow")},
 			// GuardDuty
 			"aws_guardduty_detector":        {Tok: awsResource(guarddutyMod, "Detector")},
 			"aws_guardduty_invite_accepter": {Tok: awsResource(guarddutyMod, "InviteAccepter")},
@@ -2071,6 +2072,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elasticsearch_domain": {Tok: awsDataSource(elasticsearchMod, "getDomain")},
 			// QLDB
 			"aws_qldb_ledger": {Tok: awsDataSource(qldbMod, "getLedger")},
+			// GuardDuty
+			"aws_guardduty_detector": {Tok: awsDataSource(guarddutyMod, "getDetector")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

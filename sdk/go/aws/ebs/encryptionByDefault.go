@@ -48,18 +48,18 @@ func GetEncryptionByDefault(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EncryptionByDefault) URN() *pulumi.URNOutput {
+func (r *EncryptionByDefault) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EncryptionByDefault) ID() *pulumi.IDOutput {
+func (r *EncryptionByDefault) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
-func (r *EncryptionByDefault) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *EncryptionByDefault) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Input properties used for looking up and filtering EncryptionByDefault resources.

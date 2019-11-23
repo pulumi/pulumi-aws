@@ -95,73 +95,73 @@ func GetBudget(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Budget) URN() *pulumi.URNOutput {
+func (r *Budget) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Budget) ID() *pulumi.IDOutput {
+func (r *Budget) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the target account for budget. Will use current user's accountId by default if omitted.
-func (r *Budget) AccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountId"])
+func (r *Budget) AccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountId"])
 }
 
 // Whether this budget tracks monetary cost or usage.
-func (r *Budget) BudgetType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["budgetType"])
+func (r *Budget) BudgetType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["budgetType"])
 }
 
 // Map of CostFilters key/value pairs to apply to the budget.
-func (r *Budget) CostFilters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["costFilters"])
+func (r *Budget) CostFilters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["costFilters"])
 }
 
 // Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
-func (r *Budget) CostTypes() *pulumi.Output {
+func (r *Budget) CostTypes() pulumi.Output {
 	return r.s.State["costTypes"]
 }
 
 // The amount of cost or usage being measured for a budget.
-func (r *Budget) LimitAmount() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["limitAmount"])
+func (r *Budget) LimitAmount() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["limitAmount"])
 }
 
 // The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-func (r *Budget) LimitUnit() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["limitUnit"])
+func (r *Budget) LimitUnit() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["limitUnit"])
 }
 
 // The name of a budget. Unique within accounts.
-func (r *Budget) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Budget) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The prefix of the name of a budget. Unique within accounts.
-func (r *Budget) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *Budget) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
-func (r *Budget) Notifications() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["notifications"])
+func (r *Budget) Notifications() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["notifications"])
 }
 
 // The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-func (r *Budget) TimePeriodEnd() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timePeriodEnd"])
+func (r *Budget) TimePeriodEnd() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timePeriodEnd"])
 }
 
 // The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
-func (r *Budget) TimePeriodStart() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timePeriodStart"])
+func (r *Budget) TimePeriodStart() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timePeriodStart"])
 }
 
 // The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
-func (r *Budget) TimeUnit() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timeUnit"])
+func (r *Budget) TimeUnit() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timeUnit"])
 }
 
 // Input properties used for looking up and filtering Budget resources.

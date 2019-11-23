@@ -50,18 +50,18 @@ func GetActiveReceiptRuleSet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ActiveReceiptRuleSet) URN() *pulumi.URNOutput {
+func (r *ActiveReceiptRuleSet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ActiveReceiptRuleSet) ID() *pulumi.IDOutput {
+func (r *ActiveReceiptRuleSet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the rule set
-func (r *ActiveReceiptRuleSet) RuleSetName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ruleSetName"])
+func (r *ActiveReceiptRuleSet) RuleSetName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ruleSetName"])
 }
 
 // Input properties used for looking up and filtering ActiveReceiptRuleSet resources.

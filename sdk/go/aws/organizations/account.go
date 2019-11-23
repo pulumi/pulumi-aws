@@ -77,60 +77,60 @@ func GetAccount(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() *pulumi.URNOutput {
+func (r *Account) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() *pulumi.IDOutput {
+func (r *Account) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN for this account.
-func (r *Account) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *Account) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-func (r *Account) Email() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["email"])
+func (r *Account) Email() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["email"])
 }
 
 // If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
-func (r *Account) IamUserAccessToBilling() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iamUserAccessToBilling"])
+func (r *Account) IamUserAccessToBilling() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iamUserAccessToBilling"])
 }
 
-func (r *Account) JoinedMethod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["joinedMethod"])
+func (r *Account) JoinedMethod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["joinedMethod"])
 }
 
-func (r *Account) JoinedTimestamp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["joinedTimestamp"])
+func (r *Account) JoinedTimestamp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["joinedTimestamp"])
 }
 
 // A friendly name for the member account.
-func (r *Account) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Account) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-func (r *Account) ParentId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["parentId"])
+func (r *Account) ParentId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["parentId"])
 }
 
 // The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) is used.
-func (r *Account) RoleName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleName"])
+func (r *Account) RoleName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleName"])
 }
 
-func (r *Account) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Account) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Key-value mapping of resource tags.
-func (r *Account) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Account) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Account resources.

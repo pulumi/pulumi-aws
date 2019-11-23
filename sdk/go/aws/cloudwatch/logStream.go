@@ -55,28 +55,28 @@ func GetLogStream(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LogStream) URN() *pulumi.URNOutput {
+func (r *LogStream) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LogStream) ID() *pulumi.IDOutput {
+func (r *LogStream) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) specifying the log stream.
-func (r *LogStream) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *LogStream) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The name of the log group under which the log stream is to be created.
-func (r *LogStream) LogGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logGroupName"])
+func (r *LogStream) LogGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logGroupName"])
 }
 
 // The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-func (r *LogStream) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LogStream) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering LogStream resources.

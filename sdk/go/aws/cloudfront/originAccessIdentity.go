@@ -61,50 +61,50 @@ func GetOriginAccessIdentity(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OriginAccessIdentity) URN() *pulumi.URNOutput {
+func (r *OriginAccessIdentity) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OriginAccessIdentity) ID() *pulumi.IDOutput {
+func (r *OriginAccessIdentity) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Internal value used by CloudFront to allow future
 // updates to the origin access identity.
-func (r *OriginAccessIdentity) CallerReference() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["callerReference"])
+func (r *OriginAccessIdentity) CallerReference() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["callerReference"])
 }
 
 // A shortcut to the full path for the
 // origin access identity to use in CloudFront, see below.
-func (r *OriginAccessIdentity) CloudfrontAccessIdentityPath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cloudfrontAccessIdentityPath"])
+func (r *OriginAccessIdentity) CloudfrontAccessIdentityPath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cloudfrontAccessIdentityPath"])
 }
 
 // An optional comment for the origin access identity.
-func (r *OriginAccessIdentity) Comment() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["comment"])
+func (r *OriginAccessIdentity) Comment() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["comment"])
 }
 
 // The current version of the origin access identity's information.
 // For example: `E2QWRUHAPOMQZL`.
-func (r *OriginAccessIdentity) Etag() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["etag"])
+func (r *OriginAccessIdentity) Etag() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["etag"])
 }
 
 // A pre-generated ARN for use in S3 bucket policies (see below).
 // Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
 // E2QWRUHAPOMQZL`.
-func (r *OriginAccessIdentity) IamArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iamArn"])
+func (r *OriginAccessIdentity) IamArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iamArn"])
 }
 
 // The Amazon S3 canonical user ID for the origin
 // access identity, which you use when giving the origin access identity read
 // permission to an object in Amazon S3.
-func (r *OriginAccessIdentity) S3CanonicalUserId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3CanonicalUserId"])
+func (r *OriginAccessIdentity) S3CanonicalUserId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["s3CanonicalUserId"])
 }
 
 // Input properties used for looking up and filtering OriginAccessIdentity resources.

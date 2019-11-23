@@ -61,23 +61,23 @@ func GetVpcDhcpOptionsAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpcDhcpOptionsAssociation) URN() *pulumi.URNOutput {
+func (r *VpcDhcpOptionsAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpcDhcpOptionsAssociation) ID() *pulumi.IDOutput {
+func (r *VpcDhcpOptionsAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the DHCP Options Set to associate to the VPC.
-func (r *VpcDhcpOptionsAssociation) DhcpOptionsId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dhcpOptionsId"])
+func (r *VpcDhcpOptionsAssociation) DhcpOptionsId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dhcpOptionsId"])
 }
 
 // The ID of the VPC to which we would like to associate a DHCP Options Set.
-func (r *VpcDhcpOptionsAssociation) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *VpcDhcpOptionsAssociation) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering VpcDhcpOptionsAssociation resources.

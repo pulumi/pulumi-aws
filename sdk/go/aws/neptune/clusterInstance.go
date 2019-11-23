@@ -118,135 +118,135 @@ func GetClusterInstance(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ClusterInstance) URN() *pulumi.URNOutput {
+func (r *ClusterInstance) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ClusterInstance) ID() *pulumi.IDOutput {
+func (r *ClusterInstance) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The hostname of the instance. See also `endpoint` and `port`.
-func (r *ClusterInstance) Address() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["address"])
+func (r *ClusterInstance) Address() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["address"])
 }
 
 // Specifies whether any instance modifications
 // are applied immediately, or during the next maintenance window. Default is`false`.
-func (r *ClusterInstance) ApplyImmediately() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["applyImmediately"])
+func (r *ClusterInstance) ApplyImmediately() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["applyImmediately"])
 }
 
 // Amazon Resource Name (ARN) of neptune instance
-func (r *ClusterInstance) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ClusterInstance) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
-func (r *ClusterInstance) AutoMinorVersionUpgrade() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoMinorVersionUpgrade"])
+func (r *ClusterInstance) AutoMinorVersionUpgrade() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoMinorVersionUpgrade"])
 }
 
 // The EC2 Availability Zone that the neptune instance is created in.
-func (r *ClusterInstance) AvailabilityZone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
+func (r *ClusterInstance) AvailabilityZone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
 // The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
-func (r *ClusterInstance) ClusterIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
+func (r *ClusterInstance) ClusterIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
 
 // The region-unique, immutable identifier for the neptune instance.
-func (r *ClusterInstance) DbiResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dbiResourceId"])
+func (r *ClusterInstance) DbiResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dbiResourceId"])
 }
 
 // The connection endpoint in `address:port` format.
-func (r *ClusterInstance) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *ClusterInstance) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-func (r *ClusterInstance) Engine() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engine"])
+func (r *ClusterInstance) Engine() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engine"])
 }
 
 // The neptune engine version.
-func (r *ClusterInstance) EngineVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
+func (r *ClusterInstance) EngineVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
 // The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
-func (r *ClusterInstance) Identifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identifier"])
+func (r *ClusterInstance) Identifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identifier"])
 }
 
 // Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-func (r *ClusterInstance) IdentifierPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["identifierPrefix"])
+func (r *ClusterInstance) IdentifierPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["identifierPrefix"])
 }
 
 // The instance class to use.
-func (r *ClusterInstance) InstanceClass() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instanceClass"])
+func (r *ClusterInstance) InstanceClass() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceClass"])
 }
 
 // The ARN for the KMS encryption key if one is set to the neptune cluster.
-func (r *ClusterInstance) KmsKeyArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyArn"])
+func (r *ClusterInstance) KmsKeyArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyArn"])
 }
 
 // The name of the neptune parameter group to associate with this instance.
-func (r *ClusterInstance) NeptuneParameterGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["neptuneParameterGroupName"])
+func (r *ClusterInstance) NeptuneParameterGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["neptuneParameterGroupName"])
 }
 
 // A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
-func (r *ClusterInstance) NeptuneSubnetGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["neptuneSubnetGroupName"])
+func (r *ClusterInstance) NeptuneSubnetGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["neptuneSubnetGroupName"])
 }
 
 // The port on which the DB accepts connections. Defaults to `8182`.
-func (r *ClusterInstance) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *ClusterInstance) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
 // The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
-func (r *ClusterInstance) PreferredBackupWindow() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["preferredBackupWindow"])
+func (r *ClusterInstance) PreferredBackupWindow() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["preferredBackupWindow"])
 }
 
 // The window to perform maintenance in.
 // Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-func (r *ClusterInstance) PreferredMaintenanceWindow() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["preferredMaintenanceWindow"])
+func (r *ClusterInstance) PreferredMaintenanceWindow() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["preferredMaintenanceWindow"])
 }
 
 // Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-func (r *ClusterInstance) PromotionTier() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["promotionTier"])
+func (r *ClusterInstance) PromotionTier() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["promotionTier"])
 }
 
 // Bool to control if instance is publicly accessible. Default is `false`.
-func (r *ClusterInstance) PubliclyAccessible() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["publiclyAccessible"])
+func (r *ClusterInstance) PubliclyAccessible() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["publiclyAccessible"])
 }
 
 // Specifies whether the neptune cluster is encrypted.
-func (r *ClusterInstance) StorageEncrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["storageEncrypted"])
+func (r *ClusterInstance) StorageEncrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["storageEncrypted"])
 }
 
 // A mapping of tags to assign to the instance.
-func (r *ClusterInstance) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ClusterInstance) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-func (r *ClusterInstance) Writer() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["writer"])
+func (r *ClusterInstance) Writer() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["writer"])
 }
 
 // Input properties used for looking up and filtering ClusterInstance resources.

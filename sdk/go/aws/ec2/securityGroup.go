@@ -69,57 +69,57 @@ func GetSecurityGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SecurityGroup) URN() *pulumi.URNOutput {
+func (r *SecurityGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SecurityGroup) ID() *pulumi.IDOutput {
+func (r *SecurityGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ARN of the security group
-func (r *SecurityGroup) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *SecurityGroup) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The security group description. Defaults to
 // "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
 // `GroupDescription` attribute, for which there is no Update API. If you'd like
 // to classify your security groups in a way that can be updated, use `tags`.
-func (r *SecurityGroup) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *SecurityGroup) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Can be specified multiple times for each
 // egress rule. Each egress block supports fields documented below.
 // This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-func (r *SecurityGroup) Egress() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["egress"])
+func (r *SecurityGroup) Egress() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["egress"])
 }
 
 // Can be specified multiple times for each
 // ingress rule. Each ingress block supports fields documented below.
 // This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-func (r *SecurityGroup) Ingress() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ingress"])
+func (r *SecurityGroup) Ingress() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ingress"])
 }
 
 // The name of the security group. If omitted, this provider will
 // assign a random, unique name
-func (r *SecurityGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SecurityGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Creates a unique name beginning with the specified
 // prefix. Conflicts with `name`.
-func (r *SecurityGroup) NamePrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
+func (r *SecurityGroup) NamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
 // The owner ID.
-func (r *SecurityGroup) OwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+func (r *SecurityGroup) OwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
 // Instruct this provider to revoke all of the
@@ -129,18 +129,18 @@ func (r *SecurityGroup) OwnerId() *pulumi.StringOutput {
 // with the service, and those rules may contain a cyclic dependency that prevent
 // the security groups from being destroyed without removing the dependency first.
 // Default `false`
-func (r *SecurityGroup) RevokeRulesOnDelete() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["revokeRulesOnDelete"])
+func (r *SecurityGroup) RevokeRulesOnDelete() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["revokeRulesOnDelete"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *SecurityGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *SecurityGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The VPC ID.
-func (r *SecurityGroup) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *SecurityGroup) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering SecurityGroup resources.

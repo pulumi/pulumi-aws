@@ -102,93 +102,93 @@ func GetNfsFileShare(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NfsFileShare) URN() *pulumi.URNOutput {
+func (r *NfsFileShare) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NfsFileShare) ID() *pulumi.IDOutput {
+func (r *NfsFileShare) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Amazon Resource Name (ARN) of the NFS File Share.
-func (r *NfsFileShare) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *NfsFileShare) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
-func (r *NfsFileShare) ClientLists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["clientLists"])
+func (r *NfsFileShare) ClientLists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["clientLists"])
 }
 
 // The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
-func (r *NfsFileShare) DefaultStorageClass() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultStorageClass"])
+func (r *NfsFileShare) DefaultStorageClass() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultStorageClass"])
 }
 
 // ID of the NFS File Share.
-func (r *NfsFileShare) FileshareId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fileshareId"])
+func (r *NfsFileShare) FileshareId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fileshareId"])
 }
 
 // Amazon Resource Name (ARN) of the file gateway.
-func (r *NfsFileShare) GatewayArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gatewayArn"])
+func (r *NfsFileShare) GatewayArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gatewayArn"])
 }
 
 // Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
-func (r *NfsFileShare) GuessMimeTypeEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["guessMimeTypeEnabled"])
+func (r *NfsFileShare) GuessMimeTypeEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["guessMimeTypeEnabled"])
 }
 
 // Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-func (r *NfsFileShare) KmsEncrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["kmsEncrypted"])
+func (r *NfsFileShare) KmsEncrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["kmsEncrypted"])
 }
 
 // Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
-func (r *NfsFileShare) KmsKeyArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kmsKeyArn"])
+func (r *NfsFileShare) KmsKeyArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kmsKeyArn"])
 }
 
 // The ARN of the backed storage used for storing file data.
-func (r *NfsFileShare) LocationArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["locationArn"])
+func (r *NfsFileShare) LocationArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["locationArn"])
 }
 
 // Nested argument with file share default values. More information below.
-func (r *NfsFileShare) NfsFileShareDefaults() *pulumi.Output {
+func (r *NfsFileShare) NfsFileShareDefaults() pulumi.Output {
 	return r.s.State["nfsFileShareDefaults"]
 }
 
 // Access Control List permission for S3 bucket objects. Defaults to `private`.
-func (r *NfsFileShare) ObjectAcl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["objectAcl"])
+func (r *NfsFileShare) ObjectAcl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["objectAcl"])
 }
 
 // Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
-func (r *NfsFileShare) ReadOnly() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["readOnly"])
+func (r *NfsFileShare) ReadOnly() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["readOnly"])
 }
 
 // Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
-func (r *NfsFileShare) RequesterPays() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["requesterPays"])
+func (r *NfsFileShare) RequesterPays() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["requesterPays"])
 }
 
 // The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
-func (r *NfsFileShare) RoleArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleArn"])
+func (r *NfsFileShare) RoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
-func (r *NfsFileShare) Squash() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["squash"])
+func (r *NfsFileShare) Squash() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["squash"])
 }
 
 // Key-value mapping of resource tags
-func (r *NfsFileShare) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *NfsFileShare) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering NfsFileShare resources.

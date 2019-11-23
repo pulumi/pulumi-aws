@@ -59,28 +59,28 @@ func GetDocumentationVersion(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DocumentationVersion) URN() *pulumi.URNOutput {
+func (r *DocumentationVersion) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DocumentationVersion) ID() *pulumi.IDOutput {
+func (r *DocumentationVersion) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The description of the API documentation version.
-func (r *DocumentationVersion) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *DocumentationVersion) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The ID of the associated Rest API
-func (r *DocumentationVersion) RestApiId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restApiId"])
+func (r *DocumentationVersion) RestApiId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restApiId"])
 }
 
 // The version identifier of the API documentation snapshot.
-func (r *DocumentationVersion) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *DocumentationVersion) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering DocumentationVersion resources.

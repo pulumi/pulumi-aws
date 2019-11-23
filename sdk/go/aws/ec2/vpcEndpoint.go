@@ -101,98 +101,98 @@ func GetVpcEndpoint(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VpcEndpoint) URN() *pulumi.URNOutput {
+func (r *VpcEndpoint) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VpcEndpoint) ID() *pulumi.IDOutput {
+func (r *VpcEndpoint) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
-func (r *VpcEndpoint) AutoAccept() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoAccept"])
+func (r *VpcEndpoint) AutoAccept() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoAccept"])
 }
 
 // The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
-func (r *VpcEndpoint) CidrBlocks() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["cidrBlocks"])
+func (r *VpcEndpoint) CidrBlocks() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["cidrBlocks"])
 }
 
 // The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
-func (r *VpcEndpoint) DnsEntries() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["dnsEntries"])
+func (r *VpcEndpoint) DnsEntries() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["dnsEntries"])
 }
 
 // One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
-func (r *VpcEndpoint) NetworkInterfaceIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkInterfaceIds"])
+func (r *VpcEndpoint) NetworkInterfaceIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkInterfaceIds"])
 }
 
 // The ID of the AWS account that owns the VPC endpoint.
-func (r *VpcEndpoint) OwnerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+func (r *VpcEndpoint) OwnerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
-func (r *VpcEndpoint) Policy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policy"])
+func (r *VpcEndpoint) Policy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policy"])
 }
 
 // The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
-func (r *VpcEndpoint) PrefixListId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["prefixListId"])
+func (r *VpcEndpoint) PrefixListId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["prefixListId"])
 }
 
 // Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
 // Defaults to `false`.
-func (r *VpcEndpoint) PrivateDnsEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["privateDnsEnabled"])
+func (r *VpcEndpoint) PrivateDnsEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["privateDnsEnabled"])
 }
 
 // Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
-func (r *VpcEndpoint) RequesterManaged() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["requesterManaged"])
+func (r *VpcEndpoint) RequesterManaged() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["requesterManaged"])
 }
 
 // One or more route table IDs. Applicable for endpoints of type `Gateway`.
-func (r *VpcEndpoint) RouteTableIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["routeTableIds"])
+func (r *VpcEndpoint) RouteTableIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["routeTableIds"])
 }
 
 // The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
-func (r *VpcEndpoint) SecurityGroupIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityGroupIds"])
+func (r *VpcEndpoint) SecurityGroupIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityGroupIds"])
 }
 
 // The service name, in the form `com.amazonaws.region.service` for AWS services.
-func (r *VpcEndpoint) ServiceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceName"])
+func (r *VpcEndpoint) ServiceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceName"])
 }
 
 // The state of the VPC endpoint.
-func (r *VpcEndpoint) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *VpcEndpoint) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
-func (r *VpcEndpoint) SubnetIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subnetIds"])
+func (r *VpcEndpoint) SubnetIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subnetIds"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *VpcEndpoint) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VpcEndpoint) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
-func (r *VpcEndpoint) VpcEndpointType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcEndpointType"])
+func (r *VpcEndpoint) VpcEndpointType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcEndpointType"])
 }
 
 // The ID of the VPC in which the endpoint will be used.
-func (r *VpcEndpoint) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
+func (r *VpcEndpoint) VpcId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpcId"])
 }
 
 // Input properties used for looking up and filtering VpcEndpoint resources.

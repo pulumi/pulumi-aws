@@ -76,58 +76,58 @@ func GetScheduledAction(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ScheduledAction) URN() *pulumi.URNOutput {
+func (r *ScheduledAction) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ScheduledAction) ID() *pulumi.IDOutput {
+func (r *ScheduledAction) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Amazon Resource Name (ARN) of the scheduled action.
-func (r *ScheduledAction) Arn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["arn"])
+func (r *ScheduledAction) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The date and time for the scheduled action to end. Specify the following format: 2006-01-02T15:04:05Z
-func (r *ScheduledAction) EndTime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endTime"])
+func (r *ScheduledAction) EndTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endTime"])
 }
 
 // The name of the scheduled action.
-func (r *ScheduledAction) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ScheduledAction) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The identifier of the resource associated with the scheduled action. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ResourceId)
-func (r *ScheduledAction) ResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceId"])
+func (r *ScheduledAction) ResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceId"])
 }
 
 // The scalable dimension. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ScalableDimension) Example: ecs:service:DesiredCount
-func (r *ScheduledAction) ScalableDimension() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scalableDimension"])
+func (r *ScheduledAction) ScalableDimension() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scalableDimension"])
 }
 
 // The new minimum and maximum capacity. You can set both values or just one. See below
-func (r *ScheduledAction) ScalableTargetAction() *pulumi.Output {
+func (r *ScheduledAction) ScalableTargetAction() pulumi.Output {
 	return r.s.State["scalableTargetAction"]
 }
 
 // The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). In UTC. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
-func (r *ScheduledAction) Schedule() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["schedule"])
+func (r *ScheduledAction) Schedule() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["schedule"])
 }
 
 // The namespace of the AWS service. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ServiceNamespace) Example: ecs
-func (r *ScheduledAction) ServiceNamespace() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceNamespace"])
+func (r *ScheduledAction) ServiceNamespace() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceNamespace"])
 }
 
 // The date and time for the scheduled action to start. Specify the following format: 2006-01-02T15:04:05Z
-func (r *ScheduledAction) StartTime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startTime"])
+func (r *ScheduledAction) StartTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startTime"])
 }
 
 // Input properties used for looking up and filtering ScheduledAction resources.
