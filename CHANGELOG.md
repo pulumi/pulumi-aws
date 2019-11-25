@@ -2,13 +2,16 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 1.11.0 (2019-11-25)
 * Adding an EOL deprecation message to NodeJS 8.x Lambda Runtime
 * Adding support for NodeJS12 Lambda Runtime
 * Update `ContainerDefinition` to latest ECS schema
 * Upgrade to v1.4.2 of pulumi-terraform-bridge
 * Upgrade to v2.39.0 of the AWS Terraform Provider
-
----
 
 ## 1.10.0 (2019-11-19)
 * Upgrade to v2.38.0 of the AWS Terraform Provider
