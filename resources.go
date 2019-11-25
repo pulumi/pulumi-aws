@@ -16,6 +16,8 @@ package aws
 
 import (
 	"errors"
+	"fmt"
+	"math/rand"
 	"strings"
 	"unicode"
 
@@ -250,7 +252,22 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_appsync_function":    {Tok: awsResource(appsyncMod, "Function")},
+			"aws_appsync_function": {
+				Tok: awsResource(appsyncMod, "Function"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": {
+						Default: &tfbridge.DefaultInfo{
+							// This is taken from
+							// https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateFunction.html
+							From: tfbridge.FromName(tfbridge.AutoNameOptions{
+								Separator: "_",
+								Maxlen:    255,
+								Randlen:   7,
+							}),
+						},
+					},
+				},
+			},
 			"aws_appsync_graphql_api": {Tok: awsResource(appsyncMod, "GraphQLApi")},
 			"aws_appsync_datasource":  {Tok: awsResource(appsyncMod, "DataSource")},
 			"aws_appsync_resolver":    {Tok: awsResource(appsyncMod, "Resolver")},
@@ -1090,8 +1107,40 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_globalaccelerator_endpoint_group": {Tok: awsResource(globalacceleratorMod, "EndpointGroup")},
 			"aws_globalaccelerator_listener":       {Tok: awsResource(globalacceleratorMod, "Listener")},
 			// Glue
-			"aws_glue_catalog_database":       {Tok: awsResource(glueMod, "CatalogDatabase")},
-			"aws_glue_catalog_table":          {Tok: awsResource(glueMod, "CatalogTable")},
+			"aws_glue_catalog_database": {
+				Tok: awsResource(glueMod, "CatalogDatabase"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": {
+						Default: &tfbridge.DefaultInfo{
+							// This means the name will adhere to ^[a-z]+(_[a-z]+)*$  as per
+							// https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html
+							From: tfbridge.FromName(tfbridge.AutoNameOptions{
+								Transform: func(name string) string {
+									newName := fmt.Sprintf("%s_%s", name, transformWithRandomString(8))
+									return strings.ToLower(newName)
+								},
+							}),
+						},
+					},
+				},
+			},
+			"aws_glue_catalog_table": {
+				Tok: awsResource(glueMod, "CatalogTable"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": {
+						Default: &tfbridge.DefaultInfo{
+							// This means the name will adhere to ^[a-z]+(_[a-z]+)*$  as per
+							// https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html
+							From: tfbridge.FromName(tfbridge.AutoNameOptions{
+								Transform: func(name string) string {
+									newName := fmt.Sprintf("%s_%s", name, transformWithRandomString(8))
+									return strings.ToLower(newName)
+								},
+							}),
+						},
+					},
+				},
+			},
 			"aws_glue_classifier":             {Tok: awsResource(glueMod, "Classifier")},
 			"aws_glue_connection":             {Tok: awsResource(glueMod, "Connection")},
 			"aws_glue_crawler":                {Tok: awsResource(glueMod, "Crawler")},
@@ -2457,4 +2506,14 @@ func updateLegacyModuleNames(prov *tfbridge.ProviderInfo) {
 	// Fix the spelling mistake on `aws_ses_configuration_set` Tok
 	updateModuleName("aws_ses_configuration_set", "ConfgurationSet", "ConfigurationSet",
 		sesMod, sesMod, nil)
+}
+
+func transformWithRandomString(n int) string {
+	var letter = []rune("abcdefghijklmnopqrstuvwxyz")
+
+	b := make([]rune, n)
+	for i := range b {
+		b[i] = letter[rand.Intn(len(letter))]
+	}
+	return string(b)
 }
