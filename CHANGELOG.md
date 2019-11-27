@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Enforce `appsync.Function`, `glue.CatalogTable` and `glue.CatalogDatabase` to adhere to AWS naming conventions
-* Upgrade to v2.40.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 1.12.0 (2019-11-27)
+* Upgrade to v2.40.0 of the AWS Terraform Provider
+* Enforce `appsync.Function`, `glue.CatalogTable` and `glue.CatalogDatabase` to adhere to AWS naming conventions
 
 ## 1.11.0 (2019-11-25)
 * Adding an EOL deprecation message to NodeJS 8.x Lambda Runtime
