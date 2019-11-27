@@ -709,10 +709,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_dx_hosted_public_virtual_interface_accepter": {
 				Tok: awsResource(dxMod, "HostedPublicVirtualInterfaceAccepter"),
 			},
-			"aws_dx_private_virtual_interface": {Tok: awsResource(dxMod, "PrivateVirtualInterface")},
-			"aws_dx_public_virtual_interface":  {Tok: awsResource(dxMod, "PublicVirtualInterface")},
-			"aws_dx_lag":                       {Tok: awsResource(dxMod, "LinkAggregationGroup")},
-			"aws_dx_transit_virtual_interface": {Tok: awsResource(dxMod, "TransitVirtualInterface")},
+			"aws_dx_private_virtual_interface":        {Tok: awsResource(dxMod, "PrivateVirtualInterface")},
+			"aws_dx_public_virtual_interface":         {Tok: awsResource(dxMod, "PublicVirtualInterface")},
+			"aws_dx_lag":                              {Tok: awsResource(dxMod, "LinkAggregationGroup")},
+			"aws_dx_transit_virtual_interface":        {Tok: awsResource(dxMod, "TransitVirtualInterface")},
+			"aws_dx_hosted_transit_virtual_interface": {Tok: awsResource(dxMod, "HostedTransitVirtualInterface")},
+			"aws_dx_hosted_transit_virtual_interface_accepter": {
+				Tok: awsResource(dxMod, "HostedTransitVirtualInterfaceAcceptor"),
+			},
 			// DynamoDB
 			"aws_dynamodb_global_table": {Tok: awsResource(dynamodbMod, "GlobalTable")},
 			"aws_dynamodb_table": {

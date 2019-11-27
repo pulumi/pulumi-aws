@@ -106,6 +106,41 @@ import {Topic} from "../sns/topic";
  *     threshold: 10,
  * });
  * ```
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const xxAnomalyDetection = new aws.cloudwatch.MetricAlarm("xxAnomalyDetection", {
+ *     alarmDescription: "This metric monitors ec2 cpu utilization",
+ *     comparisonOperator: "GreaterThanUpperThreshold",
+ *     evaluationPeriods: 2,
+ *     insufficientDataActions: [],
+ *     metricQueries: [
+ *         {
+ *             expression: "ANOMALY_DETECTION_BAND(m1)",
+ *             id: "e1",
+ *             label: "CPUUtilization (Expected)",
+ *             returnData: true,
+ *         },
+ *         {
+ *             id: "m1",
+ *             metric: {
+ *                 dimensions: {
+ *                     InstanceId: "i-abc123",
+ *                 },
+ *                 metricName: "CPUUtilization",
+ *                 namespace: "AWS/EC2",
+ *                 period: 120,
+ *                 stat: "Average",
+ *                 unit: "Count",
+ *             },
+ *             returnData: true,
+ *         },
+ *     ],
+ *     thresholdMetricId: "e1",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_metric_alarm.html.markdown.
  */
@@ -157,7 +192,7 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
+     * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      */
     public readonly comparisonOperator!: pulumi.Output<string>;
     /**
@@ -221,9 +256,13 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * The value against which the specified statistic is compared.
+     * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      */
-    public readonly threshold!: pulumi.Output<number>;
+    public readonly threshold!: pulumi.Output<number | undefined>;
+    /**
+     * If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
+     */
+    public readonly thresholdMetricId!: pulumi.Output<string | undefined>;
     /**
      * Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
      */
@@ -265,6 +304,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["statistic"] = state ? state.statistic : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["threshold"] = state ? state.threshold : undefined;
+            inputs["thresholdMetricId"] = state ? state.thresholdMetricId : undefined;
             inputs["treatMissingData"] = state ? state.treatMissingData : undefined;
             inputs["unit"] = state ? state.unit : undefined;
         } else {
@@ -274,9 +314,6 @@ export class MetricAlarm extends pulumi.CustomResource {
             }
             if (!args || args.evaluationPeriods === undefined) {
                 throw new Error("Missing required property 'evaluationPeriods'");
-            }
-            if (!args || args.threshold === undefined) {
-                throw new Error("Missing required property 'threshold'");
             }
             inputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
             inputs["alarmActions"] = args ? args.alarmActions : undefined;
@@ -297,6 +334,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["statistic"] = args ? args.statistic : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threshold"] = args ? args.threshold : undefined;
+            inputs["thresholdMetricId"] = args ? args.thresholdMetricId : undefined;
             inputs["treatMissingData"] = args ? args.treatMissingData : undefined;
             inputs["unit"] = args ? args.unit : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -337,7 +375,7 @@ export interface MetricAlarmState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
+     * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      */
     readonly comparisonOperator?: pulumi.Input<string>;
     /**
@@ -401,9 +439,13 @@ export interface MetricAlarmState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The value against which the specified statistic is compared.
+     * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      */
     readonly threshold?: pulumi.Input<number>;
+    /**
+     * If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
+     */
+    readonly thresholdMetricId?: pulumi.Input<string>;
     /**
      * Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
      */
@@ -435,7 +477,7 @@ export interface MetricAlarmArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
+     * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      */
     readonly comparisonOperator: pulumi.Input<string>;
     /**
@@ -499,9 +541,13 @@ export interface MetricAlarmArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The value against which the specified statistic is compared.
+     * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      */
-    readonly threshold: pulumi.Input<number>;
+    readonly threshold?: pulumi.Input<number>;
+    /**
+     * If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
+     */
+    readonly thresholdMetricId?: pulumi.Input<string>;
     /**
      * Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
      */

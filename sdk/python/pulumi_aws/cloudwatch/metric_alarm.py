@@ -32,7 +32,7 @@ class MetricAlarm(pulumi.CustomResource):
     """
     comparison_operator: pulumi.Output[str]
     """
-    The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
+    The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
     """
     datapoints_to_alarm: pulumi.Output[float]
     """
@@ -113,7 +113,11 @@ class MetricAlarm(pulumi.CustomResource):
     """
     threshold: pulumi.Output[float]
     """
-    The value against which the specified statistic is compared.
+    The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
+    """
+    threshold_metric_id: pulumi.Output[str]
+    """
+    If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
     """
     treat_missing_data: pulumi.Output[str]
     """
@@ -123,7 +127,7 @@ class MetricAlarm(pulumi.CustomResource):
     """
     The unit for this metric.
     """
-    def __init__(__self__, resource_name, opts=None, actions_enabled=None, alarm_actions=None, alarm_description=None, name=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentiles=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metric_queries=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, treat_missing_data=None, unit=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, actions_enabled=None, alarm_actions=None, alarm_description=None, name=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentiles=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metric_queries=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a CloudWatch Metric Alarm resource.
         
@@ -133,7 +137,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[list] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[str] alarm_description: The description for the alarm.
         :param pulumi.Input[str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
-        :param pulumi.Input[str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
+        :param pulumi.Input[str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         :param pulumi.Input[float] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
         :param pulumi.Input[dict] dimensions: The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[str] evaluate_low_sample_count_percentiles: Used only for alarms
@@ -155,7 +159,8 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[float] threshold: The value against which the specified statistic is compared.
+        :param pulumi.Input[float] threshold: The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
+        :param pulumi.Input[str] threshold_metric_id: If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
         :param pulumi.Input[str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[str] unit: The unit for this metric.
         
@@ -219,9 +224,8 @@ class MetricAlarm(pulumi.CustomResource):
             __props__['period'] = period
             __props__['statistic'] = statistic
             __props__['tags'] = tags
-            if threshold is None:
-                raise TypeError("Missing required property 'threshold'")
             __props__['threshold'] = threshold
+            __props__['threshold_metric_id'] = threshold_metric_id
             __props__['treat_missing_data'] = treat_missing_data
             __props__['unit'] = unit
             __props__['arn'] = None
@@ -232,7 +236,7 @@ class MetricAlarm(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, actions_enabled=None, alarm_actions=None, alarm_description=None, name=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentiles=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metric_queries=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, treat_missing_data=None, unit=None):
+    def get(resource_name, id, opts=None, actions_enabled=None, alarm_actions=None, alarm_description=None, name=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentiles=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metric_queries=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None):
         """
         Get an existing MetricAlarm resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -245,7 +249,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[str] alarm_description: The description for the alarm.
         :param pulumi.Input[str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[str] arn: The ARN of the cloudwatch metric alarm.
-        :param pulumi.Input[str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
+        :param pulumi.Input[str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         :param pulumi.Input[float] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
         :param pulumi.Input[dict] dimensions: The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[str] evaluate_low_sample_count_percentiles: Used only for alarms
@@ -267,7 +271,8 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[float] threshold: The value against which the specified statistic is compared.
+        :param pulumi.Input[float] threshold: The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
+        :param pulumi.Input[str] threshold_metric_id: If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
         :param pulumi.Input[str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[str] unit: The unit for this metric.
         
@@ -315,6 +320,7 @@ class MetricAlarm(pulumi.CustomResource):
         __props__["statistic"] = statistic
         __props__["tags"] = tags
         __props__["threshold"] = threshold
+        __props__["threshold_metric_id"] = threshold_metric_id
         __props__["treat_missing_data"] = treat_missing_data
         __props__["unit"] = unit
         return MetricAlarm(resource_name, opts=opts, __props__=__props__)

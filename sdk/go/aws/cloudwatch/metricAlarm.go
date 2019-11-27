@@ -24,9 +24,6 @@ func NewMetricAlarm(ctx *pulumi.Context,
 	if args == nil || args.EvaluationPeriods == nil {
 		return nil, errors.New("missing required argument 'EvaluationPeriods'")
 	}
-	if args == nil || args.Threshold == nil {
-		return nil, errors.New("missing required argument 'Threshold'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["actionsEnabled"] = nil
@@ -48,6 +45,7 @@ func NewMetricAlarm(ctx *pulumi.Context,
 		inputs["statistic"] = nil
 		inputs["tags"] = nil
 		inputs["threshold"] = nil
+		inputs["thresholdMetricId"] = nil
 		inputs["treatMissingData"] = nil
 		inputs["unit"] = nil
 	} else {
@@ -70,6 +68,7 @@ func NewMetricAlarm(ctx *pulumi.Context,
 		inputs["statistic"] = args.Statistic
 		inputs["tags"] = args.Tags
 		inputs["threshold"] = args.Threshold
+		inputs["thresholdMetricId"] = args.ThresholdMetricId
 		inputs["treatMissingData"] = args.TreatMissingData
 		inputs["unit"] = args.Unit
 	}
@@ -107,6 +106,7 @@ func GetMetricAlarm(ctx *pulumi.Context,
 		inputs["statistic"] = state.Statistic
 		inputs["tags"] = state.Tags
 		inputs["threshold"] = state.Threshold
+		inputs["thresholdMetricId"] = state.ThresholdMetricId
 		inputs["treatMissingData"] = state.TreatMissingData
 		inputs["unit"] = state.Unit
 	}
@@ -152,7 +152,7 @@ func (r *MetricAlarm) Arn() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
+// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
 func (r *MetricAlarm) ComparisonOperator() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["comparisonOperator"])
 }
@@ -230,9 +230,14 @@ func (r *MetricAlarm) Tags() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// The value against which the specified statistic is compared.
+// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 func (r *MetricAlarm) Threshold() pulumi.Float64Output {
 	return (pulumi.Float64Output)(r.s.State["threshold"])
+}
+
+// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
+func (r *MetricAlarm) ThresholdMetricId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["thresholdMetricId"])
 }
 
 // Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
@@ -257,7 +262,7 @@ type MetricAlarmState struct {
 	Name interface{}
 	// The ARN of the cloudwatch metric alarm.
 	Arn interface{}
-	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
+	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
 	ComparisonOperator interface{}
 	// The number of datapoints that must be breaching to trigger the alarm.
 	DatapointsToAlarm interface{}
@@ -293,8 +298,10 @@ type MetricAlarmState struct {
 	Statistic interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The value against which the specified statistic is compared.
+	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 	Threshold interface{}
+	// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
+	ThresholdMetricId interface{}
 	// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
 	TreatMissingData interface{}
 	// The unit for this metric.
@@ -311,7 +318,7 @@ type MetricAlarmArgs struct {
 	AlarmDescription interface{}
 	// The descriptive name for the alarm. This name must be unique within the user's AWS account
 	Name interface{}
-	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
+	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
 	ComparisonOperator interface{}
 	// The number of datapoints that must be breaching to trigger the alarm.
 	DatapointsToAlarm interface{}
@@ -347,8 +354,10 @@ type MetricAlarmArgs struct {
 	Statistic interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The value against which the specified statistic is compared.
+	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 	Threshold interface{}
+	// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
+	ThresholdMetricId interface{}
 	// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
 	TreatMissingData interface{}
 	// The unit for this metric.

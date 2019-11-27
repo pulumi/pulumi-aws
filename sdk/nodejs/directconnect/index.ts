@@ -13,6 +13,8 @@ export * from "./hostedPrivateVirtualInterface";
 export * from "./hostedPrivateVirtualInterfaceAccepter";
 export * from "./hostedPublicVirtualInterface";
 export * from "./hostedPublicVirtualInterfaceAccepter";
+export * from "./hostedTransitVirtualInterface";
+export * from "./hostedTransitVirtualInterfaceAcceptor";
 export * from "./linkAggregationGroup";
 export * from "./privateVirtualInterface";
 export * from "./publicVirtualInterface";

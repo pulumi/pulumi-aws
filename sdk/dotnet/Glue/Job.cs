@@ -10,6 +10,8 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Provides a Glue Job resource.
     /// 
+    /// &gt; Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_job.html.markdown.
     /// </summary>
     public partial class Job : Pulumi.CustomResource

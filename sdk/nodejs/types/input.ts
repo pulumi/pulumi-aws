@@ -3058,7 +3058,7 @@ export namespace codebuild {
          */
         certificate?: pulumi.Input<string>;
         /**
-         * Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM` or `BUILD_GENERAL1_LARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
+         * Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
          */
         computeType: pulumi.Input<string>;
         /**
@@ -3987,7 +3987,7 @@ export namespace datasync {
          */
         mtime?: pulumi.Input<string>;
         /**
-         * Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `BEST_EFFORT`, `NONE`, `PRESERVE`. Default: `PRESERVE`.
+         * Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
          */
         posixPermissions?: pulumi.Input<string>;
         /**
@@ -5756,6 +5756,10 @@ export namespace eks {
     }
 
     export interface ClusterVpcConfig {
+        /**
+         * The cluster security group that was created by Amazon EKS for the cluster.
+         */
+        clusterSecurityGroupId?: pulumi.Input<string>;
         /**
          * Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
          */

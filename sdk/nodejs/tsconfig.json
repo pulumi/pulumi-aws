@@ -216,6 +216,8 @@
         "directconnect/hostedPrivateVirtualInterfaceAccepter.ts",
         "directconnect/hostedPublicVirtualInterface.ts",
         "directconnect/hostedPublicVirtualInterfaceAccepter.ts",
+        "directconnect/hostedTransitVirtualInterface.ts",
+        "directconnect/hostedTransitVirtualInterfaceAcceptor.ts",
         "directconnect/index.ts",
         "directconnect/linkAggregationGroup.ts",
         "directconnect/privateVirtualInterface.ts",
