@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Enforce `appsync.Function`, `glue.CatalogTable` and `glue.CatalogDatabase` to adhere to AWS naming conventions
+* Upgrade to v2.40.0 of the AWS Terraform Provider
 
 ---
 
