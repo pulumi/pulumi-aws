@@ -234,7 +234,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? Mtime { get; set; }
 
         /// <summary>
-        /// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `BEST_EFFORT`, `NONE`, `PRESERVE`. Default: `PRESERVE`.
+        /// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         /// </summary>
         [Input("posixPermissions")]
         public Input<string>? PosixPermissions { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? Mtime { get; set; }
 
         /// <summary>
-        /// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `BEST_EFFORT`, `NONE`, `PRESERVE`. Default: `PRESERVE`.
+        /// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         /// </summary>
         [Input("posixPermissions")]
         public Input<string>? PosixPermissions { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         public readonly string? Mtime;
         /// <summary>
-        /// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `BEST_EFFORT`, `NONE`, `PRESERVE`. Default: `PRESERVE`.
+        /// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         /// </summary>
         public readonly string? PosixPermissions;
         /// <summary>

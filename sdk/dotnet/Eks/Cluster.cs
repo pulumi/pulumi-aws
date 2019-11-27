@@ -339,6 +339,12 @@ namespace Pulumi.Aws.Eks
     public sealed class ClusterVpcConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The cluster security group that was created by Amazon EKS for the cluster.
+        /// </summary>
+        [Input("clusterSecurityGroupId")]
+        public Input<string>? ClusterSecurityGroupId { get; set; }
+
+        /// <summary>
         /// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
         /// </summary>
         [Input("endpointPrivateAccess")]
@@ -387,6 +393,12 @@ namespace Pulumi.Aws.Eks
 
     public sealed class ClusterVpcConfigGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The cluster security group that was created by Amazon EKS for the cluster.
+        /// </summary>
+        [Input("clusterSecurityGroupId")]
+        public Input<string>? ClusterSecurityGroupId { get; set; }
+
         /// <summary>
         /// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
         /// </summary>
@@ -487,6 +499,10 @@ namespace Pulumi.Aws.Eks
     public sealed class ClusterVpcConfig
     {
         /// <summary>
+        /// The cluster security group that was created by Amazon EKS for the cluster.
+        /// </summary>
+        public readonly string ClusterSecurityGroupId;
+        /// <summary>
         /// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
         /// </summary>
         public readonly bool? EndpointPrivateAccess;
@@ -509,12 +525,14 @@ namespace Pulumi.Aws.Eks
 
         [OutputConstructor]
         private ClusterVpcConfig(
+            string clusterSecurityGroupId,
             bool? endpointPrivateAccess,
             bool? endpointPublicAccess,
             ImmutableArray<string> securityGroupIds,
             ImmutableArray<string> subnetIds,
             string vpcId)
         {
+            ClusterSecurityGroupId = clusterSecurityGroupId;
             EndpointPrivateAccess = endpointPrivateAccess;
             EndpointPublicAccess = endpointPublicAccess;
             SecurityGroupIds = securityGroupIds;

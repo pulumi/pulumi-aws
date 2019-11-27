@@ -61,7 +61,7 @@ class Project(pulumi.CustomResource):
     Information about the project's build environment. Environment blocks are documented below.
     
       * `certificate` (`str`) - The ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
-      * `computeType` (`str`) - Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM` or `BUILD_GENERAL1_LARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
+      * `computeType` (`str`) - Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
       * `environmentVariables` (`list`) - A set of environment variables to make available to builds for this build project.
     
         * `name` (`str`) - The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
@@ -204,7 +204,7 @@ class Project(pulumi.CustomResource):
         The **environment** object supports the following:
         
           * `certificate` (`pulumi.Input[str]`) - The ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
-          * `computeType` (`pulumi.Input[str]`) - Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM` or `BUILD_GENERAL1_LARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
+          * `computeType` (`pulumi.Input[str]`) - Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
           * `environmentVariables` (`pulumi.Input[list]`) - A set of environment variables to make available to builds for this build project.
         
             * `name` (`pulumi.Input[str]`) - The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
@@ -380,7 +380,7 @@ class Project(pulumi.CustomResource):
         The **environment** object supports the following:
         
           * `certificate` (`pulumi.Input[str]`) - The ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
-          * `computeType` (`pulumi.Input[str]`) - Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM` or `BUILD_GENERAL1_LARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
+          * `computeType` (`pulumi.Input[str]`) - Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
           * `environmentVariables` (`pulumi.Input[list]`) - A set of environment variables to make available to builds for this build project.
         
             * `name` (`pulumi.Input[str]`) - The name of the project. If `type` is set to `S3`, this is the name of the output artifact object

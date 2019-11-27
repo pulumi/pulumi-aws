@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * ### Importation of existing certificate
+ * ### Importing an existing certificate
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

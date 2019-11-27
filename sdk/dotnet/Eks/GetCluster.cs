@@ -182,6 +182,10 @@ namespace Pulumi.Aws.Eks
     public sealed class GetClusterVpcConfigResult
     {
         /// <summary>
+        /// The cluster security group that was created by Amazon EKS for the cluster. 
+        /// </summary>
+        public readonly string ClusterSecurityGroupId;
+        /// <summary>
         /// Indicates whether or not the Amazon EKS private API server endpoint is enabled.
         /// </summary>
         public readonly bool EndpointPrivateAccess;
@@ -204,12 +208,14 @@ namespace Pulumi.Aws.Eks
 
         [OutputConstructor]
         private GetClusterVpcConfigResult(
+            string clusterSecurityGroupId,
             bool endpointPrivateAccess,
             bool endpointPublicAccess,
             ImmutableArray<string> securityGroupIds,
             ImmutableArray<string> subnetIds,
             string vpcId)
         {
+            ClusterSecurityGroupId = clusterSecurityGroupId;
             EndpointPrivateAccess = endpointPrivateAccess;
             EndpointPublicAccess = endpointPublicAccess;
             SecurityGroupIds = securityGroupIds;

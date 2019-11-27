@@ -3107,7 +3107,7 @@ export namespace codebuild {
          */
         certificate?: string;
         /**
-         * Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM` or `BUILD_GENERAL1_LARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
+         * Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
          */
         computeType: string;
         /**
@@ -4036,7 +4036,7 @@ export namespace datasync {
          */
         mtime?: string;
         /**
-         * Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `BEST_EFFORT`, `NONE`, `PRESERVE`. Default: `PRESERVE`.
+         * Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
          */
         posixPermissions?: string;
         /**
@@ -6207,6 +6207,10 @@ export namespace eks {
 
     export interface ClusterVpcConfig {
         /**
+         * The cluster security group that was created by Amazon EKS for the cluster.
+         */
+        clusterSecurityGroupId: string;
+        /**
          * Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
          */
         endpointPrivateAccess?: boolean;
@@ -6250,6 +6254,10 @@ export namespace eks {
     }
 
     export interface GetClusterVpcConfig {
+        /**
+         * The cluster security group that was created by Amazon EKS for the cluster. 
+         */
+        clusterSecurityGroupId: string;
         /**
          * Indicates whether or not the Amazon EKS private API server endpoint is enabled.
          */
