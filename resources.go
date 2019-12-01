@@ -1184,7 +1184,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_group_policy_attachment": {
 				Tok: awsResource(iamMod, "GroupPolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"group": {Type: awsType(iamMod+"/group", "Group")},
+					"group": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iamMod+"/group", "Group")},
+					},
 					"policy_arn": {
 						Name: "policyArn",
 						Type: awsType(awsMod, "ARN"),
@@ -1225,13 +1228,22 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(iamMod, "PolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"users": {
-						Elem: &tfbridge.SchemaInfo{Type: awsType(iamMod+"/user", "User")},
+						Elem: &tfbridge.SchemaInfo{
+							Type:     "string",
+							AltTypes: []tokens.Type{awsType(iamMod+"/user", "User")},
+						},
 					},
 					"roles": {
-						Elem: &tfbridge.SchemaInfo{Type: awsType(iamMod+"/role", "Role")},
+						Elem: &tfbridge.SchemaInfo{
+							Type:     "string",
+							AltTypes: []tokens.Type{awsType(iamMod+"/role", "Role")},
+						},
 					},
 					"groups": {
-						Elem: &tfbridge.SchemaInfo{Type: awsType(iamMod+"/group", "Group")},
+						Elem: &tfbridge.SchemaInfo{
+							Type:     "string",
+							AltTypes: []tokens.Type{awsType(iamMod+"/group", "Group")},
+						},
 					},
 					"policy_arn": {
 						Name: "policyArn",
@@ -1290,7 +1302,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_user_policy_attachment": {
 				Tok: awsResource(iamMod, "UserPolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"user": {Type: awsType(iamMod+"/user", "User")},
+					"user": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iamMod+"/user", "User")},
+					},
 					"policy_arn": {
 						Name: "policyArn",
 						Type: awsType(awsMod, "ARN"),

@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Allow `iam.GroupPolicyAttachment` to pass the `group` as a name or an `iam.Group`
+* Allow `iam.UserPolicyAttachment` to pass the `user` as a name or an `iam.User`
+* Allow `iam.PolicyAttachment` to pass the `users`, `roles` or `groups` as strings or their iam type equivalents
 
 ---
 
