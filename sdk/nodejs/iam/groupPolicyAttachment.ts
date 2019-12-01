@@ -61,7 +61,7 @@ export class GroupPolicyAttachment extends pulumi.CustomResource {
     /**
      * The group the policy should be applied to
      */
-    public readonly group!: pulumi.Output<Group>;
+    public readonly group!: pulumi.Output<string>;
     /**
      * The ARN of the policy you want to apply
      */
@@ -110,7 +110,7 @@ export interface GroupPolicyAttachmentState {
     /**
      * The group the policy should be applied to
      */
-    readonly group?: pulumi.Input<Group>;
+    readonly group?: pulumi.Input<string | Group>;
     /**
      * The ARN of the policy you want to apply
      */
@@ -124,7 +124,7 @@ export interface GroupPolicyAttachmentArgs {
     /**
      * The group the policy should be applied to
      */
-    readonly group: pulumi.Input<Group>;
+    readonly group: pulumi.Input<string | Group>;
     /**
      * The ARN of the policy you want to apply
      */

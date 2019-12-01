@@ -65,7 +65,7 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
     /**
      * The user the policy should be applied to
      */
-    public readonly user!: pulumi.Output<User>;
+    public readonly user!: pulumi.Output<string>;
 
     /**
      * Create a UserPolicyAttachment resource with the given unique name, arguments, and options.
@@ -114,7 +114,7 @@ export interface UserPolicyAttachmentState {
     /**
      * The user the policy should be applied to
      */
-    readonly user?: pulumi.Input<User>;
+    readonly user?: pulumi.Input<string | User>;
 }
 
 /**
@@ -128,5 +128,5 @@ export interface UserPolicyAttachmentArgs {
     /**
      * The user the policy should be applied to
      */
-    readonly user: pulumi.Input<User>;
+    readonly user: pulumi.Input<string | User>;
 }

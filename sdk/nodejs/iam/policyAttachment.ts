@@ -96,7 +96,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * The group(s) the policy should be applied to
      */
-    public readonly groups!: pulumi.Output<Group[] | undefined>;
+    public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the attachment. This cannot be an empty string.
      */
@@ -108,11 +108,11 @@ export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * The role(s) the policy should be applied to
      */
-    public readonly roles!: pulumi.Output<Role[] | undefined>;
+    public readonly roles!: pulumi.Output<string[] | undefined>;
     /**
      * The user(s) the policy should be applied to
      */
-    public readonly users!: pulumi.Output<User[] | undefined>;
+    public readonly users!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a PolicyAttachment resource with the given unique name, arguments, and options.
@@ -160,7 +160,7 @@ export interface PolicyAttachmentState {
     /**
      * The group(s) the policy should be applied to
      */
-    readonly groups?: pulumi.Input<pulumi.Input<Group>[]>;
+    readonly groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
     /**
      * The name of the attachment. This cannot be an empty string.
      */
@@ -172,11 +172,11 @@ export interface PolicyAttachmentState {
     /**
      * The role(s) the policy should be applied to
      */
-    readonly roles?: pulumi.Input<pulumi.Input<Role>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
     /**
      * The user(s) the policy should be applied to
      */
-    readonly users?: pulumi.Input<pulumi.Input<User>[]>;
+    readonly users?: pulumi.Input<pulumi.Input<string | User>[]>;
 }
 
 /**
@@ -186,7 +186,7 @@ export interface PolicyAttachmentArgs {
     /**
      * The group(s) the policy should be applied to
      */
-    readonly groups?: pulumi.Input<pulumi.Input<Group>[]>;
+    readonly groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
     /**
      * The name of the attachment. This cannot be an empty string.
      */
@@ -198,9 +198,9 @@ export interface PolicyAttachmentArgs {
     /**
      * The role(s) the policy should be applied to
      */
-    readonly roles?: pulumi.Input<pulumi.Input<Role>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
     /**
      * The user(s) the policy should be applied to
      */
-    readonly users?: pulumi.Input<pulumi.Input<User>[]>;
+    readonly users?: pulumi.Input<pulumi.Input<string | User>[]>;
 }
