@@ -46,6 +46,7 @@ import * as utilities from "../utilities";
  * const testFunction = new aws.appsync.Function("test", {
  *     apiId: testGraphQLApi.id,
  *     dataSource: testDataSource.name,
+ *     name: "tfExample",
  *     requestMappingTemplate: `{
  *     "version": "2018-05-29",
  *     "method": "GET",
