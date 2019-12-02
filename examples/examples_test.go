@@ -3,10 +3,13 @@
 package examples
 
 import (
+	"io/ioutil"
+	"net/http"
 	"os"
 	"path"
 	"path/filepath"
 	"testing"
+	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -418,6 +421,18 @@ func TestAccAlbNewPy(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccWebserverCs(t *testing.T) {
+	test := getCSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: path.Join(getCwd(t), "webserver-cs"),
+			ExtraRuntimeValidation: validateAPITest(func(body string) {
+				assert.Equal(t, body, "Hello Pulumi")
+			}),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func createEditDir(dir string) integration.EditDir {
 	return integration.EditDir{Dir: dir, ExtraRuntimeValidation: nil}
 }
@@ -483,4 +498,42 @@ func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	})
 
 	return pythonBase
+}
+
+func getCSBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	envRegion := getEnvRegion(t)
+	base := getBaseOptions()
+	csharpBase := base.With(integration.ProgramTestOptions{
+		Config: map[string]string{
+			"aws:region": envRegion,
+		},
+		Dependencies: []string{
+			"Pulumi.Aws",
+		},
+	})
+
+	return csharpBase
+}
+
+func validateAPITest(isValid func(body string)) func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+		var resp *http.Response
+		var err error
+		url := stack.Outputs["url"].(string)
+		// Retry a couple times on 5xx
+		for i := 0; i < 5; i++ {
+			resp, err = http.Get(url)
+			if !assert.NoError(t, err) {
+				return
+			}
+			if resp.StatusCode < 500 {
+				break
+			}
+			time.Sleep(10 * time.Second)
+		}
+		defer resp.Body.Close()
+		body, err := ioutil.ReadAll(resp.Body)
+		assert.NoError(t, err)
+		isValid(string(body))
+	}
 }

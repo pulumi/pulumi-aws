@@ -1,0 +1,3 @@
+name: webserver-cs
+description: "Basic C# example of an AWS web server accessible over HTTP."
+runtime: dotnet
