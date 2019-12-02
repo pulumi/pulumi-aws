@@ -26,7 +26,7 @@ import * as utilities from "./utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami_ids.html.markdown.
  */
-export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> & GetAmiIdsResult {
+export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
     if (!opts) {
         opts = {}
     }
@@ -34,15 +34,13 @@ export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAmiIdsResult> = pulumi.runtime.invoke("aws:index/getAmiIds:getAmiIds", {
+    return pulumi.runtime.invoke("aws:index/getAmiIds:getAmiIds", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
         "nameRegex": args.nameRegex,
         "owners": args.owners,
         "sortAscending": args.sortAscending,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

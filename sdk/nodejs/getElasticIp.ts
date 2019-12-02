@@ -62,7 +62,7 @@ import * as utilities from "./utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.
  */
-export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> & GetElasticIpResult {
+export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -71,14 +71,12 @@ export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOption
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetElasticIpResult> = pulumi.runtime.invoke("aws:index/getElasticIp:getElasticIp", {
+    return pulumi.runtime.invoke("aws:index/getElasticIp:getElasticIp", {
         "filters": args.filters,
         "id": args.id,
         "publicIp": args.publicIp,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

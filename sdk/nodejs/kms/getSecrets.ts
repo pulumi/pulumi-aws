@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_secrets.html.markdown.
  */
-export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> & GetSecretsResult {
+export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,11 +19,9 @@ export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSecretsResult> = pulumi.runtime.invoke("aws:kms/getSecrets:getSecrets", {
+    return pulumi.runtime.invoke("aws:kms/getSecrets:getSecrets", {
         "secrets": args.secrets,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

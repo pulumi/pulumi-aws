@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_ipset.html.markdown.
  */
-export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsetResult> & GetIpsetResult {
+export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsetResult> {
     if (!opts) {
         opts = {}
     }
@@ -30,11 +30,9 @@ export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetIpsetResult> = pulumi.runtime.invoke("aws:waf/getIpset:getIpset", {
+    return pulumi.runtime.invoke("aws:waf/getIpset:getIpset", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

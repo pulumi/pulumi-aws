@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
  */
-export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSnapshotResult> & GetClusterSnapshotResult {
+export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSnapshotResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -47,7 +47,7 @@ export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetClusterSnapshotResult> = pulumi.runtime.invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", {
+    return pulumi.runtime.invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", {
         "dbClusterIdentifier": args.dbClusterIdentifier,
         "dbClusterSnapshotIdentifier": args.dbClusterSnapshotIdentifier,
         "includePublic": args.includePublic,
@@ -56,8 +56,6 @@ export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.
         "snapshotType": args.snapshotType,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

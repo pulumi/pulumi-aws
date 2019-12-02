@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_event_categories.html.markdown.
  */
-export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventCategoriesResult> & GetEventCategoriesResult {
+export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventCategoriesResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -44,11 +44,9 @@ export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetEventCategoriesResult> = pulumi.runtime.invoke("aws:rds/getEventCategories:getEventCategories", {
+    return pulumi.runtime.invoke("aws:rds/getEventCategories:getEventCategories", {
         "sourceType": args.sourceType,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

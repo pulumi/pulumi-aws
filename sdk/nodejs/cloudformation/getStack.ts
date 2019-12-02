@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_stack.html.markdown.
  */
-export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> & GetStackResult {
+export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> {
     if (!opts) {
         opts = {}
     }
@@ -37,12 +37,10 @@ export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetStackResult> = pulumi.runtime.invoke("aws:cloudformation/getStack:getStack", {
+    return pulumi.runtime.invoke("aws:cloudformation/getStack:getStack", {
         "name": args.name,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
