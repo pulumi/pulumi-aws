@@ -2,12 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 1.13.0 (2019-12-02)
 * Allow `iam.GroupPolicyAttachment` to pass the `group` as a name or an `iam.Group`
 * Allow `iam.UserPolicyAttachment` to pass the `user` as a name or an `iam.User`
 * Allow `iam.PolicyAttachment` to pass the `users`, `roles` or `groups` as strings or their iam type equivalents
 * Upgrade to v1.4.3 of pulumi-terraform-bridge
-
----
 
 ## 1.12.0 (2019-11-27)
 * Enforce `appsync.Function`, `glue.CatalogTable` and `glue.CatalogDatabase` to adhere to AWS naming conventions
