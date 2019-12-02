@@ -8,6 +8,7 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://pulumi.io</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pulumi/pulumi-aws</RepositoryUrl>
+    <PackageIcon>logo.png</PackageIcon>
 
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -26,6 +27,13 @@
   <ItemGroup>
     <PackageReference Include="Pulumi" Version="1.5.0-preview" />
     <PackageReference Include="System.Collections.Immutable" Version="1.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

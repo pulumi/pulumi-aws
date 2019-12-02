@@ -5,6 +5,7 @@ CHANGELOG
 * Allow `iam.GroupPolicyAttachment` to pass the `group` as a name or an `iam.Group`
 * Allow `iam.UserPolicyAttachment` to pass the `user` as a name or an `iam.User`
 * Allow `iam.PolicyAttachment` to pass the `users`, `roles` or `groups` as strings or their iam type equivalents
+* Upgrade to v1.4.3 of pulumi-terraform-bridge
 
 ---
 
